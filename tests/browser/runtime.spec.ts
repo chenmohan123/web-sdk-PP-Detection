@@ -157,12 +157,12 @@ test("reuses a verified model from browser cache", async ({ page }) => {
           precision: "fp32"
         });
       const first = await create();
+      const cacheAfterFirstLoad = await first.getCacheEstimate();
       await first.dispose();
-      const entriesAfterFirstLoad = await window.PPDetection!.listModelCache();
       const second = await create();
       await second.dispose();
       await window.PPDetection!.clearModelCache();
-      return { cachedEntries: entriesAfterFirstLoad.length };
+      return { cachedEntries: cacheAfterFirstLoad.entries };
     },
     {
       manifest: tinyModelManifest,

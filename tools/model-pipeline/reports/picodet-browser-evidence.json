@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "status": "labs",
+  "model": {
+    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+    "bytes": 23219047,
+    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+    "variant": "fp32-wasm-webgpu"
+  },
+  "runtime": {
+    "package": "onnxruntime-web",
+    "version": "1.27.0",
+    "browser": "HeadlessChrome/151.0.7922.34",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+    "platform": "Windows",
+    "language": "en-US",
+    "validatedAt": "2026-08-28"
+  },
+  "wasm": {
+    "status": "passed",
+    "backend": "wasm",
+    "precision": "fp32",
+    "executionMode": "main",
+    "capabilities": {
+      "webgpuApi": true,
+      "webgpuAdapter": false,
+      "worker": false,
+      "wasmSimd": false,
+      "wasmThreads": false
+    },
+    "loadTimingsMs": {
+      "session": 1026.1,
+      "total": 1097.4,
+      "integrity": 0
+    },
+    "detectionTimingsMs": {
+      "decode": 45.8,
+      "preprocess": 24.5,
+      "inference": 408.3,
+      "postprocess": 0.6,
+      "total": 481
+    },
+    "detectionCount": 1,
+    "modelInfo": {
+      "id": "pp-picodet-l-320",
+      "version": "1.0.0",
+      "parameterCount": 5787988,
+      "bytes": 23219047,
+      "opset": 11
+    }
+  },
+  "webgpu": {
+    "status": "unsupported",
+    "reason": "本次无头 Chromium 未返回 WebGPU adapter；没有据此声明 WebGPU 兼容。"
+  },
+  "limitations": [
+    "这是一次 Windows HeadlessChrome 单环境 smoke test，不代表移动浏览器、微信 WebView 或所有桌面浏览器兼容。",
+    "该报告只覆盖本地 FP32 候选；FP16、INT8、INT4、FP8 和真实远程来源仍需分别验证。",
+    "默认 manifest 仍为 labs/blocked，浏览器证据不能替代 Git LFS/Hugging Face/ModelScope 的不可变来源和许可核验。"
+  ]
+}

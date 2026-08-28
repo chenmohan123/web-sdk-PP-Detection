@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "scope": "PicoDet-L-320 清理 ONNX 与 Paddle2ONNX 后处理参考图的 CPU ORT parity",
+  "model": {
+    "reference": {
+      "path": "work/picodet-l-320-postprocessed.onnx",
+      "bytes": 23226341,
+      "sha256": "f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89"
+    },
+    "candidate": {
+      "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+      "bytes": 23219047,
+      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "input": { "name": "image", "shape": [1, 3, 320, 320], "dtype": "float32" },
+      "opset": 11,
+      "parameterCount": 5787988,
+      "outputs": [
+        { "name": "multiclass_nms3_0.tmp_0", "shape": [-1, 6], "dtype": "float32" },
+        { "name": "multiclass_nms3_0.tmp_2", "shape": [1], "dtype": "int32" }
+      ]
+    }
+  },
+  "preprocessing": {
+    "resizeMode": "stretch",
+    "targetSize": [320, 320],
+    "rescaleFactor": 0.00392156862745098,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "layout": "RGB/CHW/NCHW"
+  },
+  "environment": {
+    "runtime": "onnxruntime 1.28.0",
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "provider": "CPUExecutionProvider"
+  },
+  "fixtures": [
+    {
+      "path": "tools/model-pipeline/fixtures/images/layout-demo.jpg",
+      "bytes": 432019,
+      "sha256": "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
+      "inputSize": [1654, 2339],
+      "detections": 61,
+      "maxScoreDelta": 0.000001430511474609375,
+      "maxCoordinateDeltaPixels": 0.0001983642578125,
+      "classSequenceEqual": true,
+      "finite": true,
+      "pass": true
+    },
+    {
+      "path": "tools/model-pipeline/fixtures/images/curved-document.jpg",
+      "bytes": 254096,
+      "sha256": "fce39d864ff7b0612f7073415c2a7c656f7790a26f96d539831f1bb1a994a069",
+      "inputSize": [900, 1273],
+      "detections": 90,
+      "maxScoreDelta": 0.000000648200511932373,
+      "maxCoordinateDeltaPixels": 0.000335693359375,
+      "classSequenceEqual": true,
+      "finite": true,
+      "pass": true
+    },
+    {
+      "path": "tools/model-pipeline/fixtures/images/image-layout.jpg",
+      "bytes": 547782,
+      "sha256": "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
+      "inputSize": [1659, 757],
+      "detections": 100,
+      "maxScoreDelta": 0.0000006668269634246826,
+      "maxCoordinateDeltaPixels": 0.0001068115234375,
+      "classSequenceEqual": true,
+      "finite": true,
+      "pass": true
+    }
+  ],
+  "countOutput": {
+    "referenceValue": 2125,
+    "candidateValues": [61, 90, 100],
+    "status": "inconsistent_ignored",
+    "reason": "导出图的 count 输出与检测矩阵行数不一致，不作为有效检测数量。"
+  },
+  "limitations": [
+    "该报告只证明本地 CPU ORT 图级 parity，不证明浏览器 WASM 或 WebGPU 兼容。",
+    "官方远程来源的不可变 revision、下载地址和许可核验尚未完成，因此默认 manifest 仍为 labs/blocked。"
+  ]
+}

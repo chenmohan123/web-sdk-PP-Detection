@@ -1,0 +1,141 @@
+name: Model validation and assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_version:
+        description: Model version to validate and publish
+        required: true
+        type: string
+        default: "1.0.0"
+      release_tag:
+        description: Immutable GitHub Release tag
+        required: true
+        type: string
+        default: "v1.0.0-models"
+      upload_assets:
+        description: Create the immutable compatibility manifest release
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate-models:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          lfs: true
+          ref: ${{ github.sha }}
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Validate immutable release identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${RELEASE_TAG}" != "v${MODEL_VERSION}-models" ]]; then
+            echo "Release tag must be v${MODEL_VERSION}-models." >&2
+            exit 1
+          fi
+          if [[ "${UPLOAD_ASSETS}" == "true" && "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Model assets may only be published from refs/heads/main." >&2
+            exit 1
+          fi
+          if [[ "$(git rev-parse HEAD)" != "${GITHUB_SHA}" ]]; then
+            echo "Checked out commit does not match GITHUB_SHA." >&2
+            exit 1
+          fi
+        env:
+          MODEL_VERSION: ${{ inputs.model_version }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          UPLOAD_ASSETS: ${{ inputs.upload_assets }}
+      - name: Verify model hashes and validation reports
+        run: node scripts/verify-release.mjs --models "${{ inputs.model_version }}"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pp-detection-${{ inputs.model_version }}-validation
+          if-no-files-found: error
+          path: |
+            models/pp-detection/${{ inputs.model_version }}/manifest.json
+            tools/model-pipeline/reports/${{ inputs.model_version }}/browser-evidence.json
+            tools/model-pipeline/reports/${{ inputs.model_version }}/fp32-validation.json
+            tools/model-pipeline/reports/${{ inputs.model_version }}/variant-validation.json
+
+  upload-model-assets:
+    if: github.ref == 'refs/heads/main' && inputs.upload_assets
+    needs: validate-models
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          lfs: true
+          ref: ${{ github.sha }}
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/verify-release.mjs --models "${{ inputs.model_version }}"
+      - name: Create immutable model release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_REF}" != "refs/heads/main" ]]; then
+            echo "Model assets may only be published from refs/heads/main." >&2
+            exit 1
+          fi
+          if [[ "$(git rev-parse HEAD)" != "${GITHUB_SHA}" ]]; then
+            echo "Checked out commit does not match GITHUB_SHA." >&2
+            exit 1
+          fi
+          git fetch --no-tags origin main
+          if [[ "$(git rev-parse origin/main)" != "${GITHUB_SHA}" ]]; then
+            echo "GITHUB_SHA is not the current origin/main commit." >&2
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/${RELEASE_TAG}" >/dev/null 2>&1; then
+            git fetch --force origin "refs/tags/${RELEASE_TAG}:refs/tags/${RELEASE_TAG}"
+            tag_sha="$(git rev-list -n 1 "${RELEASE_TAG}")"
+            if [[ "${tag_sha}" != "${GITHUB_SHA}" ]]; then
+              echo "${RELEASE_TAG} points to ${tag_sha}, expected verified commit ${GITHUB_SHA}." >&2
+              exit 1
+            fi
+            echo "Git tag ${RELEASE_TAG} already exists; it will not be reused." >&2
+            exit 1
+          else
+            tag_status=$?
+            if [[ "${tag_status}" -ne 2 ]]; then
+              echo "Unable to verify whether Git tag ${RELEASE_TAG} exists." >&2
+              exit "${tag_status}"
+            fi
+          fi
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            echo "Release ${RELEASE_TAG} already exists; immutable assets will not be overwritten." >&2
+            exit 1
+          fi
+          gh release create "${RELEASE_TAG}" \
+            "models/pp-detection/${MODEL_VERSION}/manifest.json" \
+            "tools/model-pipeline/reports/${MODEL_VERSION}/browser-evidence.json" \
+            "tools/model-pipeline/reports/${MODEL_VERSION}/fp32-validation.json" \
+            "tools/model-pipeline/reports/${MODEL_VERSION}/variant-validation.json" \
+            --target "${GITHUB_SHA}" \
+            --title "PP-Detection model manifest ${MODEL_VERSION}" \
+            --notes "Publishes the immutable PP-Detection model manifest for this validated commit."
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODEL_VERSION: ${{ inputs.model_version }}
+          RELEASE_TAG: ${{ inputs.release_tag }}

@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+.pnpm-store/
+.vite/
+.astro/
+test-results/
+work/
+debug.log
+*.tsbuildinfo

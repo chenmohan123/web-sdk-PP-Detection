@@ -1,0 +1,61 @@
+name: npm release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Require the release tag to be on main
+        run: |
+          git fetch origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.16.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Verify tag, package, models, workspace, and packed package
+        run: node scripts/verify-release.mjs --release "${GITHUB_REF_NAME}"
+      - name: Publish with npm provenance
+        working-directory: packages/sdk
+        run: npm publish --access public --provenance
+      - name: Record published integrity
+        shell: bash
+        run: |
+          set -o pipefail
+          package="web-sdk-pp-detection@${GITHUB_REF_NAME#v}"
+          for attempt in {1..5}; do
+            if metadata="$(npm view "$package" version dist.integrity --json)"; then
+              {
+                echo '## npm integrity'
+                echo "$metadata"
+              } | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            if (( attempt < 5 )); then
+              echo "npm registry has not exposed $package yet; retrying in 3 seconds..." >&2
+              sleep 3
+            fi
+          done
+          echo "Failed to read published integrity for $package after 5 attempts." >&2
+          exit 1

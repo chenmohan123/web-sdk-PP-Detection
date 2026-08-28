@@ -1,0 +1,12 @@
+packages:
+  - packages/*
+  - apps/*
+  - examples/*
+overrides:
+  esbuild: 0.28.2
+onlyBuiltDependencies:
+  - esbuild
+  - protobufjs
+allowBuilds:
+  esbuild: true
+  protobufjs: true

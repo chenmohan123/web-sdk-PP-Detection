@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "reason": "当前环境未提供经核验的 PaddleDetection 2.9 PicoDet-L-320 权重和转换产物；未创建 .onnx 文件。",
+  "checks": {
+    "python": true,
+    "paddle": false,
+    "paddle2onnx": false,
+    "onnx": false,
+    "network": "not attempted without immutable revision and verified URLs",
+    "gitLfs": false
+  },
+  "artifacts": []
+}

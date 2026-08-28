@@ -1,0 +1,65 @@
+schemaVersion: "1.1.0"
+id: pp-detection
+name: PaddleDetection Web SDK
+summary: 在浏览器本地运行 PaddleDetection 轴对齐目标检测模型，支持图片、摄像头帧和视频帧。
+package:
+  name: web-sdk-pp-detection
+  version: 0.1.0
+repository: https://github.com/chenmohan123/web-sdk-PP-Detection
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-Detection/
+  defaultLanguage: zh-CN
+  framework: react
+  localProcessing: true
+docs:
+  zhCN: docs/zh-CN/quick-start.md
+  en: docs/en/quick-start.md
+runtime:
+  backends: [wasm, webgpu]
+  executionModes: [main, worker]
+  actualBackendReported: true
+  runtimeVersion: onnxruntime-web@1.27.0
+model:
+  id: pp-picodet-l-320
+  version: 1.0.0
+  format: onnx
+  parameterCount: 5787988
+  precision: [fp32]
+  source: PaddleDetection release/2.9 官方 PicoDet-L-320 LCNet 后处理 ONNX 资产；当前记录为参考来源，运行时默认分发仍待三类不可变来源发布。
+  license: Apache-2.0（依据 PaddleDetection 官方模型说明）
+  assets:
+    - id: fp32
+      bytes: 23226341
+      precision: fp32
+      url: https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_320_lcnet_postprocessed.onnx
+      sha256: f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89
+  defaultVariant: fp32
+  defaultSource: git-lfs
+performance:
+  timings:
+    [
+      modelDownloadMs,
+      modelCacheReadMs,
+      integrityMs,
+      sessionMs,
+      preprocessMs,
+      inferenceMs,
+      postprocessMs,
+      totalMs
+    ]
+  coldStartDefined: true
+  warmRunDefined: true
+cache:
+  storage: [indexeddb, memory]
+  versionedKeys: true
+  clearCurrent: true
+  clearAll: true
+  estimate: true
+examples:
+  vanilla: { status: planned, path: examples/vanilla }
+  react: { status: planned, path: examples/react }
+  vite: { status: planned, path: examples/vite }
+  cdn: { status: planned, path: examples/cdn }
+  wechatWebView: { status: planned, path: examples/wechat-web-view }
+verification:
+  environments: []

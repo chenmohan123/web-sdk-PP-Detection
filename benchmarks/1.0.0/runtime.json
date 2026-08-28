@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "release": "0.1.0",
+  "model": "pp-picodet-l-320",
+  "modelVersion": "1.0.0",
+  "status": "blocked",
+  "releaseReady": false,
+  "generatedAt": "2026-08-28",
+  "notes": "当前没有经过核验的 PicoDet ONNX 资产；不得把其他 PaddleDetection 模型的浏览器结果作为本 SDK 证据。",
+  "modes": [],
+  "unsupported": {
+    "fp32": "等待真实 PicoDet ONNX 文件、SHA-256、不可变来源和浏览器证据。",
+    "fp16": "等待真实 PicoDet ONNX 文件、SHA-256、不可变来源和浏览器证据。",
+    "int8": "尚未完成精度、内存、大小和浏览器 WASM 验证。",
+    "int4": "尚未验证。",
+    "fp8": "尚未验证。"
+  },
+  "evidence": [
+    "models/pp-detection/1.0.0/manifest.json",
+    "tools/model-pipeline/reports/picodet-blocked.json"
+  ]
+}

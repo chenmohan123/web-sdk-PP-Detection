@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "reference-confirmed-distribution-pending",
+  "model": {
+    "id": "pp-picodet-l-320",
+    "version": "1.0.0",
+    "architecture": "PicoDet-L-320 LCNet",
+    "format": "onnx",
+    "bytes": 23226341,
+    "sha256": "f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89",
+    "parameterCount": 5787988,
+    "opset": 11
+  },
+  "officialPaddleDetection": {
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "206730a8453b23db94898500f47f8ea14426b23d",
+    "revisionType": "git-blob",
+    "branch": "release/2.9",
+    "documentationPath": "configs/picodet/README.md",
+    "documentationUrl": "https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.9/configs/picodet/README.md",
+    "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_320_lcnet_postprocessed.onnx",
+    "http": {
+      "status": 200,
+      "contentType": "application/octet-stream",
+      "contentLength": 23226341,
+      "etag": "-06ba6311edc47ddb2f285653eb4f9636",
+      "lastModified": "Tue, 12 Apr 2022 10:47:41 GMT"
+    },
+    "license": "Apache-2.0"
+  },
+  "localCandidate": {
+    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+    "bytes": 23219047,
+    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+    "derivedFrom": "官方后处理 ONNX 清理版本，不与官方下载文件字节相同",
+    "parityReport": "tools/model-pipeline/reports/picodet-parity.json"
+  },
+  "distribution": {
+    "git-lfs": {
+      "status": "pending",
+      "reason": "需要在公开 SDK 仓库固定提交后生成 raw 下载地址和 Git LFS revision"
+    },
+    "huggingface": {
+      "status": "pending",
+      "reason": "当前可见 PaddlePaddle 仓库提供 pdiparams 或不同布局模型，未发现同一 ONNX 字节副本"
+    },
+    "modelscope": {
+      "status": "pending",
+      "reason": "当前可见 PaddlePaddle PicoDet 仓库提供 pdiparams 或不同布局模型，未发现同一 ONNX 字节副本"
+    }
+  },
+  "verifiedAt": "2026-08-29",
+  "limitations": [
+    "Paddle Bcebos 下载 URL 本身没有不可变 revision，因此不能作为 stable manifest source revision。",
+    "本报告只确认官方参考文件与上游文档和本地转换输入的关系，不提升 runtime manifest 的 stable 状态。",
+    "三类分发副本必须在各自平台上传同一文件并记录 40 至 64 位 revision、下载 URL、字节数和 SHA-256 后才能解除 blocked。"
+  ]
+}

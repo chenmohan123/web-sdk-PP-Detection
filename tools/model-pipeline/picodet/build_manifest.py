@@ -48,7 +48,7 @@ def _validate_source_kinds(sources: list[dict[str, Any]]) -> None:
     if kinds != SOURCE_KINDS:
         raise ValueError("来源必须包含 git-lfs、huggingface、modelscope 三类真实来源")
 
-def build_manifest(*, artifact_dir: Path, model_version: str, source_evidence: list[dict[str, Any]] | dict[str, list[dict[str, Any]]] | None) -> dict[str, Any]:
+def build_manifest(*, artifact_dir: Path, model_version: str, source_evidence: list[dict[str, Any]] | dict[str, list[dict[str, Any]]] | None, browser_evidence: dict[str, Any] | None = None) -> dict[str, Any]:
     if not source_evidence:
         return {
             "schemaVersion": 1,
@@ -85,9 +85,10 @@ def build_manifest(*, artifact_dir: Path, model_version: str, source_evidence: l
         for variant in variants:
             validate_sources(variant["sources"], artifact_bytes=variant["bytes"], artifact_sha256=variant["sha256"])
     flattened_sources = source_evidence if isinstance(source_evidence, list) else []
-    result: dict[str, Any] = {"schemaVersion": 1, "status": "stable" if variants else "labs/blocked", "model": {"id": "pp-picodet-l-320", "version": model_version, "architecture": "PicoDet-L-320 LCNet", "format": "onnx"}, "input": {"name": "image", "shape": [1, 3, 320, 320], "dtype": "float32"}, "variants": sorted(variants, key=lambda item: item["id"]), "sources": flattened_sources, "labels": "labels/coco.txt"}
-    if not variants:
-        result["blocked"] = {"reason": "官方 PicoDet-L-320 权重或导出工具不可用，尚未生成可验证 ONNX 文件", "evidence": "tools/model-pipeline/reports/picodet-blocked.json"}
+    browser_ready = isinstance(browser_evidence, dict) and browser_evidence.get("wasm", {}).get("status") == "passed" and browser_evidence.get("webgpu", {}).get("status") == "passed"
+    result: dict[str, Any] = {"schemaVersion": 1, "status": "stable" if variants and browser_ready else "labs/blocked", "model": {"id": "pp-picodet-l-320", "version": model_version, "architecture": "PicoDet-L-320 LCNet", "format": "onnx"}, "input": {"name": "image", "shape": [1, 3, 320, 320], "dtype": "float32"}, "variants": sorted(variants, key=lambda item: item["id"]), "sources": flattened_sources, "labels": "labels/coco.txt"}
+    if not variants or not browser_ready:
+        result["blocked"] = {"reason": "外部来源证据未满足或缺少完整浏览器 CPU/WASM/WebGPU 证据", "evidence": "tools/model-pipeline/reports/picodet-browser-evidence.json"}
     return result
 
 def main() -> None:

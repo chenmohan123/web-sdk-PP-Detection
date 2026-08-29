@@ -27,8 +27,8 @@ def validate_source(source: dict[str, Any], artifact_bytes: int, artifact_sha256
     parsed = urlparse(url if isinstance(url, str) else "")
     if parsed.scheme != "https" or not parsed.hostname:
         raise ValueError("来源 downloadUrl 必须是带主机的 HTTPS 地址")
-    if re.search(r"(?:^|/)main(?:/|$)", parsed.path, re.IGNORECASE):
-        raise ValueError("来源 URL 必须使用不可变 revision，不能使用 main")
+    if re.search(r"(?:^|/)(?:main|master|latest|develop)(?:/|$)", parsed.path, re.IGNORECASE):
+        raise ValueError("来源 URL 必须使用不可变 revision，不能使用移动标签")
     declared_bytes = source.get("bytes")
     if not isinstance(declared_bytes, int) or isinstance(declared_bytes, bool) or declared_bytes < 1:
         raise ValueError("来源 bytes 必须是正整数")

@@ -2,8 +2,8 @@ status: labs/blocked
 model: PP-PicoDet-L-320 COCO LCNet
 upstream: PaddleDetection 2.9
 revision: null
-reason: 官方权重、配置和不可变 revision 尚未在当前环境完成核验；禁止填写估算 URL、SHA-256 或参数量。
+reason: 官方原始文件与本地清理候选字节不同；ModelScope 副本、来源许可和浏览器证据尚未完成，禁止据此生成 stable 变体。
 sources:
-  git-lfs: blocked
-  huggingface: blocked
+  git-lfs: candidate-uploaded
+  huggingface: candidate-uploaded
   modelscope: blocked

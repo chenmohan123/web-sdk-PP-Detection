@@ -1,0 +1,3 @@
+status: labs/blocked
+version: 1.0.1
+reason: 清理器结构门槛和 FP32/FP16 浏览器证据尚未完成，禁止生成 stable 变体。

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "labs/blocked",
+  "model": {
+    "id": "pp-picodet-l-320",
+    "version": "1.0.1",
+    "architecture": "PicoDet-L-320 LCNet",
+    "format": "onnx"
+  },
+  "variants": [],
+  "blocked": {
+    "reason": "1.0.1 清理、FP32/WASM、FP16 和真实 WebGPU 证据尚未完成。",
+    "evidence": "tools/model-pipeline/reports/1.0.1/"
+  }
+}

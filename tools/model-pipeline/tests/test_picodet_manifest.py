@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from picodet.build_manifest import build_manifest
+import picodet.build_manifest as manifest_builder
 from picodet.fetch_official import fetch
 from picodet.sanitize_onnx import sanitize_postprocessed_model
 
@@ -47,6 +48,42 @@ def test_manifest_builder_requires_three_distinct_sources(tmp_path: Path) -> Non
     source = {"kind": "git-lfs", "repository": "x", "revision": "a" * 40, "path": "x", "downloadUrl": "https://example.com/model.onnx", "bytes": 1, "sha256": "a" * 64}
     with pytest.raises(ValueError, match="三类"):
         build_manifest(artifact_dir=tmp_path, model_version="1.0.0", source_evidence=[source, {**source}, {**source}])
+
+
+def test_manifest_builder_keeps_blocked_without_browser_evidence(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    artifact = tmp_path / "picodet-l-320-fp32.onnx"
+    artifact.write_bytes(b"synthetic onnx")
+    monkeypatch.setattr(
+        manifest_builder,
+        "inspect_onnx",
+        lambda _path: {"bytes": len(b"synthetic onnx"), "sha256": "a" * 64, "parameterCount": 1, "opset": 11},
+    )
+    sources = [
+        {
+            "kind": kind,
+            "repository": "chenmohan/web-sdk-pp-detection",
+            "revision": "a" * 40,
+            "path": "picodet-l-320-fp32.onnx",
+            "downloadUrl": f"https://example.com/{kind}/resolve/{'a' * 40}/model.onnx",
+            "bytes": len(b"synthetic onnx"),
+            "sha256": "a" * 64,
+        }
+        for kind in ("huggingface", "modelscope", "git-lfs")
+    ]
+
+    result = build_manifest(artifact_dir=tmp_path, model_version="1.0.1", source_evidence=sources)
+
+    assert result["status"] == "labs/blocked"
+    assert result["variants"][0]["sources"][0]["kind"] == "huggingface"
+    assert "浏览器" in result["blocked"]["reason"]
+
+    ready = build_manifest(
+        artifact_dir=tmp_path,
+        model_version="1.0.1",
+        source_evidence=sources,
+        browser_evidence={"wasm": {"status": "passed"}, "webgpu": {"status": "passed"}},
+    )
+    assert ready["status"] == "stable"
 
 def test_fetch_requires_immutable_revision_and_http_urls(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="revision"):

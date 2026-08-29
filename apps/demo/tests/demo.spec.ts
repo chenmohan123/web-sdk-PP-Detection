@@ -3,11 +3,12 @@ import { expect, test } from "playwright/test";
 const pixelPng =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
 
-test("模型来源默认沿用 SDK 并诚实声明 blocked 状态", async ({ page }) => {
+test("默认使用 Hugging Face 并诚实声明 blocked 状态", async ({ page }) => {
   await page.goto("/?fixture=1");
 
-  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("default");
-  await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(3);
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
+  await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(4);
+  await expect(page.getByTestId("model-source-blocked")).toContainText("浏览器");
   await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toHaveAttribute(
     "disabled",
     ""
@@ -29,42 +30,19 @@ test("模型来源默认沿用 SDK 并诚实声明 blocked 状态", async ({ pag
       })),
       defaultModel: module.selectionToModel("default"),
       huggingFaceModel: module.selectionToModel("huggingface"),
-      modelScopeModel: module.selectionToModel("modelscope")
+      modelScopeModel: module.selectionToModel("modelscope"),
+      gitLfsModel: module.selectionToModel("git-lfs")
     };
   }, "/src/model-sources.ts");
 
-  expect(contract).toEqual({
-    keys: ["default", "huggingface", "modelscope"],
-    available: [
-      {
-        key: "default",
-        available: true,
-        disabledReason: undefined,
-        manifestUrl: undefined
-      },
-      {
-        key: "huggingface",
-        available: false,
-        disabledReason: {
-          en: "The PicoDet ONNX asset is blocked until an immutable release is verified.",
-          zh: "PicoDet ONNX 资产尚未完成不可变发布验证。"
-        },
-        manifestUrl: undefined
-      },
-      {
-        key: "modelscope",
-        available: false,
-        disabledReason: {
-          en: "The PicoDet ONNX asset is blocked until an immutable release is verified.",
-          zh: "PicoDet ONNX 资产尚未完成不可变发布验证。"
-        },
-        manifestUrl: undefined
-      }
-    ],
-    defaultModel: undefined,
-    huggingFaceModel: undefined,
-    modelScopeModel: undefined
-  });
+  expect(contract.keys).toEqual(["huggingface", "modelscope", "git-lfs", "default"]);
+  expect(contract.available).toHaveLength(4);
+  expect(contract.available.every((option) => option.available === false)).toBe(true);
+  expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
+  expect(contract.huggingFaceModel).toContain("resolve/a9097cd2d855e32dd9bee19afba319906366416a/");
+  expect(contract.modelScopeModel).toContain("resolve/f853dee67f8362853c7043d490fe892912561f8b/");
+  expect(contract.gitLfsModel).toContain("50ec35925ca89945dcfc4d13935e65bf054ac741");
+  expect(contract.defaultModel).toBe(contract.huggingFaceModel);
 });
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {

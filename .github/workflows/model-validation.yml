@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          lfs: true
+          lfs: false
           ref: ${{ github.sha }}
       - uses: pnpm/action-setup@v6
         with:
@@ -38,6 +38,17 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: 下载固定来源模型并校验摘要
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/fetch-model-source.mjs > "$RUNNER_TEMP/ppdetection-model-source.json"
+          node -e 'const fs=require("fs"); const s=JSON.parse(fs.readFileSync(process.argv[1], "utf8")); console.log(`模型来源: ${s.sourceKind}, revision: ${s.revision}, SHA-256: ${s.sha256}`)' "$RUNNER_TEMP/ppdetection-model-source.json"
+        env:
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
+          PPDETECTION_MODEL_VARIANT: ${{ vars.PPDETECTION_MODEL_VARIANT }}
+          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection/${{ inputs.model_version }}
       - name: Validate immutable release identity
         shell: bash
         run: |
@@ -79,7 +90,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          lfs: true
+          lfs: false
           ref: ${{ github.sha }}
       - uses: pnpm/action-setup@v6
         with:
@@ -89,6 +100,17 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: 下载固定来源模型并校验摘要
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/fetch-model-source.mjs > "$RUNNER_TEMP/ppdetection-model-source.json"
+          node -e 'const fs=require("fs"); const s=JSON.parse(fs.readFileSync(process.argv[1], "utf8")); console.log(`模型来源: ${s.sourceKind}, revision: ${s.revision}, SHA-256: ${s.sha256}`)' "$RUNNER_TEMP/ppdetection-model-source.json"
+        env:
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
+          PPDETECTION_MODEL_VARIANT: ${{ vars.PPDETECTION_MODEL_VARIANT }}
+          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection/${{ inputs.model_version }}
       - run: node scripts/verify-release.mjs --models "${{ inputs.model_version }}"
       - name: Create immutable model release
         shell: bash

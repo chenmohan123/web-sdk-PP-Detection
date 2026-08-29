@@ -60,6 +60,57 @@ function verifyActions(name, source) {
   }
 }
 
+function verifyStableSources(variant, label = variant.id) {
+  if (!Array.isArray(variant.sources) || variant.sources.length === 0) {
+    fail(`${label} must declare model sources`);
+  }
+  const sources = new Map();
+  for (const source of variant.sources) {
+    if (!["huggingface", "modelscope", "git-lfs", "custom"].includes(source.kind))
+      fail(`${label} has an unsupported source kind`);
+    if (sources.has(source.kind)) fail(`${label} declares duplicate ${source.kind} source`);
+    sources.set(source.kind, source);
+    if (!/^[a-f0-9]{40,64}$/i.test(source.revision ?? ""))
+      fail(`${label} ${source.kind} revision is not immutable`);
+    if (!Number.isSafeInteger(source.bytes) || source.bytes !== variant.bytes)
+      fail(`${label} ${source.kind} source.bytes does not match the variant`);
+    if (
+      !/^[a-f0-9]{64}$/i.test(source.sha256 ?? "") ||
+      source.sha256.toLowerCase() !== variant.sha256.toLowerCase()
+    )
+      fail(`${label} ${source.kind} source.sha256 does not match the variant`);
+    let downloadUrl;
+    try {
+      downloadUrl = new URL(source.downloadUrl);
+    } catch {
+      fail(`${label} ${source.kind} downloadUrl is invalid`);
+    }
+    if (downloadUrl.protocol !== "https:" || downloadUrl.username || downloadUrl.password)
+      fail(`${label} ${source.kind} downloadUrl must be public HTTPS`);
+    if (/\/(?:main|master|latest)(?:\/|$)/i.test(downloadUrl.pathname))
+      fail(`${label} ${source.kind} downloadUrl uses a moving revision`);
+    if (
+      source.kind === "huggingface" &&
+      downloadUrl.hostname !== "huggingface.co" &&
+      !downloadUrl.hostname.endsWith(".huggingface.co") &&
+      downloadUrl.hostname !== "hf.co" &&
+      !downloadUrl.hostname.endsWith(".hf.co")
+    )
+      fail(`${label} Hugging Face source host is invalid`);
+    if (
+      source.kind === "modelscope" &&
+      downloadUrl.hostname !== "modelscope.cn" &&
+      !downloadUrl.hostname.endsWith(".modelscope.cn")
+    )
+      fail(`${label} ModelScope source host is invalid`);
+    if (source.kind === "git-lfs" && downloadUrl.hostname !== "media.githubusercontent.com")
+      fail(`${label} Git LFS source host is invalid`);
+  }
+  for (const kind of ["huggingface", "modelscope", "git-lfs"]) {
+    if (!sources.has(kind)) fail(`${label} is missing ${kind} source`);
+  }
+}
+
 function verifyStaticContract() {
   const packageMetadata = JSON.parse(read("packages/sdk/package.json"));
   const packageReadme = read("packages/sdk/README.md");
@@ -87,6 +138,14 @@ function verifyStaticContract() {
 
   const workflows = Object.fromEntries(
     requiredWorkflows.map((name) => [name, read(`.github/workflows/${name}`)])
+  );
+  const benchmark = read(".github/workflows/benchmark.yml");
+  if (/\blfs:\s*true\b/.test(`${Object.values(workflows).join("\n")}\n${benchmark}`))
+    fail("普通、模型和基准工作流不得启用 Git LFS checkout");
+  requireMatch(
+    benchmark,
+    /fetch-model-source\.mjs|PPDETECTION_MODEL_MANIFEST_URL/,
+    "benchmark must support external model sources"
   );
   for (const [name, source] of Object.entries(workflows)) {
     verifyActions(name, source);
@@ -164,6 +223,13 @@ function verifyStaticContract() {
     /verify-release\.mjs --models/,
     "model workflow must verify reports and hashes"
   );
+  requireMatch(model, /fetch-model-source\.mjs/, "model workflow must download external models");
+  requireMatch(
+    model,
+    /PPDETECTION_MODEL_MANIFEST_URL/,
+    "model workflow must use a fixed manifest URL"
+  );
+  requireMatch(model, /PPDETECTION_MODEL_SOURCE/, "model workflow must select a model source");
   requireMatch(
     model,
     /upload_assets.*type:\s+boolean/s,
@@ -238,6 +304,7 @@ function verifyStaticContract() {
       if (!/^[a-f0-9]{64}$/.test(variant.sha256)) fail(`${variant.id} has an invalid SHA-256`);
       if (!Number.isSafeInteger(variant.bytes) || variant.bytes <= 0)
         fail(`${variant.id} has invalid bytes`);
+      verifyStableSources(variant);
     }
   }
 
@@ -372,6 +439,7 @@ async function verifyModels(modelVersion) {
     manifest.variants.map((variant) => [variant.id, variant])
   );
   for (const variant of manifest.variants) {
+    verifyStableSources(variant);
     const path = join(repositoryRoot, artifactRoot, variant.filename);
     const size = statSync(path).size;
     if (size < 1024) fail(`${variant.filename} is probably an unresolved Git LFS pointer`);

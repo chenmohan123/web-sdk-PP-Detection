@@ -59,7 +59,13 @@ function createDetector() {
       precision: "fp32",
       bytes: 4,
       parameterCount: 1,
-      opset: 11
+      opset: 11,
+      source: {
+        kind: "custom",
+        revision: "a".repeat(64),
+        bytes: 4,
+        sha256: "a".repeat(64)
+      }
     },
     runtime: {
       requestedBackend: "wasm",
@@ -100,6 +106,13 @@ describe("PPDetectionDetectorImplementation", () => {
     expect(result.detections[0]).toMatchObject({ classId: 0, label: "person", score: 0.75 });
     expect(result.image.original).toEqual({ width: 2, height: 1 });
     expect(result.model.id).toBe("tiny-detection");
+    expect(result.model.source).toEqual({
+      kind: "custom",
+      revision: "a".repeat(64),
+      bytes: 4,
+      sha256: "a".repeat(64)
+    });
+    expect(result.model).not.toHaveProperty("downloadUrl");
     expect(result.runtime.backend).toBe("wasm");
     expect(result.timings).toEqual({
       decodeMs: expect.any(Number),

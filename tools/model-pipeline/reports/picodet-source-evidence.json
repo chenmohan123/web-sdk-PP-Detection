@@ -67,6 +67,13 @@
       "reason": "ModelScope 已上传与 Git LFS、Hugging Face 相同的本地清理候选；该副本不等于官方 Bcebos 下载文件"
     }
   },
+  "sourceValidation": {
+    "validator": "tools/model-pipeline/picodet/source_evidence.py",
+    "networkRequests": false,
+    "requiredKinds": ["huggingface", "modelscope", "git-lfs"],
+    "order": ["huggingface", "modelscope", "git-lfs"],
+    "checks": ["HTTPS 主机", "不可变十六进制 revision", "bytes 与 SHA-256 与本地文件一致"]
+  },
   "verifiedAt": "2026-08-29",
   "limitations": [
     "Paddle Bcebos 下载 URL 本身没有不可变 revision，因此不能作为 stable manifest source revision。",

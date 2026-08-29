@@ -16,6 +16,15 @@ const fixtureRoot = join(repositoryRoot, "tools/model-pipeline/fixtures/images")
 let origin = "";
 let server: Server;
 let tinyModelRequests = 0;
+const realManifestUrl = process.env.PPDETECTION_MODEL_MANIFEST_URL?.trim() || undefined;
+const realSource = process.env.PPDETECTION_MODEL_SOURCE?.trim() || "huggingface";
+type FetchModelSource = typeof import("../../scripts/fetch-model-source.mjs").fetchModelSource;
+type DownloadedModelSource = Awaited<ReturnType<FetchModelSource>>;
+const realDownloads = new Map<string, DownloadedModelSource>();
+
+async function getFetchModelSource(): Promise<FetchModelSource> {
+  return (await import("../../scripts/fetch-model-source.mjs")).fetchModelSource;
+}
 
 const tinyModelBytes = Buffer.from(TINY_MODEL_BASE64, "base64");
 
@@ -43,9 +52,38 @@ function resolveAsset(url: string): string | undefined {
   const pathname = new URL(url, "http://localhost").pathname;
   if (pathname.startsWith("/dist/")) return join(sdkRoot, pathname.slice(1));
   if (pathname.startsWith("/ort/")) return join(ortRoot, basename(pathname));
-  if (pathname.startsWith("/models/")) return join(modelRoot, basename(pathname));
+  if (pathname.startsWith("/models/")) {
+    const downloaded = realDownloads.get(
+      basename(pathname).replace("model-", "").replace(".onnx", "")
+    );
+    return downloaded?.modelPath ?? join(modelRoot, basename(pathname));
+  }
   if (pathname.startsWith("/fixtures/")) return join(fixtureRoot, basename(pathname));
   return undefined;
+}
+
+async function loadRealModel(variantId: string): Promise<{
+  manifest: unknown;
+  download: DownloadedModelSource;
+}> {
+  let download = realDownloads.get(variantId);
+  if (download === undefined) {
+    if (realManifestUrl === undefined) {
+      throw new Error("真实模型测试需要设置 PPDETECTION_MODEL_MANIFEST_URL");
+    }
+    download = await (
+      await getFetchModelSource()
+    )({
+      manifestUrl: realManifestUrl,
+      source: realSource,
+      variantId
+    });
+    realDownloads.set(variantId, download);
+  }
+  return {
+    download,
+    manifest: JSON.parse(readFileSync(download.manifestPath, "utf8")) as unknown
+  };
 }
 
 test.beforeAll(async () => {
@@ -90,6 +128,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+  await Promise.all([...realDownloads.values()].map((download) => download.cleanup()));
   await new Promise<void>((resolveClose, reject) => {
     server.close((error) => (error === undefined ? resolveClose() : reject(error)));
   });
@@ -177,7 +216,8 @@ test("reuses a verified model from browser cache", async ({ page }) => {
 
 test("@real-model runs FP32 WASM detection on a licensed fixture", async ({ page }) => {
   test.skip(process.env.PPDETECTION_REAL_MODEL !== "1", "设置 PPDETECTION_REAL_MODEL=1 后运行");
-  const manifest = JSON.parse(readFileSync(join(modelRoot, "manifest.json"), "utf8")) as unknown;
+  const real = await loadRealModel("fp32");
+  const manifest = real.manifest;
   test.skip(
     (manifest as { status?: string }).status === "labs/blocked",
     "当前 PicoDet 模型清单仍处于 blocked 状态"
@@ -226,7 +266,8 @@ test("@real-model runs FP32 WASM detection on a licensed fixture", async ({ page
 
 test("@real-model runs FP16 WebGPU detection when shader-f16 is available", async ({ page }) => {
   test.skip(process.env.PPDETECTION_REAL_MODEL !== "1", "设置 PPDETECTION_REAL_MODEL=1 后运行");
-  const manifest = JSON.parse(readFileSync(join(modelRoot, "manifest.json"), "utf8")) as unknown;
+  const real = await loadRealModel("fp16");
+  const manifest = real.manifest;
   test.skip(
     (manifest as { status?: string }).status === "labs/blocked",
     "当前 PicoDet 模型清单仍处于 blocked 状态"
@@ -264,6 +305,49 @@ test("@real-model runs FP16 WebGPU detection when shader-f16 is available", asyn
   expect(result.count).toBeGreaterThan(0);
   expect(result.inferenceMs).toBeGreaterThan(0);
   expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp16" });
+});
+
+test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ page }) => {
+  test.skip(process.env.PPDETECTION_REAL_MODEL !== "1", "设置 PPDETECTION_REAL_MODEL=1 后运行");
+  const real = await loadRealModel("fp32");
+  const manifest = real.manifest;
+  test.skip(
+    (manifest as { status?: string }).status === "labs/blocked",
+    "当前 PicoDet 模型清单仍处于 blocked 状态"
+  );
+  await page.goto(origin);
+  const webgpuAvailable = await page.evaluate(async () => {
+    const adapter = await navigator.gpu?.requestAdapter({ powerPreference: "high-performance" });
+    return adapter !== null && adapter !== undefined;
+  });
+  test.skip(!webgpuAvailable, "This Chromium adapter does not expose WebGPU");
+  const result = await page.evaluate(
+    async ({ manifest, origin: browserOrigin }) => {
+      const [modelResponse, imageResponse] = await Promise.all([
+        fetch(`${browserOrigin}/models/model-fp32.onnx`),
+        fetch(`${browserOrigin}/fixtures/table.png`)
+      ]);
+      const detector = await window.PPDetection!.createPPDetection({
+        allowFallback: false,
+        backend: "webgpu",
+        cache: false,
+        model: { data: await modelResponse.arrayBuffer(), manifest },
+        precision: "fp32"
+      });
+      const detection = await detector.detect(await imageResponse.blob(), { threshold: 0.5 });
+      await detector.dispose();
+      return {
+        count: detection.detections.length,
+        inferenceMs: detection.timings.inferenceMs,
+        runtime: detection.runtime
+      };
+    },
+    { manifest, origin }
+  );
+
+  expect(result.count).toBeGreaterThan(0);
+  expect(result.inferenceMs).toBeGreaterThan(0);
+  expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp32", fallbacks: [] });
 });
 
 declare global {

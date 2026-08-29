@@ -4,9 +4,10 @@
 
 当前仓库的 PicoDet-L-320 清单为 `models/pp-detection/1.0.0/manifest.json`，状态仍是
 `labs/blocked`。仓库已有本地 FP32 ONNX 候选，并完成 CPU ORT parity；PaddleDetection
-官方参考下载的字节数和 SHA-256 已核验，但 Git LFS、Hugging Face、ModelScope 三类
-不可变分发来源和完整浏览器证据尚未完成，因此它还不是 SDK 默认加载的 stable 变体。
-使用 SDK 时请传入已验证的 runtime manifest 或自定义模型清单。
+官方参考下载的字节数和 SHA-256 已核验，Git LFS、Hugging Face、ModelScope 三类
+不可变分发来源也已记录 revision、下载地址、大小和 SHA-256；但完整浏览器证据和
+来源许可核验尚未完成，因此它还不是 SDK 默认加载的 stable 变体。使用 SDK 时请传入
+已验证的 runtime manifest 或自定义模型清单。
 
 | 变体            | 状态    | 说明                                                              |
 | --------------- | ------- | ----------------------------------------------------------------- |

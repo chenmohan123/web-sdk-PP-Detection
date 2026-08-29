@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          lfs: true
+          lfs: false
       - uses: pnpm/action-setup@v6
         with:
           version: 11.16.0
@@ -33,6 +33,10 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: wasm-fp32
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
+          PPDETECTION_MODEL_VARIANT: fp32
       - if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -41,13 +45,13 @@ jobs:
           if-no-files-found: warn
 
   webgpu-fp16:
-    if: inputs.run_validation
+    if: inputs.run_validation && vars.PPDETECTION_MODEL_VARIANT == 'fp16'
     runs-on: [self-hosted, windows, x64, webgpu-hardware]
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
         with:
-          lfs: true
+          lfs: false
       - uses: pnpm/action-setup@v6
         with:
           version: 11.16.0
@@ -60,6 +64,10 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp16
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
+          PPDETECTION_MODEL_VARIANT: fp16
       - if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -68,13 +76,13 @@ jobs:
           if-no-files-found: warn
 
   webgpu-fp32:
-    if: inputs.run_validation
+    if: inputs.run_validation && vars.PPDETECTION_MODEL_VARIANT == 'fp32'
     runs-on: [self-hosted, windows, x64, webgpu-hardware]
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
         with:
-          lfs: true
+          lfs: false
       - uses: pnpm/action-setup@v6
         with:
           version: 11.16.0
@@ -87,6 +95,10 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp32
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
+          PPDETECTION_MODEL_VARIANT: fp32
       - if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -99,6 +111,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          lfs: false
       - uses: pnpm/action-setup@v6
         with:
           version: 11.16.0

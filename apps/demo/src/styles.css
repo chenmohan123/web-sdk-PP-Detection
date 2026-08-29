@@ -205,6 +205,18 @@ textarea:focus-visible {
 .model-source-manifest {
   overflow-wrap: anywhere;
 }
+.model-source-hash {
+  max-width: 190px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.model-source-blocked {
+  margin: 14px 0 0;
+  color: #8b4f33;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
 .control-label,
 .threshold-control span {
   color: #688078;

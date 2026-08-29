@@ -24,11 +24,13 @@ python -m ppdetection.build_manifest
 parity 均通过，完整哈希、预处理和误差见
 `tools/model-pipeline/reports/picodet-parity.json`。
 
-该候选尚未绑定 Git LFS、Hugging Face 或 ModelScope 的不可变来源。已有一次
-Windows HeadlessChrome 的 WASM/CPU smoke test，证据见
+该候选已经记录到 Git LFS、Hugging Face 和 ModelScope 的不可变来源，三类来源的
+revision、下载地址、大小和 SHA-256 见
+`tools/model-pipeline/reports/picodet-source-evidence.json`。已有一次 Windows
+HeadlessChrome 的 WASM/CPU smoke test，证据见
 `tools/model-pipeline/reports/picodet-browser-evidence.json`；本次 WebGPU 没有
-可用 adapter，移动端、微信 WebView 和其他浏览器仍未验证。因此默认 manifest
-仍为 `labs/blocked`，应用接入时请传入已验证的 runtime manifest。文档和清单不会
-把本地候选伪装成 stable 发布资产。
+可用 adapter，移动端、微信 WebView 和其他浏览器仍未验证，来源许可核验也未完成。
+因此默认 manifest 仍为 `labs/blocked`，应用接入时请传入已验证的 runtime manifest。
+文档和清单不会把本地候选伪装成 stable 发布资产。
 
 完成官方权重导出后，按以下顺序为每个 FP32、FP16、INT8、INT4 或 FP8 变体生成证据：结构检查、CPU 数值/检测对齐、浏览器 WASM 与 WebGPU 验证、文件 SHA-256 和不可变来源校验，最后运行 `build_manifest`。只有证据完整且目标后端通过的变体才能标记为 `stable`。

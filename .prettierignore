@@ -9,6 +9,7 @@ docs/superpowers/
 .superpowers/
 packages/sdk/temp/
 **/.pytest_cache/
+work/
 models/**/*.onnx
 models/**/manifest.json
 pnpm-lock.yaml

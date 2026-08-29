@@ -41,6 +41,7 @@ export function resolveModelSources(
   variant: DetectionModelVariant,
   sourceKind: ModelSourceSelection = "auto"
 ): readonly ModelSource[] {
+  // auto 严格遵循 manifest 中的来源顺序；只有显式来源才限制为单一候选。
   if (sourceKind === "auto") return variant.sources;
   const source = variant.sources.find((candidate) => candidate.kind === sourceKind);
   if (!source) {

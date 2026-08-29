@@ -80,10 +80,10 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install chromium
-      - name: Run real FP16 WebGPU test on the tagged hardware runner
-        run: pnpm exec playwright test tests/browser/runtime.spec.ts --grep "FP16 WebGPU"
+      - name: Run real FP32 WebGPU test on the tagged hardware runner
+        run: pnpm exec playwright test tests/browser/runtime.spec.ts --grep "FP32 WebGPU"
         env:
           PPDETECTION_REAL_MODEL: "1"
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
-          PPDETECTION_MODEL_VARIANT: fp16
+          PPDETECTION_MODEL_VARIANT: fp32

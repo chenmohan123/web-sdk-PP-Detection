@@ -307,6 +307,49 @@ test("@real-model runs FP16 WebGPU detection when shader-f16 is available", asyn
   expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp16" });
 });
 
+test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ page }) => {
+  test.skip(process.env.PPDETECTION_REAL_MODEL !== "1", "设置 PPDETECTION_REAL_MODEL=1 后运行");
+  const real = await loadRealModel("fp32");
+  const manifest = real.manifest;
+  test.skip(
+    (manifest as { status?: string }).status === "labs/blocked",
+    "当前 PicoDet 模型清单仍处于 blocked 状态"
+  );
+  await page.goto(origin);
+  const webgpuAvailable = await page.evaluate(async () => {
+    const adapter = await navigator.gpu?.requestAdapter({ powerPreference: "high-performance" });
+    return adapter !== null && adapter !== undefined;
+  });
+  test.skip(!webgpuAvailable, "This Chromium adapter does not expose WebGPU");
+  const result = await page.evaluate(
+    async ({ manifest, origin: browserOrigin }) => {
+      const [modelResponse, imageResponse] = await Promise.all([
+        fetch(`${browserOrigin}/models/model-fp32.onnx`),
+        fetch(`${browserOrigin}/fixtures/table.png`)
+      ]);
+      const detector = await window.PPDetection!.createPPDetection({
+        allowFallback: false,
+        backend: "webgpu",
+        cache: false,
+        model: { data: await modelResponse.arrayBuffer(), manifest },
+        precision: "fp32"
+      });
+      const detection = await detector.detect(await imageResponse.blob(), { threshold: 0.5 });
+      await detector.dispose();
+      return {
+        count: detection.detections.length,
+        inferenceMs: detection.timings.inferenceMs,
+        runtime: detection.runtime
+      };
+    },
+    { manifest, origin }
+  );
+
+  expect(result.count).toBeGreaterThan(0);
+  expect(result.inferenceMs).toBeGreaterThan(0);
+  expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp32", fallbacks: [] });
+});
+
 declare global {
   interface Window {
     PPDetection?: typeof import("../../packages/sdk/src/index");

@@ -66,6 +66,13 @@ describe("发布工作流契约", () => {
     assert.doesNotMatch(ci, /PPDOCLAYOUT|PP-DocLayout/);
   });
 
+  test("物理 WebGPU runner 请求当前 PicoDet 清单的 FP32 变体", () => {
+    const ci = read(".github/workflows/ci.yml");
+
+    assert.match(ci, /PPDETECTION_MODEL_VARIANT:\s*fp32/);
+    assert.doesNotMatch(ci, /PPDETECTION_MODEL_VARIANT:\s*fp16/);
+  });
+
   test("发布校验要求稳定变体携带三类固定来源", () => {
     const verifierSource = read("scripts/verify-release.mjs");
     assert.match(verifierSource, /huggingface/);

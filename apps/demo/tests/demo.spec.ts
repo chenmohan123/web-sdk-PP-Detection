@@ -39,8 +39,8 @@ test("默认使用 Hugging Face 并诚实声明 blocked 状态", async ({ page }
   expect(contract.available).toHaveLength(4);
   expect(contract.available.every((option) => option.available === false)).toBe(true);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
-  expect(contract.huggingFaceModel).toContain("resolve/a9097cd2d855e32dd9bee19afba319906366416a/");
-  expect(contract.modelScopeModel).toContain("resolve/f853dee67f8362853c7043d490fe892912561f8b/");
+  expect(contract.huggingFaceModel).toContain("resolve/314145f779a883449784fe8a8e98647f63f39415/");
+  expect(contract.modelScopeModel).toContain("resolve/86fff1bb7c01982c696e677116504dcb5a3fca2c/");
   expect(contract.gitLfsModel).toContain("50ec35925ca89945dcfc4d13935e65bf054ac741");
   expect(contract.defaultModel).toBe(contract.huggingFaceModel);
 });

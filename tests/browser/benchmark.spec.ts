@@ -582,7 +582,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   );
 
   expect(result.runtime).toMatchObject({ backend, fallbacks: [], precision });
-  expect(result.model.sha256).toBe(manifestVariant!.sha256);
+  expect(result.model.source.sha256).toBe(manifestVariant!.sha256);
   expect(result.fixtures).toHaveLength(fixturesLock.fixtures.length);
   const evaluatedFixtures = result.fixtures.map(
     ({ acceptedDetections, detections, ...fixture }) => ({
@@ -672,7 +672,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
         ?.revision,
     fallbacks: result.runtime.fallbacks,
     modelBytes: result.model.bytes,
-    modelSha256: result.model.sha256,
+    modelSha256: result.model.source.sha256,
     onnxruntimeWebVersion: "1.27.0",
     adapter: result.adapter,
     adapterFeatures: result.adapterFeatures,

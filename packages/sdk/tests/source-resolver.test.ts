@@ -37,4 +37,13 @@ describe("模型来源解析", () => {
       "modelscope"
     ]);
   });
+
+  it("显式来源不存在时返回稳定错误码", () => {
+    try {
+      resolveModelSources(variant, "custom");
+      throw new Error("预期解析失败");
+    } catch (error) {
+      expect(error).toMatchObject({ code: "MODEL_SOURCE_UNAVAILABLE" });
+    }
+  });
 });

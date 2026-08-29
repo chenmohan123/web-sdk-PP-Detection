@@ -16,8 +16,9 @@ const BLOCKED_REASON = {
 } as const;
 
 const MODEL_REVISION = {
-  huggingface: "a9097cd2d855e32dd9bee19afba319906366416a",
-  modelscope: "f853dee67f8362853c7043d490fe892912561f8b",
+  // 清单与模型文件分别固定到各自的不可变提交。
+  huggingface: "314145f779a883449784fe8a8e98647f63f39415",
+  modelscope: "86fff1bb7c01982c696e677116504dcb5a3fca2c",
   "git-lfs": "50ec35925ca89945dcfc4d13935e65bf054ac741"
 } as const;
 

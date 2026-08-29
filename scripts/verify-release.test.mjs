@@ -66,6 +66,26 @@ describe("发布工作流契约", () => {
     assert.doesNotMatch(ci, /PPDOCLAYOUT|PP-DocLayout/);
   });
 
+  test("发布校验要求稳定变体携带三类固定来源", () => {
+    const verifierSource = read("scripts/verify-release.mjs");
+    assert.match(verifierSource, /huggingface/);
+    assert.match(verifierSource, /modelscope/);
+    assert.match(verifierSource, /git-lfs/);
+    assert.match(verifierSource, /downloadUrl/);
+    assert.match(verifierSource, /revision/);
+    assert.match(verifierSource, /source\.bytes/);
+    assert.match(verifierSource, /source\.sha256/);
+  });
+
+  test("发布校验严格限制官方来源主机边界", () => {
+    const verifierSource = read("scripts/verify-release.mjs");
+    assert.match(verifierSource, /hostname !== "huggingface\.co"/);
+    assert.match(verifierSource, /!downloadUrl\.hostname\.endsWith\("\.huggingface\.co"\)/);
+    assert.match(verifierSource, /hostname !== "modelscope\.cn"/);
+    assert.match(verifierSource, /!downloadUrl\.hostname\.endsWith\("\.modelscope\.cn"\)/);
+    assert.doesNotMatch(verifierSource, /hostname\.includes\("modelscope"\)/);
+  });
+
   test("所有发布工作流固定 action 主版本和只读默认权限", () => {
     for (const name of ["ci.yml", "pages.yml", "model-validation.yml", "release.yml"]) {
       const source = read(`.github/workflows/${name}`);

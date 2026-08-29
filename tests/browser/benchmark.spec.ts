@@ -27,10 +27,32 @@ interface BenchmarkManifest {
     id: string;
     precision: string;
     sha256: string;
-    url: string;
+    sources?: Array<{ kind: string; revision: string }>;
+    url?: string;
     [key: string]: unknown;
   }>;
   [key: string]: unknown;
+}
+
+interface DownloadedModelSource {
+  readonly bytes: number;
+  readonly cleanup: () => Promise<void>;
+  readonly manifestPath: string;
+  readonly modelPath: string;
+  readonly revision: string;
+  readonly sha256: string;
+  readonly sourceKind: string;
+  readonly variantId: string;
+}
+
+type FetchModelSource = typeof import("../../scripts/fetch-model-source.mjs").fetchModelSource;
+let fetchModelSource: FetchModelSource | undefined;
+
+async function getFetchModelSource(): Promise<FetchModelSource> {
+  if (fetchModelSource === undefined) {
+    fetchModelSource = (await import("../../scripts/fetch-model-source.mjs")).fetchModelSource;
+  }
+  return fetchModelSource;
 }
 
 interface FixtureLock {
@@ -45,6 +67,12 @@ interface FixtureLock {
 const mode = process.env.PPDETECTION_BENCHMARK_MODE as BenchmarkMode | undefined;
 const modelVersion = process.env.PPDETECTION_MODEL_VERSION ?? "1.0.0";
 const acceptedModelVersion = process.env.PPDETECTION_ACCEPTED_MODEL_VERSION ?? modelVersion;
+const requestedSource = process.env.PPDETECTION_MODEL_SOURCE?.trim() || "huggingface";
+const acceptedRequestedSource =
+  process.env.PPDETECTION_ACCEPTED_MODEL_SOURCE?.trim() || "huggingface";
+const externalManifestUrl = process.env.PPDETECTION_MODEL_MANIFEST_URL?.trim() || undefined;
+const acceptedExternalManifestUrl =
+  process.env.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL?.trim() || undefined;
 const repositoryRoot = resolve(__dirname, "../..");
 const sdkRoot = join(repositoryRoot, "packages/sdk");
 const ortRoot = join(sdkRoot, "node_modules/onnxruntime-web/dist");
@@ -77,6 +105,10 @@ const fixturesLockPath = join(repositoryRoot, "tools/model-pipeline/fixtures/fix
 const outputRoot = join(repositoryRoot, "test-results/benchmark");
 let origin = "";
 let server: Server;
+let candidateDownload: DownloadedModelSource | undefined;
+let acceptedDownload: DownloadedModelSource | undefined;
+let candidateExternalManifest: BenchmarkManifest | undefined;
+let acceptedExternalManifest: BenchmarkManifest | undefined;
 
 test.use(mode?.startsWith("webgpu-") ? { channel: "chrome" } : {});
 
@@ -108,11 +140,43 @@ function localManifest(
     variant.bytes = statSync(path).size;
     variant.sha256 = sha256File(path);
     variant.url = `${origin}/models/${urlPrefix}/${variant.filename}`;
+    variant.sources = (variant.sources ?? []).map((source) => ({
+      ...source,
+      bytes: variant.bytes,
+      sha256: variant.sha256,
+      downloadUrl: variant.url
+    }));
     if (variant.precision === "fp32") {
       variant.backendCompatibility = [...fp32Backends];
     }
   }
   return manifest;
+}
+
+function downloadedManifest(
+  manifest: BenchmarkManifest,
+  download: DownloadedModelSource,
+  backendCompatibility: readonly string[],
+  urlPath: string,
+  precision: string
+): BenchmarkManifest {
+  const variant = manifest.variants.find((candidate) => candidate.precision === precision);
+  if (!variant) throw new Error(`外部模型清单缺少 ${precision} 变体`);
+  const result = structuredClone(manifest);
+  result.model.version = modelVersion;
+  result.variants = [structuredClone(variant)];
+  const selected = result.variants[0]!;
+  selected.bytes = download.bytes;
+  selected.sha256 = download.sha256;
+  selected.url = `${origin}${urlPath}`;
+  selected.backendCompatibility = [...backendCompatibility];
+  selected.sources = (selected.sources ?? []).map((source) => ({
+    ...source,
+    bytes: download.bytes,
+    sha256: download.sha256,
+    downloadUrl: selected.url
+  }));
+  return result;
 }
 
 function verifiedFixtures(): FixtureLock {
@@ -167,6 +231,8 @@ function resolveAsset(url: string): string | undefined {
   if (pathname.startsWith("/models/candidate/")) {
     return join(candidateModelRoot, basename(pathname));
   }
+  if (pathname === "/models/external/candidate.onnx") return candidateDownload?.modelPath;
+  if (pathname === "/models/external/accepted.onnx") return acceptedDownload?.modelPath;
   if (pathname.startsWith("/fixtures/")) return join(fixtureRoot, basename(pathname));
   return undefined;
 }
@@ -190,12 +256,51 @@ test.beforeAll(async () => {
     !["wasm-fp32", "webgpu-fp16", "webgpu-fp32"].includes(mode ?? ""),
     "设置 PPDETECTION_BENCHMARK_MODE 后才运行基准"
   );
+  if (mode !== undefined && externalManifestUrl === undefined) {
+    throw new Error("真实模型基准需要设置 PPDETECTION_MODEL_MANIFEST_URL");
+  }
   const manifestPath = join(candidateModelRoot, "manifest.json");
-  test.skip(!existsSync(manifestPath), `模型清单不存在: ${manifestPath}`);
-  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
-    status?: string;
-    variants?: unknown[];
-  };
+  let manifest: { status?: string; variants?: unknown[] };
+  if (externalManifestUrl !== undefined) {
+    const precision = mode?.endsWith("fp32") ? "fp32" : "fp16";
+    if (acceptedExternalManifestUrl === undefined) {
+      throw new Error("外部模型基准需要设置 PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL");
+    }
+    candidateDownload = await (
+      await getFetchModelSource()
+    )({
+      manifestUrl: externalManifestUrl,
+      source: requestedSource,
+      variantId: process.env.PPDETECTION_MODEL_VARIANT ?? precision
+    });
+    candidateExternalManifest = JSON.parse(
+      readFileSync(candidateDownload.manifestPath, "utf8")
+    ) as BenchmarkManifest;
+    manifest = candidateExternalManifest;
+    acceptedDownload = await (
+      await getFetchModelSource()
+    )({
+      manifestUrl: acceptedExternalManifestUrl,
+      source: acceptedRequestedSource,
+      variantId: process.env.PPDETECTION_ACCEPTED_MODEL_VARIANT ?? "fp32"
+    });
+    acceptedExternalManifest = JSON.parse(
+      readFileSync(acceptedDownload.manifestPath, "utf8")
+    ) as BenchmarkManifest;
+    if (
+      !manifest.variants?.some(
+        (variant) => (variant as { precision?: string }).precision === precision
+      )
+    ) {
+      throw new Error(`外部模型清单缺少 ${precision} 变体`);
+    }
+  } else {
+    test.skip(!existsSync(manifestPath), `模型清单不存在: ${manifestPath}`);
+    manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+      status?: string;
+      variants?: unknown[];
+    };
+  }
   test.skip(manifest.status === "labs/blocked", `模型 ${modelVersion} 仍处于 blocked 状态`);
   test.skip(!existsSync(referencePath), "缺少经过核验的真实模型输出参考文件");
   reference = JSON.parse(readFileSync(referencePath, "utf8")) as typeof reference;
@@ -232,6 +337,8 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+  await candidateDownload?.cleanup();
+  await acceptedDownload?.cleanup();
   if (server === undefined) return;
   await new Promise<void>((resolveClose, reject) =>
     server.close((error) => (error === undefined ? resolveClose() : reject(error)))
@@ -243,8 +350,26 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   const backend = mode === "wasm-fp32" ? "wasm" : "webgpu";
   const precision = mode?.endsWith("fp32") ? "fp32" : "fp16";
   const fixturesLock = verifiedFixtures();
-  const acceptedManifest = localManifest(acceptedModelRoot, "accepted", ["wasm"]);
-  const targetManifest = localManifest(candidateModelRoot, "candidate", ["wasm", "webgpu"]);
+  const acceptedManifest =
+    acceptedDownload === undefined || acceptedExternalManifest === undefined
+      ? localManifest(acceptedModelRoot, "accepted", ["wasm"])
+      : downloadedManifest(
+          acceptedExternalManifest,
+          acceptedDownload,
+          ["wasm"],
+          "/models/external/accepted.onnx",
+          "fp32"
+        );
+  const targetManifest =
+    candidateDownload === undefined || candidateExternalManifest === undefined
+      ? localManifest(candidateModelRoot, "candidate", ["wasm", "webgpu"])
+      : downloadedManifest(
+          candidateExternalManifest,
+          candidateDownload,
+          ["wasm", "webgpu"],
+          "/models/external/candidate.onnx",
+          precision
+        );
   const manifestVariant = targetManifest.variants.find(
     (variant) => variant.precision === precision && variant.backendCompatibility.includes(backend)
   );
@@ -428,6 +553,12 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
     acceptedModelSha256: acceptedManifest.variants.find(({ id }) => id === "fp32")!.sha256,
     executionProvider: backend,
     precision,
+    requestedSource,
+    sourceKind: result.model.source.kind,
+    manifestRevision:
+      candidateDownload?.revision ??
+      manifestVariant!.sources?.find((source) => source.kind === result.model.source.kind)
+        ?.revision,
     fallbacks: result.runtime.fallbacks,
     modelBytes: result.model.bytes,
     modelSha256: result.model.sha256,

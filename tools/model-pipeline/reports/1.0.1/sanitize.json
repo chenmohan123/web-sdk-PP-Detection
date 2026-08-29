@@ -1,0 +1,8 @@
+{
+  "status": "blocked",
+  "modelVersion": "1.0.1",
+  "source": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+  "reason": "当前候选不包含四个已知 DOUBLE 位置初始化器 sin、cos、sin_1、cos_1，未生成 1.0.1 清理模型。",
+  "targetExists": false,
+  "verifiedAt": "2026-08-29"
+}

@@ -35,6 +35,7 @@ jobs:
           PPDETECTION_BENCHMARK_MODE: wasm-fp32
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: fp32
       - if: always()
@@ -66,6 +67,7 @@ jobs:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp16
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: fp16
       - if: always()
@@ -97,6 +99,7 @@ jobs:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp32
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
+          PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: fp32
       - if: always()

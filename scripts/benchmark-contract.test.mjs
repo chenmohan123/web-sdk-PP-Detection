@@ -33,7 +33,30 @@ test("浏览器基准使用可配置模型版本并跳过 blocked 清单", () =>
   assert.match(benchmark, /manifestRevision/);
   assert.match(benchmark, /manifest\.status === "labs\/blocked"/);
   assert.match(benchmark, /缺少经过核验的真实模型输出参考文件/);
+  assert.match(benchmark, /PPDETECTION_ACCEPTED_REFERENCE_PATH/);
+  assert.match(benchmark, /offline-official-output/);
+  assert.match(benchmark, /acceptedExternalManifestUrl !== undefined/);
+  assert.match(benchmark, /acceptedReferencePath !== undefined/);
+  assert.match(benchmark, /referenceModelSha256/);
+  assert.match(benchmark, /acceptedModelSha256:\s*acceptedDownload\.sha256/);
+  assert.match(
+    benchmark,
+    /需要设置 PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL 或 PPDETECTION_ACCEPTED_REFERENCE_PATH/
+  );
   assert.doesNotMatch(benchmark, /PPDOCLAYOUT|PP-DocLayout/);
+});
+
+test("离线官方 reference 校验固定官方模型并拒绝 candidate 自比较", () => {
+  const reference = read("tests/browser/benchmark-reference.ts");
+  const benchmark = read("tests/browser/benchmark.spec.ts");
+  const generator = read("tools/model-pipeline/picodet/build_official_reference.py");
+
+  assert.match(reference, /candidateModelSha256/);
+  assert.match(reference, /candidate 模型不得与官方 reference 使用同一 SHA-256/);
+  assert.match(benchmark, /f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89/);
+  assert.doesNotMatch(benchmark, /acceptedModelSha256:[\s\S]{0,120}reference\?\.model\.sha256/);
+  assert.match(generator, /fixtures\.lock\.json/);
+  assert.match(generator, /fixture SHA-256 与 lock 不一致/);
 });
 
 test("模型相关工作流不依赖 Git LFS，并从固定来源下载模型", () => {
@@ -59,4 +82,16 @@ test("基准包脚本仍覆盖构建和 parity 测试入口", () => {
   assert.match(workflow, /pnpm run benchmark:parity/);
   assert.match(workflow, /tests\/browser\/benchmark\.spec\.ts/);
   assert.match(workflow, /responsive-screenshots/);
+});
+
+test("三个真实模型 benchmark job 都注入离线官方 reference", () => {
+  const workflow = read(".github/workflows/benchmark.yml");
+  for (const job of ["wasm-fp32", "webgpu-fp16", "webgpu-fp32"]) {
+    assert.match(
+      workflow,
+      new RegExp(
+        `  ${job}:[\\s\\S]*?PPDETECTION_ACCEPTED_REFERENCE_PATH:\\s*tools/model-pipeline/references/picodet-l-320-official-output\\.json`
+      )
+    );
+  }
 });

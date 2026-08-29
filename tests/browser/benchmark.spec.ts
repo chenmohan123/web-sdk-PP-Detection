@@ -15,6 +15,11 @@ import { basename, extname, join, normalize, resolve } from "node:path";
 import { expect, test } from "playwright/test";
 
 import { evaluateBrowserParity } from "./benchmark-parity";
+import {
+  loadOfflineOfficialReference,
+  validateOfflineOfficialReference,
+  type OfflineOfficialReference
+} from "./benchmark-reference";
 
 type BenchmarkMode = "wasm-fp32" | "webgpu-fp16" | "webgpu-fp32";
 
@@ -64,6 +69,24 @@ interface FixtureLock {
   }>;
 }
 
+const fixtureNames = [
+  "curved-document.jpg",
+  "doc-formula.png",
+  "image-layout.jpg",
+  "layout-demo.jpg",
+  "screen-photo.jpg",
+  "skew-document.jpg",
+  "table.png"
+] as const;
+
+const officialReferenceModel = {
+  id: "pp-picodet-l-320",
+  version: "1.0.0",
+  revision: "206730a8453b23db94898500f47f8ea14426b23d",
+  bytes: 23226341,
+  sha256: "f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89"
+} as const;
+
 const mode = process.env.PPDETECTION_BENCHMARK_MODE as BenchmarkMode | undefined;
 const modelVersion = process.env.PPDETECTION_MODEL_VERSION ?? "1.0.0";
 const acceptedModelVersion = process.env.PPDETECTION_ACCEPTED_MODEL_VERSION ?? modelVersion;
@@ -74,31 +97,46 @@ const externalManifestUrl = process.env.PPDETECTION_MODEL_MANIFEST_URL?.trim() |
 const acceptedExternalManifestUrl =
   process.env.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL?.trim() || undefined;
 const repositoryRoot = resolve(__dirname, "../..");
+const acceptedReferencePath = process.env.PPDETECTION_ACCEPTED_REFERENCE_PATH?.trim()
+  ? resolve(repositoryRoot, process.env.PPDETECTION_ACCEPTED_REFERENCE_PATH.trim())
+  : undefined;
 const sdkRoot = join(repositoryRoot, "packages/sdk");
 const ortRoot = join(sdkRoot, "node_modules/onnxruntime-web/dist");
 const acceptedModelRoot = join(repositoryRoot, `models/pp-detection/${acceptedModelVersion}`);
 const candidateModelRoot = join(repositoryRoot, `models/pp-detection/${modelVersion}`);
-const referencePath = join(
-  repositoryRoot,
-  "packages/sdk/tests/fixtures/model-output-reference.json"
-);
-let reference:
-  | {
-      realImage: {
-        expected: {
-          boxes: number[][];
-          labels: number[];
-          polygons: number[][][];
-          scores: number[];
-          targetSize: { height: number; width: number };
-        };
-      };
-    }
-  | undefined;
+let reference: OfflineOfficialReference | undefined;
+interface TableReference {
+  realImage: {
+    expected: {
+      boxes: number[][];
+      labels: number[];
+      polygons: number[][][];
+      scores: number[];
+      targetSize: { height: number; width: number };
+    };
+  };
+}
+let tableReference: TableReference | undefined;
 
-function requireReference() {
-  if (reference === undefined) throw new Error("reference fixture is unavailable");
-  return reference;
+function requireReference(): TableReference {
+  if (tableReference === undefined) throw new Error("reference fixture is unavailable");
+  return tableReference;
+}
+
+function tableReferenceFromOffline(referenceValue: OfflineOfficialReference): TableReference {
+  const fixture = referenceValue.fixtures.find(({ filename }) => filename === "table.png");
+  if (fixture === undefined) throw new Error("离线官方 reference 缺少 table.png");
+  return {
+    realImage: {
+      expected: {
+        boxes: fixture.detections.map(({ box }) => [box.xMin, box.yMin, box.xMax, box.yMax]),
+        labels: fixture.detections.map(({ labelId }) => labelId),
+        polygons: fixture.detections.map(({ polygon }) => polygon.map(({ x, y }) => [x, y])),
+        scores: fixture.detections.map(({ score }) => score),
+        targetSize: { height: fixture.height, width: fixture.width }
+      }
+    }
+  };
 }
 const fixtureRoot = join(repositoryRoot, "tools/model-pipeline/fixtures/images");
 const fixturesLockPath = join(repositoryRoot, "tools/model-pipeline/fixtures/fixtures.lock.json");
@@ -263,9 +301,6 @@ test.beforeAll(async () => {
   let manifest: { status?: string; variants?: unknown[] };
   if (externalManifestUrl !== undefined) {
     const precision = mode?.endsWith("fp32") ? "fp32" : "fp16";
-    if (acceptedExternalManifestUrl === undefined) {
-      throw new Error("外部模型基准需要设置 PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL");
-    }
     candidateDownload = await (
       await getFetchModelSource()
     )({
@@ -277,16 +312,32 @@ test.beforeAll(async () => {
       readFileSync(candidateDownload.manifestPath, "utf8")
     ) as BenchmarkManifest;
     manifest = candidateExternalManifest;
-    acceptedDownload = await (
-      await getFetchModelSource()
-    )({
-      manifestUrl: acceptedExternalManifestUrl,
-      source: acceptedRequestedSource,
-      variantId: process.env.PPDETECTION_ACCEPTED_MODEL_VARIANT ?? "fp32"
-    });
-    acceptedExternalManifest = JSON.parse(
-      readFileSync(acceptedDownload.manifestPath, "utf8")
-    ) as BenchmarkManifest;
+    if (acceptedExternalManifestUrl !== undefined) {
+      acceptedDownload = await (
+        await getFetchModelSource()
+      )({
+        manifestUrl: acceptedExternalManifestUrl,
+        source: acceptedRequestedSource,
+        variantId: process.env.PPDETECTION_ACCEPTED_MODEL_VARIANT ?? "fp32"
+      });
+      acceptedExternalManifest = JSON.parse(
+        readFileSync(acceptedDownload.manifestPath, "utf8")
+      ) as BenchmarkManifest;
+    } else if (acceptedReferencePath !== undefined) {
+      reference = await loadOfflineOfficialReference(acceptedReferencePath, {
+        validation: {
+          fixtureNames,
+          officialModel: officialReferenceModel,
+          expectedFixtures: JSON.parse(readFileSync(fixturesLockPath, "utf8")).fixtures,
+          candidateModelSha256: candidateDownload.sha256
+        }
+      });
+      tableReference = tableReferenceFromOffline(reference);
+    } else {
+      throw new Error(
+        "真实模型基准需要设置 PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL 或 PPDETECTION_ACCEPTED_REFERENCE_PATH"
+      );
+    }
     if (
       !manifest.variants?.some(
         (variant) => (variant as { precision?: string }).precision === precision
@@ -302,8 +353,24 @@ test.beforeAll(async () => {
     };
   }
   test.skip(manifest.status === "labs/blocked", `模型 ${modelVersion} 仍处于 blocked 状态`);
-  test.skip(!existsSync(referencePath), "缺少经过核验的真实模型输出参考文件");
-  reference = JSON.parse(readFileSync(referencePath, "utf8")) as typeof reference;
+  if (acceptedExternalManifestUrl !== undefined && acceptedReferencePath !== undefined) {
+    // accepted 模型清单优先，reference 路径仅作为显式备用入口。
+    reference = undefined;
+  }
+  if (acceptedExternalManifestUrl !== undefined) {
+    const acceptedReferenceFixturePath = join(
+      sdkRoot,
+      "tests/fixtures/model-output-reference.json"
+    );
+    if (existsSync(acceptedReferenceFixturePath)) {
+      tableReference = JSON.parse(
+        readFileSync(acceptedReferenceFixturePath, "utf8")
+      ) as TableReference;
+    }
+  }
+  if (acceptedExternalManifestUrl === undefined && reference === undefined) {
+    throw new Error("缺少经过核验的真实模型输出参考文件");
+  }
   runPnpm(["--filter", "web-sdk-pp-detection", "build"]);
   server = createServer((request, response) => {
     response.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
@@ -352,7 +419,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   const fixturesLock = verifiedFixtures();
   const acceptedManifest =
     acceptedDownload === undefined || acceptedExternalManifest === undefined
-      ? localManifest(acceptedModelRoot, "accepted", ["wasm"])
+      ? undefined
       : downloadedManifest(
           acceptedExternalManifest,
           acceptedDownload,
@@ -379,6 +446,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   const result = await page.evaluate(
     async ({
       acceptedManifest,
+      acceptedReferenceFixtures,
       backend,
       fixtures,
       origin: browserOrigin,
@@ -400,14 +468,11 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
         ort: { wasm: { numThreads: 1, paths: `${browserOrigin}/ort/` } },
         precision
       } as const;
-      const acceptedOptions = {
-        allowFallback: false,
-        backend: "wasm",
-        cache: true,
-        model: acceptedManifest,
-        ort: { wasm: { numThreads: 1, paths: `${browserOrigin}/ort/` } },
-        precision: "fp32"
-      } as const;
+      const normalizeDetections = (detections: readonly Record<string, unknown>[]) =>
+        detections.map((detection, index) => ({
+          ...detection,
+          readingOrder: typeof detection.readingOrder === "number" ? detection.readingOrder : index
+        }));
 
       await window.PPDetection!.clearModelCache();
       let target;
@@ -432,22 +497,37 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
           })
         );
       }
-      const accepted = await window.PPDetection!.createPPDetection(acceptedOptions);
+      const accepted = acceptedManifest
+        ? await window.PPDetection!.createPPDetection({
+            allowFallback: false,
+            backend: "wasm",
+            cache: true,
+            model: acceptedManifest,
+            ort: { wasm: { numThreads: 1, paths: `${browserOrigin}/ort/` } },
+            precision: "fp32"
+          })
+        : undefined;
       const fixtureResults = [];
       for (const fixture of fixtures) {
         const image = await (await fetch(`${browserOrigin}/fixtures/${fixture.filename}`)).blob();
-        const acceptedDetection = await accepted.detect(image, { threshold: 0.5 });
+        const acceptedDetections = accepted
+          ? normalizeDetections((await accepted.detect(image, { threshold: 0.5 })).detections)
+          : normalizeDetections(
+              acceptedReferenceFixtures?.find(({ filename }) => filename === fixture.filename)
+                ?.detections ?? []
+            );
         const detection = await target.detect(image, { threshold: 0.5 });
-        const acceptedDetectionJson = JSON.stringify(acceptedDetection.detections);
-        const detectionJson = JSON.stringify(detection.detections);
+        const detections = normalizeDetections(detection.detections);
+        const acceptedDetectionJson = JSON.stringify(acceptedDetections);
+        const detectionJson = JSON.stringify(detections);
         const acceptedOutputSha256 = await sha256(new TextEncoder().encode(acceptedDetectionJson));
         const outputSha256 = await sha256(new TextEncoder().encode(detectionJson));
         fixtureResults.push({
-          acceptedDetections: acceptedDetection.detections,
+          acceptedDetections,
           acceptedOutputSha256,
-          detectionCount: detection.detections.length,
-          detections: detection.detections,
-          expectedDetectionCount: acceptedDetection.detections.length,
+          detectionCount: detections.length,
+          detections,
+          expectedDetectionCount: acceptedDetections.length,
           filename: fixture.filename,
           fixtureSha256: fixture.sha256,
           outputSha256,
@@ -457,7 +537,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
       const coldLoad = target.loadTimings;
       const model = target.model;
       const runtime = target.runtime;
-      await accepted.dispose();
+      await accepted?.dispose();
       await target.dispose();
       const warm = await window.PPDetection!.createPPDetection(targetOptions);
       const warmLoad = warm.loadTimings;
@@ -489,6 +569,10 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
     },
     {
       acceptedManifest,
+      acceptedReferenceFixtures: reference?.fixtures.map(({ filename, detections }) => ({
+        filename,
+        detections
+      })),
       backend,
       fixtures: fixturesLock.fixtures,
       origin,
@@ -513,12 +597,22 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   const fixtureEvidence = evaluatedFixtures.map(({ detections, ...fixture }) => {
     if (fixture.filename !== "table.png") return fixture;
 
+    if (tableReference === undefined) {
+      return { ...fixture, referenceMetrics: null, referenceThresholds };
+    }
     const firstDetection = detections[0];
+    const expected = requireReference().realImage.expected;
+    if (firstDetection === undefined && expected.boxes.length === 0) {
+      return { ...fixture, referenceMetrics: null, referenceThresholds };
+    }
+    if (firstDetection !== undefined && expected.boxes.length === 0) {
+      validationErrors.push("table.png: reference expected no detections");
+      return { ...fixture, referenceMetrics: null, referenceThresholds };
+    }
     if (firstDetection === undefined) {
       validationErrors.push("table.png: expected reference detection is missing");
       return { ...fixture, referenceMetrics: null, referenceThresholds };
     }
-    const expected = requireReference().realImage.expected;
     if (firstDetection.labelId !== expected.labels[0]) {
       validationErrors.push("table.png: reference label differs");
     }
@@ -550,7 +644,24 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
     schemaVersion: 1,
     status: validationErrors.length === 0 ? "passed" : "failed",
     validationErrors,
-    acceptedModelSha256: acceptedManifest.variants.find(({ id }) => id === "fp32")!.sha256,
+    referenceType: reference === undefined ? "accepted-model" : "offline-official-output",
+    reference:
+      reference === undefined
+        ? {
+            type: "accepted-model",
+            modelSha256: acceptedDownload?.sha256
+          }
+        : {
+            type: "offline-official-output",
+            modelId: reference.model.id,
+            modelVersion: reference.model.version,
+            modelRevision: reference.model.revision,
+            modelBytes: reference.model.bytes,
+            modelSha256: reference.model.sha256,
+            generatedAt: reference.generatedAt
+          },
+    referenceModelSha256: acceptedDownload?.sha256 ?? reference?.model.sha256,
+    ...(acceptedDownload === undefined ? {} : { acceptedModelSha256: acceptedDownload.sha256 }),
     executionProvider: backend,
     precision,
     requestedSource,

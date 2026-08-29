@@ -291,10 +291,8 @@ export async function fetchModelSource({
   candidates.forEach((candidate) =>
     validateSource(candidate, { allowLocal: allowLocalSources, variant })
   );
-  const ordered = source === "auto" ? SOURCE_ORDER : [source];
-  const selected = ordered
-    .map((kind) => candidates.find((item) => item.kind === kind))
-    .filter(Boolean);
+  const selected =
+    source === "auto" ? candidates : candidates.filter((candidate) => candidate.kind === source);
   if (selected.length === 0) throw safeError("模型清单缺少请求的来源", "MODEL_SOURCE_UNAVAILABLE");
   const directory = await mkdtemp(join(tmpdir(), "pp-detection-model-"));
   const manifestPath = join(directory, "manifest.json");

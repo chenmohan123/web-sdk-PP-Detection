@@ -180,6 +180,38 @@ test("auto source falls back in manifest order after integrity failure", async (
   assert.equal(modelRequests.length, 2);
 });
 
+test("auto source starts with the first source declared by the manifest", async () => {
+  const value = manifest({});
+  value.variants[0].sources.reverse();
+  const requestedKinds = [];
+  const manifestUrl = "https://huggingface.co/manifest.json";
+  const fetchImpl = async (url) => {
+    if (url === manifestUrl) {
+      return new Response(JSON.stringify(value), {
+        headers: { "content-type": "application/json" },
+        status: 200
+      });
+    }
+    const source = value.variants[0].sources.find((candidate) => candidate.downloadUrl === url);
+    assert.ok(source);
+    requestedKinds.push(source.kind);
+    return new Response(bytes, {
+      headers: { "content-length": String(bytes.length) },
+      status: 200
+    });
+  };
+
+  const result = await fetchModelSource({
+    fetchImpl,
+    manifestUrl,
+    source: "auto"
+  });
+
+  assert.equal(result.sourceKind, "git-lfs");
+  assert.deepEqual(requestedKinds, ["git-lfs"]);
+  await result.cleanup();
+});
+
 test("blocked manifest is rejected before model download", async () => {
   await withServer(manifest({ blocked: true }), async (origin) => {
     await assert.rejects(fetchModelSource({ manifestUrl: `${origin}/manifest.json` }), /blocked/);

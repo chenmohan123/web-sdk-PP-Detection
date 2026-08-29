@@ -379,6 +379,9 @@ function verifyFp32BrowserEvidence({
   ) {
     fail(`${displayName} browser evidence differs from the benchmark artifact`);
   }
+  if (evidence.referenceType === "offline-official-output") {
+    fail(`${displayName} 离线官方 reference 不能作为 accepted 模型发布`);
+  }
   if (evidence.acceptedModelSha256 !== acceptedFp32Sha256) {
     fail(`${displayName} browser evidence accepted model SHA-256 is invalid`);
   }

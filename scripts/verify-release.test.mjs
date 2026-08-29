@@ -91,6 +91,8 @@ describe("发布工作流契约", () => {
     assert.match(verifierSource, /revision/);
     assert.match(verifierSource, /source\.bytes/);
     assert.match(verifierSource, /source\.sha256/);
+    assert.match(verifierSource, /offline-official-output/);
+    assert.match(verifierSource, /不能作为 accepted 模型发布/);
   });
 
   test("发布校验严格限制官方来源主机边界", () => {

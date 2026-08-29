@@ -57,14 +57,20 @@
       "reason": "Hugging Face 已上传与 Git LFS 相同的本地清理候选"
     },
     "modelscope": {
-      "status": "pending",
-      "reason": "ModelScope CLI/上传仓库尚未就绪，尚未上传同一 ONNX 字节副本"
+      "status": "candidate-uploaded",
+      "revision": "f853dee67f8362853c7043d490fe892912561f8b",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f853dee67f8362853c7043d490fe892912561f8b/picodet-l-320-fp32.onnx",
+      "bytes": 23219047,
+      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "reason": "ModelScope 已上传与 Git LFS、Hugging Face 相同的本地清理候选；该副本不等于官方 Bcebos 下载文件"
     }
   },
   "verifiedAt": "2026-08-29",
   "limitations": [
     "Paddle Bcebos 下载 URL 本身没有不可变 revision，因此不能作为 stable manifest source revision。",
     "本报告只确认官方参考文件与上游文档和本地转换输入的关系，不提升 runtime manifest 的 stable 状态。",
-    "三类分发副本必须在各自平台上传同一文件并记录 40 至 64 位 revision、下载 URL、字节数和 SHA-256 后才能解除 blocked。"
+    "三类分发副本现已上传并记录 40 至 64 位 revision、下载 URL、字节数和 SHA-256；仍需完成来源许可核验、稳定 manifest 条件及更多浏览器后端证据后才能解除 blocked。"
   ]
 }

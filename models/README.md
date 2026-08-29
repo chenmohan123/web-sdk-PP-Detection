@@ -6,9 +6,9 @@
 PicoDet 变体仍为 `labs/blocked`，仓库中的本地 FP32 ONNX 候选与 PaddleDetection
 官方下载文件字节不一致；官方 URL、文档 revision、字节数和 SHA-256，以及候选
 文件的大小和 SHA-256，见
-`tools/model-pipeline/reports/picodet-source-evidence.json`。Git LFS 和 Hugging Face
-已有候选副本，但 ModelScope、三类来源的许可核验以及 WebGPU/移动端证据尚未
-完成，不能据此声明 stable 默认模型。
+`tools/model-pipeline/reports/picodet-source-evidence.json`。Git LFS、Hugging Face
+和 ModelScope 均已有候选副本，ModelScope 固定提交和 SHA-256 已核验；三类来源
+的许可核验以及 WebGPU/移动端证据尚未完成，不能据此声明 stable 默认模型。
 
 ### 默认清单状态
 
@@ -35,11 +35,11 @@ candidate is not byte-identical to the official PaddleDetection download; its of
 URL, documentation revision, size, and SHA-256, together with the candidate's size and
 SHA-256, are recorded in
 `tools/model-pipeline/reports/picodet-source-evidence.json`. Immutable Git LFS, Hugging
-Face, and ModelScope distribution sources are not all complete: Git LFS and Hugging Face
-now contain the candidate, while ModelScope, source licensing, WebGPU, and mobile browser
-evidence remain pending. No stable bundled default is claimed.
+Face, and ModelScope distribution sources now contain the candidate, and the ModelScope
+revision and SHA-256 have been verified. Source licensing, WebGPU, and mobile browser
+evidence remain pending, so no stable bundled default is claimed.
 
-The manifest distinguishes `fp32`, `fp16`, `int8`, `int4`, and `fp8`, with `quantization` recording the quantization method. Model distribution supports Git LFS (default), Hugging Face, ModelScope, and custom hosting. Only variants with complete assets and evidence may be released as `stable`; a Git LFS pointer is not a browser-runnable model.
+The manifest distinguishes `fp32`, `fp16`, `int8`, `int4`, and `fp8`, with `quantization` recording the quantization method. Model distribution supports Git LFS (default), Hugging Face, ModelScope, and custom hosting. Git LFS, Hugging Face, and ModelScope now contain the same candidate bytes; source licensing, WebGPU, and mobile browser evidence remain pending. Only variants with complete assets and evidence may be released as `stable`; a Git LFS pointer is not a browser-runnable model.
 
 After export and validation, run `build_manifest` from `tools/model-pipeline`. The generator must bind actual bytes, SHA-256, opset, tensor contracts, immutable source revisions, and browser evidence for each target backend; do not copy values from historical releases.
 

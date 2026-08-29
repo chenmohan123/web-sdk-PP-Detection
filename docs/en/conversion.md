@@ -24,12 +24,13 @@ The repository now contains a reproducible local PicoDet-L-320 FP32 ONNX candida
 three fixtures; hashes, preprocessing, and error metrics are recorded in
 `tools/model-pipeline/reports/picodet-parity.json`.
 
-The candidate is not yet bound to immutable Git LFS, Hugging Face, or ModelScope
-sources with immutable source revisions. One Windows HeadlessChrome WASM/CPU smoke test is recorded in
+The candidate is recorded in immutable Git LFS, Hugging Face, and ModelScope
+distribution sources with immutable source revisions, download URLs, byte sizes, and SHA-256 values in
+`tools/model-pipeline/reports/picodet-source-evidence.json`. One Windows HeadlessChrome WASM/CPU smoke test is recorded in
 `tools/model-pipeline/reports/picodet-browser-evidence.json`; WebGPU had no available
-adapter in that run, and mobile, WeChat WebView, and other browsers remain unverified.
-The default manifest therefore remains `labs/blocked`; pass a verified runtime manifest
-when integrating the SDK. Documentation and manifests do not present the local candidate
-as a stable release asset.
+adapter in that run, while mobile, WeChat WebView, and other browsers remain unverified;
+source licensing verification is still pending. The default manifest therefore remains
+`labs/blocked`; pass a verified runtime manifest when integrating the SDK. Documentation
+and manifests do not present the local candidate as a stable release asset.
 
 After official weights are exported, produce evidence for each FP32, FP16, INT8, INT4, or FP8 variant in this order: graph inspection, CPU numeric/detection parity, browser WASM and WebGPU validation, ONNX SHA-256 and immutable-source checks, then `build_manifest`. Mark a variant `stable` only when its evidence is complete and its target backend passes.

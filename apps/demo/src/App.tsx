@@ -407,7 +407,9 @@ export function App(): ReactElement {
           },
           ...(demoFixture ? { ort: { wasm: { paths: fixtureOrtWasmBaseUrl } } } : {}),
           precision,
-          ...(demoFixture ? {} : { source: modelSource === "default" ? "huggingface" : modelSource }),
+          ...(demoFixture
+            ? {}
+            : { source: modelSource === "default" ? "huggingface" : modelSource }),
           signal: controller.signal
         });
         detectorRef.current = detector;
@@ -1012,7 +1014,11 @@ export function App(): ReactElement {
               </div>
               <div>
                 <dt>{copy.requestedSource}</dt>
-                <dd>{customManifest === undefined ? activeModelSource.label[language] : copy.source_custom}</dd>
+                <dd>
+                  {customManifest === undefined
+                    ? activeModelSource.label[language]
+                    : copy.source_custom}
+                </dd>
               </div>
               <div>
                 <dt>{copy.actualSource}</dt>
@@ -1020,11 +1026,15 @@ export function App(): ReactElement {
               </div>
               <div>
                 <dt>{copy.revision}</dt>
-                <dd className="model-source-hash" data-testid="model-revision">{result?.model.source.revision ?? "-"}</dd>
+                <dd className="model-source-hash" data-testid="model-revision">
+                  {result?.model.source.revision ?? "-"}
+                </dd>
               </div>
               <div>
                 <dt>{copy.checksum}</dt>
-                <dd className="model-source-hash" data-testid="model-sha256">{result?.model.source.sha256 ?? "-"}</dd>
+                <dd className="model-source-hash" data-testid="model-sha256">
+                  {result?.model.source.sha256 ?? "-"}
+                </dd>
               </div>
               <div>
                 <dt>{copy.modelSize}</dt>

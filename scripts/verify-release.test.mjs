@@ -73,6 +73,15 @@ describe("发布工作流契约", () => {
     assert.doesNotMatch(ci, /PPDETECTION_MODEL_VARIANT:\s*fp16/);
   });
 
+  test("benchmark 仅在清单选择 FP16 时运行 FP16 job", () => {
+    const benchmark = read(".github/workflows/benchmark.yml");
+
+    assert.match(
+      benchmark,
+      /webgpu-fp16:\s*\n\s+if: inputs\.run_validation && vars\.PPDETECTION_MODEL_VARIANT == ['"]fp16['"]/s
+    );
+  });
+
   test("发布校验要求稳定变体携带三类固定来源", () => {
     const verifierSource = read("scripts/verify-release.mjs");
     assert.match(verifierSource, /huggingface/);

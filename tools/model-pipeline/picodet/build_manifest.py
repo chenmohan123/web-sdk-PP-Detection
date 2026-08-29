@@ -9,8 +9,10 @@ from urllib.parse import urlparse
 
 try:
     from .inspect_onnx import inspect_onnx
+    from .source_evidence import order_sources, validate_source
 except ImportError:  # 直接以脚本路径执行时的导入兼容
     from inspect_onnx import inspect_onnx
+    from source_evidence import order_sources, validate_source
 
 ROOT = Path(__file__).parents[3]
 SOURCE_KINDS = {"git-lfs", "huggingface", "modelscope"}
@@ -35,8 +37,7 @@ def validate_sources(sources: list[dict[str, Any]], *, artifact_bytes: int, arti
             raise ValueError("来源 bytes 必须是正整数")
         if not isinstance(source.get("sha256"), str) or re.fullmatch(r"[0-9a-fA-F]{64}", source["sha256"]) is None:
             raise ValueError("来源 sha256 必须是 64 位十六进制值")
-        if source["bytes"] != artifact_bytes or source["sha256"].lower() != artifact_sha256.lower():
-            raise ValueError("来源 bytes/SHA-256 必须与本地模型文件一致")
+        validate_source(source, artifact_bytes, artifact_sha256)
 
 def canonical_json(value: dict[str, Any]) -> bytes:
     return (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
@@ -63,21 +64,22 @@ def build_manifest(*, artifact_dir: Path, model_version: str, source_evidence: l
             "sources": [],
             "labels": "labels/coco.txt",
             "blocked": {
-                "reason": "模型文件已生成，但尚未提供 Git LFS、Hugging Face、ModelScope 三类真实来源证据",
+                "reason": "模型文件已生成，但外部来源证据未满足 Git LFS、Hugging Face、ModelScope 三类来源要求",
                 "evidence": "tools/model-pipeline/reports/picodet-sanitize.json",
             },
         }
     variants: list[dict[str, Any]] = []
     if source_evidence is not None:
         evidence_by_precision = source_evidence if isinstance(source_evidence, dict) else {"fp32": source_evidence, "fp16": source_evidence}
-        for sources in evidence_by_precision.values():
-            _validate_source_kinds(sources)
+        for precision, sources in evidence_by_precision.items():
+            evidence_by_precision[precision] = order_sources(sources)
     for precision in ("fp16", "fp32"):
         path = artifact_dir / f"picodet-l-320-{precision}.onnx"
         if not path.is_file():
             continue
         metadata = inspect_onnx(path)
         variant_sources = source_evidence.get(precision, []) if isinstance(source_evidence, dict) else (source_evidence or [])
+        variant_sources = order_sources(variant_sources)
         variants.append({"id": precision, "filename": path.name, "precision": precision, "quantization": "none", "opset": metadata["opset"], "bytes": metadata["bytes"], "sha256": metadata["sha256"], "parameterCount": metadata["parameterCount"], "backends": ["wasm", "webgpu"], "sources": variant_sources})
     if variants:
         for variant in variants:

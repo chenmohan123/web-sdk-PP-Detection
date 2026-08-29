@@ -12,6 +12,12 @@ revision、字节数和 SHA-256，以及候选文件的大小和 SHA-256，均�
 已有一次 Windows HeadlessChrome 的 WASM/CPU smoke test，WebGPU 在该环境中没有
 可用 adapter；详细限制见 `tools/model-pipeline/reports/picodet-browser-evidence.json`。
 因此 `manifest.json` 继续保持 `labs/blocked`，SDK 默认不会把它当作稳定内置模型；
-官方 URL 还没有可复用的不可变 revision。候选文件已经上传到 Git LFS 和
-Hugging Face；ModelScope 副本、三类来源的许可核验，以及 WASM/WebGPU 浏览器
-证据完成后，才能由构建脚本生成可发布变体。
+官方 URL 还没有可复用的不可变 revision。候选文件已经上传到 Git LFS、
+Hugging Face 和 ModelScope；三类来源的许可核验，以及完整的 WASM/WebGPU
+浏览器证据完成后，才能由构建脚本生成可发布变体。
+
+ModelScope 固定提交为 `f853dee67f8362853c7043d490fe892912561f8b`，文件路径为
+`picodet-l-320-fp32.onnx`，下载地址为
+<https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f853dee67f8362853c7043d490fe892912561f8b/picodet-l-320-fp32.onnx>。
+该副本大小为 `23219047` 字节，SHA-256 为
+`a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982`。

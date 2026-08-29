@@ -2,8 +2,16 @@ status: labs/blocked
 model: PP-PicoDet-L-320 COCO LCNet
 upstream: PaddleDetection 2.9
 revision: null
-reason: 官方原始文件与本地清理候选字节不同；ModelScope 副本、来源许可和浏览器证据尚未完成，禁止据此生成 stable 变体。
+reason: 官方原始文件与本地清理候选字节不同；来源许可和完整浏览器证据尚未完成，禁止据此生成 stable 变体。
 sources:
   git-lfs: candidate-uploaded
   huggingface: candidate-uploaded
-  modelscope: blocked
+  modelscope: candidate-uploaded
+sourceDetails:
+  modelscope:
+    revision: f853dee67f8362853c7043d490fe892912561f8b
+    repository: chenmohan/web-sdk-pp-detection
+    path: picodet-l-320-fp32.onnx
+    downloadUrl: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f853dee67f8362853c7043d490fe892912561f8b/picodet-l-320-fp32.onnx
+    bytes: 23219047
+    sha256: a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982

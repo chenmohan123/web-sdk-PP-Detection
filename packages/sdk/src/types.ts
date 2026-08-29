@@ -272,6 +272,14 @@ export interface PPDetectionModelInfo {
   readonly bytes: number;
   readonly parameterCount: number | null;
   readonly opset: number;
+  readonly source: PPDetectionModelSourceInfo;
+}
+
+export interface PPDetectionModelSourceInfo {
+  readonly kind: ModelSourceKind;
+  readonly revision: string;
+  readonly bytes: number;
+  readonly sha256: string;
 }
 
 export interface PPDetectionLoadTimings {

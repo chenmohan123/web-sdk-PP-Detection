@@ -15,6 +15,7 @@ import type {
   CreatePPDetectionOptions,
   DetectionManifest,
   PPDetectionModel,
+  ModelSource,
   RuntimeDetectionManifest
 } from "./types";
 
@@ -53,6 +54,7 @@ export type {
   PPDetectionLoadTimings,
   PPDetectionModel,
   PPDetectionModelInfo,
+  PPDetectionModelSourceInfo,
   PPDetectionProgressEvent,
   PPDetectionResult,
   PPDetectionRuntimeInfo,
@@ -191,7 +193,7 @@ function simpleManifest(runtime: RuntimeDetectionManifest): DetectionManifest {
   };
 }
 
-function modelInfo(runtime: RuntimeDetectionManifest, variantId: string) {
+function modelInfo(runtime: RuntimeDetectionManifest, variantId: string, source: ModelSource) {
   const variant = runtime.variants.find((candidate) => candidate.id === variantId);
   if (!variant)
     throw new PPDetectionError("MODEL_INCOMPATIBLE", "请求的模型变体不存在", { variantId });
@@ -202,7 +204,13 @@ function modelInfo(runtime: RuntimeDetectionManifest, variantId: string) {
     precision: variant.precision,
     bytes: variant.bytes,
     parameterCount: variant.parameterCount,
-    opset: variant.opset
+    opset: variant.opset,
+    source: {
+      kind: source.kind,
+      revision: source.revision,
+      bytes: source.bytes,
+      sha256: source.sha256
+    }
   };
 }
 
@@ -252,6 +260,7 @@ export async function createPPDetection(
     const loadStartedAt = now();
     options.onProgress?.({ phase: "model", status: "start" });
     let modelBytes: ArrayBuffer;
+    let actualSource: ModelSource;
     let variant = runtimeManifest.variants.find((candidate) => candidate.id === plan.variantId)!;
     let loadTimings: {
       modelDownloadMs?: number;
@@ -268,6 +277,7 @@ export async function createPPDetection(
         });
       await verifyModelIntegrity(memoryData, source, options.signal);
       modelBytes = memoryData;
+      actualSource = source;
       loadTimings = { sessionMs: 0, totalMs: now() - loadStartedAt, integrityMs: 0 };
     } else {
       const loaded = await modelManager.load({
@@ -280,6 +290,7 @@ export async function createPPDetection(
       });
       modelBytes = loaded.bytes;
       variant = loaded.variant;
+      actualSource = loaded.source;
       loadTimings = { ...loaded.timings, sessionMs: 0, totalMs: now() - loadStartedAt };
     }
     options.onProgress?.({ phase: "model", status: "complete" });
@@ -395,7 +406,7 @@ export async function createPPDetection(
     const detector = new PPDetectionDetectorImplementation({
       capabilities,
       manifest: runtimeManifest,
-      model: modelInfo(runtimeManifest, variant.id),
+      model: modelInfo(runtimeManifest, variant.id, actualSource),
       runtime: {
         requestedBackend: options.backend ?? "auto",
         backend: selectedPlan.actualBackend,

@@ -407,6 +407,7 @@ export function App(): ReactElement {
           },
           ...(demoFixture ? { ort: { wasm: { paths: fixtureOrtWasmBaseUrl } } } : {}),
           precision,
+          ...(demoFixture ? {} : { source: modelSource === "default" ? "huggingface" : modelSource }),
           signal: controller.signal
         });
         detectorRef.current = detector;
@@ -1010,6 +1011,22 @@ export function App(): ReactElement {
                 <dd data-testid="model-name">{result?.model.id ?? "-"}</dd>
               </div>
               <div>
+                <dt>{copy.requestedSource}</dt>
+                <dd>{customManifest === undefined ? activeModelSource.label[language] : copy.source_custom}</dd>
+              </div>
+              <div>
+                <dt>{copy.actualSource}</dt>
+                <dd data-testid="model-actual-source">{result?.model.source.kind ?? "-"}</dd>
+              </div>
+              <div>
+                <dt>{copy.revision}</dt>
+                <dd className="model-source-hash" data-testid="model-revision">{result?.model.source.revision ?? "-"}</dd>
+              </div>
+              <div>
+                <dt>{copy.checksum}</dt>
+                <dd className="model-source-hash" data-testid="model-sha256">{result?.model.source.sha256 ?? "-"}</dd>
+              </div>
+              <div>
                 <dt>{copy.modelSize}</dt>
                 <dd>{result ? formatBytes(result.model.bytes) : "-"}</dd>
               </div>
@@ -1036,6 +1053,11 @@ export function App(): ReactElement {
                 <dd>{result?.runtime.mode ?? "-"}</dd>
               </div>
             </dl>
+            {result === undefined && activeModelSource.disabledReason !== undefined ? (
+              <p className="model-source-blocked" data-testid="model-source-blocked">
+                {activeModelSource.disabledReason[language]}
+              </p>
+            ) : null}
           </section>
           <div data-testid="fallback-slot">
             {result?.runtime.fallbacks.length ? (

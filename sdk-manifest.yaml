@@ -25,7 +25,7 @@ model:
   format: onnx
   parameterCount: 5787988
   precision: [fp32]
-  source: PaddleDetection release/2.9 官方 PicoDet-L-320 LCNet 后处理 ONNX 资产；当前记录为参考来源，运行时默认分发仍待三类不可变来源发布。
+  source: PaddleDetection release/2.9 官方 PicoDet-L-320 LCNet 后处理 ONNX 参考资产；当前运行时默认分发仍待 ModelScope 副本、来源许可和浏览器证据核验。
   license: Apache-2.0（依据 PaddleDetection 官方模型说明）
   assets:
     - id: fp32

@@ -37,16 +37,28 @@
   },
   "distribution": {
     "git-lfs": {
-      "status": "pending",
-      "reason": "需要在公开 SDK 仓库固定提交后生成 raw 下载地址和 Git LFS revision"
+      "status": "candidate-uploaded",
+      "revision": "50ec35925ca89945dcfc4d13935e65bf054ac741",
+      "repository": "chenmohan123/web-sdk-PP-Detection",
+      "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/50ec35925ca89945dcfc4d13935e65bf054ac741/models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+      "bytes": 23219047,
+      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "reason": "Git LFS 已上传本地清理候选；该副本不等于官方 Bcebos 下载文件"
     },
     "huggingface": {
-      "status": "pending",
-      "reason": "当前可见 PaddlePaddle 仓库提供 pdiparams 或不同布局模型，未发现同一 ONNX 字节副本"
+      "status": "candidate-uploaded",
+      "revision": "a9097cd2d855e32dd9bee19afba319906366416a",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/a9097cd2d855e32dd9bee19afba319906366416a/picodet-l-320-fp32.onnx",
+      "bytes": 23219047,
+      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "reason": "Hugging Face 已上传与 Git LFS 相同的本地清理候选"
     },
     "modelscope": {
       "status": "pending",
-      "reason": "当前可见 PaddlePaddle PicoDet 仓库提供 pdiparams 或不同布局模型，未发现同一 ONNX 字节副本"
+      "reason": "ModelScope CLI/上传仓库尚未就绪，尚未上传同一 ONNX 字节副本"
     }
   },
   "verifiedAt": "2026-08-29",

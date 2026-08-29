@@ -45,7 +45,7 @@ test("模型相关工作流不依赖 Git LFS，并从固定来源下载模型", 
   assert.match(model, /fetch-model-source\.mjs/);
   assert.match(model, /PPDETECTION_MODEL_MANIFEST_URL/);
   assert.match(model, /PPDETECTION_MODEL_SOURCE/);
-  assert.match(read("scripts/fetch-model-source.mjs"), /copyFile\(result\.manifestPath/);
+  assert.match(read("scripts/fetch-model-source.mjs"), /copyFile\(downloads\[0\]\.manifestPath/);
 });
 
 test("基准包脚本仍覆盖构建和 parity 测试入口", () => {

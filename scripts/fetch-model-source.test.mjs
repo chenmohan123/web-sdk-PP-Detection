@@ -63,7 +63,7 @@ async function withServer(manifestValue, handler, options = {}) {
       response.end(payload);
       return;
     }
-    if (request.url === "/model.onnx") {
+    if (request.url?.startsWith("/model")) {
       options.modelRequests?.push(request.url);
       const modelStatus =
         options.modelStatusByKind?.[request.headers["x-source-kind"]] ?? options.modelStatus;
@@ -91,8 +91,10 @@ async function withServer(manifestValue, handler, options = {}) {
   const address = server.address();
   const origin = `http://127.0.0.1:${address.port}`;
   if (options.localSources) {
-    for (const source of manifestValue.variants?.[0]?.sources ?? []) {
-      source.downloadUrl = `${origin}/model.onnx`;
+    for (const variant of manifestValue.variants ?? []) {
+      for (const source of variant.sources ?? []) {
+        source.downloadUrl = `${origin}/${variant.filename}`;
+      }
     }
   }
   const sourceKinds = new Set(["huggingface", "modelscope", "git-lfs"]);
@@ -100,8 +102,11 @@ async function withServer(manifestValue, handler, options = {}) {
   const fetchImpl = async (url, requestOptions = {}) => {
     const parsed = new URL(url);
     const sourceKind = [...sourceKinds].find((kind) =>
-      manifestValue.variants?.[0]?.sources?.some(
-        (source) => source.kind === kind && new URL(source.downloadUrl).hostname === parsed.hostname
+      manifestValue.variants?.some((variant) =>
+        variant.sources?.some(
+          (source) =>
+            source.kind === kind && new URL(source.downloadUrl).hostname === parsed.hostname
+        )
       )
     );
     if (sourceKind !== undefined) {
@@ -297,6 +302,64 @@ test("remote manifest cannot make a model request to localhost", async () => {
   assert.equal(modelRequests, 0);
 });
 
+test("remote manifest cannot use custom HTTPS loopback sources", async () => {
+  const value = manifest({});
+  value.variants[0].sources[0] = {
+    ...value.variants[0].sources[0],
+    kind: "custom",
+    downloadUrl: "https://127.0.0.1:9/private.onnx"
+  };
+  let modelRequests = 0;
+  const fetchImpl = async (url) => {
+    if (url.endsWith("/manifest.json")) {
+      return new Response(JSON.stringify(value), {
+        headers: { "content-type": "application/json" },
+        status: 200
+      });
+    }
+    modelRequests += 1;
+    throw new Error("回环来源不应发起请求");
+  };
+  await assert.rejects(
+    fetchModelSource({
+      fetchImpl,
+      manifestUrl: "https://huggingface.co/manifest.json",
+      source: "custom"
+    }),
+    /来源 URL 不允许/
+  );
+  assert.equal(modelRequests, 0);
+});
+
+test("Hugging Face CDN redirects remain allowed", async () => {
+  const value = manifest({});
+  const fetchImpl = async (url) => {
+    if (url.endsWith("/manifest.json")) {
+      return new Response(JSON.stringify(value), {
+        headers: { "content-type": "application/json" },
+        status: 200
+      });
+    }
+    if (url === "https://huggingface.co/model.onnx") {
+      return new Response(null, {
+        headers: { location: "https://cdn-lfs.hf.co/model.onnx" },
+        status: 302
+      });
+    }
+    return new Response(bytes, {
+      headers: { "content-length": String(bytes.length) },
+      status: 200
+    });
+  };
+  const result = await fetchModelSource({
+    fetchImpl,
+    manifestUrl: "https://huggingface.co/manifest.json",
+    source: "huggingface"
+  });
+  assert.equal(result.sourceKind, "huggingface");
+  await result.cleanup();
+});
+
 test("standard source kinds cannot point to another distribution host", async () => {
   const value = manifest({});
   value.variants[0].sources[0].downloadUrl = "https://modelscope.cn/model.onnx";
@@ -386,6 +449,26 @@ test("manifest and source URLs cannot contain credentials", async () => {
       /来源 URL 不得包含凭据/
     );
   });
+  const redirectValue = manifest({});
+  await withServer(redirectValue, async (origin, fetchImpl) => {
+    const redirectFetch = async (url, options) => {
+      if (url.endsWith("/model.onnx")) {
+        return new Response(null, {
+          headers: { location: "https://user:password@huggingface.co/model.onnx" },
+          status: 302
+        });
+      }
+      return fetchImpl(url, options);
+    };
+    await assert.rejects(
+      fetchModelSource({
+        fetchImpl: redirectFetch,
+        manifestUrl: `${origin}/manifest.json`,
+        source: "huggingface"
+      }),
+      /重定向不是允许的 HTTPS/
+    );
+  });
 });
 
 test("CLI output includes the verified model and sanitized manifest", async () => {
@@ -419,6 +502,51 @@ test("CLI output includes the verified model and sanitized manifest", async () =
           JSON.parse(await readFile(`${outputDirectory}/manifest.json`, "utf8")),
           value
         );
+      } finally {
+        await rm(outputDirectory, { force: true, recursive: true });
+      }
+    },
+    { localSources: true }
+  );
+});
+
+test("CLI output includes every variant from a multi-variant manifest", async () => {
+  const value = manifest({});
+  value.variants.push({
+    ...structuredClone(value.variants[0]),
+    filename: "model-fp16.onnx",
+    id: "fp16"
+  });
+  await withServer(
+    value,
+    async (origin) => {
+      const outputDirectory = await mkdtemp(join(tmpdir(), "pp-detection-model-output-"));
+      try {
+        const result = await new Promise((resolve, reject) => {
+          const child = spawn(process.execPath, ["scripts/fetch-model-source.mjs"], {
+            cwd: process.cwd(),
+            env: {
+              ...process.env,
+              PPDETECTION_MODEL_MANIFEST_URL: `${origin}/manifest.json`,
+              PPDETECTION_MODEL_OUTPUT_DIR: outputDirectory,
+              PPDETECTION_MODEL_SOURCE: "huggingface",
+              PPDETECTION_MODEL_VARIANT: ""
+            },
+            stdio: ["ignore", "pipe", "pipe"]
+          });
+          let stderr = "";
+          child.stderr.on("data", (chunk) => {
+            stderr += chunk;
+          });
+          child.once("error", reject);
+          child.once("close", (status) => resolve({ status, stderr }));
+        });
+        assert.equal(result.status, 0, result.stderr);
+        assert.deepEqual((await readdir(outputDirectory)).sort(), [
+          "manifest.json",
+          "model-fp16.onnx",
+          "model.onnx"
+        ]);
       } finally {
         await rm(outputDirectory, { force: true, recursive: true });
       }

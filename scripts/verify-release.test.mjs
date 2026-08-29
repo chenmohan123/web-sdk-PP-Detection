@@ -81,6 +81,8 @@ describe("发布工作流契约", () => {
     const verifierSource = read("scripts/verify-release.mjs");
     assert.match(verifierSource, /hostname !== "huggingface\.co"/);
     assert.match(verifierSource, /!downloadUrl\.hostname\.endsWith\("\.huggingface\.co"\)/);
+    assert.match(verifierSource, /hostname !== "hf\.co"/);
+    assert.match(verifierSource, /!downloadUrl\.hostname\.endsWith\("\.hf\.co"\)/);
     assert.match(verifierSource, /hostname !== "modelscope\.cn"/);
     assert.match(verifierSource, /!downloadUrl\.hostname\.endsWith\("\.modelscope\.cn"\)/);
     assert.doesNotMatch(verifierSource, /hostname\.includes\("modelscope"\)/);

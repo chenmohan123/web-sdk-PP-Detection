@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { copyFile, mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { isIP } from "node:net";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -45,14 +46,60 @@ function safeError(message, code) {
   return error;
 }
 
+function normalizedHostname(hostname) {
+  return hostname.replace(/^\[|\]$/g, "").toLowerCase();
+}
+
+function isLoopbackHostname(hostname) {
+  const normalized = normalizedHostname(hostname);
+  if (normalized === "localhost") return true;
+  const version = isIP(normalized);
+  if (version === 4) return normalized.startsWith("127.");
+  return version === 6 && (normalized === "::1" || normalized.startsWith("::ffff:127."));
+}
+
+function isPrivateHostname(hostname) {
+  const normalized = normalizedHostname(hostname);
+  if (normalized === "localhost") return true;
+  const version = isIP(normalized);
+  if (version === 4) {
+    const [first, second] = normalized.split(".").map(Number);
+    return (
+      first === 0 ||
+      first === 10 ||
+      first === 127 ||
+      (first === 169 && second === 254) ||
+      (first === 172 && second >= 16 && second <= 31) ||
+      (first === 192 && second === 168)
+    );
+  }
+  return (
+    version === 6 &&
+    (normalized === "::" ||
+      normalized === "::1" ||
+      normalized.startsWith("fc") ||
+      normalized.startsWith("fd") ||
+      normalized.startsWith("fe8") ||
+      normalized.startsWith("fe9") ||
+      normalized.startsWith("fea") ||
+      normalized.startsWith("feb") ||
+      normalized.startsWith("::ffff:127."))
+  );
+}
+
 function isLocalHttpUrl(value) {
   const url = parseUrl(value);
-  return url.protocol === "http:" && ["127.0.0.1", "localhost"].includes(url.hostname);
+  return url.protocol === "http:" && isLoopbackHostname(url.hostname);
 }
 
 function isAllowedSourceHost(kind, hostname) {
   if (kind === "huggingface") {
-    return hostname === "huggingface.co" || hostname.endsWith(".huggingface.co");
+    return (
+      hostname === "huggingface.co" ||
+      hostname.endsWith(".huggingface.co") ||
+      hostname === "hf.co" ||
+      hostname.endsWith(".hf.co")
+    );
   }
   if (kind === "modelscope") {
     return hostname === "modelscope.cn" || hostname.endsWith(".modelscope.cn");
@@ -63,6 +110,7 @@ function isAllowedSourceHost(kind, hostname) {
 
 function isAllowedUrl(value, { local = false, custom = false, kind } = {}) {
   const url = parseUrl(value);
+  if (isPrivateHostname(url.hostname)) return local && isLocalHttpUrl(value);
   if (url.protocol === "https:") {
     const publicHost =
       ALLOWED_HOSTS.has(url.hostname) ||
@@ -107,6 +155,7 @@ async function fetchPublic(
     if (!location) throw safeError("模型来源重定向缺少目标", "MODEL_SOURCE_UNAVAILABLE");
     const redirectedUrl = parseUrl(new URL(location, url).toString());
     if (
+      hasCredentials(redirectedUrl.toString()) ||
       redirectedUrl.protocol !== "https:" ||
       !isAllowedUrl(redirectedUrl.toString(), { custom, kind })
     )
@@ -197,7 +246,12 @@ export async function fetchModelSource({
   variantId,
   fetchImpl = fetch
 } = {}) {
-  if (typeof manifestUrl !== "string" || !isAllowedUrl(manifestUrl, { local: true }))
+  if (
+    typeof manifestUrl !== "string" ||
+    !isAllowedUrl(manifestUrl, {
+      local: typeof manifestUrl === "string" && isLocalHttpUrl(manifestUrl)
+    })
+  )
     throw safeError("manifest URL 必须是允许的 HTTPS 地址", "MODEL_SOURCE_UNAVAILABLE");
   if (hasCredentials(manifestUrl))
     throw safeError("manifest URL 不得包含凭据", "MODEL_SOURCE_UNAVAILABLE");
@@ -275,26 +329,38 @@ export async function fetchModelSource({
 }
 
 if (process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const manifestUrl = process.env.PPDETECTION_MODEL_MANIFEST_URL;
+  const manifestUrl = process.env.PPDETECTION_MODEL_MANIFEST_URL?.trim();
   if (!manifestUrl) throw new Error("请设置 PPDETECTION_MODEL_MANIFEST_URL");
-  const result = await fetchModelSource({
-    manifestUrl,
-    source: process.env.PPDETECTION_MODEL_SOURCE ?? "auto",
-    variantId: process.env.PPDETECTION_MODEL_VARIANT
-  });
-  const outputDirectory = process.env.PPDETECTION_MODEL_OUTPUT_DIR;
-  if (outputDirectory) {
-    await mkdir(outputDirectory, { recursive: true });
-    await copyFile(result.modelPath, join(outputDirectory, basename(result.modelPath)));
-    await copyFile(result.manifestPath, join(outputDirectory, "manifest.json"));
+  const requestedSource = process.env.PPDETECTION_MODEL_SOURCE?.trim() || "auto";
+  const requestedVariant = process.env.PPDETECTION_MODEL_VARIANT?.trim() || undefined;
+  const downloads = [
+    await fetchModelSource({ manifestUrl, source: requestedSource, variantId: requestedVariant })
+  ];
+  try {
+    const outputDirectory = process.env.PPDETECTION_MODEL_OUTPUT_DIR?.trim();
+    if (outputDirectory) {
+      const downloadedManifest = JSON.parse(await readFile(downloads[0].manifestPath, "utf8"));
+      for (const variant of downloadedManifest.variants ?? []) {
+        if (variant.id === downloads[0].variantId) continue;
+        downloads.push(
+          await fetchModelSource({ manifestUrl, source: requestedSource, variantId: variant.id })
+        );
+      }
+      await mkdir(outputDirectory, { recursive: true });
+      for (const download of downloads) {
+        await copyFile(download.modelPath, join(outputDirectory, basename(download.modelPath)));
+      }
+      await copyFile(downloads[0].manifestPath, join(outputDirectory, "manifest.json"));
+    }
+    console.log(
+      JSON.stringify({
+        bytes: downloads[0].bytes,
+        revision: downloads[0].revision,
+        sha256: downloads[0].sha256,
+        sourceKind: downloads[0].sourceKind
+      })
+    );
+  } finally {
+    await Promise.all(downloads.map((download) => download.cleanup()));
   }
-  console.log(
-    JSON.stringify({
-      bytes: result.bytes,
-      revision: result.revision,
-      sha256: result.sha256,
-      sourceKind: result.sourceKind
-    })
-  );
-  await result.cleanup();
 }

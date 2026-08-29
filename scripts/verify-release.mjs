@@ -92,7 +92,9 @@ function verifyStableSources(variant, label = variant.id) {
     if (
       source.kind === "huggingface" &&
       downloadUrl.hostname !== "huggingface.co" &&
-      !downloadUrl.hostname.endsWith(".huggingface.co")
+      !downloadUrl.hostname.endsWith(".huggingface.co") &&
+      downloadUrl.hostname !== "hf.co" &&
+      !downloadUrl.hostname.endsWith(".hf.co")
     )
       fail(`${label} Hugging Face source host is invalid`);
     if (

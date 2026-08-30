@@ -441,6 +441,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
       backend,
       fixtures,
       origin: browserOrigin,
+      mode,
       precision,
       targetManifest
     }) => {

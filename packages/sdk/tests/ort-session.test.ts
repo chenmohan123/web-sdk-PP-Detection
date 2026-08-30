@@ -135,4 +135,17 @@ it("ORT 模块加载异常映射为 SESSION_CREATE_FAILED", async () => {
     })
   ).rejects.toMatchObject({ code: "SESSION_CREATE_FAILED" });
   expect(loadOrt).toHaveBeenCalledTimes(1);
+  expect(loadOrt).toHaveBeenCalledWith("wasm");
+});
+
+it("按 webgpu 后端请求专用 ORT 模块入口", async () => {
+  const loadOrt = vi.fn(async () => ({
+    env: { wasm: {} },
+    InferenceSession: {
+      create: vi.fn().mockResolvedValue({ run: vi.fn(), release: vi.fn() })
+    }
+  }));
+  const handle = await createOrtSession(new ArrayBuffer(1), webgpuPlan, { loadOrt });
+  expect(loadOrt).toHaveBeenCalledWith("webgpu");
+  await handle.dispose();
 });

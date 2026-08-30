@@ -1,4 +1,5 @@
 import { PPDetectionError } from "../errors";
+import type { Backend } from "../types";
 import type { ExecutionPlan } from "./select-plan";
 
 export interface OrtInferenceSession {
@@ -71,8 +72,10 @@ function normalizeFeeds(feeds: Record<string, unknown>, ort: OrtModule): Record<
   );
 }
 
-async function loadOrt(): Promise<OrtModule> {
-  return (await import("onnxruntime-web")) as unknown as OrtModule;
+async function loadOrt(backend: Backend): Promise<OrtModule> {
+  return (await (backend === "webgpu"
+    ? import("onnxruntime-web/webgpu")
+    : import("onnxruntime-web"))) as unknown as OrtModule;
 }
 
 export async function createOrtSession(
@@ -81,7 +84,7 @@ export async function createOrtSession(
   options: CreateOrtSessionOptions = {}
 ): Promise<OrtSessionHandle> {
   try {
-    const ort = options.ort ?? (await (options.loadOrt ?? loadOrt)());
+    const ort = options.ort ?? (await (options.loadOrt ?? loadOrt)(plan.actualBackend));
     if (options.wasmPaths && ort.env.wasm) ort.env.wasm.wasmPaths = options.wasmPaths;
     if (plan.actualBackend === "wasm" && ort.env.wasm && options.numThreads)
       ort.env.wasm.numThreads = options.numThreads;

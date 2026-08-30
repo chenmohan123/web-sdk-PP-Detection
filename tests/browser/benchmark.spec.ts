@@ -464,6 +464,34 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
           ...detection,
           readingOrder: typeof detection.readingOrder === "number" ? detection.readingOrder : index
         }));
+      const serializeError = (error: unknown): unknown => {
+        if (error instanceof Error) {
+          const errorWithDetails = error as Error & {
+            cause?: unknown;
+            code?: string;
+            details?: unknown;
+          };
+          return {
+            cause:
+              errorWithDetails.cause === undefined
+                ? undefined
+                : serializeError(errorWithDetails.cause),
+            code: errorWithDetails.code,
+            details: errorWithDetails.details,
+            message: error.message,
+            name: error.name,
+            stack: error.stack
+          };
+        }
+        if (typeof error === "object" && error !== null) {
+          try {
+            return JSON.parse(JSON.stringify(error));
+          } catch {
+            return String(error);
+          }
+        }
+        return error;
+      };
 
       await window.PPDetection!.clearModelCache();
       let target;
@@ -507,7 +535,24 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
               acceptedReferenceFixtures?.find(({ filename }) => filename === fixture.filename)
                 ?.detections ?? []
             );
-        const detection = await target.detect(image, { threshold: 0.5 });
+        let detection;
+        try {
+          detection = await target.detect(image, { threshold: 0.5 });
+        } catch (error) {
+          const capabilities = await window.PPDetection!.probePPDetectionCapabilities();
+          throw new Error(
+            JSON.stringify({
+              capabilities,
+              error: serializeError(error),
+              fixture: fixture.filename,
+              mode,
+              target: {
+                model: target.model,
+                runtime: target.runtime
+              }
+            })
+          );
+        }
         const detections = normalizeDetections(detection.detections);
         const acceptedDetectionJson = JSON.stringify(acceptedDetections);
         const detectionJson = JSON.stringify(detections);

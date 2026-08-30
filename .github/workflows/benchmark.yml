@@ -8,6 +8,16 @@ on:
         required: true
         type: boolean
         default: false
+      model_version:
+        description: Candidate model version to validate
+        required: true
+        type: string
+        default: "1.0.1"
+      model_manifest_url:
+        description: Optional immutable candidate manifest URL
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -33,7 +43,8 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: wasm-fp32
-          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ inputs.model_manifest_url || vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_VERSION: ${{ inputs.model_version }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
@@ -65,7 +76,8 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp16
-          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ inputs.model_manifest_url || vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_VERSION: ${{ inputs.model_version }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
@@ -97,7 +109,8 @@ jobs:
       - run: pnpm exec playwright test tests/browser/benchmark.spec.ts
         env:
           PPDETECTION_BENCHMARK_MODE: webgpu-fp32
-          PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_MANIFEST_URL: ${{ inputs.model_manifest_url || vars.PPDETECTION_MODEL_MANIFEST_URL }}
+          PPDETECTION_MODEL_VERSION: ${{ inputs.model_version }}
           PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_ACCEPTED_MODEL_MANIFEST_URL }}
           PPDETECTION_ACCEPTED_REFERENCE_PATH: tools/model-pipeline/references/picodet-l-320-official-output.json
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}

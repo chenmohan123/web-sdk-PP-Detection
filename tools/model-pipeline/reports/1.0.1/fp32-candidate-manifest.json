@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate",
+  "model": {
+    "id": "pp-picodet-l-320",
+    "version": "1.0.1",
+    "architecture": "PicoDet-L-320 LCNet",
+    "format": "onnx"
+  },
+  "input": {
+    "name": "image",
+    "shape": [1, 3, 320, 320],
+    "dtype": "float32"
+  },
+  "variants": [
+    {
+      "id": "fp32",
+      "filename": "picodet-l-320-fp32.onnx",
+      "precision": "fp32",
+      "quantization": "none",
+      "opset": 11,
+      "bytes": 23243834,
+      "parameterCount": 5787988,
+      "backends": ["wasm", "webgpu"],
+      "sources": [
+        {
+          "kind": "huggingface",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+          "path": "1.0.1/picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        {
+          "kind": "modelscope",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "5dc50e4488a81c62cada7879b685f0301449930d",
+          "path": "1.0.1/picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/5dc50e4488a81c62cada7879b685f0301449930d/1.0.1/picodet-l-320-fp32.onnx",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        {
+          "kind": "git-lfs",
+          "repository": "chenmohan123/web-sdk-PP-Detection",
+          "revision": "3204072ce46d2afde30a47859f187a4dc293f345",
+          "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        }
+      ]
+    }
+  ],
+  "labels": "labels/coco.txt",
+  "candidate": {
+    "purpose": "1.0.1 FP32 WASM/WebGPU 浏览器验证",
+    "notForRelease": true,
+    "evidence": "tools/model-pipeline/reports/1.0.1/source-evidence.json",
+    "limitations": ["候选清单不代表稳定发布", "FP16、移动端和微信 WebView 证据尚未完成"]
+  }
+}

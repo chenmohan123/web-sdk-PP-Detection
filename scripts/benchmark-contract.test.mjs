@@ -19,6 +19,12 @@ test("基准工作流默认保持关闭，避免发布前运行不存在的模�
   assert.match(workflow, /PPDETECTION_BENCHMARK_MODE:\s*["']?wasm-fp32/);
   assert.match(workflow, /PPDETECTION_BENCHMARK_MODE:\s*["']?webgpu-fp16/);
   assert.match(workflow, /PPDETECTION_BENCHMARK_MODE:\s*["']?webgpu-fp32/);
+  assert.match(workflow, /model_version:[\s\S]*default:\s*["']1\.0\.1["']/);
+  assert.match(workflow, /model_manifest_url:[\s\S]*default:\s*["']?["']/);
+  assert.match(
+    workflow,
+    /PPDETECTION_MODEL_MANIFEST_URL:\s*\$\{\{ inputs\.model_manifest_url \|\| vars\.PPDETECTION_MODEL_MANIFEST_URL \}\}/
+  );
   assert.doesNotMatch(workflow, /PPDOCLAYOUT|PP-DocLayout/);
 });
 

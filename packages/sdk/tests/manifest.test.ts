@@ -183,4 +183,13 @@ describe("parseDetectionManifest", () => {
       }).preprocessing.resizeMode
     ).toBe("stretch");
   });
+
+  it("保留 bicubic 插值模式", () => {
+    expect(
+      parseDetectionManifest({
+        ...valid,
+        preprocessing: { ...valid.preprocessing, interpolation: "bicubic" }
+      }).preprocessing.interpolation
+    ).toBe("bicubic");
+  });
 });

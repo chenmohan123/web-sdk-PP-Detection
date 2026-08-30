@@ -51,6 +51,105 @@ function bilinearChannel(
   return top * (1 - dy) + bottom * dy;
 }
 
+const BICUBIC_PRECISION_BITS = 22;
+const BICUBIC_PRECISION = 1 << BICUBIC_PRECISION_BITS;
+const BICUBIC_ROUNDING = 1 << (BICUBIC_PRECISION_BITS - 1);
+
+function bicubicFilter(value: number): number {
+  const x = Math.abs(value);
+  if (x < 1) return ((-0.5 + 2) * x - (-0.5 + 3)) * x * x + 1;
+  if (x < 2) return (((x - 5) * x + 8) * x - 4) * -0.5;
+  return 0;
+}
+
+interface ResampleAxis {
+  readonly bounds: readonly [number, number][];
+  readonly coefficients: readonly number[][];
+}
+
+function createBicubicAxis(inputSize: number, outputSize: number): ResampleAxis {
+  const scale = inputSize / outputSize;
+  const filterScale = Math.max(scale, 1);
+  const support = 2 * filterScale;
+  const axis: Array<{ bounds: [number, number]; coefficients: number[] }> = [];
+
+  for (let output = 0; output < outputSize; output += 1) {
+    const center = (output + 0.5) * scale;
+    let start = Math.trunc(center - support + 0.5);
+    if (start < 0) start = 0;
+    let end = Math.trunc(center + support + 0.5);
+    if (end > inputSize) end = inputSize;
+    end -= start;
+
+    const weights: number[] = [];
+    let total = 0;
+    for (let index = 0; index < end; index += 1) {
+      const weight = bicubicFilter((index + start - center + 0.5) / filterScale);
+      weights.push(weight);
+      total += weight;
+    }
+    if (total !== 0) {
+      for (let index = 0; index < weights.length; index += 1) {
+        weights[index] = weights[index] / total;
+      }
+    }
+    axis.push({
+      bounds: [start, end],
+      coefficients: weights.map((weight) =>
+        Math.trunc(
+          weight < 0 ? -0.5 + weight * BICUBIC_PRECISION : 0.5 + weight * BICUBIC_PRECISION
+        )
+      )
+    });
+  }
+
+  return {
+    bounds: axis.map(({ bounds }) => bounds),
+    coefficients: axis.map(({ coefficients }) => coefficients)
+  };
+}
+
+function clipBicubic(value: number): number {
+  const rounded = value >> BICUBIC_PRECISION_BITS;
+  return Math.max(0, Math.min(255, rounded));
+}
+
+function bicubicChannel(
+  raster: ImageRaster,
+  resizedWidth: number,
+  resizedHeight: number,
+  channel: number
+): Uint8Array {
+  const horizontal = createBicubicAxis(raster.width, resizedWidth);
+  const vertical = createBicubicAxis(raster.height, resizedHeight);
+  const intermediate = new Uint8Array(raster.height * resizedWidth);
+  for (let y = 0; y < raster.height; y += 1) {
+    for (let x = 0; x < resizedWidth; x += 1) {
+      const [start, count] = horizontal.bounds[x];
+      const coefficients = horizontal.coefficients[x];
+      let sum = BICUBIC_ROUNDING;
+      for (let index = 0; index < count; index += 1) {
+        sum += raster.rgba[(y * raster.width + start + index) * 4 + channel] * coefficients[index];
+      }
+      intermediate[y * resizedWidth + x] = clipBicubic(sum);
+    }
+  }
+
+  const output = new Uint8Array(resizedWidth * resizedHeight);
+  for (let y = 0; y < resizedHeight; y += 1) {
+    const [start, count] = vertical.bounds[y];
+    const coefficients = vertical.coefficients[y];
+    for (let x = 0; x < resizedWidth; x += 1) {
+      let sum = BICUBIC_ROUNDING;
+      for (let index = 0; index < count; index += 1) {
+        sum += intermediate[(start + index) * resizedWidth + x] * coefficients[index];
+      }
+      output[y * resizedWidth + x] = clipBicubic(sum);
+    }
+  }
+  return output;
+}
+
 export function preprocessImage(
   raster: ImageRaster,
   preprocessing: DetectionPreprocessing
@@ -86,15 +185,22 @@ export function preprocessImage(
   const rescale = preprocessing.doRescale ?? true;
   const mean = normalize ? (preprocessing.mean ?? [0, 0, 0]) : [0, 0, 0];
   const std = normalize ? (preprocessing.std ?? [1, 1, 1]) : [1, 1, 1];
+  const interpolation = preprocessing.interpolation ?? "bilinear";
 
   for (let channel = 0; channel < 3; channel += 1) {
     const padding = normalize && mean[channel] !== 0 ? -mean[channel] / std[channel] : 0;
     data.fill(padding, channel * plane, (channel + 1) * plane);
+    const bicubic =
+      doResize && interpolation === "bicubic"
+        ? bicubicChannel(raster, resizedWidth, resizedHeight, channel)
+        : undefined;
     for (let y = 0; y < resizedHeight; y += 1) {
       for (let x = 0; x < resizedWidth; x += 1) {
-        const pixel = doResize
-          ? bilinearChannel(raster, x, y, resizedWidth, resizedHeight, channel)
-          : sampleChannel(raster, x, y, channel);
+        const pixel = bicubic
+          ? bicubic[y * resizedWidth + x]
+          : doResize
+            ? bilinearChannel(raster, x, y, resizedWidth, resizedHeight, channel)
+            : sampleChannel(raster, x, y, channel);
         const scaled = rescale ? pixel * preprocessing.rescaleFactor : pixel;
         data[channel * plane + (y + padTop) * inputWidth + x + padLeft] = normalize
           ? (scaled - mean[channel]) / std[channel]

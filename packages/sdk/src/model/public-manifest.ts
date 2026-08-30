@@ -58,6 +58,18 @@ function resizeMode(value: unknown, path: string): "letterbox" | "stretch" | und
   invalid(path, "必须是 letterbox 或 stretch");
 }
 
+function interpolation(value: unknown, path: string): "bilinear" | "bicubic" | undefined {
+  if (value === undefined) return undefined;
+  if (value === "bilinear" || value === "bicubic") return value;
+  invalid(path, "必须是 bilinear 或 bicubic");
+}
+
+function resample(value: unknown, path: string): 2 | 3 {
+  const result = integer(value, path, true);
+  if (result === 2 || result === 3) return result;
+  invalid(path, "目前只支持 2 (bilinear) 或 3 (bicubic)");
+}
+
 function url(value: unknown, path: string): string {
   const result = text(value, path);
   try {
@@ -148,6 +160,11 @@ export function parseModelManifest(value: unknown): ModelManifest {
   const size = record(preprocessing.size, "preprocessing.size");
   const source = record(candidate.source, "source");
   const files = record(source.files, "source.files");
+  const preprocessingInterpolation = interpolation(
+    preprocessing.interpolation,
+    "preprocessing.interpolation"
+  );
+  const preprocessingResample = resample(preprocessing.resample, "preprocessing.resample");
   const input = tensor(candidate.input, "input");
   if (input.shape.length !== 4 || input.shape[0] !== 1 || input.shape[1] !== 3) {
     invalid("input.shape", "目前只支持 [1,3,H,W]");
@@ -199,9 +216,12 @@ export function parseModelManifest(value: unknown): ModelManifest {
       ...(resizeMode(preprocessing.resizeMode, "preprocessing.resizeMode") === undefined
         ? {}
         : { resizeMode: resizeMode(preprocessing.resizeMode, "preprocessing.resizeMode") }),
+      ...(preprocessingInterpolation === undefined
+        ? {}
+        : { interpolation: preprocessingInterpolation }),
       imageMean: triple(preprocessing.imageMean, "preprocessing.imageMean"),
       imageStd: triple(preprocessing.imageStd, "preprocessing.imageStd", true),
-      resample: integer(preprocessing.resample, "preprocessing.resample", true),
+      resample: preprocessingResample,
       rescaleFactor: finite(preprocessing.rescaleFactor, "preprocessing.rescaleFactor"),
       size: {
         height: integer(size.height, "preprocessing.size.height"),
@@ -228,6 +248,7 @@ function sourceKind(downloadUrl: string): ModelSourceKind {
 }
 
 export function adaptModelManifest(manifest: ModelManifest): RuntimeDetectionManifest {
+  const preprocessingResample = resample(manifest.preprocessing.resample, "preprocessing.resample");
   const priority = new Map(manifest.variantPriority.map((id, index) => [id, index]));
   const variants = [...manifest.variants].sort(
     (left, right) =>
@@ -244,6 +265,9 @@ export function adaptModelManifest(manifest: ModelManifest): RuntimeDetectionMan
       rescaleFactor: manifest.preprocessing.rescaleFactor,
       doResize: manifest.preprocessing.doResize,
       resizeMode: manifest.preprocessing.resizeMode,
+      interpolation:
+        manifest.preprocessing.interpolation ??
+        (preprocessingResample === 3 ? "bicubic" : "bilinear"),
       doRescale: manifest.preprocessing.doRescale,
       doNormalize: manifest.preprocessing.doNormalize,
       mean: manifest.preprocessing.imageMean,

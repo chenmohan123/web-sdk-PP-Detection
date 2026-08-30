@@ -81,6 +81,30 @@ describe("preprocessImage", () => {
     expect(Array.from(result.data.slice(4 * 4 - 4, 4 * 4))).toEqual([1, 1, 1, 1]);
   });
 
+  it("按 bicubic 插值生成与官方 PicoDet 一致的像素", () => {
+    const result = preprocessImage(
+      {
+        width: 2,
+        height: 2,
+        rgba: new Uint8ClampedArray([
+          0, 0, 0, 255, 100, 100, 100, 255, 150, 150, 150, 255, 255, 255, 255, 255
+        ])
+      },
+      {
+        size: { width: 4, height: 4 },
+        rescaleFactor: 1,
+        resizeMode: "stretch",
+        doRescale: false,
+        doNormalize: false,
+        interpolation: "bicubic"
+      }
+    );
+
+    expect(Array.from(result.data.slice(0, 16))).toEqual([
+      0, 8, 65, 96, 29, 52, 111, 139, 112, 141, 201, 225, 153, 185, 247, 255
+    ]);
+  });
+
   it("禁用缩放时拒绝超过模型输入尺寸的图像", () => {
     expect(() =>
       preprocessImage(

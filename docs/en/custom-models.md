@@ -19,6 +19,10 @@ const detector = await createPPDetection({
 await detector.dispose();
 ```
 
+Set a custom manifest's `preprocessing.interpolation` to `bilinear` or `bicubic`.
+For legacy `resample`, only `2` (bilinear) and `3` (bicubic) are supported; other Pillow
+interpolation enums are rejected instead of silently selecting a different algorithm.
+
 `{ manifest, data }` still verifies SHA-256 and cannot bypass integrity checks. A custom graph that changes output semantics, query count, mask shape, or label mapping needs an SDK adaptation; merely loading in ONNX Runtime does not prove compatibility.
 
 Production deployments should use immutable version URLs, correct CORS, HTTPS, long-lived caching, and a retained validation report for each release.

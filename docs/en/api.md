@@ -61,6 +61,11 @@ const result = await detector.detect(file, {
 
 When a manifest sets `preprocessing.doResize` to `false`, both input dimensions must fit within the model input size. Larger images throw `INVALID_INPUT` instead of being silently cropped.
 
+Preprocessing supports `interpolation: "bilinear"` and `interpolation: "bicubic"`. The legacy public
+`ModelManifest` `resample` field accepts only Pillow/Paddle `2` (bilinear) and `3` (bicubic);
+`3` adapts to `bicubic`, while unimplemented values are rejected with `INVALID_MANIFEST`. When no
+interpolation is declared, the runtime manifest defaults to bilinear.
+
 Hosts own camera permissions, video playback, and frame pacing. Submit one frame at a time and await its Promise before submitting the next; cancel in-flight work and call `dispose()` when media stops.
 
 ## Other exports

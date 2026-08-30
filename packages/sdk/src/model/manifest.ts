@@ -71,6 +71,12 @@ function optionalResizeMode(value: unknown, path: string): "letterbox" | "stretc
   invalid(path, "必须是 letterbox 或 stretch");
 }
 
+function optionalInterpolation(value: unknown, path: string): "bilinear" | "bicubic" | undefined {
+  if (value === undefined) return undefined;
+  if (value === "bilinear" || value === "bicubic") return value;
+  invalid(path, "必须是 bilinear 或 bicubic");
+}
+
 function optionalFiniteNumbers(value: unknown, path: string): readonly number[] | undefined {
   if (value === undefined) return undefined;
   if (
@@ -220,6 +226,10 @@ export function parseDetectionManifest(value: unknown): RuntimeDetectionManifest
     "postprocessing.queryBoxFormat"
   );
   const resizeMode = optionalResizeMode(preprocessing.resizeMode, "preprocessing.resizeMode");
+  const interpolation = optionalInterpolation(
+    preprocessing.interpolation,
+    "preprocessing.interpolation"
+  );
   if (
     !Array.isArray(candidate.labels) ||
     candidate.labels.length === 0 ||
@@ -253,6 +263,7 @@ export function parseDetectionManifest(value: unknown): RuntimeDetectionManifest
       },
       rescaleFactor: preprocessing.rescaleFactor,
       ...(resizeMode === undefined ? {} : { resizeMode }),
+      ...(interpolation === undefined ? {} : { interpolation }),
       ...(typeof preprocessing.doResize === "boolean" ? { doResize: preprocessing.doResize } : {}),
       ...(typeof preprocessing.doRescale === "boolean"
         ? { doRescale: preprocessing.doRescale }

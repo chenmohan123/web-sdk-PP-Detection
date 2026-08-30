@@ -19,6 +19,10 @@ const detector = await createPPDetection({
 await detector.dispose();
 ```
 
+自定义清单的 `preprocessing.interpolation` 可设置为 `bilinear` 或 `bicubic`。
+兼容旧式 `resample` 字段时，只支持 `2`（双线性）和 `3`（双三次）；其他 Pillow
+插值枚举尚未实现，会被拒绝而不是静默改用另一种插值。
+
 `{ manifest, data }` 仍会按清单校验 SHA-256，不能用于绕过完整性检查。自定义模型若更改输出语义、查询数、mask 形状或标签映射，必须先适配 SDK；仅文件能被 ONNX Runtime 加载并不等于兼容。
 
 生产部署应使用不可变版本 URL、正确 CORS、HTTPS 和长期缓存，并为每次发布保留验证报告。

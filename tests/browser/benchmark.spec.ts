@@ -357,17 +357,8 @@ test.beforeAll(async () => {
     // accepted 模型清单优先，reference 路径仅作为显式备用入口。
     reference = undefined;
   }
-  if (acceptedExternalManifestUrl !== undefined) {
-    const acceptedReferenceFixturePath = join(
-      sdkRoot,
-      "tests/fixtures/model-output-reference.json"
-    );
-    if (existsSync(acceptedReferenceFixturePath)) {
-      tableReference = JSON.parse(
-        readFileSync(acceptedReferenceFixturePath, "utf8")
-      ) as TableReference;
-    }
-  }
+  // accepted 模型清单模式直接以 accepted 模型输出作为基线；不能混入其他 SDK 的
+  // model-output-reference.json，否则会把无关的 table.png 专用断言带入对照实验。
   if (acceptedExternalManifestUrl === undefined && reference === undefined) {
     throw new Error("缺少经过核验的真实模型输出参考文件");
   }
@@ -450,6 +441,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
       backend,
       fixtures,
       origin: browserOrigin,
+      mode,
       precision,
       targetManifest
     }) => {
@@ -473,6 +465,34 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
           ...detection,
           readingOrder: typeof detection.readingOrder === "number" ? detection.readingOrder : index
         }));
+      const serializeError = (error: unknown): unknown => {
+        if (error instanceof Error) {
+          const errorWithDetails = error as Error & {
+            cause?: unknown;
+            code?: string;
+            details?: unknown;
+          };
+          return {
+            cause:
+              errorWithDetails.cause === undefined
+                ? undefined
+                : serializeError(errorWithDetails.cause),
+            code: errorWithDetails.code,
+            details: errorWithDetails.details,
+            message: error.message,
+            name: error.name,
+            stack: error.stack
+          };
+        }
+        if (typeof error === "object" && error !== null) {
+          try {
+            return JSON.parse(JSON.stringify(error));
+          } catch {
+            return String(error);
+          }
+        }
+        return error;
+      };
 
       await window.PPDetection!.clearModelCache();
       let target;
@@ -516,7 +536,24 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
               acceptedReferenceFixtures?.find(({ filename }) => filename === fixture.filename)
                 ?.detections ?? []
             );
-        const detection = await target.detect(image, { threshold: 0.5 });
+        let detection;
+        try {
+          detection = await target.detect(image, { threshold: 0.5 });
+        } catch (error) {
+          const capabilities = await window.PPDetection!.probePPDetectionCapabilities();
+          throw new Error(
+            JSON.stringify({
+              capabilities,
+              error: serializeError(error),
+              fixture: fixture.filename,
+              mode,
+              target: {
+                model: target.model,
+                runtime: target.runtime
+              }
+            })
+          );
+        }
         const detections = normalizeDetections(detection.detections);
         const acceptedDetectionJson = JSON.stringify(acceptedDetections);
         const detectionJson = JSON.stringify(detections);
@@ -582,7 +619,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
   );
 
   expect(result.runtime).toMatchObject({ backend, fallbacks: [], precision });
-  expect(result.model.sha256).toBe(manifestVariant!.sha256);
+  expect(result.model.source.sha256).toBe(manifestVariant!.sha256);
   expect(result.fixtures).toHaveLength(fixturesLock.fixtures.length);
   const evaluatedFixtures = result.fixtures.map(
     ({ acceptedDetections, detections, ...fixture }) => ({
@@ -672,7 +709,7 @@ test("records strict seven-fixture browser evidence", async ({ browser, page }) 
         ?.revision,
     fallbacks: result.runtime.fallbacks,
     modelBytes: result.model.bytes,
-    modelSha256: result.model.sha256,
+    modelSha256: result.model.source.sha256,
     onnxruntimeWebVersion: "1.27.0",
     adapter: result.adapter,
     adapterFeatures: result.adapterFeatures,

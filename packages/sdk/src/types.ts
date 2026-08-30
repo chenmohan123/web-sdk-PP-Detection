@@ -44,6 +44,7 @@ export interface DetectionPreprocessing {
   readonly size: { readonly width: number; readonly height: number };
   readonly rescaleFactor: number;
   readonly resizeMode?: "letterbox" | "stretch";
+  readonly interpolation?: "bilinear" | "bicubic";
   readonly mean?: readonly number[];
   readonly std?: readonly number[];
   readonly doResize?: boolean;
@@ -121,9 +122,10 @@ export interface ModelManifest {
     doRescale: boolean;
     doResize: boolean;
     readonly resizeMode?: "letterbox" | "stretch";
+    readonly interpolation?: "bilinear" | "bicubic";
     imageMean: readonly [number, number, number];
     imageStd: readonly [number, number, number];
-    resample: number;
+    resample: 2 | 3;
     rescaleFactor: number;
     size: Readonly<{ height: number; width: number }>;
   }>;

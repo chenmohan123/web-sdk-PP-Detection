@@ -13,6 +13,12 @@ const plan: ExecutionPlan = {
   candidates: [{ variantId: "fp32", backend: "wasm", precision: "fp32", executionMode: "main" }]
 };
 
+const webgpuPlan: ExecutionPlan = {
+  ...plan,
+  actualBackend: "webgpu",
+  candidates: [{ variantId: "fp32", backend: "webgpu", precision: "fp32", executionMode: "main" }]
+};
+
 it("按计划创建 wasm session，设置运行时/会话选项并记录耗时", async () => {
   const run = vi.fn().mockResolvedValue({ output: 1 });
   const release = vi.fn();
@@ -36,6 +42,20 @@ it("按计划创建 wasm session，设置运行时/会话选项并记录耗时",
   await handle.dispose();
   await handle.dispose();
   expect(release).toHaveBeenCalledTimes(1);
+});
+
+it("webgpu session 也配置 ORT wasm 资源路径", async () => {
+  const ort = {
+    env: { wasm: {} as Record<string, unknown> },
+    InferenceSession: { create: vi.fn().mockResolvedValue({ run: vi.fn(), release: vi.fn() }) }
+  };
+  const handle = await createOrtSession(new ArrayBuffer(1), webgpuPlan, {
+    ort,
+    wasmPaths: "/ort/"
+  });
+
+  expect(ort.env.wasm.wasmPaths).toBe("/ort/");
+  await handle.dispose();
 });
 
 it("AbortSignal 取消后等待底层 run 收敛再抛出 ABORTED", async () => {
@@ -115,4 +135,17 @@ it("ORT 模块加载异常映射为 SESSION_CREATE_FAILED", async () => {
     })
   ).rejects.toMatchObject({ code: "SESSION_CREATE_FAILED" });
   expect(loadOrt).toHaveBeenCalledTimes(1);
+  expect(loadOrt).toHaveBeenCalledWith("wasm");
+});
+
+it("按 webgpu 后端请求专用 ORT 模块入口", async () => {
+  const loadOrt = vi.fn(async () => ({
+    env: { wasm: {} },
+    InferenceSession: {
+      create: vi.fn().mockResolvedValue({ run: vi.fn(), release: vi.fn() })
+    }
+  }));
+  const handle = await createOrtSession(new ArrayBuffer(1), webgpuPlan, { loadOrt });
+  expect(loadOrt).toHaveBeenCalledWith("webgpu");
+  await handle.dispose();
 });

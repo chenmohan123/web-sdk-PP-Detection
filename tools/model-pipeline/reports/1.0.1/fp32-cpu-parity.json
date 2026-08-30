@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "modelVersion": "1.0.1",
+  "reference": {
+    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+    "bytes": 23219047,
+    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+  },
+  "candidate": {
+    "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "provider": "CPUExecutionProvider"
+  },
+  "preprocessing": {
+    "resizeMode": "stretch",
+    "resample": "bicubic",
+    "size": [320, 320],
+    "rescaleFactor": 0.00392156862745098,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225]
+  },
+  "thresholds": {
+    "maxScoreDelta": 0.001,
+    "maxCoordinateDeltaPixels": 0.001
+  },
+  "fixtures": [
+    {
+      "filename": "curved-document.jpg",
+      "sha256": "fce39d864ff7b0612f7073415c2a7c656f7790a26f96d539831f1bb1a994a069",
+      "referenceRows": 90,
+      "candidateRows": 90,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.000030517578125,
+      "pass": true
+    },
+    {
+      "filename": "doc-formula.png",
+      "sha256": "6b07d28527dc9e930804fa73df562f1a81599c6b8a1a8bbc2a80742fa9f26e80",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.000030517578125,
+      "pass": true
+    },
+    {
+      "filename": "image-layout.jpg",
+      "sha256": "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.000030517578125,
+      "pass": true
+    },
+    {
+      "filename": "layout-demo.jpg",
+      "sha256": "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
+      "referenceRows": 61,
+      "candidateRows": 61,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.000030517578125,
+      "pass": true
+    },
+    {
+      "filename": "screen-photo.jpg",
+      "sha256": "f27a8ad40192f2bff4bcc3605beaddf246bc35b07355e688defde1a2de333aa1",
+      "referenceRows": 49,
+      "candidateRows": 49,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.00006103515625,
+      "pass": true
+    },
+    {
+      "filename": "skew-document.jpg",
+      "sha256": "4ae0d5bebbe152a9cca8add806e376b3eb3314c3a55d6b7ccba70d9c4de97a1e",
+      "referenceRows": 49,
+      "candidateRows": 49,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.00006103515625,
+      "pass": true
+    },
+    {
+      "filename": "table.png",
+      "sha256": "6d50148ceccb2d5cecc50b084b5105e3167f2d55a8899b29e04c3ebe46e88fa8",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0,
+      "maxCoordinateDeltaPixels": 0.000030517578125,
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "CPU 原始输出 parity 不替代浏览器 WASM/WebGPU 证据。",
+    "PaddlePaddle 原生参考未在隔离 Python 环境中运行。"
+  ],
+  "verifiedAt": "2026-08-30"
+}

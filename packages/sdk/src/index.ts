@@ -70,6 +70,11 @@ export { PPDetectionError } from "./errors";
 export type { PPDetectionErrorCode } from "./errors";
 export { probeCapabilities } from "./runtime/capabilities";
 export type { CapabilityProbeOptions } from "./runtime/capabilities";
+export function probePPDetectionCapabilities(
+  options: import("./runtime/capabilities").CapabilityProbeOptions = {}
+) {
+  return probeCapabilities(options);
+}
 export { selectExecutionPlan } from "./runtime/select-plan";
 export type {
   ExecutionCandidate,

@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "validationErrors": [],
+  "referenceType": "accepted-model",
+  "reference": {
+    "type": "accepted-model",
+    "modelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+  },
+  "referenceModelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+  "acceptedModelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+  "executionProvider": "webgpu",
+  "precision": "fp32",
+  "requestedSource": "huggingface",
+  "sourceKind": "huggingface",
+  "manifestRevision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+  "fallbacks": [],
+  "modelBytes": 23243834,
+  "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+  "onnxruntimeWebVersion": "1.27.0",
+  "adapter": {
+    "architecture": "blackwell",
+    "description": null,
+    "device": null,
+    "vendor": "nvidia"
+  },
+  "adapterFeatures": [
+    "bgra8unorm-storage",
+    "clip-distances",
+    "core-features-and-limits",
+    "depth-clip-control",
+    "depth32float-stencil8",
+    "dual-source-blending",
+    "float32-blendable",
+    "float32-filterable",
+    "indirect-first-instance",
+    "primitive-index",
+    "rg11b10ufloat-renderable",
+    "shader-f16",
+    "subgroups",
+    "texture-component-swizzle",
+    "texture-compression-bc",
+    "texture-compression-bc-sliced-3d",
+    "texture-formats-tier1",
+    "texture-formats-tier2",
+    "timestamp-query"
+  ],
+  "browser": {
+    "name": "Chromium",
+    "version": "151.0.7922.174",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36"
+  },
+  "operatingSystem": "win32 10.0.26200",
+  "fixtures": [
+    {
+      "acceptedOutputSha256": "34408fea5f7176d79bcbc1c21442ef192ae9e1aef259ebae4c90580e018044e7",
+      "detectionCount": 1,
+      "expectedDetectionCount": 1,
+      "filename": "curved-document.jpg",
+      "fixtureSha256": "fce39d864ff7b0612f7073415c2a7c656f7790a26f96d539831f1bb1a994a069",
+      "outputSha256": "ef9dad1e2061f75aba236ecc66c862b3485acd08b3e1242f98fcc76140c27a7c",
+      "timings": {
+        "decodeMs": 15.060000002384186,
+        "preprocessMs": 163.5300000011921,
+        "inferenceMs": 1370.109999999404,
+        "postprocessMs": 0.11499999463558197,
+        "totalMs": 1549.3100000023842
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.00012140274043304089,
+        "maxPolygonCoordinateDeltaPixels": 0.00012140274043304089,
+        "maxScoreDelta": 5.960464477539063e-8
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "8d5de763cb9db5e9c9048fabaeb8e55e9c9aa742d4cab7f082f52a4b32ba12c2",
+      "detectionCount": 1,
+      "expectedDetectionCount": 1,
+      "filename": "doc-formula.png",
+      "fixtureSha256": "6b07d28527dc9e930804fa73df562f1a81599c6b8a1a8bbc2a80742fa9f26e80",
+      "outputSha256": "0752f820b9dc66015066a5e16ed866ded6d0d6734b3cd6522b44cbdbf76fa262",
+      "timings": {
+        "decodeMs": 15.275000005960464,
+        "preprocessMs": 99.84000000357628,
+        "inferenceMs": 92.125,
+        "postprocessMs": 0.16499999165534973,
+        "totalMs": 208.01999999582767
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.000050354003906252776,
+        "maxPolygonCoordinateDeltaPixels": 0.000050354003906252776,
+        "maxScoreDelta": 5.364418029785156e-7
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "8bc7976d29117667a3f8d698e23537e11ac4f12f4dc020e766b0a7b2f7c8f6ed",
+      "detectionCount": 2,
+      "expectedDetectionCount": 2,
+      "filename": "image-layout.jpg",
+      "fixtureSha256": "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
+      "outputSha256": "4c5c0f663f097c77226261960173fb0313d1cdaf90286d359c20e13d9380a643",
+      "timings": {
+        "decodeMs": 34.00499999523163,
+        "preprocessMs": 106.84000000357628,
+        "inferenceMs": 40.58500000834465,
+        "postprocessMs": 0.14499999582767487,
+        "totalMs": 182.21500000357628
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.00015821456909179132,
+        "maxPolygonCoordinateDeltaPixels": 0.00015821456909179132,
+        "maxScoreDelta": 7.152557373046875e-7
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "dc15472e285dd77e8f5444eff63fae0c17c0682a4f3829756357f3d26e5d9036",
+      "detectionCount": 2,
+      "expectedDetectionCount": 2,
+      "filename": "layout-demo.jpg",
+      "fixtureSha256": "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
+      "outputSha256": "31fc69ed0796a927472faa05262b98a87ede8ad90bc8e7c0c003168c38f8bbae",
+      "timings": {
+        "decodeMs": 28.739999994635582,
+        "preprocessMs": 272.8500000089407,
+        "inferenceMs": 76.20999999344349,
+        "postprocessMs": 0.05500000715255737,
+        "totalMs": 379.3449999988079
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.0008922576904240032,
+        "maxPolygonCoordinateDeltaPixels": 0.0008922576904240032,
+        "maxScoreDelta": 0.000001430511474609375
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "f7a70941de54bade1c9b539055529ef2ba9a209faee358ce06b122e202afcce1",
+      "detectionCount": 2,
+      "expectedDetectionCount": 2,
+      "filename": "screen-photo.jpg",
+      "fixtureSha256": "f27a8ad40192f2bff4bcc3605beaddf246bc35b07355e688defde1a2de333aa1",
+      "outputSha256": "8960038dcfe09bacfe58caef11625cd43a7ed2d989617d2c5a947b711666f32d",
+      "timings": {
+        "decodeMs": 15.955000013113022,
+        "preprocessMs": 114.2749999910593,
+        "inferenceMs": 43.76500000059605,
+        "postprocessMs": 0.04999999701976776,
+        "totalMs": 174.71500000357628
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.000133514404296875,
+        "maxPolygonCoordinateDeltaPixels": 0.000133514404296875,
+        "maxScoreDelta": 0.0000010728836059570312
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "3b636b976af52dab91ce5266ce3af6cc9cf24637f06debb8a31ac1f3aed60cd2",
+      "detectionCount": 1,
+      "expectedDetectionCount": 1,
+      "filename": "skew-document.jpg",
+      "fixtureSha256": "4ae0d5bebbe152a9cca8add806e376b3eb3314c3a55d6b7ccba70d9c4de97a1e",
+      "outputSha256": "bb7579875872529e011f204cd49f3d60d48eb982d4b4025538e5122a08242a08",
+      "timings": {
+        "decodeMs": 11.879999995231628,
+        "preprocessMs": 106,
+        "inferenceMs": 51.270000010728836,
+        "postprocessMs": 0.0599999874830246,
+        "totalMs": 169.7550000101328
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0.00019826889037233286,
+        "maxPolygonCoordinateDeltaPixels": 0.00019826889037233286,
+        "maxScoreDelta": 3.5762786865234375e-7
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": []
+    },
+    {
+      "acceptedOutputSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "detectionCount": 0,
+      "expectedDetectionCount": 0,
+      "filename": "table.png",
+      "fixtureSha256": "6d50148ceccb2d5cecc50b084b5105e3167f2d55a8899b29e04c3ebe46e88fa8",
+      "outputSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "timings": {
+        "decodeMs": 3.019999995827675,
+        "preprocessMs": 24.41500000655651,
+        "inferenceMs": 77.07999999821186,
+        "postprocessMs": 0.034999996423721313,
+        "totalMs": 104.56499999761581
+      },
+      "parity": "passed",
+      "parityMetrics": {
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
+      },
+      "parityThresholds": {
+        "maxBoxCoordinateDeltaPixels": 1,
+        "maxPolygonCoordinateDeltaPixels": 1.5,
+        "maxScoreDelta": 0.001,
+        "policy": "fp32-equality"
+      },
+      "validationErrors": [],
+      "referenceMetrics": null,
+      "referenceThresholds": {
+        "iou": 0.95,
+        "maxScoreDelta": 0.02,
+        "meanPolygonPointDistancePixels": 2
+      }
+    }
+  ],
+  "timingsMs": {
+    "coldLoad": {
+      "modelCacheReadMs": 1.9650000035762787,
+      "modelDownloadMs": 292.0600000023842,
+      "integrityMs": 72.96499998867512,
+      "sessionMs": 1423.5999999940395,
+      "totalMs": 1833.0499999970198
+    },
+    "warmLoad": {
+      "modelCacheReadMs": 36.17000000178814,
+      "integrityMs": 64.70499999821186,
+      "sessionMs": 271.2800000011921,
+      "totalMs": 372.47999998927116
+    }
+  },
+  "sdkCommit": "154a7c6ea40a0fe85878b0f8666dcd1a388a845a",
+  "capabilities": {
+    "webgpu": true,
+    "worker": true,
+    "offscreenCanvas": true,
+    "wasmSimd": false,
+    "wasmThreads": true
+  },
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "generatedAt": "2026-08-30T13:33:56.848Z",
+  "id": "webgpu-fp32"
+}

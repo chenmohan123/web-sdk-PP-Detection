@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "labs/blocked",
+  "modelVersion": "1.0.1",
+  "source": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+  "target": "picodet-l-320-fp32.onnx",
+  "steps": [
+    "sanitize_picodet_webgpu_fp32.py",
+    "onnx.checker.check_model",
+    "onnx.shape_inference.infer_shapes",
+    "CPU parity on seven fixtures"
+  ],
+  "webgpuCompatibility": {
+    "matmulWeight": "auto_4_",
+    "beforeShape": [8],
+    "afterShape": [8, 1]
+  },
+  "blockedReason": "公共来源、WASM、真实 NVIDIA WebGPU 和 FP16 证据尚未全部完成"
+}

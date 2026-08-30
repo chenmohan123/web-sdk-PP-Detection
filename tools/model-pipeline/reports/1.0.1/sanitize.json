@@ -1,8 +1,36 @@
 {
-  "status": "blocked",
+  "schemaVersion": 1,
+  "status": "passed",
   "modelVersion": "1.0.1",
-  "source": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
-  "reason": "当前候选不包含四个已知 DOUBLE 位置初始化器 sin、cos、sin_1、cos_1，未生成 1.0.1 清理模型。",
-  "targetExists": false,
-  "verifiedAt": "2026-08-29"
+  "source": {
+    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+    "bytes": 23219047,
+    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+  },
+  "target": {
+    "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+  },
+  "transformation": {
+    "type": "picodet-webgpu-matmul-rank2",
+    "weight": "auto_4_",
+    "beforeShape": [8],
+    "afterShape": [8, 1],
+    "nodes": ["MatMul_0", "MatMul_1", "MatMul_2", "MatMul_3"],
+    "remainingDoubleInitializers": []
+  },
+  "checks": {
+    "onnxChecker": true,
+    "shapeInference": true,
+    "input": {"name": "image", "shape": [1, 3, 320, 320], "dtype": "float32"},
+    "outputNames": ["multiclass_nms3_0.tmp_0", "multiclass_nms3_0.tmp_2"],
+    "opset": 11,
+    "parameterCount": 5787988
+  },
+  "verifiedAt": "2026-08-30",
+  "limitations": [
+    "该报告只证明本地结构清理和 CPU parity，不证明公共来源可访问。",
+    "WASM、真实 NVIDIA WebGPU、FP16 和移动端/微信 WebView 证据尚未完成。"
+  ]
 }

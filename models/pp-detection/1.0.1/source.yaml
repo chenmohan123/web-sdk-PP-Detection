@@ -1,3 +1,17 @@
 status: labs/blocked
 version: 1.0.1
-reason: 清理器结构门槛和 FP32/FP16 浏览器证据尚未完成，禁止生成 stable 变体。
+reason: FP32 WebGPU 清理候选已生成，但三类不可变来源、WASM、真实 NVIDIA WebGPU 和 FP16 证据尚未完成，禁止生成 stable 变体。
+artifacts:
+  fp32:
+    path: picodet-l-320-fp32.onnx
+    bytes: 23243834
+    sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
+    precision: fp32
+    quantization: none
+    opset: 11
+    parameterCount: 5787988
+  fp16:
+    status: pending
+sources:
+  status: pending
+  required: [huggingface, modelscope, git-lfs]

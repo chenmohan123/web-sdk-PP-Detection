@@ -1,6 +1,6 @@
 status: labs/blocked
 version: 1.0.1
-reason: 三类不可变来源已完成上传和字节回读，但 WASM、真实 NVIDIA WebGPU、FP16 以及移动端/微信 WebView 证据尚未完成，禁止生成 stable 变体。
+reason: 三类不可变来源和 FP32 的 Linux WASM、Windows NVIDIA WebGPU 浏览器验证已完成，但 FP16、移动端和微信 WebView 证据尚未完成，禁止生成 stable 变体。
 artifacts:
   fp32:
     path: picodet-l-320-fp32.onnx
@@ -38,3 +38,8 @@ sources:
       downloadUrl: https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
       bytes: 23243834
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
+browserEvidence:
+  status: verified
+  evidence: tools/model-pipeline/reports/1.0.1/remote-validation.json
+  wasmFp32: tools/model-pipeline/reports/1.0.1/wasm-fp32.json
+  webgpuFp32: tools/model-pipeline/reports/1.0.1/webgpu-fp32.json

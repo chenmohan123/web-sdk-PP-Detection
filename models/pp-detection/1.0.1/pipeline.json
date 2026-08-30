@@ -15,5 +15,5 @@
     "beforeShape": [8],
     "afterShape": [8, 1]
   },
-  "blockedReason": "WASM、真实 NVIDIA WebGPU、FP16 以及移动端/微信 WebView 证据尚未全部完成"
+  "blockedReason": "FP32 的 Linux WASM 和 Windows NVIDIA WebGPU 已通过 7 张 fixture 验证；FP16、移动端和微信 WebView 证据尚未全部完成"
 }

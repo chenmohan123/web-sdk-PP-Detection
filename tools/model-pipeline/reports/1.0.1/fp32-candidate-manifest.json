@@ -20,6 +20,7 @@
       "quantization": "none",
       "opset": 11,
       "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "parameterCount": 5787988,
       "backends": ["wasm", "webgpu"],
       "sources": [

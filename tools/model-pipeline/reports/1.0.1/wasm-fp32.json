@@ -11,9 +11,9 @@
   "acceptedModelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
   "executionProvider": "wasm",
   "precision": "fp32",
-  "requestedSource": "huggingface",
-  "sourceKind": "huggingface",
-  "manifestRevision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+  "requestedSource": "custom",
+  "sourceKind": "custom",
+  "manifestRevision": "cccccccccccccccccccccccccccccccccccccccc",
   "fallbacks": [],
   "modelBytes": 23243834,
   "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
@@ -23,29 +23,29 @@
   "browser": {
     "name": "Chromium",
     "version": "151.0.7922.34",
-    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36"
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36"
   },
-  "operatingSystem": "linux 6.17.0-1022-azure",
+  "operatingSystem": "win32 10.0.26200",
   "fixtures": [
     {
-      "acceptedOutputSha256": "34408fea5f7176d79bcbc1c21442ef192ae9e1aef259ebae4c90580e018044e7",
+      "acceptedOutputSha256": "6bad8631889c3d1cff72ce8ce448cedc15bef441055179bdddb65d149326a235",
       "detectionCount": 1,
       "expectedDetectionCount": 1,
       "filename": "curved-document.jpg",
       "fixtureSha256": "fce39d864ff7b0612f7073415c2a7c656f7790a26f96d539831f1bb1a994a069",
       "outputSha256": "6bad8631889c3d1cff72ce8ce448cedc15bef441055179bdddb65d149326a235",
       "timings": {
-        "decodeMs": 25.054999999993015,
-        "preprocessMs": 135.5,
-        "inferenceMs": 389.76499999998487,
-        "postprocessMs": 0.1150000000197906,
-        "totalMs": 550.7449999999953
+        "decodeMs": 16.26000002026558,
+        "preprocessMs": 157.48999997973442,
+        "inferenceMs": 277.80500000715256,
+        "postprocessMs": 0.09000000357627869,
+        "totalMs": 452.17500001192093
       },
       "parity": "passed",
       "parityMetrics": {
-        "maxBoxCoordinateDeltaPixels": 0.00012140274043304089,
-        "maxPolygonCoordinateDeltaPixels": 0.00012140274043304089,
-        "maxScoreDelta": 5.960464477539063e-8
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
       },
       "parityThresholds": {
         "maxBoxCoordinateDeltaPixels": 1,
@@ -63,11 +63,11 @@
       "fixtureSha256": "6b07d28527dc9e930804fa73df562f1a81599c6b8a1a8bbc2a80742fa9f26e80",
       "outputSha256": "8d5de763cb9db5e9c9048fabaeb8e55e9c9aa742d4cab7f082f52a4b32ba12c2",
       "timings": {
-        "decodeMs": 22.679999999993015,
-        "preprocessMs": 130.30999999999767,
-        "inferenceMs": 271.9400000000023,
-        "postprocessMs": 0.10999999998603016,
-        "totalMs": 425.49499999999534
+        "decodeMs": 8.655000001192093,
+        "preprocessMs": 131.6850000023842,
+        "inferenceMs": 283.80500000715256,
+        "postprocessMs": 0.13999998569488525,
+        "totalMs": 424.82000002264977
       },
       "parity": "passed",
       "parityMetrics": {
@@ -84,24 +84,24 @@
       "validationErrors": []
     },
     {
-      "acceptedOutputSha256": "8bc7976d29117667a3f8d698e23537e11ac4f12f4dc020e766b0a7b2f7c8f6ed",
+      "acceptedOutputSha256": "c6677722576c8ab0c92900493a3948ee66a53145a3e0c96c72b256069ce5e4e3",
       "detectionCount": 2,
       "expectedDetectionCount": 2,
       "filename": "image-layout.jpg",
       "fixtureSha256": "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
       "outputSha256": "c6677722576c8ab0c92900493a3948ee66a53145a3e0c96c72b256069ce5e4e3",
       "timings": {
-        "decodeMs": 29.660000000003492,
-        "preprocessMs": 77.27999999999884,
-        "inferenceMs": 274.625,
-        "postprocessMs": 0.08999999999650754,
-        "totalMs": 381.98500000001513
+        "decodeMs": 29.28499999642372,
+        "preprocessMs": 75.19999998807907,
+        "inferenceMs": 278.455000013113,
+        "postprocessMs": 0.07999998331069946,
+        "totalMs": 383.56999999284744
       },
       "parity": "passed",
       "parityMetrics": {
-        "maxBoxCoordinateDeltaPixels": 0.00003609657287595436,
-        "maxPolygonCoordinateDeltaPixels": 0.00003609657287595436,
-        "maxScoreDelta": 1.1920928955078125e-7
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
       },
       "parityThresholds": {
         "maxBoxCoordinateDeltaPixels": 1,
@@ -112,24 +112,24 @@
       "validationErrors": []
     },
     {
-      "acceptedOutputSha256": "dc15472e285dd77e8f5444eff63fae0c17c0682a4f3829756357f3d26e5d9036",
+      "acceptedOutputSha256": "c6ff498c79fa268bb13aaa923e59813744ac3afd6b61e4384d10be72e224aaf4",
       "detectionCount": 2,
       "expectedDetectionCount": 2,
       "filename": "layout-demo.jpg",
       "fixtureSha256": "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
       "outputSha256": "c6ff498c79fa268bb13aaa923e59813744ac3afd6b61e4384d10be72e224aaf4",
       "timings": {
-        "decodeMs": 26.419999999983702,
-        "preprocessMs": 216.75,
-        "inferenceMs": 258.1349999999802,
-        "postprocessMs": 0.0650000000023283,
-        "totalMs": 501.75
+        "decodeMs": 31.674999982118607,
+        "preprocessMs": 386.44999998807907,
+        "inferenceMs": 253.82499998807907,
+        "postprocessMs": 0.05500000715255737,
+        "totalMs": 673.5049999952316
       },
       "parity": "passed",
       "parityMetrics": {
-        "maxBoxCoordinateDeltaPixels": 0.00007886886596675247,
-        "maxPolygonCoordinateDeltaPixels": 0.00007886886596675247,
-        "maxScoreDelta": 2.980232238769531e-7
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
       },
       "parityThresholds": {
         "maxBoxCoordinateDeltaPixels": 1,
@@ -140,24 +140,24 @@
       "validationErrors": []
     },
     {
-      "acceptedOutputSha256": "f7a70941de54bade1c9b539055529ef2ba9a209faee358ce06b122e202afcce1",
+      "acceptedOutputSha256": "0e793088c20c476f2494bf0a6c1ccfe99692ed5f5daa85aa3c7fb04000b8d426",
       "detectionCount": 2,
       "expectedDetectionCount": 2,
       "filename": "screen-photo.jpg",
       "fixtureSha256": "f27a8ad40192f2bff4bcc3605beaddf246bc35b07355e688defde1a2de333aa1",
       "outputSha256": "0e793088c20c476f2494bf0a6c1ccfe99692ed5f5daa85aa3c7fb04000b8d426",
       "timings": {
-        "decodeMs": 18.52499999999418,
-        "preprocessMs": 99.88500000000931,
-        "inferenceMs": 259.0899999999965,
-        "postprocessMs": 0.059999999997671694,
-        "totalMs": 377.86999999999534
+        "decodeMs": 13.86499997973442,
+        "preprocessMs": 101.21500000357628,
+        "inferenceMs": 252.91000002622604,
+        "postprocessMs": 0.06499999761581421,
+        "totalMs": 368.6100000143051
       },
       "parity": "passed",
       "parityMetrics": {
-        "maxBoxCoordinateDeltaPixels": 0.000133514404296875,
-        "maxPolygonCoordinateDeltaPixels": 0.000133514404296875,
-        "maxScoreDelta": 3.5762786865234375e-7
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
       },
       "parityThresholds": {
         "maxBoxCoordinateDeltaPixels": 1,
@@ -168,24 +168,24 @@
       "validationErrors": []
     },
     {
-      "acceptedOutputSha256": "3b636b976af52dab91ce5266ce3af6cc9cf24637f06debb8a31ac1f3aed60cd2",
+      "acceptedOutputSha256": "4de8649fc4e5c867b931a3cb01e1049c0e7c2b3bba0488dbf1e464d8e80886a2",
       "detectionCount": 1,
       "expectedDetectionCount": 1,
       "filename": "skew-document.jpg",
       "fixtureSha256": "4ae0d5bebbe152a9cca8add806e376b3eb3314c3a55d6b7ccba70d9c4de97a1e",
       "outputSha256": "4de8649fc4e5c867b931a3cb01e1049c0e7c2b3bba0488dbf1e464d8e80886a2",
       "timings": {
-        "decodeMs": 15.709999999991851,
-        "preprocessMs": 99.92499999998836,
-        "inferenceMs": 258.5250000000233,
-        "postprocessMs": 0.09500000000116415,
-        "totalMs": 374.6149999999907
+        "decodeMs": 11.995000004768372,
+        "preprocessMs": 103.6550000011921,
+        "inferenceMs": 271.3799999952316,
+        "postprocessMs": 0.0350000262260437,
+        "totalMs": 387.60000002384186
       },
       "parity": "passed",
       "parityMetrics": {
-        "maxBoxCoordinateDeltaPixels": 0.00006608963012411095,
-        "maxPolygonCoordinateDeltaPixels": 0.00006608963012411095,
-        "maxScoreDelta": 1.7881393432617188e-7
+        "maxBoxCoordinateDeltaPixels": 0,
+        "maxPolygonCoordinateDeltaPixels": 0,
+        "maxScoreDelta": 0
       },
       "parityThresholds": {
         "maxBoxCoordinateDeltaPixels": 1,
@@ -203,11 +203,11 @@
       "fixtureSha256": "6d50148ceccb2d5cecc50b084b5105e3167f2d55a8899b29e04c3ebe46e88fa8",
       "outputSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
       "timings": {
-        "decodeMs": 4.054999999993015,
-        "preprocessMs": 23.57500000001164,
-        "inferenceMs": 259.1900000000023,
-        "postprocessMs": 0.044999999983701855,
-        "totalMs": 286.86999999999534
+        "decodeMs": 2.8949999809265137,
+        "preprocessMs": 24.390000015497208,
+        "inferenceMs": 252.50999999046326,
+        "postprocessMs": 0.030000001192092896,
+        "totalMs": 279.8299999833107
       },
       "parity": "passed",
       "parityMetrics": {
@@ -232,20 +232,20 @@
   ],
   "timingsMs": {
     "coldLoad": {
-      "modelCacheReadMs": 0.6400000000139698,
-      "modelDownloadMs": 84.4549999999872,
-      "integrityMs": 22.67499999998836,
-      "sessionMs": 1001.9750000000058,
-      "totalMs": 1151.9850000000151
+      "modelCacheReadMs": 0.4699999988079071,
+      "modelDownloadMs": 194.70500001311302,
+      "integrityMs": 62.804999977350235,
+      "sessionMs": 975.3449999988079,
+      "totalMs": 1285.530000001192
     },
     "warmLoad": {
-      "modelCacheReadMs": 28.03499999997439,
-      "integrityMs": 19.130000000004657,
-      "sessionMs": 112.625,
-      "totalMs": 160.12999999997555
+      "modelCacheReadMs": 27.419999986886978,
+      "integrityMs": 58.49000000953674,
+      "sessionMs": 89.41499999165535,
+      "totalMs": 175.51499998569489
     }
   },
-  "sdkCommit": "154a7c6ea40a0fe85878b0f8666dcd1a388a845a",
+  "sdkCommit": "3d194b9ebff50175ebb0c9d36702852d7b7e506e",
   "capabilities": {
     "webgpu": true,
     "worker": false,
@@ -253,7 +253,7 @@
     "wasmSimd": false,
     "wasmThreads": true
   },
-  "cpu": "AMD EPYC 7763 64-Core Processor",
-  "generatedAt": "2026-08-30T13:33:43.938Z",
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "generatedAt": "2026-08-30T18:16:17.206Z",
   "id": "wasm-fp32"
 }

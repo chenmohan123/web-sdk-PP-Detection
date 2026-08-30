@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-uploaded",
+  "model": {
+    "id": "pp-picodet-l-320",
+    "version": "1.0.1",
+    "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+    "precision": "fp32",
+    "quantization": "none",
+    "opset": 11,
+    "parameterCount": 5787988
+  },
+  "distribution": {
+    "huggingface": {
+      "kind": "huggingface",
+      "status": "verified",
+      "revision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "1.0.1/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "verification": "固定 revision 下载后本地 SHA-256 回读"
+    },
+    "modelscope": {
+      "kind": "modelscope",
+      "status": "verified",
+      "revision": "5dc50e4488a81c62cada7879b685f0301449930d",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "1.0.1/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/5dc50e4488a81c62cada7879b685f0301449930d/1.0.1/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "verification": "固定 revision 下载及 ModelScope 文件元数据回读"
+    },
+    "git-lfs": {
+      "kind": "git-lfs",
+      "status": "verified",
+      "revision": "3204072ce46d2afde30a47859f187a4dc293f345",
+      "repository": "chenmohan123/web-sdk-PP-Detection",
+      "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "verification": "固定 Git commit 的 LFS 下载后本地 SHA-256 回读"
+    }
+  },
+  "sourceValidation": {
+    "validator": "tools/model-pipeline/picodet/source_evidence.py",
+    "requiredKinds": ["huggingface", "modelscope", "git-lfs"],
+    "order": ["huggingface", "modelscope", "git-lfs"],
+    "checks": ["HTTPS 主机", "不可变十六进制 revision", "bytes 与 SHA-256 与本地文件一致"]
+  },
+  "verifiedAt": "2026-08-30",
+  "limitations": [
+    "来源核验只证明固定 revision 的文件可下载且字节一致，不证明浏览器后端兼容性。",
+    "FP16、WASM、真实 NVIDIA WebGPU、移动端和微信 WebView 证据尚未完成，manifest 继续保持 labs/blocked。"
+  ]
+}

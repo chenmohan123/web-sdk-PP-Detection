@@ -1,6 +1,6 @@
 status: labs/blocked
 version: 1.0.1
-reason: FP32 WebGPU 清理候选已生成，但三类不可变来源、WASM、真实 NVIDIA WebGPU 和 FP16 证据尚未完成，禁止生成 stable 变体。
+reason: 三类不可变来源已完成上传和字节回读，但 WASM、真实 NVIDIA WebGPU、FP16 以及移动端/微信 WebView 证据尚未完成，禁止生成 stable 变体。
 artifacts:
   fp32:
     path: picodet-l-320-fp32.onnx
@@ -13,5 +13,28 @@ artifacts:
   fp16:
     status: pending
 sources:
-  status: pending
+  status: verified
   required: [huggingface, modelscope, git-lfs]
+  evidence: tools/model-pipeline/reports/1.0.1/source-evidence.json
+  sourceDetails:
+    huggingface:
+      revision: b089403d908b40f28e56e4c0330c3c8b6e71183f
+      repository: chenmohan/web-sdk-pp-detection
+      path: 1.0.1/picodet-l-320-fp32.onnx
+      downloadUrl: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+      bytes: 23243834
+      sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
+    modelscope:
+      revision: 5dc50e4488a81c62cada7879b685f0301449930d
+      repository: chenmohan/web-sdk-pp-detection
+      path: 1.0.1/picodet-l-320-fp32.onnx
+      downloadUrl: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/5dc50e4488a81c62cada7879b685f0301449930d/1.0.1/picodet-l-320-fp32.onnx
+      bytes: 23243834
+      sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
+    git-lfs:
+      revision: 3204072ce46d2afde30a47859f187a4dc293f345
+      repository: chenmohan123/web-sdk-PP-Detection
+      path: models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
+      downloadUrl: https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
+      bytes: 23243834
+      sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1

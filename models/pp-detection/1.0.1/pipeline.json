@@ -15,5 +15,5 @@
     "beforeShape": [8],
     "afterShape": [8, 1]
   },
-  "blockedReason": "公共来源、WASM、真实 NVIDIA WebGPU 和 FP16 证据尚未全部完成"
+  "blockedReason": "WASM、真实 NVIDIA WebGPU、FP16 以及移动端/微信 WebView 证据尚未全部完成"
 }

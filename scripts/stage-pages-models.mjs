@@ -5,10 +5,12 @@ import { fileURLToPath } from "node:url";
 
 const modulePath = fileURLToPath(import.meta.url);
 const repositoryRoot = resolve(dirname(modulePath), "..");
-export const MODEL_VERSION = "1.0.0";
-export const MODEL_RELEASE_ROOT = undefined;
-export const MODEL_PUBLIC_ROOT = undefined;
-export const PAGE_MODEL_RELEASES = [];
+export const MODEL_VERSION = "1.0.1";
+export const MODEL_RELEASE_ROOT =
+  "https://github.com/chenmohan123/web-sdk-PP-Detection/releases/download/v1.0.1-models";
+export const MODEL_PUBLIC_ROOT =
+  "https://chenmohan123.github.io/web-sdk-PP-Detection/models/v1.0.1";
+export const PAGE_MODEL_RELEASES = [{ version: "1.0.1", releaseRoot: MODEL_RELEASE_ROOT }];
 
 async function requireOk(response, url) {
   if (!response.ok) throw new Error(`Unable to download ${url}: HTTP ${response.status}`);
@@ -69,7 +71,7 @@ export async function stagePagesModels({
   let manifest = suppliedManifest;
   if (manifest === undefined) {
     if (releaseRoot === undefined) {
-      throw new Error("当前 PicoDet 模型为 labs/blocked，尚未配置可下载的模型发布地址");
+      throw new Error("当前 PicoDet stable 模型缺少不可变发布地址");
     }
     const manifestUrl = `${releaseRoot}/manifest.json`;
     const manifestResponse = await requireOk(await fetchImpl(manifestUrl), manifestUrl);

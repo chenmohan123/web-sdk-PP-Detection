@@ -18,19 +18,19 @@ Use each module's `--help` for exact local model paths and arguments. Validation
 
 ## Current asset status
 
-The repository now contains a reproducible local PicoDet-L-320 FP32 ONNX candidate at
-`models/pp-detection/1.0.0/picodet-l-320-fp32.onnx`. Graph inspection reports
-`23,219,047` bytes, `5,787,988` parameters, and opset 11. CPU ORT parity passes on
-three fixtures; hashes, preprocessing, and error metrics are recorded in
+The repository now contains a reproducible PicoDet-L-320 FP32 stable ONNX asset at
+`models/pp-detection/1.0.1/picodet-l-320-fp32.onnx`. Graph inspection reports
+`23,243,834` bytes, `5,787,988` parameters, and opset 11. CPU ORT parity passes on
+seven fixtures; hashes, preprocessing, and error metrics are recorded in
 `tools/model-pipeline/reports/picodet-parity.json`.
 
-The candidate is recorded in immutable Git LFS, Hugging Face, and ModelScope
+The stable asset is recorded in immutable Git LFS, Hugging Face, and ModelScope
 distribution sources with immutable source revisions, download URLs, byte sizes, and SHA-256 values in
 `tools/model-pipeline/reports/picodet-source-evidence.json`. One Windows HeadlessChrome WASM/CPU smoke test is recorded in
 `tools/model-pipeline/reports/picodet-browser-evidence.json`; WebGPU had no available
 adapter in that run, while mobile, WeChat WebView, and other browsers remain unverified;
-source licensing verification is still pending. The default manifest therefore remains
-`labs/blocked`; pass a verified runtime manifest when integrating the SDK. Documentation
-and manifests do not present the local candidate as a stable release asset.
+source licensing verification is still pending. The 1.0.1 FP32 manifest is `stable` and is
+the default SDK asset. Documentation and manifests keep FP16, quantized, mobile, and WeChat
+WebView support outside the stable release claim.
 
 After official weights are exported, produce evidence for each FP32, FP16, INT8, INT4, or FP8 variant in this order: graph inspection, CPU numeric/detection parity, browser WASM and WebGPU validation, ONNX SHA-256 and immutable-source checks, then `build_manifest`. Mark a variant `stable` only when its evidence is complete and its target backend passes.

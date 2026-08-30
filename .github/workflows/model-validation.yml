@@ -7,12 +7,12 @@ on:
         description: Model version to validate and publish
         required: true
         type: string
-        default: "1.0.0"
+        default: "1.0.1"
       release_tag:
         description: Immutable GitHub Release tag
         required: true
         type: string
-        default: "v1.0.0-models"
+        default: "v1.0.1-models"
       upload_assets:
         description: Create the immutable compatibility manifest release
         required: true
@@ -77,7 +77,8 @@ jobs:
           if-no-files-found: error
           path: |
             models/pp-detection/${{ inputs.model_version }}/manifest.json
-            tools/model-pipeline/reports/${{ inputs.model_version }}/browser-evidence.json
+            tools/model-pipeline/reports/${{ inputs.model_version }}/wasm-fp32.json
+            tools/model-pipeline/reports/${{ inputs.model_version }}/webgpu-fp32.json
             tools/model-pipeline/reports/${{ inputs.model_version }}/fp32-validation.json
             tools/model-pipeline/reports/${{ inputs.model_version }}/variant-validation.json
 

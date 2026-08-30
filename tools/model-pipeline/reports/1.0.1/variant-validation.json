@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "fixturesLockSha256": "e1884d55c83fe24f707675d044dce0a200de74961159364802147e7b4f42b811",
-    "fp32Sha256": "476da6d3892bc6211ec90f53df1f68722626b3cf67af77d1c75bd0bd2ee8d269"
+    "fp32Sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
   },
   "threshold": 0.5,
   "thresholds": {

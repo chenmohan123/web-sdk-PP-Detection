@@ -21,7 +21,7 @@ function read(relativePath) {
 }
 
 describe("发布工作流契约", () => {
-  test("验证当前 0.1.0 阻塞模型清单的静态配置", () => {
+  test("验证当前 0.1.0 稳定模型清单的静态配置", () => {
     const output = execFileSync(process.execPath, [verifier, "--static"], {
       cwd: repositoryRoot,
       encoding: "utf8"
@@ -29,8 +29,42 @@ describe("发布工作流契约", () => {
 
     assert.match(
       output,
-      /Release contract verified: 4 workflows, 0 model variants, model 1\.0\.0\./
+      /Release contract verified: 4 workflows, 1 model variants, model 1\.0\.1\./
     );
+  });
+
+  test("1.0.1 稳定清单只发布 FP32 变体并固定三类来源", () => {
+    const manifest = JSON.parse(read("models/pp-detection/1.0.1/manifest.json"));
+
+    assert.equal(manifest.status, "stable");
+    assert.equal(manifest.variants.length, 1);
+    const [variant] = manifest.variants;
+    assert.equal(variant.id, "fp32");
+    assert.equal(variant.precision, "fp32");
+    assert.equal(variant.quantization, "none");
+    assert.deepEqual(variant.backends, ["wasm", "webgpu"]);
+    assert.equal(variant.bytes, 23243834);
+    assert.equal(
+      variant.sha256,
+      "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+    );
+    assert.deepEqual(variant.sources.map(({ kind }) => kind).sort(), [
+      "git-lfs",
+      "huggingface",
+      "modelscope"
+    ]);
+    for (const source of variant.sources) {
+      assert.equal(source.bytes, variant.bytes);
+      assert.equal(source.sha256, variant.sha256);
+    }
+  });
+
+  test("1.0.1 模型校验不因缺少 FP16 变体而阻塞", () => {
+    const result = runVerifier("--models", "1.0.1");
+
+    assert.equal(result.status, 0, result.stderr || result.stdout);
+    assert.match(result.stdout, /1 model variants, model 1\.0\.1\./);
+    assert.doesNotMatch(result.stderr, /FP16|fp16/);
   });
 
   test("blocked 清单不携带可发布变体", () => {
@@ -50,9 +84,9 @@ describe("发布工作流契约", () => {
   test("模型工作流默认使用当前版本并拒绝旧版本引用", () => {
     const workflow = read(".github/workflows/model-validation.yml");
 
-    assert.match(workflow, /default:\s*["']?1\.0\.0/);
-    assert.match(workflow, /default:\s*["']?v1\.0\.0-models/);
-    assert.doesNotMatch(workflow, /1\.0\.[12]/);
+    assert.match(workflow, /default:\s*["']?1\.0\.1/);
+    assert.match(workflow, /default:\s*["']?v1\.0\.1-models/);
+    assert.doesNotMatch(workflow, /default:\s*["']?1\.0\.0/);
     assert.doesNotMatch(workflow, /PP-DocLayout|PPDOCLAYOUT/);
   });
 
@@ -139,20 +173,23 @@ describe("发布工作流契约", () => {
     assert.match(changelog, /^## 0\.1\.0$/m);
   });
 
-  test("Pages 暂存脚本在模型 blocked 时不访问网络", async () => {
-    const { stageAllPagesModels } = await import("./stage-pages-models.mjs");
+  test("Pages 暂存脚本在历史模型 blocked 时不访问网络", async () => {
+    const { stagePagesModels } = await import("./stage-pages-models.mjs");
     const outputRoot = mkdtempSync(join(tmpdir(), "ppdetection-blocked-pages-"));
     let fetchCalls = 0;
     try {
-      const staged = await stageAllPagesModels({
-        outputRoot,
+      const blockedManifest = JSON.parse(read("models/pp-detection/1.0.0/manifest.json"));
+      const staged = await stagePagesModels({
+        manifest: blockedManifest,
+        outputRoot: join(outputRoot, "v1.0.0"),
+        publicRoot: "https://chenmohan123.github.io/web-sdk-PP-Detection/models/v1.0.0",
         fetchImpl: async () => {
           fetchCalls += 1;
           throw new Error("blocked 模型不应访问网络");
         }
       });
 
-      assert.deepEqual(staged, []);
+      assert.deepEqual(staged, blockedManifest);
       assert.equal(fetchCalls, 0);
       const versionDirectory = join(outputRoot, "v1.0.0");
       assert.deepEqual(

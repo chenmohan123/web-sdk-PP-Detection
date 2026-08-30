@@ -294,18 +294,14 @@ function verifyStaticContract() {
     fail("npm publishing must never run from develop");
   }
 
-  const manifest = JSON.parse(read("models/pp-detection/1.0.0/manifest.json"));
-  if (manifest.status === "labs/blocked") {
-    if (!Array.isArray(manifest.variants) || manifest.variants.length !== 0)
-      fail("blocked model manifest must not contain publishable variants");
-  } else {
-    if (!manifest.variants?.length) fail("stable model manifest must contain variants");
-    for (const variant of manifest.variants) {
-      if (!/^[a-f0-9]{64}$/.test(variant.sha256)) fail(`${variant.id} has an invalid SHA-256`);
-      if (!Number.isSafeInteger(variant.bytes) || variant.bytes <= 0)
-        fail(`${variant.id} has invalid bytes`);
-      verifyStableSources(variant);
-    }
+  const manifest = JSON.parse(read("models/pp-detection/1.0.1/manifest.json"));
+  if (manifest.status !== "stable") fail("current model manifest must be stable");
+  if (!manifest.variants?.length) fail("stable model manifest must contain variants");
+  for (const variant of manifest.variants) {
+    if (!/^[a-f0-9]{64}$/i.test(variant.sha256)) fail(`${variant.id} has an invalid SHA-256`);
+    if (!Number.isSafeInteger(variant.bytes) || variant.bytes <= 0)
+      fail(`${variant.id} has invalid bytes`);
+    verifyStableSources(variant);
   }
 
   for (const path of [
@@ -454,49 +450,38 @@ async function verifyModels(modelVersion) {
 
   const fp32 = JSON.parse(read(`${reportRoot}/fp32-validation.json`));
   const variants = JSON.parse(read(`${reportRoot}/variant-validation.json`));
-  const browser = JSON.parse(read(`${reportRoot}/browser-evidence.json`));
+  const browser = {
+    fp32Wasm: JSON.parse(read(`${reportRoot}/wasm-fp32.json`)),
+    fp32Webgpu: JSON.parse(read(`${reportRoot}/webgpu-fp32.json`))
+  };
   if (fp32.overallPass !== true) fail("FP32 validation report did not pass");
-  if (variants.variants?.fp16?.pass !== true) fail("FP16 validation report did not pass");
-  if (browser.fp16Webgpu?.status !== "passed") fail("FP16 hardware WebGPU evidence is missing");
-  const requiresFp16Wasm = modelVersion === "1.0.2";
-  if (requiresFp16Wasm && browser.fp16Wasm?.status !== "passed")
-    fail("FP16 browser WASM evidence is missing");
   if (fp32.sourceHashes?.onnx !== manifestVariants.fp32?.sha256)
     fail("FP32 validation report does not match the manifest SHA-256");
   if (variants.source?.fp32Sha256 !== manifestVariants.fp32?.sha256)
     fail("variant validation report does not match the FP32 manifest SHA-256");
-  if (variants.variants?.fp16?.browser?.webgpu?.modelSha256 !== manifestVariants.fp16?.sha256)
-    fail("variant validation report does not match the FP16 manifest SHA-256");
-  if (browser.fp16Webgpu?.modelSha256 !== manifestVariants.fp16?.sha256)
-    fail("browser evidence does not match the FP16 manifest SHA-256");
-  if (requiresFp16Wasm) {
-    if (browser.fp16Wasm?.modelSha256 !== manifestVariants.fp16?.sha256)
-      fail("WASM browser evidence does not match the FP16 manifest SHA-256");
-    if (variants.variants?.fp16?.browser?.wasm?.modelSha256 !== manifestVariants.fp16?.sha256)
-      fail("variant validation report does not match the FP16 WASM evidence");
-  }
 
   if (["1.0.1", "1.0.2"].includes(modelVersion)) {
     const fixtureLock = JSON.parse(read("tools/model-pipeline/fixtures/fixtures.lock.json"));
-    const acceptedManifest = JSON.parse(read("models/pp-detection/1.0.0/manifest.json"));
-    const acceptedFp32 = acceptedManifest.variants.find(({ id }) => id === "fp32");
+    const acceptedFp32Sha256 = await sha256(
+      join(repositoryRoot, "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx")
+    );
     verifyFp32BrowserEvidence({
-      acceptedFp32Sha256: acceptedFp32?.sha256,
-      benchmark: JSON.parse(read("benchmarks/1.0.1/wasm-fp32.json")),
+      acceptedFp32Sha256,
+      benchmark: JSON.parse(read(`${reportRoot}/wasm-fp32.json`)),
       evidence: browser.fp32Wasm,
       fixtures: fixtureLock.fixtures,
       manifestVariant: manifestVariants.fp32,
       provider: "wasm"
     });
     verifyFp32BrowserEvidence({
-      acceptedFp32Sha256: acceptedFp32?.sha256,
-      benchmark: JSON.parse(read("benchmarks/1.0.1/webgpu-fp32.json")),
+      acceptedFp32Sha256,
+      benchmark: JSON.parse(read(`${reportRoot}/webgpu-fp32.json`)),
       evidence: browser.fp32Webgpu,
       fixtures: fixtureLock.fixtures,
       manifestVariant: manifestVariants.fp32,
       provider: "webgpu"
     });
-    if (manifestVariants.fp32?.backendCompatibility.join(",") !== "wasm,webgpu") {
+    if (manifestVariants.fp32?.backends.join(",") !== "wasm,webgpu") {
       fail("FP32 manifest compatibility must be wasm,webgpu");
     }
   }
@@ -534,7 +519,7 @@ if (!["--models", "--release"].includes(mode) && value !== undefined)
   fail(`${mode} does not accept a value`);
 
 const staticManifest = verifyStaticContract();
-const modelVersion = mode === "--models" ? value : "1.0.0";
+const modelVersion = mode === "--models" ? value : "1.0.1";
 const manifest = mode === "--static" ? staticManifest : await verifyModels(modelVersion);
 if (mode === "--release") verifyTag(value);
 if (mode === undefined || mode === "--release") {

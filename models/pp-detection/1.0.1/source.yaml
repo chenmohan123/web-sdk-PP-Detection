@@ -1,6 +1,6 @@
-status: labs/blocked
+status: stable
 version: 1.0.1
-reason: 三类不可变来源和 FP32 的 Linux WASM、Windows NVIDIA WebGPU 浏览器验证已完成，但 FP16、移动端和微信 WebView 证据尚未完成，禁止生成 stable 变体。
+reason: FP32 已完成三类不可变来源、CPU parity、Linux WASM 和 Windows NVIDIA WebGPU 浏览器验证；FP16、量化版本、移动端和微信 WebView 继续保持实验或待验证状态。
 artifacts:
   fp32:
     path: picodet-l-320-fp32.onnx
@@ -11,7 +11,8 @@ artifacts:
     opset: 11
     parameterCount: 5787988
   fp16:
-    status: pending
+    status: labs/blocked
+    reason: CPU parity 或浏览器兼容性尚未达到稳定发布门槛。
 sources:
   status: verified
   required: [huggingface, modelscope, git-lfs]
@@ -43,3 +44,6 @@ browserEvidence:
   evidence: tools/model-pipeline/reports/1.0.1/remote-validation.json
   wasmFp32: tools/model-pipeline/reports/1.0.1/wasm-fp32.json
   webgpuFp32: tools/model-pipeline/reports/1.0.1/webgpu-fp32.json
+limitations:
+  - FP16、INT8、INT4、FP8 不属于本次 stable 发布。
+  - 移动端浏览器和微信 WebView 尚未完成本版本独立验证。

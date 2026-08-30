@@ -140,7 +140,9 @@ function tableReferenceFromOffline(referenceValue: OfflineOfficialReference): Ta
 }
 const fixtureRoot = join(repositoryRoot, "tools/model-pipeline/fixtures/images");
 const fixturesLockPath = join(repositoryRoot, "tools/model-pipeline/fixtures/fixtures.lock.json");
-const outputRoot = join(repositoryRoot, "test-results/benchmark");
+const outputRoot = process.env.PPDETECTION_BENCHMARK_OUTPUT_DIR?.trim()
+  ? resolve(repositoryRoot, process.env.PPDETECTION_BENCHMARK_OUTPUT_DIR.trim())
+  : join(repositoryRoot, "test-results/benchmark");
 let origin = "";
 let server: Server;
 let candidateDownload: DownloadedModelSource | undefined;
@@ -362,7 +364,9 @@ test.beforeAll(async () => {
   if (acceptedExternalManifestUrl === undefined && reference === undefined) {
     throw new Error("缺少经过核验的真实模型输出参考文件");
   }
-  runPnpm(["--filter", "web-sdk-pp-detection", "build"]);
+  if (process.env.PPDETECTION_SKIP_BUILD !== "1") {
+    runPnpm(["--filter", "web-sdk-pp-detection", "build"]);
+  }
   server = createServer((request, response) => {
     response.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
     response.setHeader("Cross-Origin-Opener-Policy", "same-origin");

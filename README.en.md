@@ -6,10 +6,10 @@
 
 ## Current boundaries
 
-- Without a manifest, the factory returns the stable `INVALID_MANIFEST` error and performs no network request. The repository's PicoDet manifest is still `labs/blocked`; pass a verified runtime or custom manifest to use the SDK.
+- Without a manifest, the factory uses the built-in PicoDet 1.0.1 FP32 stable manifest. If manifest loading fails, it returns the stable `INVALID_MANIFEST` error without a network request.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
-- FP32, FP16, INT8, INT4, and FP8 are represented by the manifest types. A variant is stable only after validation for its runtime and precision; no real PicoDet variant is published yet.
+- PicoDet 1.0.1 FP32 is stable and has passed seven-fixture validation on Linux WASM and Windows NVIDIA WebGPU. FP16, INT8, INT4, and FP8 remain labs/blocked and are outside this release.
 - `classThresholds` overrides thresholds for manifest labels such as `formula`, `table`, and `text`; the global threshold still applies to mask postprocessing.
 - Common options include `backend` (`auto`, `webgpu`, `wasm`), `precision` (`auto`, `fp16`, `fp32`), and `allowFallback`; `model` accepts a manifest URL or binary `data`.
 - Cross-origin models need correct CORS; multithreaded WASM needs COOP/COEP, otherwise use single-thread WASM.

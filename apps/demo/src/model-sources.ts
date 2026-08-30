@@ -10,49 +10,40 @@ export interface ModelSourceOption {
 
 export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 
-const BLOCKED_REASON = {
-  en: "The PicoDet 1.0.1 asset is blocked until browser and license evidence is complete.",
-  zh: "PicoDet 1.0.1 资产尚未完成浏览器与许可证据验证。"
-} as const;
-
 const MODEL_REVISION = {
   // 清单与模型文件分别固定到各自的不可变提交。
-  huggingface: "314145f779a883449784fe8a8e98647f63f39415",
-  modelscope: "86fff1bb7c01982c696e677116504dcb5a3fca2c",
-  "git-lfs": "50ec35925ca89945dcfc4d13935e65bf054ac741"
+  huggingface: "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+  modelscope: "5dc50e4488a81c62cada7879b685f0301449930d",
+  "git-lfs": "3204072ce46d2afde30a47859f187a4dc293f345"
 } as const;
 
 const MANIFEST_URLS = {
   huggingface: `https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/${MODEL_REVISION.huggingface}/manifest.json`,
   modelscope: `https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/${MODEL_REVISION.modelscope}/manifest.json`,
-  "git-lfs": `https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/${MODEL_REVISION["git-lfs"]}/models/pp-detection/1.0.0/manifest.json`
+  "git-lfs": `https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/${MODEL_REVISION["git-lfs"]}/models/pp-detection/1.0.1/manifest.json`
 } as const;
 
 export const MODEL_SOURCE_OPTIONS: readonly ModelSourceOption[] = [
   {
-    available: false,
-    disabledReason: BLOCKED_REASON,
+    available: true,
     key: "huggingface",
     label: { en: "Hugging Face", zh: "Hugging Face" },
     manifestUrl: MANIFEST_URLS.huggingface
   },
   {
-    available: false,
-    disabledReason: BLOCKED_REASON,
+    available: true,
     key: "modelscope",
     label: { en: "ModelScope", zh: "ModelScope" },
     manifestUrl: MANIFEST_URLS.modelscope
   },
   {
-    available: false,
-    disabledReason: BLOCKED_REASON,
+    available: true,
     key: "git-lfs",
     label: { en: "Git LFS", zh: "Git LFS" },
     manifestUrl: MANIFEST_URLS["git-lfs"]
   },
   {
-    available: false,
-    disabledReason: BLOCKED_REASON,
+    available: true,
     key: "default",
     label: { en: "SDK default", zh: "SDK 默认" },
     manifestUrl: MANIFEST_URLS.huggingface

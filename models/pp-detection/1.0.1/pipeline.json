@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "labs/blocked",
+  "status": "stable",
   "modelVersion": "1.0.1",
   "source": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
   "target": "picodet-l-320-fp32.onnx",
@@ -15,5 +15,5 @@
     "beforeShape": [8],
     "afterShape": [8, 1]
   },
-  "blockedReason": "FP32 的 Linux WASM 和 Windows NVIDIA WebGPU 已通过 7 张 fixture 验证；FP16、移动端和微信 WebView 证据尚未全部完成"
+  "releaseNote": "仅 FP32 进入 stable；FP16、量化版本、移动端和微信 WebView 继续保持实验或待验证状态"
 }

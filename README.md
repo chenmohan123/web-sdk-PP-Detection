@@ -6,10 +6,10 @@
 
 ## 当前边界
 
-- 工厂在未提供 manifest 时返回稳定错误码 `INVALID_MANIFEST`，且不会发起网络访问；当前仓库的 PicoDet 默认模型清单仍为 `labs/blocked`，使用 SDK 时请传入已验证 runtime manifest 或自定义模型清单。
+- 工厂在未提供 manifest 时使用内置的 PicoDet 1.0.1 FP32 stable 清单；清单加载失败时返回稳定错误码 `INVALID_MANIFEST`，且不会发起网络访问。
 - 模型来源由 manifest 声明，可选择 Git LFS、Hugging Face、ModelScope 或 custom；每个来源必须绑定不可变 revision、大小和 SHA-256。显式来源失败不会静默换源，`auto` 才会按清单尝试。
 - SDK 已支持 ONNX Runtime Web 的 `wasm`/`webgpu`、main/worker 执行模式、IndexedDB/内存缓存、模型完整性校验、取消和资源释放。
-- FP32、FP16、INT8、INT4、FP8 都有清单类型入口；只有通过对应运行时和精度验证的变体才可标记为 stable，当前真实 PicoDet 变体尚未发布。
+- PicoDet 1.0.1 的 FP32 变体已标记为 stable，并通过 Linux WASM 与 Windows NVIDIA WebGPU 的七张 fixture 验证；FP16、INT8、INT4、FP8 仍为 labs/blocked，不属于本次发布。
 - 常用配置包括 `backend`（`auto`、`webgpu`、`wasm`）、`precision`（`auto`、`fp16`、`fp32`）和 `allowFallback`；`model` 可传入清单 URL 或二进制 `data`。
 - 跨域模型需要正确的 CORS；多线程 WASM 需要 COOP/COEP，无法满足时使用单线程。
 - `classThresholds` 可按 `formula`、`table`、`text` 等 manifest 类别覆盖阈值；全局阈值仍用于 mask 后处理。

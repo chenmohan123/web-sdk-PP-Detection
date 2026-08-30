@@ -15,12 +15,14 @@ describe("documentation contract", () => {
     });
   });
 
-  it("describes blocked bundled defaults without inventing an asset version", () => {
+  it("描述当前内置的 1.0.1 FP32 stable 默认模型", () => {
     const chineseReadme = readFileSync(new URL("README.md", repositoryRoot), "utf8");
     const englishReadme = readFileSync(new URL("README.en.md", repositoryRoot), "utf8");
 
-    assert.match(chineseReadme, /默认模型清单仍为 `labs\/blocked`/);
-    assert.match(englishReadme, /PicoDet manifest is still `labs\/blocked`/);
+    assert.match(chineseReadme, /PicoDet 1\.0\.1 的 FP32 变体已标记为 stable/);
+    assert.match(englishReadme, /PicoDet 1\.0\.1 FP32 is stable/);
+    assert.match(chineseReadme, /FP16、INT8、INT4、FP8.*labs\/blocked/);
+    assert.match(englishReadme, /FP16, INT8, INT4, and FP8.*labs\/blocked/);
   });
 
   it("documents only the validated default backend and precision pairs", () => {
@@ -30,12 +32,15 @@ describe("documentation contract", () => {
     const englishModels = readFileSync(new URL("docs/en/models.md", repositoryRoot), "utf8");
     const chineseModels = readFileSync(new URL("docs/zh-CN/models.md", repositoryRoot), "utf8");
 
-    assert.match(rootReadme, /FP32、FP16、INT8、INT4、FP8/);
-    assert.match(packageReadme, /FP32、FP16、INT8、INT4 和 FP8/);
-    assert.match(packageReadme, /FP32, FP16, INT8, INT4, and FP8/);
-    assert.match(modelReadme, /FP32、FP16.*blocked/s);
-    assert.match(englishModels, /FP32, FP16.*blocked/s);
-    assert.match(chineseModels, /FP32、FP16.*blocked/s);
+    for (const precision of ["FP32", "FP16", "INT8", "INT4", "FP8"]) {
+      assert.match(rootReadme, new RegExp(precision));
+    }
+    assert.match(packageReadme, /FP32/);
+    assert.match(packageReadme, /FP16、INT8、INT4 和 FP8/);
+    assert.match(packageReadme, /FP16, INT8, INT4, and FP8/);
+    assert.match(modelReadme, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
+    assert.match(englishModels, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
+    assert.match(chineseModels, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
   });
 
   it("records the current model asset gate in both languages", () => {
@@ -50,7 +55,8 @@ describe("documentation contract", () => {
     );
 
     for (const document of [modelReadme, englishConversion, chineseConversion]) {
-      assert.match(document, /blocked/);
+      assert.match(document, /stable/);
+      assert.match(document, /FP16/);
       assert.match(document, /SHA-256/);
       assert.match(document, /不可变来源|immutable source/is);
     }

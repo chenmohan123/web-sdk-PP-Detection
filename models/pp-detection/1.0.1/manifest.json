@@ -9,7 +9,7 @@
   },
   "variants": [],
   "blocked": {
-    "reason": "1.0.1 FP32 清理和三类来源已完成；WASM、真实 WebGPU、FP16 以及移动端/微信 WebView 证据尚未完成。",
+    "reason": "1.0.1 FP32 清理和三类来源已完成；FP16 候选未通过七张 fixture 的 CPU parity，WASM、真实 WebGPU、移动端/微信 WebView 证据仍未完成。",
     "evidence": "tools/model-pipeline/reports/1.0.1/"
   }
 }

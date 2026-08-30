@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "modelVersion": "1.0.1",
+  "reference": {
+    "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+  },
+  "candidate": {
+    "path": ".tmp/fp16-picodet/test-castblocked.onnx",
+    "bytes": 14808136,
+    "sha256": "cf711954b1c0113454217bce640939f5ce8a7049f0d2bac28eb1c96deb5fac9c",
+    "conversion": {
+      "library": "onnxconverter-common",
+      "version": "1.16.0",
+      "blockedOps": ["NonMaxSuppression", "Resize"],
+      "blockedNodes": ["Cast_5"],
+      "keepIoTypes": true
+    }
+  },
+  "thresholds": {
+    "maxScoreDelta": 0.001,
+    "maxCoordinateDeltaPixels": 0.001,
+    "classSequenceEqual": true
+  },
+  "fixtures": [
+    {
+      "filename": "curved-document.jpg",
+      "sha256": "fce39d864ff7b0612f7073415c2a7c656f7790a26f96d539831f1bb1a994a069",
+      "referenceRows": 90,
+      "candidateRows": 90,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0012632012367248535,
+      "maxCoordinateDeltaPixels": 0.58795166015625,
+      "pass": false
+    },
+    {
+      "filename": "doc-formula.png",
+      "sha256": "6b07d28527dc9e930804fa73df562f1a81599c6b8a1a8bbc2a80742fa9f26e80",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": false,
+      "maxScoreDelta": 0.04351495951414108,
+      "maxCoordinateDeltaPixels": 286.1162109375,
+      "pass": false
+    },
+    {
+      "filename": "image-layout.jpg",
+      "sha256": "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0015846490859985352,
+      "maxCoordinateDeltaPixels": 1.2689666748046875,
+      "pass": false
+    },
+    {
+      "filename": "layout-demo.jpg",
+      "sha256": "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
+      "reason": "检测矩阵形状不一致",
+      "pass": false
+    },
+    {
+      "filename": "screen-photo.jpg",
+      "sha256": "f27a8ad40192f2bff4bcc3605beaddf246bc35b07355e688defde1a2de333aa1",
+      "reason": "检测矩阵形状不一致",
+      "pass": false
+    },
+    {
+      "filename": "skew-document.jpg",
+      "sha256": "4ae0d5bebbe152a9cca8add806e376b3eb3314c3a55d6b7ccba70d9c4de97a1e",
+      "referenceRows": 49,
+      "candidateRows": 49,
+      "classSequenceEqual": true,
+      "maxScoreDelta": 0.0033980906009674072,
+      "maxCoordinateDeltaPixels": 44.986663818359375,
+      "pass": false
+    },
+    {
+      "filename": "table.png",
+      "sha256": "6d50148ceccb2d5cecc50b084b5105e3167f2d55a8899b29e04c3ebe46e88fa8",
+      "referenceRows": 100,
+      "candidateRows": 100,
+      "classSequenceEqual": false,
+      "maxScoreDelta": 0.2626487724483013,
+      "maxCoordinateDeltaPixels": 171.17431640625,
+      "pass": false
+    }
+  ],
+  "environment": {
+    "python": "3.11.15",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.28.0",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "provider": "CPUExecutionProvider",
+    "verifiedAt": "2026-08-30"
+  },
+  "limitations": [
+    "该报告只记录本地 FP16 候选的拒绝证据，不代表 FP16 已发布。",
+    "未进行浏览器 WASM/WebGPU 验证，因为 CPU parity 已失败。",
+    "模型继续保持 labs/blocked，未写入 1.0.1 manifest 的 variants。"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "model": {
+    "version": "1.0.1",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+    "sourceKind": "huggingface",
+    "sourceRevision": "b089403d908b40f28e56e4c0330c3c8b6e71183f"
+  },
+  "workflow": {
+    "name": "Release benchmarks",
+    "runId": 33314461337,
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/33314461337",
+    "ref": "codex/offline-accepted-baseline",
+    "commit": "154a7c6ea40a0fe85878b0f8666dcd1a388a845a",
+    "result": "success",
+    "verifiedAt": "2026-08-30"
+  },
+  "artifacts": [
+    {
+      "id": "wasm-fp32",
+      "artifactName": "benchmark-wasm-fp32",
+      "report": "wasm-fp32.json",
+      "reportSha256": "b96e3ba2c393fa9bb39b312d611d7c5d3314f807aaa64f81233b22853a2afc34",
+      "status": "passed",
+      "executionProvider": "wasm",
+      "precision": "fp32",
+      "browser": "Chromium 151.0.7922.34",
+      "operatingSystem": "linux 6.17.0-1022-azure",
+      "coldLoadTotalMs": 1151.9850000000151,
+      "warmLoadTotalMs": 160.12999999997555
+    },
+    {
+      "id": "webgpu-fp32",
+      "artifactName": "benchmark-webgpu-fp32",
+      "report": "webgpu-fp32.json",
+      "reportSha256": "c1a352059cd25ea556b681f6e3f35fb33dfaef6f718423b0c9c0e645344eb6b4",
+      "status": "passed",
+      "executionProvider": "webgpu",
+      "precision": "fp32",
+      "browser": "Chromium 151.0.7922.174",
+      "operatingSystem": "win32 10.0.26200",
+      "adapter": {
+        "architecture": "blackwell",
+        "vendor": "nvidia"
+      },
+      "coldLoadTotalMs": 1833.0499999970198,
+      "warmLoadTotalMs": 372.47999998927116
+    }
+  ],
+  "limitations": [
+    "本证据覆盖 Linux WASM FP32 和 Windows NVIDIA WebGPU FP32 的 7 张 fixture。",
+    "FP16、移动端和微信 WebView 尚未完成验证，模型清单继续保持 labs/blocked。",
+    "报告证明指定 workflow、浏览器和设备矩阵中的结果，不代表所有浏览器或设备兼容。"
+  ]
+}

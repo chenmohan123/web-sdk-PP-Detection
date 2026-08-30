@@ -11,10 +11,9 @@ Models are large assets. Recommended policy:
 - Preserve `Content-Length` so download progress is accurate.
 - Allow IndexedDB. The SDK can run when it is unavailable, but may download again.
 - Before mobile-network downloads, show the actual byte size declared by the manifest; the
-  default PicoDet manifest remains `labs/blocked`, so the local candidate's size must not be
-  presented as a remotely downloadable release asset.
+  default PicoDet manifest is stable and declares an actual 23,243,834-byte release asset.
 
-Model distribution supports Git LFS (default), Hugging Face, and ModelScope. Every source must use an immutable revision, versioned path, real `Content-Length`, and SHA-256; an explicit source failure must not silently switch sources. The default manifest remains `labs/blocked`; verify source and integrity metadata before deploying a custom model.
+Model distribution supports Git LFS, Hugging Face (the Demo default), and ModelScope. Every source must use an immutable revision, versioned path, real `Content-Length`, and SHA-256; an explicit source failure must not silently switch sources, while `auto` may try sources in manifest order. Verify source and integrity metadata before deploying a custom model.
 
 Multithreaded WASM requires:
 

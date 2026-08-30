@@ -416,9 +416,9 @@
   },
   "schemaVersion": 1,
   "sourceHashes": {
-    "acceptedOnnx": "fc2eebdc2153ad4e6993766f914f78f47a737fed123a78731bc9c57f7a6c806b",
+    "acceptedOnnx": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
     "modelSafetensors": "5ea422c6cc5fe759a47e1357c35639b58173508e025a3131cbe4b6ac59e2b85e",
-    "onnx": "476da6d3892bc6211ec90f53df1f68722626b3cf67af77d1c75bd0bd2ee8d269"
+    "onnx": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
   },
   "threshold": 0.5,
   "thresholds": {

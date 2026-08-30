@@ -11,9 +11,9 @@ SDK 和 Demo 必须部署在 HTTPS（localhost 除外）。模型清单、ONNX�
 - 保留 `Content-Length`，使加载进度准确。
 - 允许 IndexedDB；禁用或受限时 SDK 仍可运行，但会重复下载。
 - 在移动网络下载前显示 manifest 声明的实际字节数；当前默认 PicoDet manifest 仍为
-  `labs/blocked`，本地候选的字节数不能当作远程可下载发布资产。
+  `stable`，应直接展示清单声明的 `23243834` 字节大小。
 
-模型分发支持 Git LFS（默认）、Hugging Face 和 ModelScope。每个来源都要使用不可变 revision、版本化路径、真实 `Content-Length` 和 SHA-256；显式选择来源失败时不得静默切换。当前默认 manifest 仍为 `labs/blocked`，部署自定义模型时请先完成来源和完整性验证。
+模型分发支持 Git LFS、Hugging Face（Demo 默认）和 ModelScope。每个来源都要使用不可变 revision、版本化路径、真实 `Content-Length` 和 SHA-256；显式选择来源失败时不得静默切换，`auto` 才能按清单顺序尝试。部署自定义模型时也必须先完成来源和完整性验证。
 
 多线程 WASM 需要：
 

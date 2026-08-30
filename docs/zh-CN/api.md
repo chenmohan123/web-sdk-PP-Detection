@@ -19,7 +19,7 @@
 
 当 `phase: "model"` 且 `status: "progress"` 时，事件中的 `loadedBytes` 和可选的 `totalBytes` 仅表示模型网络下载字节，不是完整初始化进度；它们不包含完整性校验或 ONNX Runtime Session 创建。响应没有 `Content-Length` 时 `totalBytes` 可能缺失，缓存、内存或自定义二进制模型也可能不产生字节进度。
 
-默认 PicoDet manifest 当前仍为 blocked；仓库虽有本地 FP32 ONNX 候选和一次 WASM smoke test，但尚无可下载的 stable 默认资产。`webgpu`、`wasm`（CPU）以及 `fp32`、`fp16`、`int8`、`int4`、`fp8` 的可用组合必须以 manifest 变体和运行时探测为准。清单中不存在的显式组合会抛出 `CAPABILITY_UNSUPPORTED`；`allowFallback` 只处理有效候选的运行时失败，不会改写无效组合。Demo 仅在“自动后端 + 自动精度”时允许回退，任何手动后端或精度选择都会严格执行。原始模型是 float32，不支持 FP64 推理。
+默认 PicoDet 1.0.1 manifest 含有可下载的 FP32 stable 资产，并已完成 WASM/WebGPU 浏览器验证。`webgpu`、`wasm`（CPU）以及 `fp32`、`fp16`、`int8`、`int4`、`fp8` 的可用组合必须以 manifest 变体和运行时探测为准。清单中不存在的显式组合会抛出 `CAPABILITY_UNSUPPORTED`；`allowFallback` 只处理有效候选的运行时失败，不会改写无效组合。Demo 仅在“自动后端 + 自动精度”时允许回退，任何手动后端或精度选择都会严格执行。原始模型是 float32，不支持 FP64 推理。
 
 ```ts
 import { createPPDetection } from "web-sdk-pp-detection";
@@ -57,7 +57,7 @@ const result = await detector.detect(file, {
 });
 ```
 
-`precision: "auto"` 选择清单变体顺序中的第一个可用稳定精度；当前默认 PicoDet 只保留 FP32 证据，因此不会猜测 FP16。`classThresholds` 按 manifest 标签名称覆盖置信度过滤阈值，未配置的类别回退到 `threshold`。全局 `threshold` 仍用于 mask 二值化和多边形提取。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
+`precision: "auto"` 选择清单变体顺序中的第一个可用稳定精度；当前默认 PicoDet 1.0.1 只保留 FP32 stable，因此不会猜测 FP16。`classThresholds` 按 manifest 标签名称覆盖置信度过滤阈值，未配置的类别回退到 `threshold`。全局 `threshold` 仍用于 mask 二值化和多边形提取。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
 清单将 `preprocessing.doResize` 设为 `false` 时，输入图像的宽和高都不能超过模型输入尺寸；否则会抛出 `INVALID_INPUT`，不会静默裁剪图像。
 

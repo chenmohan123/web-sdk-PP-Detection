@@ -18,9 +18,9 @@ python -m ppdetection.build_manifest
 
 ## 当前资产状态
 
-当前仓库已有一个可复现的本地 PicoDet-L-320 FP32 ONNX 候选
-`models/pp-detection/1.0.0/picodet-l-320-fp32.onnx`。结构检查得到
-`23,219,047` 字节、`5,787,988` 参数和 opset 11；三张 fixture 的 CPU ORT
+当前仓库已有一个可复现的 PicoDet-L-320 FP32 ONNX stable 产物
+`models/pp-detection/1.0.1/picodet-l-320-fp32.onnx`。结构检查得到
+`23,243,834` 字节、`5,787,988` 参数和 opset 11；七张 fixture 的 CPU ORT
 parity 均通过，完整哈希、预处理和误差见
 `tools/model-pipeline/reports/picodet-parity.json`。
 
@@ -30,7 +30,7 @@ revision、下载地址、大小和 SHA-256 见
 HeadlessChrome 的 WASM/CPU smoke test，证据见
 `tools/model-pipeline/reports/picodet-browser-evidence.json`；本次 WebGPU 没有
 可用 adapter，移动端、微信 WebView 和其他浏览器仍未验证，来源许可核验也未完成。
-因此默认 manifest 仍为 `labs/blocked`，应用接入时请传入已验证的 runtime manifest。
-文档和清单不会把本地候选伪装成 stable 发布资产。
+因此 1.0.1 FP32 manifest 已标记为 `stable` 并作为默认资产；FP16、量化、移动端和
+微信 WebView 仍保持 labs/blocked，不得据此扩展稳定兼容承诺。
 
 完成官方权重导出后，按以下顺序为每个 FP32、FP16、INT8、INT4 或 FP8 变体生成证据：结构检查、CPU 数值/检测对齐、浏览器 WASM 与 WebGPU 验证、文件 SHA-256 和不可变来源校验，最后运行 `build_manifest`。只有证据完整且目标后端通过的变体才能标记为 `stable`。

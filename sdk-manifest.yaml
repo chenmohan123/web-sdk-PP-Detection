@@ -21,20 +21,20 @@ runtime:
   runtimeVersion: onnxruntime-web@1.27.0
 model:
   id: pp-picodet-l-320
-  version: 1.0.0
+  version: 1.0.1
   format: onnx
   parameterCount: 5787988
   precision: [fp32]
-  source: PaddleDetection release/2.9 官方 PicoDet-L-320 LCNet 后处理 ONNX 参考资产；Git LFS、Hugging Face 和 ModelScope 均已提供本地清理候选副本，来源许可和完整浏览器证据仍待核验。
+  source: PaddleDetection release/2.9 PicoDet-L-320 LCNet 后处理 ONNX 清理产物；Git LFS、Hugging Face 和 ModelScope 均固定到不可变 revision。
   license: Apache-2.0（依据 PaddleDetection 官方模型说明）
   assets:
     - id: fp32
-      bytes: 23226341
+      bytes: 23243834
       precision: fp32
-      url: https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_320_lcnet_postprocessed.onnx
-      sha256: f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89
+      url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+      sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
   defaultVariant: fp32
-  defaultSource: git-lfs
+  defaultSource: huggingface
 performance:
   timings:
     [
@@ -62,4 +62,15 @@ examples:
   cdn: { status: planned, path: examples/cdn }
   wechatWebView: { status: planned, path: examples/wechat-web-view }
 verification:
-  environments: []
+  environments:
+    - browser: Chromium 151
+      operatingSystem: Linux
+      backend: wasm
+      precision: fp32
+      fixtures: 7
+    - browser: Chromium 151
+      operatingSystem: Windows 10
+      device: NVIDIA Blackwell
+      backend: webgpu
+      precision: fp32
+      fixtures: 7

@@ -36,15 +36,15 @@ await detector.dispose();
 
 `classThresholds` 按 manifest 标签名称覆盖置信度过滤阈值，未配置的类别回退到 `threshold`。全局 `threshold` 仍用于 mask 二值化和多边形提取。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
-当前仓库默认模型仍处于 blocked 状态，示例使用已验证的 runtime manifest URL。发布版本提供内置默认模型后，可以省略 `model`；在此之前省略它会返回 `INVALID_MANIFEST`。
+当前发布版本内置 PicoDet 1.0.1 FP32 stable manifest；使用默认模型时可以省略 `model`。自定义模型仍应传入经过验证的 runtime manifest 或清单对象。
 
-模型初始化耗时可以通过 `detector.loadTimings` 查看。`totalMs` 是初始化总耗时，同时提供 `modelDownloadMs`（网络下载）、`modelCacheReadMs`（缓存读取）、`integrityMs`（SHA-256 完整性校验）和 `sessionMs`（ONNX Runtime Session 创建）。当前仓库默认模型仍在发布来源和浏览器验证完成前保持 blocked；使用 SDK 时请传入已验证的 runtime manifest 或自定义模型清单。
+模型初始化耗时可以通过 `detector.loadTimings` 查看。`totalMs` 是初始化总耗时，同时提供 `modelDownloadMs`（网络下载）、`modelCacheReadMs`（缓存读取）、`integrityMs`（SHA-256 完整性校验）和 `sessionMs`（ONNX Runtime Session 创建）。发布版本内置 PicoDet 1.0.1 FP32 stable manifest；使用自定义模型时请传入已验证的 runtime manifest 或清单对象。
 
 ## 运行后端与精度
 
 - `backend: "auto"` 优先使用 WebGPU；只有显式设置 `allowFallback: true` 时，WebGPU 会话失败才会尝试 WASM（CPU）。也可手动指定 `"webgpu"` 或 `"wasm"`。
 - `precision: "auto"` 选择清单中可用的默认稳定精度；当前默认 PicoDet 仅验证 FP32，因此不会臆测切换到 FP16。已验证其他精度时可手动指定 `"fp16"`、`"int8"` 等。
-- 默认 PicoDet 目前尚未发布可下载的 stable ONNX 资产；仓库内有本地 FP32 候选和 CPU/WASM 证据，但 FP32、FP16、INT8、INT4 和 FP8 仍必须完成对应来源与后端验证后才能标记为 stable。
+- 默认 PicoDet 1.0.1 FP32 已发布可下载的 stable ONNX 资产，并通过 Linux WASM 与 Windows NVIDIA WebGPU 七张 fixture 验证；FP16、INT8、INT4 和 FP8 仍需独立证据。
 - 使用默认模型时，显式请求清单中未声明的组合会抛出 `CAPABILITY_UNSUPPORTED`，不会改写无效组合；自定义清单可在单独验证后声明其他组合。上游模型是 float32，不支持 FP64；FP32 约为 FP16 两倍大小并可能更慢、更占显存。
 - `detect` 可接收图片 Blob/File、Canvas/ImageData、`HTMLVideoElement` 或单帧 `VideoFrame`。摄像头和视频播放的权限、帧率控制由宿主页面负责；每次提交一帧后应等待 Promise 完成，并在停止媒体时调用 `dispose()`。
 
@@ -109,15 +109,15 @@ await detector.dispose();
 
 `classThresholds` overrides confidence filtering for matching manifest label names and falls back to `threshold` for unspecified classes. The global `threshold` still controls mask binarization and polygon extraction. Unknown class names and values outside `0` through `1` are rejected.
 
-The repository's default model is currently blocked. The example therefore passes a verified runtime manifest URL; omitting `model` currently returns `INVALID_MANIFEST` until a stable downloadable default asset is released.
+The release includes a built-in PicoDet 1.0.1 FP32 stable manifest, so `model` may be omitted for the default model. Pass a verified runtime or custom manifest when using another model.
 
-Detailed initialization timings are available through `detector.loadTimings`. `totalMs` is the full initialization duration. The additive fields `modelDownloadMs`, `modelCacheReadMs`, `integrityMs`, and `sessionMs` separate network download, cache reads, SHA-256 verification, and Session creation. The current repository keeps its default model blocked until release sources and browser evidence are complete; pass a verified runtime manifest or custom model manifest when creating the SDK.
+Detailed initialization timings are available through `detector.loadTimings`. `totalMs` is the full initialization duration. The additive fields `modelDownloadMs`, `modelCacheReadMs`, `integrityMs`, and `sessionMs` separate network download, cache reads, SHA-256 verification, and Session creation. The release includes the PicoDet 1.0.1 FP32 stable manifest; pass a verified runtime or custom model manifest when using another model.
 
 ### Backend and precision
 
 - `backend: "auto"` prefers WebGPU; only `allowFallback: true` permits a failed WebGPU session to try WASM (CPU). Use `"webgpu"` or `"wasm"` for an explicit choice.
-- `precision: "auto"` selects the available default stable precision from the manifest. The default PicoDet currently validates FP32 only, so the SDK does not guess an FP16 switch. When another precision has been validated, select it explicitly with `"fp16"`, `"int8"`, and so on.
-- The default PicoDet model has no stable downloadable ONNX asset yet. A local FP32 candidate has CPU/WASM evidence, while FP32, FP16, INT8, INT4, and FP8 still require release-source and backend validation before being marked stable.
+- `precision: "auto"` selects the available default stable precision from the manifest. The default PicoDet 1.0.1 validates FP32 only, so the SDK does not guess an FP16 switch. When another precision has been validated, select it explicitly with `"fp16"`, `"int8"`, and so on.
+- The default PicoDet 1.0.1 FP32 variant is a downloadable stable ONNX asset and has passed seven-fixture validation on Linux WASM and Windows NVIDIA WebGPU. FP16, INT8, INT4, and FP8 still require independent release-source and backend evidence.
 - `detect` accepts image Blob/File, Canvas/ImageData, `HTMLVideoElement`, or a single `VideoFrame`. Hosts own camera/video permissions and frame pacing; await each frame Promise and call `dispose()` when media stops.
 - Explicit pairs absent from the default manifest throw `CAPABILITY_UNSUPPORTED` instead of rewriting an invalid pair. The upstream model is float32, not FP64; FP64 inference is unsupported. FP32 is about twice the size of FP16 and may be slower or use more GPU memory.
 

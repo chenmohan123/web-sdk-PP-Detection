@@ -4,6 +4,10 @@
 
 ## 0.1.0
 
+- 发布 PicoDet-L-320 1.0.1 FP32 stable 模型，默认来源为 Hugging Face，并保留 Git LFS、ModelScope 的不可变来源。
+- FP32 已通过 Linux WASM 与 Windows NVIDIA WebGPU 七张 fixture 验证；FP16、INT8、INT4、FP8、移动端和微信 WebView 保持实验或待验证状态。
+- Demo 继续覆盖图片、摄像头和视频输入，并展示 CPU/GPU 加载与推理耗时及模型信息。
+
 - 初始发布 PaddleDetection PicoDet-L-320 Web SDK 骨架，采用 Apache-2.0，运行时基于 ONNX Runtime Web。
 - 提供 CPU/WASM 与 GPU/WebGPU 手动选择、main/Worker 执行模式、版本化缓存、SHA-256 校验和可取消的资源释放。
 - Demo 覆盖图片、摄像头和视频输入，并展示模型信息、模型来源、CPU/GPU 后端、精度、加载耗时和推理耗时。

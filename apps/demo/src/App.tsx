@@ -398,6 +398,7 @@ export function App(): ReactElement {
           cache: true,
           ...(model === undefined ? {} : { model }),
           onProgress: (event) => {
+            if (controller.signal.aborted || abortRef.current !== controller) return;
             const nextProgress = modelProgressState(event);
             if (nextProgress === undefined) return;
             setStatus(nextProgress.status);
@@ -412,8 +413,13 @@ export function App(): ReactElement {
             : { source: modelSource === "default" ? "huggingface" : modelSource }),
           signal: controller.signal
         });
+        if (controller.signal.aborted || abortRef.current !== controller) {
+          await detector.dispose();
+          return;
+        }
         detectorRef.current = detector;
       }
+      if (controller.signal.aborted || abortRef.current !== controller) return;
       setStatus("running");
       const nextResult = await detector.detect(source, {
         ...(Object.keys(activeClassThresholds).length === 0
@@ -423,6 +429,7 @@ export function App(): ReactElement {
         threshold,
         ...(timestampMs === undefined ? {} : { timestampMs })
       });
+      if (controller.signal.aborted || abortRef.current !== controller) return;
       setResult(nextResult);
       setStatus(inputMode === "image" ? "success" : "running");
     } catch (caught) {

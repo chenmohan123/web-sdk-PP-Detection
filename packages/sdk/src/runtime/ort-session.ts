@@ -82,8 +82,7 @@ export async function createOrtSession(
 ): Promise<OrtSessionHandle> {
   try {
     const ort = options.ort ?? (await (options.loadOrt ?? loadOrt)());
-    if (plan.actualBackend === "wasm" && options.wasmPaths && ort.env.wasm)
-      ort.env.wasm.wasmPaths = options.wasmPaths;
+    if (options.wasmPaths && ort.env.wasm) ort.env.wasm.wasmPaths = options.wasmPaths;
     if (plan.actualBackend === "wasm" && ort.env.wasm && options.numThreads)
       ort.env.wasm.numThreads = options.numThreads;
     const sessionStarted = now();

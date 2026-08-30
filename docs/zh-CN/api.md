@@ -61,6 +61,11 @@ const result = await detector.detect(file, {
 
 清单将 `preprocessing.doResize` 设为 `false` 时，输入图像的宽和高都不能超过模型输入尺寸；否则会抛出 `INVALID_INPUT`，不会静默裁剪图像。
 
+预处理插值支持 `interpolation: "bilinear"` 和 `interpolation: "bicubic"`。旧式公开
+`ModelManifest` 的 `resample` 仅接受 Pillow/Paddle 的 `2`（双线性）和 `3`（双三次），
+其中 `3` 会适配为 `bicubic`；未实现的值会以 `INVALID_MANIFEST` 拒绝。未声明插值模式时，
+runtime manifest 默认使用双线性。
+
 摄像头权限、视频播放和帧调度由宿主页面负责。建议每次只提交一帧，等待 Promise 完成后再提交下一帧；停止媒体时取消未完成请求并调用 `dispose()`。
 
 ## 其他导出

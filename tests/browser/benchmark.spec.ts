@@ -357,17 +357,8 @@ test.beforeAll(async () => {
     // accepted 模型清单优先，reference 路径仅作为显式备用入口。
     reference = undefined;
   }
-  if (acceptedExternalManifestUrl !== undefined) {
-    const acceptedReferenceFixturePath = join(
-      sdkRoot,
-      "tests/fixtures/model-output-reference.json"
-    );
-    if (existsSync(acceptedReferenceFixturePath)) {
-      tableReference = JSON.parse(
-        readFileSync(acceptedReferenceFixturePath, "utf8")
-      ) as TableReference;
-    }
-  }
+  // accepted 模型清单模式直接以 accepted 模型输出作为基线；不能混入其他 SDK 的
+  // model-output-reference.json，否则会把无关的 table.png 专用断言带入对照实验。
   if (acceptedExternalManifestUrl === undefined && reference === undefined) {
     throw new Error("缺少经过核验的真实模型输出参考文件");
   }

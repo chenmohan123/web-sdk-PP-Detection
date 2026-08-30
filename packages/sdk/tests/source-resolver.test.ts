@@ -46,4 +46,15 @@ describe("模型来源解析", () => {
       expect(error).toMatchObject({ code: "MODEL_SOURCE_UNAVAILABLE" });
     }
   });
+
+  it("显式请求缺失的 Hugging Face 来源时返回稳定错误码", () => {
+    const withoutHuggingFace = {
+      ...variant,
+      sources: variant.sources.filter(({ kind }) => kind !== "huggingface")
+    };
+
+    expect(() => resolveModelSources(withoutHuggingFace, "huggingface")).toThrowError(
+      expect.objectContaining({ code: "MODEL_SOURCE_UNAVAILABLE" })
+    );
+  });
 });

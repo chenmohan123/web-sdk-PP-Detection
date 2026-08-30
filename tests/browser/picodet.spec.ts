@@ -58,6 +58,7 @@ function manifest(downloadUrl: string) {
     preprocessing: {
       size: { width: 320, height: 320 },
       resizeMode: "stretch" as const,
+      interpolation: "bicubic" as const,
       rescaleFactor: 1 / 255,
       doResize: true,
       doRescale: true,

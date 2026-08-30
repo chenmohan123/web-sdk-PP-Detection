@@ -107,4 +107,53 @@ describe("公开 ModelManifest 兼容层", () => {
     expect(runtime.variants.map((variant) => variant.id)).toEqual(["int8", "fp32"]);
     expect(runtime.variants[0]?.quantization).toBe("static-qdq");
   });
+
+  it("将 legacy resample=3 适配为 bicubic", () => {
+    const runtime = adaptModelManifest(
+      parseModelManifest({
+        ...manifest,
+        preprocessing: { ...manifest.preprocessing, resample: 3 }
+      })
+    );
+
+    expect(runtime.preprocessing.interpolation).toBe("bicubic");
+  });
+
+  it("显式 interpolation 优先于 legacy resample", () => {
+    const runtime = adaptModelManifest(
+      parseModelManifest({
+        ...manifest,
+        preprocessing: { ...manifest.preprocessing, resample: 3, interpolation: "bilinear" }
+      })
+    );
+
+    expect(runtime.preprocessing.interpolation).toBe("bilinear");
+  });
+
+  it("拒绝未实现的 legacy resample", () => {
+    expect(() =>
+      parseModelManifest({
+        ...manifest,
+        preprocessing: { ...manifest.preprocessing, resample: 1 }
+      })
+    ).toThrowError(expect.objectContaining({ code: "INVALID_MANIFEST" }));
+  });
+
+  it("将 legacy resample=2 适配为 bilinear", () => {
+    const runtime = adaptModelManifest(parseModelManifest(manifest));
+
+    expect(runtime.preprocessing.interpolation).toBe("bilinear");
+  });
+
+  it("直接适配时也拒绝未实现的 legacy resample", () => {
+    const parsed = parseModelManifest(manifest);
+    const invalid = {
+      ...parsed,
+      preprocessing: { ...parsed.preprocessing, resample: 1 }
+    } as Parameters<typeof adaptModelManifest>[0];
+
+    expect(() => adaptModelManifest(invalid)).toThrowError(
+      expect.objectContaining({ code: "INVALID_MANIFEST" })
+    );
+  });
 });

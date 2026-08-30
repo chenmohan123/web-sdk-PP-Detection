@@ -31,12 +31,15 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: 下载固定来源模型用于仓库校验
-        run: node scripts/fetch-model-source.mjs
+        run: |
+          set -euo pipefail
+          node scripts/fetch-model-source.mjs
+          cp "$RUNNER_TEMP/pp-detection-model/picodet-l-320-fp32.onnx" models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
         env:
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL || 'https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/manifest.json' }}
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: fp32
-          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection/1.0.1
+          PPDETECTION_MODEL_OUTPUT_DIR: ${{ runner.temp }}/pp-detection-model
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm run verify
       - name: Upload Playwright diagnostics

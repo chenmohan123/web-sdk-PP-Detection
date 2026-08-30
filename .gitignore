@@ -6,6 +6,10 @@ dist/
 .vite/
 .astro/
 test-results/
+.tmp/
+.superpowers/
 work/
 debug.log
 *.tsbuildinfo
+packages/sdk/etc/*.api.md
+packages/sdk/temp/

@@ -4,6 +4,7 @@ dist/
 coverage/
 playwright-report/
 test-results/
+.tmp/
 packages/sdk/etc/*.api.md
 docs/superpowers/
 .superpowers/

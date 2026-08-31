@@ -8,9 +8,8 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
 
   await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
   await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(4);
-  await expect(page.getByTestId("model-source-limitations")).toContainText("ModelScope");
   await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toBeEnabled();
-  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeDisabled();
+  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeEnabled();
 
   const contract = await page.evaluate(async (moduleUrl) => {
     const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
@@ -32,13 +31,13 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
   expect(contract.keys).toEqual(["huggingface", "modelscope", "git-lfs", "default"]);
   expect(contract.available).toHaveLength(4);
   expect(contract.available.find((option) => option.key === "huggingface")?.available).toBe(true);
-  expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(false);
+  expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(true);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
   expect(contract.huggingFaceModel).toContain(
     "resolve/cd53bb62104f3f32123b56e981293d64ca321a0e/manifest.json"
   );
   expect(contract.modelScopeModel).toContain(
-    "resolve/5dc50e4488a81c62cada7879b685f0301449930d/manifest.json"
+    "resolve/e7d5a0ce5023fd22e915d474c6db70b54dca9637/1.0.1/manifest.json"
   );
   expect(contract.gitLfsModel).toContain("3d194b9ebff50175ebb0c9d36702852d7b7e506e");
   expect(contract.defaultModel).toBe(contract.huggingFaceModel);

@@ -8,9 +8,9 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
 
   await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
   await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(4);
-  await expect(page.getByTestId("model-source-blocked")).toHaveCount(0);
+  await expect(page.getByTestId("model-source-limitations")).toContainText("ModelScope");
   await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toBeEnabled();
-  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeEnabled();
+  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeDisabled();
 
   const contract = await page.evaluate(async (moduleUrl) => {
     const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
@@ -31,10 +31,11 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
 
   expect(contract.keys).toEqual(["huggingface", "modelscope", "git-lfs", "default"]);
   expect(contract.available).toHaveLength(4);
-  expect(contract.available.every((option) => option.available === true)).toBe(true);
+  expect(contract.available.find((option) => option.key === "huggingface")?.available).toBe(true);
+  expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(false);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
   expect(contract.huggingFaceModel).toContain(
-    "resolve/12ebc1cd90f163c73ff2ae98446925b713b1a719/manifest.json"
+    "resolve/cd53bb62104f3f32123b56e981293d64ca321a0e/manifest.json"
   );
   expect(contract.modelScopeModel).toContain(
     "resolve/5dc50e4488a81c62cada7879b685f0301449930d/manifest.json"

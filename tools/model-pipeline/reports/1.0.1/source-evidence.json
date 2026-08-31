@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "candidate-uploaded",
+  "status": "passed",
   "model": {
     "id": "pp-picodet-l-320",
     "version": "1.0.1",
@@ -27,10 +27,10 @@
     "modelscope": {
       "kind": "modelscope",
       "status": "verified",
-      "revision": "5dc50e4488a81c62cada7879b685f0301449930d",
+      "revision": "e7d5a0ce5023fd22e915d474c6db70b54dca9637",
       "repository": "chenmohan/web-sdk-pp-detection",
       "path": "1.0.1/picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/5dc50e4488a81c62cada7879b685f0301449930d/1.0.1/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/e7d5a0ce5023fd22e915d474c6db70b54dca9637/1.0.1/picodet-l-320-fp32.onnx",
       "bytes": 23243834,
       "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "verification": "固定 revision 下载及 ModelScope 文件元数据回读"
@@ -53,9 +53,9 @@
     "order": ["huggingface", "modelscope", "git-lfs"],
     "checks": ["HTTPS 主机", "不可变十六进制 revision", "bytes 与 SHA-256 与本地文件一致"]
   },
-  "verifiedAt": "2026-08-30",
+  "verifiedAt": "2026-09-01",
   "limitations": [
     "来源核验只证明固定 revision 的文件可下载且字节一致，不证明浏览器后端兼容性。",
-    "FP16、WASM、真实 NVIDIA WebGPU、移动端和微信 WebView 证据尚未完成，manifest 继续保持 labs/blocked。"
+    "FP16、移动端和微信 WebView 证据尚未完成；本报告仅覆盖 FP32 来源完整性。"
   ]
 }

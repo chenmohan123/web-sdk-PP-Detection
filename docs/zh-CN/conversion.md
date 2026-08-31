@@ -24,7 +24,7 @@ python -m ppdetection.build_manifest
 parity 均通过，完整哈希、预处理和误差见
 `tools/model-pipeline/reports/picodet-parity.json`。
 
-该候选已经记录到 Git LFS、Hugging Face 和 ModelScope 的不可变来源，三类来源的
+该 stable 产物已经记录到 Git LFS、Hugging Face 和 ModelScope 的不可变来源，三类来源的
 revision、下载地址、大小和 SHA-256 见
 `tools/model-pipeline/reports/picodet-source-evidence.json`。已有一次 Windows
 HeadlessChrome 的 WASM/CPU smoke test，证据见

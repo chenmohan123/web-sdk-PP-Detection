@@ -72,9 +72,9 @@
         {
           "kind": "modelscope",
           "repository": "chenmohan/web-sdk-pp-detection",
-          "revision": "5dc50e4488a81c62cada7879b685f0301449930d",
+          "revision": "e7d5a0ce5023fd22e915d474c6db70b54dca9637",
           "path": "1.0.1/picodet-l-320-fp32.onnx",
-          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/5dc50e4488a81c62cada7879b685f0301449930d/1.0.1/picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/e7d5a0ce5023fd22e915d474c6db70b54dca9637/1.0.1/picodet-l-320-fp32.onnx",
           "bytes": 23243834,
           "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
         },

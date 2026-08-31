@@ -38,8 +38,7 @@ function fail(
 
 function candidatesForBackend(
   requested: BackendPreference,
-  capabilities: DetectionCapabilities,
-  allowFallback: boolean
+  capabilities: DetectionCapabilities
 ): Backend[] {
   if (requested === "wasm") return ["wasm"];
   if (requested === "webgpu")
@@ -49,7 +48,6 @@ function candidatesForBackend(
   const available: Backend[] = [];
   if (capabilities.webgpu) available.push("webgpu");
   available.push("wasm");
-  if (!allowFallback) return available.slice(0, 1);
   return available;
 }
 
@@ -75,19 +73,18 @@ export function selectExecutionPlan(
       requestedPrecision
     });
   }
-  const candidates = candidatesForBackend(
-    requestedBackend,
-    capabilities,
-    options.allowFallback === true
-  ).filter((backend) => variant.backends.includes(backend));
-  if (candidates.length === 0) {
+  const candidates = candidatesForBackend(requestedBackend, capabilities).filter((backend) =>
+    variant.backends.includes(backend)
+  );
+  const selectedCandidates = options.allowFallback === true ? candidates : candidates.slice(0, 1);
+  if (selectedCandidates.length === 0) {
     fail("CAPABILITY_UNSUPPORTED", "没有与模型变体匹配的可用后端", {
       requestedBackend,
       requestedPrecision,
       availableBackends: variant.backends
     });
   }
-  const actualBackend = candidates[0];
+  const actualBackend = selectedCandidates[0];
   return {
     variantId: variant.id,
     requestedBackend,
@@ -95,7 +92,7 @@ export function selectExecutionPlan(
     requestedPrecision,
     actualPrecision: variant.precision,
     executionMode,
-    candidates: candidates.map((backend) => ({
+    candidates: selectedCandidates.map((backend) => ({
       variantId: variant.id,
       backend,
       precision: variant.precision,

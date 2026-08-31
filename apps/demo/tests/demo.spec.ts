@@ -41,10 +41,25 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {
   await page.addInitScript(() => {
+    const cameraCalls: MediaStreamConstraints[] = [];
+    Object.defineProperty(window, "__cameraCalls", {
+      configurable: true,
+      value: cameraCalls
+    });
+    const track = {
+      getSettings: () => ({ deviceId: "rear" }),
+      stop: () => undefined
+    };
     Object.defineProperty(navigator, "mediaDevices", {
       configurable: true,
       value: {
-        getUserMedia: () => Promise.resolve({ getTracks: () => [] }),
+        getUserMedia: (constraints: MediaStreamConstraints) => {
+          cameraCalls.push(constraints);
+          return Promise.resolve({
+            getTracks: () => [track],
+            getVideoTracks: () => [track]
+          });
+        },
         enumerateDevices: () =>
           Promise.resolve([
             { deviceId: "front", kind: "videoinput", label: "前置摄像头", groupId: "group-1" },
@@ -66,7 +81,25 @@ test("图片、摄像头和视频输入场景均可切换", async ({ page }) => 
   await expect(page.getByLabel("摄像头设备")).toBeVisible();
   await expect(page.getByLabel("摄像头设备").locator("option")).toHaveCount(3);
   await page.getByLabel("摄像头设备").selectOption("rear");
-  await inputGroup.getByRole("button", { name: "视频" }).click();
+  await page.getByRole("button", { name: "启动摄像头" }).click();
+  await expect
+    .poll(
+      () =>
+        page.evaluate(
+          () => (window as unknown as { __cameraCalls: MediaStreamConstraints[] }).__cameraCalls
+        ),
+      { timeout: 5_000 }
+    )
+    .toContainEqual({ audio: false, video: { deviceId: { exact: "rear" } } });
+  const cameraCalls = await page.evaluate(
+    () => (window as unknown as { __cameraCalls: MediaStreamConstraints[] }).__cameraCalls
+  );
+  expect(cameraCalls.at(-1)).toEqual({
+    audio: false,
+    video: { deviceId: { exact: "rear" } }
+  });
+  await page.goto("/?fixture=1");
+  await page.getByRole("button", { name: "视频" }).click();
   await expect(page.getByTestId("result-panel").getByText("选择一个视频开始播放")).toBeVisible();
   await page.locator('input[type="file"]').setInputFiles({
     name: "sample.webm",
@@ -122,9 +155,9 @@ test("normalizes active class threshold configuration", async ({ page }) => {
 test("edits, applies, localizes, and clears class thresholds", async ({ page }) => {
   await page.goto("/?fixture=1");
   await page.getByText("类别阈值", { exact: true }).click();
-  const textThreshold = page.getByRole("spinbutton", { name: "类别阈值 text" });
-  await expect(textThreshold).toBeVisible();
-  await textThreshold.fill("0");
+  const personThreshold = page.getByRole("spinbutton", { name: "类别阈值 person" });
+  await expect(personThreshold).toBeVisible();
+  await personThreshold.fill("0");
   await page.getByRole("slider", { name: "置信度阈值" }).fill("1");
   await page.locator('input[type="file"]').setInputFiles({
     name: "threshold.png",
@@ -133,10 +166,10 @@ test("edits, applies, localizes, and clears class thresholds", async ({ page }) 
   });
   await page.getByRole("button", { name: "开始检测" }).click();
   await expect(page.getByTestId("status")).toContainText("检测完成", { timeout: 15_000 });
-  await expect(page.getByTestId("detection-section")).toContainText("text");
+  await expect(page.getByTestId("detection-section")).toContainText("person");
 
   await page.getByRole("button", { name: "清空类别阈值" }).click();
-  await expect(textThreshold).toHaveValue("");
+  await expect(personThreshold).toHaveValue("");
   await page.getByRole("button", { name: "English", exact: true }).click();
   await expect(page.getByText("Class thresholds", { exact: true })).toBeVisible();
 });
@@ -481,7 +514,7 @@ test("stacks the result workflow on a narrow viewport without horizontal overflo
   await page.goto("/?fixture=1");
   await expect(page.getByTestId("demo-shell")).toBeVisible();
   await page.getByText("类别阈值", { exact: true }).click();
-  await expect(page.getByRole("spinbutton", { name: "类别阈值 text" })).toBeVisible();
+  await expect(page.getByRole("spinbutton", { name: "类别阈值 person" })).toBeVisible();
   const overflow = await page.evaluate(() => ({
     containers: [...document.querySelectorAll<HTMLElement>("html, body, body *")]
       .filter((element) => element.scrollWidth > element.clientWidth)

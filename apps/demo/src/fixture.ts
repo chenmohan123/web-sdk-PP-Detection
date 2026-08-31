@@ -5,7 +5,7 @@ export const TINY_MODEL_BASE64 =
 
 export const tinyModelManifest: ModelManifest = {
   input: { dtype: "float32", name: "pixel_values", shape: [1, 3, 1, 1] },
-  labels: ["text"],
+  labels: ["person"],
   minSdkVersion: "1.0.0",
   model: {
     architecture: "PPDetectionV3BrowserFixture",

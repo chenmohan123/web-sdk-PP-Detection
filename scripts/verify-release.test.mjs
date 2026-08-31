@@ -163,6 +163,15 @@ describe("发布工作流契约", () => {
     assert.doesNotMatch(release, /NPM_TOKEN|NODE_AUTH_TOKEN|_authToken/);
   });
 
+  test("npm 完整性校验覆盖 registry 传播延迟", () => {
+    const release = read(".github/workflows/release.yml");
+    const integrityStep = release.slice(release.indexOf("- name: Record published integrity"));
+
+    assert.match(integrityStep, /for attempt in \{1\.\.20\}; do/);
+    assert.match(integrityStep, /sleep 6/);
+    assert.match(integrityStep, /Failed to read published integrity/);
+  });
+
   test("npm 发布在校验前还原两份真实模型文件", () => {
     const release = read(".github/workflows/release.yml");
 

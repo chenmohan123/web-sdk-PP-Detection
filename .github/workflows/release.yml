@@ -68,7 +68,7 @@ jobs:
         run: |
           set -o pipefail
           package="web-sdk-pp-detection@${GITHUB_REF_NAME#v}"
-          for attempt in {1..5}; do
+          for attempt in {1..20}; do
             if metadata="$(npm view "$package" version dist.integrity --json)"; then
               {
                 echo '## npm integrity'
@@ -76,10 +76,10 @@ jobs:
               } | tee -a "$GITHUB_STEP_SUMMARY"
               exit 0
             fi
-            if (( attempt < 5 )); then
-              echo "npm registry has not exposed $package yet; retrying in 3 seconds..." >&2
-              sleep 3
+            if (( attempt < 20 )); then
+              echo "npm registry has not exposed $package yet; retrying in 6 seconds..." >&2
+              sleep 6
             fi
           done
-          echo "Failed to read published integrity for $package after 5 attempts." >&2
+          echo "Failed to read published integrity for $package after 20 attempts." >&2
           exit 1

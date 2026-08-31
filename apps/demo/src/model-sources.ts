@@ -12,9 +12,10 @@ export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 
 const MODEL_REVISION = {
   // 清单与模型文件分别固定到各自的不可变提交。
-  huggingface: "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+  // cd53 提交包含稳定的 1.0.1 根清单；ModelScope 尚未提供稳定清单。
+  huggingface: "cd53bb62104f3f32123b56e981293d64ca321a0e",
   modelscope: "5dc50e4488a81c62cada7879b685f0301449930d",
-  "git-lfs": "3204072ce46d2afde30a47859f187a4dc293f345"
+  "git-lfs": "3d194b9ebff50175ebb0c9d36702852d7b7e506e"
 } as const;
 
 const MANIFEST_URLS = {
@@ -31,7 +32,11 @@ export const MODEL_SOURCE_OPTIONS: readonly ModelSourceOption[] = [
     manifestUrl: MANIFEST_URLS.huggingface
   },
   {
-    available: true,
+    available: false,
+    disabledReason: {
+      en: "The ModelScope manifest is still a candidate release and is temporarily blocked.",
+      zh: "ModelScope 清单仍是候选版本，暂时阻塞。"
+    },
     key: "modelscope",
     label: { en: "ModelScope", zh: "ModelScope" },
     manifestUrl: MANIFEST_URLS.modelscope

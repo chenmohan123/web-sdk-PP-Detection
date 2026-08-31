@@ -36,19 +36,13 @@ function requireAssetUrl(value, filename) {
   const expectedReleasePath = new RegExp(
     `^/chenmohan123/web-sdk-PP-Detection/releases/download/v\\d+\\.\\d+\\.\\d+-models/${filename}$`
   );
-  const expectedResolvePath = new RegExp(
-    `/resolve/[0-9a-f]{40,64}/.*\\/${filename}$`,
-    "i"
-  );
-  const expectedMediaPath = new RegExp(
-    `/media/[^/]+/[^/]+/[0-9a-f]{40,64}/.*\\/${filename}$`,
-    "i"
-  );
+  const expectedResolvePath = new RegExp(`/resolve/[0-9a-f]{40,64}/.*\\/${filename}$`, "i");
+  const expectedMediaPath = new RegExp(`/media/[^/]+/[^/]+/[0-9a-f]{40,64}/.*\\/${filename}$`, "i");
   const isReleaseAsset = url.hostname === "github.com" && expectedReleasePath.test(url.pathname);
   const isSourceAsset =
-    ((url.hostname === "media.githubusercontent.com" && expectedMediaPath.test(url.pathname)) ||
-      ((url.hostname === "huggingface.co" || url.hostname === "www.modelscope.cn") &&
-        expectedResolvePath.test(url.pathname)));
+    (url.hostname === "media.githubusercontent.com" && expectedMediaPath.test(url.pathname)) ||
+    ((url.hostname === "huggingface.co" || url.hostname === "www.modelscope.cn") &&
+      expectedResolvePath.test(url.pathname));
   if (url.protocol !== "https:" || (!isReleaseAsset && !isSourceAsset)) {
     throw new Error(`Unsafe or unexpected model URL: ${value}`);
   }

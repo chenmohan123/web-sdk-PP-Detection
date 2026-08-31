@@ -2,7 +2,7 @@
 
 [English](../en/quick-start.md)
 
-安装 `web-sdk-pp-detection` 后，浏览器会在第一次创建检测器时探测能力、下载清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。当前仓库默认 manifest 仍处于 blocked 状态，需传入已验证的 runtime manifest 或自定义模型清单；省略 `model` 会返回 `INVALID_MANIFEST`。默认 `backend: "auto"` 和 `precision: "auto"` 选择清单中的可用稳定变体；`allowFallback` 默认关闭，需要显式设置为 `true` 才允许会话失败后切换到下一后端。
+安装 `web-sdk-pp-detection` 后，浏览器会在第一次创建检测器时探测能力、下载清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。当前仓库默认内置 PicoDet 1.0.1 FP32 stable manifest；也可以传入经过验证的 runtime manifest 或自定义模型清单。默认 `backend: "auto"` 优先 WebGPU，`precision: "auto"` 选择清单中的可用稳定变体；`allowFallback` 默认关闭，需要显式设置为 `true` 才允许失败后切换到下一后端。
 
 页面至少需要一个单图文件输入：
 
@@ -18,9 +18,8 @@ export async function detectOne(file: File): Promise<void> {
     const result = await detector.detect(file, {
       threshold: 0.5,
       classThresholds: {
-        formula: 0.4,
-        table: 0.55,
-        text: 0.6
+        person: 0.6,
+        car: 0.5
       }
     });
     console.log(JSON.stringify(result, null, 2));
@@ -33,9 +32,9 @@ export async function detectOne(file: File): Promise<void> {
 }
 ```
 
-`classThresholds` 按 manifest 标签名称覆盖置信度过滤阈值，未配置的类别回退到 `threshold`。全局 `threshold` 仍用于 mask 二值化和多边形提取。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
+`classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。例如 PicoDet 的 `person` 和 `car` 可以使用不同阈值。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
-检测结果包含原图坐标系下的 `box`、`polygon`、类别、置信度与阅读顺序，也包含加载/推理耗时、实际后端、精度和回退记录。生产页面应展示加载状态、允许取消，并在页面卸载时调用 `dispose()`。
+检测结果包含原图坐标系下的目标 `box`、类别和置信度，也包含加载/推理耗时、实际后端、精度和回退记录。生产页面应展示加载状态、允许取消，并在页面卸载时调用 `dispose()`。
 
 ## 摄像头与视频
 

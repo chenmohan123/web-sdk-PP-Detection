@@ -109,8 +109,7 @@ textarea:focus-visible {
 .primary-button,
 .secondary-button,
 .file-button,
-.segmented button,
-.overlay-toggle button {
+.segmented button {
   border: 1px solid transparent;
   border-radius: 6px;
   display: inline-flex;
@@ -194,6 +193,9 @@ textarea:focus-visible {
   color: #183b42;
   padding: 0 9px;
 }
+.camera-device-control select {
+  min-width: 190px;
+}
 .model-source-limitations {
   max-width: 270px;
   color: #688078;
@@ -232,15 +234,13 @@ textarea:focus-visible {
   padding: 3px;
   min-width: 0;
 }
-.segmented button,
-.overlay-toggle button {
+.segmented button {
   min-height: 30px;
   padding-inline: 11px;
   color: #48615d;
   background: transparent;
 }
-.segmented button.selected,
-.overlay-toggle button.selected {
+.segmented button.selected {
   background: white;
   color: #183b42;
   box-shadow: 0 1px 4px #183b4228;
@@ -447,12 +447,12 @@ textarea:focus-visible {
   margin: 2px 0 0;
   font-size: 17px;
 }
-.overlay-toggle {
-  display: inline-flex;
-  gap: 3px;
-  border: 1px solid #bbc8c3;
-  border-radius: 7px;
-  padding: 3px;
+.result-mode {
+  color: #688078;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .canvas-wrap {
   position: relative;

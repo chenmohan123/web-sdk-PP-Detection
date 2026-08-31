@@ -19,7 +19,7 @@ Returns a `Promise<PPDetectionDetector>`. Common options:
 
 For `phase: "model"` and `status: "progress"`, `loadedBytes` and the optional `totalBytes` describe model network-transfer bytes only, not overall initialization progress. They exclude integrity verification and ONNX Runtime Session creation. `totalBytes` can be absent when the response has no `Content-Length`, and cache, memory, or custom binary model sources may emit no byte progress.
 
-The default PicoDet 1.0.1 manifest contains a downloadable stable FP32 asset with WASM and WebGPU browser evidence. Available combinations of `webgpu`, `wasm` (CPU), `fp32`, `fp16`, `int8`, `int4`, and `fp8` must follow manifest variants and runtime probing. Explicit pairs absent from the manifest throw `CAPABILITY_UNSUPPORTED`. `allowFallback` handles runtime failures among valid candidates; it does not rewrite an invalid pair. The Demo enables fallback only for Auto backend + Auto precision, so any manual Demo backend or precision choice remains strict. The source model is float32; FP64 inference is unsupported.
+The default PicoDet 1.0.1 manifest contains a downloadable stable FP32 asset with WASM and WebGPU browser evidence. Available combinations of `webgpu`, `wasm` (CPU), `fp32`, `fp16`, `int8`, `int4`, and `fp8` must follow manifest variants and runtime probing. Explicit pairs absent from the manifest throw `CAPABILITY_UNSUPPORTED`. `allowFallback` handles runtime failures among valid candidates; it does not rewrite an invalid pair. The Demo prefers WebGPU when the backend is Auto and allows a failed WebGPU run to fall back to WASM; manually selected backends remain strict. The source model is float32; FP64 inference is unsupported.
 
 ```ts
 import { createPPDetection } from "web-sdk-pp-detection";
@@ -50,14 +50,13 @@ declare const file: Blob;
 const result = await detector.detect(file, {
   threshold: 0.5,
   classThresholds: {
-    formula: 0.4,
-    table: 0.55,
-    text: 0.6
+    person: 0.6,
+    car: 0.5
   }
 });
 ```
 
-`precision: "auto"` selects the first available stable precision in manifest variant order. The default PicoDet keeps only the FP32 evidence, so the SDK does not guess an FP16 switch. `classThresholds` overrides confidence filtering for matching manifest label names and falls back to `threshold` for unspecified classes. The global `threshold` still controls mask binarization and polygon extraction. Unknown class names and values outside `0` through `1` are rejected.
+`precision: "auto"` selects the first available stable precision in manifest variant order. The default PicoDet keeps only the FP32 evidence, so the SDK does not guess an FP16 switch. `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
 
 When a manifest sets `preprocessing.doResize` to `false`, both input dimensions must fit within the model input size. Larger images throw `INVALID_INPUT` instead of being silently cropped.
 

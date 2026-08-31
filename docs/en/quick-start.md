@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/quick-start.md)
 
-After installing `web-sdk-pp-detection`, the first detector creation probes browser capabilities, downloads the manifest and model, checks SHA-256, and creates an ONNX Runtime session. The repository's default manifest is currently blocked, so pass a verified runtime or custom manifest; omitting `model` returns `INVALID_MANIFEST`. The defaults `backend: "auto"` and `precision: "auto"` select an available stable manifest variant; `allowFallback` is disabled by default and must be set to `true` explicitly before a session failure may try the next backend.
+After installing `web-sdk-pp-detection`, the first detector creation probes browser capabilities, downloads the manifest and model, checks SHA-256, and creates an ONNX Runtime session. The repository includes a built-in PicoDet 1.0.1 FP32 stable manifest; you can also pass a verified runtime or custom manifest. `backend: "auto"` prefers WebGPU and `precision: "auto"` selects an available stable manifest variant; `allowFallback` is disabled by default and must be set to `true` explicitly before a failure may try the next backend.
 
 Start with a single-image file input:
 
@@ -18,9 +18,8 @@ export async function detectOne(file: File): Promise<void> {
     const result = await detector.detect(file, {
       threshold: 0.5,
       classThresholds: {
-        formula: 0.4,
-        table: 0.55,
-        text: 0.6
+        person: 0.6,
+        car: 0.5
       }
     });
     console.log(JSON.stringify(result, null, 2));
@@ -33,9 +32,9 @@ export async function detectOne(file: File): Promise<void> {
 }
 ```
 
-`classThresholds` overrides confidence filtering for matching manifest label names and falls back to `threshold` for unspecified classes. The global `threshold` still controls mask binarization and polygon extraction. Unknown class names and values outside `0` through `1` are rejected.
+`classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. For example, PicoDet can use separate thresholds for `person` and `car`. Unknown class names and values outside `0` through `1` are rejected.
 
-The result includes original-image coordinates for each box and polygon, category, score, and reading order. It also reports loading/inference timings, the actual backend and precision, and fallback records. Production pages should expose loading state and cancellation and call `dispose()` during page teardown.
+The result includes original-image coordinates for each detected object box, category, and score. It also reports loading/inference timings, the actual backend and precision, and fallback records. Production pages should expose loading state and cancellation and call `dispose()` during page teardown.
 
 ## Camera and video
 

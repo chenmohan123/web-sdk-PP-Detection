@@ -53,7 +53,6 @@ import { formatFallbackCause, formatRuntimeError } from "./runtime-messages";
 import { VideoFrameScheduler } from "./media-frame-scheduler";
 
 type Language = "zh" | "en";
-type Overlay = "box" | "polygon";
 type InputMode = "image" | "camera" | "video";
 type Status = "ready" | "downloading" | "loading" | "running" | "success" | "error";
 
@@ -80,8 +79,7 @@ function formatMs(value: number | undefined): string {
 function drawResult(
   canvas: HTMLCanvasElement,
   source: HTMLImageElement | HTMLVideoElement | null | undefined,
-  result: PPDetectionResult | undefined,
-  overlay: Overlay
+  result: PPDetectionResult | undefined
 ): void {
   if (source == null || result === undefined) return;
   const width =
@@ -102,20 +100,13 @@ function drawResult(
   context.strokeStyle = "#e4572e";
   context.fillStyle = "rgba(228, 87, 46, 0.12)";
   for (const detection of result.detections) {
-    const points = detection.polygon;
     context.beginPath();
-    if (overlay === "polygon" && points.length > 1) {
-      context.moveTo(points[0].x, points[0].y);
-      for (const point of points.slice(1)) context.lineTo(point.x, point.y);
-      context.closePath();
-    } else {
-      context.rect(
-        detection.box.xMin,
-        detection.box.yMin,
-        detection.box.xMax - detection.box.xMin,
-        detection.box.yMax - detection.box.yMin
-      );
-    }
+    context.rect(
+      detection.box.xMin,
+      detection.box.yMin,
+      detection.box.xMax - detection.box.xMin,
+      detection.box.yMax - detection.box.yMin
+    );
     context.fill();
     context.stroke();
   }
@@ -146,7 +137,6 @@ export function App(): ReactElement {
   const [precision, setPrecision] = useState<PrecisionPreference>("auto");
   const [modelSource, setModelSource] = useState<ModelSourceKey>(DEFAULT_MODEL_SOURCE);
   const [modelSourceChanging, setModelSourceChanging] = useState(false);
-  const [overlay, setOverlay] = useState<Overlay>("box");
   const [inputMode, setInputMode] = useState<InputMode>("image");
   const [threshold, setThreshold] = useState(0.5);
   const [status, setStatus] = useState<Status>("ready");
@@ -156,6 +146,8 @@ export function App(): ReactElement {
   const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [videoUrl, setVideoUrl] = useState<string | undefined>();
   const [cameraActive, setCameraActive] = useState(false);
+  const [cameraDevices, setCameraDevices] = useState<readonly MediaDeviceInfo[]>([]);
+  const [cameraDeviceId, setCameraDeviceId] = useState("");
   const [result, setResult] = useState<PPDetectionResult | undefined>();
   const [error, setError] = useState<string | undefined>();
   const [customOpen, setCustomOpen] = useState(false);
@@ -180,6 +172,23 @@ export function App(): ReactElement {
   );
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
 
+  const refreshCameraDevices = useCallback(async (): Promise<void> => {
+    if (!navigator.mediaDevices?.enumerateDevices) {
+      setCameraDevices([]);
+      return;
+    }
+    try {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const cameras = devices.filter((device) => device.kind === "videoinput");
+      setCameraDevices(cameras);
+      setCameraDeviceId((current) =>
+        current !== "" && cameras.some((device) => device.deviceId === current) ? current : ""
+      );
+    } catch {
+      setCameraDevices([]);
+    }
+  }, []);
+
   const activeMediaLabel =
     inputMode === "image"
       ? (file?.name ?? copy.noImage)
@@ -191,10 +200,13 @@ export function App(): ReactElement {
 
   const redraw = useCallback(() => {
     const source = inputMode === "image" ? imageRef.current : videoRef.current;
-    drawResult(canvasRef.current!, source, result, overlay);
-  }, [inputMode, overlay, result]);
+    drawResult(canvasRef.current!, source, result);
+  }, [inputMode, result]);
 
   useEffect(() => redraw(), [redraw]);
+  useEffect(() => {
+    void refreshCameraDevices();
+  }, [refreshCameraDevices]);
   useEffect(
     () => () => {
       if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
@@ -280,7 +292,7 @@ export function App(): ReactElement {
     setCameraActive(false);
   }
 
-  const startCamera = async (): Promise<void> => {
+  const startCamera = async (requestedDeviceId = cameraDeviceId): Promise<void> => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setError(copy.cameraUnsupported);
       setStatus("error");
@@ -288,8 +300,13 @@ export function App(): ReactElement {
     }
     try {
       stopCamera();
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      const video: MediaTrackConstraints =
+        requestedDeviceId === "" ? {} : { deviceId: { exact: requestedDeviceId } };
+      const stream = await navigator.mediaDevices.getUserMedia({ video, audio: false });
       streamRef.current = stream;
+      const activeDeviceId = stream.getVideoTracks()[0]?.getSettings().deviceId;
+      if (activeDeviceId !== undefined && activeDeviceId !== "") setCameraDeviceId(activeDeviceId);
+      await refreshCameraDevices();
       setInputMode("camera");
       setFile(undefined);
       if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
@@ -308,6 +325,11 @@ export function App(): ReactElement {
       setError(formatRuntimeError(caught));
       setStatus("error");
     }
+  };
+
+  const onCameraDeviceChange = (nextDeviceId: string): void => {
+    setCameraDeviceId(nextDeviceId);
+    if (cameraActive) void startCamera(nextDeviceId);
   };
 
   const onSample = async (sample: DemoSample): Promise<void> => {
@@ -652,7 +674,13 @@ export function App(): ReactElement {
             <button
               className={inputMode === "camera" ? "selected" : ""}
               aria-pressed={inputMode === "camera"}
-              onClick={() => void startCamera()}
+              onClick={() => {
+                stopVideo();
+                setInputMode("camera");
+                setResult(undefined);
+                setError(undefined);
+                void refreshCameraDevices();
+              }}
             >
               <Camera size={14} />
               {copy.cameraInput}
@@ -670,6 +698,23 @@ export function App(): ReactElement {
             </button>
           </div>
         </div>
+        {inputMode === "camera" && (
+          <label className="control-group camera-device-control">
+            <span className="control-label">{copy.cameraDevice}</span>
+            <select
+              aria-label={copy.cameraDevice}
+              value={cameraDeviceId}
+              onChange={(event) => onCameraDeviceChange(event.target.value)}
+            >
+              <option value="">{copy.defaultCamera}</option>
+              {cameraDevices.map((device, index) => (
+                <option key={device.deviceId || `camera-${index}`} value={device.deviceId}>
+                  {device.label || `${copy.cameraDevice} ${index + 1}`}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         <div className="control-actions">
           {inputMode === "image" ? (
             <>
@@ -802,25 +847,10 @@ export function App(): ReactElement {
         <article className="result-panel" data-testid="result-panel">
           <div className="panel-heading">
             <div>
-              <span className="eyebrow">DOCUMENT VIEW</span>
+              <span className="eyebrow">DETECTION VIEW</span>
               <h2>{copy.result}</h2>
             </div>
-            <div className="overlay-toggle">
-              <button
-                className={overlay === "box" ? "selected" : ""}
-                onClick={() => setOverlay("box")}
-                aria-pressed={overlay === "box"}
-              >
-                {copy.box}
-              </button>
-              <button
-                className={overlay === "polygon" ? "selected" : ""}
-                onClick={() => setOverlay("polygon")}
-                aria-pressed={overlay === "polygon"}
-              >
-                {copy.polygon}
-              </button>
-            </div>
+            <span className="result-mode">{copy.box}</span>
           </div>
           <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
             {inputMode === "image" && imageUrl === undefined ? (
@@ -828,6 +858,12 @@ export function App(): ReactElement {
                 <FileImage size={30} />
                 <span>{copy.noImage}</span>
                 <small>{copy.selectHint}</small>
+              </div>
+            ) : inputMode === "camera" && !cameraActive ? (
+              <div className="empty-state">
+                <Camera size={30} />
+                <span>{copy.cameraIdle}</span>
+                <small>{copy.cameraHint}</small>
               </div>
             ) : inputMode === "image" ? (
               <img
@@ -889,7 +925,7 @@ export function App(): ReactElement {
               <span className="sample-source" data-testid="sample-source">
                 {selectedSample === undefined
                   ? copy.sampleSource
-                  : `${copy.sampleSource}: PaddleOCR`}
+                  : `${copy.sampleSource}: ${copy.sampleAttribution}`}
               </span>
             </div>
             <div className="sample-grid">
@@ -912,7 +948,7 @@ export function App(): ReactElement {
                 target="_blank"
                 rel="noreferrer"
               >
-                {copy.sampleSource}: PaddleOCR
+                {copy.sampleAttribution}
               </a>
             )}
           </section>

@@ -12,7 +12,9 @@ export function allowFallbackForSelection(
   backend: BackendPreference,
   precision: PrecisionPreference
 ): boolean {
-  return backend === "auto" && precision === "auto";
+  // 自动后端始终先尝试 WebGPU；精度选择只约束变体，不应关闭 CPU 回退。
+  void precision;
+  return backend === "auto";
 }
 
 export function supportsCombination(

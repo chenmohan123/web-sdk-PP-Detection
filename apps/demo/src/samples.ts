@@ -10,43 +10,44 @@ export interface DemoSample {
 
 export const demoSamples: readonly DemoSample[] = [
   {
-    coverage: { en: "Chinese · Reading order", zh: "中文 · 阅读顺序" },
-    filename: "layout-demo.jpg",
-    id: "layout-demo",
-    label: { en: "Layout sample", zh: "版面示例" },
+    coverage: { en: "People · COCO", zh: "人物 · COCO" },
+    filename: "people.jpg",
+    id: "people",
+    label: { en: "People", zh: "人物" },
     mimeType: "image/jpeg",
-    sha256: "785b7d19f158dcb636342dd3378ed3a4cddb7333d2d71688f0baa5c25a88ad51",
-    sourceUrl: "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/layout_demo.jpg"
-  },
-  {
-    coverage: { en: "English · Formula", zh: "英文 · 公式" },
-    filename: "doc-formula.png",
-    id: "doc-formula",
-    label: { en: "Formula document", zh: "公式文档" },
-    mimeType: "image/png",
-    sha256: "6b07d28527dc9e930804fa73df562f1a81599c6b8a1a8bbc2a80742fa9f26e80",
+    sha256: "fc23e512cfe33e0b7f5e3445dc4189eb053fed6a16964b2454775a6df3fa5eba",
     sourceUrl:
-      "https://github.com/PaddlePaddle/PaddleOCR/blob/2661c7c0ef5c613e8f93c6e93b2e052399f0f854/tests/test_files/doc_with_formula.png"
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/000000014439.jpg"
   },
   {
-    coverage: { en: "Chinese · Table", zh: "中文 · 表格" },
-    filename: "table.png",
-    id: "table",
-    label: { en: "Table document", zh: "表格文档" },
-    mimeType: "image/png",
-    sha256: "6d50148ceccb2d5cecc50b084b5105e3167f2d55a8899b29e04c3ebe46e88fa8",
-    sourceUrl:
-      "https://github.com/PaddlePaddle/PaddleOCR/blob/2661c7c0ef5c613e8f93c6e93b2e052399f0f854/tests/test_files/medal_table.png"
-  },
-  {
-    coverage: { en: "Chinese/English · Figures", zh: "中英文 · 图片与图表" },
-    filename: "image-layout.jpg",
-    id: "image-layout",
-    label: { en: "Mixed layout", zh: "图文混排" },
+    coverage: { en: "Street · COCO", zh: "街景 · COCO" },
+    filename: "street.jpg",
+    id: "street",
+    label: { en: "Street scene", zh: "街景" },
     mimeType: "image/jpeg",
-    sha256: "cfebd4e0716da8ef01ad29c6f5bf7ed0dcc7d3a07bd38e32219c3b10645798de",
+    sha256: "c6cfc7e454a432c31ac3c3a997d5f33ccebe120fc6b9465965609ce12995ede9",
     sourceUrl:
-      "https://github.com/PaddlePaddle/PaddleOCR/blob/2661c7c0ef5c613e8f93c6e93b2e052399f0f854/docs/version2.x/ppstructure/model_train/images/layout.jpg"
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/000000087038.jpg"
+  },
+  {
+    coverage: { en: "Vehicles · COCO", zh: "车辆 · COCO" },
+    filename: "vehicles.jpg",
+    id: "vehicles",
+    label: { en: "Vehicles", zh: "车辆" },
+    mimeType: "image/jpeg",
+    sha256: "baa5a96ec8a613dd8571a1e2bc6dcc1d8841418f8a19a6e521ca0d60ca3dd09d",
+    sourceUrl:
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/000000570688.jpg"
+  },
+  {
+    coverage: { en: "Car · COCO", zh: "汽车 · COCO" },
+    filename: "car.jpg",
+    id: "car",
+    label: { en: "Car", zh: "汽车" },
+    mimeType: "image/jpeg",
+    sha256: "a67f6fce06d15daec60ef60f6f76551caad1d6820e0055ee8a0bf15ad4e6c47a",
+    sourceUrl:
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/39006.jpg"
   }
 ];
 

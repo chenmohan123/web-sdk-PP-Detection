@@ -125,6 +125,23 @@ it("ORT 创建异常映射为 SESSION_CREATE_FAILED", async () => {
   });
 });
 
+it("ORT 推理异常保留底层错误摘要", async () => {
+  const ort = {
+    env: { wasm: {} },
+    InferenceSession: {
+      create: vi.fn().mockResolvedValue({
+        run: vi.fn().mockRejectedValue(new Error("unsupported WebGPU operator"))
+      })
+    }
+  };
+  const handle = await createOrtSession(new ArrayBuffer(1), plan, { ort });
+  await expect(handle.run({ image: new Float32Array([1]) })).rejects.toMatchObject({
+    code: "INFERENCE_FAILED",
+    details: { causeMessage: "unsupported WebGPU operator" }
+  });
+  await handle.dispose();
+});
+
 it("ORT 模块加载异常映射为 SESSION_CREATE_FAILED", async () => {
   const loadOrt = vi.fn(async () => {
     throw new Error("module unavailable");

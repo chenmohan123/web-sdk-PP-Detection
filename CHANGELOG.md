@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Demo 类别阈值改为读取目标检测类别（默认 PicoDet COCO 标签），移除版面分析和 mask 相关文案。
+- Demo 摄像头场景支持枚举并选择多个视频输入设备；示例图片改为 PaddleDetection 官方目标检测图片。
+- Demo 选择“自动”后端时优先 WebGPU，并在明确选择 FP16/FP32 时允许 WebGPU 会话或推理失败后回退 WASM；SDK 结果记录实际后端和回退原因。
+
 ## 0.1.0
 
 - 发布 PicoDet-L-320 1.0.1 FP32 stable 模型，默认来源为 Hugging Face，并保留 Git LFS、ModelScope 的不可变来源。

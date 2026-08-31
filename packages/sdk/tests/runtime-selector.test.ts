@@ -51,6 +51,28 @@ describe("selectExecutionPlan", () => {
     expect(plan.requestedBackend).toBe("auto");
   });
 
+  it("auto 且不允许回退时选择仅支持 WASM 的模型", () => {
+    const wasmOnlyManifest: DetectionManifest = {
+      ...manifest,
+      variants: [
+        {
+          id: "fp32",
+          precision: "fp32",
+          quantization: null,
+          backends: ["wasm"],
+          status: "stable"
+        }
+      ]
+    };
+    const plan = selectExecutionPlan(
+      { backend: "auto", allowFallback: false },
+      capabilities,
+      wasmOnlyManifest
+    );
+    expect(plan.candidates.map((candidate) => candidate.backend)).toEqual(["wasm"]);
+    expect(plan.actualBackend).toBe("wasm");
+  });
+
   it("显式 fp16 不会替换为 fp32", () => {
     expect(() =>
       selectExecutionPlan({ backend: "wasm", precision: "fp16" }, capabilities, manifest)

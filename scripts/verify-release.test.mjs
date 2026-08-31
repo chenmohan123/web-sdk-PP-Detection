@@ -21,7 +21,7 @@ function read(relativePath) {
 }
 
 describe("发布工作流契约", () => {
-  test("验证当前 0.1.0 稳定模型清单的静态配置", () => {
+  test("验证当前 0.1.1 稳定模型清单的静态配置", () => {
     const output = execFileSync(process.execPath, [verifier, "--static"], {
       cwd: repositoryRoot,
       encoding: "utf8"
@@ -192,14 +192,14 @@ describe("发布工作流契约", () => {
     );
   });
 
-  test("package、runtime 和 changelog 版本保持 0.1.0 一致", () => {
+  test("package、runtime 和 changelog 版本保持 0.1.1 一致", () => {
     const packageMetadata = JSON.parse(read("packages/sdk/package.json"));
     const runtime = read("packages/sdk/src/index.ts");
     const changelog = read("CHANGELOG.md");
 
-    assert.equal(packageMetadata.version, "0.1.0");
-    assert.match(runtime, /CURRENT_SDK_VERSION = "0\.1\.0"/);
-    assert.match(changelog, /^## 0\.1\.0$/m);
+    assert.equal(packageMetadata.version, "0.1.1");
+    assert.match(runtime, /CURRENT_SDK_VERSION = "0\.1\.1"/);
+    assert.match(changelog, /^## 0\.1\.1$/m);
   });
 
   test("Pages 暂存脚本在历史模型 blocked 时不访问网络", async () => {

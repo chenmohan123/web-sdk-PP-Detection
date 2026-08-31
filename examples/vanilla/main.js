@@ -1,7 +1,7 @@
 import {
   createPPDetection,
   PPDetectionError
-} from "https://unpkg.com/web-sdk-pp-detection@0.1.0/dist/index.js";
+} from "https://unpkg.com/web-sdk-pp-detection@0.1.1/dist/index.js";
 
 const manifestUrl = "https://models.example.com/pp-detection/manifest.json";
 const imageInput = document.querySelector("#image");

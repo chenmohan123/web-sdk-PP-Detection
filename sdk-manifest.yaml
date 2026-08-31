@@ -4,7 +4,7 @@ name: PaddleDetection Web SDK
 summary: 在浏览器本地运行 PaddleDetection 轴对齐目标检测模型，支持图片、摄像头帧和视频帧。
 package:
   name: web-sdk-pp-detection
-  version: 0.1.0
+  version: 0.1.1
 repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Detection/

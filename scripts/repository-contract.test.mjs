@@ -28,7 +28,7 @@ test("根包是私有工作区，SDK 子包是唯一公开发布包", () => {
   assert.equal("exports" in rootPackage, false);
   assert.equal(sdkPackage.name, "web-sdk-pp-detection");
   assert.notEqual(sdkPackage.private, true);
-  assert.equal(sdkPackage.version, "0.1.0");
+  assert.equal(sdkPackage.version, "0.1.1");
   assert.equal(sdkPackage.license, "Apache-2.0");
   assert.deepEqual(sdkPackage.files, ["dist"]);
   assert.equal(sdkPackage.exports["."].import, "./dist/index.js");

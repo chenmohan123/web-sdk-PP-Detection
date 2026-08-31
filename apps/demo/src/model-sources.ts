@@ -13,7 +13,7 @@ export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 const MODEL_REVISION = {
   // 清单与模型文件分别固定到各自的不可变提交。
   huggingface: "cd53bb62104f3f32123b56e981293d64ca321a0e",
-  modelscope: "e7d5a0ce5023fd22e915d474c6db70b54dca9637",
+  modelscope: "aedf34d20d9eb9204444e3b09d2092eaec5bff48",
   "git-lfs": "3d194b9ebff50175ebb0c9d36702852d7b7e506e"
 } as const;
 

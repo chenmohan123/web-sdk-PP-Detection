@@ -12,9 +12,10 @@ export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 
 const MODEL_REVISION = {
   // 清单与模型文件分别固定到各自的不可变提交。
-  huggingface: "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+  // b089 提交只包含候选根清单；12eb 提交更新为 1.0.1 完整清单。
+  huggingface: "12ebc1cd90f163c73ff2ae98446925b713b1a719",
   modelscope: "5dc50e4488a81c62cada7879b685f0301449930d",
-  "git-lfs": "3204072ce46d2afde30a47859f187a4dc293f345"
+  "git-lfs": "3d194b9ebff50175ebb0c9d36702852d7b7e506e"
 } as const;
 
 const MANIFEST_URLS = {

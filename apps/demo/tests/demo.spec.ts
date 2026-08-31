@@ -33,9 +33,13 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
   expect(contract.available).toHaveLength(4);
   expect(contract.available.every((option) => option.available === true)).toBe(true);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
-  expect(contract.huggingFaceModel).toContain("resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/");
-  expect(contract.modelScopeModel).toContain("resolve/5dc50e4488a81c62cada7879b685f0301449930d/");
-  expect(contract.gitLfsModel).toContain("3204072ce46d2afde30a47859f187a4dc293f345");
+  expect(contract.huggingFaceModel).toContain(
+    "resolve/12ebc1cd90f163c73ff2ae98446925b713b1a719/manifest.json"
+  );
+  expect(contract.modelScopeModel).toContain(
+    "resolve/5dc50e4488a81c62cada7879b685f0301449930d/manifest.json"
+  );
+  expect(contract.gitLfsModel).toContain("3d194b9ebff50175ebb0c9d36702852d7b7e506e");
   expect(contract.defaultModel).toBe(contract.huggingFaceModel);
 });
 

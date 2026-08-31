@@ -2,7 +2,7 @@
 
 [English](#english) | [在线 Demo](https://chenmohan123.github.io/web-sdk-PP-Detection/)
 
-基于 ONNX Runtime Web 的浏览器端 PP-Detection 版面分析 SDK，支持 PC、移动端与各类 H5 页面。
+基于 ONNX Runtime Web 的浏览器端 PP-Detection 目标检测 SDK，支持 PC、移动端与各类 H5 页面。
 
 ## 安装
 
@@ -25,16 +25,15 @@ const detector = await createPPDetection({
 const result = await detector.detect(file, {
   threshold: 0.5,
   classThresholds: {
-    formula: 0.4,
-    table: 0.55,
-    text: 0.6
+    person: 0.6,
+    car: 0.5
   }
 });
 console.log(result.detections, result.runtime, result.timings);
 await detector.dispose();
 ```
 
-`classThresholds` 按 manifest 标签名称覆盖置信度过滤阈值，未配置的类别回退到 `threshold`。全局 `threshold` 仍用于 mask 二值化和多边形提取。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
+`classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
 当前发布版本内置 PicoDet 1.0.1 FP32 stable manifest；使用默认模型时可以省略 `model`。自定义模型仍应传入经过验证的 runtime manifest 或清单对象。
 
@@ -42,7 +41,7 @@ await detector.dispose();
 
 ## 运行后端与精度
 
-- `backend: "auto"` 优先使用 WebGPU；只有显式设置 `allowFallback: true` 时，WebGPU 会话失败才会尝试 WASM（CPU）。也可手动指定 `"webgpu"` 或 `"wasm"`。
+- `backend: "auto"` 优先使用 WebGPU；设置 `allowFallback: true` 后，WebGPU 会话或推理失败才会尝试 WASM（CPU）。也可手动指定 `"webgpu"` 或 `"wasm"`。
 - `precision: "auto"` 选择清单中可用的默认稳定精度；当前默认 PicoDet 仅验证 FP32，因此不会臆测切换到 FP16。已验证其他精度时可手动指定 `"fp16"`、`"int8"` 等。
 - 默认 PicoDet 1.0.1 FP32 已发布可下载的 stable ONNX 资产，并通过 Linux WASM 与 Windows NVIDIA WebGPU 七张 fixture 验证；FP16、INT8、INT4 和 FP8 仍需独立证据。
 - 使用默认模型时，显式请求清单中未声明的组合会抛出 `CAPABILITY_UNSUPPORTED`，不会改写无效组合；自定义清单可在单独验证后声明其他组合。上游模型是 float32，不支持 FP64；FP32 约为 FP16 两倍大小并可能更慢、更占显存。
@@ -75,7 +74,7 @@ const detector = await createPPDetection({
 
 ## English
 
-A browser-first PP-Detection document layout analysis SDK powered by ONNX Runtime Web for desktop, mobile, and H5 pages.
+A browser-first PP-Detection object detection SDK powered by ONNX Runtime Web for desktop, mobile, and H5 pages.
 
 ### Installation
 
@@ -98,16 +97,15 @@ const detector = await createPPDetection({
 const result = await detector.detect(file, {
   threshold: 0.5,
   classThresholds: {
-    formula: 0.4,
-    table: 0.55,
-    text: 0.6
+    person: 0.6,
+    car: 0.5
   }
 });
 console.log(result.detections, result.runtime, result.timings);
 await detector.dispose();
 ```
 
-`classThresholds` overrides confidence filtering for matching manifest label names and falls back to `threshold` for unspecified classes. The global `threshold` still controls mask binarization and polygon extraction. Unknown class names and values outside `0` through `1` are rejected.
+`classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
 
 The release includes a built-in PicoDet 1.0.1 FP32 stable manifest, so `model` may be omitted for the default model. Pass a verified runtime or custom manifest when using another model.
 
@@ -115,7 +113,7 @@ Detailed initialization timings are available through `detector.loadTimings`. `t
 
 ### Backend and precision
 
-- `backend: "auto"` prefers WebGPU; only `allowFallback: true` permits a failed WebGPU session to try WASM (CPU). Use `"webgpu"` or `"wasm"` for an explicit choice.
+- `backend: "auto"` prefers WebGPU; with `allowFallback: true`, a failed WebGPU session or inference attempts WASM (CPU). Use `"webgpu"` or `"wasm"` for an explicit choice.
 - `precision: "auto"` selects the available default stable precision from the manifest. The default PicoDet 1.0.1 validates FP32 only, so the SDK does not guess an FP16 switch. When another precision has been validated, select it explicitly with `"fp16"`, `"int8"`, and so on.
 - The default PicoDet 1.0.1 FP32 variant is a downloadable stable ONNX asset and has passed seven-fixture validation on Linux WASM and Windows NVIDIA WebGPU. FP16, INT8, INT4, and FP8 still require independent release-source and backend evidence.
 - `detect` accepts image Blob/File, Canvas/ImageData, `HTMLVideoElement`, or a single `VideoFrame`. Hosts own camera/video permissions and frame pacing; await each frame Promise and call `dispose()` when media stops.

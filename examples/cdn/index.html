@@ -90,9 +90,12 @@
                 progress.value = ((event.loadedBytes || 0) / event.totalBytes) * 100;
             }
           });
-          const result = await detector.detect(file, { threshold: 0.5 });
+          const result = await detector.detect(file, {
+            threshold: 0.5,
+            classThresholds: { person: 0.6, car: 0.5 }
+          });
           progress.value = 100;
-          status.textContent = `完成：${result.detections.length} 个版面区域`;
+          status.textContent = `完成：${result.detections.length} 个目标`;
           output.textContent = JSON.stringify(result, null, 2);
         } catch (error) {
           status.textContent = "检测失败";

@@ -260,7 +260,6 @@ export async function createPPDetection(
     cache: options.cache === false ? false : options.cache === "memory" ? "memory" : undefined
   });
   let executor: DetectionExecutor | undefined;
-  let activeBridge: WorkerBridge | undefined;
   try {
     const loadStartedAt = now();
     options.onProgress?.({ phase: "model", status: "start" });
@@ -308,29 +307,18 @@ export async function createPPDetection(
       stage: string;
       variantId: string;
     }> = [];
-    let selectedPlan: ExecutionPlan = plan;
-    let sessionMs = 0;
-    for (const candidate of plan.candidates) {
-      const candidatePlan: ExecutionPlan = {
-        ...plan,
-        variantId: candidate.variantId,
-        actualBackend: candidate.backend,
-        actualPrecision: candidate.precision,
-        executionMode: candidate.executionMode,
-        candidates: [candidate]
-      };
+    const createExecutorForPlan = async (
+      candidatePlan: ExecutionPlan
+    ): Promise<DetectionExecutor> => {
       options.onProgress?.({ phase: "session", status: "start" });
+      let bridge: WorkerBridge | undefined;
       try {
-        if (candidate.executionMode === "worker") {
+        if (candidatePlan.executionMode === "worker") {
           if (typeof Worker !== "function")
             throw new PPDetectionError("CAPABILITY_UNSUPPORTED", "当前环境不支持 Worker");
-          const worker = new Worker(workerUrl(), {
-            type: "module"
-          });
-          const bridge = new WorkerBridge(worker);
-          activeBridge = bridge;
-          const workerModelBytes = modelBytes.slice(0);
-          await bridge.load(workerModelBytes, candidatePlan, {
+          const worker = new Worker(workerUrl(), { type: "module" });
+          bridge = new WorkerBridge(worker);
+          await bridge.load(modelBytes.slice(0), candidatePlan, {
             onProgress: (event) =>
               options.onProgress?.({
                 phase: "session",
@@ -341,35 +329,66 @@ export async function createPPDetection(
               numThreads: options.ort?.wasm?.numThreads
             }
           });
-          executor = {
+          const activeBridge = bridge;
+          options.onProgress?.({ phase: "session", status: "complete" });
+          return {
             run(input, signal) {
-              return bridge.run(
+              return activeBridge.run(
                 { [input.inputName]: { data: input.data, dims: input.dims } },
                 { signal }
               );
             },
-            dispose: () => bridge.dispose()
-          };
-          activeBridge = undefined;
-        } else {
-          const session = await createOrtSession(modelBytes, candidatePlan, {
-            ort: options.ort?.module as OrtModule | undefined,
-            wasmPaths: options.ort?.wasm?.paths,
-            numThreads: options.ort?.wasm?.numThreads
-          });
-          sessionMs = session.sessionMs;
-          executor = {
-            run(input, signal) {
-              return session.run(
-                { [input.inputName]: { data: input.data, dims: input.dims } },
-                { signal }
-              );
-            },
-            dispose: () => session.dispose()
+            dispose: () => activeBridge.dispose()
           };
         }
-        selectedPlan = candidatePlan;
+        const session = await createOrtSession(modelBytes, candidatePlan, {
+          ort: options.ort?.module as OrtModule | undefined,
+          wasmPaths: options.ort?.wasm?.paths,
+          numThreads: options.ort?.wasm?.numThreads
+        });
+        sessionMs = session.sessionMs;
         options.onProgress?.({ phase: "session", status: "complete" });
+        return {
+          run(input, signal) {
+            return session.run(
+              { [input.inputName]: { data: input.data, dims: input.dims } },
+              { signal }
+            );
+          },
+          dispose: () => session.dispose()
+        };
+      } catch (error) {
+        try {
+          await bridge?.dispose();
+        } catch {
+          // 清理失败不覆盖原始 Session 错误。
+        }
+        if (error instanceof PPDetectionError) throw error;
+        const message = error instanceof Error ? error.message : String(error);
+        throw new PPDetectionError(
+          "SESSION_CREATE_FAILED",
+          "创建 ONNX Runtime 会话失败",
+          { phase: "create", causeMessage: message },
+          { cause: error }
+        );
+      }
+    };
+    let selectedPlan: ExecutionPlan = plan;
+    let sessionMs = 0;
+    let selectedCandidateIndex = -1;
+    for (const [candidateIndex, candidate] of plan.candidates.entries()) {
+      const candidatePlan: ExecutionPlan = {
+        ...plan,
+        variantId: candidate.variantId,
+        actualBackend: candidate.backend,
+        actualPrecision: candidate.precision,
+        executionMode: candidate.executionMode,
+        candidates: [candidate]
+      };
+      try {
+        executor = await createExecutorForPlan(candidatePlan);
+        selectedPlan = candidatePlan;
+        selectedCandidateIndex = candidateIndex;
         break;
       } catch (error) {
         const mapped =
@@ -383,12 +402,6 @@ export async function createPPDetection(
           // 清理失败不覆盖原始 Session 错误。
         }
         executor = undefined;
-        try {
-          await activeBridge?.dispose();
-        } catch {
-          // 清理失败不覆盖原始 Worker 错误。
-        }
-        activeBridge = undefined;
         if (!hasNext) {
           throw mapped;
         }
@@ -406,22 +419,74 @@ export async function createPPDetection(
       }
     }
     if (!executor) throw new PPDetectionError("SESSION_CREATE_FAILED", "无法创建检测 Session");
-    const loadedExecutor = executor;
+    const runtime = {
+      requestedBackend: options.backend ?? "auto",
+      backend: selectedPlan.actualBackend,
+      precision: selectedPlan.actualPrecision,
+      mode: selectedPlan.executionMode,
+      fallbacks,
+      capabilities
+    };
+    let activeExecutor = executor;
+    const fallbackExecutor: DetectionExecutor = {
+      async run(input, signal) {
+        try {
+          return await activeExecutor.run(input, signal);
+        } catch (error) {
+          if (
+            options.allowFallback !== true ||
+            selectedCandidateIndex < 0 ||
+            selectedCandidateIndex >= plan.candidates.length - 1
+          ) {
+            throw error;
+          }
+          const failedCandidate = plan.candidates[selectedCandidateIndex];
+          const mapped =
+            error instanceof PPDetectionError
+              ? error
+              : new PPDetectionError("INFERENCE_FAILED", String(error), {}, { cause: error });
+          if (mapped.code === "ABORTED") throw mapped;
+          const nextCandidate = plan.candidates[selectedCandidateIndex + 1];
+          const nextPlan: ExecutionPlan = {
+            ...plan,
+            variantId: nextCandidate.variantId,
+            actualBackend: nextCandidate.backend,
+            actualPrecision: nextCandidate.precision,
+            executionMode: nextCandidate.executionMode,
+            candidates: [nextCandidate]
+          };
+          await activeExecutor.dispose();
+          const nextExecutor = await createExecutorForPlan(nextPlan);
+          activeExecutor = nextExecutor;
+          selectedCandidateIndex += 1;
+          selectedPlan = nextPlan;
+          runtime.backend = nextPlan.actualBackend;
+          runtime.precision = nextPlan.actualPrecision;
+          runtime.mode = nextPlan.executionMode;
+          const fallback = {
+            cause: mapped.cause ?? mapped,
+            code: mapped.code,
+            message: mapped.message,
+            precision: failedCandidate.precision,
+            provider: failedCandidate.backend,
+            stage: "inference",
+            variantId: failedCandidate.variantId
+          };
+          fallbacks.push(fallback);
+          options.onProgress?.({ phase: "fallback", status: "complete", fallback });
+          return activeExecutor.run(input, signal);
+        }
+      },
+      dispose: () => activeExecutor.dispose()
+    };
     loadTimings = { ...loadTimings, sessionMs, totalMs: now() - loadStartedAt };
     const detector = new PPDetectionDetectorImplementation({
       capabilities,
       manifest: runtimeManifest,
       model: modelInfo(runtimeManifest, variant.id, actualSource),
-      runtime: {
-        requestedBackend: options.backend ?? "auto",
-        backend: selectedPlan.actualBackend,
-        precision: selectedPlan.actualPrecision,
-        mode: selectedPlan.executionMode,
-        fallbacks,
-        capabilities
-      },
+      runtime,
       loadTimings,
-      loadExecutor: () => Promise.resolve(loadedExecutor),
+      loadExecutor: () => Promise.resolve(fallbackExecutor),
       onProgress: options.onProgress,
       clearCurrentModelCache: () => modelManager.clearCurrentModelCache(),
       clearAllCache: () => modelManager.clearAllCache(),
@@ -434,11 +499,6 @@ export async function createPPDetection(
   } catch (error) {
     try {
       await executor?.dispose();
-    } catch {
-      // 清理失败不覆盖初始化错误。
-    }
-    try {
-      await activeBridge?.dispose();
     } catch {
       // 清理失败不覆盖初始化错误。
     }

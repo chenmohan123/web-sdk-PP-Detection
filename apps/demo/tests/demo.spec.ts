@@ -3,20 +3,14 @@ import { expect, test } from "playwright/test";
 const pixelPng =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
 
-test("默认使用 Hugging Face 并诚实声明 blocked 状态", async ({ page }) => {
+test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) => {
   await page.goto("/?fixture=1");
 
   await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
   await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(4);
-  await expect(page.getByTestId("model-source-blocked")).toContainText("浏览器");
-  await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toHaveAttribute(
-    "disabled",
-    ""
-  );
-  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toHaveAttribute(
-    "disabled",
-    ""
-  );
+  await expect(page.getByTestId("model-source-blocked")).toHaveCount(0);
+  await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toBeEnabled();
+  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeEnabled();
 
   const contract = await page.evaluate(async (moduleUrl) => {
     const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
@@ -37,15 +31,29 @@ test("默认使用 Hugging Face 并诚实声明 blocked 状态", async ({ page }
 
   expect(contract.keys).toEqual(["huggingface", "modelscope", "git-lfs", "default"]);
   expect(contract.available).toHaveLength(4);
-  expect(contract.available.every((option) => option.available === false)).toBe(true);
+  expect(contract.available.every((option) => option.available === true)).toBe(true);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
-  expect(contract.huggingFaceModel).toContain("resolve/314145f779a883449784fe8a8e98647f63f39415/");
-  expect(contract.modelScopeModel).toContain("resolve/86fff1bb7c01982c696e677116504dcb5a3fca2c/");
-  expect(contract.gitLfsModel).toContain("50ec35925ca89945dcfc4d13935e65bf054ac741");
+  expect(contract.huggingFaceModel).toContain("resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/");
+  expect(contract.modelScopeModel).toContain("resolve/5dc50e4488a81c62cada7879b685f0301449930d/");
+  expect(contract.gitLfsModel).toContain("3204072ce46d2afde30a47859f187a4dc293f345");
   expect(contract.defaultModel).toBe(contract.huggingFaceModel);
 });
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "mediaDevices", {
+      configurable: true,
+      value: {
+        getUserMedia: () => Promise.resolve({ getTracks: () => [] }),
+        enumerateDevices: () =>
+          Promise.resolve([
+            { deviceId: "front", kind: "videoinput", label: "前置摄像头", groupId: "group-1" },
+            { deviceId: "rear", kind: "videoinput", label: "后置摄像头", groupId: "group-2" }
+          ])
+      }
+    });
+    HTMLMediaElement.prototype.play = () => Promise.resolve();
+  });
   await page.goto("/?fixture=1");
   const inputGroup = page.getByRole("group", { name: "输入场景" });
   await expect(inputGroup.getByRole("button", { name: "图片" })).toHaveAttribute(
@@ -54,6 +62,10 @@ test("图片、摄像头和视频输入场景均可切换", async ({ page }) => 
   );
   await expect(inputGroup.getByRole("button", { name: "摄像头" })).toBeVisible();
   await expect(inputGroup.getByRole("button", { name: "视频" })).toBeVisible();
+  await inputGroup.getByRole("button", { name: "摄像头" }).click();
+  await expect(page.getByLabel("摄像头设备")).toBeVisible();
+  await expect(page.getByLabel("摄像头设备").locator("option")).toHaveCount(3);
+  await page.getByLabel("摄像头设备").selectOption("rear");
   await inputGroup.getByRole("button", { name: "视频" }).click();
   await expect(page.getByTestId("result-panel").getByText("选择一个视频开始播放")).toBeVisible();
   await page.locator('input[type="file"]').setInputFiles({
@@ -77,10 +89,10 @@ test("normalizes active class threshold configuration", async ({ page }) => {
       prototypeValues: ["constructor", "toString", "__proto__"].map((label) =>
         module.classThresholdValue({}, label)
       ),
-      selected: module.selectActiveClassThresholds(["formula", "formula", "text"], {
-        formula: 0.4,
+      selected: module.selectActiveClassThresholds(["person", "person", "car"], {
+        person: 0.4,
         stale: 0.2,
-        text: 0.6
+        car: 0.6
       }),
       prototypeLabels: module.selectActiveClassThresholds(
         ["constructor", "toString", "__proto__"],
@@ -97,10 +109,12 @@ test("normalizes active class threshold configuration", async ({ page }) => {
     };
   }, "/src/class-thresholds.ts");
 
-  expect(result.defaults).toContain("table");
-  expect(result.defaults.filter((label) => label === "formula")).toHaveLength(1);
+  expect(result.defaults).toContain("person");
+  expect(result.defaults).toContain("car");
+  expect(result.defaults).not.toContain("formula");
+  expect(result.defaults).not.toContain("table");
   expect(result.prototypeValues).toEqual(["", "", ""]);
-  expect(result.selected).toEqual({ formula: 0.4, text: 0.6 });
+  expect(result.selected).toEqual({ person: 0.4, car: 0.6 });
   expect(result.prototypeLabels).toEqual({});
   expect(result.updatedPrototype).toEqual({ own: true, selected: 0.4, value: 0.4 });
 });
@@ -203,7 +217,7 @@ test("keeps manual choices strict and uses only validated default pairs", async 
   expect(behavior).toEqual({
     autoFallback: true,
     backendFallback: false,
-    precisionFallback: false,
+    precisionFallback: true,
     gpuFp16: true,
     gpuFp32: true,
     wasmFp16: true,
@@ -294,6 +308,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   await page.getByRole("group", { name: "模型精度" }).getByRole("button", { name: "FP32" }).click();
   await expect(page.getByRole("button", { name: "选择图片" })).toBeVisible();
   await expect(page.getByText("模型信息")).toBeVisible();
+  await expect(page.getByRole("button", { name: "多边形" })).toHaveCount(0);
 
   const performance = page.getByTestId("performance-section");
   const initialization = performance.getByTestId("initialization-timings");
@@ -392,7 +407,9 @@ test("enforces the validated default model matrix in controls", async ({ page })
   await expect(page.getByText("fp16", { exact: true })).toBeVisible();
 });
 
-test("shows local sample documents and only previews a selected sample", async ({ page }) => {
+test("shows local PaddleDetection sample images and only previews a selected sample", async ({
+  page
+}) => {
   await page.goto("/?fixture=1");
   await expect(page.getByTestId("sample-gallery")).toBeVisible();
   await expect(page.getByTestId("result-panel").getByTestId("sample-gallery")).toBeVisible();
@@ -407,14 +424,11 @@ test("shows local sample documents and only previews a selected sample", async (
       );
     })
   ).toBe(true);
-  await expect(page.getByRole("button", { name: /版面示例/ }).first()).toBeVisible();
-  await page
-    .getByRole("button", { name: /版面示例/ })
-    .first()
-    .click();
+  await expect(page.getByRole("button", { name: /人物/ }).first()).toBeVisible();
+  await page.getByRole("button", { name: /人物/ }).first().click();
   await expect(page.getByTestId("status")).toContainText("准备就绪");
   await expect(page.getByRole("button", { name: "开始检测" })).toBeEnabled();
-  await expect(page.getByTestId("sample-source")).toContainText("PaddleOCR");
+  await expect(page.getByTestId("sample-source")).toContainText("PaddleDetection");
 });
 
 test("orders runtime details before fallback and potentially long detections", async ({ page }) => {
@@ -437,17 +451,14 @@ test("orders runtime details before fallback and potentially long detections", a
   ]);
 });
 
-test("switches language, toggles overlays, validates custom model input, and cancels", async ({
-  page
-}) => {
+test("switches language, validates custom model input, and cancels", async ({ page }) => {
   await page.goto("/?fixture=1");
   await page.getByRole("button", { name: "English", exact: true }).click();
   await expect(page.getByRole("heading", { name: "PP-Detection" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Select image" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Run detection" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Polygon" }).click();
-  await expect(page.getByRole("button", { name: "Box" })).toBeVisible();
+  await expect(page.getByText("Boxes", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Custom manifest" }).click();
   await expect(page.getByRole("dialog", { name: "Custom model" })).toBeVisible();
   await page.getByRole("button", { name: "Validate" }).click();

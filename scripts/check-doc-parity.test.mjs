@@ -87,8 +87,10 @@ describe("documentation contract", () => {
 
     for (const document of documents) {
       assert.match(document, /classThresholds/);
-      assert.match(document, /formula/);
-      assert.match(document, /mask|掩码/i);
+      assert.match(document, /person/);
+      assert.match(document, /car/);
+      assert.doesNotMatch(document, /formula:\s*0\.4|table:\s*0\.55|text:\s*0\.6/);
+      assert.doesNotMatch(document, /mask binarization|mask 二值化|掩码/i);
     }
   });
 });

@@ -40,14 +40,15 @@ function now(): number {
 function mapError(error: unknown, phase: "create" | "run"): PPDetectionError {
   if (error instanceof PPDetectionError) return error;
   const message = error instanceof Error ? error.message : String(error);
+  const details = { phase, causeMessage: message };
   if (/abort|cancel/i.test(message))
-    return new PPDetectionError("ABORTED", "推理已取消", { phase }, { cause: error });
+    return new PPDetectionError("ABORTED", "推理已取消", details, { cause: error });
   if (/memory|out.of.memory|allocation/i.test(message))
-    return new PPDetectionError("OUT_OF_MEMORY", "运行时内存不足", { phase }, { cause: error });
+    return new PPDetectionError("OUT_OF_MEMORY", "运行时内存不足", details, { cause: error });
   return new PPDetectionError(
     phase === "create" ? "SESSION_CREATE_FAILED" : "INFERENCE_FAILED",
     phase === "create" ? "创建 ONNX Runtime 会话失败" : "ONNX Runtime 推理失败",
-    { phase },
+    details,
     { cause: error }
   );
 }

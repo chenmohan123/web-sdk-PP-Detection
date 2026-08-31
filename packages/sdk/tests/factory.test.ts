@@ -219,4 +219,62 @@ describe("createPPDetection", () => {
       });
     }
   });
+
+  it("auto 在 WebGPU 推理失败后回退到 WASM 并记录推理阶段原因", async () => {
+    const originalNavigator = globalThis.navigator;
+    Object.defineProperty(globalThis, "navigator", {
+      configurable: true,
+      value: { gpu: {} }
+    });
+    const fallbackManifest: RuntimeDetectionManifest = {
+      ...manifest,
+      variants: [{ ...manifest.variants[0], backends: ["webgpu", "wasm"] }]
+    };
+    const webgpuRun = vi.fn().mockRejectedValue(new Error("webgpu kernel failed"));
+    const wasmRun = vi.fn(async () => ({
+      dets: { data: new Float32Array([0, 0.9, 0, 0, 2, 2]), dims: [1, 6] }
+    }));
+    const create = vi
+      .fn()
+      .mockResolvedValueOnce({ run: webgpuRun, release: vi.fn() })
+      .mockResolvedValueOnce({ run: wasmRun, release: vi.fn() });
+    try {
+      const detector = await createPPDetection({
+        allowFallback: true,
+        backend: "auto",
+        cache: false,
+        model: { data: new Uint8Array([1, 2, 3, 4]).buffer, manifest: fallbackManifest },
+        ort: { module: { env: { wasm: {} }, InferenceSession: { create } } },
+        precision: "fp32"
+      });
+
+      const result = await detector.detect({
+        width: 2,
+        height: 2,
+        data: new Uint8ClampedArray(16).fill(255)
+      } as ImageData);
+
+      expect(create).toHaveBeenCalledTimes(2);
+      expect(create.mock.calls.map((call) => call[1].executionProviders)).toEqual([
+        ["webgpu"],
+        ["wasm"]
+      ]);
+      expect(webgpuRun).toHaveBeenCalledTimes(1);
+      expect(wasmRun).toHaveBeenCalledTimes(1);
+      expect(result.runtime.backend).toBe("wasm");
+      expect(result.runtime.fallbacks).toHaveLength(1);
+      expect(result.runtime.fallbacks[0]).toMatchObject({
+        code: "INFERENCE_FAILED",
+        provider: "webgpu",
+        stage: "inference"
+      });
+      expect(result.detections[0]?.label).toBe("person");
+      await detector.dispose();
+    } finally {
+      Object.defineProperty(globalThis, "navigator", {
+        configurable: true,
+        value: originalNavigator
+      });
+    }
+  });
 });

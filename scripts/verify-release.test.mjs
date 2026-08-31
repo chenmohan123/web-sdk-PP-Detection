@@ -186,7 +186,10 @@ describe("发布工作流契约", () => {
       release,
       /echo "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982  \$accepted_model" \| sha256sum --check --status/
     );
-    assert.match(release, /cp "\$accepted_model" models\/pp-detection\/1\.0\.0\/picodet-l-320-fp32\.onnx/);
+    assert.match(
+      release,
+      /cp "\$accepted_model" models\/pp-detection\/1\.0\.0\/picodet-l-320-fp32\.onnx/
+    );
   });
 
   test("package、runtime 和 changelog 版本保持 0.1.0 一致", () => {

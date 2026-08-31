@@ -33,14 +33,17 @@ function requireAssetUrl(value, filename) {
     throw new Error(`Unsafe or unexpected model URL: ${String(value)}`);
   }
   const url = new URL(value);
-  const expectedPath = new RegExp(
+  const expectedReleasePath = new RegExp(
     `^/chenmohan123/web-sdk-PP-Detection/releases/download/v\\d+\\.\\d+\\.\\d+-models/${filename}$`
   );
-  if (
-    url.protocol !== "https:" ||
-    url.hostname !== "github.com" ||
-    !expectedPath.test(url.pathname)
-  ) {
+  const expectedResolvePath = new RegExp(`/resolve/[0-9a-f]{40,64}/.*\\/${filename}$`, "i");
+  const expectedMediaPath = new RegExp(`/media/[^/]+/[^/]+/[0-9a-f]{40,64}/.*\\/${filename}$`, "i");
+  const isReleaseAsset = url.hostname === "github.com" && expectedReleasePath.test(url.pathname);
+  const isSourceAsset =
+    (url.hostname === "media.githubusercontent.com" && expectedMediaPath.test(url.pathname)) ||
+    ((url.hostname === "huggingface.co" || url.hostname === "www.modelscope.cn") &&
+      expectedResolvePath.test(url.pathname));
+  if (url.protocol !== "https:" || (!isReleaseAsset && !isSourceAsset)) {
     throw new Error(`Unsafe or unexpected model URL: ${value}`);
   }
   return url.href;
@@ -121,11 +124,13 @@ export async function stageAllPagesModels({ fetchImpl = fetch, outputRoot }) {
   const staged = [];
   for (const model of PAGE_MODEL_RELEASES) {
     const publicVersion = `v${model.version}`;
+    const bundled = model.version === MODEL_VERSION ? bundledManifest : undefined;
     const manifest = await stagePagesModels({
       fetchImpl,
       outputRoot: resolve(outputRoot, publicVersion),
       publicRoot: `https://chenmohan123.github.io/web-sdk-PP-Detection/models/${publicVersion}`,
-      releaseRoot: model.releaseRoot
+      manifest: bundled,
+      releaseRoot: bundled === undefined ? model.releaseRoot : undefined
     });
     staged.push({ manifest, model });
   }

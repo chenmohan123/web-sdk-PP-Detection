@@ -11,9 +11,12 @@ export interface ModelSourceOption {
 export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 
 const MANIFEST_URLS = {
-  huggingface: "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/manifest.json?v=1.0.1",
-  modelscope: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1",
-  "git-lfs": "https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/manifest.json?v=1.0.1"
+  huggingface:
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/manifest.json?v=1.0.1",
+  modelscope:
+    "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1",
+  "git-lfs":
+    "https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/manifest.json?v=1.0.1"
 } as const;
 
 export const MODEL_SOURCE_OPTIONS: readonly ModelSourceOption[] = [

@@ -7,20 +7,28 @@ const modulePath = fileURLToPath(import.meta.url);
 const repositoryRoot = resolve(dirname(modulePath), "..");
 const modelRoot = resolve(repositoryRoot, "models", "pp-detection");
 export const MODEL_VERSION = "1.0.1";
-export const MODEL_PUBLIC_ROOT =
-  "https://chenmohan123.github.io/web-sdk-PP-Detection/models";
+export const MODEL_PUBLIC_ROOT = "https://chenmohan123.github.io/web-sdk-PP-Detection/models";
 
 function requireFilename(filename) {
-  if (typeof filename !== "string" || filename !== filename.split(/[\\/]/u).at(-1) || !/^[A-Za-z0-9._-]+\.onnx$/u.test(filename)) {
+  if (
+    typeof filename !== "string" ||
+    filename !== filename.split(/[\\/]/u).at(-1) ||
+    !/^[A-Za-z0-9._-]+\.onnx$/u.test(filename)
+  ) {
     throw new Error(`Unsafe or unexpected model filename: ${String(filename)}`);
   }
   return filename;
 }
 
-export async function stagePagesModels({ outputRoot, publicRoot = MODEL_PUBLIC_ROOT, sourceRoot = modelRoot }) {
+export async function stagePagesModels({
+  outputRoot,
+  publicRoot = MODEL_PUBLIC_ROOT,
+  sourceRoot = modelRoot
+}) {
   const manifest = JSON.parse(await readFile(resolve(sourceRoot, "manifest.json"), "utf8"));
   if (manifest.status === "labs/blocked") throw new Error("当前模型清单处于 blocked 状态");
-  if (!Array.isArray(manifest.variants) || manifest.variants.length === 0) throw new Error("当前模型清单没有可用变体");
+  if (!Array.isArray(manifest.variants) || manifest.variants.length === 0)
+    throw new Error("当前模型清单没有可用变体");
   await mkdir(outputRoot, { recursive: true });
   const variants = [];
   for (const variant of manifest.variants) {

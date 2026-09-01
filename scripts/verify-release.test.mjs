@@ -181,10 +181,7 @@ describe("发布工作流契约", () => {
       release,
       /echo "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1  \$accepted_model" \| sha256sum --check --status/
     );
-    assert.match(
-      release,
-      /cp "\$accepted_model" models\/pp-detection\/picodet-l-320-fp32\.onnx/
-    );
+    assert.match(release, /cp "\$accepted_model" models\/pp-detection\/picodet-l-320-fp32\.onnx/);
   });
 
   test("package、runtime 和 changelog 版本保持 0.1.1 一致", () => {
@@ -212,10 +209,7 @@ describe("发布工作流契约", () => {
       assert.equal(staged.status, "stable");
       assert.equal(staged.model.version, currentManifest.model.version);
       assert.equal(fetchCalls, 0);
-      assert.deepEqual(
-        JSON.parse(readFileSync(join(outputRoot, "manifest.json"), "utf8")),
-        staged
-      );
+      assert.deepEqual(JSON.parse(readFileSync(join(outputRoot, "manifest.json"), "utf8")), staged);
       assert.ok(readdirSync(outputRoot).includes("picodet-l-320-fp32.onnx"));
     } finally {
       rmSync(outputRoot, { force: true, recursive: true });

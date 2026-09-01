@@ -12,7 +12,7 @@ browser, WeChat WebView, and quantized variants are outside this stable compatib
 
 | Variant         | Status       | Notes                                                                                  |
 | --------------- | ------------ | -------------------------------------------------------------------------------------- |
-| FP32            | stable       | Current root asset; seven-fixture validation passed on WASM and NVIDIA WebGPU            |
+| FP32            | stable       | Current root asset; seven-fixture validation passed on WASM and NVIDIA WebGPU          |
 | FP16            | labs/blocked | Requires renewed CPU/WebGPU precision, size, memory, and browser evidence              |
 | INT8, INT4, FP8 | labs         | Can be marked stable only after precision, size, memory, and target-backend validation |
 

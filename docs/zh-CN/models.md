@@ -11,7 +11,7 @@ WASM 和 Windows NVIDIA WebGPU 上完成 7 张 fixture 验证，并作为 SDK �
 
 | 变体            | 状态         | 说明                                                      |
 | --------------- | ------------ | --------------------------------------------------------- |
-| FP32            | stable       | 当前根目录资产；WASM 和 NVIDIA WebGPU 七张 fixture 通过     |
+| FP32            | stable       | 当前根目录资产；WASM 和 NVIDIA WebGPU 七张 fixture 通过   |
 | FP16            | labs/blocked | 需要重新完成 CPU/WebGPU 精度、大小、内存和浏览器证据      |
 | INT8、INT4、FP8 | labs         | 只有在精度、大小、内存和目标后端验证完成后才能标记 stable |
 

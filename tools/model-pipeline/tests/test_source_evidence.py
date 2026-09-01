@@ -5,8 +5,8 @@ import pytest
 from picodet.source_evidence import order_sources, validate_source
 
 
-ARTIFACT_BYTES = 23219047
-ARTIFACT_SHA256 = "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+ARTIFACT_BYTES = 23243834
+ARTIFACT_SHA256 = "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
 
 
 def source(kind: str, revision: str = "a" * 40) -> dict[str, object]:

@@ -13,7 +13,7 @@ from picodet.convert_fp16 import (
 
 
 ROOT = Path(__file__).parents[3]
-MODEL_PATH = ROOT / "models" / "pp-detection" / "1.0.1" / "picodet-l-320-fp32.onnx"
+MODEL_PATH = ROOT / "models" / "pp-detection" / "picodet-l-320-fp32.onnx"
 
 
 def test_picodet_conversion_plan_preserves_browser_sensitive_fp32_boundaries() -> None:

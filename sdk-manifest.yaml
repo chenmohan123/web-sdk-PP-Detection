@@ -56,21 +56,22 @@ cache:
   clearAll: true
   estimate: true
 examples:
-  vanilla: { status: planned, path: examples/vanilla }
-  react: { status: planned, path: examples/react }
-  vite: { status: planned, path: examples/vite }
-  cdn: { status: planned, path: examples/cdn }
-  wechatWebView: { status: planned, path: examples/wechat-web-view }
+  vanilla: { status: available, path: examples/vanilla }
+  react: { status: available, path: examples/react }
+  vite: { status: available, path: examples/vanilla-vite }
+  cdn: { status: available, path: examples/cdn }
+  wechatWebView: { status: available, path: examples/wechat-webview }
 verification:
   environments:
-    - browser: Chromium 151
-      operatingSystem: Linux
+    - browser: Chromium 151.0.7922.34
+      os: Linux 6.17.0-1022-azure
+      device: GitHub Actions Linux runner
+      testedAt: 2026-08-30
       backend: wasm
-      precision: fp32
-      fixtures: 7
-    - browser: Chromium 151
-      operatingSystem: Windows 10
+      runtimeVersion: onnxruntime-web@1.27.0
+    - browser: Chromium 151.0.7922.174
+      os: Windows 10.0.26200
       device: NVIDIA Blackwell
+      testedAt: 2026-08-30
       backend: webgpu
-      precision: fp32
-      fixtures: 7
+      runtimeVersion: onnxruntime-web@1.27.0

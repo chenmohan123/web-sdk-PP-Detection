@@ -2,13 +2,22 @@
 
 [English](../en/compatibility.md)
 
-| 环境                             | 后端                         | 说明                                         |
-| -------------------------------- | ---------------------------- | -------------------------------------------- |
-| Chrome/Edge 桌面最新版           | WebGPU、WASM                 | WebGPU 优先；需 HTTPS 或 localhost           |
-| Safari/macOS/iOS                 | WASM；WebGPU 取决于版本      | 以 `probePPDetectionCapabilities()` 结果为准 |
-| Firefox                          | WASM；WebGPU 取决于版本/设置 | 以运行时探测为准                             |
-| Android WebView/移动浏览器       | 通常 WASM                    | FP16 默认下载更小，但需关注 CPU 速度和内存   |
-| 微信公众号 H5、小程序 `web-view` | 通常 WASM                    | 必须是网页上下文；不支持微信小程序原生推理   |
+兼容性声明只根据下表的实际证据发布。浏览器能力探测可以决定当前页面能否尝试某个后端，不能替代特定浏览器、操作系统和设备的验证。
+
+## 已验证环境
+
+以下证据均针对 1.0.1 FP32 模型、`onnxruntime-web@1.27.0` 和 7 张 fixture，验证日期为 2026-08-30：
+
+| 浏览器                  | 操作系统                | 设备                        | 后端/精度     | 证据                                                                                        |
+| ----------------------- | ----------------------- | --------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| Chromium 151.0.7922.34  | Linux 6.17.0-1022-azure | GitHub Actions Linux runner | WASM / FP32   | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
+| Chromium 151.0.7922.174 | Windows 10.0.26200      | NVIDIA Blackwell            | WebGPU / FP32 | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
+
+## 尚未验证的平台
+
+- Android Chrome、Android WebView、iOS Safari/WebKit 和其他移动浏览器尚未完成真实设备验证；不能仅凭桌面窄屏模拟宣称兼容。
+- 微信公众号 H5 和小程序 `web-view` 示例可以作为网页部署参考，但本版本尚未完成真实微信 Android/iOS WebView 验证。页面必须运行在 HTTPS 网页上下文中；微信原生小程序 JavaScript/WASM runtime 不支持。
+- Safari、Firefox 以及没有列入上表的桌面浏览器应以 `probePPDetectionCapabilities()` 和实际运行结果为准。
 
 | 默认模型变体    | 状态    | 发布条件                                                     |
 | --------------- | ------- | ------------------------------------------------------------ |

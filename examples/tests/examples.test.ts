@@ -98,6 +98,12 @@ describe("consumer example content", () => {
     expect(allSource("react")).toMatch(/useEffect[\s\S]*return[\s\S]*dispose/u);
     expect(allSource("vue")).toMatch(/onUnmounted[\s\S]*dispose/u);
   });
+
+  it("keeps the Vue example on the PP-Detection package", () => {
+    const source = allSource("vue");
+    expect(source).toMatch(/from ["']web-sdk-pp-detection["']/u);
+    expect(source).not.toMatch(/web-sdk-pp-doclayoutv3|createDocLayout|DocLayoutError/u);
+  });
 });
 
 describe("packed SDK consumer builds", () => {

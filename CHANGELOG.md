@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- 暂无。
+- 修正 Vue、Vite 和微信 WebView 示例的清单路径与 SDK 依赖；补充移动浏览器和微信 WebView 的真实设备验证边界说明。
 
 ## 0.1.1
 

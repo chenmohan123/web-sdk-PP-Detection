@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { onUnmounted, ref } from "vue";
 import {
-  createDocLayout,
-  DocLayoutError,
-  type DocLayoutDetector,
-  type DocLayoutResult
-} from "web-sdk-pp-doclayoutv3";
+  createPPDetection,
+  PPDetectionError,
+  type PPDetectionDetector,
+  type PPDetectionResult
+} from "web-sdk-pp-detection";
 
-const detector = ref<DocLayoutDetector>();
+const detector = ref<PPDetectionDetector>();
 const file = ref<File>();
 const status = ref("请选择图片");
 const progress = ref(0);
-const result = ref<DocLayoutResult>();
+const result = ref<PPDetectionResult>();
 const error = ref<{ code?: string; message: string }>();
 
 onUnmounted(() => {
@@ -26,7 +26,7 @@ async function detect(): Promise<void> {
   error.value = undefined;
   try {
     await detector.value?.dispose();
-    detector.value = await createDocLayout({
+    detector.value = await createPPDetection({
       onProgress: (event) => {
         status.value = `${event.phase}: ${event.status}`;
         if (event.totalBytes !== undefined)
@@ -38,7 +38,7 @@ async function detect(): Promise<void> {
     status.value = "检测完成";
   } catch (caught) {
     error.value =
-      caught instanceof DocLayoutError
+      caught instanceof PPDetectionError
         ? { code: caught.code, message: caught.message }
         : { message: String(caught) };
   }

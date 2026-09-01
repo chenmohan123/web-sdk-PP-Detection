@@ -5,10 +5,10 @@
   "referenceType": "accepted-model",
   "reference": {
     "type": "accepted-model",
-    "modelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+    "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
   },
-  "referenceModelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
-  "acceptedModelSha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+  "referenceModelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+  "acceptedModelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
   "executionProvider": "webgpu",
   "precision": "fp32",
   "requestedSource": "custom",

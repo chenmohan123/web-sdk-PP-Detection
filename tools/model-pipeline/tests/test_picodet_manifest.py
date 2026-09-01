@@ -11,14 +11,14 @@ from picodet.fetch_official import fetch
 from picodet.sanitize_onnx import sanitize_postprocessed_model
 
 ROOT = Path(__file__).parents[3]
-MANIFEST = ROOT / "models" / "pp-detection" / "1.0.0" / "manifest.json"
+MANIFEST = ROOT / "models" / "pp-detection" / "manifest.json"
 
-def test_blocked_manifest_contains_no_fake_artifact_metadata() -> None:
+def test_current_manifest_contains_real_artifact_metadata() -> None:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    assert data["status"] == "labs/blocked"
+    assert data["status"] == "stable"
     assert data["model"]["id"] == "pp-picodet-l-320"
-    assert data["variants"] == []
-    assert data["blocked"]["reason"]
+    assert data["model"]["version"] == "1.0.1"
+    assert data["variants"]
     assert "placeholder" not in json.dumps(data, ensure_ascii=False).lower()
 
 def test_manifest_builder_returns_blocked_without_artifacts(tmp_path: Path) -> None:
@@ -27,8 +27,8 @@ def test_manifest_builder_returns_blocked_without_artifacts(tmp_path: Path) -> N
     assert result["variants"] == []
 
 def test_manifest_builder_hashes_real_artifact_only() -> None:
-    artifact_dir = ROOT / "models" / "pp-detection" / "1.0.0"
-    result = build_manifest(artifact_dir=artifact_dir, model_version="1.0.0", source_evidence=None)
+    artifact_dir = ROOT / "models" / "pp-detection"
+    result = build_manifest(artifact_dir=artifact_dir, model_version="1.0.1", source_evidence=None)
     assert result["variants"] == []
     assert hashlib.sha256(b"placeholder").hexdigest() not in json.dumps(result)
 

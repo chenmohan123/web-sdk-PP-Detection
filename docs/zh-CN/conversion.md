@@ -19,7 +19,7 @@ python -m ppdetection.build_manifest
 ## 当前资产状态
 
 当前仓库已有一个可复现的 PicoDet-L-320 FP32 ONNX stable 产物
-`models/pp-detection/1.0.1/picodet-l-320-fp32.onnx`。结构检查得到
+`models/pp-detection/picodet-l-320-fp32.onnx`。结构检查得到
 `23,243,834` 字节、`5,787,988` 参数和 opset 11；七张 fixture 的 CPU ORT
 parity 均通过，完整哈希、预处理和误差见
 `tools/model-pipeline/reports/picodet-parity.json`。

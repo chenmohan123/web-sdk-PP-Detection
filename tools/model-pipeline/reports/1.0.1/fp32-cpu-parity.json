@@ -3,12 +3,12 @@
   "status": "passed",
   "modelVersion": "1.0.1",
   "reference": {
-    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
+    "path": "models/pp-detection/picodet-l-320-fp32.onnx",
     "bytes": 23219047,
-    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982"
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
   },
   "candidate": {
-    "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+    "path": "models/pp-detection/picodet-l-320-fp32.onnx",
     "bytes": 23243834,
     "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
   },

@@ -2,7 +2,7 @@
 
 ## 中文
 
-本目录保存 PP-Detection 的版本化 ONNX 产物和由构建脚本生成的清单。当前默认
+本目录保存 PP-Detection 的当前 ONNX 产物和由构建脚本生成的清单；更新时直接替换根目录文件。当前默认
 PicoDet 1.0.1 FP32 变体为 `stable`，仓库中的清理后 ONNX 产物与 PaddleDetection
 官方下载文件字节不一致；官方 URL、文档 revision、字节数和 SHA-256，以及候选
 文件的大小和 SHA-256，见
@@ -32,8 +32,8 @@ PicoDet 1.0.1 FP32 变体为 `stable`，仓库中的清理后 ONNX 产物与 Pad
 
 ## English
 
-This directory contains versioned PP-Detection ONNX artifacts and generated manifests.
-The PicoDet 1.0.1 FP32 variant is `stable`. The reproducible cleaned FP32 ONNX
+This directory contains the current PP-Detection ONNX artifacts and generated manifest; updates replace files in this root directory.
+The current PicoDet FP32 variant is `stable`. The reproducible cleaned FP32 ONNX
 candidate is not byte-identical to the official PaddleDetection download; its official
 URL, documentation revision, size, and SHA-256, together with the candidate's size and
 SHA-256, are recorded in
@@ -41,7 +41,7 @@ SHA-256, are recorded in
 Face, and ModelScope distribution sources now contain the same bytes, with revisions and
 SHA-256 verified. The 1.0.1 FP32 variant has passed seven-fixture validation on Linux WASM
 and Windows NVIDIA WebGPU and is the stable bundled default. Source licensing, FP16, mobile
-browser, and WeChat WebView evidence are outside this release claim.
+browser, and WeChat WebView evidence are outside this release claim. Historical reports are evidence only, not current model directories.
 
 The manifest distinguishes `fp32`, `fp16`, `int8`, `int4`, and `fp8`, with `quantization` recording the quantization method. Model distribution supports Git LFS, Hugging Face (the Demo default), ModelScope, and custom hosting. Git LFS, Hugging Face, and ModelScope now contain the same FP32 bytes; only FP32 WASM/WebGPU evidence is complete, while FP16, mobile browser, and WeChat WebView evidence remain pending. Only variants with complete assets and evidence may be released as `stable`; a Git LFS pointer is not a browser-runnable model.
 

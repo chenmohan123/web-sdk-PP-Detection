@@ -68,12 +68,13 @@ def test_compare_outputs_rejects_missing_detection_matrix() -> None:
     assert "检测矩阵" in report["reason"]
 
 
-def test_committed_parity_report_binds_current_candidate_and_fixtures() -> None:
+def test_committed_parity_report_preserves_historical_candidate_and_fixtures() -> None:
     report_path = Path(__file__).parents[1] / "reports" / "picodet-parity.json"
     report = json.loads(report_path.read_text(encoding="utf-8"))
 
     assert report["status"] == "passed"
     assert report["model"]["candidate"] == {
+        # 该报告记录 1.0.0 历史候选，当前模型路径由 manifest 单独管理。
         "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
         "bytes": 23219047,
         "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",

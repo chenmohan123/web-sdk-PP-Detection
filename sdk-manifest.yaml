@@ -31,7 +31,7 @@ model:
     - id: fp32
       bytes: 23243834
       precision: fp32
-      url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+      url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/picodet-l-320-fp32.onnx?v=1.0.1
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
   defaultVariant: fp32
   defaultSource: huggingface

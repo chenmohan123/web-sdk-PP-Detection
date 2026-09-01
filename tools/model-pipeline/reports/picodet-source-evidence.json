@@ -29,41 +29,41 @@
     "license": "Apache-2.0"
   },
   "localCandidate": {
-    "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
-    "bytes": 23219047,
-    "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+    "path": "models/pp-detection/picodet-l-320-fp32.onnx",
+    "bytes": 23243834,
+    "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
     "derivedFrom": "官方后处理 ONNX 清理版本，不与官方下载文件字节相同",
     "parityReport": "tools/model-pipeline/reports/picodet-parity.json"
   },
   "distribution": {
     "git-lfs": {
       "status": "candidate-uploaded",
-      "revision": "50ec35925ca89945dcfc4d13935e65bf054ac741",
+      "revision": "3204072ce46d2afde30a47859f187a4dc293f345",
       "repository": "chenmohan123/web-sdk-PP-Detection",
-      "path": "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/50ec35925ca89945dcfc4d13935e65bf054ac741/models/pp-detection/1.0.0/picodet-l-320-fp32.onnx",
-      "bytes": 23219047,
-      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "path": "models/pp-detection/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "reason": "Git LFS 已上传本地清理候选；该副本不等于官方 Bcebos 下载文件"
     },
     "huggingface": {
       "status": "candidate-uploaded",
-      "revision": "a9097cd2d855e32dd9bee19afba319906366416a",
+      "revision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
       "repository": "chenmohan/web-sdk-pp-detection",
       "path": "picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/a9097cd2d855e32dd9bee19afba319906366416a/picodet-l-320-fp32.onnx",
-      "bytes": 23219047,
-      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "reason": "Hugging Face 已上传与 Git LFS 相同的本地清理候选"
     },
     "modelscope": {
       "status": "candidate-uploaded",
-      "revision": "f853dee67f8362853c7043d490fe892912561f8b",
+      "revision": "78208e9444c9f110a2eac46284bb78892e15c69c",
       "repository": "chenmohan/web-sdk-pp-detection",
       "path": "picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f853dee67f8362853c7043d490fe892912561f8b/picodet-l-320-fp32.onnx",
-      "bytes": 23219047,
-      "sha256": "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/78208e9444c9f110a2eac46284bb78892e15c69c/picodet-l-320-fp32.onnx",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "reason": "ModelScope 已上传与 Git LFS、Hugging Face 相同的本地清理候选；该副本不等于官方 Bcebos 下载文件"
     }
   },
@@ -74,7 +74,7 @@
     "order": ["huggingface", "modelscope", "git-lfs"],
     "checks": ["HTTPS 主机", "不可变十六进制 revision", "bytes 与 SHA-256 与本地文件一致"]
   },
-  "verifiedAt": "2026-08-29",
+  "verifiedAt": "2026-09-01",
   "limitations": [
     "Paddle Bcebos 下载 URL 本身没有不可变 revision，因此不能作为 stable manifest source revision。",
     "本报告只确认官方参考文件与上游文档和本地转换输入的关系，不提升 runtime manifest 的 stable 状态。",

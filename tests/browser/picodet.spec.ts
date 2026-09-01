@@ -8,11 +8,11 @@ import { expect, test, type Page } from "playwright/test";
 const repositoryRoot = resolve(__dirname, "../..");
 const sdkRoot = join(repositoryRoot, "packages/sdk");
 const ortRoot = join(sdkRoot, "node_modules/onnxruntime-web/dist");
-const modelRoot = join(repositoryRoot, "models/pp-detection/1.0.0");
+const modelRoot = join(repositoryRoot, "models/pp-detection");
 const fixtureRoot = join(repositoryRoot, "tools/model-pipeline/fixtures/images");
 const modelPath = join(modelRoot, "picodet-l-320-fp32.onnx");
-const modelBytes = 23219047;
-const modelSha256 = "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982";
+const modelBytes = 23243834;
+const modelSha256 = "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1";
 
 let server: Server;
 let origin = "";
@@ -49,7 +49,7 @@ function resolveAsset(url: string): string | undefined {
 function manifest(downloadUrl: string) {
   return {
     schemaVersion: 1 as const,
-    model: { id: "pp-picodet-l-320", version: "1.0.0" },
+    model: { id: "pp-picodet-l-320", version: "1.0.1" },
     input: { name: "image", shape: [1, 3, 320, 320], dtype: "float32" },
     outputs: [
       { name: "multiclass_nms3_0.tmp_0", shape: [-1, 6], dtype: "float32" },
@@ -199,7 +199,7 @@ test("PicoDet 本地候选在浏览器 WASM/CPU 中完成 Session 和推理", as
     parameterCount: 5787988,
     precision: "fp32",
     variantId: "fp32-wasm-webgpu",
-    version: "1.0.0"
+    version: "1.0.1"
   });
 });
 

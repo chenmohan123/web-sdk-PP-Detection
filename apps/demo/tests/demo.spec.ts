@@ -34,10 +34,10 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
   expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(true);
   expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
   expect(contract.huggingFaceModel).toContain(
-    "resolve/cd53bb62104f3f32123b56e981293d64ca321a0e/manifest.json"
+    "resolve/main/manifest.json?v=1.0.1"
   );
   expect(contract.modelScopeModel).toContain(
-    "resolve/aedf34d20d9eb9204444e3b09d2092eaec5bff48/1.0.1/manifest.json"
+    "resolve/master/manifest.json?v=1.0.1"
   );
   expect(contract.gitLfsModel).toContain("3d194b9ebff50175ebb0c9d36702852d7b7e506e");
   expect(contract.defaultModel).toBe(contract.huggingFaceModel);

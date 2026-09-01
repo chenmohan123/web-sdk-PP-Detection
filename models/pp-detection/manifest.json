@@ -64,17 +64,17 @@
           "kind": "huggingface",
           "repository": "chenmohan/web-sdk-pp-detection",
           "revision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
-          "path": "1.0.1/picodet-l-320-fp32.onnx",
-          "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx",
+          "path": "picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/picodet-l-320-fp32.onnx?v=1.0.1",
           "bytes": 23243834,
           "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
         },
         {
           "kind": "modelscope",
           "repository": "chenmohan/web-sdk-pp-detection",
-          "revision": "e7d5a0ce5023fd22e915d474c6db70b54dca9637",
-          "path": "1.0.1/picodet-l-320-fp32.onnx",
-          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/e7d5a0ce5023fd22e915d474c6db70b54dca9637/1.0.1/picodet-l-320-fp32.onnx",
+          "revision": "78208e9444c9f110a2eac46284bb78892e15c69c",
+          "path": "picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/78208e9444c9f110a2eac46284bb78892e15c69c/picodet-l-320-fp32.onnx",
           "bytes": 23243834,
           "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
         },
@@ -82,8 +82,8 @@
           "kind": "git-lfs",
           "repository": "chenmohan123/web-sdk-PP-Detection",
           "revision": "3204072ce46d2afde30a47859f187a4dc293f345",
-          "path": "models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
-          "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx",
+          "path": "models/pp-detection/picodet-l-320-fp32.onnx",
+          "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/picodet-l-320-fp32.onnx?v=1.0.1",
           "bytes": 23243834,
           "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
         }

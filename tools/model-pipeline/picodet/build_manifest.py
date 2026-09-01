@@ -93,10 +93,10 @@ def build_manifest(*, artifact_dir: Path, model_version: str, source_evidence: l
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="从真实 PicoDet ONNX 文件生成 manifest")
-    parser.add_argument("--artifact-dir", type=Path, default=ROOT / "models" / "pp-detection" / "1.0.0")
-    parser.add_argument("--model-version", default="1.0.0")
+    parser.add_argument("--artifact-dir", type=Path, default=ROOT / "models" / "pp-detection")
+    parser.add_argument("--model-version", default="1.0.1")
     parser.add_argument("--sources", type=Path)
-    parser.add_argument("--output", type=Path, default=ROOT / "models" / "pp-detection" / "1.0.0" / "manifest.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "models" / "pp-detection" / "manifest.json")
     args = parser.parse_args()
     evidence = json.loads(args.sources.read_text(encoding="utf-8")) if args.sources else None
     args.output.parent.mkdir(parents=True, exist_ok=True)

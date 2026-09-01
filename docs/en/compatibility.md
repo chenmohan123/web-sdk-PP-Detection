@@ -2,13 +2,22 @@
 
 [中文](../zh-CN/compatibility.md)
 
-| Environment                                          | Backend                                  | Notes                                                                    |
-| ---------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------ |
-| Current desktop Chrome/Edge                          | WebGPU, WASM                             | WebGPU preferred; HTTPS or localhost required                            |
-| Safari on macOS/iOS                                  | WASM; WebGPU depends on version          | Trust `probePPDetectionCapabilities()`                                   |
-| Firefox                                              | WASM; WebGPU depends on version/settings | Trust runtime probing                                                    |
-| Android WebView/mobile browser                       | Usually WASM                             | FP16 is smaller; account for CPU speed and memory peak                   |
-| WeChat Official Account H5 / mini-program `web-view` | Usually WASM                             | Must be a web context; it does not support native mini-program inference |
+Compatibility claims are limited to the evidence below. Capability probing can decide whether a page may try a backend; it does not replace validation on a specific browser, operating system, and device.
+
+## Verified environments
+
+The following evidence covers the 1.0.1 FP32 model, `onnxruntime-web@1.27.0`, and seven fixtures. Both runs were verified on 2026-08-30:
+
+| Browser                 | Operating system        | Device                      | Backend/precision | Evidence                                                                                    |
+| ----------------------- | ----------------------- | --------------------------- | ----------------- | ------------------------------------------------------------------------------------------- |
+| Chromium 151.0.7922.34  | Linux 6.17.0-1022-azure | GitHub Actions Linux runner | WASM / FP32       | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
+| Chromium 151.0.7922.174 | Windows 10.0.26200      | NVIDIA Blackwell            | WebGPU / FP32     | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
+
+## Unverified platforms
+
+- Android Chrome, Android WebView, iOS Safari/WebKit, and other mobile browsers still need real-device validation. Desktop narrow-viewport emulation is not evidence of mobile compatibility.
+- The WeChat Official Account H5 and mini-program `web-view` example is a web deployment reference, but this release has no real WeChat Android/iOS WebView evidence. The page must run in an HTTPS web context; native mini-program JavaScript/WASM inference is unsupported.
+- Safari, Firefox, and desktop browsers not listed above should be evaluated with `probePPDetectionCapabilities()` and an actual run.
 
 | Default model variant | Status  | Release condition                                                              |
 | --------------------- | ------- | ------------------------------------------------------------------------------ |

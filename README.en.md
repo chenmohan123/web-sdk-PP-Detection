@@ -16,7 +16,8 @@
 
 ## Platform boundaries
 
-- PC/mobile browsers, WeChat Official Account H5, and H5 hosted in a mini-program `web-view` are future target platforms.
+- Target platforms include PC/mobile browsers, WeChat Official Account H5, and H5 hosted in a mini-program `web-view`; the repository includes Vanilla, React, Vue, CDN, and WeChat H5/WebView examples.
+- Real-device compatibility for mobile browsers and WeChat WebView still needs independent validation; desktop narrow-viewport emulation is not device evidence.
 - Native WeChat mini-program JavaScript/WASM runtime is unsupported.
 - The SDK accepts images and individual video frames; camera permissions, video loops, frame pacing, and overlay rendering remain owned by the host page. The current Demo provides image, camera, and video scenes.
 

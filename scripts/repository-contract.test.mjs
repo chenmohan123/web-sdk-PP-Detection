@@ -83,20 +83,22 @@ test("manifest 记录 1.0.1 FP32 stable 资产且不伪造 runtime 稳定变体"
   assert.match(model, /^\s*defaultSource:\s*huggingface/m);
 });
 
-test("五类示例统一为 planned 并指向后续目录", () => {
+test("五类示例标记为 available 并指向现有目录", () => {
   const manifest = readFileSync(join(root, "sdk-manifest.yaml"), "utf8");
-  const expectedPaths = [
-    "examples/vanilla",
-    "examples/react",
-    "examples/vite",
-    "examples/cdn",
-    "examples/wechat-web-view"
+  const expectedExamples = [
+    ["vanilla", "examples/vanilla"],
+    ["react", "examples/react"],
+    ["vite", "examples/vanilla-vite"],
+    ["cdn", "examples/cdn"],
+    ["wechatWebView", "examples/wechat-webview"]
   ];
 
-  for (const examplePath of expectedPaths) {
+  for (const [surface, examplePath] of expectedExamples) {
     assert.match(
       manifest,
-      new RegExp(`status: planned, path: ${examplePath.replaceAll("/", "\\/")}`)
+      new RegExp(
+        `${surface}: \\{ status: available, path: ${examplePath.replaceAll("/", "\\/")} \\}`
+      )
     );
   }
 });

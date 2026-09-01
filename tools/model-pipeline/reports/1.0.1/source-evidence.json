@@ -16,10 +16,10 @@
     "huggingface": {
       "kind": "huggingface",
       "status": "verified",
-      "revision": "b089403d908b40f28e56e4c0330c3c8b6e71183f",
+      "revision": "df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff",
       "repository": "chenmohan/web-sdk-pp-detection",
       "path": "picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff/picodet-l-320-fp32.onnx",
       "bytes": 23243834,
       "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "verification": "固定 revision 下载后本地 SHA-256 回读"
@@ -38,10 +38,10 @@
     "git-lfs": {
       "kind": "git-lfs",
       "status": "verified",
-      "revision": "3204072ce46d2afde30a47859f187a4dc293f345",
+      "revision": "f7369860bffbb18a6b850987bab3943e1abb2b12",
       "repository": "chenmohan123/web-sdk-PP-Detection",
       "path": "models/pp-detection/picodet-l-320-fp32.onnx",
-      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/picodet-l-320-fp32.onnx",
+      "downloadUrl": "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/f7369860bffbb18a6b850987bab3943e1abb2b12/models/pp-detection/picodet-l-320-fp32.onnx",
       "bytes": 23243834,
       "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
       "verification": "固定 Git commit 的 LFS 下载后本地 SHA-256 回读"

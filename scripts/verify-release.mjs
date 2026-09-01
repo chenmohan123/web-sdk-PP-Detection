@@ -87,6 +87,8 @@ function verifyStableSources(variant, label = variant.id) {
     }
     if (downloadUrl.protocol !== "https:" || downloadUrl.username || downloadUrl.password)
       fail(`${label} ${source.kind} downloadUrl must be public HTTPS`);
+    if (/\/(?:main|master|latest|develop)(?:\/|$)/i.test(downloadUrl.pathname))
+      fail(`${label} ${source.kind} downloadUrl uses a moving revision`);
     if (
       source.kind === "huggingface" &&
       downloadUrl.hostname !== "huggingface.co" &&
@@ -373,6 +375,9 @@ function verifyFp32BrowserEvidence({
   }
   if (evidence.referenceType === "offline-official-output") {
     fail(`${displayName} 离线官方 reference 不能作为 accepted 模型发布`);
+  }
+  if (evidence.acceptedModelSha256 !== acceptedFp32Sha256) {
+    fail(`${displayName} browser evidence accepted model SHA-256 is invalid`);
   }
 
   for (const [index, fixture] of evidence.fixtures.entries()) {

@@ -6,7 +6,7 @@
     "bytes": 23243834,
     "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
     "sourceKind": "huggingface",
-    "sourceRevision": "b089403d908b40f28e56e4c0330c3c8b6e71183f"
+    "sourceRevision": "df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff"
   },
   "workflow": {
     "name": "Release benchmarks",

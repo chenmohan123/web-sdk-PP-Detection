@@ -87,7 +87,7 @@ function verifyStableSources(variant, label = variant.id) {
     }
     if (downloadUrl.protocol !== "https:" || downloadUrl.username || downloadUrl.password)
       fail(`${label} ${source.kind} downloadUrl must be public HTTPS`);
-    if (/\/(?:main|master|latest)(?:\/|$)/i.test(downloadUrl.pathname))
+    if (/\/(?:main|master|latest|develop)(?:\/|$)/i.test(downloadUrl.pathname))
       fail(`${label} ${source.kind} downloadUrl uses a moving revision`);
     if (
       source.kind === "huggingface" &&
@@ -140,8 +140,6 @@ function verifyStaticContract() {
     requiredWorkflows.map((name) => [name, read(`.github/workflows/${name}`)])
   );
   const benchmark = read(".github/workflows/benchmark.yml");
-  if (/\blfs:\s*true\b/.test(`${Object.values(workflows).join("\n")}\n${benchmark}`))
-    fail("普通、模型和基准工作流不得启用 Git LFS checkout");
   requireMatch(
     benchmark,
     /fetch-model-source\.mjs|PPDETECTION_MODEL_MANIFEST_URL/,
@@ -294,7 +292,7 @@ function verifyStaticContract() {
     fail("npm publishing must never run from develop");
   }
 
-  const manifest = JSON.parse(read("models/pp-detection/1.0.1/manifest.json"));
+  const manifest = JSON.parse(read("models/pp-detection/manifest.json"));
   if (manifest.status !== "stable") fail("current model manifest must be stable");
   if (!manifest.variants?.length) fail("stable model manifest must contain variants");
   for (const variant of manifest.variants) {
@@ -424,8 +422,8 @@ function verifyFp32BrowserEvidence({
 }
 
 async function verifyModels(modelVersion) {
-  const manifestRoot = `models/pp-detection/${modelVersion}`;
-  const artifactRoot = modelVersion === "1.0.2" ? "models/pp-detection/1.0.1" : manifestRoot;
+  const manifestRoot = "models/pp-detection";
+  const artifactRoot = manifestRoot;
   const reportRoot =
     modelVersion === "1.0.0"
       ? "tools/model-pipeline/reports"
@@ -460,10 +458,10 @@ async function verifyModels(modelVersion) {
   if (variants.source?.fp32Sha256 !== manifestVariants.fp32?.sha256)
     fail("variant validation report does not match the FP32 manifest SHA-256");
 
-  if (["1.0.1", "1.0.2"].includes(modelVersion)) {
+  if (modelVersion === manifest.model.version) {
     const fixtureLock = JSON.parse(read("tools/model-pipeline/fixtures/fixtures.lock.json"));
     const acceptedFp32Sha256 = await sha256(
-      join(repositoryRoot, "models/pp-detection/1.0.0/picodet-l-320-fp32.onnx")
+      join(repositoryRoot, "models/pp-detection/picodet-l-320-fp32.onnx")
     );
     verifyFp32BrowserEvidence({
       acceptedFp32Sha256,

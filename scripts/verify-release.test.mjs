@@ -34,7 +34,7 @@ describe("发布工作流契约", () => {
   });
 
   test("1.0.1 稳定清单只发布 FP32 变体并固定三类来源", () => {
-    const manifest = JSON.parse(read("models/pp-detection/1.0.1/manifest.json"));
+    const manifest = JSON.parse(read("models/pp-detection/manifest.json"));
 
     assert.equal(manifest.status, "stable");
     assert.equal(manifest.variants.length, 1);
@@ -65,20 +65,6 @@ describe("发布工作流契约", () => {
     assert.equal(result.status, 0, result.stderr || result.stdout);
     assert.match(result.stdout, /1 model variants, model 1\.0\.1\./);
     assert.doesNotMatch(result.stderr, /FP16|fp16/);
-  });
-
-  test("blocked 清单不携带可发布变体", () => {
-    const manifest = JSON.parse(read("models/pp-detection/1.0.0/manifest.json"));
-
-    assert.equal(manifest.status, "labs/blocked");
-    assert.deepEqual(manifest.variants, []);
-  });
-
-  test("阻止发布 blocked 模型", () => {
-    const result = runVerifier("--models", "1.0.0");
-
-    assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /model 1\.0\.0 is blocked and cannot be released/);
   });
 
   test("模型工作流默认使用当前版本并拒绝旧版本引用", () => {
@@ -178,27 +164,24 @@ describe("发布工作流契约", () => {
     assert.match(release, /python3 -m http\.server 8765 --directory "\$GITHUB_WORKSPACE"/);
     assert.match(
       release,
-      /PPDETECTION_MODEL_MANIFEST_URL: http:\/\/127\.0\.0\.1:8765\/models\/pp-detection\/1\.0\.1\/manifest\.json/
+      /PPDETECTION_MODEL_MANIFEST_URL: http:\/\/127\.0\.0\.1:8765\/models\/pp-detection\/manifest\.json/
     );
     assert.match(release, /PPDETECTION_MODEL_SOURCE: git-lfs/);
     assert.match(release, /node scripts\/fetch-model-source\.mjs/);
     assert.match(
       release,
-      /cp "\$RUNNER_TEMP\/pp-detection-model\/picodet-l-320-fp32\.onnx" models\/pp-detection\/1\.0\.1\/picodet-l-320-fp32\.onnx/
+      /cp "\$RUNNER_TEMP\/pp-detection-model\/picodet-l-320-fp32\.onnx" models\/pp-detection\/picodet-l-320-fp32\.onnx/
     );
     assert.match(
       release,
-      /curl --fail --location --retry 3 --output "\$accepted_model" "https:\/\/media\.githubusercontent\.com\/media\/chenmohan123\/web-sdk-PP-Detection\/50ec35925ca89945dcfc4d13935e65bf054ac741\/models\/pp-detection\/1\.0\.0\/picodet-l-320-fp32\.onnx"/
+      /curl --fail --location --retry 3 --output "\$accepted_model" "https:\/\/media\.githubusercontent\.com\/media\/chenmohan123\/web-sdk-PP-Detection\/main\/models\/pp-detection\/picodet-l-320-fp32\.onnx"/
     );
-    assert.match(release, /test "\$\(stat -c '%s' "\$accepted_model"\)" = "23219047"/);
+    assert.match(release, /test "\$\(stat -c '%s' "\$accepted_model"\)" = "23243834"/);
     assert.match(
       release,
-      /echo "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982  \$accepted_model" \| sha256sum --check --status/
+      /echo "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1  \$accepted_model" \| sha256sum --check --status/
     );
-    assert.match(
-      release,
-      /cp "\$accepted_model" models\/pp-detection\/1\.0\.0\/picodet-l-320-fp32\.onnx/
-    );
+    assert.match(release, /cp "\$accepted_model" models\/pp-detection\/picodet-l-320-fp32\.onnx/);
   });
 
   test("package、runtime 和 changelog 版本保持 0.1.1 一致", () => {
@@ -211,30 +194,23 @@ describe("发布工作流契约", () => {
     assert.match(changelog, /^## 0\.1\.1$/m);
   });
 
-  test("Pages 暂存脚本在历史模型 blocked 时不访问网络", async () => {
+  test("Pages 暂存脚本从当前根目录复制稳定模型且不访问网络", async () => {
     const { stagePagesModels } = await import("./stage-pages-models.mjs");
     const outputRoot = mkdtempSync(join(tmpdir(), "ppdetection-blocked-pages-"));
     let fetchCalls = 0;
     try {
-      const blockedManifest = JSON.parse(read("models/pp-detection/1.0.0/manifest.json"));
+      const currentManifest = JSON.parse(read("models/pp-detection/manifest.json"));
       const staged = await stagePagesModels({
-        manifest: blockedManifest,
-        outputRoot: join(outputRoot, "v1.0.0"),
-        publicRoot: "https://chenmohan123.github.io/web-sdk-PP-Detection/models/v1.0.0",
-        fetchImpl: async () => {
-          fetchCalls += 1;
-          throw new Error("blocked 模型不应访问网络");
-        }
+        outputRoot,
+        publicRoot: "https://chenmohan123.github.io/web-sdk-PP-Detection/models",
+        sourceRoot: resolve(repositoryRoot, "models/pp-detection")
       });
 
-      assert.deepEqual(staged, blockedManifest);
+      assert.equal(staged.status, "stable");
+      assert.equal(staged.model.version, currentManifest.model.version);
       assert.equal(fetchCalls, 0);
-      const versionDirectory = join(outputRoot, "v1.0.0");
-      assert.deepEqual(
-        JSON.parse(readFileSync(join(versionDirectory, "manifest.json"), "utf8")),
-        JSON.parse(read("models/pp-detection/1.0.0/manifest.json"))
-      );
-      assert.deepEqual(readdirSync(versionDirectory), ["manifest.json"]);
+      assert.deepEqual(JSON.parse(readFileSync(join(outputRoot, "manifest.json"), "utf8")), staged);
+      assert.ok(readdirSync(outputRoot).includes("picodet-l-320-fp32.onnx"));
     } finally {
       rmSync(outputRoot, { force: true, recursive: true });
     }

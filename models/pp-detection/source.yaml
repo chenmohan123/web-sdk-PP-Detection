@@ -19,24 +19,24 @@ sources:
   evidence: tools/model-pipeline/reports/1.0.1/source-evidence.json
   sourceDetails:
     huggingface:
-      revision: b089403d908b40f28e56e4c0330c3c8b6e71183f
+      revision: df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff
       repository: chenmohan/web-sdk-pp-detection
-      path: 1.0.1/picodet-l-320-fp32.onnx
-      downloadUrl: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+      path: picodet-l-320-fp32.onnx
+      downloadUrl: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff/picodet-l-320-fp32.onnx
       bytes: 23243834
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
     modelscope:
-      revision: e7d5a0ce5023fd22e915d474c6db70b54dca9637
+      revision: 852b3acbb768705c77359362546eae9999f4190c
       repository: chenmohan/web-sdk-pp-detection
-      path: 1.0.1/picodet-l-320-fp32.onnx
-      downloadUrl: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/e7d5a0ce5023fd22e915d474c6db70b54dca9637/1.0.1/picodet-l-320-fp32.onnx
+      path: picodet-l-320-fp32.onnx
+      downloadUrl: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx
       bytes: 23243834
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
     git-lfs:
-      revision: 3204072ce46d2afde30a47859f187a4dc293f345
+      revision: f7369860bffbb18a6b850987bab3943e1abb2b12
       repository: chenmohan123/web-sdk-PP-Detection
-      path: models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
-      downloadUrl: https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/3204072ce46d2afde30a47859f187a4dc293f345/models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
+      path: models/pp-detection/picodet-l-320-fp32.onnx
+      downloadUrl: https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/f7369860bffbb18a6b850987bab3943e1abb2b12/models/pp-detection/picodet-l-320-fp32.onnx
       bytes: 23243834
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
 browserEvidence:

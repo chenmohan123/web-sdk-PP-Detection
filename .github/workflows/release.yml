@@ -40,20 +40,20 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           for attempt in {1..20}; do
-            if curl --fail --silent http://127.0.0.1:8765/models/pp-detection/1.0.1/manifest.json >/dev/null; then
+            if curl --fail --silent http://127.0.0.1:8765/models/pp-detection/manifest.json >/dev/null; then
               break
             fi
             sleep 1
           done
           node scripts/fetch-model-source.mjs
-          cp "$RUNNER_TEMP/pp-detection-model/picodet-l-320-fp32.onnx" models/pp-detection/1.0.1/picodet-l-320-fp32.onnx
-          accepted_model="$RUNNER_TEMP/picodet-l-320-fp32-1.0.0.onnx"
-          curl --fail --location --retry 3 --output "$accepted_model" "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/50ec35925ca89945dcfc4d13935e65bf054ac741/models/pp-detection/1.0.0/picodet-l-320-fp32.onnx"
-          test "$(stat -c '%s' "$accepted_model")" = "23219047"
-          echo "a7e1fbfe20f07fd7a7567811a4e2670df0595f0fecb885505d7d93466990e982  $accepted_model" | sha256sum --check --status
-          cp "$accepted_model" models/pp-detection/1.0.0/picodet-l-320-fp32.onnx
+          cp "$RUNNER_TEMP/pp-detection-model/picodet-l-320-fp32.onnx" models/pp-detection/picodet-l-320-fp32.onnx
+          accepted_model="$RUNNER_TEMP/picodet-l-320-fp32.onnx"
+          curl --fail --location --retry 3 --output "$accepted_model" "https://media.githubusercontent.com/media/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/picodet-l-320-fp32.onnx"
+          test "$(stat -c '%s' "$accepted_model")" = "23243834"
+          echo "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1  $accepted_model" | sha256sum --check --status
+          cp "$accepted_model" models/pp-detection/picodet-l-320-fp32.onnx
         env:
-          PPDETECTION_MODEL_MANIFEST_URL: http://127.0.0.1:8765/models/pp-detection/1.0.1/manifest.json
+          PPDETECTION_MODEL_MANIFEST_URL: http://127.0.0.1:8765/models/pp-detection/manifest.json
           PPDETECTION_MODEL_SOURCE: git-lfs
           PPDETECTION_MODEL_VARIANT: fp32
           PPDETECTION_MODEL_OUTPUT_DIR: ${{ runner.temp }}/pp-detection-model

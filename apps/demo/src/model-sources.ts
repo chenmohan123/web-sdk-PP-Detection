@@ -10,17 +10,13 @@ export interface ModelSourceOption {
 
 export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "huggingface";
 
-const MODEL_REVISION = {
-  // 清单与模型文件分别固定到各自的不可变提交。
-  huggingface: "cd53bb62104f3f32123b56e981293d64ca321a0e",
-  modelscope: "aedf34d20d9eb9204444e3b09d2092eaec5bff48",
-  "git-lfs": "3d194b9ebff50175ebb0c9d36702852d7b7e506e"
-} as const;
-
 const MANIFEST_URLS = {
-  huggingface: `https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/${MODEL_REVISION.huggingface}/manifest.json`,
-  modelscope: `https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/${MODEL_REVISION.modelscope}/1.0.1/manifest.json`,
-  "git-lfs": `https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/${MODEL_REVISION["git-lfs"]}/models/pp-detection/1.0.1/manifest.json`
+  huggingface:
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/manifest.json?v=1.0.1",
+  modelscope:
+    "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1",
+  "git-lfs":
+    "https://raw.githubusercontent.com/chenmohan123/web-sdk-PP-Detection/main/models/pp-detection/manifest.json?v=1.0.1"
 } as const;
 
 export const MODEL_SOURCE_OPTIONS: readonly ModelSourceOption[] = [

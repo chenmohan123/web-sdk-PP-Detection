@@ -19,7 +19,7 @@ Use each module's `--help` for exact local model paths and arguments. Validation
 ## Current asset status
 
 The repository now contains a reproducible PicoDet-L-320 FP32 stable ONNX asset at
-`models/pp-detection/1.0.1/picodet-l-320-fp32.onnx`. Graph inspection reports
+`models/pp-detection/picodet-l-320-fp32.onnx`. Graph inspection reports
 `23,243,834` bytes, `5,787,988` parameters, and opset 11. CPU ORT parity passes on
 seven fixtures; hashes, preprocessing, and error metrics are recorded in
 `tools/model-pipeline/reports/picodet-parity.json`.

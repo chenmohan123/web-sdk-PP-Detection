@@ -48,7 +48,7 @@ jobs:
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: ${{ vars.PPDETECTION_MODEL_VARIANT }}
-          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection/${{ inputs.model_version }}
+          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection
       - name: Validate immutable release identity
         shell: bash
         run: |
@@ -76,7 +76,7 @@ jobs:
           name: pp-detection-${{ inputs.model_version }}-validation
           if-no-files-found: error
           path: |
-            models/pp-detection/${{ inputs.model_version }}/manifest.json
+            models/pp-detection/manifest.json
             tools/model-pipeline/reports/${{ inputs.model_version }}/wasm-fp32.json
             tools/model-pipeline/reports/${{ inputs.model_version }}/webgpu-fp32.json
             tools/model-pipeline/reports/${{ inputs.model_version }}/fp32-validation.json
@@ -111,7 +111,7 @@ jobs:
           PPDETECTION_MODEL_MANIFEST_URL: ${{ vars.PPDETECTION_MODEL_MANIFEST_URL }}
           PPDETECTION_MODEL_SOURCE: ${{ vars.PPDETECTION_MODEL_SOURCE || 'huggingface' }}
           PPDETECTION_MODEL_VARIANT: ${{ vars.PPDETECTION_MODEL_VARIANT }}
-          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection/${{ inputs.model_version }}
+          PPDETECTION_MODEL_OUTPUT_DIR: models/pp-detection
       - run: node scripts/verify-release.mjs --models "${{ inputs.model_version }}"
       - name: Create immutable model release
         shell: bash
@@ -151,7 +151,7 @@ jobs:
             exit 1
           fi
           gh release create "${RELEASE_TAG}" \
-            "models/pp-detection/${MODEL_VERSION}/manifest.json" \
+            "models/pp-detection/manifest.json" \
             "tools/model-pipeline/reports/${MODEL_VERSION}/browser-evidence.json" \
             "tools/model-pipeline/reports/${MODEL_VERSION}/fp32-validation.json" \
             "tools/model-pipeline/reports/${MODEL_VERSION}/variant-validation.json" \

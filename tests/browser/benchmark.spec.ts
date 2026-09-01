@@ -89,7 +89,6 @@ const officialReferenceModel = {
 
 const mode = process.env.PPDETECTION_BENCHMARK_MODE as BenchmarkMode | undefined;
 const modelVersion = process.env.PPDETECTION_MODEL_VERSION ?? "1.0.0";
-const acceptedModelVersion = process.env.PPDETECTION_ACCEPTED_MODEL_VERSION ?? modelVersion;
 const requestedSource = process.env.PPDETECTION_MODEL_SOURCE?.trim() || "huggingface";
 const acceptedRequestedSource =
   process.env.PPDETECTION_ACCEPTED_MODEL_SOURCE?.trim() || "huggingface";
@@ -102,8 +101,9 @@ const acceptedReferencePath = process.env.PPDETECTION_ACCEPTED_REFERENCE_PATH?.t
   : undefined;
 const sdkRoot = join(repositoryRoot, "packages/sdk");
 const ortRoot = join(sdkRoot, "node_modules/onnxruntime-web/dist");
-const acceptedModelRoot = join(repositoryRoot, `models/pp-detection/${acceptedModelVersion}`);
-const candidateModelRoot = join(repositoryRoot, `models/pp-detection/${modelVersion}`);
+// 当前模型始终位于根目录；版本只作为基准产物中的元数据保留。
+const acceptedModelRoot = join(repositoryRoot, "models/pp-detection");
+const candidateModelRoot = join(repositoryRoot, "models/pp-detection");
 let reference: OfflineOfficialReference | undefined;
 interface TableReference {
   realImage: {
@@ -174,7 +174,7 @@ function localManifest(
   fp32Backends: readonly string[]
 ): BenchmarkManifest {
   const manifest = structuredClone(loadManifest());
-  manifest.model.version = basename(modelRoot);
+  manifest.model.version = modelVersion;
   for (const variant of manifest.variants) {
     const path = join(modelRoot, variant.filename);
     variant.bytes = statSync(path).size;

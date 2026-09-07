@@ -38,7 +38,7 @@ await detector.dispose();
 
 - `detect(image, { threshold, classThresholds, signal, timestampMs, metadata })`: accepts a Blob, CanvasImageSource, `HTMLVideoElement`, a single `VideoFrame`, or a normalized raster.
 - `dispose()`: waits for queued work and releases the Worker/session; it is idempotent.
-- `listModelCache()` / `clearModelCache()`: inspect or clear the detector's model cache.
+- `getCacheEstimate()` / `clearCurrentModelCache()` / `clearAllCache()`: inspect SDK cache usage, clear the current instance's cache key, or clear all SDK model caches. Use `dispose()` to release the session.
 - `model`, `runtime`, `capabilities`, `loadTimings`: actual loaded configuration.
 
 ```ts
@@ -69,4 +69,16 @@ Hosts own camera permissions, video playback, and frame pacing. Submit one frame
 
 ## Other exports
 
-`probePPDetectionCapabilities()`, `listModelCache()`, `clearModelCache()`, `parseModelManifest()`, `PPDetectionError`, default manifest/WASM URLs, and all public TypeScript contracts. Runtime messages remain stable English strings; localize UI using `error.code`.
+`probePPDetectionCapabilities()`, `ModelManager`, `clearModelCache()`, `parseModelManifest()`, `PPDetectionError`, and public TypeScript contracts. Localize UI using the stable `error.code`.
+
+Without an active detector, use `ModelManager.getCacheEstimate({ id, version })` and
+`clearCurrentModelCache({ id, version })` with the actual manifest identity to inspect or clear all its variants and sources.
+The identity overloads, `ModelCache.scope`, and `list()` are unreleased source APIs; examples using public npm 0.1.1 do not depend on them.
+Estimates deduplicate cache keys; they do not represent origin quota or process memory. Custom caches must implement
+the optional `list()` method for identity-based operations, or receive `CAPABILITY_UNSUPPORTED` without a broader deletion.
+
+Managers sharing an IndexedDB database in the same JavaScript execution environment share invalidation generations
+and serialize cache operations. Downloads started before clearing cannot repopulate the cache; new loads can cache normally.
+The module-level `clearModelCache()` also clears active cache copies in that scope, but does not release inference sessions.
+The Demo cancels and awaits current work, releases the session, clears caches, and refreshes usage. Concurrent tabs or Workers
+are outside this change's cross-environment coordination guarantee.

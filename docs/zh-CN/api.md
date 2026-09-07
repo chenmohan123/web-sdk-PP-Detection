@@ -38,7 +38,7 @@ await detector.dispose();
 
 - `detect(image, { threshold, classThresholds, signal, timestampMs, metadata })`: 接收 Blob、CanvasImageSource、`HTMLVideoElement`、单帧 `VideoFrame` 或标准化 raster。
 - `dispose()`: 等待已排队操作完成并释放 Worker/session；可重复调用。
-- `listModelCache()` / `clearModelCache()`: 查看或清除该检测器的模型缓存。
+- `getCacheEstimate()` / `clearCurrentModelCache()` / `clearAllCache()`：估算本 SDK 缓存、清理当前实例模型缓存键或清理全部本 SDK 模型缓存；释放会话使用 `dispose()`。
 - `model`, `runtime`, `capabilities`, `loadTimings`: 实际加载信息。
 
 ```ts
@@ -69,4 +69,15 @@ runtime manifest 默认使用双线性。
 
 ## 其他导出
 
-`probePPDetectionCapabilities()`、`listModelCache()`、`clearModelCache()`、`parseModelManifest()`、`PPDetectionError`、默认清单/WASM URL，以及所有公开 TypeScript 类型。错误消息保持英文稳定，界面可按 `error.code` 本地化。
+`probePPDetectionCapabilities()`、`ModelManager`、`clearModelCache()`、`parseModelManifest()`、`PPDetectionError`，以及公开 TypeScript 类型。界面可按稳定的 `error.code` 本地化。
+
+没有活动检测器时，可创建 `ModelManager` 并使用 `getCacheEstimate({ id, version })` 与
+`clearCurrentModelCache({ id, version })`，按当前实际清单的模型身份统计或清理该模型的全部变体、来源。
+带模型身份的重载、`ModelCache.scope` 和 `list()` 属于当前源码的未发布能力；公开 npm 0.1.1 的示例不使用这些新增 API。
+不传身份的 `getCacheEstimate()` 返回全部本 SDK 缓存；字节数按缓存键去重，不是整个站点的配额或进程内存。
+自定义缓存需实现可选的 `list()` 才能按模型操作，否则返回 `CAPABILITY_UNSUPPORTED`，不会扩大清理范围。
+
+同一 JavaScript 执行环境内，共享 IndexedDB 数据库的管理器会同步失效代次并串行处理缓存操作。
+清理前开始的下载即使后来完成也不会写回；清理后新加载正常写入。模块级 `clearModelCache()` 同时清理
+该范围内活动实例的缓存副本，但不释放它们的推理会话。Demo 会先取消并等待操作、释放会话，再清理和刷新容量。
+不同标签页或 Worker 的并发加载没有本轮跨执行环境协调保证。

@@ -106,22 +106,39 @@ describe("consumer example content", () => {
   });
 });
 
-describe("packed SDK consumer builds", () => {
+describe("公开固定版本的原样独立消费者构建", () => {
   it.each(buildableExamples)(
     "builds %s outside the workspace",
     (name) => {
       const target = join(sandbox, `${name}-consumer`);
-      cpSync(join(examplesRoot, name), target, { recursive: true });
+      cpSync(join(examplesRoot, name), target, {
+        recursive: true,
+        filter: (path) => !["node_modules", "dist"].includes(basename(path))
+      });
       const packagePath = join(target, "package.json");
       const packageJson = JSON.parse(readFileSync(packagePath, "utf8")) as {
         dependencies?: Record<string, string>;
       };
-      packageJson.dependencies ??= {};
-      packageJson.dependencies[packageName] = `file:${sdkTarball.replaceAll("\\", "/")}`;
-      writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+      expect(packageJson.dependencies?.[packageName]).toBe("0.1.1");
       runPackageManager(["install", "--ignore-scripts", "--no-frozen-lockfile"], target);
       runPackageManager(["run", "build"], target);
     },
     120_000
   );
+});
+
+describe("待发布 tarball 的补充消费验证", () => {
+  it("Vanilla Vite 可以消费新 SDK 包", () => {
+    const target = join(sandbox, "tarball-consumer");
+    cpSync(join(examplesRoot, "vanilla-vite"), target, {
+      recursive: true,
+      filter: (path) => !["node_modules", "dist"].includes(basename(path))
+    });
+    const packagePath = join(target, "package.json");
+    const packageJson = JSON.parse(readFileSync(packagePath, "utf8"));
+    packageJson.dependencies[packageName] = `file:${sdkTarball.replaceAll("\\", "/")}`;
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+    runPackageManager(["install", "--ignore-scripts", "--no-frozen-lockfile"], target);
+    runPackageManager(["run", "build"], target);
+  }, 120_000);
 });

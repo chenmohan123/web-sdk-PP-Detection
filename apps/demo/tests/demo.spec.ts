@@ -386,12 +386,11 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   await expect(page.getByTestId("timing-total")).toContainText("ms");
   await expect(page.getByTestId("model-name")).not.toHaveText("-");
   await expect(page.getByRole("button", { name: "导出 JSON" })).toBeEnabled();
-  await expect(page.getByRole("button", { name: "清理缓存" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "清理当前模型缓存" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "清理全部本 SDK 缓存" })).toBeEnabled();
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出 JSON" }).click();
   expect((await downloadPromise).suggestedFilename()).toBe("pp-detection-result.json");
-  await page.getByRole("button", { name: "清理缓存" }).click();
-  await expect(page.getByTestId("notice")).toContainText("缓存已清理");
   const canvasPixels = await page
     .getByTestId("result-canvas")
     .evaluate((canvas: HTMLCanvasElement) => {
@@ -404,6 +403,8 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
       return sum;
     });
   expect(canvasPixels).toBeGreaterThan(0);
+  await page.getByRole("button", { name: "清理当前模型缓存" }).click();
+  await expect(page.getByTestId("notice")).toContainText("缓存已清理");
   await page.screenshot({ path: testInfo.outputPath("desktop.png"), fullPage: true });
 });
 

@@ -3,44 +3,71 @@ import { onUnmounted, ref } from "vue";
 import {
   createPPDetection,
   PPDetectionError,
-  type PPDetectionDetector,
-  type PPDetectionResult
+  type PPDetectionDetector
 } from "web-sdk-pp-detection";
 
-const detector = ref<PPDetectionDetector>();
+const manifestUrl =
+  "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1";
 const file = ref<File>();
-const status = ref("请选择图片");
+const busy = ref(false);
+const status = ref("请选择图片，默认从 ModelScope 加载官方 PicoDet 模型");
 const progress = ref(0);
-const result = ref<PPDetectionResult>();
-const error = ref<{ code?: string; message: string }>();
-
+const output = ref("");
+let controller: AbortController | undefined;
+let mounted = true;
 onUnmounted(() => {
-  void detector.value?.dispose();
+  mounted = false;
+  controller?.abort();
+  // 初始化迟到或推理结束时，finally 统一 dispose。
 });
 
-function selectImage(event: Event): void {
-  file.value = (event.target as HTMLInputElement).files?.[0];
-}
 async function detect(): Promise<void> {
-  if (file.value === undefined) return;
-  error.value = undefined;
+  if (!file.value || controller) return;
+  const operation = new AbortController();
+  controller = operation;
+  busy.value = true;
+  output.value = "";
+  let detector: PPDetectionDetector | undefined;
+  const current = () => mounted && !operation.signal.aborted;
   try {
-    await detector.value?.dispose();
-    detector.value = await createPPDetection({
+    detector = await createPPDetection({
+      model: manifestUrl,
+      source: "modelscope",
+      backend: "auto",
+      allowFallback: true,
+      executionMode: "main",
+      signal: operation.signal,
       onProgress: (event) => {
+        if (!current()) return;
         status.value = `${event.phase}: ${event.status}`;
-        if (event.totalBytes !== undefined)
-          progress.value = ((event.loadedBytes ?? 0) / event.totalBytes) * 100;
+        if (event.totalBytes) progress.value = ((event.loadedBytes ?? 0) / event.totalBytes) * 100;
       }
     });
-    result.value = await detector.value.detect(file.value, { threshold: 0.5 });
+    if (!current()) return;
+    const result = await detector.detect(file.value, { threshold: 0.5, signal: operation.signal });
+    if (!current()) return;
+    output.value = JSON.stringify(result, null, 2);
     progress.value = 100;
-    status.value = "检测完成";
-  } catch (caught) {
-    error.value =
-      caught instanceof PPDetectionError
-        ? { code: caught.code, message: caught.message }
-        : { message: String(caught) };
+    status.value = `检测完成：${result.detections.length} 个目标`;
+  } catch (error) {
+    if (current())
+      output.value = JSON.stringify(
+        error instanceof PPDetectionError
+          ? { code: error.code, message: error.message, details: error.details }
+          : { message: String(error) },
+        null,
+        2
+      );
+  } finally {
+    try {
+      await detector?.dispose();
+    } finally {
+      controller = undefined;
+      if (mounted) {
+        busy.value = false;
+        if (operation.signal.aborted) status.value = "已取消并释放模型";
+      }
+    }
   }
 }
 </script>
@@ -48,11 +75,16 @@ async function detect(): Promise<void> {
 <template>
   <main>
     <h1>Vue 示例</h1>
-    <input type="file" accept="image/*" @change="selectImage" /><button @click="detect">
-      检测
-    </button>
+    <input
+      type="file"
+      accept="image/*"
+      :disabled="busy"
+      @change="file = ($event.target as HTMLInputElement).files?.[0]"
+    />
+    <button :disabled="busy || !file" @click="detect">检测</button>
+    <button :disabled="!busy" @click="controller?.abort()">取消</button>
     <p>{{ status }}</p>
     <progress max="100" :value="progress" />
-    <pre>{{ JSON.stringify(error ?? result, null, 2) }}</pre>
+    <pre>{{ output }}</pre>
   </main>
 </template>

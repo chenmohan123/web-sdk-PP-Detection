@@ -2,6 +2,7 @@ import { expect, it, vi } from "vitest";
 import { ModelManager } from "../src/model/model-manager";
 import { PPDetectionError } from "../src/errors";
 import type { ModelCache } from "../src/cache/model-cache";
+import { MemoryModelCache } from "../src/cache/memory-cache";
 
 const validSha256 = "9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a";
 const source = {
@@ -34,6 +35,273 @@ const manifest = {
     }
   ]
 };
+
+function deferred() {
+  let release!: () => void;
+  const promise = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  return { promise, release };
+}
+
+const validManifest = {
+  ...manifest,
+  variants: [{ ...manifest.variants[0], sources: [{ ...source, sha256: validSha256 }] }]
+};
+
+it("共享存储范围的容量包含其他活动管理器的内存副本并按键去重", async () => {
+  const scope = {};
+  const firstCache = Object.assign(new MemoryModelCache(), { scope });
+  const secondCache = Object.assign(new MemoryModelCache(), { scope });
+  const fetcher = async () => new Response(new Uint8Array([1, 2, 3, 4]));
+  const first = new ModelManager({ cache: firstCache, fetcher });
+  const second = new ModelManager({ cache: secondCache, fetcher });
+  await first.load({ manifest: validManifest });
+  expect(await second.getCacheEstimate()).toEqual({ bytes: 4, entries: 1 });
+  await second.load({ manifest: validManifest });
+  expect(await second.getCacheEstimate()).toEqual({ bytes: 4, entries: 1 });
+  await second.load({ manifest: { ...validManifest, model: { id: "other", version: "1" } } });
+  expect(await first.getCacheEstimate()).toEqual({ bytes: 8, entries: 2 });
+  await Promise.all([first.dispose(), second.dispose()]);
+});
+
+it("按实际模型身份清理全部变体和来源，同时保留其他模型和 SDK", async () => {
+  const cache = new MemoryModelCache();
+  const manager = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  await cache.put("other-sdk:weight", new ArrayBuffer(7));
+  await manager.load({ manifest: validManifest });
+  await manager.load({
+    manifest: { ...validManifest, variants: [{ ...validManifest.variants[0], id: "another" }] }
+  });
+  await manager.load({ manifest: { ...validManifest, model: { id: "other", version: "1" } } });
+  expect(await manager.getCacheEstimate(validManifest.model)).toEqual({ bytes: 8, entries: 2 });
+  await manager.clearCurrentModelCache(validManifest.model);
+  expect(await manager.getCacheEstimate(validManifest.model)).toEqual({ bytes: 0, entries: 0 });
+  expect(await manager.getCacheEstimate()).toEqual({ bytes: 4, entries: 1 });
+  await manager.clearAllCache();
+  expect(await cache.estimate()).toEqual({ bytes: 7, entries: 1 });
+  await manager.dispose();
+});
+
+it("不支持列举的自定义缓存拒绝按身份清理，不能扩大到全部缓存", async () => {
+  const memory = new MemoryModelCache();
+  await memory.put("foreign", new ArrayBuffer(7));
+  const cache: ModelCache = {
+    get: (key) => memory.get(key),
+    put: (key, bytes) => memory.put(key, bytes),
+    clearCurrent: (key) => memory.clearCurrent(key),
+    clearAll: () => memory.clearAll(),
+    estimate: () => memory.estimate()
+  };
+  const manager = new ModelManager({ cache });
+  await expect(manager.clearCurrentModelCache(validManifest.model)).rejects.toMatchObject({
+    code: "CAPABILITY_UNSUPPORTED"
+  });
+  expect(await memory.estimate()).toEqual({ bytes: 7, entries: 1 });
+  await manager.dispose();
+});
+
+it("清理前开始的 auto 加载不能由迟到后备来源写回", async () => {
+  const gate = deferred();
+  const entered = deferred();
+  const cache = new MemoryModelCache();
+  let calls = 0;
+  const manager = new ModelManager({
+    cache,
+    fetcher: async () => {
+      if (++calls === 1) {
+        entered.release();
+        await gate.promise;
+        return new Response("失败", { status: 503 });
+      }
+      return new Response(new Uint8Array([1, 2, 3, 4]));
+    }
+  });
+  const loading = manager.load({
+    manifest: {
+      ...validManifest,
+      variants: [
+        {
+          ...validManifest.variants[0],
+          sources: [
+            validManifest.variants[0].sources[0],
+            {
+              ...validManifest.variants[0].sources[0],
+              kind: "huggingface",
+              revision: "b".repeat(40)
+            }
+          ]
+        }
+      ]
+    }
+  });
+  await entered.promise;
+  await manager.clearAllCache();
+  gate.release();
+  await loading;
+  expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  await manager.dispose();
+});
+
+it("共享自定义缓存的一个 manager 释放后，另一个仍可清理", async () => {
+  const cache = new MemoryModelCache();
+  const first = new ModelManager({ cache });
+  const second = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  await first.dispose();
+  await second.load({ manifest: validManifest });
+  await second.clearAllCache();
+  expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  await second.dispose();
+});
+
+it("清理等待已开始的缓存事务完成后删除", async () => {
+  const gate = deferred();
+  const entered = deferred();
+  class DelayedCache extends MemoryModelCache {
+    override async put(key: string, bytes: ArrayBuffer) {
+      await super.put(key, bytes);
+      entered.release();
+      await gate.promise;
+    }
+  }
+  const cache = new DelayedCache();
+  const manager = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  const loading = manager.load({ manifest: validManifest });
+  await entered.promise;
+  let cleared = false;
+  const clearing = manager.clearAllCache().then(() => {
+    cleared = true;
+  });
+  await Promise.resolve();
+  expect(cleared).toBe(false);
+  gate.release();
+  await Promise.all([loading, clearing]);
+  expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  await manager.dispose();
+});
+
+it("迟到的损坏缓存校验不能删除清理后新写入的数据", async () => {
+  const gate = deferred();
+  const entered = deferred();
+  const cache = new MemoryModelCache();
+  const first = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  const second = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  const key = first.cacheKey(
+    validManifest.variants[0],
+    validManifest.variants[0].sources[0],
+    validManifest.model
+  );
+  await cache.put(key, new Uint8Array([4, 3, 2, 1]).buffer);
+  const digest = crypto.subtle.digest.bind(crypto.subtle);
+  const spy = vi.spyOn(crypto.subtle, "digest").mockImplementationOnce(async (algorithm, bytes) => {
+    entered.release();
+    await gate.promise;
+    return digest(algorithm, bytes);
+  });
+  try {
+    const old = first.load({ manifest: validManifest });
+    await entered.promise;
+    await second.clearAllCache();
+    await second.load({ manifest: validManifest });
+    gate.release();
+    await old;
+    expect(Array.from(new Uint8Array((await cache.get(key))!))).toEqual([1, 2, 3, 4]);
+    expect(await cache.estimate()).toEqual({ bytes: 4, entries: 1 });
+  } finally {
+    gate.release();
+    spy.mockRestore();
+    await Promise.all([first.dispose(), second.dispose()]);
+  }
+});
+
+it.each(["current", "all"] as const)("%s 清理阻止旧下载写回且保留新缓存", async (scope) => {
+  const gate = deferred();
+  const entered = deferred();
+  const cache = new MemoryModelCache();
+  const oldManager = new ModelManager({
+    cache,
+    fetcher: async () => {
+      entered.release();
+      await gate.promise;
+      return new Response(new Uint8Array([1, 2, 3, 4]));
+    }
+  });
+  const newManager = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  const oldLoad = oldManager.load({ manifest: validManifest });
+  await entered.promise;
+  if (scope === "current") await oldManager.clearCurrentModelCache();
+  else await newManager.clearAllCache();
+  expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  gate.release();
+  await oldLoad;
+  expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  await newManager.load({ manifest: validManifest });
+  expect(await cache.estimate()).toEqual({ bytes: 4, entries: 1 });
+  await Promise.all([oldManager.dispose(), newManager.dispose()]);
+});
+
+it("清理后先完成的新加载不会被迟到旧任务覆盖或删除", async () => {
+  const gate = deferred();
+  const entered = deferred();
+  const cache = new MemoryModelCache();
+  const oldManager = new ModelManager({
+    cache,
+    fetcher: async () => {
+      entered.release();
+      await gate.promise;
+      return new Response(new Uint8Array([1, 2, 3, 4]));
+    }
+  });
+  const newManager = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  const oldLoad = oldManager.load({ manifest: validManifest });
+  await entered.promise;
+  await newManager.clearAllCache();
+  await newManager.load({ manifest: validManifest });
+  const put = vi.spyOn(cache, "put");
+  gate.release();
+  await oldLoad;
+  expect(put).not.toHaveBeenCalled();
+  expect(await cache.estimate()).toEqual({ bytes: 4, entries: 1 });
+  await Promise.all([oldManager.dispose(), newManager.dispose()]);
+});
+
+it("当前清理只影响选定缓存键，清理失败后可以重试和加载", async () => {
+  const cache = new MemoryModelCache();
+  const manager = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  await manager.load({ manifest: { ...validManifest, model: { id: "other", version: "1" } } });
+  await manager.load({ manifest: validManifest });
+  vi.spyOn(cache, "clearCurrent").mockRejectedValueOnce(new Error("临时事务错误"));
+  await expect(manager.clearCurrentModelCache()).rejects.toThrow("临时事务错误");
+  await manager.clearCurrentModelCache();
+  expect(await manager.estimate()).toEqual({ bytes: 4, entries: 1 });
+  await manager.load({ manifest: validManifest });
+  expect(await manager.estimate()).toEqual({ bytes: 8, entries: 2 });
+  await manager.dispose();
+});
 
 it("显式来源失败不自动换源，完整性失败不写缓存", async () => {
   const fetcher = async () => new Response(new Uint8Array([1, 2, 3, 4]));

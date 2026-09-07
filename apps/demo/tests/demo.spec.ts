@@ -3,11 +3,14 @@ import { expect, test } from "playwright/test";
 const pixelPng =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
 
-test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) => {
-  await page.goto("/?fixture=1");
+test("默认使用 ModelScope 且仅提供两个远程模型来源", async ({ page }) => {
+  await page.goto("/");
 
-  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
-  await expect(page.getByLabel("模型来源").locator("option")).toHaveCount(4);
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("modelscope");
+  await expect(page.getByLabel("模型来源").locator("option")).toHaveText([
+    "ModelScope",
+    "Hugging Face"
+  ]);
   await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toBeEnabled();
   await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeEnabled();
 
@@ -21,22 +24,22 @@ test("默认使用 Hugging Face 并展示可用模型来源", async ({ page }) =
         disabledReason: option.disabledReason,
         manifestUrl: option.manifestUrl
       })),
-      defaultModel: module.selectionToModel("default"),
+      defaultModel: module.selectionToModel(module.DEFAULT_MODEL_SOURCE),
       huggingFaceModel: module.selectionToModel("huggingface"),
-      modelScopeModel: module.selectionToModel("modelscope"),
-      gitLfsModel: module.selectionToModel("git-lfs")
+      modelScopeModel: module.selectionToModel("modelscope")
     };
   }, "/src/model-sources.ts");
 
-  expect(contract.keys).toEqual(["huggingface", "modelscope", "git-lfs", "default"]);
-  expect(contract.available).toHaveLength(4);
+  expect(contract.keys).toEqual(["modelscope", "huggingface"]);
+  expect(contract.available).toHaveLength(2);
   expect(contract.available.find((option) => option.key === "huggingface")?.available).toBe(true);
   expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(true);
-  expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(4);
+  expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(2);
   expect(contract.huggingFaceModel).toContain("resolve/main/manifest.json?v=1.0.1");
   expect(contract.modelScopeModel).toContain("resolve/master/manifest.json?v=1.0.1");
-  expect(contract.gitLfsModel).toContain("3d194b9ebff50175ebb0c9d36702852d7b7e506e");
-  expect(contract.defaultModel).toBe(contract.huggingFaceModel);
+  expect(contract.defaultModel).toBe(contract.modelScopeModel);
+  await page.getByLabel("模型来源", { exact: true }).selectOption("huggingface");
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
 });
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {
@@ -263,7 +266,7 @@ test("keeps manual choices strict and uses only validated default pairs", async 
 });
 
 test("reports loading before detecting for an in-memory model", async ({ page }) => {
-  await page.route("**/ort-fixture/*.wasm", async (route) => {
+  await page.route("**/ort/*.wasm", async (route) => {
     await new Promise((resolve) => setTimeout(resolve, 300));
     await route.continue();
   });
@@ -292,7 +295,7 @@ test("reports loading before detecting for an in-memory model", async ({ page })
   });
 
   const wasmRequest = page.waitForRequest(
-    (request) => request.url().includes("/ort-fixture/") && request.url().endsWith(".wasm")
+    (request) => request.url().includes("/ort/") && request.url().endsWith(".wasm")
   );
   await page.getByRole("button", { name: "开始检测" }).click();
   await wasmRequest;
@@ -319,7 +322,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
 }, testInfo) => {
   await page.goto("/?fixture=1");
 
-  const fixtureOrtModule = await page.request.get("/ort-fixture/ort-wasm-simd-threaded.jsep.mjs");
+  const fixtureOrtModule = await page.request.get("/ort/ort-wasm-simd-threaded.jsep.mjs");
   expect(fixtureOrtModule.status()).toBe(200);
   expect(fixtureOrtModule.headers()["content-type"]).toContain("text/javascript");
 

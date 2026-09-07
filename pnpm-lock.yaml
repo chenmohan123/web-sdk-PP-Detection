@@ -85,8 +85,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       web-sdk-pp-detection:
-        specifier: file:../../packages/sdk
-        version: link:../../packages/sdk
+        specifier: 0.1.1
+        version: 0.1.1
     devDependencies:
       '@types/react':
         specifier: 19.1.10
@@ -113,8 +113,8 @@ importers:
   examples/vanilla-vite:
     dependencies:
       web-sdk-pp-detection:
-        specifier: file:../../packages/sdk
-        version: link:../../packages/sdk
+        specifier: 0.1.1
+        version: 0.1.1
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -132,8 +132,8 @@ importers:
         specifier: 3.5.21
         version: 3.5.21(typescript@5.9.3)
       web-sdk-pp-detection:
-        specifier: file:../../packages/sdk
-        version: link:../../packages/sdk
+        specifier: 0.1.1
+        version: 0.1.1
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -148,8 +148,8 @@ importers:
   examples/wechat-webview:
     dependencies:
       web-sdk-pp-detection:
-        specifier: file:../../packages/sdk
-        version: link:../../packages/sdk
+        specifier: 0.1.1
+        version: 0.1.1
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -863,11 +863,6 @@ packages:
 
   '@volar/typescript@2.4.23':
     resolution: {integrity: sha512-lAB5zJghWxVPqfcStmAP1ZqQacMpe90UrP5RJ3arDyrhy4aCUQqmxPPLB2PWDKugvylmO41ljK7vZ+t6INMTag==}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
 
   '@vue/compiler-core@3.5.21':
     resolution: {integrity: sha512-8i+LZ0vf6ZgII5Z9XmUvrCyEzocvWT+TeR2VBUVlzIH6Tyv57E20mPZ1bCS+tbejgUgmjrEh7q/0F0bibskAmw==}
@@ -1830,6 +1825,10 @@ packages:
       typescript:
         optional: true
 
+  web-sdk-pp-detection@0.1.1:
+    resolution: {integrity: sha512-L5Z5jlp2+D79AgDUvOMWY1ucqHZHFvBCmUC/GtF/GmqVi29vJZYorNzNcopgp8XfqA5BfrBRJmkmdhHlnx8L7g==}
+    engines: {node: '>=22'}
+
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -2503,13 +2502,11 @@ snapshots:
 
   '@volar/source-map@2.4.23': {}
 
-  '@volar/typescript@2.4.23(typescript@5.9.3)':
+  '@volar/typescript@2.4.23':
     dependencies:
       '@volar/language-core': 2.4.23
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
-    optionalDependencies:
-      typescript: 5.9.3
 
   '@vue/compiler-core@3.5.21':
     dependencies:
@@ -3439,7 +3436,7 @@ snapshots:
 
   vue-tsc@3.0.8(typescript@5.9.3):
     dependencies:
-      '@volar/typescript': 2.4.23(typescript@5.9.3)
+      '@volar/typescript': 2.4.23
       '@vue/language-core': 3.0.8(typescript@5.9.3)
       typescript: 5.9.3
 
@@ -3452,6 +3449,10 @@ snapshots:
       '@vue/shared': 3.5.21
     optionalDependencies:
       typescript: 5.9.3
+
+  web-sdk-pp-detection@0.1.1:
+    dependencies:
+      onnxruntime-web: 1.27.0
 
   which@2.0.2:
     dependencies:

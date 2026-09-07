@@ -1,4 +1,5 @@
 import type { CacheEstimate, ModelCache } from "./model-cache";
+import { databaseScope } from "./coordination";
 
 interface ModelCacheRecord {
   readonly key: string;
@@ -12,6 +13,7 @@ export interface IndexedDBModelCacheOptions {
 }
 
 export class IndexedDBModelCache implements ModelCache {
+  readonly scope: object;
   private readonly factory: IDBFactory;
   private readonly databaseName: string;
   private database?: Promise<IDBDatabase>;
@@ -21,6 +23,7 @@ export class IndexedDBModelCache implements ModelCache {
     if (!factory) throw new Error("当前环境不支持 IndexedDB");
     this.factory = factory;
     this.databaseName = options.databaseName ?? "web-sdk-pp-detection-models-v1";
+    this.scope = databaseScope(factory, this.databaseName);
   }
 
   async get(key: string): Promise<ArrayBuffer | undefined> {
@@ -78,6 +81,25 @@ export class IndexedDBModelCache implements ModelCache {
     if (!this.database) return;
     (await this.database).close();
     this.database = undefined;
+  }
+
+  async list(): Promise<readonly { key: string; bytes: number }[]> {
+    const database = await this.open();
+    return await new Promise((resolve, reject) => {
+      const transaction = database.transaction("models", "readonly");
+      const request = transaction.objectStore("models").openCursor();
+      const entries: { key: string; bytes: number }[] = [];
+      request.onerror = () => reject(request.error ?? new Error("读取缓存容量失败"));
+      request.onsuccess = () => {
+        const cursor = request.result;
+        if (!cursor) return;
+        const record = cursor.value as ModelCacheRecord;
+        entries.push({ key: record.key, bytes: record.size });
+        cursor.continue();
+      };
+      transaction.oncomplete = () => resolve(entries);
+      transaction.onabort = () => reject(transaction.error ?? new Error("缓存容量事务中止"));
+    });
   }
 
   private open(): Promise<IDBDatabase> {

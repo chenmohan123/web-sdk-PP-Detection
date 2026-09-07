@@ -11,6 +11,8 @@
     "benchmark:test": "node --test scripts/benchmark-contract.test.mjs",
     "benchmark:parity": "playwright test tests/browser/benchmark-parity.spec.ts",
     "docs:test": "node --test scripts/check-doc-parity.test.mjs",
+    "examples:check": "node --test scripts/examples-contract.test.mjs",
+    "examples:smoke": "playwright test tests/browser/examples-runtime.spec.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "pnpm -r --if-present lint",
@@ -19,7 +21,7 @@
     "test": "pnpm --filter web-sdk-pp-detection test",
     "test:browser": "playwright test",
     "typecheck": "pnpm --filter web-sdk-pp-detection typecheck",
-    "verify": "pnpm format:check && pnpm docs:test && pnpm release:test && pnpm benchmark:test && pnpm benchmark:parity && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "verify": "pnpm format:check && pnpm docs:test && pnpm examples:check && pnpm release:test && pnpm benchmark:test && pnpm benchmark:parity && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "license": "Apache-2.0",
   "repository": {

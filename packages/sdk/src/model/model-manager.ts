@@ -1,5 +1,6 @@
 import { IndexedDBModelCache } from "../cache/indexeddb-cache";
 import { MemoryModelCache } from "../cache/memory-cache";
+import { coordinateCache } from "../cache/coordination";
 import { TieredModelCache, type CacheEstimate, type ModelCache } from "../cache/model-cache";
 import { PPDetectionError } from "../errors";
 import type {
@@ -21,6 +22,19 @@ import {
 } from "./source-resolver";
 
 const SDK_CACHE_NAMESPACE = "web-sdk-pp-detection:cache-v1";
+
+function matchesModel(key: string, model?: ModelIdentity): boolean {
+  try {
+    const parts: unknown = JSON.parse(key);
+    return (
+      Array.isArray(parts) &&
+      parts[0] === SDK_CACHE_NAMESPACE &&
+      (model === undefined || (parts[1] === model.id && parts[2] === model.version))
+    );
+  } catch {
+    return false;
+  }
+}
 
 export interface ModelManagerOptions {
   readonly fetcher?: ModelFetcher;
@@ -79,6 +93,7 @@ function throwIfAborted(signal?: AbortSignal): void {
 export class ModelManager {
   private readonly fetcher?: ModelFetcher;
   private readonly cache: ModelCache;
+  private readonly coordinator: ReturnType<typeof coordinateCache>;
   private readonly lifecycle = new AbortController();
   private readonly activeLoads = new Set<Promise<void>>();
   private currentKey?: string;
@@ -88,6 +103,7 @@ export class ModelManager {
   constructor(options: ModelManagerOptions = {}) {
     this.fetcher = options.fetcher;
     this.cache = createCache(options.cache);
+    this.coordinator = coordinateCache(this.cache);
   }
 
   cacheKey(
@@ -133,6 +149,12 @@ export class ModelManager {
     const variant = resolveModelVariant(manifest, options.variantId);
     const sourceKind = options.sourceKind ?? "auto";
     const sources = resolveModelSources(variant, sourceKind);
+    const guards = new Map(
+      sources.map((source) => {
+        const key = this.cacheKey(variant, source, manifest.model);
+        return [key, this.coordinator.guard(key)] as const;
+      })
+    );
     const failures: ModelSourceFailure[] = [];
     let lastError: unknown;
 
@@ -140,10 +162,12 @@ export class ModelManager {
       throwIfAborted(options.signal);
       const asset: ResolvedModelAsset = { model: manifest.model, variant, source };
       const cacheKey = this.cacheKey(variant, source, manifest.model);
+      this.currentKey = cacheKey;
+      const canMutate = guards.get(cacheKey)!;
       const cacheStarted = now();
       let cached: ArrayBuffer | undefined;
       try {
-        cached = await this.cache.get(cacheKey);
+        cached = await this.coordinator.run(() => this.cache.get(cacheKey));
       } catch (error) {
         if (error instanceof PPDetectionError && error.code === "ABORTED") throw error;
         throwIfAborted(options.signal);
@@ -154,7 +178,6 @@ export class ModelManager {
         const integrityStarted = now();
         try {
           await verifyModelIntegrity(cached, source, options.signal);
-          this.currentKey = cacheKey;
           return {
             bytes: cached,
             manifest,
@@ -168,7 +191,9 @@ export class ModelManager {
         } catch (error) {
           if (error instanceof PPDetectionError && error.code === "ABORTED") throw error;
           try {
-            await this.cache.clearCurrent(cacheKey);
+            await this.coordinator.run(async () => {
+              if (canMutate()) await this.cache.clearCurrent(cacheKey);
+            });
           } catch (clearError) {
             if (clearError instanceof PPDetectionError && clearError.code === "ABORTED")
               throw clearError;
@@ -205,12 +230,13 @@ export class ModelManager {
       }
       throwIfAborted(options.signal);
       try {
-        await this.cache.put(cacheKey, loaded.bytes);
+        await this.coordinator.run(async () => {
+          if (canMutate()) await this.cache.put(cacheKey, loaded.bytes);
+        });
       } catch {
         // 缓存是加速层；配额或事务失败不改变已校验模型的可用性。
       }
       throwIfAborted(options.signal);
-      this.currentKey = cacheKey;
       return {
         bytes: loaded.bytes,
         manifest,
@@ -238,18 +264,46 @@ export class ModelManager {
     return this.getCacheEstimate();
   }
 
-  getCacheEstimate(): Promise<CacheEstimate> {
-    return this.cache.estimate();
+  getCacheEstimate(model?: ModelIdentity): Promise<CacheEstimate> {
+    return this.coordinator.run(async () => {
+      if (!this.cache.list) {
+        if (model)
+          throw new PPDetectionError(
+            "CAPABILITY_UNSUPPORTED",
+            "自定义缓存需实现 list 才能按模型估算"
+          );
+        return this.cache.estimate();
+      }
+      const unique = new Map<string, { key: string; bytes: number }>();
+      for (const cache of this.coordinator.caches.keys()) {
+        for (const entry of (await cache.list?.()) ?? []) unique.set(entry.key, entry);
+      }
+      const entries = [...unique.values()].filter((entry) => matchesModel(entry.key, model));
+      return {
+        bytes: entries.reduce((sum, entry) => sum + entry.bytes, 0),
+        entries: entries.length
+      };
+    });
   }
 
-  async clearCurrentModelCache(): Promise<void> {
+  async clearCurrentModelCache(model?: ModelIdentity): Promise<void> {
+    if (model) {
+      if (!model.id || !model.version)
+        throw new PPDetectionError("INVALID_MANIFEST", "缓存模型身份必须包含 id 和 version");
+      if (!this.cache.list)
+        throw new PPDetectionError(
+          "CAPABILITY_UNSUPPORTED",
+          "自定义缓存需实现 list 才能按模型清理"
+        );
+      await this.coordinator.clear(undefined, (key) => matchesModel(key, model));
+      return;
+    }
     if (!this.currentKey) return;
-    await this.cache.clearCurrent(this.currentKey);
+    await this.coordinator.clear(this.currentKey);
   }
 
   async clearAllCache(): Promise<void> {
-    await this.cache.clearAll();
-    this.currentKey = undefined;
+    await this.coordinator.clear(undefined, (key) => matchesModel(key));
   }
 
   async dispose(): Promise<void> {
@@ -259,7 +313,7 @@ export class ModelManager {
     this.disposePromise = (async () => {
       await Promise.all([...this.activeLoads]);
       this.currentKey = undefined;
-      await this.cache.close?.();
+      if (this.coordinator.unregister(this.cache)) await this.cache.close?.();
     })();
     await this.disposePromise;
   }

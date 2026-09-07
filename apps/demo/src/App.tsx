@@ -15,10 +15,13 @@ import {
 import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 import {
   CURRENT_SDK_VERSION,
-  clearModelCache,
+  ModelManager,
+  PPDetectionError,
+  parseDetectionManifest,
   createPPDetection,
   parseModelManifest,
   type PPDetectionDetector,
+  type PPDetectionModel,
   type PPDetectionResult,
   type PPDetectionLoadTimings,
   type ModelManifest
@@ -51,6 +54,7 @@ import {
 } from "./model-sources";
 import { formatFallbackCause, formatRuntimeError } from "./runtime-messages";
 import { VideoFrameScheduler } from "./media-frame-scheduler";
+import officialManifest from "../../../models/pp-detection/manifest.json";
 
 type Language = "zh" | "en";
 type InputMode = "image" | "camera" | "video";
@@ -161,6 +165,16 @@ export function App(): ReactElement {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const detectorRef = useRef<PPDetectionDetector | undefined>(undefined);
+  const cacheManagerRef = useRef<ModelManager | undefined>(undefined);
+  const cacheIdentityRef = useRef<{ id: string; version: string }>(
+    demoFixture ? tinyModelManifest.model : officialManifest.model
+  );
+  const cacheClearingRef = useRef(false);
+  const activeDetectionRef = useRef<Promise<void> | undefined>(undefined);
+  const sourceChangingRef = useRef(false);
+  const videoStartRef = useRef<AbortController | undefined>(undefined);
+  const [cacheClearing, setCacheClearing] = useState(false);
+  const [cacheUsage, setCacheUsage] = useState<{ current: number; all: number }>();
   const abortRef = useRef<AbortController | undefined>(undefined);
   const inputGenerationRef = useRef(0);
   const schedulerRef = useRef<VideoFrameScheduler | undefined>(undefined);
@@ -172,6 +186,29 @@ export function App(): ReactElement {
     customManifest?.labels ?? (demoFixture ? tinyModelManifest.labels : DEFAULT_CLASS_LABELS)
   );
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
+
+  const getCacheManager = (): ModelManager => (cacheManagerRef.current ??= new ModelManager());
+  const refreshCache = async (): Promise<void> => {
+    const manager = getCacheManager();
+    const identity = cacheIdentityRef.current;
+    const [current, all] = await Promise.all([
+      manager.getCacheEstimate(identity),
+      manager.getCacheEstimate()
+    ]);
+    if (cacheManagerRef.current === manager && cacheIdentityRef.current === identity)
+      setCacheUsage({ current: current.bytes, all: all.bytes });
+  };
+
+  useEffect(() => {
+    void refreshCache().catch(() => setCacheUsage(undefined));
+    return () => {
+      abortRef.current?.abort();
+      videoStartRef.current?.abort();
+      const manager = cacheManagerRef.current;
+      cacheManagerRef.current = undefined;
+      void manager?.dispose();
+    };
+  }, []);
 
   const refreshCameraDevices = useCallback(async (): Promise<void> => {
     const generation = inputGenerationRef.current;
@@ -203,8 +240,12 @@ export function App(): ReactElement {
         : (videoFile?.name ?? copy.noVideo);
 
   const redraw = useCallback(() => {
+    const canvas = canvasRef.current;
     const source = inputMode === "image" ? imageRef.current : videoRef.current;
-    drawResult(canvasRef.current!, source, result);
+    if (canvas === null || source === null) return;
+    if (result !== undefined) drawResult(canvas, source, result);
+    else if (source instanceof HTMLImageElement) drawSource(canvas, source);
+    else drawVideoSource(canvas, source);
   }, [inputMode, result]);
 
   useEffect(() => redraw(), [redraw]);
@@ -300,6 +341,7 @@ export function App(): ReactElement {
   }
 
   const startCamera = async (requestedDeviceId = cameraDeviceId): Promise<void> => {
+    if (cacheClearingRef.current) return;
     stopCamera();
     const generation = inputGenerationRef.current;
     if (!navigator.mediaDevices?.getUserMedia) {
@@ -373,6 +415,8 @@ export function App(): ReactElement {
   };
 
   const onModelSource = async (next: ModelSourceKey): Promise<void> => {
+    if (cacheClearingRef.current || sourceChangingRef.current) return;
+    sourceChangingRef.current = true;
     if (inputMode !== "image") stopVideo();
     cancel();
     setModelSourceChanging(true);
@@ -384,9 +428,12 @@ export function App(): ReactElement {
       setError(formatRuntimeError(caught));
       setStatus("error");
       setModelSourceChanging(false);
+      sourceChangingRef.current = false;
       return;
     }
     setModelSource(next);
+    cacheIdentityRef.current = demoFixture ? tinyModelManifest.model : officialManifest.model;
+    void refreshCache().catch(() => setCacheUsage(undefined));
     setCustomManifest(undefined);
     setResult(undefined);
     setError(undefined);
@@ -395,6 +442,7 @@ export function App(): ReactElement {
     setStatus("ready");
     if (imageRef.current !== null) drawSource(canvasRef.current!, imageRef.current);
     setModelSourceChanging(false);
+    sourceChangingRef.current = false;
   };
 
   const cancel = (): void => {
@@ -407,7 +455,7 @@ export function App(): ReactElement {
     setClassThresholds((current) => setClassThresholdValue(current, label, value));
   };
 
-  const runDetection = async (
+  const runDetectionActive = async (
     source: File | HTMLVideoElement = file!,
     timestampMs?: number
   ): Promise<void> => {
@@ -431,9 +479,24 @@ export function App(): ReactElement {
       }
       let detector = detectorRef.current;
       if (detector === undefined) {
-        const model = demoFixture
+        let model: PPDetectionModel | undefined = demoFixture
           ? { data: tinyModelData(), manifest: tinyModelManifest }
           : (customManifest ?? selectionToModel(modelSource));
+        if (typeof model === "string") {
+          const response = await fetch(model, { signal: controller.signal });
+          if (!response.ok)
+            throw new PPDetectionError("MODEL_SOURCE_UNAVAILABLE", "模型清单下载失败", {
+              status: response.status
+            });
+          const candidate: unknown = await response.json();
+          if (controller.signal.aborted || abortRef.current !== controller) return;
+          model =
+            typeof candidate === "object" && candidate !== null && "postprocessing" in candidate
+              ? parseDetectionManifest(candidate)
+              : parseModelManifest(candidate);
+        }
+        if (typeof model === "object" && model !== null)
+          cacheIdentityRef.current = "manifest" in model ? model.manifest.model : model.model;
         detector = await createPPDetection({
           allowFallback: allowFallbackForSelection(backend, precision),
           backend,
@@ -472,6 +535,7 @@ export function App(): ReactElement {
       if (controller.signal.aborted || abortRef.current !== controller) return;
       setResult(nextResult);
       setStatus(inputMode === "image" ? "success" : "running");
+      await refreshCache();
     } catch (caught) {
       if (controller.signal.aborted) return;
       if (inputMode !== "image") {
@@ -483,10 +547,30 @@ export function App(): ReactElement {
     }
   };
 
+  const runDetection = (
+    source: File | HTMLVideoElement = file!,
+    timestampMs?: number
+  ): Promise<void> => {
+    if (cacheClearingRef.current || sourceChangingRef.current || activeDetectionRef.current)
+      return Promise.resolve();
+    const operation = runDetectionActive(source, timestampMs);
+    activeDetectionRef.current = operation;
+    void operation.finally(() => {
+      if (activeDetectionRef.current === operation) activeDetectionRef.current = undefined;
+    });
+    return operation;
+  };
+
   const startVideo = async (): Promise<void> => {
+    if (cacheClearingRef.current) return;
     const video = videoRef.current;
     if (video === null || videoUrl === undefined) return;
     stopCamera();
+    videoStartRef.current?.abort();
+    const startup = new AbortController();
+    videoStartRef.current = startup;
+    const generation = inputGenerationRef.current;
+    const cancelled = () => startup.signal.aborted || generation !== inputGenerationRef.current;
     setInputMode("video");
     setResult(undefined);
     setError(undefined);
@@ -494,23 +578,37 @@ export function App(): ReactElement {
       const previousDetector = detectorRef.current;
       detectorRef.current = undefined;
       await previousDetector?.dispose();
+      if (cancelled()) return;
       if (video.readyState < 2) {
         await new Promise<void>((resolve) => {
-          video.addEventListener("loadeddata", () => resolve(), { once: true });
+          const finish = () => {
+            video.removeEventListener("loadeddata", finish);
+            startup.signal.removeEventListener("abort", finish);
+            resolve();
+          };
+          video.addEventListener("loadeddata", finish, { once: true });
+          startup.signal.addEventListener("abort", finish, { once: true });
         });
       }
+      if (cancelled()) return;
       await video.play();
+      if (cancelled()) {
+        video.pause();
+        return;
+      }
       schedulerRef.current = new VideoFrameScheduler(video, (timestampMs) => {
         return runDetection(video, timestampMs);
       });
       schedulerRef.current.start();
     } catch (caught) {
+      if (cancelled()) return;
       setError(formatRuntimeError(caught));
       setStatus("error");
     }
   };
 
   const stopVideo = (): void => {
+    videoStartRef.current?.abort();
     inputGenerationRef.current += 1;
     abortRef.current?.abort("media-stopped");
     abortRef.current = undefined;
@@ -532,19 +630,49 @@ export function App(): ReactElement {
   };
 
   const validateCustom = (): void => {
+    if (cacheClearingRef.current) return;
     try {
       const parsed = parseModelManifest(JSON.parse(customText) as unknown);
       setCustomManifest(parsed);
+      cacheIdentityRef.current = parsed.model;
+      void refreshCache().catch(() => setCacheUsage(undefined));
       setCustomError(undefined);
     } catch {
       setCustomManifest(undefined);
+      cacheIdentityRef.current = demoFixture ? tinyModelManifest.model : officialManifest.model;
+      void refreshCache().catch(() => setCacheUsage(undefined));
       setCustomError(copy.invalidManifest);
     }
   };
 
-  const clearCache = async (): Promise<void> => {
-    await clearModelCache();
-    setNotice(copy.cacheCleared);
+  const clearCache = async (scope: "current" | "all"): Promise<void> => {
+    if (cacheClearingRef.current || sourceChangingRef.current) return;
+    cacheClearingRef.current = true;
+    setCacheClearing(true);
+    setNotice(undefined);
+    setError(undefined);
+    const identity = cacheIdentityRef.current;
+    try {
+      stopVideo();
+      cancel();
+      await activeDetectionRef.current;
+      const detector = detectorRef.current;
+      detectorRef.current = undefined;
+      await detector?.dispose();
+      if (scope === "current") await getCacheManager().clearCurrentModelCache(identity);
+      else await getCacheManager().clearAllCache();
+      await refreshCache();
+      setResult(undefined);
+      setStatus("ready");
+      setNotice(copy.cacheCleared);
+    } catch (caught) {
+      setError(formatRuntimeError(caught));
+      setStatus("error");
+      await refreshCache().catch(() => setCacheUsage(undefined));
+    } finally {
+      cacheClearingRef.current = false;
+      setCacheClearing(false);
+    }
   };
 
   return (
@@ -587,6 +715,7 @@ export function App(): ReactElement {
                 aria-describedby="model-source-limitations"
                 aria-label={copy.modelRepository}
                 disabled={
+                  cacheClearing ||
                   modelSourceChanging ||
                   status === "downloading" ||
                   status === "loading" ||
@@ -752,6 +881,7 @@ export function App(): ReactElement {
                     className="primary-button"
                     disabled={
                       file === undefined ||
+                      cacheClearing ||
                       modelSourceChanging ||
                       status === "downloading" ||
                       status === "loading" ||
@@ -776,7 +906,12 @@ export function App(): ReactElement {
                   </label>
                   <button
                     className="primary-button"
-                    disabled={videoUrl === undefined || status === "running" || modelSourceChanging}
+                    disabled={
+                      cacheClearing ||
+                      videoUrl === undefined ||
+                      status === "running" ||
+                      modelSourceChanging
+                    }
                     onClick={() => void startVideo()}
                   >
                     <Check size={17} />
@@ -786,7 +921,9 @@ export function App(): ReactElement {
               ) : (
                 <button
                   className="primary-button"
-                  disabled={cameraActive || modelSourceChanging || status === "running"}
+                  disabled={
+                    cacheClearing || cameraActive || modelSourceChanging || status === "running"
+                  }
                   onClick={() => void startCamera()}
                 >
                   <Camera size={17} />
@@ -1187,11 +1324,32 @@ export function App(): ReactElement {
                 <Download size={16} />
                 {copy.exportJson}
               </button>
-              <button className="text-button" onClick={() => void clearCache()}>
+              <button
+                className="text-button"
+                data-sdk-cache-clear="current"
+                disabled={cacheClearing || modelSourceChanging}
+                onClick={() => void clearCache("current")}
+              >
                 <Trash2 size={16} />
-                {copy.clearCache}
+                {copy.clearCurrentCache}
+              </button>
+              <button
+                className="text-button"
+                data-sdk-cache-clear="all"
+                disabled={cacheClearing || modelSourceChanging}
+                onClick={() => void clearCache("all")}
+              >
+                <Trash2 size={16} />
+                {copy.clearAllCache}
               </button>
             </div>
+            <p data-sdk-cache-usage="current">
+              {copy.currentCache}: {cacheUsage ? formatBytes(cacheUsage.current) : "—"}
+            </p>
+            <p data-sdk-cache-usage="all">
+              {copy.allCache}: {cacheUsage ? formatBytes(cacheUsage.all) : "—"}
+            </p>
+            <p className="muted">{copy.cacheScope}</p>
           </aside>
         </section>
       </div>

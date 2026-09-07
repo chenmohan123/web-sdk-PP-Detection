@@ -4,19 +4,24 @@ export interface CacheEstimate {
 }
 
 export interface ModelCache {
+  readonly scope?: object;
   get(key: string): Promise<ArrayBuffer | undefined>;
   put(key: string, bytes: ArrayBuffer): Promise<void>;
   clearCurrent(key: string): Promise<void>;
   clearAll(): Promise<void>;
   estimate(): Promise<CacheEstimate>;
+  list?(): Promise<readonly { key: string; bytes: number }[]>;
   close?(): Promise<void> | void;
 }
 
 export class TieredModelCache implements ModelCache {
+  readonly scope: object;
   constructor(
     private readonly memory: ModelCache,
     private readonly persistent?: ModelCache
-  ) {}
+  ) {
+    this.scope = persistent?.scope ?? persistent ?? memory;
+  }
 
   async get(key: string): Promise<ArrayBuffer | undefined> {
     const memoryValue = await this.memory.get(key);
@@ -43,6 +48,14 @@ export class TieredModelCache implements ModelCache {
 
   estimate(): Promise<CacheEstimate> {
     return this.persistent?.estimate() ?? this.memory.estimate();
+  }
+
+  async list(): Promise<readonly { key: string; bytes: number }[]> {
+    const entries = new Map<string, { key: string; bytes: number }>();
+    for (const cache of [this.memory, this.persistent]) {
+      for (const entry of (await cache?.list?.()) ?? []) entries.set(entry.key, entry);
+    }
+    return [...entries.values()];
   }
 
   async close(): Promise<void> {

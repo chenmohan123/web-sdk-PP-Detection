@@ -513,6 +513,9 @@ export async function createPPDetection(
 
 export async function clearModelCache(): Promise<void> {
   const manager = new ModelManager();
-  await manager.clearAllCache();
-  await manager.dispose();
+  try {
+    await manager.clearAllCache();
+  } finally {
+    await manager.dispose();
+  }
 }

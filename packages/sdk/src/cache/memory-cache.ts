@@ -37,4 +37,10 @@ export class MemoryModelCache implements ModelCache {
     this.entries.clear();
     return Promise.resolve();
   }
+
+  list(): Promise<readonly { key: string; bytes: number }[]> {
+    return Promise.resolve(
+      [...this.entries].map(([key, bytes]) => ({ key, bytes: bytes.byteLength }))
+    );
+  }
 }

@@ -9,6 +9,7 @@ export default defineConfig({
   timeout: 180_000,
   use: {
     browserName: "chromium",
+    channel: process.env.PPDETECTION_REAL_MODEL === "1" ? "chromium" : undefined,
     headless: true
   },
   workers: 1

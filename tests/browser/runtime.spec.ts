@@ -59,6 +59,8 @@ function resolveAsset(url: string): string | undefined {
     return downloaded?.modelPath ?? join(modelRoot, basename(pathname));
   }
   if (pathname.startsWith("/fixtures/")) return join(fixtureRoot, basename(pathname));
+  if (pathname.startsWith("/samples/"))
+    return join(repositoryRoot, "apps/demo/public/samples", basename(pathname));
   return undefined;
 }
 
@@ -307,7 +309,10 @@ test("@real-model runs FP16 WebGPU detection when shader-f16 is available", asyn
   expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp16" });
 });
 
-test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ page }) => {
+test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({
+  page,
+  browser
+}, testInfo) => {
   test.skip(process.env.PPDETECTION_REAL_MODEL !== "1", "设置 PPDETECTION_REAL_MODEL=1 后运行");
   const real = await loadRealModel("fp32");
   const manifest = real.manifest;
@@ -316,22 +321,29 @@ test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ pa
     "当前 PicoDet 模型清单仍处于 blocked 状态"
   );
   await page.goto(origin);
-  const webgpuAvailable = await page.evaluate(async () => {
+  const adapter = await page.evaluate(async () => {
     const adapter = await navigator.gpu?.requestAdapter({ powerPreference: "high-performance" });
-    return adapter !== null && adapter !== undefined;
+    return adapter
+      ? {
+          vendor: adapter.info.vendor,
+          architecture: adapter.info.architecture,
+          isFallbackAdapter: adapter.info.isFallbackAdapter
+        }
+      : null;
   });
-  test.skip(!webgpuAvailable, "This Chromium adapter does not expose WebGPU");
+  expect(adapter, "物理 GPU 验证必须取得非软件适配器").toMatchObject({ isFallbackAdapter: false });
   const result = await page.evaluate(
     async ({ manifest, origin: browserOrigin }) => {
       const [modelResponse, imageResponse] = await Promise.all([
         fetch(`${browserOrigin}/models/model-fp32.onnx`),
-        fetch(`${browserOrigin}/fixtures/table.png`)
+        fetch(`${browserOrigin}/samples/people.jpg`)
       ]);
       const detector = await window.PPDetection!.createPPDetection({
         allowFallback: false,
         backend: "webgpu",
         cache: false,
         model: { data: await modelResponse.arrayBuffer(), manifest },
+        ort: { wasm: { paths: `${browserOrigin}/ort/` } },
         precision: "fp32"
       });
       const detection = await detector.detect(await imageResponse.blob(), { threshold: 0.5 });
@@ -339,6 +351,8 @@ test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ pa
       return {
         count: detection.detections.length,
         inferenceMs: detection.timings.inferenceMs,
+        labels: detection.detections.map(({ label }) => label),
+        model: detection.model,
         runtime: detection.runtime
       };
     },
@@ -346,8 +360,17 @@ test("@real-model runs FP32 WebGPU detection on a physical adapter", async ({ pa
   );
 
   expect(result.count).toBeGreaterThan(0);
+  expect(result.labels).toContain("person");
   expect(result.inferenceMs).toBeGreaterThan(0);
   expect(result.runtime).toMatchObject({ backend: "webgpu", precision: "fp32", fallbacks: [] });
+  await testInfo.attach("物理 GPU 验证记录", {
+    body: JSON.stringify(
+      { verifiedAt: new Date().toISOString(), browser: browser.version(), adapter, result },
+      null,
+      2
+    ),
+    contentType: "application/json"
+  });
 });
 
 declare global {

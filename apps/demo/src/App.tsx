@@ -64,7 +64,7 @@ type DemoLoadTimings = PPDetectionLoadTimings & {
 };
 
 const demoFixture = new URLSearchParams(window.location.search).has("fixture");
-const fixtureOrtWasmBaseUrl = new URL("/ort-fixture/", window.location.href).href;
+const ortWasmBaseUrl = new URL(`${import.meta.env.BASE_URL}ort/`, window.location.href).href;
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -162,6 +162,7 @@ export function App(): ReactElement {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const detectorRef = useRef<PPDetectionDetector | undefined>(undefined);
   const abortRef = useRef<AbortController | undefined>(undefined);
+  const inputGenerationRef = useRef(0);
   const schedulerRef = useRef<VideoFrameScheduler | undefined>(undefined);
   const streamRef = useRef<MediaStream | undefined>(undefined);
   const loadTimings: DemoLoadTimings | undefined = detectorRef.current?.loadTimings;
@@ -173,18 +174,21 @@ export function App(): ReactElement {
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
 
   const refreshCameraDevices = useCallback(async (): Promise<void> => {
+    const generation = inputGenerationRef.current;
     if (!navigator.mediaDevices?.enumerateDevices) {
       setCameraDevices([]);
       return;
     }
     try {
       const devices = await navigator.mediaDevices.enumerateDevices();
+      if (generation !== inputGenerationRef.current) return;
       const cameras = devices.filter((device) => device.kind === "videoinput");
       setCameraDevices(cameras);
       setCameraDeviceId((current) =>
         current !== "" && cameras.some((device) => device.deviceId === current) ? current : ""
       );
     } catch {
+      if (generation !== inputGenerationRef.current) return;
       setCameraDevices([]);
     }
   }, []);
@@ -250,6 +254,7 @@ export function App(): ReactElement {
 
   const onImage = (next: File | undefined): void => {
     if (next === undefined) return;
+    inputGenerationRef.current += 1;
     stopVideo();
     if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
     if (videoUrl !== undefined) URL.revokeObjectURL(videoUrl);
@@ -266,6 +271,7 @@ export function App(): ReactElement {
 
   const onVideo = (next: File | undefined): void => {
     if (next === undefined) return;
+    inputGenerationRef.current += 1;
     stopCamera();
     if (videoUrl !== undefined) URL.revokeObjectURL(videoUrl);
     if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
@@ -282,6 +288,7 @@ export function App(): ReactElement {
   };
 
   function stopCamera(): void {
+    inputGenerationRef.current += 1;
     abortRef.current?.abort("media-stopped");
     abortRef.current = undefined;
     schedulerRef.current?.stop();
@@ -293,20 +300,29 @@ export function App(): ReactElement {
   }
 
   const startCamera = async (requestedDeviceId = cameraDeviceId): Promise<void> => {
+    stopCamera();
+    const generation = inputGenerationRef.current;
     if (!navigator.mediaDevices?.getUserMedia) {
       setError(copy.cameraUnsupported);
       setStatus("error");
       return;
     }
     try {
-      stopCamera();
       const video: MediaTrackConstraints =
         requestedDeviceId === "" ? {} : { deviceId: { exact: requestedDeviceId } };
       const stream = await navigator.mediaDevices.getUserMedia({ video, audio: false });
+      if (generation !== inputGenerationRef.current) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
       streamRef.current = stream;
       const activeDeviceId = stream.getVideoTracks()[0]?.getSettings().deviceId;
       if (activeDeviceId !== undefined && activeDeviceId !== "") setCameraDeviceId(activeDeviceId);
       await refreshCameraDevices();
+      if (generation !== inputGenerationRef.current) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
       setInputMode("camera");
       setFile(undefined);
       if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
@@ -319,6 +335,7 @@ export function App(): ReactElement {
       setStatus("ready");
       setCameraActive(true);
     } catch (caught) {
+      if (generation !== inputGenerationRef.current) return;
       streamRef.current?.getTracks().forEach((track) => track.stop());
       streamRef.current = undefined;
       setCameraActive(false);
@@ -333,11 +350,14 @@ export function App(): ReactElement {
   };
 
   const onSample = async (sample: DemoSample): Promise<void> => {
+    const generation = ++inputGenerationRef.current;
     try {
       const next = await fetchSampleFile(sample);
+      if (generation !== inputGenerationRef.current) return;
       onImage(next);
       setSelectedSample(sample);
     } catch (caught) {
+      if (generation !== inputGenerationRef.current) return;
       setError(formatRuntimeError(caught));
       setStatus("error");
     }
@@ -428,11 +448,9 @@ export function App(): ReactElement {
               nextProgress.status === "downloading" ? nextProgress.percentage : undefined
             );
           },
-          ...(demoFixture ? { ort: { wasm: { paths: fixtureOrtWasmBaseUrl } } } : {}),
+          ort: { wasm: { paths: ortWasmBaseUrl } },
           precision,
-          ...(demoFixture
-            ? {}
-            : { source: modelSource === "default" ? "huggingface" : modelSource }),
+          ...(demoFixture ? {} : { source: modelSource }),
           signal: controller.signal
         });
         if (controller.signal.aborted || abortRef.current !== controller) {
@@ -493,6 +511,7 @@ export function App(): ReactElement {
   };
 
   const stopVideo = (): void => {
+    inputGenerationRef.current += 1;
     abortRef.current?.abort("media-stopped");
     abortRef.current = undefined;
     schedulerRef.current?.stop();
@@ -559,616 +578,623 @@ export function App(): ReactElement {
         </div>
       </header>
 
-      <section className="control-band" data-testid="controls">
-        <label className="control-group">
-          <span className="control-label">{copy.modelRepository}</span>
-          <select
-            aria-describedby="model-source-limitations"
-            aria-label={copy.modelRepository}
-            disabled={
-              modelSourceChanging ||
-              status === "downloading" ||
-              status === "loading" ||
-              status === "running"
-            }
-            value={modelSource}
-            onChange={(event) => void onModelSource(event.target.value as ModelSourceKey)}
-          >
-            {MODEL_SOURCE_OPTIONS.map((option) => (
-              <option
-                disabled={!option.available}
-                key={option.key}
-                title={option.disabledReason?.[language]}
-                value={option.key}
-              >
-                {option.label[language]}
-                {option.available ? "" : ` (${copy.unavailable})`}
-              </option>
-            ))}
-          </select>
-          <small
-            className="model-source-limitations"
-            data-testid="model-source-limitations"
-            id="model-source-limitations"
-          >
-            {MODEL_SOURCE_OPTIONS.filter((option) => !option.available)
-              .map(
-                (option) =>
-                  `${option.label[language]}: ${option.disabledReason?.[language] ?? copy.unavailable}`
-              )
-              .join(" ")}
-          </small>
-        </label>
-        <div className="control-group" role="group" aria-label={copy.backend}>
-          <span className="control-label">{copy.backend}</span>
-          <div className="segmented">
-            {(["auto", "webgpu", "wasm"] as const).map((value) => (
-              <button
-                key={value}
-                className={backend === value ? "selected" : ""}
-                aria-pressed={backend === value}
-                disabled={inputMode !== "image" && status === "running"}
-                onClick={() => onBackend(value)}
-              >
-                {copy[value]}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="control-group" role="group" aria-label={copy.precision}>
-          <span className="control-label">{copy.precision}</span>
-          <div className="segmented">
-            {(["auto", "fp16", "fp32"] as const).map((value) => {
-              const unsupported =
-                backend !== "auto" &&
-                value !== "auto" &&
-                !supportsCombination(backend, value, customManifest);
-              return (
-                <button
-                  key={value}
-                  className={precision === value ? "selected" : ""}
-                  aria-pressed={precision === value}
-                  disabled={unsupported || (inputMode !== "image" && status === "running")}
-                  title={
-                    unsupported
-                      ? backend === "webgpu"
-                        ? copy.precisionAdjusted
-                        : copy.cpuFp16Unsupported
-                      : undefined
-                  }
-                  onClick={() => setPrecision(value)}
-                >
-                  {copy[value]}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-        <label className="threshold-control">
-          <span>{copy.threshold}</span>
-          <input
-            aria-label={copy.threshold}
-            type="range"
-            min="0"
-            max="1"
-            step="0.05"
-            value={threshold}
-            onChange={(event) => setThreshold(Number(event.target.value))}
-          />
-          <output>{threshold.toFixed(2)}</output>
-        </label>
-        <div className="control-group" role="group" aria-label={copy.inputMode}>
-          <span className="control-label">{copy.inputMode}</span>
-          <div className="segmented">
-            <button
-              className={inputMode === "image" ? "selected" : ""}
-              aria-pressed={inputMode === "image"}
-              onClick={() => {
-                stopVideo();
-                setInputMode("image");
-              }}
-            >
-              <FileImage size={14} />
-              {copy.imageInput}
-            </button>
-            <button
-              className={inputMode === "camera" ? "selected" : ""}
-              aria-pressed={inputMode === "camera"}
-              onClick={() => {
-                stopVideo();
-                setInputMode("camera");
-                setResult(undefined);
-                setError(undefined);
-                void refreshCameraDevices();
-              }}
-            >
-              <Camera size={14} />
-              {copy.cameraInput}
-            </button>
-            <button
-              className={inputMode === "video" ? "selected" : ""}
-              aria-pressed={inputMode === "video"}
-              onClick={() => {
-                stopVideo();
-                setInputMode("video");
-              }}
-            >
-              <Film size={14} />
-              {copy.videoInput}
-            </button>
-          </div>
-        </div>
-        {inputMode === "camera" && (
-          <label className="control-group camera-device-control">
-            <span className="control-label">{copy.cameraDevice}</span>
-            <select
-              aria-label={copy.cameraDevice}
-              value={cameraDeviceId}
-              onChange={(event) => onCameraDeviceChange(event.target.value)}
-            >
-              <option value="">{copy.defaultCamera}</option>
-              {cameraDevices.map((device, index) => (
-                <option key={device.deviceId || `camera-${index}`} value={device.deviceId}>
-                  {device.label || `${copy.cameraDevice} ${index + 1}`}
-                </option>
-              ))}
-            </select>
-          </label>
-        )}
-        <div className="control-actions">
-          {inputMode === "image" ? (
-            <>
-              <label className="file-button">
-                <FileImage size={17} />
-                <span>{file === undefined ? copy.selectImage : copy.replaceImage}</span>
-                <input
-                  type="file"
-                  accept="image/png,image/jpeg,image/webp"
-                  onChange={(event) => onImage(event.target.files?.[0])}
-                />
-              </label>
-              <button
-                className="primary-button"
+      <div className="demo-workspace">
+        <aside className="controls-panel">
+          <section className="control-band" data-testid="controls">
+            <label className="control-group">
+              <span className="control-label">{copy.modelRepository}</span>
+              <select
+                aria-describedby="model-source-limitations"
+                aria-label={copy.modelRepository}
                 disabled={
-                  file === undefined ||
                   modelSourceChanging ||
                   status === "downloading" ||
                   status === "loading" ||
                   status === "running"
                 }
-                onClick={() => void runDetection()}
+                value={modelSource}
+                onChange={(event) => void onModelSource(event.target.value as ModelSourceKey)}
               >
-                <Check size={17} />
-                {copy.start}
-              </button>
-            </>
-          ) : inputMode === "video" ? (
-            <>
-              <label className="file-button">
-                <Film size={17} />
-                <span>{videoFile === undefined ? copy.noVideo : videoFile.name}</span>
-                <input
-                  type="file"
-                  accept="video/mp4,video/webm,video/ogg"
-                  onChange={(event) => onVideo(event.target.files?.[0])}
-                />
-              </label>
-              <button
-                className="primary-button"
-                disabled={videoUrl === undefined || status === "running" || modelSourceChanging}
-                onClick={() => void startVideo()}
+                {MODEL_SOURCE_OPTIONS.map((option) => (
+                  <option
+                    disabled={!option.available}
+                    key={option.key}
+                    title={option.disabledReason?.[language]}
+                    value={option.key}
+                  >
+                    {option.label[language]}
+                    {option.available ? "" : ` (${copy.unavailable})`}
+                  </option>
+                ))}
+              </select>
+              <small
+                className="model-source-limitations"
+                data-testid="model-source-limitations"
+                id="model-source-limitations"
               >
-                <Check size={17} />
-                {copy.startVideo}
-              </button>
-            </>
-          ) : (
-            <button
-              className="primary-button"
-              disabled={cameraActive || modelSourceChanging || status === "running"}
-              onClick={() => void startCamera()}
-            >
-              <Camera size={17} />
-              {copy.startCamera}
-            </button>
-          )}
-          <button className="secondary-button" onClick={inputMode === "image" ? cancel : stopVideo}>
-            {inputMode === "image" ? <X size={17} /> : <Square size={16} />}
-            {inputMode === "image" ? copy.cancel : copy.stopMedia}
-          </button>
-        </div>
-      </section>
-
-      <details className="class-threshold-editor" data-testid="class-threshold-editor">
-        <summary>
-          <span>{copy.classThresholds}</span>
-          <small>{copy.classThresholdHint}</small>
-        </summary>
-        <div className="class-threshold-toolbar">
-          <span className="muted">{copy.classThresholdHint}</span>
-          <button
-            className="text-button"
-            aria-label={copy.clearClassThresholds}
-            onClick={() => setClassThresholds({})}
-            type="button"
-          >
-            <Trash2 size={15} />
-            {copy.clearClassThresholds}
-          </button>
-        </div>
-        <div className="class-threshold-grid">
-          {activeLabels.map((label) => (
-            <label className="class-threshold-field" key={label}>
-              <span>{label}</span>
-              <input
-                aria-label={`${copy.classThreshold} ${label}`}
-                max="1"
-                min="0"
-                onChange={(event) => updateClassThreshold(label, event.target.value)}
-                placeholder={threshold.toFixed(2)}
-                step="0.05"
-                type="number"
-                value={classThresholdValue(classThresholds, label)}
-              />
+                {MODEL_SOURCE_OPTIONS.filter((option) => !option.available)
+                  .map(
+                    (option) =>
+                      `${option.label[language]}: ${option.disabledReason?.[language] ?? copy.unavailable}`
+                  )
+                  .join(" ")}
+              </small>
             </label>
-          ))}
-        </div>
-      </details>
-
-      <div className="status-line" data-testid="status">
-        <span className={`status-dot ${status}`} />
-        {status === "downloading"
-          ? `${copy.downloading}${downloadPercentage === undefined ? "" : ` ${downloadPercentage}%`}`
-          : status === "loading"
-            ? copy.loading
-            : status === "running"
-              ? copy.running
-              : status === "success"
-                ? copy.success
-                : status === "error"
-                  ? copy.error
-                  : copy.ready}
-        <span className="status-hint">{activeMediaLabel}</span>
-      </div>
-      {error !== undefined && (
-        <div className="error-banner" role="alert">
-          <CircleAlert size={18} />
-          {error}
-        </div>
-      )}
-      {notice !== undefined && (
-        <div className="notice-banner" role="status" data-testid="notice">
-          <Check size={17} />
-          {notice}
-        </div>
-      )}
-
-      <section className="workspace-grid">
-        <article className="result-panel" data-testid="result-panel">
-          <div className="panel-heading">
-            <div>
-              <span className="eyebrow">DETECTION VIEW</span>
-              <h2>{copy.result}</h2>
+            <div className="control-group" role="group" aria-label={copy.backend}>
+              <span className="control-label">{copy.backend}</span>
+              <div className="segmented">
+                {(["auto", "webgpu", "wasm"] as const).map((value) => (
+                  <button
+                    key={value}
+                    className={backend === value ? "selected" : ""}
+                    aria-pressed={backend === value}
+                    disabled={inputMode !== "image" && status === "running"}
+                    onClick={() => onBackend(value)}
+                  >
+                    {copy[value]}
+                  </button>
+                ))}
+              </div>
             </div>
-            <span className="result-mode">{copy.box}</span>
-          </div>
-          <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
-            {inputMode === "image" && imageUrl === undefined ? (
-              <div className="empty-state">
-                <FileImage size={30} />
-                <span>{copy.noImage}</span>
-                <small>{copy.selectHint}</small>
+            <div className="control-group" role="group" aria-label={copy.precision}>
+              <span className="control-label">{copy.precision}</span>
+              <div className="segmented">
+                {(["auto", "fp16", "fp32"] as const).map((value) => {
+                  const unsupported =
+                    backend !== "auto" &&
+                    value !== "auto" &&
+                    !supportsCombination(backend, value, customManifest);
+                  return (
+                    <button
+                      key={value}
+                      className={precision === value ? "selected" : ""}
+                      aria-pressed={precision === value}
+                      disabled={unsupported || (inputMode !== "image" && status === "running")}
+                      title={
+                        unsupported
+                          ? backend === "webgpu"
+                            ? copy.precisionAdjusted
+                            : copy.cpuFp16Unsupported
+                          : undefined
+                      }
+                      onClick={() => setPrecision(value)}
+                    >
+                      {copy[value]}
+                    </button>
+                  );
+                })}
               </div>
-            ) : inputMode === "camera" && !cameraActive ? (
-              <div className="empty-state">
-                <Camera size={30} />
-                <span>{copy.cameraIdle}</span>
-                <small>{copy.cameraHint}</small>
-              </div>
-            ) : inputMode === "image" ? (
-              <img
-                ref={imageRef}
-                src={imageUrl}
-                alt=""
-                className="source-image"
-                onLoad={(event) => {
-                  imageRef.current = event.currentTarget;
-                  drawSource(canvasRef.current!, event.currentTarget);
-                  redraw();
-                }}
+            </div>
+            <label className="threshold-control">
+              <span>{copy.threshold}</span>
+              <input
+                aria-label={copy.threshold}
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value={threshold}
+                onChange={(event) => setThreshold(Number(event.target.value))}
               />
-            ) : (
-              <>
-                {(cameraActive || videoUrl !== undefined) && (
-                  <video
-                    ref={videoRef}
-                    className="source-video"
-                    src={videoUrl}
-                    muted
-                    playsInline
-                    onEnded={stopVideo}
-                    onLoadedMetadata={(event) =>
-                      drawVideoSource(canvasRef.current!, event.currentTarget)
-                    }
-                  />
-                )}
-                {!cameraActive && videoUrl === undefined && (
-                  <div className="empty-state">
-                    <Film size={30} />
-                    <span>{copy.noVideo}</span>
-                    <small>{copy.videoHint}</small>
-                  </div>
-                )}
-              </>
-            )}
-            <canvas
-              ref={canvasRef}
-              data-testid="result-canvas"
-              className={
-                (
-                  inputMode === "image"
-                    ? imageUrl === undefined
-                    : videoUrl === undefined && !cameraActive
-                )
-                  ? "hidden"
-                  : "result-canvas"
-              }
-            />
-          </div>
-          <section
-            className="sample-gallery"
-            data-testid="sample-gallery"
-            aria-label={copy.samples}
-          >
-            <div className="sample-gallery-heading">
-              <span className="control-label">{copy.samples}</span>
-              <span className="sample-source" data-testid="sample-source">
-                {selectedSample === undefined
-                  ? copy.sampleSource
-                  : `${copy.sampleSource}: ${copy.sampleAttribution}`}
-              </span>
-            </div>
-            <div className="sample-grid">
-              {demoSamples.map((sample) => (
+              <output>{threshold.toFixed(2)}</output>
+            </label>
+            <div className="control-group" role="group" aria-label={copy.inputMode}>
+              <span className="control-label">{copy.inputMode}</span>
+              <div className="segmented">
                 <button
-                  className="sample-card"
-                  key={sample.id}
-                  onClick={() => void onSample(sample)}
+                  className={inputMode === "image" ? "selected" : ""}
+                  aria-pressed={inputMode === "image"}
+                  onClick={() => {
+                    stopVideo();
+                    setInputMode("image");
+                  }}
                 >
-                  <img src={sampleUrl(sample)} alt={sample.label[language]} />
-                  <span>{sample.label[language]}</span>
-                  <small>{sample.coverage[language]}</small>
+                  <FileImage size={14} />
+                  {copy.imageInput}
                 </button>
+                <button
+                  className={inputMode === "camera" ? "selected" : ""}
+                  aria-pressed={inputMode === "camera"}
+                  onClick={() => {
+                    stopVideo();
+                    setInputMode("camera");
+                    setResult(undefined);
+                    setError(undefined);
+                    void refreshCameraDevices();
+                  }}
+                >
+                  <Camera size={14} />
+                  {copy.cameraInput}
+                </button>
+                <button
+                  className={inputMode === "video" ? "selected" : ""}
+                  aria-pressed={inputMode === "video"}
+                  onClick={() => {
+                    stopVideo();
+                    setInputMode("video");
+                  }}
+                >
+                  <Film size={14} />
+                  {copy.videoInput}
+                </button>
+              </div>
+            </div>
+            {inputMode === "camera" && (
+              <label className="control-group camera-device-control">
+                <span className="control-label">{copy.cameraDevice}</span>
+                <select
+                  aria-label={copy.cameraDevice}
+                  value={cameraDeviceId}
+                  onChange={(event) => onCameraDeviceChange(event.target.value)}
+                >
+                  <option value="">{copy.defaultCamera}</option>
+                  {cameraDevices.map((device, index) => (
+                    <option key={device.deviceId || `camera-${index}`} value={device.deviceId}>
+                      {device.label || `${copy.cameraDevice} ${index + 1}`}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <div className="control-actions">
+              {inputMode === "image" ? (
+                <>
+                  <label className="file-button">
+                    <FileImage size={17} />
+                    <span>{file === undefined ? copy.selectImage : copy.replaceImage}</span>
+                    <input
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp"
+                      onChange={(event) => onImage(event.target.files?.[0])}
+                    />
+                  </label>
+                  <button
+                    className="primary-button"
+                    disabled={
+                      file === undefined ||
+                      modelSourceChanging ||
+                      status === "downloading" ||
+                      status === "loading" ||
+                      status === "running"
+                    }
+                    onClick={() => void runDetection()}
+                  >
+                    <Check size={17} />
+                    {copy.start}
+                  </button>
+                </>
+              ) : inputMode === "video" ? (
+                <>
+                  <label className="file-button">
+                    <Film size={17} />
+                    <span>{videoFile === undefined ? copy.noVideo : videoFile.name}</span>
+                    <input
+                      type="file"
+                      accept="video/mp4,video/webm,video/ogg"
+                      onChange={(event) => onVideo(event.target.files?.[0])}
+                    />
+                  </label>
+                  <button
+                    className="primary-button"
+                    disabled={videoUrl === undefined || status === "running" || modelSourceChanging}
+                    onClick={() => void startVideo()}
+                  >
+                    <Check size={17} />
+                    {copy.startVideo}
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="primary-button"
+                  disabled={cameraActive || modelSourceChanging || status === "running"}
+                  onClick={() => void startCamera()}
+                >
+                  <Camera size={17} />
+                  {copy.startCamera}
+                </button>
+              )}
+              <button
+                className="secondary-button"
+                onClick={inputMode === "image" ? cancel : stopVideo}
+              >
+                {inputMode === "image" ? <X size={17} /> : <Square size={16} />}
+                {inputMode === "image" ? copy.cancel : copy.stopMedia}
+              </button>
+            </div>
+          </section>
+
+          <details className="class-threshold-editor" data-testid="class-threshold-editor">
+            <summary>
+              <span>{copy.classThresholds}</span>
+              <small>{copy.classThresholdHint}</small>
+            </summary>
+            <div className="class-threshold-toolbar">
+              <span className="muted">{copy.classThresholdHint}</span>
+              <button
+                className="text-button"
+                aria-label={copy.clearClassThresholds}
+                onClick={() => setClassThresholds({})}
+                type="button"
+              >
+                <Trash2 size={15} />
+                {copy.clearClassThresholds}
+              </button>
+            </div>
+            <div className="class-threshold-grid">
+              {activeLabels.map((label) => (
+                <label className="class-threshold-field" key={label}>
+                  <span>{label}</span>
+                  <input
+                    aria-label={`${copy.classThreshold} ${label}`}
+                    max="1"
+                    min="0"
+                    onChange={(event) => updateClassThreshold(label, event.target.value)}
+                    placeholder={threshold.toFixed(2)}
+                    step="0.05"
+                    type="number"
+                    value={classThresholdValue(classThresholds, label)}
+                  />
+                </label>
               ))}
             </div>
-            {selectedSample !== undefined && (
-              <a
-                className="sample-attribution"
-                href={selectedSample.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {copy.sampleAttribution}
-              </a>
-            )}
-          </section>
-        </article>
+          </details>
 
-        <aside className="details-panel" data-testid="details-panel">
-          <section
-            className="detail-section"
-            data-testid="performance-section"
-            data-sdk-timing="true"
-          >
-            <div className="section-title">
-              <h2>{copy.performance}</h2>
-              <ChevronDown size={17} />
+          <div className={`status-line ${status}`} data-testid="status" aria-live="polite">
+            <span className={`status-dot ${status}`} />
+            {status === "downloading"
+              ? `${copy.downloading}${downloadPercentage === undefined ? "" : ` ${downloadPercentage}%`}`
+              : status === "loading"
+                ? copy.loading
+                : status === "running"
+                  ? copy.running
+                  : status === "success"
+                    ? copy.success
+                    : status === "error"
+                      ? copy.error
+                      : copy.ready}
+            <span className="status-hint">{activeMediaLabel}</span>
+          </div>
+          {error !== undefined && (
+            <div className="error-banner" role="alert">
+              <CircleAlert size={18} />
+              {error}
             </div>
-            <div className="timing-group" data-testid="initialization-timings">
-              <h3 className="timing-group-title">{copy.initializationGroup}</h3>
-              <dl className="metric-list">
-                <div className="timing-total-row">
-                  <dt>{copy.loadTotal}</dt>
-                  <dd>{formatMs(loadTimings?.totalMs)}</dd>
+          )}
+          {notice !== undefined && (
+            <div className="notice-banner" role="status" data-testid="notice">
+              <Check size={17} />
+              {notice}
+            </div>
+          )}
+        </aside>
+
+        <section className="workspace-grid">
+          <article className="result-panel" data-testid="result-panel">
+            <div className="panel-heading">
+              <div>
+                <span className="eyebrow">DETECTION VIEW</span>
+                <h2>{copy.result}</h2>
+              </div>
+              <span className="result-mode">{copy.box}</span>
+            </div>
+            <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
+              {inputMode === "image" && imageUrl === undefined ? (
+                <div className="empty-state">
+                  <FileImage size={30} />
+                  <span>{copy.noImage}</span>
+                  <small>{copy.selectHint}</small>
                 </div>
-                <div>
-                  <dt>{copy.modelDownload}</dt>
-                  <dd>{formatMs(loadTimings?.modelDownloadMs)}</dd>
+              ) : inputMode === "camera" && !cameraActive ? (
+                <div className="empty-state">
+                  <Camera size={30} />
+                  <span>{copy.cameraIdle}</span>
+                  <small>{copy.cameraHint}</small>
                 </div>
+              ) : inputMode === "image" ? (
+                <img
+                  ref={imageRef}
+                  src={imageUrl}
+                  alt=""
+                  className="source-image"
+                  onLoad={(event) => {
+                    imageRef.current = event.currentTarget;
+                    drawSource(canvasRef.current!, event.currentTarget);
+                    redraw();
+                  }}
+                />
+              ) : (
+                <>
+                  {(cameraActive || videoUrl !== undefined) && (
+                    <video
+                      ref={videoRef}
+                      className="source-video"
+                      src={videoUrl}
+                      muted
+                      playsInline
+                      onEnded={stopVideo}
+                      onLoadedMetadata={(event) =>
+                        drawVideoSource(canvasRef.current!, event.currentTarget)
+                      }
+                    />
+                  )}
+                  {!cameraActive && videoUrl === undefined && (
+                    <div className="empty-state">
+                      <Film size={30} />
+                      <span>{copy.noVideo}</span>
+                      <small>{copy.videoHint}</small>
+                    </div>
+                  )}
+                </>
+              )}
+              <canvas
+                ref={canvasRef}
+                data-testid="result-canvas"
+                className={
+                  (
+                    inputMode === "image"
+                      ? imageUrl === undefined
+                      : videoUrl === undefined && !cameraActive
+                  )
+                    ? "hidden"
+                    : "result-canvas"
+                }
+              />
+            </div>
+            <section
+              className="sample-gallery"
+              data-testid="sample-gallery"
+              aria-label={copy.samples}
+            >
+              <div className="sample-gallery-heading">
+                <span className="control-label">{copy.samples}</span>
+                <span className="sample-source" data-testid="sample-source">
+                  {selectedSample === undefined
+                    ? copy.sampleSource
+                    : `${copy.sampleSource}: ${copy.sampleAttribution}`}
+                </span>
+              </div>
+              <div className="sample-grid">
+                {demoSamples.map((sample) => (
+                  <button
+                    className="sample-card"
+                    key={sample.id}
+                    onClick={() => void onSample(sample)}
+                  >
+                    <img src={sampleUrl(sample)} alt={sample.label[language]} />
+                    <span>{sample.label[language]}</span>
+                    <small>{sample.coverage[language]}</small>
+                  </button>
+                ))}
+              </div>
+              {selectedSample !== undefined && (
+                <a
+                  className="sample-attribution"
+                  href={selectedSample.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {copy.sampleAttribution}
+                </a>
+              )}
+            </section>
+          </article>
+
+          <aside className="details-panel" data-testid="details-panel">
+            <section
+              className="detail-section"
+              data-testid="performance-section"
+              data-sdk-timing="true"
+            >
+              <div className="section-title">
+                <h2>{copy.performance}</h2>
+                <ChevronDown size={17} />
+              </div>
+              <div className="timing-group" data-testid="initialization-timings">
+                <h3 className="timing-group-title">{copy.initializationGroup}</h3>
+                <dl className="metric-list">
+                  <div className="timing-total-row">
+                    <dt>{copy.loadTotal}</dt>
+                    <dd>{formatMs(loadTimings?.totalMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.modelDownload}</dt>
+                    <dd>{formatMs(loadTimings?.modelDownloadMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.modelCache}</dt>
+                    <dd>{formatMs(loadTimings?.modelCacheReadMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.integrity}</dt>
+                    <dd>{formatMs(loadTimings?.integrityMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.modelSource}</dt>
+                    <dd>
+                      {loadTimings?.modelSource === undefined
+                        ? "-"
+                        : copy[`source_${loadTimings.modelSource}`]}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{copy.session}</dt>
+                    <dd>{formatMs(loadTimings?.sessionMs)}</dd>
+                  </div>
+                </dl>
+              </div>
+              <div className="timing-group" data-testid="detection-timings">
+                <h3 className="timing-group-title">{copy.detectionGroup}</h3>
+                <dl className="metric-list">
+                  <div className="timing-total-row">
+                    <dt>{copy.total}</dt>
+                    <dd data-testid="timing-total">{formatMs(result?.timings.totalMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.decode}</dt>
+                    <dd>{formatMs(result?.timings.decodeMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.preprocess}</dt>
+                    <dd>{formatMs(result?.timings.preprocessMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.inference}</dt>
+                    <dd>{formatMs(result?.timings.inferenceMs)}</dd>
+                  </div>
+                  <div>
+                    <dt>{copy.postprocess}</dt>
+                    <dd>{formatMs(result?.timings.postprocessMs)}</dd>
+                  </div>
+                </dl>
+                <p className="timing-note">{copy.timingOverhead}</p>
+              </div>
+            </section>
+            <section
+              className="detail-section"
+              data-testid="model-section"
+              data-sdk-model-info="true"
+              data-sdk-runtime-info="true"
+            >
+              <div className="section-title">
+                <h2>{copy.modelInfo}</h2>
+                <ChevronDown size={17} />
+              </div>
+              <dl className="metric-list model-list">
                 <div>
-                  <dt>{copy.modelCache}</dt>
-                  <dd>{formatMs(loadTimings?.modelCacheReadMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.integrity}</dt>
-                  <dd>{formatMs(loadTimings?.integrityMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.modelSource}</dt>
-                  <dd>
-                    {loadTimings?.modelSource === undefined
-                      ? "-"
-                      : copy[`source_${loadTimings.modelSource}`]}
+                  <dt>{copy.modelRepository}</dt>
+                  <dd data-testid="model-source-value">
+                    {customManifest === undefined
+                      ? activeModelSource.label[language]
+                      : copy.source_custom}
                   </dd>
                 </div>
                 <div>
-                  <dt>{copy.session}</dt>
-                  <dd>{formatMs(loadTimings?.sessionMs)}</dd>
+                  <dt>{copy.manifest}</dt>
+                  <dd className="model-source-manifest" data-testid="model-source-manifest">
+                    {customManifest === undefined
+                      ? (activeModelSource.manifestUrl ?? copy.sdkDefaultManifest)
+                      : copy.source_custom}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.modelName}</dt>
+                  <dd data-testid="model-name">{result?.model.id ?? "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.requestedSource}</dt>
+                  <dd>
+                    {customManifest === undefined
+                      ? activeModelSource.label[language]
+                      : copy.source_custom}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.actualSource}</dt>
+                  <dd data-testid="model-actual-source">{result?.model.source.kind ?? "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.revision}</dt>
+                  <dd className="model-source-hash" data-testid="model-revision">
+                    {result?.model.source.revision ?? "-"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.checksum}</dt>
+                  <dd className="model-source-hash" data-testid="model-sha256">
+                    {result?.model.source.sha256 ?? "-"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.modelSize}</dt>
+                  <dd>{result ? formatBytes(result.model.bytes) : "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.parameters}</dt>
+                  <dd>
+                    {result?.model.parameterCount === null
+                      ? copy.unknown
+                      : result
+                        ? result.model.parameterCount.toLocaleString()
+                        : "-"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.backendInfo}</dt>
+                  <dd>{result?.runtime.backend ?? "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.precisionInfo}</dt>
+                  <dd>{result?.runtime.precision ?? "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.mode}</dt>
+                  <dd>{result?.runtime.mode ?? "-"}</dd>
                 </div>
               </dl>
-            </div>
-            <div className="timing-group" data-testid="detection-timings">
-              <h3 className="timing-group-title">{copy.detectionGroup}</h3>
-              <dl className="metric-list">
-                <div className="timing-total-row">
-                  <dt>{copy.total}</dt>
-                  <dd data-testid="timing-total">{formatMs(result?.timings.totalMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.decode}</dt>
-                  <dd>{formatMs(result?.timings.decodeMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.preprocess}</dt>
-                  <dd>{formatMs(result?.timings.preprocessMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.inference}</dt>
-                  <dd>{formatMs(result?.timings.inferenceMs)}</dd>
-                </div>
-                <div>
-                  <dt>{copy.postprocess}</dt>
-                  <dd>{formatMs(result?.timings.postprocessMs)}</dd>
-                </div>
-              </dl>
-              <p className="timing-note">{copy.timingOverhead}</p>
-            </div>
-          </section>
-          <section
-            className="detail-section"
-            data-testid="model-section"
-            data-sdk-model-info="true"
-            data-sdk-runtime-info="true"
-          >
-            <div className="section-title">
-              <h2>{copy.modelInfo}</h2>
-              <ChevronDown size={17} />
-            </div>
-            <dl className="metric-list model-list">
-              <div>
-                <dt>{copy.modelRepository}</dt>
-                <dd data-testid="model-source-value">
-                  {customManifest === undefined
-                    ? activeModelSource.label[language]
-                    : copy.source_custom}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.manifest}</dt>
-                <dd className="model-source-manifest" data-testid="model-source-manifest">
-                  {customManifest === undefined
-                    ? (activeModelSource.manifestUrl ?? copy.sdkDefaultManifest)
-                    : copy.source_custom}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.modelName}</dt>
-                <dd data-testid="model-name">{result?.model.id ?? "-"}</dd>
-              </div>
-              <div>
-                <dt>{copy.requestedSource}</dt>
-                <dd>
-                  {customManifest === undefined
-                    ? activeModelSource.label[language]
-                    : copy.source_custom}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.actualSource}</dt>
-                <dd data-testid="model-actual-source">{result?.model.source.kind ?? "-"}</dd>
-              </div>
-              <div>
-                <dt>{copy.revision}</dt>
-                <dd className="model-source-hash" data-testid="model-revision">
-                  {result?.model.source.revision ?? "-"}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.checksum}</dt>
-                <dd className="model-source-hash" data-testid="model-sha256">
-                  {result?.model.source.sha256 ?? "-"}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.modelSize}</dt>
-                <dd>{result ? formatBytes(result.model.bytes) : "-"}</dd>
-              </div>
-              <div>
-                <dt>{copy.parameters}</dt>
-                <dd>
-                  {result?.model.parameterCount === null
-                    ? copy.unknown
-                    : result
-                      ? result.model.parameterCount.toLocaleString()
-                      : "-"}
-                </dd>
-              </div>
-              <div>
-                <dt>{copy.backendInfo}</dt>
-                <dd>{result?.runtime.backend ?? "-"}</dd>
-              </div>
-              <div>
-                <dt>{copy.precisionInfo}</dt>
-                <dd>{result?.runtime.precision ?? "-"}</dd>
-              </div>
-              <div>
-                <dt>{copy.mode}</dt>
-                <dd>{result?.runtime.mode ?? "-"}</dd>
-              </div>
-            </dl>
-            {result === undefined && activeModelSource.disabledReason !== undefined ? (
-              <p className="model-source-blocked" data-testid="model-source-blocked">
-                {activeModelSource.disabledReason[language]}
-              </p>
-            ) : null}
-          </section>
-          <div data-testid="fallback-slot">
-            {result?.runtime.fallbacks.length ? (
-              <section className="detail-section" data-testid="fallback-section">
-                <div className="section-title">
-                  <h2>{copy.fallback}</h2>
-                  <span className="count-badge">{result.runtime.fallbacks.length}</span>
-                </div>
-                {result.runtime.fallbacks.map((fallback, index) => (
-                  <div className="fallback-row" key={`${fallback.variantId}-${index}`}>
-                    <strong>
-                      {fallback.provider} · {fallback.precision}
-                    </strong>
-                    <small>
-                      {fallback.code} · {fallback.stage}
-                    </small>
-                    <small>{formatFallbackCause(fallback)}</small>
+              {result === undefined && activeModelSource.disabledReason !== undefined ? (
+                <p className="model-source-blocked" data-testid="model-source-blocked">
+                  {activeModelSource.disabledReason[language]}
+                </p>
+              ) : null}
+            </section>
+            <div data-testid="fallback-slot">
+              {result?.runtime.fallbacks.length ? (
+                <section className="detail-section" data-testid="fallback-section">
+                  <div className="section-title">
+                    <h2>{copy.fallback}</h2>
+                    <span className="count-badge">{result.runtime.fallbacks.length}</span>
                   </div>
-                ))}
-              </section>
-            ) : null}
-          </div>
-          <section className="detail-section detection-section" data-testid="detection-section">
-            <div className="section-title">
-              <h2>{copy.result}</h2>
-              <span className="count-badge">
-                {result?.detections.length ?? 0} {copy.detections}
-              </span>
+                  {result.runtime.fallbacks.map((fallback, index) => (
+                    <div className="fallback-row" key={`${fallback.variantId}-${index}`}>
+                      <strong>
+                        {fallback.provider} · {fallback.precision}
+                      </strong>
+                      <small>
+                        {fallback.code} · {fallback.stage}
+                      </small>
+                      <small>{formatFallbackCause(fallback)}</small>
+                    </div>
+                  ))}
+                </section>
+              ) : null}
             </div>
-            {result?.detections.length ? (
-              result.detections.map((detection, index) => (
-                <div className="detection-row" key={`${detection.labelId}-${index}`}>
-                  <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <strong>{detection.label}</strong>
-                    <small>
-                      {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
-                      {detection.box.yMin.toFixed(0)}
-                    </small>
+            <section className="detail-section detection-section" data-testid="detection-section">
+              <div className="section-title">
+                <h2>{copy.result}</h2>
+                <span className="count-badge">
+                  {result?.detections.length ?? 0} {copy.detections}
+                </span>
+              </div>
+              {result?.detections.length ? (
+                result.detections.map((detection, index) => (
+                  <div className="detection-row" key={`${detection.labelId}-${index}`}>
+                    <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
+                    <div>
+                      <strong>{detection.label}</strong>
+                      <small>
+                        {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
+                        {detection.box.yMin.toFixed(0)}
+                      </small>
+                    </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <p className="muted">{copy.noDetections}</p>
-            )}
-          </section>
-          <div className="detail-actions" data-testid="detail-actions">
-            <button className="text-button" disabled={result === undefined} onClick={exportJson}>
-              <Download size={16} />
-              {copy.exportJson}
-            </button>
-            <button className="text-button" onClick={() => void clearCache()}>
-              <Trash2 size={16} />
-              {copy.clearCache}
-            </button>
-          </div>
-        </aside>
-      </section>
+                ))
+              ) : (
+                <p className="muted">{copy.noDetections}</p>
+              )}
+            </section>
+            <div className="detail-actions" data-testid="detail-actions">
+              <button className="text-button" disabled={result === undefined} onClick={exportJson}>
+                <Download size={16} />
+                {copy.exportJson}
+              </button>
+              <button className="text-button" onClick={() => void clearCache()}>
+                <Trash2 size={16} />
+                {copy.clearCache}
+              </button>
+            </div>
+          </aside>
+        </section>
+      </div>
 
       {customOpen && (
         <div className="modal-backdrop" role="presentation">

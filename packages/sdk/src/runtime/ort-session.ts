@@ -41,7 +41,7 @@ function mapError(error: unknown, phase: "create" | "run"): PPDetectionError {
   if (error instanceof PPDetectionError) return error;
   const message = error instanceof Error ? error.message : String(error);
   const details = { phase, causeMessage: message };
-  if (/abort|cancel/i.test(message))
+  if (error instanceof Error && error.name === "AbortError")
     return new PPDetectionError("ABORTED", "推理已取消", details, { cause: error });
   if (/memory|out.of.memory|allocation/i.test(message))
     return new PPDetectionError("OUT_OF_MEMORY", "运行时内存不足", details, { cause: error });

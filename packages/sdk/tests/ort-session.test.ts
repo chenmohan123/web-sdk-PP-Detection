@@ -125,6 +125,36 @@ it("ORT 创建异常映射为 SESSION_CREATE_FAILED", async () => {
   });
 });
 
+it.each([
+  [
+    "Aborted(CompileError: WebAssembly.instantiate(): expected magic word)",
+    "SESSION_CREATE_FAILED"
+  ],
+  ["Aborted(out of memory)", "OUT_OF_MEMORY"],
+  ["failed to load /cancel/runtime.wasm", "SESSION_CREATE_FAILED"]
+])("ORT 致命异常 %s 不得误判为用户取消", async (message, code) => {
+  const ort = {
+    env: { wasm: {} },
+    InferenceSession: { create: vi.fn().mockRejectedValue(new Error(message)) }
+  };
+  await expect(createOrtSession(new ArrayBuffer(1), plan, { ort })).rejects.toMatchObject({
+    code,
+    details: { phase: "create", causeMessage: message }
+  });
+});
+
+it("明确的 AbortError 保留取消语义", async () => {
+  const ort = {
+    env: { wasm: {} },
+    InferenceSession: {
+      create: vi.fn().mockRejectedValue(new DOMException("操作已取消", "AbortError"))
+    }
+  };
+  await expect(createOrtSession(new ArrayBuffer(1), plan, { ort })).rejects.toMatchObject({
+    code: "ABORTED"
+  });
+});
+
 it("ORT 推理异常保留底层错误摘要", async () => {
   const ort = {
     env: { wasm: {} },

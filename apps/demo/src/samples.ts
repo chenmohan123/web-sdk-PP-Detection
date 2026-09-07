@@ -30,24 +30,24 @@ export const demoSamples: readonly DemoSample[] = [
       "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/000000087038.jpg"
   },
   {
-    coverage: { en: "Vehicles · COCO", zh: "车辆 · COCO" },
+    coverage: { en: "Car · PaddleDetection", zh: "轿车 · PaddleDetection" },
     filename: "vehicles.jpg",
     id: "vehicles",
     label: { en: "Vehicles", zh: "车辆" },
     mimeType: "image/jpeg",
-    sha256: "baa5a96ec8a613dd8571a1e2bc6dcc1d8841418f8a19a6e521ca0d60ca3dd09d",
+    sha256: "b6d75247fcd88918054fdbcd09864e3d303de064d28ca18766b8568a31c0d898",
     sourceUrl:
-      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/000000570688.jpg"
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/car.jpg"
   },
   {
-    coverage: { en: "Car · COCO", zh: "汽车 · COCO" },
-    filename: "car.jpg",
-    id: "car",
-    label: { en: "Car", zh: "汽车" },
+    coverage: { en: "Orange · PaddleDetection", zh: "橙子 · PaddleDetection" },
+    filename: "fruit.jpg",
+    id: "fruit",
+    label: { en: "Fruit", zh: "水果" },
     mimeType: "image/jpeg",
-    sha256: "a67f6fce06d15daec60ef60f6f76551caad1d6820e0055ee8a0bf15ad4e6c47a",
+    sha256: "2944d28ce100c8514d2aa76cb85ad539c809890c5f9f313ae8c2d99882ec85c1",
     sourceUrl:
-      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/39006.jpg"
+      "https://github.com/PaddlePaddle/PaddleDetection/blob/7a4fc2578e9542d94df12907c10ec3b449be5f1e/demo/orange_71.jpg"
   }
 ];
 

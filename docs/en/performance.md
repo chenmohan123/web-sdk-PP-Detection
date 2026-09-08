@@ -4,7 +4,7 @@
 
 Metrics have two independent scopes. `detector.loadTimings` starts at factory entry and includes capability probing, manifest retrieval, model download or cache access, integrity verification, and Session creation. `totalMs` is initialization wall-clock time. `sessionMs` includes runtime imports, Worker startup, and failed candidates attempted during initialization. In-memory models also measure integrity verification.
 
-`modelSource` is `network`, `cache`, or `memory`: downloaded bytes, a cache hit, or bytes supplied by the caller. A cache hit still needs verification and a new session; it is different from reusing a loaded session. The new optional fields belong to current source and are not yet included in public npm 0.1.1.
+`modelSource` is `network`, `cache`, or `memory`: downloaded bytes, a cache hit, or bytes supplied by the caller. A cache hit still needs verification and a new session; it is different from reusing a loaded session. The new optional fields are available from 0.2.0; see the [release notes](release-0.2.0.md) for version changes.
 
 `result.timings` records only the current image or video frame: decode, preprocessing, inference, and postprocessing. `totalMs` is the end-to-end wall-clock duration, including Worker communication, scheduling, and transfer overhead. Reusing a session does not add historical initialization again. A fallback during inference includes rebuilding and retrying in that operation's inference and total durations; the original initialization record remains unchanged.
 

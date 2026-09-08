@@ -2,16 +2,17 @@
 
 [中文](../zh-CN/api.md)
 
-All stable entry points are exported from the package root. Do not import `src/` or other internal files.
+All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.2.0 API; see the [release notes](release-0.2.0.md) for version changes.
 
 ## `createPPDetection(options?)`
 
-Returns a `Promise<PPDetectionDetector>`. Common options:
+Returns a `Promise<PPDetectionDetector>`. Supply `model` or `manifest` explicitly; omitting both throws `INVALID_MANIFEST`. The npm package contains no ONNX model binary. Common options:
 
 - `backend`: `"auto" | "webgpu" | "wasm"`
 - `precision`: `"auto" | "fp16" | "fp32" | "int8"`; the default manifest has no INT8 variant
 - `allowFallback`: whether session failures try the next valid candidate; defaults to `false`. Set it to `true` explicitly to allow fallback; it never rewrites a backend/precision pair absent from the manifest
 - `model`: manifest URL, manifest object, or `{ manifest, data }`
+- `manifest`: manifest object; `model` takes precedence when both are supplied
 - `cache`: enable or disable model caching
 - `signal`: cancel loading
 - `onProgress`: capability, manifest, model, session, fallback, and ready phases
@@ -73,7 +74,7 @@ Hosts own camera permissions, video playback, and frame pacing. Submit one frame
 
 Without an active detector, use `ModelManager.getCacheEstimate({ id, version })` and
 `clearCurrentModelCache({ id, version })` with the actual manifest identity to inspect or clear all its variants and sources.
-The identity overloads, `ModelCache.scope`, and `list()` are unreleased source APIs; examples using public npm 0.1.1 do not depend on them.
+The identity overloads, `ModelCache.scope`, and `list()` are available from 0.2.0.
 Estimates deduplicate cache keys; they do not represent origin quota or process memory. Custom caches must implement
 the optional `list()` method for identity-based operations, or receive `CAPABILITY_UNSUPPORTED` without a broader deletion.
 
@@ -81,6 +82,6 @@ Managers sharing an IndexedDB database in the same JavaScript execution environm
 and serialize cache operations. Downloads started before clearing cannot repopulate the cache; new loads can cache normally.
 The module-level `clearModelCache()` also clears active cache copies in that scope, but does not release inference sessions.
 The Demo cancels and awaits current work, releases the session, clears caches, and refreshes usage. Concurrent tabs or Workers
-are outside this change's cross-environment coordination guarantee.
+are outside the cross-environment coordination guarantee.
 
-`loadTimings.modelSource` distinguishes `network`, `cache`, and `memory`. `runtime.runtimeVersion` and `runtime.environment` describe the loaded ORT and current environment; each result snapshots its execution backend. These optional fields are not yet published in npm 0.1.1. See [performance](performance.md) for timing semantics.
+`loadTimings.modelSource` distinguishes `network`, `cache`, and `memory`. `runtime.runtimeVersion` and `runtime.environment` describe the loaded ORT and current environment; each result snapshots its execution backend. These optional fields are available from 0.2.0. See [performance](performance.md) for timing semantics.

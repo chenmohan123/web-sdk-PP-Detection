@@ -1,13 +1,18 @@
 # Changelog
 
-## Unreleased
+## 0.2.0（2026-09-08）
+
+完整模型、来源、许可与验证边界见[发布说明](docs/zh-CN/release-0.2.0.md)（[English](docs/en/release-0.2.0.md)）。
+
+- 新增 `ModelManager.getCacheEstimate(model?)`、`clearCurrentModelCache(model?)` 的模型身份参数，以及可选的 `ModelCache.scope`、`list()`；缓存容量按键去重，自定义缓存不支持模型枚举时明确报错。
 
 - 修复初始化计时遗漏清单与校验、Worker 版本缺失及后端回退改写历史结果的问题；新增实际模型获取来源与运行环境快照，明确当前 FP32 模型的性能验证边界。
 - 修复视频与摄像头连续帧重复初始化、帧调度使用旧配置以及视频切摄像头误停媒体流；Demo 初始化总耗时包含清单获取，图片与连续媒体分别说明会话策略。
 - 修复 Worker GPU 推理失败后，CPU 回退重试使用已转移输入缓冲区而再次报错的问题。
 
 - 修复清理期间的迟到缓存写入、共享缓存管理器协调和实际容量统计；Demo 支持当前模型及全部本 SDK 缓存清理，并在清理后撤下旧检测框。
-- 六种示例固定公开 npm 0.1.1 和 ModelScope 模型清单，补齐独立安装、真实推理、取消及迟到实例释放；新增模型身份缓存 API 尚未发布到 npm。
+- 六种示例补齐独立安装、真实推理、取消及迟到实例释放，默认使用 ModelScope 模型清单。
+- 根 README、npm README 与双语 API 文档明确工厂必须接收 `model` 或 `manifest`；npm 包不包含 ONNX 模型本体，不再宣称省略配置可加载默认模型。
 - 修正 Vue、Vite 和微信 WebView 示例的清单路径与 SDK 依赖；补充移动浏览器和微信 WebView 的真实设备验证边界说明。
 
 ## 0.1.1

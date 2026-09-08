@@ -43,25 +43,27 @@ test("默认使用 ModelScope 且仅提供两个远程模型来源", async ({ pa
 });
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {
+  const pageErrors: string[] = [];
+  page.on("pageerror", (error) => pageErrors.push(error.message));
   await page.addInitScript(() => {
     const cameraCalls: MediaStreamConstraints[] = [];
     Object.defineProperty(window, "__cameraCalls", {
       configurable: true,
       value: cameraCalls
     });
-    const track = {
-      getSettings: () => ({ deviceId: "rear" }),
-      stop: () => undefined
-    };
+    const canvas = document.createElement("canvas");
+    canvas.width = 8;
+    canvas.height = 8;
+    const stream = canvas.captureStream(1);
+    Object.defineProperty(stream.getVideoTracks()[0], "getSettings", {
+      value: () => ({ deviceId: "rear" })
+    });
     Object.defineProperty(navigator, "mediaDevices", {
       configurable: true,
       value: {
         getUserMedia: (constraints: MediaStreamConstraints) => {
           cameraCalls.push(constraints);
-          return Promise.resolve({
-            getTracks: () => [track],
-            getVideoTracks: () => [track]
-          });
+          return Promise.resolve(stream);
         },
         enumerateDevices: () =>
           Promise.resolve([
@@ -101,6 +103,8 @@ test("图片、摄像头和视频输入场景均可切换", async ({ page }) => 
     audio: false,
     video: { deviceId: { exact: "rear" } }
   });
+  await expect(page.locator("video")).toBeVisible();
+  expect(pageErrors).toEqual([]);
   await page.goto("/?fixture=1");
   await page.getByRole("button", { name: "视频" }).click();
   await expect(page.getByTestId("result-panel").getByText("选择一个视频开始播放")).toBeVisible();

@@ -4,10 +4,21 @@
 
 `web-sdk-pp-detection` is a framework-neutral TypeScript SDK powered by ONNX Runtime Web. It supports single-frame detection from images, Canvas, ImageData, HTMLVideoElement, VideoFrame, and a Worker, and returns model, runtime, and timing information.
 
+## Version and installation
+
+The current SDK version is **0.2.0**:
+
+```bash
+pnpm add web-sdk-pp-detection@0.2.0
+```
+
+Version 0.2.0 adds model-identity cache inspection/clearing through `ModelManager`, optional `ModelCache.scope/list()`, `loadTimings.modelSource`, and `runtime.runtimeVersion/environment`. See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.2.0.md).
+
 ## Current boundaries
 
-- Without a manifest, the factory uses the built-in PicoDet 1.0.1 FP32 stable manifest. If manifest loading fails, it returns the stable `INVALID_MANIFEST` error without a network request.
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` error without a model network request. The repository provides the PicoDet 1.0.1 FP32 stable manifest and externally distributed model; the npm package contains no ONNX model binary.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
+- The repository model manifest defaults to Hugging Face. The live Demo independently configures its source selector to default to ModelScope.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
 - PicoDet 1.0.1 FP32 is stable and has passed seven-fixture validation on Linux WASM and Windows NVIDIA WebGPU. FP16, INT8, INT4, and FP8 remain labs/blocked and are outside this release.
 - `classThresholds` overrides object-detection thresholds for manifest labels such as `person` and `car`; unspecified labels inherit the global threshold.

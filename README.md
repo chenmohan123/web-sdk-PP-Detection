@@ -4,10 +4,21 @@
 
 `web-sdk-pp-detection` 是基于 ONNX Runtime Web 的框架无关 TypeScript SDK，提供图片、Canvas、ImageData、HTMLVideoElement、VideoFrame 和 Worker 单帧目标检测能力，并返回模型、运行时和耗时信息。
 
+## 版本与安装
+
+当前 SDK 版本为 **0.2.0**：
+
+```bash
+pnpm add web-sdk-pp-detection@0.2.0
+```
+
+从 0.2.0 起提供按模型身份查询/清理缓存的 `ModelManager` API、可选的 `ModelCache.scope/list()`、`loadTimings.modelSource` 及 `runtime.runtimeVersion/environment`。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.2.0.md)。
+
 ## 当前边界
 
-- 工厂在未提供 manifest 时使用内置的 PicoDet 1.0.1 FP32 stable 清单；清单加载失败时返回稳定错误码 `INVALID_MANIFEST`，且不会发起网络访问。
+- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供 PicoDet 1.0.1 FP32 stable 清单与外部分发模型；npm 包不内置 ONNX 模型本体。
 - 模型来源由 manifest 声明，可选择 Git LFS、Hugging Face、ModelScope 或 custom；每个来源必须绑定不可变 revision、大小和 SHA-256。显式来源失败不会静默换源，`auto` 才会按清单尝试。
+- 仓库模型 manifest 的默认来源为 Hugging Face；在线 Demo 的来源选择默认设为 ModelScope，这是 Demo 的独立配置。
 - SDK 已支持 ONNX Runtime Web 的 `wasm`/`webgpu`、main/worker 执行模式、IndexedDB/内存缓存、模型完整性校验、取消和资源释放。
 - PicoDet 1.0.1 的 FP32 变体已标记为 stable，并通过 Linux WASM 与 Windows NVIDIA WebGPU 的七张 fixture 验证；FP16、INT8、INT4、FP8 仍为 labs/blocked，不属于本次发布。
 - 常用配置包括 `backend`（`auto`、`webgpu`、`wasm`）、`precision`（`auto`、`fp16`、`fp32`）和 `allowFallback`；`model` 可传入清单 URL 或二进制 `data`。

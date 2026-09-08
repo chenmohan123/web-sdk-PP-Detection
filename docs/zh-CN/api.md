@@ -2,16 +2,17 @@
 
 [English](../en/api.md)
 
-所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。
+所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。本文描述 0.2.0 API，版本变更见[发布说明](release-0.2.0.md)。
 
 ## `createPPDetection(options?)`
 
-返回 `Promise<PPDetectionDetector>`。常用选项：
+返回 `Promise<PPDetectionDetector>`。必须显式提供 `model` 或 `manifest`；两者均省略时抛出 `INVALID_MANIFEST`。npm 包不内置 ONNX 模型本体。常用选项：
 
 - `backend`: `"auto" | "webgpu" | "wasm"`
 - `precision`: `"auto" | "fp16" | "fp32" | "int8"`；默认清单不包含 INT8
 - `allowFallback`: 会话失败时是否尝试下一有效候选；默认 `false`。只有显式设置为 `true` 才会回退，且不会改写清单中不存在的后端/精度组合
 - `model`: 清单 URL、清单对象或 `{ manifest, data }`
+- `manifest`: 清单对象；`model` 与 `manifest` 同时存在时优先使用 `model`
 - `cache`: 是否使用模型缓存
 - `signal`: 取消加载
 - `onProgress`: 接收 capabilities、manifest、model、session、fallback、ready 等阶段
@@ -73,13 +74,13 @@ runtime manifest 默认使用双线性。
 
 没有活动检测器时，可创建 `ModelManager` 并使用 `getCacheEstimate({ id, version })` 与
 `clearCurrentModelCache({ id, version })`，按当前实际清单的模型身份统计或清理该模型的全部变体、来源。
-带模型身份的重载、`ModelCache.scope` 和 `list()` 属于当前源码的未发布能力；公开 npm 0.1.1 的示例不使用这些新增 API。
+带模型身份的重载、`ModelCache.scope` 和 `list()` 从 0.2.0 起提供。
 不传身份的 `getCacheEstimate()` 返回全部本 SDK 缓存；字节数按缓存键去重，不是整个站点的配额或进程内存。
 自定义缓存需实现可选的 `list()` 才能按模型操作，否则返回 `CAPABILITY_UNSUPPORTED`，不会扩大清理范围。
 
 同一 JavaScript 执行环境内，共享 IndexedDB 数据库的管理器会同步失效代次并串行处理缓存操作。
 清理前开始的下载即使后来完成也不会写回；清理后新加载正常写入。模块级 `clearModelCache()` 同时清理
 该范围内活动实例的缓存副本，但不释放它们的推理会话。Demo 会先取消并等待操作、释放会话，再清理和刷新容量。
-不同标签页或 Worker 的并发加载没有本轮跨执行环境协调保证。
+不同标签页或 Worker 的并发加载不在跨执行环境协调保证范围内。
 
-`loadTimings.modelSource` 区分 `network`、`cache`、`memory`。`runtime.runtimeVersion` 与 `runtime.environment` 记录实际 ORT 版本和当前环境，运行结果保留当次后端快照；这些可选字段尚未发布到 npm 0.1.1，具体计时语义见[性能](performance.md)。
+`loadTimings.modelSource` 区分 `network`、`cache`、`memory`。`runtime.runtimeVersion` 与 `runtime.environment` 记录实际 ORT 版本和当前环境，运行结果保留当次后端快照；这些可选字段从 0.2.0 起提供，具体计时语义见[性能](performance.md)。

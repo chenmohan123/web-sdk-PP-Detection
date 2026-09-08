@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-08T04:31:49.974Z",
+  "tarball": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\release-0.2.0-final\\web-sdk-pp-detection-0.2.0.tgz",
+  "bytes": 1364878,
+  "sha256": "0b19a390c6fc127ace546d3068622afcb6f876d0ceddba9206f3fc0b49b38753",
+  "integrity": "sha512-17fmbCXepZwtftueUwQXYlpb2SvK0LouPVlwZSg0BOl41zm4KODREBaKwM3XoqyP52ekDAbQnFUyR1GOEvy0MA==",
+  "entries": [
+    "package/LICENSE",
+    "package/README.md",
+    "package/dist/browser-global.js",
+    "package/dist/browser-global.js.map",
+    "package/dist/index.d.ts",
+    "package/dist/index.js",
+    "package/dist/index.js.map",
+    "package/dist/inference.worker.js",
+    "package/dist/inference.worker.js.map",
+    "package/package.json"
+  ],
+  "installedSdkRoot": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\release-0.2.0-final\\consumer\\node_modules\\.pnpm\\web-sdk-pp-detection@file+..+web-sdk-pp-detection-0.2.0.tgz\\node_modules\\web-sdk-pp-detection",
+  "workspaceMatchingFiles": [
+    "README.md",
+    "LICENSE",
+    "dist/browser-global.js",
+    "dist/browser-global.js.map",
+    "dist/index.d.ts",
+    "dist/index.js",
+    "dist/index.js.map",
+    "dist/inference.worker.js",
+    "dist/inference.worker.js.map",
+    "package.json"
+  ],
+  "metadataComparison": "parsed-json",
+  "status": "passed"
+}

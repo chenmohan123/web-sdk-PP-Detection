@@ -23,7 +23,7 @@ declare global {
   var __PPDETECTION_SCRIPT_URL__: string | undefined;
 }
 
-export const CURRENT_SDK_VERSION = "0.1.1";
+export const CURRENT_SDK_VERSION = "0.2.0";
 
 export type {
   Backend,

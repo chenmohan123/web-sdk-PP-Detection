@@ -36,7 +36,7 @@ test.beforeAll(async () => {
         JSON.parse(readFileSync(join(target, "package.json"), "utf8")).dependencies[
           "web-sdk-pp-detection"
         ]
-      ).toBe("0.1.1");
+      ).toBe("0.2.0");
       if (process.env.PPDETECTION_EXAMPLES_REUSE !== "1")
         pnpm(["install", "--ignore-scripts", "--no-frozen-lockfile", "--ignore-workspace"], target);
       pnpm(["run", "build"], target);
@@ -92,7 +92,7 @@ for (const name of names) {
       release = resolve;
     });
     await page.route(
-      "https://cdn.jsdelivr.net/npm/web-sdk-pp-detection@0.1.1/dist/browser-global.js",
+      "https://cdn.jsdelivr.net/npm/web-sdk-pp-detection@0.2.0/dist/browser-global.js",
       (route) =>
         route.fulfill({
           path: join(sandbox, "react/node_modules/web-sdk-pp-detection/dist/browser-global.js"),
@@ -134,14 +134,14 @@ for (const name of names) {
     test.skip(!existsSync(modelPath), "需要已校验的官方模型本体");
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
-    // 网络隔离使用官方模型与公开 npm 0.1.1 的原始字节，不替换 SDK API 或推理。
+    // 网络隔离使用官方模型与公开 npm 0.2.0 的原始字节，不替换 SDK API 或推理。
     if (process.env.PPDETECTION_EXAMPLES_EXTERNAL !== "1") {
       const sdkPath = join(
         sandbox,
         "react/node_modules/web-sdk-pp-detection/dist/browser-global.js"
       );
       await page.route(
-        "https://cdn.jsdelivr.net/npm/web-sdk-pp-detection@0.1.1/dist/browser-global.js",
+        "https://cdn.jsdelivr.net/npm/web-sdk-pp-detection@0.2.0/dist/browser-global.js",
         (route) => route.fulfill({ path: sdkPath, contentType: "text/javascript" })
       );
       await page.route("https://www.modelscope.cn/**/manifest.json*", (route) =>
@@ -171,7 +171,7 @@ for (const name of names) {
       JSON.stringify({
         example: name,
         model: result.model.id,
-        sdk: "0.1.1",
+        sdk: "0.2.0",
         backend: result.runtime.backend,
         detections: result.detections.length,
         network:

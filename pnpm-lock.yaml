@@ -85,8 +85,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
       web-sdk-pp-detection:
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.2.0
+        version: 0.2.0
     devDependencies:
       '@types/react':
         specifier: 19.1.10
@@ -113,8 +113,8 @@ importers:
   examples/vanilla-vite:
     dependencies:
       web-sdk-pp-detection:
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.2.0
+        version: 0.2.0
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -132,8 +132,8 @@ importers:
         specifier: 3.5.21
         version: 3.5.21(typescript@5.9.3)
       web-sdk-pp-detection:
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.2.0
+        version: 0.2.0
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -148,8 +148,8 @@ importers:
   examples/wechat-webview:
     dependencies:
       web-sdk-pp-detection:
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.2.0
+        version: 0.2.0
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -1825,8 +1825,8 @@ packages:
       typescript:
         optional: true
 
-  web-sdk-pp-detection@0.1.1:
-    resolution: {integrity: sha512-L5Z5jlp2+D79AgDUvOMWY1ucqHZHFvBCmUC/GtF/GmqVi29vJZYorNzNcopgp8XfqA5BfrBRJmkmdhHlnx8L7g==}
+  web-sdk-pp-detection@0.2.0:
+    resolution: {integrity: sha512-5z58eNg6mtbLqWQ4MKmnBgidkx7Ik7N0m1lxroC1qjxDknZvgZ/O7AZo0TRpkG3Su8wApf5JGcHvM9/e6EiDig==}
     engines: {node: '>=22'}
 
   which@2.0.2:
@@ -3450,7 +3450,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  web-sdk-pp-detection@0.1.1:
+  web-sdk-pp-detection@0.2.0:
     dependencies:
       onnxruntime-web: 1.27.0
 

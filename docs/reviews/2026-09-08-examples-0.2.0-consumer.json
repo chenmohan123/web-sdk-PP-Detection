@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-08T06:00:14.058Z",
+  "os": "Windows_NT 10.0.26200",
+  "arch": "x64",
+  "node": "v24.16.0",
+  "browser": "151.0.7922.34",
+  "sdkRoot": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\examples-0.2.0\\consumer\\node_modules\\.pnpm\\web-sdk-pp-detection@0.2.0\\node_modules\\web-sdk-pp-detection",
+  "packageSource": "https://registry.npmjs.org/web-sdk-pp-detection/-/web-sdk-pp-detection-0.2.0.tgz",
+  "installedPackageSha256": "db4951f76395603c14189dd24d0b9e5127747cd63cb503b26d8fbda74245910d",
+  "cache": {
+    "version": "0.2.0",
+    "before": {
+      "bytes": 3,
+      "entries": 1
+    },
+    "after": {
+      "bytes": 0,
+      "entries": 0
+    },
+    "preserved": {
+      "bytes": 2,
+      "entries": 1
+    },
+    "missingModel": "INVALID_MANIFEST",
+    "typedFields": "function"
+  },
+  "lifecycles": [
+    {
+      "version": "0.2.0",
+      "count": 1,
+      "mode": "main",
+      "backend": "wasm",
+      "ort": "1.27.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "platform": "Win32",
+        "capturedAt": "2026-09-08T06:00:13.704Z"
+      },
+      "modelSource": "memory",
+      "totalMs": 693.8000000119209,
+      "sessionMs": 690.6999999880791,
+      "abortCode": "ABORTED"
+    },
+    {
+      "version": "0.2.0",
+      "count": 1,
+      "mode": "worker",
+      "backend": "wasm",
+      "ort": "1.27.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+        "platform": "Win32",
+        "capturedAt": "2026-09-08T06:00:14.055Z"
+      },
+      "modelSource": "memory",
+      "totalMs": 335,
+      "sessionMs": 334.5999999642372,
+      "abortCode": "ABORTED"
+    }
+  ],
+  "externalRequests": [],
+  "status": "passed"
+}

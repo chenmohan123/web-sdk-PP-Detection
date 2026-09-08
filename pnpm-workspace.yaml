@@ -10,3 +10,5 @@ onlyBuiltDependencies:
 allowBuilds:
   esbuild: true
   protobufjs: true
+minimumReleaseAgeExclude:
+  - web-sdk-pp-detection@0.2.0

@@ -8,7 +8,10 @@ export interface OrtInferenceSession {
 }
 
 export interface OrtModule {
-  readonly env: { readonly wasm?: Record<string, unknown> };
+  readonly env: {
+    readonly wasm?: Record<string, unknown>;
+    readonly versions?: { readonly web?: string };
+  };
   readonly InferenceSession: {
     create(model: ArrayBuffer, options: Record<string, unknown>): Promise<OrtInferenceSession>;
   };
@@ -16,6 +19,7 @@ export interface OrtModule {
 }
 
 export interface OrtSessionHandle {
+  readonly runtimeVersion?: string | null;
   readonly plan: ExecutionPlan;
   readonly sessionMs: number;
   run(
@@ -101,6 +105,7 @@ export async function createOrtSession(
     return {
       plan,
       sessionMs,
+      runtimeVersion: ort.env.versions?.web ?? null,
       async run(feeds, runOptions = {}) {
         if (disposed) throw new PPDetectionError("DISPOSED", "会话已释放", { phase: "run" });
         if (runOptions.signal?.aborted)

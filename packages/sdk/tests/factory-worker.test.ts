@@ -3,7 +3,7 @@ import type { RuntimeDetectionManifest } from "../src/types";
 
 const mocks = vi.hoisted(() => ({
   dispose: vi.fn(async () => undefined),
-  load: vi.fn(async () => ({ loaded: true })),
+  load: vi.fn(async () => ({ loaded: true, runtimeVersion: "9.8.7-worker" })),
   run: vi.fn(async () => ({
     dets: { data: new Float32Array([0, 0.8, 0, 0, 2, 2]), dims: [1, 6] }
   }))
@@ -86,6 +86,7 @@ it("worker 模式通过 WorkerBridge 加载模型和执行单帧推理", async (
       expect.objectContaining({ signal: undefined })
     );
     expect(result.runtime.mode).toBe("worker");
+    expect(result.runtime.runtimeVersion).toBe("9.8.7-worker");
     await detector.dispose();
     expect(mocks.dispose).toHaveBeenCalledTimes(1);
   } finally {

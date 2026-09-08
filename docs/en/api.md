@@ -82,3 +82,5 @@ and serialize cache operations. Downloads started before clearing cannot repopul
 The module-level `clearModelCache()` also clears active cache copies in that scope, but does not release inference sessions.
 The Demo cancels and awaits current work, releases the session, clears caches, and refreshes usage. Concurrent tabs or Workers
 are outside this change's cross-environment coordination guarantee.
+
+`loadTimings.modelSource` distinguishes `network`, `cache`, and `memory`. `runtime.runtimeVersion` and `runtime.environment` describe the loaded ORT and current environment; each result snapshots its execution backend. These optional fields are not yet published in npm 0.1.1. See [performance](performance.md) for timing semantics.

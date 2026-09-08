@@ -60,8 +60,17 @@ export const en: Copy = {
   backendInfo: "Backend",
   precisionInfo: "Precision",
   mode: "Mode",
+  runtimeVersion: "ORT runtime version",
+  runtimePlatform: "Platform",
+  runtimeUserAgent: "Browser environment",
+  runtimeCapturedAt: "Environment captured at",
   initializationGroup: "Initialization",
+  imageInitialization:
+    "Each image detection initializes a session. Timings below describe that initialization.",
+  mediaInitialization:
+    "Video and camera frames reuse one session. Timings below describe that session's initialization.",
   detectionGroup: "Current detection",
+  frameDetectionGroup: "Current frame detection",
   total: "End-to-end time",
   loadTotal: "Initialization total",
   session: "Session creation",
@@ -105,6 +114,6 @@ export const en: Copy = {
   modelSource: "Model source",
   source_network: "Network download",
   source_cache: "Persistent cache",
-  source_memory: "Memory cache",
+  source_memory: "In-memory model",
   source_custom: "Custom model"
 };

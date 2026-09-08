@@ -228,6 +228,7 @@ function workerUrl(): URL {
 export async function createPPDetection(
   options: CreatePPDetectionOptions = {}
 ): Promise<PPDetectionDetectorImplementation> {
+  const loadStartedAt = now();
   if (options.model === undefined && options.manifest === undefined)
     throw new PPDetectionError("INVALID_MANIFEST", "创建 PPDetection 实例需要 manifest 或 model");
   const capabilities = probeCapabilities();
@@ -261,12 +262,12 @@ export async function createPPDetection(
   });
   let executor: DetectionExecutor | undefined;
   try {
-    const loadStartedAt = now();
     options.onProgress?.({ phase: "model", status: "start" });
     let modelBytes: ArrayBuffer;
     let actualSource: ModelSource;
     let variant = runtimeManifest.variants.find((candidate) => candidate.id === plan.variantId)!;
     let loadTimings: {
+      modelSource?: "network" | "cache" | "memory";
       modelDownloadMs?: number;
       modelCacheReadMs?: number;
       integrityMs?: number;
@@ -279,10 +280,17 @@ export async function createPPDetection(
         throw new PPDetectionError("MODEL_SOURCE_UNAVAILABLE", "模型变体没有可用来源", {
           variantId: variant.id
         });
+      const integrityStartedAt = now();
       await verifyModelIntegrity(memoryData, source, options.signal);
+      const integrityMs = now() - integrityStartedAt;
       modelBytes = memoryData;
       actualSource = source;
-      loadTimings = { sessionMs: 0, totalMs: now() - loadStartedAt, integrityMs: 0 };
+      loadTimings = {
+        sessionMs: 0,
+        totalMs: now() - loadStartedAt,
+        integrityMs,
+        modelSource: "memory"
+      };
     } else {
       const loaded = await modelManager.load({
         manifest: runtimeManifest,
@@ -295,7 +303,12 @@ export async function createPPDetection(
       modelBytes = loaded.bytes;
       variant = loaded.variant;
       actualSource = loaded.source;
-      loadTimings = { ...loaded.timings, sessionMs: 0, totalMs: now() - loadStartedAt };
+      loadTimings = {
+        ...loaded.timings,
+        sessionMs: 0,
+        totalMs: now() - loadStartedAt,
+        modelSource: loaded.fromCache ? "cache" : "network"
+      };
     }
     options.onProgress?.({ phase: "model", status: "complete" });
     const fallbacks: Array<{
@@ -312,13 +325,14 @@ export async function createPPDetection(
     ): Promise<DetectionExecutor> => {
       options.onProgress?.({ phase: "session", status: "start" });
       let bridge: WorkerBridge | undefined;
+      const sessionStartedAt = now();
       try {
         if (candidatePlan.executionMode === "worker") {
           if (typeof Worker !== "function")
             throw new PPDetectionError("CAPABILITY_UNSUPPORTED", "当前环境不支持 Worker");
           const worker = new Worker(workerUrl(), { type: "module" });
           bridge = new WorkerBridge(worker);
-          await bridge.load(modelBytes.slice(0), candidatePlan, {
+          const metadata = await bridge.load(modelBytes.slice(0), candidatePlan, {
             onProgress: (event) =>
               options.onProgress?.({
                 phase: "session",
@@ -329,6 +343,13 @@ export async function createPPDetection(
               numThreads: options.ort?.wasm?.numThreads
             }
           });
+          runtimeVersion =
+            typeof metadata === "object" &&
+            metadata !== null &&
+            "runtimeVersion" in metadata &&
+            typeof metadata.runtimeVersion === "string"
+              ? metadata.runtimeVersion
+              : null;
           const activeBridge = bridge;
           options.onProgress?.({ phase: "session", status: "complete" });
           return {
@@ -346,7 +367,7 @@ export async function createPPDetection(
           wasmPaths: options.ort?.wasm?.paths,
           numThreads: options.ort?.wasm?.numThreads
         });
-        sessionMs = session.sessionMs;
+        runtimeVersion = session.runtimeVersion ?? null;
         options.onProgress?.({ phase: "session", status: "complete" });
         return {
           run(input, signal) {
@@ -371,10 +392,14 @@ export async function createPPDetection(
           { phase: "create", causeMessage: message },
           { cause: error }
         );
+      } finally {
+        // 包括运行时导入、Worker 启动及失败候选，保持初始化墙钟语义。
+        sessionMs += now() - sessionStartedAt;
       }
     };
     let selectedPlan: ExecutionPlan = plan;
     let sessionMs = 0;
+    let runtimeVersion: string | null = null;
     let selectedCandidateIndex = -1;
     for (const [candidateIndex, candidate] of plan.candidates.entries()) {
       const candidatePlan: ExecutionPlan = {
@@ -420,6 +445,12 @@ export async function createPPDetection(
     }
     if (!executor) throw new PPDetectionError("SESSION_CREATE_FAILED", "无法创建检测 Session");
     const runtime = {
+      runtimeVersion: runtimeVersion as string | null,
+      environment: {
+        userAgent: globalThis.navigator?.userAgent ?? null,
+        platform: globalThis.navigator?.platform ?? null,
+        capturedAt: new Date().toISOString()
+      },
       requestedBackend: options.backend ?? "auto",
       backend: selectedPlan.actualBackend,
       precision: selectedPlan.actualPrecision,
@@ -430,8 +461,15 @@ export async function createPPDetection(
     let activeExecutor = executor;
     const fallbackExecutor: DetectionExecutor = {
       async run(input, signal) {
+        // Worker 会转移输入缓冲区；仍有回退候选时保留原始数据供重试。
+        const attemptInput =
+          runtime.mode === "worker" &&
+          options.allowFallback === true &&
+          selectedCandidateIndex < plan.candidates.length - 1
+            ? { ...input, data: input.data.slice() }
+            : input;
         try {
-          return await activeExecutor.run(input, signal);
+          return await activeExecutor.run(attemptInput, signal);
         } catch (error) {
           if (
             options.allowFallback !== true ||
@@ -463,6 +501,7 @@ export async function createPPDetection(
           runtime.backend = nextPlan.actualBackend;
           runtime.precision = nextPlan.actualPrecision;
           runtime.mode = nextPlan.executionMode;
+          runtime.runtimeVersion = runtimeVersion;
           const fallback = {
             cause: mapped.cause ?? mapped,
             code: mapped.code,
@@ -494,6 +533,7 @@ export async function createPPDetection(
       disposeResources: () => modelManager.dispose()
     });
     await detector.load({ signal: options.signal });
+    loadTimings.totalMs = now() - loadStartedAt;
     options.onProgress?.({ phase: "ready", status: "complete" });
     return detector;
   } catch (error) {

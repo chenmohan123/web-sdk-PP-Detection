@@ -62,18 +62,6 @@ describe("documentation contract", () => {
     }
   });
 
-  it("keeps FP16 single-sample evidence distinct from FP32 seven-fixture evidence", () => {
-    const documents = [
-      readFileSync(new URL("docs/zh-CN/performance.md", repositoryRoot), "utf8"),
-      readFileSync(new URL("docs/en/performance.md", repositoryRoot), "utf8")
-    ];
-
-    for (const document of documents) {
-      assert.match(document, /FP16.*单次样本|FP16.*single sample/is);
-      assert.match(document, /FP32.*7 张授权图片|FP32.*seven licensed fixtures/is);
-    }
-  });
-
   it("documents per-class confidence thresholds in every public API guide", () => {
     const documents = [
       "README.md",

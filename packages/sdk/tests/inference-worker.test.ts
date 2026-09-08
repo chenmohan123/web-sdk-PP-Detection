@@ -11,6 +11,7 @@ const { createdSessions, createSession } = vi.hoisted(() => ({
 vi.mock("../src/runtime/ort-session", () => ({
   createOrtSession: createSession.mockImplementation(async () => {
     const session = {
+      runtimeVersion: "9.8.7-worker",
       run: vi.fn(async () => ({ output: new Float32Array(outputBuffer) })),
       dispose: vi.fn()
     };
@@ -49,6 +50,11 @@ it("Worker 将嵌套 TypedArray 输出作为 Transferable 发送", async () => {
     {},
     { wasmPaths: "/ort", numThreads: 4 }
   );
+  expect(
+    postMessage.mock.calls.find(
+      ([response]) => response.id === "load" && response.type === "result"
+    )?.[0].result
+  ).toMatchObject({ loaded: true, runtimeVersion: "9.8.7-worker" });
   await handler({ data: { id: "run", type: "run", input: {} } } as MessageEvent);
   const outputCall = postMessage.mock.calls.find(
     ([response]) => response.id === "run" && response.type === "result"

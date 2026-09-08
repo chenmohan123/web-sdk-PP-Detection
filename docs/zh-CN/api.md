@@ -81,3 +81,5 @@ runtime manifest 默认使用双线性。
 清理前开始的下载即使后来完成也不会写回；清理后新加载正常写入。模块级 `clearModelCache()` 同时清理
 该范围内活动实例的缓存副本，但不释放它们的推理会话。Demo 会先取消并等待操作、释放会话，再清理和刷新容量。
 不同标签页或 Worker 的并发加载没有本轮跨执行环境协调保证。
+
+`loadTimings.modelSource` 区分 `network`、`cache`、`memory`。`runtime.runtimeVersion` 与 `runtime.environment` 记录实际 ORT 版本和当前环境，运行结果保留当次后端快照；这些可选字段尚未发布到 npm 0.1.1，具体计时语义见[性能](performance.md)。

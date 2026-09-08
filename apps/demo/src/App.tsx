@@ -64,7 +64,16 @@ type DemoLoadTimings = PPDetectionLoadTimings & {
   readonly integrityMs?: number;
   readonly modelCacheReadMs?: number;
   readonly modelDownloadMs?: number;
-  readonly modelSource?: "cache" | "custom" | "memory" | "network";
+  readonly modelSource?: "cache" | "memory" | "network";
+};
+
+type DemoRuntime = PPDetectionResult["runtime"] & {
+  readonly runtimeVersion?: string | null;
+  readonly environment?: {
+    readonly userAgent: string | null;
+    readonly platform: string | null;
+    readonly capturedAt: string;
+  };
 };
 
 const demoFixture = new URLSearchParams(window.location.search).has("fixture");
@@ -165,6 +174,13 @@ export function App(): ReactElement {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const detectorRef = useRef<PPDetectionDetector | undefined>(undefined);
+  const initializationRef = useRef<
+    { detector: PPDetectionDetector; timings: DemoLoadTimings } | undefined
+  >(undefined);
+  const detectorConfigRef = useRef<string | undefined>(undefined);
+  const runDetectionRef = useRef<
+    (source: File | HTMLVideoElement, timestampMs?: number) => Promise<void>
+  >(() => Promise.resolve());
   const cacheManagerRef = useRef<ModelManager | undefined>(undefined);
   const cacheIdentityRef = useRef<{ id: string; version: string }>(
     demoFixture ? tinyModelManifest.model : officialManifest.model
@@ -179,13 +195,24 @@ export function App(): ReactElement {
   const inputGenerationRef = useRef(0);
   const schedulerRef = useRef<VideoFrameScheduler | undefined>(undefined);
   const streamRef = useRef<MediaStream | undefined>(undefined);
-  const loadTimings: DemoLoadTimings | undefined = detectorRef.current?.loadTimings;
+  const loadTimings: DemoLoadTimings | undefined =
+    initializationRef.current?.detector === detectorRef.current
+      ? initializationRef.current?.timings
+      : undefined;
+  const runtime: DemoRuntime | undefined = result?.runtime;
   const activeModelSource =
     MODEL_SOURCE_OPTIONS.find((option) => option.key === modelSource) ?? MODEL_SOURCE_OPTIONS[0];
   const activeLabels = uniqueLabels(
     customManifest?.labels ?? (demoFixture ? tinyModelManifest.labels : DEFAULT_CLASS_LABELS)
   );
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
+  const detectorConfig = JSON.stringify({
+    inputMode,
+    backend,
+    precision,
+    modelSource,
+    customManifest
+  });
 
   const getCacheManager = (): ModelManager => (cacheManagerRef.current ??= new ModelManager());
   const refreshCache = async (): Promise<void> => {
@@ -256,11 +283,20 @@ export function App(): ReactElement {
     () => () => {
       if (imageUrl !== undefined) URL.revokeObjectURL(imageUrl);
       if (videoUrl !== undefined) URL.revokeObjectURL(videoUrl);
-      schedulerRef.current?.stop();
-      streamRef.current?.getTracks().forEach((track) => track.stop());
-      void detectorRef.current?.dispose();
     },
     [imageUrl, videoUrl]
+  );
+  useEffect(
+    () => () => {
+      schedulerRef.current?.stop();
+      streamRef.current?.getTracks().forEach((track) => track.stop());
+      const detector = detectorRef.current;
+      detectorRef.current = undefined;
+      initializationRef.current = undefined;
+      detectorConfigRef.current = undefined;
+      void detector?.dispose();
+    },
+    []
   );
 
   useEffect(() => {
@@ -276,7 +312,7 @@ export function App(): ReactElement {
         if (cancelled) return;
         schedulerRef.current?.stop();
         schedulerRef.current = new VideoFrameScheduler(video, (timestampMs) => {
-          return runDetection(video, timestampMs);
+          return runDetectionRef.current(video, timestampMs);
         });
         schedulerRef.current.start();
       })
@@ -329,6 +365,8 @@ export function App(): ReactElement {
   };
 
   function stopCamera(): void {
+    videoStartRef.current?.abort();
+    videoStartRef.current = undefined;
     inputGenerationRef.current += 1;
     abortRef.current?.abort("media-stopped");
     abortRef.current = undefined;
@@ -406,6 +444,7 @@ export function App(): ReactElement {
   };
 
   const onBackend = (next: BackendPreference): void => {
+    if (next !== backend) cancel();
     const nextPrecision = precisionForBackend(next, precision, customManifest);
     setBackend(next);
     if (nextPrecision !== precision) {
@@ -414,15 +453,23 @@ export function App(): ReactElement {
     }
   };
 
+  const onPrecision = (next: PrecisionPreference): void => {
+    if (next !== precision) cancel();
+    setPrecision(next);
+  };
+
   const onModelSource = async (next: ModelSourceKey): Promise<void> => {
     if (cacheClearingRef.current || sourceChangingRef.current) return;
     sourceChangingRef.current = true;
     if (inputMode !== "image") stopVideo();
     cancel();
     setModelSourceChanging(true);
-    const detector = detectorRef.current;
-    detectorRef.current = undefined;
     try {
+      await activeDetectionRef.current;
+      const detector = detectorRef.current;
+      detectorRef.current = undefined;
+      initializationRef.current = undefined;
+      detectorConfigRef.current = undefined;
       await detector?.dispose();
     } catch (caught) {
       setError(formatRuntimeError(caught));
@@ -460,10 +507,11 @@ export function App(): ReactElement {
     timestampMs?: number
   ): Promise<void> => {
     if (source === undefined) return;
-    if (inputMode === "camera" && detectorRef.current === undefined) {
-      setError(undefined);
-      setStatus("loading");
-    } else if (inputMode !== "camera") {
+    const initialize =
+      inputMode === "image" ||
+      detectorRef.current === undefined ||
+      detectorConfigRef.current !== detectorConfig;
+    if (initialize) {
       cancel();
       setError(undefined);
       setStatus("loading");
@@ -472,13 +520,16 @@ export function App(): ReactElement {
     abortRef.current = controller;
     setDownloadPercentage(undefined);
     try {
-      if (inputMode !== "camera") {
+      if (initialize) {
         const previousDetector = detectorRef.current;
         detectorRef.current = undefined;
+        initializationRef.current = undefined;
+        detectorConfigRef.current = undefined;
         await previousDetector?.dispose();
       }
       let detector = detectorRef.current;
       if (detector === undefined) {
+        const initializationStarted = performance.now();
         let model: PPDetectionModel | undefined = demoFixture
           ? { data: tinyModelData(), manifest: tinyModelManifest }
           : (customManifest ?? selectionToModel(modelSource));
@@ -521,6 +572,11 @@ export function App(): ReactElement {
           return;
         }
         detectorRef.current = detector;
+        detectorConfigRef.current = detectorConfig;
+        initializationRef.current = {
+          detector,
+          timings: { ...detector.loadTimings, totalMs: performance.now() - initializationStarted }
+        };
       }
       if (controller.signal.aborted || abortRef.current !== controller) return;
       setStatus("running");
@@ -560,6 +616,7 @@ export function App(): ReactElement {
     });
     return operation;
   };
+  runDetectionRef.current = runDetection;
 
   const startVideo = async (): Promise<void> => {
     if (cacheClearingRef.current) return;
@@ -577,6 +634,8 @@ export function App(): ReactElement {
     try {
       const previousDetector = detectorRef.current;
       detectorRef.current = undefined;
+      initializationRef.current = undefined;
+      detectorConfigRef.current = undefined;
       await previousDetector?.dispose();
       if (cancelled()) return;
       if (video.readyState < 2) {
@@ -597,7 +656,7 @@ export function App(): ReactElement {
         return;
       }
       schedulerRef.current = new VideoFrameScheduler(video, (timestampMs) => {
-        return runDetection(video, timestampMs);
+        return runDetectionRef.current(video, timestampMs);
       });
       schedulerRef.current.start();
     } catch (caught) {
@@ -633,11 +692,13 @@ export function App(): ReactElement {
     if (cacheClearingRef.current) return;
     try {
       const parsed = parseModelManifest(JSON.parse(customText) as unknown);
+      cancel();
       setCustomManifest(parsed);
       cacheIdentityRef.current = parsed.model;
       void refreshCache().catch(() => setCacheUsage(undefined));
       setCustomError(undefined);
     } catch {
+      cancel();
       setCustomManifest(undefined);
       cacheIdentityRef.current = demoFixture ? tinyModelManifest.model : officialManifest.model;
       void refreshCache().catch(() => setCacheUsage(undefined));
@@ -658,6 +719,8 @@ export function App(): ReactElement {
       await activeDetectionRef.current;
       const detector = detectorRef.current;
       detectorRef.current = undefined;
+      initializationRef.current = undefined;
+      detectorConfigRef.current = undefined;
       await detector?.dispose();
       if (scope === "current") await getCacheManager().clearCurrentModelCache(identity);
       else await getCacheManager().clearAllCache();
@@ -786,7 +849,7 @@ export function App(): ReactElement {
                             : copy.cpuFp16Unsupported
                           : undefined
                       }
-                      onClick={() => setPrecision(value)}
+                      onClick={() => onPrecision(value)}
                     >
                       {copy[value]}
                     </button>
@@ -1128,6 +1191,9 @@ export function App(): ReactElement {
               </div>
               <div className="timing-group" data-testid="initialization-timings">
                 <h3 className="timing-group-title">{copy.initializationGroup}</h3>
+                <p className="timing-note" data-testid="initialization-policy">
+                  {inputMode === "image" ? copy.imageInitialization : copy.mediaInitialization}
+                </p>
                 <dl className="metric-list">
                   <div className="timing-total-row">
                     <dt>{copy.loadTotal}</dt>
@@ -1160,7 +1226,9 @@ export function App(): ReactElement {
                 </dl>
               </div>
               <div className="timing-group" data-testid="detection-timings">
-                <h3 className="timing-group-title">{copy.detectionGroup}</h3>
+                <h3 className="timing-group-title">
+                  {inputMode === "image" ? copy.detectionGroup : copy.frameDetectionGroup}
+                </h3>
                 <dl className="metric-list">
                   <div className="timing-total-row">
                     <dt>{copy.total}</dt>
@@ -1266,6 +1334,32 @@ export function App(): ReactElement {
                 <div>
                   <dt>{copy.mode}</dt>
                   <dd>{result?.runtime.mode ?? "-"}</dd>
+                </div>
+                <div>
+                  <dt>{copy.runtimeVersion}</dt>
+                  <dd data-testid="runtime-version">
+                    {runtime === undefined ? "-" : (runtime.runtimeVersion ?? copy.unknown)}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.runtimePlatform}</dt>
+                  <dd>
+                    {runtime === undefined ? "-" : (runtime.environment?.platform ?? copy.unknown)}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.runtimeUserAgent}</dt>
+                  <dd className="model-source-manifest">
+                    {runtime === undefined ? "-" : (runtime.environment?.userAgent ?? copy.unknown)}
+                  </dd>
+                </div>
+                <div>
+                  <dt>{copy.runtimeCapturedAt}</dt>
+                  <dd>
+                    {runtime === undefined
+                      ? "-"
+                      : (runtime.environment?.capturedAt ?? copy.unknown)}
+                  </dd>
                 </div>
               </dl>
               {result === undefined && activeModelSource.disabledReason !== undefined ? (

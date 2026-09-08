@@ -223,7 +223,11 @@ export class PPDetectionDetectorImplementation {
         original: { width: decoded.width, height: decoded.height }
       },
       model: this.model,
-      runtime: this.runtime,
+      runtime: {
+        ...this.runtime,
+        fallbacks: this.runtime.fallbacks.map((fallback) => ({ ...fallback })),
+        ...(this.runtime.environment ? { environment: { ...this.runtime.environment } } : {})
+      },
       timings: {
         decodeMs: decoded.decodeMs,
         preprocessMs,

@@ -56,7 +56,14 @@ workerScope.onmessage = async (event: MessageEvent<WorkerRequest>) => {
       const previousSession = session;
       session = nextSession;
       await previousSession?.dispose();
-      send({ id: request.id, type: "result", result: { loaded: true } });
+      send({
+        id: request.id,
+        type: "result",
+        result: {
+          loaded: true,
+          runtimeVersion: nextSession.runtimeVersion ?? null
+        }
+      });
       return;
     }
     if (request.type === "run") {

@@ -58,8 +58,15 @@ export const zhCN = {
   backendInfo: "实际后端",
   precisionInfo: "实际精度",
   mode: "运行模式",
+  runtimeVersion: "ORT 运行时版本",
+  runtimePlatform: "运行平台",
+  runtimeUserAgent: "浏览器环境",
+  runtimeCapturedAt: "环境采集时间",
   initializationGroup: "初始化",
+  imageInitialization: "图片每次检测重新初始化；以下为本次初始化耗时。",
+  mediaInitialization: "视频与摄像头连续帧复用同一会话；以下为该会话的初始化耗时。",
   detectionGroup: "本次检测",
+  frameDetectionGroup: "当前帧检测",
   total: "端到端耗时",
   loadTotal: "初始化总耗时",
   session: "Session 创建",
@@ -98,7 +105,7 @@ export const zhCN = {
   modelSource: "模型来源",
   source_network: "网络下载",
   source_cache: "持久缓存",
-  source_memory: "内存缓存",
+  source_memory: "内存模型",
   source_custom: "自定义模型"
 } as const;
 

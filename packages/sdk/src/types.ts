@@ -258,6 +258,12 @@ export interface PPDetectionFallback {
 }
 
 export interface PPDetectionRuntimeInfo {
+  readonly runtimeVersion?: string | null;
+  readonly environment?: Readonly<{
+    userAgent: string | null;
+    platform: string | null;
+    capturedAt: string;
+  }>;
   readonly requestedBackend: BackendPreference;
   readonly backend: Backend;
   readonly precision: Precision;
@@ -285,6 +291,7 @@ export interface PPDetectionModelSourceInfo {
 }
 
 export interface PPDetectionLoadTimings {
+  readonly modelSource?: "network" | "cache" | "memory";
   readonly modelDownloadMs?: number;
   readonly modelCacheReadMs?: number;
   readonly integrityMs?: number;

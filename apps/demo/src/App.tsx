@@ -55,6 +55,7 @@ import {
 } from "./model-sources";
 import { formatFallbackCause, formatRuntimeError } from "./runtime-messages";
 import { VideoFrameScheduler } from "./media-frame-scheduler";
+import { exportCanvasImage } from "./export-image";
 import officialManifest from "../../../models/pp-detection/manifest.json";
 
 type Language = "zh" | "en";
@@ -193,6 +194,8 @@ export function App(): ReactElement {
   const [customError, setCustomError] = useState<string | undefined>();
   const [customManifest, setCustomManifest] = useState<ModelManifest | undefined>();
   const [notice, setNotice] = useState<string | undefined>();
+  const [imageExporting, setImageExporting] = useState(false);
+  const [imageExportError, setImageExportError] = useState(false);
   const [selectedSample, setSelectedSample] = useState<DemoSample | undefined>();
   const [classThresholds, setClassThresholds] = useState<Record<string, number>>({});
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -231,6 +234,7 @@ export function App(): ReactElement {
     customManifest?.labels ?? (demoFixture ? tinyModelManifest.labels : DEFAULT_CLASS_LABELS)
   );
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
+  const hasResult = result !== undefined;
   const detectorConfig = JSON.stringify({
     inputMode,
     backend,
@@ -299,6 +303,10 @@ export function App(): ReactElement {
     else if (source instanceof HTMLImageElement) drawSource(canvas, source);
     else drawVideoSource(canvas, source);
   }, [inputMode, result, language]);
+
+  useEffect(() => {
+    if (!hasResult) setImageExportError(false);
+  }, [hasResult]);
 
   const redrawRef = useRef(redraw);
   useEffect(() => {
@@ -712,6 +720,28 @@ export function App(): ReactElement {
     videoRef.current?.pause();
     if (inputMode === "camera") stopCamera();
     setStatus("ready");
+  };
+
+  const exportImage = async (): Promise<void> => {
+    const canvas = canvasRef.current;
+    if (
+      canvas === null ||
+      result === undefined ||
+      imageExporting ||
+      cacheClearing ||
+      modelSourceChanging
+    )
+      return;
+    setImageExportError(false);
+    setImageExporting(true);
+    const generation = inputGenerationRef.current;
+    try {
+      await exportCanvasImage(canvas);
+    } catch {
+      if (generation === inputGenerationRef.current) setImageExportError(true);
+    } finally {
+      setImageExporting(false);
+    }
   };
 
   const exportJson = (): void => {
@@ -1450,6 +1480,16 @@ export function App(): ReactElement {
               )}
             </section>
             <div className="detail-actions" data-testid="detail-actions">
+              <button
+                className="text-button"
+                disabled={
+                  result === undefined || imageExporting || cacheClearing || modelSourceChanging
+                }
+                onClick={() => void exportImage()}
+              >
+                <Download size={16} />
+                {imageExporting ? copy.exportingImage : copy.exportImage}
+              </button>
               <button className="text-button" disabled={result === undefined} onClick={exportJson}>
                 <Download size={16} />
                 {copy.exportJson}
@@ -1472,6 +1512,12 @@ export function App(): ReactElement {
                 <Trash2 size={16} />
                 {copy.clearAllCache}
               </button>
+              {imageExportError && (
+                <div className="error-banner" role="alert">
+                  <CircleAlert size={18} />
+                  {copy.exportImageError}
+                </div>
+              )}
             </div>
             <p data-sdk-cache-usage="current">
               {copy.currentCache}: {cacheUsage ? formatBytes(cacheUsage.current) : "—"}

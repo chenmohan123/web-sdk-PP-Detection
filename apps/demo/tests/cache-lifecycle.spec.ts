@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "playwright/test";
 import { TINY_MODEL_BASE64, tinyModelManifest } from "../src/fixture";
 
@@ -135,6 +136,7 @@ declare global {
   interface Window {
     videoFrameTest: { callbacks: Map<number, (timestamp: number) => void> };
     cameraSessionTest: { streams: MediaStream[] };
+    videoFrameExportTest: { release(): void } | undefined;
   }
 }
 
@@ -232,6 +234,44 @@ async function advanceVideoFrame(page: Page, timestampMs: number): Promise<void>
     .toBe(1);
   await expect(page.getByRole("alert")).toHaveCount(0);
 }
+
+test("导出视频帧时保持点击时的画布快照，后续检测可继续", async ({ page }) => {
+  const manifestRequests = await prepareVideo(page);
+  await advanceVideoFrame(page, 1);
+  const snapshot = await page.getByTestId("result-canvas").evaluate((canvas: HTMLCanvasElement) => {
+    const png = canvas.toDataURL("image/png").split(",")[1];
+    const original = canvas.toBlob.bind(canvas);
+    canvas.toBlob = (callback, type, quality) => {
+      canvas.toBlob = original;
+      original(
+        (blob) => {
+          window.videoFrameExportTest = { release: () => callback(blob) };
+        },
+        type,
+        quality
+      );
+    };
+    return png;
+  });
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出标注图片", exact: true }).click();
+  await page.waitForFunction(() => window.videoFrameExportTest !== undefined);
+  await expect(page.getByRole("button", { name: "正在导出图片…", exact: true })).toBeDisabled();
+  await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("1");
+  await advanceVideoFrame(page, 2);
+  await expect(page.getByTestId("detection-section")).toContainText("未检测到目标");
+  expect(
+    await page
+      .getByTestId("result-canvas")
+      .evaluate((canvas: HTMLCanvasElement) => canvas.toDataURL("image/png").split(",")[1])
+  ).not.toBe(snapshot);
+  await page.evaluate(() => window.videoFrameExportTest!.release());
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe("pp-detection-result.png");
+  const png = await readFile(await download.path());
+  expect(png.equals(Buffer.from(snapshot, "base64"))).toBe(true);
+  expect(manifestRequests()).toBe(1);
+});
 
 test("视频连续帧复用已加载会话并读取当前阈值", async ({ page }) => {
   const manifestRequests = await prepareVideo(page);

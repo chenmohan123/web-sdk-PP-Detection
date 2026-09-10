@@ -81,6 +81,9 @@ export const en: Copy = {
   timingOverhead:
     "End-to-end time also includes small Worker communication and result-transfer overhead.",
   exportJson: "Export JSON",
+  exportImage: "Export annotated image",
+  exportingImage: "Exporting image…",
+  exportImageError: "Image export failed. Please try again.",
   clearCache: "Clear cache",
   clearCurrentCache: "Clear current model cache",
   clearAllCache: "Clear all SDK caches",

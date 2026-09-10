@@ -41,6 +41,13 @@ export const en: Copy = {
   noImage: "Select one image to start detection",
   result: "Detection result",
   showLabels: "Show labels",
+  imageView: "Image view",
+  zoomIn: "Zoom in",
+  zoomOut: "Zoom out",
+  zoomLevel: "Zoom relative to fit",
+  fitWindow: "Fit to window",
+  resetView: "Reset view",
+  zoomHint: "Scroll or pinch to zoom, drag to pan. Export keeps the full image.",
   targetHint:
     "Click a box or result to locate an object; click empty space to clear. Stop video to inspect a frame.",
   selectedTarget: "Selected",

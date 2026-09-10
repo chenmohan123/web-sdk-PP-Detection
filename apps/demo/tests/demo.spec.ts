@@ -162,7 +162,7 @@ test("normalizes active class threshold configuration", async ({ page }) => {
 test("edits, applies, localizes, and clears class thresholds", async ({ page }) => {
   await page.goto("/?fixture=1");
   await page.getByText("类别阈值", { exact: true }).click();
-  const personThreshold = page.getByRole("spinbutton", { name: "类别阈值 person" });
+  const personThreshold = page.getByRole("spinbutton", { name: "类别阈值 人", exact: true });
   await expect(personThreshold).toBeVisible();
   await personThreshold.fill("0");
   await page.getByRole("slider", { name: "置信度阈值" }).fill("1");
@@ -173,7 +173,7 @@ test("edits, applies, localizes, and clears class thresholds", async ({ page }) 
   });
   await page.getByRole("button", { name: "开始检测" }).click();
   await expect(page.getByTestId("status")).toContainText("检测完成", { timeout: 15_000 });
-  await expect(page.getByTestId("detection-section")).toContainText("person");
+  await expect(page.locator(".detection-row strong")).toHaveText("人");
 
   await page.getByRole("button", { name: "清空类别阈值" }).click();
   await expect(personThreshold).toHaveValue("");
@@ -522,7 +522,7 @@ test("stacks the result workflow on a narrow viewport without horizontal overflo
   await page.goto("/?fixture=1");
   await expect(page.getByTestId("demo-shell")).toBeVisible();
   await page.getByText("类别阈值", { exact: true }).click();
-  await expect(page.getByRole("spinbutton", { name: "类别阈值 person" })).toBeVisible();
+  await expect(page.getByRole("spinbutton", { name: "类别阈值 人", exact: true })).toBeVisible();
   const overflow = await page.evaluate(() => ({
     containers: [...document.querySelectorAll<HTMLElement>("html, body, body *")]
       .filter((element) => element.scrollWidth > element.clientWidth)

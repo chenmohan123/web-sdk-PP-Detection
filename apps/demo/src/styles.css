@@ -636,6 +636,52 @@ a svg,
   padding: 10px 0;
   border-top: 1px solid #e2e8f0;
 }
+.class-filter {
+  min-width: 0;
+  margin: 0 0 var(--sdk-space-3);
+  padding: var(--sdk-space-2);
+  border: 1px solid var(--sdk-color-border);
+  border-radius: var(--sdk-radius-sm);
+}
+.class-filter legend {
+  padding-inline: var(--sdk-space-1);
+  font-size: 12px;
+  font-weight: 650;
+}
+.class-filter > button {
+  margin-bottom: var(--sdk-space-2);
+  font-size: 12px;
+}
+.class-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sdk-space-2);
+}
+.class-filter-option {
+  display: flex;
+  align-items: center;
+  gap: var(--sdk-space-1);
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--sdk-space-1);
+  border-radius: var(--sdk-radius-sm);
+  background: var(--sdk-color-page);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.class-filter-option input {
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: var(--sdk-color-action);
+  cursor: pointer;
+}
+.class-filter-option .detection-color-dot {
+  margin-top: 0;
+}
+.class-filter p {
+  margin: var(--sdk-space-2) 0 0;
+}
 .detection-color-dot {
   width: 8px;
   height: 8px;

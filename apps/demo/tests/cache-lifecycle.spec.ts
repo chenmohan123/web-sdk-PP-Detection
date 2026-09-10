@@ -283,6 +283,36 @@ test("视频连续帧复用已加载会话并读取当前阈值", async ({ page 
   expect(manifestRequests()).toBe(1);
 });
 
+test("视频筛选在目标消失后仍保留，切换后端时恢复全部类别", async ({ page }) => {
+  const manifestRequests = await prepareVideo(page);
+  await advanceVideoFrame(page, 1);
+  const filter = page.getByRole("group", { name: "筛选类别", exact: true });
+  const person = filter.getByRole("checkbox");
+  // 手动选择一个类别，使筛选仅接受已选类别的后续结果。
+  await person.uncheck();
+  await person.check();
+  await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("1");
+  await advanceVideoFrame(page, 2);
+  await expect(filter.getByRole("checkbox", { name: "人 (0)", exact: true })).toBeChecked();
+  await expect(page.getByTestId("detection-section")).toContainText("未检测到目标");
+  await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("0.5");
+  await advanceVideoFrame(page, 3);
+  await expect(filter.getByRole("checkbox", { name: "人 (1)", exact: true })).toBeChecked();
+  await person.uncheck();
+  await advanceVideoFrame(page, 4);
+  await expect(page.locator(".detection-row")).toHaveCount(0);
+  await expect(person).not.toBeChecked();
+  expect(manifestRequests()).toBe(1);
+
+  await page.getByRole("button", { name: "停止媒体", exact: true }).click();
+  await page
+    .getByRole("group", { name: "运行后端", exact: true })
+    .getByRole("button", { name: "自动", exact: true })
+    .click();
+  await expect(person).toBeChecked();
+  await expect(page.locator(".detection-row strong")).toHaveText("人");
+});
+
 test("视频停止后精度与后端切换生效，清缓存和输入切换会停止旧帧", async ({ page }) => {
   const manifestRequests = await prepareVideo(page);
   await advanceVideoFrame(page, 1);

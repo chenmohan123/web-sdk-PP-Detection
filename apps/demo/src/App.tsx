@@ -95,7 +95,8 @@ function drawResult(
   canvas: HTMLCanvasElement,
   source: HTMLImageElement | HTMLVideoElement | null | undefined,
   result: PPDetectionResult | undefined,
-  language: Language
+  language: Language,
+  showLabels: boolean
 ): void {
   if (source == null || result === undefined) return;
   const width =
@@ -126,6 +127,8 @@ function drawResult(
     context.fill();
     context.stroke();
   }
+
+  if (!showLabels) return;
 
   // 按画布实际显示比例设置字号，缩小大图时标签仍保持可读。
   const displayScale = Math.min(canvas.clientWidth / width, canvas.clientHeight / height) || 1;
@@ -171,6 +174,7 @@ function drawVideoSource(canvas: HTMLCanvasElement, source: HTMLVideoElement): v
 
 export function App(): ReactElement {
   const [language, setLanguage] = useState<Language>("zh");
+  const [showLabels, setShowLabels] = useState(true);
   const copy: Copy = language === "zh" ? zhCN : en;
   const [backend, setBackend] = useState<BackendPreference>("auto");
   const [precision, setPrecision] = useState<PrecisionPreference>("auto");
@@ -299,10 +303,10 @@ export function App(): ReactElement {
     const canvas = canvasRef.current;
     const source = inputMode === "image" ? imageRef.current : videoRef.current;
     if (canvas === null || source === null) return;
-    if (result !== undefined) drawResult(canvas, source, result, language);
+    if (result !== undefined) drawResult(canvas, source, result, language, showLabels);
     else if (source instanceof HTMLImageElement) drawSource(canvas, source);
     else drawVideoSource(canvas, source);
-  }, [inputMode, result, language]);
+  }, [inputMode, result, language, showLabels]);
 
   useEffect(() => {
     if (!hasResult) setImageExportError(false);
@@ -1141,7 +1145,14 @@ export function App(): ReactElement {
                 <span className="eyebrow">DETECTION VIEW</span>
                 <h2>{copy.result}</h2>
               </div>
-              <span className="result-mode">{copy.box}</span>
+              <label className="label-toggle">
+                <input
+                  type="checkbox"
+                  checked={showLabels}
+                  onChange={(event) => setShowLabels(event.target.checked)}
+                />
+                {copy.showLabels}
+              </label>
             </div>
             <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
               {inputMode === "image" && imageUrl === undefined ? (

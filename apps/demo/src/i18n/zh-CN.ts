@@ -38,6 +38,7 @@ export const zhCN = {
   success: "检测完成",
   noImage: "选择一张图片开始检测",
   result: "检测结果",
+  showLabels: "显示标签",
   detections: "个目标",
   box: "框",
   threshold: "置信度阈值",

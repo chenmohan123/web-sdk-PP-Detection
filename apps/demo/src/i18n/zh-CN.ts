@@ -40,6 +40,7 @@ export const zhCN = {
   result: "检测结果",
   showLabels: "显示标签",
   imageView: "图片视图",
+  viewHelp: "操作说明",
   zoomIn: "放大图片",
   zoomOut: "缩小图片",
   zoomLevel: "相对适应窗口的缩放比例",

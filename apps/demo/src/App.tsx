@@ -7,6 +7,7 @@ import {
   FileImage,
   Github,
   Film,
+  RotateCcw,
   Square,
   Trash2,
   Upload,
@@ -232,6 +233,7 @@ function drawVideoSource(canvas: HTMLCanvasElement, source: HTMLVideoElement): v
 export function App(): ReactElement {
   const [language, setLanguage] = useState<Language>("zh");
   const [showLabels, setShowLabels] = useState(true);
+  const [showViewHelp, setShowViewHelp] = useState(false);
   const [selectedClasses, setSelectedClasses] = useState<ReadonlySet<string> | null>(null);
   const [targetSelection, setTargetSelection] = useState<{
     result: PPDetectionResult;
@@ -1260,25 +1262,66 @@ export function App(): ReactElement {
 
         <section className="workspace-grid">
           <article className="result-panel" data-testid="result-panel">
-            <div className="panel-heading">
-              <div>
-                <span className="eyebrow">DETECTION VIEW</span>
-                <h2>{copy.result}</h2>
+            <div className="result-toolbar">
+              <h2>{copy.result}</h2>
+              {inputMode === "image" && imageUrl !== undefined && (
+                <div className="zoom-toolbar" role="group" aria-label={copy.imageView}>
+                  <button
+                    className="text-button"
+                    aria-label={copy.zoomOut}
+                    disabled={imageViewport.zoom <= 1}
+                    onClick={() => imageViewport.zoomBy(0.8)}
+                  >
+                    −
+                  </button>
+                  <output data-testid="zoom-level" aria-label={copy.zoomLevel}>
+                    {Math.round(imageViewport.zoom * 100)}%
+                  </output>
+                  <button
+                    className="text-button"
+                    aria-label={copy.zoomIn}
+                    disabled={imageViewport.zoom >= 8}
+                    onClick={() => imageViewport.zoomBy(1.25)}
+                  >
+                    +
+                  </button>
+                  <button className="text-button" onClick={imageViewport.reset}>
+                    {copy.fitWindow}
+                  </button>
+                  <button
+                    className="text-button"
+                    aria-label={copy.resetView}
+                    title={copy.resetView}
+                    onClick={imageViewport.reset}
+                  >
+                    <RotateCcw size={16} aria-hidden="true" />
+                  </button>
+                </div>
+              )}
+              <div className="result-view-actions">
+                <label className="label-toggle">
+                  <input
+                    type="checkbox"
+                    checked={showLabels}
+                    onChange={(event) => setShowLabels(event.target.checked)}
+                  />
+                  {copy.showLabels}
+                </label>
+                <button
+                  className="text-button"
+                  aria-expanded={showViewHelp}
+                  aria-controls="view-help"
+                  onClick={() => setShowViewHelp((shown) => !shown)}
+                >
+                  {copy.viewHelp}
+                  <ChevronDown size={14} aria-hidden="true" />
+                </button>
               </div>
-              <label className="label-toggle">
-                <input
-                  type="checkbox"
-                  checked={showLabels}
-                  onChange={(event) => setShowLabels(event.target.checked)}
-                />
-                {copy.showLabels}
-              </label>
             </div>
-            {hasResult && (
-              <p className="muted target-hint" id="target-hint">
-                {copy.targetHint}
-              </p>
-            )}
+            <div className="view-help muted" id="view-help" hidden={!showViewHelp}>
+              {inputMode === "image" && <p>{copy.zoomHint}</p>}
+              <p id="target-hint">{copy.targetHint}</p>
+            </div>
             {selectedTarget !== undefined && (
               <div className="target-selection" data-testid="selected-target">
                 <span aria-live="polite">
@@ -1288,36 +1331,6 @@ export function App(): ReactElement {
                 <button className="text-button" onClick={() => setTargetSelection(undefined)}>
                   {copy.clearSelection}
                 </button>
-              </div>
-            )}
-            {inputMode === "image" && imageUrl !== undefined && (
-              <div className="zoom-toolbar" role="group" aria-label={copy.imageView}>
-                <button
-                  className="text-button"
-                  aria-label={copy.zoomOut}
-                  disabled={imageViewport.zoom <= 1}
-                  onClick={() => imageViewport.zoomBy(0.8)}
-                >
-                  −
-                </button>
-                <output data-testid="zoom-level" aria-label={copy.zoomLevel}>
-                  {Math.round(imageViewport.zoom * 100)}%
-                </output>
-                <button
-                  className="text-button"
-                  aria-label={copy.zoomIn}
-                  disabled={imageViewport.zoom >= 8}
-                  onClick={() => imageViewport.zoomBy(1.25)}
-                >
-                  +
-                </button>
-                <button className="text-button" onClick={imageViewport.reset}>
-                  {copy.fitWindow}
-                </button>
-                <button className="text-button" onClick={imageViewport.reset}>
-                  {copy.resetView}
-                </button>
-                <span className="muted">{copy.zoomHint}</span>
               </div>
             )}
             <div

@@ -42,6 +42,7 @@ export const en: Copy = {
   result: "Detection result",
   showLabels: "Show labels",
   imageView: "Image view",
+  viewHelp: "View help",
   zoomIn: "Zoom in",
   zoomOut: "Zoom out",
   zoomLevel: "Zoom relative to fit",

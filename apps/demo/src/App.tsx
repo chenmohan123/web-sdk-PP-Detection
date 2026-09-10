@@ -53,6 +53,7 @@ import { demoSamples, fetchSampleFile, sampleUrl, type DemoSample } from "./samp
 import { en } from "./i18n/en";
 import { detectionLabel } from "./i18n/detection-labels";
 import { detectionColor, detectionFillColor } from "./detection-colors";
+import { layoutDetectionLabels } from "./label-layout";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -149,18 +150,36 @@ function drawResult(
   context.font = `600 ${fontSize}px ${styles.fontFamily}`;
   context.textBaseline = "middle";
 
-  // 最后绘制标签，避免其他检测框的半透明填充盖住文字。
-  for (const detection of result.detections) {
+  const labels = result.detections.map((detection) => {
     const label = `${detectionLabel(detection.label, language)} ${(detection.score * 100).toFixed(1)}%`;
-    const labelWidth = Math.min(width, context.measureText(label).width + padding * 2);
-    const x = Math.max(0, Math.min(detection.box.xMin, width - labelWidth));
-    const above = detection.box.yMin - labelHeight - context.lineWidth / 2;
-    const y = Math.max(0, Math.min(above >= 0 ? above : detection.box.yMin, height - labelHeight));
+    return {
+      detection,
+      label,
+      width: Math.min(width, context.measureText(label).width + padding * 2)
+    };
+  });
+  const labelBoxes = layoutDetectionLabels(
+    labels.map(({ detection }) => detection.box),
+    labels.map(({ width: labelWidth }) => labelWidth),
+    width,
+    height,
+    labelHeight,
+    context.lineWidth / 2
+  );
+
+  // 最后绘制标签，避免其他检测框的半透明填充盖住文字。
+  for (const [index, { detection, label, width: labelWidth }] of labels.entries()) {
+    const labelBox = labelBoxes[index];
     context.fillStyle = detectionColor(detection.label);
-    context.fillRect(x, y, labelWidth, labelHeight);
+    context.fillRect(labelBox.x, labelBox.y, labelBox.width, labelBox.height);
     context.fillStyle = styles.getPropertyValue("--sdk-color-text").trim();
     const textPadding = Math.min(padding, labelWidth / 4);
-    context.fillText(label, x + textPadding, y + labelHeight / 2, labelWidth - textPadding * 2);
+    context.fillText(
+      label,
+      labelBox.x + textPadding,
+      labelBox.y + labelBox.height / 2,
+      labelBox.width - textPadding * 2
+    );
   }
 }
 

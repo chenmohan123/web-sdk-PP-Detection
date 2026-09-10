@@ -44,6 +44,7 @@ import {
 import { tinyModelData, tinyModelManifest } from "./fixture";
 import { demoSamples, fetchSampleFile, sampleUrl, type DemoSample } from "./samples";
 import { en } from "./i18n/en";
+import { detectionLabel } from "./i18n/detection-labels";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -92,7 +93,8 @@ function formatMs(value: number | undefined): string {
 function drawResult(
   canvas: HTMLCanvasElement,
   source: HTMLImageElement | HTMLVideoElement | null | undefined,
-  result: PPDetectionResult | undefined
+  result: PPDetectionResult | undefined,
+  language: Language
 ): void {
   if (source == null || result === undefined) return;
   const width =
@@ -122,6 +124,29 @@ function drawResult(
     );
     context.fill();
     context.stroke();
+  }
+
+  // 按画布实际显示比例设置字号，缩小大图时标签仍保持可读。
+  const displayScale = Math.min(canvas.clientWidth / width, canvas.clientHeight / height) || 1;
+  const styles = getComputedStyle(canvas);
+  const fontSize = 14 / displayScale;
+  const padding = (Number.parseFloat(styles.getPropertyValue("--sdk-space-1")) || 4) / displayScale;
+  const labelHeight = Math.min(height, fontSize + padding * 2);
+  context.font = `600 ${fontSize}px ${styles.fontFamily}`;
+  context.textBaseline = "middle";
+
+  // 最后绘制标签，避免其他检测框的半透明填充盖住文字。
+  for (const detection of result.detections) {
+    const label = `${detectionLabel(detection.label, language)} ${(detection.score * 100).toFixed(1)}%`;
+    const labelWidth = Math.min(width, context.measureText(label).width + padding * 2);
+    const x = Math.max(0, Math.min(detection.box.xMin, width - labelWidth));
+    const above = detection.box.yMin - labelHeight - context.lineWidth / 2;
+    const y = Math.max(0, Math.min(above >= 0 ? above : detection.box.yMin, height - labelHeight));
+    context.fillStyle = context.strokeStyle;
+    context.fillRect(x, y, labelWidth, labelHeight);
+    context.fillStyle = styles.getPropertyValue("--sdk-color-text").trim();
+    const textPadding = Math.min(padding, labelWidth / 4);
+    context.fillText(label, x + textPadding, y + labelHeight / 2, labelWidth - textPadding * 2);
   }
 }
 
@@ -270,12 +295,23 @@ export function App(): ReactElement {
     const canvas = canvasRef.current;
     const source = inputMode === "image" ? imageRef.current : videoRef.current;
     if (canvas === null || source === null) return;
-    if (result !== undefined) drawResult(canvas, source, result);
+    if (result !== undefined) drawResult(canvas, source, result, language);
     else if (source instanceof HTMLImageElement) drawSource(canvas, source);
     else drawVideoSource(canvas, source);
-  }, [inputMode, result]);
+  }, [inputMode, result, language]);
 
-  useEffect(() => redraw(), [redraw]);
+  const redrawRef = useRef(redraw);
+  useEffect(() => {
+    redrawRef.current = redraw;
+    redraw();
+  }, [redraw]);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (canvas === null) return;
+    const observer = new ResizeObserver(() => redrawRef.current());
+    observer.observe(canvas);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     void refreshCameraDevices();
   }, [refreshCameraDevices]);
@@ -1023,9 +1059,9 @@ export function App(): ReactElement {
             <div className="class-threshold-grid">
               {activeLabels.map((label) => (
                 <label className="class-threshold-field" key={label}>
-                  <span>{label}</span>
+                  <span>{detectionLabel(label, language)}</span>
                   <input
-                    aria-label={`${copy.classThreshold} ${label}`}
+                    aria-label={`${copy.classThreshold} ${detectionLabel(label, language)}`}
                     max="1"
                     min="0"
                     onChange={(event) => updateClassThreshold(label, event.target.value)}
@@ -1401,7 +1437,7 @@ export function App(): ReactElement {
                   <div className="detection-row" key={`${detection.labelId}-${index}`}>
                     <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
                     <div>
-                      <strong>{detection.label}</strong>
+                      <strong>{detectionLabel(detection.label, language)}</strong>
                       <small>
                         {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
                         {detection.box.yMin.toFixed(0)}

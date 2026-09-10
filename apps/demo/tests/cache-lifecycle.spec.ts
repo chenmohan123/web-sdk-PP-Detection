@@ -236,7 +236,7 @@ async function advanceVideoFrame(page: Page, timestampMs: number): Promise<void>
 test("视频连续帧复用已加载会话并读取当前阈值", async ({ page }) => {
   const manifestRequests = await prepareVideo(page);
   await advanceVideoFrame(page, 1);
-  await expect(page.getByTestId("detection-section")).toContainText("person");
+  await expect(page.locator(".detection-row strong")).toHaveText("人");
   await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("1");
   await advanceVideoFrame(page, 2);
   await expect(page.getByTestId("detection-section")).toContainText("未检测到目标");

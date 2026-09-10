@@ -509,6 +509,36 @@ a svg,
 .canvas-wrap > canvas.hidden {
   display: none;
 }
+.image-viewport {
+  touch-action: none;
+  user-select: none;
+  overflow: clip;
+}
+.image-viewport .result-canvas {
+  cursor: grab;
+}
+.image-viewport.is-dragging .result-canvas {
+  cursor: grabbing;
+}
+.zoom-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sdk-space-2);
+  margin-bottom: var(--sdk-space-2);
+}
+.zoom-toolbar button {
+  min-width: 32px;
+  min-height: 32px;
+}
+.zoom-toolbar output {
+  min-width: 44px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.zoom-toolbar > span {
+  flex-basis: 100%;
+}
 .media-canvas-wrap .source-video {
   display: block;
   width: 100%;

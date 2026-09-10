@@ -57,6 +57,7 @@ import { detectionColor, detectionFillColor } from "./detection-colors";
 import { layoutDetectionLabels } from "./label-layout";
 import { ClassFilter } from "./ClassFilter";
 import { hitTestDetection } from "./detection-hit-test";
+import { useImageViewport } from "./use-image-viewport";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -267,6 +268,7 @@ export function App(): ReactElement {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const imageViewport = useImageViewport(canvasRef, inputMode === "image" ? imageUrl : undefined);
   const resultFrameRef = useRef<
     { result: PPDetectionResult; frame: HTMLCanvasElement } | undefined
   >(undefined);
@@ -346,9 +348,10 @@ export function App(): ReactElement {
         : { result, config: detectorConfig, detection }
     );
     if (detection === undefined) return;
+    if (!fromCanvas) imageViewport.focus(detection.box);
     const element = fromCanvas
       ? detectionRowsRef.current[visibleResult!.detections.indexOf(detection)]
-      : canvasRef.current;
+      : imageViewport.viewportRef.current;
     element?.scrollIntoView({ block: "nearest", inline: "nearest" });
   };
 
@@ -1287,7 +1290,56 @@ export function App(): ReactElement {
                 </button>
               </div>
             )}
-            <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
+            {inputMode === "image" && imageUrl !== undefined && (
+              <div className="zoom-toolbar" role="group" aria-label={copy.imageView}>
+                <button
+                  className="text-button"
+                  aria-label={copy.zoomOut}
+                  disabled={imageViewport.zoom <= 1}
+                  onClick={() => imageViewport.zoomBy(0.8)}
+                >
+                  −
+                </button>
+                <output data-testid="zoom-level" aria-label={copy.zoomLevel}>
+                  {Math.round(imageViewport.zoom * 100)}%
+                </output>
+                <button
+                  className="text-button"
+                  aria-label={copy.zoomIn}
+                  disabled={imageViewport.zoom >= 8}
+                  onClick={() => imageViewport.zoomBy(1.25)}
+                >
+                  +
+                </button>
+                <button className="text-button" onClick={imageViewport.reset}>
+                  {copy.fitWindow}
+                </button>
+                <button className="text-button" onClick={imageViewport.reset}>
+                  {copy.resetView}
+                </button>
+                <span className="muted">{copy.zoomHint}</span>
+              </div>
+            )}
+            <div
+              ref={imageViewport.viewportRef}
+              data-testid="image-viewport"
+              className={`canvas-wrap ${inputMode === "image" ? (imageUrl === undefined ? "" : "image-viewport") : "media-canvas-wrap"} ${imageViewport.dragging ? "is-dragging" : ""}`}
+              {...imageViewport.bindings}
+              onClick={(event) => {
+                const canvas = canvasRef.current;
+                if (canvas === null) return;
+                const bounds = canvas.getBoundingClientRect();
+                selectTarget(
+                  hitTestDetection(
+                    visibleResult?.detections ?? [],
+                    { width: canvas.width, height: canvas.height },
+                    bounds,
+                    { x: event.clientX - bounds.left, y: event.clientY - bounds.top }
+                  ),
+                  true
+                );
+              }}
+            >
               {inputMode === "image" && imageUrl === undefined ? (
                 <div className="empty-state">
                   <FileImage size={30} />
@@ -1308,6 +1360,7 @@ export function App(): ReactElement {
                   className="source-image"
                   onLoad={(event) => {
                     imageRef.current = event.currentTarget;
+                    imageViewport.reset();
                     drawSource(canvasRef.current!, event.currentTarget);
                     redraw();
                   }}
@@ -1338,6 +1391,7 @@ export function App(): ReactElement {
               )}
               <canvas
                 ref={canvasRef}
+                style={imageViewport.canvasStyle}
                 data-testid="result-canvas"
                 role="img"
                 aria-label={copy.result}
@@ -1345,19 +1399,6 @@ export function App(): ReactElement {
                 tabIndex={hasResult ? 0 : undefined}
                 onKeyDown={(event) => {
                   if (event.key === "Escape") setTargetSelection(undefined);
-                }}
-                onClick={(event) => {
-                  const canvas = event.currentTarget;
-                  const bounds = canvas.getBoundingClientRect();
-                  selectTarget(
-                    hitTestDetection(
-                      visibleResult?.detections ?? [],
-                      { width: canvas.width, height: canvas.height },
-                      bounds,
-                      { x: event.clientX - bounds.left, y: event.clientY - bounds.top }
-                    ),
-                    true
-                  );
                 }}
                 className={
                   (

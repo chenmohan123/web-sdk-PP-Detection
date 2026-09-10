@@ -15,6 +15,7 @@ import {
 import {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -54,6 +55,7 @@ import { en } from "./i18n/en";
 import { detectionLabel } from "./i18n/detection-labels";
 import { detectionColor, detectionFillColor } from "./detection-colors";
 import { layoutDetectionLabels } from "./label-layout";
+import { ClassFilter } from "./ClassFilter";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -204,6 +206,7 @@ function drawVideoSource(canvas: HTMLCanvasElement, source: HTMLVideoElement): v
 export function App(): ReactElement {
   const [language, setLanguage] = useState<Language>("zh");
   const [showLabels, setShowLabels] = useState(true);
+  const [selectedClasses, setSelectedClasses] = useState<ReadonlySet<string> | null>(null);
   const copy: Copy = language === "zh" ? zhCN : en;
   const [backend, setBackend] = useState<BackendPreference>("auto");
   const [precision, setPrecision] = useState<PrecisionPreference>("auto");
@@ -275,6 +278,20 @@ export function App(): ReactElement {
     modelSource,
     customManifest
   });
+  const visibleResult = useMemo(
+    () =>
+      result === undefined || selectedClasses === null
+        ? result
+        : {
+            ...result,
+            detections: result.detections.filter(({ label }) => selectedClasses.has(label))
+          },
+    [result, selectedClasses]
+  );
+
+  useEffect(() => {
+    setSelectedClasses(null);
+  }, [hasResult, detectorConfig]);
 
   const getCacheManager = (): ModelManager => (cacheManagerRef.current ??= new ModelManager());
   const refreshCache = async (): Promise<void> => {
@@ -332,10 +349,11 @@ export function App(): ReactElement {
     const canvas = canvasRef.current;
     const source = inputMode === "image" ? imageRef.current : videoRef.current;
     if (canvas === null || source === null) return;
-    if (result !== undefined) drawResult(canvas, source, result, language, showLabels);
+    if (visibleResult !== undefined)
+      drawResult(canvas, source, visibleResult, language, showLabels);
     else if (source instanceof HTMLImageElement) drawSource(canvas, source);
     else drawVideoSource(canvas, source);
-  }, [inputMode, result, language, showLabels]);
+  }, [inputMode, visibleResult, language, showLabels]);
 
   useEffect(() => {
     if (!hasResult) setImageExportError(false);
@@ -1499,11 +1517,22 @@ export function App(): ReactElement {
               <div className="section-title">
                 <h2>{copy.result}</h2>
                 <span className="count-badge">
-                  {result?.detections.length ?? 0} {copy.detections}
+                  {visibleResult?.detections.length ?? 0}
+                  {selectedClasses !== null ? ` / ${result?.detections.length ?? 0}` : ""}{" "}
+                  {copy.detections}
                 </span>
               </div>
-              {result?.detections.length ? (
-                result.detections.map((detection, index) => (
+              {result !== undefined && (
+                <ClassFilter
+                  detections={result.detections}
+                  selected={selectedClasses}
+                  onChange={setSelectedClasses}
+                  language={language}
+                  copy={copy}
+                />
+              )}
+              {visibleResult?.detections.length ? (
+                visibleResult.detections.map((detection, index) => (
                   <div
                     className="detection-row"
                     key={`${detection.labelId}-${index}`}
@@ -1523,7 +1552,9 @@ export function App(): ReactElement {
                   </div>
                 ))
               ) : (
-                <p className="muted">{copy.noDetections}</p>
+                <p className="muted">
+                  {result?.detections.length ? copy.noMatchingDetections : copy.noDetections}
+                </p>
               )}
             </section>
             <div className="detail-actions" data-testid="detail-actions">

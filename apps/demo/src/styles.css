@@ -631,9 +631,18 @@ a svg,
 }
 .detection-row {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
   padding: 10px 0;
   border-top: 1px solid #e2e8f0;
+}
+.detection-color-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--detection-color);
 }
 .detection-row strong {
   display: block;

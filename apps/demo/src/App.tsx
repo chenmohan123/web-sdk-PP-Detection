@@ -12,7 +12,14 @@ import {
   Upload,
   X
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactElement
+} from "react";
 import {
   CURRENT_SDK_VERSION,
   ModelManager,
@@ -45,6 +52,7 @@ import { tinyModelData, tinyModelManifest } from "./fixture";
 import { demoSamples, fetchSampleFile, sampleUrl, type DemoSample } from "./samples";
 import { en } from "./i18n/en";
 import { detectionLabel } from "./i18n/detection-labels";
+import { detectionColor, detectionFillColor } from "./detection-colors";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -117,6 +125,8 @@ function drawResult(
   context.strokeStyle = "#e4572e";
   context.fillStyle = "rgba(228, 87, 46, 0.12)";
   for (const detection of result.detections) {
+    context.strokeStyle = detectionColor(detection.label);
+    context.fillStyle = detectionFillColor(detection.label);
     context.beginPath();
     context.rect(
       detection.box.xMin,
@@ -146,7 +156,7 @@ function drawResult(
     const x = Math.max(0, Math.min(detection.box.xMin, width - labelWidth));
     const above = detection.box.yMin - labelHeight - context.lineWidth / 2;
     const y = Math.max(0, Math.min(above >= 0 ? above : detection.box.yMin, height - labelHeight));
-    context.fillStyle = context.strokeStyle;
+    context.fillStyle = detectionColor(detection.label);
     context.fillRect(x, y, labelWidth, labelHeight);
     context.fillStyle = styles.getPropertyValue("--sdk-color-text").trim();
     const textPadding = Math.min(padding, labelWidth / 4);
@@ -1475,7 +1485,14 @@ export function App(): ReactElement {
               </div>
               {result?.detections.length ? (
                 result.detections.map((detection, index) => (
-                  <div className="detection-row" key={`${detection.labelId}-${index}`}>
+                  <div
+                    className="detection-row"
+                    key={`${detection.labelId}-${index}`}
+                    style={
+                      { "--detection-color": detectionColor(detection.label) } as CSSProperties
+                    }
+                  >
+                    <span className="detection-color-dot" aria-hidden="true" />
                     <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
                     <div>
                       <strong>{detectionLabel(detection.label, language)}</strong>

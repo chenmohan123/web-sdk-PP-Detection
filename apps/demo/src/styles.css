@@ -475,9 +475,22 @@ a svg,
   font-size: 14px;
   line-height: 1.4;
 }
-.result-mode {
-  color: var(--sdk-color-muted-text);
-  font-size: 11px;
+.label-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sdk-space-2);
+  padding-block: var(--sdk-space-2);
+  color: var(--sdk-color-text);
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.label-toggle input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--sdk-color-action);
+  cursor: pointer;
 }
 .canvas-wrap {
   position: relative;

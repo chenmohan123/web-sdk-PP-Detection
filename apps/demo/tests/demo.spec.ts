@@ -499,7 +499,7 @@ test("switches language, validates custom model input, and cancels", async ({ pa
   await expect(page.getByRole("button", { name: "Select image" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Run detection" })).toBeVisible();
 
-  await expect(page.getByText("Boxes", { exact: true })).toBeVisible();
+  await expect(page.getByRole("checkbox", { name: "Show labels", exact: true })).toBeChecked();
   await page.getByRole("button", { name: "Custom manifest" }).click();
   await expect(page.getByRole("dialog", { name: "Custom model" })).toBeVisible();
   await page.getByRole("button", { name: "Validate" }).click();

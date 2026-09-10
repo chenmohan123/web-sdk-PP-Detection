@@ -40,6 +40,7 @@ export const en: Copy = {
   success: "Detection complete",
   noImage: "Select one image to start detection",
   result: "Detection result",
+  showLabels: "Show labels",
   detections: "objects",
   box: "Boxes",
   threshold: "Confidence threshold",

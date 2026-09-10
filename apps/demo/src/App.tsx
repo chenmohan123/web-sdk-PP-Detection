@@ -56,6 +56,7 @@ import { detectionLabel } from "./i18n/detection-labels";
 import { detectionColor, detectionFillColor } from "./detection-colors";
 import { layoutDetectionLabels } from "./label-layout";
 import { ClassFilter } from "./ClassFilter";
+import { hitTestDetection } from "./detection-hit-test";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
@@ -70,6 +71,7 @@ import { exportCanvasImage } from "./export-image";
 import officialManifest from "../../../models/pp-detection/manifest.json";
 
 type Language = "zh" | "en";
+type Detection = PPDetectionResult["detections"][number];
 type InputMode = "image" | "camera" | "video";
 type Status = "ready" | "downloading" | "loading" | "running" | "success" | "error";
 
@@ -104,20 +106,25 @@ function formatMs(value: number | undefined): string {
 
 function drawResult(
   canvas: HTMLCanvasElement,
-  source: HTMLImageElement | HTMLVideoElement | null | undefined,
+  source: HTMLImageElement | HTMLVideoElement | HTMLCanvasElement | null | undefined,
   result: PPDetectionResult | undefined,
   language: Language,
-  showLabels: boolean
+  showLabels: boolean,
+  selected: Detection | undefined
 ): void {
   if (source == null || result === undefined) return;
   const width =
     source instanceof HTMLVideoElement
       ? source.videoWidth || result.image.original.width
-      : source.naturalWidth || result.image.original.width;
+      : source instanceof HTMLImageElement
+        ? source.naturalWidth || result.image.original.width
+        : source.width;
   const height =
     source instanceof HTMLVideoElement
       ? source.videoHeight || result.image.original.height
-      : source.naturalHeight || result.image.original.height;
+      : source instanceof HTMLImageElement
+        ? source.naturalHeight || result.image.original.height
+        : source.height;
   canvas.width = width;
   canvas.height = height;
   const context = canvas.getContext("2d");
@@ -141,36 +148,54 @@ function drawResult(
     context.stroke();
   }
 
-  if (!showLabels) return;
-
   // 按画布实际显示比例设置字号，缩小大图时标签仍保持可读。
   const displayScale = Math.min(canvas.clientWidth / width, canvas.clientHeight / height) || 1;
   const styles = getComputedStyle(canvas);
+  const boxLineWidth = context.lineWidth;
+  if (selected !== undefined) {
+    const { xMin, yMin, xMax, yMax } = selected.box;
+    // 双层描边让选中框在不同背景上清晰可见，保留原有类别颜色。
+    for (const [color, thickness] of [
+      [styles.getPropertyValue("--sdk-color-panel").trim(), 7],
+      [detectionColor(selected.label), 3]
+    ] as const) {
+      context.strokeStyle = color;
+      context.lineWidth = thickness / displayScale;
+      context.strokeRect(xMin, yMin, xMax - xMin, yMax - yMin);
+    }
+  }
+  if (!showLabels && selected === undefined) return;
   const fontSize = 14 / displayScale;
   const padding = (Number.parseFloat(styles.getPropertyValue("--sdk-space-1")) || 4) / displayScale;
   const labelHeight = Math.min(height, fontSize + padding * 2);
   context.font = `600 ${fontSize}px ${styles.fontFamily}`;
   context.textBaseline = "middle";
 
-  const labels = result.detections.map((detection) => {
-    const label = `${detectionLabel(detection.label, language)} ${(detection.score * 100).toFixed(1)}%`;
-    return {
-      detection,
-      label,
-      width: Math.min(width, context.measureText(label).width + padding * 2)
-    };
-  });
+  const labels = result.detections
+    .filter((detection) => showLabels || detection === selected)
+    .map((detection) => {
+      const label = `${detectionLabel(detection.label, language)} ${(detection.score * 100).toFixed(1)}%`;
+      return {
+        detection,
+        label,
+        width: Math.min(width, context.measureText(label).width + padding * 2)
+      };
+    });
   const labelBoxes = layoutDetectionLabels(
     labels.map(({ detection }) => detection.box),
     labels.map(({ width: labelWidth }) => labelWidth),
     width,
     height,
     labelHeight,
-    context.lineWidth / 2
+    boxLineWidth / 2
   );
 
   // 最后绘制标签，避免其他检测框的半透明填充盖住文字。
-  for (const [index, { detection, label, width: labelWidth }] of labels.entries()) {
+  const labelOrder = [...labels.keys()].sort(
+    (a, b) => Number(labels[a].detection === selected) - Number(labels[b].detection === selected)
+  );
+  for (const index of labelOrder) {
+    const { detection, label, width: labelWidth } = labels[index];
     const labelBox = labelBoxes[index];
     context.fillStyle = detectionColor(detection.label);
     context.fillRect(labelBox.x, labelBox.y, labelBox.width, labelBox.height);
@@ -207,6 +232,11 @@ export function App(): ReactElement {
   const [language, setLanguage] = useState<Language>("zh");
   const [showLabels, setShowLabels] = useState(true);
   const [selectedClasses, setSelectedClasses] = useState<ReadonlySet<string> | null>(null);
+  const [targetSelection, setTargetSelection] = useState<{
+    result: PPDetectionResult;
+    config: string;
+    detection: Detection;
+  }>();
   const copy: Copy = language === "zh" ? zhCN : en;
   const [backend, setBackend] = useState<BackendPreference>("auto");
   const [precision, setPrecision] = useState<PrecisionPreference>("auto");
@@ -237,6 +267,10 @@ export function App(): ReactElement {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const resultFrameRef = useRef<
+    { result: PPDetectionResult; frame: HTMLCanvasElement } | undefined
+  >(undefined);
+  const detectionRowsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const detectorRef = useRef<PPDetectionDetector | undefined>(undefined);
   const initializationRef = useRef<
     { detector: PPDetectionDetector; timings: DemoLoadTimings } | undefined
@@ -293,6 +327,31 @@ export function App(): ReactElement {
     setSelectedClasses(null);
   }, [hasResult, detectorConfig]);
 
+  // 目标仅属于当前检测结果，不把数组位置当作跨帧身份。
+  const selectedTarget =
+    targetSelection?.result === result &&
+    targetSelection?.config === detectorConfig &&
+    visibleResult?.detections.includes(targetSelection.detection)
+      ? targetSelection.detection
+      : undefined;
+  useEffect(() => {
+    if (selectedTarget === undefined) setTargetSelection(undefined);
+    if (result === undefined) resultFrameRef.current = undefined;
+  }, [selectedTarget, result, detectorConfig]);
+
+  const selectTarget = (detection: Detection | undefined, fromCanvas: boolean): void => {
+    setTargetSelection(
+      detection === undefined || result === undefined
+        ? undefined
+        : { result, config: detectorConfig, detection }
+    );
+    if (detection === undefined) return;
+    const element = fromCanvas
+      ? detectionRowsRef.current[visibleResult!.detections.indexOf(detection)]
+      : canvasRef.current;
+    element?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  };
+
   const getCacheManager = (): ModelManager => (cacheManagerRef.current ??= new ModelManager());
   const refreshCache = async (): Promise<void> => {
     const manager = getCacheManager();
@@ -347,13 +406,18 @@ export function App(): ReactElement {
 
   const redraw = useCallback(() => {
     const canvas = canvasRef.current;
-    const source = inputMode === "image" ? imageRef.current : videoRef.current;
+    const source =
+      inputMode === "image"
+        ? imageRef.current
+        : resultFrameRef.current?.result === result && resultFrameRef.current !== undefined
+          ? resultFrameRef.current.frame
+          : videoRef.current;
     if (canvas === null || source === null) return;
     if (visibleResult !== undefined)
-      drawResult(canvas, source, visibleResult, language, showLabels);
+      drawResult(canvas, source, visibleResult, language, showLabels, selectedTarget);
     else if (source instanceof HTMLImageElement) drawSource(canvas, source);
-    else drawVideoSource(canvas, source);
-  }, [inputMode, visibleResult, language, showLabels]);
+    else if (source instanceof HTMLVideoElement) drawVideoSource(canvas, source);
+  }, [inputMode, visibleResult, language, showLabels, selectedTarget]);
 
   useEffect(() => {
     if (!hasResult) setImageExportError(false);
@@ -602,6 +666,7 @@ export function App(): ReactElement {
     timestampMs?: number
   ): Promise<void> => {
     if (source === undefined) return;
+    setTargetSelection(undefined);
     const initialize =
       inputMode === "image" ||
       detectorRef.current === undefined ||
@@ -675,7 +740,11 @@ export function App(): ReactElement {
       }
       if (controller.signal.aborted || abortRef.current !== controller) return;
       setStatus("running");
-      const nextResult = await detector.detect(source, {
+      // 推理和后续交互重绘共用这一帧，避免视频继续播放后底图与坐标错位。
+      const frame =
+        source instanceof HTMLVideoElement ? document.createElement("canvas") : undefined;
+      if (frame !== undefined && source instanceof HTMLVideoElement) drawVideoSource(frame, source);
+      const nextResult = await detector.detect(frame ?? source, {
         ...(Object.keys(activeClassThresholds).length === 0
           ? {}
           : { classThresholds: activeClassThresholds }),
@@ -684,6 +753,7 @@ export function App(): ReactElement {
         ...(timestampMs === undefined ? {} : { timestampMs })
       });
       if (controller.signal.aborted || abortRef.current !== controller) return;
+      resultFrameRef.current = frame === undefined ? undefined : { result: nextResult, frame };
       setResult(nextResult);
       setStatus(inputMode === "image" ? "success" : "running");
       await refreshCache();
@@ -1201,6 +1271,22 @@ export function App(): ReactElement {
                 {copy.showLabels}
               </label>
             </div>
+            {hasResult && (
+              <p className="muted target-hint" id="target-hint">
+                {copy.targetHint}
+              </p>
+            )}
+            {selectedTarget !== undefined && (
+              <div className="target-selection" data-testid="selected-target">
+                <span aria-live="polite">
+                  {copy.selectedTarget}: {detectionLabel(selectedTarget.label, language)}{" "}
+                  {(selectedTarget.score * 100).toFixed(1)}%
+                </span>
+                <button className="text-button" onClick={() => setTargetSelection(undefined)}>
+                  {copy.clearSelection}
+                </button>
+              </div>
+            )}
             <div className={`canvas-wrap ${inputMode === "image" ? "" : "media-canvas-wrap"}`}>
               {inputMode === "image" && imageUrl === undefined ? (
                 <div className="empty-state">
@@ -1253,6 +1339,26 @@ export function App(): ReactElement {
               <canvas
                 ref={canvasRef}
                 data-testid="result-canvas"
+                role="img"
+                aria-label={copy.result}
+                aria-describedby={hasResult ? "target-hint" : undefined}
+                tabIndex={hasResult ? 0 : undefined}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") setTargetSelection(undefined);
+                }}
+                onClick={(event) => {
+                  const canvas = event.currentTarget;
+                  const bounds = canvas.getBoundingClientRect();
+                  selectTarget(
+                    hitTestDetection(
+                      visibleResult?.detections ?? [],
+                      { width: canvas.width, height: canvas.height },
+                      bounds,
+                      { x: event.clientX - bounds.left, y: event.clientY - bounds.top }
+                    ),
+                    true
+                  );
+                }}
                 className={
                   (
                     inputMode === "image"
@@ -1533,8 +1639,17 @@ export function App(): ReactElement {
               )}
               {visibleResult?.detections.length ? (
                 visibleResult.detections.map((detection, index) => (
-                  <div
+                  <button
                     className="detection-row"
+                    type="button"
+                    ref={(element) => {
+                      detectionRowsRef.current[index] = element;
+                    }}
+                    aria-pressed={detection === selectedTarget}
+                    onClick={() => selectTarget(detection, false)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Escape") setTargetSelection(undefined);
+                    }}
                     key={`${detection.labelId}-${index}`}
                     style={
                       { "--detection-color": detectionColor(detection.label) } as CSSProperties
@@ -1542,14 +1657,14 @@ export function App(): ReactElement {
                   >
                     <span className="detection-color-dot" aria-hidden="true" />
                     <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
-                    <div>
+                    <span>
                       <strong>{detectionLabel(detection.label, language)}</strong>
                       <small>
                         {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
                         {detection.box.yMin.toFixed(0)}
                       </small>
-                    </div>
-                  </div>
+                    </span>
+                  </button>
                 ))
               ) : (
                 <p className="muted">

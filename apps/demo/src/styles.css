@@ -54,6 +54,7 @@ select:focus-visible,
 textarea:focus-visible,
 a:focus-visible,
 summary:focus-visible,
+canvas:focus-visible,
 .file-button:focus-within {
   outline: 0;
   box-shadow: var(--sdk-focus-ring);
@@ -521,9 +522,9 @@ a svg,
   width: 100%;
   height: 100%;
   object-fit: contain;
-  pointer-events: none;
 }
 .result-canvas {
+  cursor: crosshair;
   display: block;
   width: 100%;
   height: 100%;
@@ -633,8 +634,45 @@ a svg,
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px 0;
-  border-top: 1px solid #e2e8f0;
+  width: 100%;
+  padding: var(--sdk-space-2);
+  border: 0;
+  border-top: 1px solid var(--sdk-color-border);
+  border-radius: var(--sdk-radius-sm);
+  background: transparent;
+  color: var(--sdk-color-text);
+  text-align: left;
+  scroll-margin-block: var(--sdk-space-3);
+}
+.detection-row:hover {
+  background: var(--sdk-color-page);
+}
+.detection-row[aria-pressed="true"] {
+  background: var(--sdk-color-page);
+  box-shadow: inset 0 0 0 2px var(--sdk-color-action);
+}
+.detection-row:focus-visible {
+  outline: 2px solid var(--sdk-color-action);
+  outline-offset: 2px;
+}
+.detection-row > span:last-child {
+  min-width: 0;
+}
+.target-hint {
+  margin: 0 0 var(--sdk-space-2);
+}
+.target-selection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sdk-space-2);
+  margin-bottom: var(--sdk-space-2);
+  padding: var(--sdk-space-2);
+  background: var(--sdk-color-panel);
+  border: 1px solid var(--sdk-color-action);
+  border-radius: var(--sdk-radius-sm);
+  overflow-wrap: anywhere;
 }
 .class-filter {
   min-width: 0;

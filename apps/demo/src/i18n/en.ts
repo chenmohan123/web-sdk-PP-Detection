@@ -41,6 +41,10 @@ export const en: Copy = {
   noImage: "Select one image to start detection",
   result: "Detection result",
   showLabels: "Show labels",
+  targetHint:
+    "Click a box or result to locate an object; click empty space to clear. Stop video to inspect a frame.",
+  selectedTarget: "Selected",
+  clearSelection: "Clear selection",
   filterClasses: "Filter classes",
   showAllClasses: "Show all",
   classFilterHint: "Filters affect the view and image export. JSON keeps all detections.",

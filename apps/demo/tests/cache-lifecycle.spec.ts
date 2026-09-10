@@ -273,6 +273,66 @@ test("导出视频帧时保持点击时的画布快照，后续检测可继续",
   expect(manifestRequests()).toBe(1);
 });
 
+test("视频画面前进后停止并选择目标，仍使用检测时的原始帧", async ({ page }) => {
+  await prepareVideo(page);
+  await advanceVideoFrame(page, 1);
+  await page.getByRole("checkbox", { name: "显示标签", exact: true }).uncheck();
+  const canvas = page.getByTestId("result-canvas");
+  const original = await canvas.evaluate((canvas: HTMLCanvasElement) => canvas.toDataURL());
+  const changed = await page.locator(".source-video").evaluate(async (video: HTMLVideoElement) => {
+    const frame = document.createElement("canvas");
+    frame.width = video.videoWidth;
+    frame.height = video.videoHeight;
+    const pixels = () => {
+      frame.getContext("2d")!.drawImage(video, 0, 0);
+      return frame.toDataURL();
+    };
+    const initial = pixels();
+    for (const time of [0.08, 0.14, 0.2]) {
+      const seeked = new Promise<void>((resolve) =>
+        video.addEventListener("seeked", () => resolve(), { once: true })
+      );
+      video.currentTime = time;
+      await seeked;
+      if (pixels() !== initial) return true;
+    }
+    return false;
+  });
+  expect(changed).toBe(true);
+  await page.getByRole("button", { name: "停止媒体", exact: true }).click();
+  await page.locator(".detection-row").click();
+  await page.getByRole("button", { name: "取消选择", exact: true }).click();
+  expect(await canvas.evaluate((canvas: HTMLCanvasElement) => canvas.toDataURL())).toBe(original);
+});
+
+test("视频换帧不复用旧目标选择，停止后可点击画布定位", async ({ page }) => {
+  await prepareVideo(page);
+  await advanceVideoFrame(page, 1);
+  const row = page.locator(".detection-row");
+  await row.click();
+  await expect(row).toHaveAttribute("aria-pressed", "true");
+  await advanceVideoFrame(page, 2);
+  await expect(row).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByTestId("selected-target")).toHaveCount(0);
+  await page.getByRole("button", { name: "停止媒体", exact: true }).click();
+  const pending = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出 JSON", exact: true }).click();
+  const result = JSON.parse(await readFile(await (await pending).path(), "utf8")) as {
+    detections: { box: { xMin: number; xMax: number; yMin: number; yMax: number } }[];
+  };
+  const canvas = page.getByTestId("result-canvas");
+  const position = await canvas.evaluate((canvas: HTMLCanvasElement, box) => {
+    const scale = Math.min(canvas.clientWidth / canvas.width, canvas.clientHeight / canvas.height);
+    return {
+      x: (canvas.clientWidth - canvas.width * scale) / 2 + ((box.xMin + box.xMax) / 2) * scale,
+      y: (canvas.clientHeight - canvas.height * scale) / 2 + ((box.yMin + box.yMax) / 2) * scale
+    };
+  }, result.detections[0].box);
+  await canvas.click({ position });
+  await expect(row).toHaveAttribute("aria-pressed", "true");
+  await expect(row).toBeInViewport();
+});
+
 test("视频连续帧复用已加载会话并读取当前阈值", async ({ page }) => {
   const manifestRequests = await prepareVideo(page);
   await advanceVideoFrame(page, 1);

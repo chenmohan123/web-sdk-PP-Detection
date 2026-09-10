@@ -12,13 +12,16 @@ type DetectionBox = {
   readonly yMax: number;
 };
 
-function overlaps(first: LabelBox, second: LabelBox): boolean {
-  return (
-    first.x < second.x + second.width &&
-    first.x + first.width > second.x &&
-    first.y < second.y + second.height &&
-    first.y + first.height > second.y
+function overlapArea(first: LabelBox, second: LabelBox): number {
+  const width = Math.max(
+    0,
+    Math.min(first.x + first.width, second.x + second.width) - Math.max(first.x, second.x)
   );
+  const height = Math.max(
+    0,
+    Math.min(first.y + first.height, second.y + second.height) - Math.max(first.y, second.y)
+  );
+  return width * height;
 }
 
 function clamp(value: number, minimum: number, maximum: number): number {
@@ -48,10 +51,18 @@ export function layoutDetectionLabels(
       width,
       height
     }));
-    const available = candidates.find(
-      (candidate) => !placed.some((previous) => overlaps(candidate, previous))
-    );
-    placed.push(available ?? candidates[0]);
+    let best = candidates[0];
+    let leastOverlap = Number.POSITIVE_INFINITY;
+    for (const candidate of candidates) {
+      const area = placed.reduce((sum, previous) => sum + overlapArea(candidate, previous), 0);
+      // 同分时保留上、下、右、左的优先级；无空位时减少被遮挡的文字。
+      if (area < leastOverlap) {
+        best = candidate;
+        leastOverlap = area;
+      }
+      if (area === 0) break;
+    }
+    placed.push(best);
   }
   return placed;
 }

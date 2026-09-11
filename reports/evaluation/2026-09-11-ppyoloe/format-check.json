@@ -1,0 +1,5 @@
+{
+  "checked": 258,
+  "failed": [],
+  "reason": "避免 Prettier 扫描无权读取的历史 work/pytest 和 .pytest_cache 目录，使用 Git 可见文件清单并沿用同一格式配置。"
+}

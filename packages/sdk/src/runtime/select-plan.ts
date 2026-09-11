@@ -10,6 +10,7 @@ import type {
 } from "../types";
 
 export interface SelectExecutionOptions {
+  readonly allowExperimental?: boolean;
   readonly backend?: BackendPreference;
   readonly precision?: Precision;
   readonly executionMode?: ExecutionMode;
@@ -62,16 +63,26 @@ export function selectExecutionPlan(
   if (executionMode === "worker" && !capabilities.worker) {
     fail("CAPABILITY_UNSUPPORTED", "请求的 worker 不可用", { executionMode });
   }
-  const variant = manifest.variants?.find(
-    (candidate) =>
-      candidate.precision === requestedPrecision &&
-      candidate.status !== "labs" &&
-      candidate.status !== "blocked"
-  );
+  const matchingVariants =
+    manifest.variants?.filter(
+      (candidate) => candidate.precision === requestedPrecision && candidate.status !== "blocked"
+    ) ?? [];
+  const variant =
+    matchingVariants.find((candidate) => candidate.status !== "labs") ??
+    (options.allowExperimental === true
+      ? matchingVariants.find((candidate) => candidate.status === "labs")
+      : undefined);
   if (!variant) {
-    fail("MODEL_INCOMPATIBLE", `manifest 没有可用的 ${requestedPrecision} 稳定变体`, {
-      requestedPrecision
-    });
+    fail(
+      "MODEL_INCOMPATIBLE",
+      options.allowExperimental === true
+        ? `manifest 没有可用的 ${requestedPrecision} 变体`
+        : `manifest 没有可用的 ${requestedPrecision} 稳定变体`,
+      {
+        requestedPrecision,
+        allowExperimental: options.allowExperimental === true
+      }
+    );
   }
   const candidates = candidatesForBackend(requestedBackend, capabilities).filter((backend) =>
     variant.backends.includes(backend)

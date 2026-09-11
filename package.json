@@ -1,6 +1,6 @@
 {
   "name": "pp-detection-workspace",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "packageManager": "pnpm@11.16.0",
   "engines": {
@@ -11,6 +11,8 @@
     "benchmark:test": "node --test scripts/benchmark-contract.test.mjs",
     "benchmark:parity": "playwright test tests/browser/benchmark-parity.spec.ts",
     "docs:test": "node --test scripts/check-doc-parity.test.mjs",
+    "evaluation:browser": "node tools/model-pipeline/browser/evaluation-runner.mjs",
+    "evaluation:test": "node --test tools/model-pipeline/browser/evaluation-runner.test.mjs",
     "examples:check": "node --test scripts/examples-contract.test.mjs",
     "examples:smoke": "playwright test tests/browser/examples-runtime.spec.ts",
     "format": "prettier --write .",

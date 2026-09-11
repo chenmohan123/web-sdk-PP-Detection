@@ -2,7 +2,7 @@
 
 [English](../en/api.md)
 
-所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。本文描述 0.2.0 API，版本变更见[发布说明](release-0.2.0.md)。
+所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。本文描述 0.3.0 API，版本变更见[发布说明](release-0.3.0.md)。
 
 ## `createPPDetection(options?)`
 
@@ -84,3 +84,7 @@ runtime manifest 默认使用双线性。
 不同标签页或 Worker 的并发加载不在跨执行环境协调保证范围内。
 
 `loadTimings.modelSource` 区分 `network`、`cache`、`memory`。`runtime.runtimeVersion` 与 `runtime.environment` 记录实际 ORT 版本和当前环境，运行结果保留当次后端快照；这些可选字段从 0.2.0 起提供，具体计时语义见[性能](performance.md)。
+
+## 实验变体选项（0.3.0 起）
+
+0.3.0 增加 `allowExperimental?: boolean`，默认 `false`。显式开启时可以运行 `status: "labs"` 的模型；`blocked` 仍拒绝，同精度优先选择稳定变体。这个选项不会放宽 SHA-256 或后端校验，也不代表候选已经达到稳定发布门槛。PP-YOLOE 0.1.0 为稳定模型，正常加载无需开启该选项。见[PP-YOLOE 候选接入](../../examples/ppyoloe-candidate/README.md)和[验证证据](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。

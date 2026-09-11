@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-12",
+  "status": "stable",
+  "decision": "用户明确要求直接标记为稳定模型，后续遇到问题再修改。",
+  "modelId": "ppyoloe-plus-s-640",
+  "previousVersion": "0.1.0-labs.1",
+  "version": "0.1.0",
+  "modelBytes": 31954220,
+  "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+  "modelSourcesUnchanged": true,
+  "previousManifestSha256": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411",
+  "manifestSha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0",
+  "previousArtifacts": "previous/",
+  "evidence": [
+    "../../evaluation/2026-09-11-ppyoloe/README.md",
+    "../../distribution/2026-09-11-ppyoloe/modelscope-browser-wasm/desktop-browser.json",
+    "../../distribution/2026-09-11-ppyoloe/modelscope-browser-webgpu/desktop-browser.json",
+    "../../distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md"
+  ],
+  "remoteManifestStatus": "Hub 上已有不可变清单仍是 labs 历史版本；稳定清单和更新后的 Demo 为本地交付。"
+}

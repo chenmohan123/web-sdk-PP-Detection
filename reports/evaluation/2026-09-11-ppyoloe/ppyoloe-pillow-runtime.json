@@ -1,0 +1,400 @@
+{
+  "model": "ppyoloe-pillow",
+  "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+  "modelBytes": 31954220,
+  "sessionMs": 146.02279999962775,
+  "images": [
+    {
+      "imageId": 10977,
+      "preprocessMs": 21.502800002053846,
+      "inferenceMs": 100.03239999787183,
+      "detections": 300
+    },
+    {
+      "imageId": 26690,
+      "preprocessMs": 14.377100000274368,
+      "inferenceMs": 150.3004000041983,
+      "detections": 300
+    },
+    {
+      "imageId": 27186,
+      "preprocessMs": 13.757199994870462,
+      "inferenceMs": 103.41990000597434,
+      "detections": 300
+    },
+    {
+      "imageId": 27932,
+      "preprocessMs": 11.427999997977167,
+      "inferenceMs": 103.02470000169706,
+      "detections": 300
+    },
+    {
+      "imageId": 60823,
+      "preprocessMs": 13.539800005673897,
+      "inferenceMs": 226.0482999990927,
+      "detections": 300
+    },
+    {
+      "imageId": 105264,
+      "preprocessMs": 11.84099999954924,
+      "inferenceMs": 115.32340000121621,
+      "detections": 300
+    },
+    {
+      "imageId": 119516,
+      "preprocessMs": 12.202099998830818,
+      "inferenceMs": 113.70919999899343,
+      "detections": 300
+    },
+    {
+      "imageId": 119641,
+      "preprocessMs": 12.73800000490155,
+      "inferenceMs": 102.73420000157785,
+      "detections": 300
+    },
+    {
+      "imageId": 125072,
+      "preprocessMs": 13.462999995681457,
+      "inferenceMs": 85.17570000549313,
+      "detections": 300
+    },
+    {
+      "imageId": 129756,
+      "preprocessMs": 14.744699998118449,
+      "inferenceMs": 110.56169999937993,
+      "detections": 300
+    },
+    {
+      "imageId": 134322,
+      "preprocessMs": 13.560200000938494,
+      "inferenceMs": 145.7388999988325,
+      "detections": 300
+    },
+    {
+      "imageId": 166563,
+      "preprocessMs": 10.52720000006957,
+      "inferenceMs": 106.13750000629807,
+      "detections": 300
+    },
+    {
+      "imageId": 173091,
+      "preprocessMs": 18.631599996297155,
+      "inferenceMs": 98.32690000621369,
+      "detections": 300
+    },
+    {
+      "imageId": 200152,
+      "preprocessMs": 10.920599997916725,
+      "inferenceMs": 117.16429999796674,
+      "detections": 300
+    },
+    {
+      "imageId": 203629,
+      "preprocessMs": 11.355100003129337,
+      "inferenceMs": 147.70080000016605,
+      "detections": 300
+    },
+    {
+      "imageId": 204871,
+      "preprocessMs": 14.716400000907015,
+      "inferenceMs": 97.28970000287518,
+      "detections": 300
+    },
+    {
+      "imageId": 208423,
+      "preprocessMs": 11.697699999785982,
+      "inferenceMs": 107.6653999989503,
+      "detections": 300
+    },
+    {
+      "imageId": 209142,
+      "preprocessMs": 12.623199996596668,
+      "inferenceMs": 148.66479999909643,
+      "detections": 300
+    },
+    {
+      "imageId": 212166,
+      "preprocessMs": 14.12519999576034,
+      "inferenceMs": 105.86889999831328,
+      "detections": 300
+    },
+    {
+      "imageId": 227478,
+      "preprocessMs": 12.93170000280952,
+      "inferenceMs": 125.74970000423491,
+      "detections": 300
+    },
+    {
+      "imageId": 228436,
+      "preprocessMs": 12.627500000235159,
+      "inferenceMs": 163.2056000016746,
+      "detections": 300
+    },
+    {
+      "imageId": 235836,
+      "preprocessMs": 13.24140000360785,
+      "inferenceMs": 151.53270000155317,
+      "detections": 300
+    },
+    {
+      "imageId": 236592,
+      "preprocessMs": 16.335499996785074,
+      "inferenceMs": 140.15980000112904,
+      "detections": 300
+    },
+    {
+      "imageId": 238410,
+      "preprocessMs": 13.501200002792757,
+      "inferenceMs": 289.1126000031363,
+      "detections": 300
+    },
+    {
+      "imageId": 250282,
+      "preprocessMs": 13.273600001411978,
+      "inferenceMs": 162.72680000110995,
+      "detections": 300
+    },
+    {
+      "imageId": 256868,
+      "preprocessMs": 12.92230000399286,
+      "inferenceMs": 132.08039999881294,
+      "detections": 300
+    },
+    {
+      "imageId": 269866,
+      "preprocessMs": 11.318800003209617,
+      "inferenceMs": 96.60950000397861,
+      "detections": 300
+    },
+    {
+      "imageId": 269942,
+      "preprocessMs": 12.960699998075143,
+      "inferenceMs": 106.00290000002133,
+      "detections": 300
+    },
+    {
+      "imageId": 270244,
+      "preprocessMs": 14.37189999705879,
+      "inferenceMs": 89.15870000055293,
+      "detections": 300
+    },
+    {
+      "imageId": 276024,
+      "preprocessMs": 12.624100003449712,
+      "inferenceMs": 97.46179999638116,
+      "detections": 300
+    },
+    {
+      "imageId": 276720,
+      "preprocessMs": 11.420800001360476,
+      "inferenceMs": 95.23430000263033,
+      "detections": 300
+    },
+    {
+      "imageId": 284698,
+      "preprocessMs": 12.355600003502332,
+      "inferenceMs": 101.63350000220817,
+      "detections": 300
+    },
+    {
+      "imageId": 287874,
+      "preprocessMs": 12.980899999092799,
+      "inferenceMs": 117.43869999918388,
+      "detections": 300
+    },
+    {
+      "imageId": 318455,
+      "preprocessMs": 12.004000003798865,
+      "inferenceMs": 171.1552999986452,
+      "detections": 300
+    },
+    {
+      "imageId": 341828,
+      "preprocessMs": 14.54340000054799,
+      "inferenceMs": 95.38120000070194,
+      "detections": 300
+    },
+    {
+      "imageId": 352760,
+      "preprocessMs": 13.926800005719997,
+      "inferenceMs": 93.44010000495473,
+      "detections": 300
+    },
+    {
+      "imageId": 356094,
+      "preprocessMs": 14.141200001176912,
+      "inferenceMs": 95.6023999970057,
+      "detections": 300
+    },
+    {
+      "imageId": 360951,
+      "preprocessMs": 11.694699998770375,
+      "inferenceMs": 121.19359999633161,
+      "detections": 300
+    },
+    {
+      "imageId": 368212,
+      "preprocessMs": 13.995100001920946,
+      "inferenceMs": 98.3194000000367,
+      "detections": 300
+    },
+    {
+      "imageId": 376093,
+      "preprocessMs": 12.225200000102632,
+      "inferenceMs": 143.17580000351882,
+      "detections": 300
+    },
+    {
+      "imageId": 376900,
+      "preprocessMs": 12.222999997902662,
+      "inferenceMs": 113.66709999856539,
+      "detections": 300
+    },
+    {
+      "imageId": 377497,
+      "preprocessMs": 12.599499998032115,
+      "inferenceMs": 93.62599999440135,
+      "detections": 300
+    },
+    {
+      "imageId": 386879,
+      "preprocessMs": 14.794000002439134,
+      "inferenceMs": 96.39609999430832,
+      "detections": 300
+    },
+    {
+      "imageId": 426372,
+      "preprocessMs": 11.791500000981614,
+      "inferenceMs": 100.64630000124453,
+      "detections": 300
+    },
+    {
+      "imageId": 438862,
+      "preprocessMs": 15.151799998420756,
+      "inferenceMs": 115.54759999853559,
+      "detections": 300
+    },
+    {
+      "imageId": 439854,
+      "preprocessMs": 12.03479999821866,
+      "inferenceMs": 119.47529999451945,
+      "detections": 300
+    },
+    {
+      "imageId": 458325,
+      "preprocessMs": 12.970699994184542,
+      "inferenceMs": 123.50580000202172,
+      "detections": 300
+    },
+    {
+      "imageId": 459195,
+      "preprocessMs": 14.657799998531118,
+      "inferenceMs": 98.8640000068699,
+      "detections": 300
+    },
+    {
+      "imageId": 472623,
+      "preprocessMs": 13.777699998172466,
+      "inferenceMs": 99.80479999649106,
+      "detections": 300
+    },
+    {
+      "imageId": 479099,
+      "preprocessMs": 14.15850000194041,
+      "inferenceMs": 95.46369999588933,
+      "detections": 300
+    },
+    {
+      "imageId": 481386,
+      "preprocessMs": 13.977600006910507,
+      "inferenceMs": 173.3403999969596,
+      "detections": 300
+    },
+    {
+      "imageId": 483999,
+      "preprocessMs": 11.63319999614032,
+      "inferenceMs": 211.68609999585897,
+      "detections": 300
+    },
+    {
+      "imageId": 486479,
+      "preprocessMs": 13.406800004304387,
+      "inferenceMs": 121.7010999971535,
+      "detections": 300
+    },
+    {
+      "imageId": 492992,
+      "preprocessMs": 17.681199999060482,
+      "inferenceMs": 113.62579999695299,
+      "detections": 300
+    },
+    {
+      "imageId": 493334,
+      "preprocessMs": 18.367799995758105,
+      "inferenceMs": 126.36229999770876,
+      "detections": 300
+    },
+    {
+      "imageId": 497599,
+      "preprocessMs": 13.98479999625124,
+      "inferenceMs": 129.2115999967791,
+      "detections": 300
+    },
+    {
+      "imageId": 511398,
+      "preprocessMs": 12.395799996738788,
+      "inferenceMs": 101.46169999643462,
+      "detections": 300
+    },
+    {
+      "imageId": 527960,
+      "preprocessMs": 15.255300000717398,
+      "inferenceMs": 105.91479999857256,
+      "detections": 300
+    },
+    {
+      "imageId": 529568,
+      "preprocessMs": 12.440099999366794,
+      "inferenceMs": 154.58380000200123,
+      "detections": 300
+    },
+    {
+      "imageId": 541123,
+      "preprocessMs": 13.212000005296431,
+      "inferenceMs": 145.51799999753712,
+      "detections": 300
+    },
+    {
+      "imageId": 543300,
+      "preprocessMs": 12.46990000072401,
+      "inferenceMs": 103.59849999804283,
+      "detections": 300
+    },
+    {
+      "imageId": 546219,
+      "preprocessMs": 12.630500001250766,
+      "inferenceMs": 166.947199999413,
+      "detections": 300
+    },
+    {
+      "imageId": 562818,
+      "preprocessMs": 14.830200001597404,
+      "inferenceMs": 103.24939999554772,
+      "detections": 300
+    },
+    {
+      "imageId": 570456,
+      "preprocessMs": 12.741699996695388,
+      "inferenceMs": 132.59690000268165,
+      "detections": 300
+    }
+  ],
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "onnxruntime": "1.20.1",
+    "backend": "CPUExecutionProvider",
+    "intraOpThreads": 4
+  },
+  "preprocessing": "Pillow BICUBIC"
+}

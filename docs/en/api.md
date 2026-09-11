@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/api.md)
 
-All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.2.0 API; see the [release notes](release-0.2.0.md) for version changes.
+All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.3.0 API; see the [release notes](release-0.3.0.md) for version changes.
 
 ## `createPPDetection(options?)`
 
@@ -85,3 +85,7 @@ The Demo cancels and awaits current work, releases the session, clears caches, a
 are outside the cross-environment coordination guarantee.
 
 `loadTimings.modelSource` distinguishes `network`, `cache`, and `memory`. `runtime.runtimeVersion` and `runtime.environment` describe the loaded ORT and current environment; each result snapshots its execution backend. These optional fields are available from 0.2.0. See [performance](performance.md) for timing semantics.
+
+## 实验变体选项（0.3.0 起）
+
+0.3.0 增加 `allowExperimental?: boolean`，默认 `false`。显式开启时可以运行 `status: "labs"` 的模型；`blocked` 仍拒绝，同精度优先选择稳定变体。这个选项不会放宽 SHA-256 或后端校验，也不代表候选已经达到稳定发布门槛。PP-YOLOE 0.1.0 为稳定模型，正常加载无需开启该选项。见[PP-YOLOE 候选接入](../../examples/ppyoloe-candidate/README.md)和[验证证据](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。

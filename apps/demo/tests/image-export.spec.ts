@@ -1,3 +1,4 @@
+import { expandDetails } from "./details-helpers";
 import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "playwright/test";
 
@@ -51,6 +52,7 @@ test("没有检测到目标也可导出，清理缓存后禁止导出旧结果",
   await detectSample(page);
   await expect(page.getByTestId("detection-section")).toContainText("0 个目标");
   expect((await downloadImage(page, "导出标注图片")).length).toBeGreaterThan(1000);
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="current"]').click();
   await expect(page.getByRole("button", { name: "导出标注图片", exact: true })).toBeDisabled();
 });

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-09-11",
+  "repository": {
+    "kind": "huggingface",
+    "id": "chenmohan/web-sdk-pp-detection",
+    "branch": "main",
+    "targetDirectory": "ppyoloe-plus-s-640/0.1.0-labs.1"
+  },
+  "policy": {
+    "replaceExisting": false,
+    "stableRootFilesUntouched": true,
+    "twoPhaseUpload": true,
+    "description": "第一阶段上传模型、模型卡与许可并取得真实模型 revision；第二阶段上传引用该 revision 的 manifest。"
+  },
+  "phase1": {
+    "status": "uploaded-and-verified",
+    "revision": "45a646ce13dcf2e2c05231954b1e32b9c412720b",
+    "files": [
+      {
+        "localPath": ".tmp/phase2/ppyoloe-plus-s-candidate.onnx",
+        "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+        "bytes": 31954220,
+        "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+      },
+      {
+        "localPath": "models/ppyoloe-plus-s-640/README.md",
+        "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/README.md",
+        "bytes": 2810,
+        "sha256": "b9ed546f85a2cb1a731df9abdc95f52f6d55963152ce45dbcdca3c12be526d37"
+      },
+      {
+        "localPath": "models/ppyoloe-plus-s-640/LICENSE",
+        "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    ]
+  },
+  "phase2": {
+    "status": "uploaded-and-verified",
+    "revision": "dd05670d8e54c187112cc77051cd742cdbba7e24",
+    "files": [
+      {
+        "localPath": "models/ppyoloe-plus-s-640/manifest.json",
+        "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+        "bytes": 3262,
+        "sha256": "7c319d86a80f4d09ba4bdfaa22b12b1e27d607d0b573ac6ecd84a62641c74d1b"
+      }
+    ]
+  },
+  "unavailableMirrors": [
+    {
+      "kind": "modelscope",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "reason": "现有 ModelScope CLI 身份检查返回 Missing API token；未登录、未上传。"
+    }
+  ]
+}

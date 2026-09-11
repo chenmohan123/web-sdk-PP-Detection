@@ -115,6 +115,29 @@ describe("createPPDetection", () => {
     expect(create).toHaveBeenCalledTimes(1);
   });
 
+  it("显式允许实验变体时 factory 可以加载 labs 模型", async () => {
+    const release = vi.fn();
+    const create = vi.fn(async () => ({ run: vi.fn(), release }));
+    const labsManifest: RuntimeDetectionManifest = {
+      ...manifest,
+      variants: [{ ...manifest.variants[0], status: "labs" }]
+    };
+
+    const detector = await createPPDetection({
+      allowExperimental: true,
+      backend: "wasm",
+      cache: false,
+      model: { data: new Uint8Array([1, 2, 3, 4]).buffer, manifest: labsManifest },
+      ort: { module: { env: { wasm: {} }, InferenceSession: { create } } },
+      precision: "fp32"
+    });
+
+    expect(create).toHaveBeenCalledTimes(1);
+    expect(detector.model.variantId).toBe("fp32");
+    await detector.dispose();
+    expect(release).toHaveBeenCalledTimes(1);
+  });
+
   it("内存模型经完整性校验和 ORT Session 加载后可直接检测", async () => {
     const release = vi.fn();
     const run = vi.fn(async () => ({

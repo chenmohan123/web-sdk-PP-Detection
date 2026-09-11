@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-11T16:36:58.394Z",
+  "testDate": "2026-09-12",
+  "timeZone": "Asia/Shanghai",
+  "status": "基础功能人工验证通过，完整移动验收未完成",
+  "userReport": {
+    "text": "小米测试好像没什么问题，CPU和GPU也都是对的",
+    "device": "小米 15",
+    "cpu": "用户反馈正常，未提供 CPU 运行时截图或导出 JSON",
+    "gpu": "用户反馈正常，附截图确认实际后端为 webgpu"
+  },
+  "screenshot": {
+    "path": "user-screenshot.jpg",
+    "bytes": 3110668,
+    "sha256": "ff441af7d93c693013db58d6ef82fe9fdd4ab606f7e41a612ecf44baf379be4e",
+    "width": 1200,
+    "height": 11228,
+    "source": "用户原始截图，保留原始字节"
+  },
+  "observations": {
+    "model": {
+      "id": "ppyoloe-plus-s-640",
+      "version": "0.1.0-labs.1",
+      "status": "labs",
+      "source": "modelscope",
+      "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "displaySize": "30.5 MB"
+    },
+    "input": "后置摄像头 camera 0, facing back",
+    "selectedBackend": "auto",
+    "actualBackend": "webgpu",
+    "precision": "fp32",
+    "executionMode": "main",
+    "runtimeVersion": "1.27.0",
+    "sdkDisplayedVersion": "0.2.0",
+    "sdkBuild": "当前开发工作树构建，新增 PP-YOLOE 功能尚未随 npm 发布",
+    "browser": {
+      "family": "Microsoft Edge Android",
+      "reportedVersion": "152.0.0.0",
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36 EdgA/152.0.0.0",
+      "platform": "Linux armv81",
+      "environmentCapturedAt": "2026-09-11T16:31:25.262Z",
+      "actualAndroidVersion": null,
+      "hyperOSVersion": null,
+      "gpuAdapter": null,
+      "gpuDriver": null,
+      "note": "UA 中 Android 10 / K 属于精简标识，不作为真实系统版本；GPU 型号和驱动未采集。"
+    },
+    "initializationMs": {
+      "total": 5210,
+      "download": 1998,
+      "cacheRead": 6,
+      "integrity": 22,
+      "session": 3086
+    },
+    "modelAcquisition": "网络下载",
+    "currentFrameMs": {
+      "total": 201,
+      "decode": 3,
+      "preprocess": 55,
+      "inference": 133,
+      "postprocess": 0
+    },
+    "detectionSummary": {
+      "count": 3,
+      "labels": {
+        "盆栽": 2,
+        "电视": 1
+      }
+    },
+    "cacheDisplay": {
+      "current": "30.5 MB",
+      "all": "52.6 MB"
+    },
+    "preview": "局域网临时 HTTPS，接受本地证书提示"
+  },
+  "limitations": [
+    "单张长截图包含动态页面，结果和耗时可能来自不同帧；数值仅为页面显示快照。",
+    "未收到导出 JSON，不能补造请求后端、fallback 列表、CPU 耗时或连续帧统计。",
+    "尚未完成长时间摄像头、发热/内存、取消/切换、缓存隔离、双来源和媒体释放的完整实机验收。",
+    "证据范围为小米 15 上本轮 Android Edge 测试，不扩展到其他手机、Chrome 或微信 WebView。"
+  ]
+}

@@ -1,37 +1,71 @@
-export type ModelSourceKey = "modelscope" | "huggingface";
+import {
+  parseDetectionManifest,
+  type ModelSourceKind,
+  type RuntimeDetectionManifest
+} from "web-sdk-pp-detection";
+import picoDetManifestJson from "../../../models/pp-detection/manifest.json";
+import ppyoloeManifestJson from "../../../models/ppyoloe-plus-s-640/manifest.json";
 
-export interface ModelSourceOption {
-  readonly available: boolean;
-  readonly disabledReason?: Readonly<{ en: string; zh: string }>;
-  readonly key: ModelSourceKey;
+export type DemoModelKey = "picodet-l-320" | "ppyoloe-plus-s-640";
+export type ModelSourceKey = Extract<ModelSourceKind, "modelscope" | "huggingface">;
+
+export interface DemoModelOption {
+  readonly experimental: boolean;
+  readonly key: DemoModelKey;
   readonly label: Readonly<{ en: string; zh: string }>;
-  readonly manifestUrl?: string;
+  readonly manifest: RuntimeDetectionManifest;
+  readonly manifestPath: string;
 }
 
-export const DEFAULT_MODEL_SOURCE: ModelSourceKey = "modelscope";
+export interface ModelSourceOption {
+  readonly key: ModelSourceKey;
+  readonly label: Readonly<{ en: string; zh: string }>;
+}
 
-const MANIFEST_URLS = {
-  huggingface:
-    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/manifest.json?v=1.0.1",
-  modelscope:
-    "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1"
-} as const;
+export const DEFAULT_MODEL: DemoModelKey = "picodet-l-320";
 
-export const MODEL_SOURCE_OPTIONS: readonly ModelSourceOption[] = [
+export const MODEL_SOURCE_LABELS: Readonly<Record<ModelSourceKey, ModelSourceOption["label"]>> = {
+  modelscope: { en: "ModelScope", zh: "ModelScope" },
+  huggingface: { en: "Hugging Face", zh: "Hugging Face" }
+};
+
+const MODEL_SOURCE_ORDER: readonly ModelSourceKey[] = ["modelscope", "huggingface"];
+
+export const MODEL_OPTIONS: readonly DemoModelOption[] = [
   {
-    available: true,
-    key: "modelscope",
-    label: { en: "ModelScope", zh: "ModelScope" },
-    manifestUrl: MANIFEST_URLS.modelscope
+    experimental: false,
+    key: "picodet-l-320",
+    label: { en: "PicoDet-L 320", zh: "PicoDet-L 320" },
+    manifest: parseDetectionManifest(picoDetManifestJson),
+    manifestPath: "models/pp-detection/manifest.json"
   },
   {
-    available: true,
-    key: "huggingface",
-    label: { en: "Hugging Face", zh: "Hugging Face" },
-    manifestUrl: MANIFEST_URLS.huggingface
+    experimental: false,
+    key: "ppyoloe-plus-s-640",
+    label: { en: "PP-YOLOE+ S 640", zh: "PP-YOLOE+ S 640" },
+    manifest: parseDetectionManifest(ppyoloeManifestJson),
+    manifestPath: "models/ppyoloe-plus-s-640/manifest.json"
   }
 ] as const;
 
-export function selectionToModel(source: ModelSourceKey): string | undefined {
-  return MODEL_SOURCE_OPTIONS.find((option) => option.key === source)?.manifestUrl;
+export function modelOption(key: DemoModelKey): DemoModelOption {
+  const option = MODEL_OPTIONS.find((candidate) => candidate.key === key);
+  if (option === undefined) throw new Error(`未知 Demo 模型：${key}`);
+  return option;
+}
+
+export function sourceOptions(option: DemoModelOption): readonly ModelSourceOption[] {
+  const kinds = new Set<ModelSourceKind>();
+  for (const variant of option.manifest.variants) {
+    for (const source of variant.sources) kinds.add(source.kind);
+  }
+  return MODEL_SOURCE_ORDER.filter((key) => kinds.has(key)).map((key) => ({
+    key,
+    label: MODEL_SOURCE_LABELS[key]
+  }));
+}
+
+export function defaultSource(option: DemoModelOption): ModelSourceKey {
+  const options = sourceOptions(option);
+  return options[0].key;
 }

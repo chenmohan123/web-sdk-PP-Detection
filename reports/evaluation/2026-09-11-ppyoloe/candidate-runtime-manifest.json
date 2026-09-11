@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "model": {
+    "id": "ppyoloe-plus-s-640",
+    "version": "b25522a0"
+  },
+  "input": {
+    "name": "image",
+    "shape": [
+      1,
+      3,
+      640,
+      640
+    ],
+    "dtype": "float32"
+  },
+  "outputs": [
+    {
+      "name": "save_infer_model/scale_0.tmp_0",
+      "shape": [
+        -1,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "save_infer_model/scale_1.tmp_0",
+      "shape": [
+        1
+      ],
+      "dtype": "int32"
+    }
+  ],
+  "preprocessing": {
+    "size": {
+      "width": 640,
+      "height": 640
+    },
+    "rescaleFactor": 0.00392156862745098,
+    "resizeMode": "stretch",
+    "interpolation": "bicubic",
+    "mean": [
+      0,
+      0,
+      0
+    ],
+    "std": [
+      1,
+      1,
+      1
+    ],
+    "doResize": true,
+    "doRescale": true,
+    "doNormalize": true
+  },
+  "postprocessing": {
+    "type": "nms",
+    "scoreThreshold": 0.001,
+    "iouThreshold": 1.0,
+    "matrixCoordinates": "pixels",
+    "queryCoordinates": "pixels",
+    "queryBoxFormat": "xyxy"
+  },
+  "labels": [
+    "person",
+    "bicycle",
+    "car",
+    "motorcycle",
+    "airplane",
+    "bus",
+    "train",
+    "truck",
+    "boat",
+    "traffic light",
+    "fire hydrant",
+    "stop sign",
+    "parking meter",
+    "bench",
+    "bird",
+    "cat",
+    "dog",
+    "horse",
+    "sheep",
+    "cow",
+    "elephant",
+    "bear",
+    "zebra",
+    "giraffe",
+    "backpack",
+    "umbrella",
+    "handbag",
+    "tie",
+    "suitcase",
+    "frisbee",
+    "skis",
+    "snowboard",
+    "sports ball",
+    "kite",
+    "baseball bat",
+    "baseball glove",
+    "skateboard",
+    "surfboard",
+    "tennis racket",
+    "bottle",
+    "wine glass",
+    "cup",
+    "fork",
+    "knife",
+    "spoon",
+    "bowl",
+    "banana",
+    "apple",
+    "sandwich",
+    "orange",
+    "broccoli",
+    "carrot",
+    "hot dog",
+    "pizza",
+    "donut",
+    "cake",
+    "chair",
+    "couch",
+    "potted plant",
+    "bed",
+    "dining table",
+    "toilet",
+    "tv",
+    "laptop",
+    "mouse",
+    "remote",
+    "keyboard",
+    "cell phone",
+    "microwave",
+    "oven",
+    "toaster",
+    "sink",
+    "refrigerator",
+    "book",
+    "clock",
+    "vase",
+    "scissors",
+    "teddy bear",
+    "hair drier",
+    "toothbrush"
+  ],
+  "variants": [
+    {
+      "id": "ppyoloe-plus-s-640-fp32",
+      "precision": "fp32",
+      "quantization": null,
+      "opset": 11,
+      "bytes": 31954220,
+      "parameterCount": null,
+      "backends": [
+        "wasm",
+        "webgpu"
+      ],
+      "status": "labs",
+      "sources": [
+        {
+          "kind": "custom",
+          "repository": "PaddlePaddle/PaddleDetection",
+          "revision": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+          "path": "ppyoloe-plus-s-candidate.onnx",
+          "downloadUrl": "http://localhost:4173/ppyoloe-plus-s-candidate.onnx",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      ]
+    }
+  ]
+}

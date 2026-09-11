@@ -164,6 +164,7 @@ export interface PPDetectionProgressEvent {
 }
 
 export interface CreatePPDetectionOptions {
+  readonly allowExperimental?: boolean;
   readonly allowFallback?: boolean;
   readonly backend?: BackendPreference;
   readonly cache?: boolean | "memory" | "indexeddb";

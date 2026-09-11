@@ -1,29 +1,12 @@
 import { expect, test, type Response } from "playwright/test";
-import { TINY_MODEL_BASE64, tinyModelManifest } from "../src/fixture";
 
 for (const source of ["huggingface", "modelscope"] as const) {
-  test(`普通页面通过 ${source} 模型路径加载真实 WASM 并完成检测`, async ({ page }) => {
-    const hostname = source === "modelscope" ? "www.modelscope.cn" : "huggingface.co";
-    const modelUrl = `https://${hostname}/demo-runtime-test/model.onnx`;
-    const manifest = {
-      ...tinyModelManifest,
-      variants: tinyModelManifest.variants.map((variant) => ({ ...variant, url: modelUrl }))
-    };
-    // 只替换外部模型传输，保留页面、SDK、Worker 与 WASM 的真实执行链。
-    await page.route(`https://${hostname}/**/manifest.json*`, (route) =>
-      route.fulfill({ json: manifest })
-    );
-    await page.route(modelUrl, (route) =>
-      route.fulfill({
-        body: Buffer.from(TINY_MODEL_BASE64, "base64"),
-        contentType: "application/octet-stream"
-      })
-    );
+  test(`fixture 通过 ${source} 来源选择加载真实 WASM 并完成检测`, async ({ page }) => {
     const wasmResponses: Response[] = [];
     page.on("response", (response) => {
       if (new URL(response.url()).pathname.endsWith(".wasm")) wasmResponses.push(response);
     });
-    await page.goto("./");
+    await page.goto("./?fixture=1");
     await page.getByLabel("模型来源", { exact: true }).selectOption(source);
     await page.getByRole("button", { name: "CPU", exact: true }).click();
     await page.locator(".sample-card").first().click();

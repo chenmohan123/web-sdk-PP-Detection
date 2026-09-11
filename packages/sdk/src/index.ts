@@ -23,7 +23,7 @@ declare global {
   var __PPDETECTION_SCRIPT_URL__: string | undefined;
 }
 
-export const CURRENT_SDK_VERSION = "0.2.0";
+export const CURRENT_SDK_VERSION = "0.3.0";
 
 export type {
   Backend,
@@ -249,6 +249,7 @@ export async function createPPDetection(
 
   const plan = selectExecutionPlan(
     {
+      allowExperimental: options.allowExperimental,
       backend: options.backend,
       precision: options.precision === "auto" ? undefined : options.precision,
       executionMode: options.executionMode,

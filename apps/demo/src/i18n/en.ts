@@ -3,7 +3,9 @@ import type { Copy } from "./zh-CN";
 export const en: Copy = {
   language: "中文",
   backend: "Execution backend",
+  model: "Detection model",
   modelRepository: "Model source",
+  experimental: "Labs",
   unavailable: "Unavailable",
   unknown: "Unknown",
   manifest: "Manifest",
@@ -42,15 +44,11 @@ export const en: Copy = {
   result: "Detection result",
   showLabels: "Show labels",
   imageView: "Image view",
-  viewHelp: "View help",
   zoomIn: "Zoom in",
   zoomOut: "Zoom out",
   zoomLevel: "Zoom relative to fit",
   fitWindow: "Fit to window",
   resetView: "Reset view",
-  zoomHint: "Scroll or pinch to zoom, drag to pan. Export keeps the full image.",
-  targetHint:
-    "Click a box or result to locate an object; click empty space to clear. Stop video to inspect a frame.",
   selectedTarget: "Selected",
   clearSelection: "Clear selection",
   filterClasses: "Filter classes",
@@ -65,6 +63,9 @@ export const en: Copy = {
   classThresholdHint: "Leave blank to inherit the global threshold",
   clearClassThresholds: "Clear class thresholds",
   performance: "Performance",
+  performanceDetails: "Timing details",
+  cacheManagement: "Cache management",
+  awaitingDetection: "Detected objects will appear here",
   modelInfo: "Model information",
   modelName: "Name",
   requestedSource: "Requested source",
@@ -82,10 +83,6 @@ export const en: Copy = {
   runtimeUserAgent: "Browser environment",
   runtimeCapturedAt: "Environment captured at",
   initializationGroup: "Initialization",
-  imageInitialization:
-    "Each image detection initializes a session. Timings below describe that initialization.",
-  mediaInitialization:
-    "Video and camera frames reuse one session. Timings below describe that session's initialization.",
   detectionGroup: "Current detection",
   frameDetectionGroup: "Current frame detection",
   total: "End-to-end time",
@@ -95,8 +92,6 @@ export const en: Copy = {
   preprocess: "Preprocess",
   inference: "Model inference",
   postprocess: "Postprocess",
-  timingOverhead:
-    "End-to-end time also includes small Worker communication and result-transfer overhead.",
   exportJson: "Export JSON",
   exportImage: "Export annotated image",
   exportingImage: "Exporting image…",
@@ -106,8 +101,6 @@ export const en: Copy = {
   clearAllCache: "Clear all SDK caches",
   currentCache: "Current model cache",
   allCache: "All SDK caches",
-  cacheScope:
-    "Clearing cancels current work and releases the session. Only Detection model caches are removed. Images stay local.",
   cacheCleared: "Cache cleared",
   cpuFp16Unsupported:
     "The current model does not validate FP16 on CPU. Model precision was switched for you.",
@@ -126,8 +119,6 @@ export const en: Copy = {
   fallback: "Fallback records",
   selectHint: "PNG, JPG, and WEBP; one image per run.",
   samples: "Sample images",
-  sampleAttribution: "PaddleDetection official demo",
-  sampleSource: "Source",
   modelDownload: "Model download",
   modelCache: "Cache read",
   integrity: "Integrity check",

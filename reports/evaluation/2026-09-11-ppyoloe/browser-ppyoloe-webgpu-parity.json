@@ -1,0 +1,4804 @@
+{
+  "iouThreshold": 0.99,
+  "scoreThreshold": 0.5,
+  "summary": {
+    "referenceCount": 443,
+    "candidateCount": 443,
+    "matchedCount": 419,
+    "unmatchedReferenceCount": 24,
+    "unmatchedCandidateCount": 24,
+    "maxScoreDelta": 0.040111005306243896,
+    "maxBboxDeltaPixels": 1.868011474609375
+  },
+  "images": [
+    {
+      "imageId": 10977,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 44,
+          "iou": 0.9999972883796133,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 2.384185791015625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 44,
+          "iou": 0.9999953611830747,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 7.152557373046875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 70,
+          "iou": 0.9999985640707142,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 4.76837158203125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 81,
+          "iou": 0.9999972468493576,
+          "scoreDelta": 1.8477439880371094e-06,
+          "maxBboxDeltaPixels": 7.152557370204704e-05
+        }
+      ],
+      "maxScoreDelta": 1.8477439880371094e-06,
+      "maxBboxDeltaPixels": 7.152557373046875e-05
+    },
+    {
+      "imageId": 26690,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999990240336589,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999965287763857,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 9.416937827921856e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999978564626099,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999971881223464,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 8.14437866551998e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999978717483982,
+          "scoreDelta": 1.5497207641601562e-06,
+          "maxBboxDeltaPixels": 6.108283994876729e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999986861860459,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 8.14437866551998e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999971352323646,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 8.144378659835638e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999985544214365,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.999998267870329,
+          "scoreDelta": 2.384185791015625e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        }
+      ],
+      "maxScoreDelta": 2.384185791015625e-06,
+      "maxBboxDeltaPixels": 9.416937827921856e-05
+    },
+    {
+      "imageId": 27186,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9980213419015042,
+          "scoreDelta": 0.0014719963073730469,
+          "maxBboxDeltaPixels": 0.22647457122809556
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 63,
+          "iou": 0.9984064632945407,
+          "scoreDelta": 0.022739946842193604,
+          "maxBboxDeltaPixels": 0.27340421676638016
+        }
+      ],
+      "maxScoreDelta": 0.022739946842193604,
+      "maxBboxDeltaPixels": 0.27340421676638016
+    },
+    {
+      "imageId": 27932,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 4,
+          "iou": 0.9967099696502323,
+          "scoreDelta": 0.02701127529144287,
+          "maxBboxDeltaPixels": 0.5297671794891414
+        }
+      ],
+      "maxScoreDelta": 0.02701127529144287,
+      "maxBboxDeltaPixels": 0.5297671794891414
+    },
+    {
+      "imageId": 60823,
+      "referenceCount": 23,
+      "candidateCount": 23,
+      "matchedCount": 23,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999988925232044,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 16,
+          "iou": 0.999998537877731,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 16,
+          "iou": 0.9999993875445867,
+          "scoreDelta": 4.351139068603516e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 16,
+          "iou": 0.9999996495867051,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 16,
+          "iou": 0.9999981899911391,
+          "scoreDelta": 2.205371856689453e-06,
+          "maxBboxDeltaPixels": 3.4332275390625e-05
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 16,
+          "iou": 0.9999980131999967,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 19,
+          "candidateIndex": 19,
+          "categoryId": 16,
+          "iou": 0.9999990376342741,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 16,
+          "iou": 0.9999986498269452,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 18,
+          "candidateIndex": 18,
+          "categoryId": 16,
+          "iou": 1.0,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 16,
+          "iou": 0.9999981710326308,
+          "scoreDelta": 2.682209014892578e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 16,
+          "iou": 0.9999982241461239,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 0.000274658203125
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 16,
+          "iou": 0.9999988504381746,
+          "scoreDelta": 1.9669532775878906e-06,
+          "maxBboxDeltaPixels": 3.4332275390625e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 16,
+          "iou": 0.9999981064765858,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 16,
+          "iou": 0.999999810555219,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 1.1444091796875e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 16,
+          "iou": 0.9999988552484569,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 20,
+          "candidateIndex": 20,
+          "categoryId": 16,
+          "iou": 0.99999897301705,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 16,
+          "iou": 0.9999989672078153,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 16,
+          "iou": 0.9999985793331706,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 16,
+          "iou": 0.9999993164206693,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 16,
+          "iou": 0.9999976497287678,
+          "scoreDelta": 2.7418136596679688e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 22,
+          "candidateIndex": 22,
+          "categoryId": 16,
+          "iou": 0.9999905287268802,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 0.00016021728515625
+        },
+        {
+          "referenceIndex": 21,
+          "candidateIndex": 21,
+          "categoryId": 16,
+          "iou": 0.9999975753755137,
+          "scoreDelta": 1.430511474609375e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 21,
+          "iou": 0.9999984447150827,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 0.000213623046875
+        }
+      ],
+      "maxScoreDelta": 4.351139068603516e-06,
+      "maxBboxDeltaPixels": 0.000274658203125
+    },
+    {
+      "imageId": 105264,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.999998525700628,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 2.0360946649589096e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999990381911559,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999935313487762,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.000244140625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.999997665700577,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999986032451713,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 4.07218933275999e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.999998945021093,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 8.144378662677809e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999990763686143,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 6.108283994876729e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999998215277189,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 2.0360946649589096e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 21,
+          "iou": 0.9999993588269215,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 0.0001068115234375
+        }
+      ],
+      "maxScoreDelta": 9.5367431640625e-07,
+      "maxBboxDeltaPixels": 0.000244140625
+    },
+    {
+      "imageId": 119516,
+      "referenceCount": 3,
+      "candidateCount": 3,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 1,
+      "unmatchedCandidateCount": 1,
+      "unmatchedReference": [
+        {
+          "image_id": 119516,
+          "category_id": 6,
+          "bbox": [
+            182.84999084472656,
+            205.27393321990968,
+            77.02091979980469,
+            30.072975683212263
+          ],
+          "score": 0.6967384815216064
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            182.74600219726562,
+            205.2544274330139,
+            77.24984741210938,
+            30.304988670349132
+          ],
+          "category_id": 6,
+          "image_id": 119516,
+          "score": 0.7562457323074341
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9941426530145151,
+          "scoreDelta": 0.0010894536972045898,
+          "maxBboxDeltaPixels": 0.22882080078125
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 2,
+          "iou": 0.9916983655308883,
+          "scoreDelta": 0.0027098655700683594,
+          "maxBboxDeltaPixels": 0.12326517105100265
+        }
+      ],
+      "maxScoreDelta": 0.0027098655700683594,
+      "maxBboxDeltaPixels": 0.22882080078125
+    },
+    {
+      "imageId": 119641,
+      "referenceCount": 18,
+      "candidateCount": 18,
+      "matchedCount": 18,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 1,
+          "iou": 0.9999942677379335,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 3.814697265625e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999976751464021,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.999996314413004,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999966232562831,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 1,
+          "iou": 0.999998411683655,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 1,
+          "iou": 0.9999893725044434,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 0.000274658203125
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 1,
+          "iou": 0.9999893237429534,
+          "scoreDelta": 2.562999725341797e-06,
+          "maxBboxDeltaPixels": 0.0002288818359375
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 1,
+          "iou": 0.999993499424243,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 1,
+          "iou": 0.9999984279893355,
+          "scoreDelta": 1.7285346984863281e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 1,
+          "iou": 0.9999911029695303,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 1,
+          "iou": 0.9999984416928203,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 1,
+          "iou": 0.9999880908543533,
+          "scoreDelta": 2.205371856689453e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 1.0,
+          "scoreDelta": 1.7881393432617188e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 22,
+          "iou": 0.999998826733122,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 22,
+          "iou": 0.9999990021236027,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 22,
+          "iou": 0.9999985215487959,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 22,
+          "iou": 0.9999990977921168,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 22,
+          "iou": 0.9999989834340411,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 2.562999725341797e-06,
+      "maxBboxDeltaPixels": 0.000274658203125
+    },
+    {
+      "imageId": 125072,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 2,
+      "unmatchedCandidateCount": 2,
+      "unmatchedReference": [
+        {
+          "image_id": 125072,
+          "category_id": 21,
+          "bbox": [
+            45.48994445800781,
+            201.11859369277954,
+            17.25921630859375,
+            12.60893373489381
+          ],
+          "score": 0.7320570945739746
+        },
+        {
+          "image_id": 125072,
+          "category_id": 21,
+          "bbox": [
+            89.13082885742188,
+            197.24614782333373,
+            17.54547882080078,
+            11.596959781646746
+          ],
+          "score": 0.6723896265029907
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            45.55417251586914,
+            201.1445713043213,
+            17.085582733154297,
+            12.581563663482655
+          ],
+          "category_id": 21,
+          "image_id": 125072,
+          "score": 0.7357027530670166
+        },
+        {
+          "bbox": [
+            89.07466125488281,
+            197.29349145889282,
+            16.77935791015625,
+            11.523833179473883
+          ],
+          "category_id": 21,
+          "image_id": 125072,
+          "score": 0.685546875
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 2,
+          "categoryId": 21,
+          "iou": 0.9941695853305949,
+          "scoreDelta": 0.00221860408782959,
+          "maxBboxDeltaPixels": 0.044633579254167444
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 21,
+          "iou": 0.9966185134269046,
+          "scoreDelta": 0.003116011619567871,
+          "maxBboxDeltaPixels": 0.0411224365234375
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 21,
+          "iou": 0.9970676299302892,
+          "scoreDelta": 0.00565338134765625,
+          "maxBboxDeltaPixels": 0.0394287109375
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 21,
+          "iou": 0.9909693312707615,
+          "scoreDelta": 0.0015641450881958008,
+          "maxBboxDeltaPixels": 0.1182861328125
+        }
+      ],
+      "maxScoreDelta": 0.00565338134765625,
+      "maxBboxDeltaPixels": 0.1182861328125
+    },
+    {
+      "imageId": 129756,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999995004947045,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 5.340576171875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999995034655621,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 18,
+          "iou": 0.9999986179430115,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 4.1961669921875e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 18,
+          "iou": 0.9999984483795263,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 20,
+          "iou": 0.9999981574811445,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 20,
+          "iou": 0.999996990501093,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 20,
+          "iou": 0.9999984499770651,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 20,
+          "iou": 1.0,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 20,
+          "iou": 0.9999993704019668,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 1.3709068298339844e-06,
+      "maxBboxDeltaPixels": 9.1552734375e-05
+    },
+    {
+      "imageId": 134322,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 4,
+      "unmatchedCandidateCount": 4,
+      "unmatchedReference": [
+        {
+          "image_id": 134322,
+          "category_id": 1,
+          "bbox": [
+            6.240176677703857,
+            365.82218170166016,
+            12.251604557037354,
+            42.20056915283203
+          ],
+          "score": 0.7228596210479736
+        },
+        {
+          "image_id": 134322,
+          "category_id": 1,
+          "bbox": [
+            24.656551361083984,
+            368.47755432128906,
+            17.982154846191406,
+            41.434478759765625
+          ],
+          "score": 0.8220093250274658
+        },
+        {
+          "image_id": 134322,
+          "category_id": 1,
+          "bbox": [
+            205.7821807861328,
+            374.3426284790039,
+            13.037124633789062,
+            28.62114715576172
+          ],
+          "score": 0.5074302554130554
+        },
+        {
+          "image_id": 134322,
+          "category_id": 1,
+          "bbox": [
+            455.62933349609375,
+            352.0516662597656,
+            10.89349365234375,
+            17.15288543701172
+          ],
+          "score": 0.5016984939575195
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            6.15360689163208,
+            365.94969177246094,
+            12.325114727020264,
+            42.17958068847656
+          ],
+          "category_id": 1,
+          "image_id": 134322,
+          "score": 0.7297244668006897
+        },
+        {
+          "bbox": [
+            24.676761627197266,
+            368.5099868774414,
+            17.763294219970703,
+            41.495338439941406
+          ],
+          "category_id": 1,
+          "image_id": 134322,
+          "score": 0.8211276531219482
+        },
+        {
+          "bbox": [
+            45.03607177734375,
+            460.34710693359375,
+            25.60980224609375,
+            19.175949096679688
+          ],
+          "category_id": 1,
+          "image_id": 134322,
+          "score": 0.5012499094009399
+        },
+        {
+          "bbox": [
+            205.69615173339844,
+            374.36590576171875,
+            13.360015869140625,
+            28.701324462890625
+          ],
+          "category_id": 1,
+          "image_id": 134322,
+          "score": 0.517809271812439
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9945695900048889,
+          "scoreDelta": 0.017641842365264893,
+          "maxBboxDeltaPixels": 0.076141357421875
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 38,
+          "iou": 0.9989153356081688,
+          "scoreDelta": 0.00016391277313232422,
+          "maxBboxDeltaPixels": 0.056914329528808594
+        }
+      ],
+      "maxScoreDelta": 0.017641842365264893,
+      "maxBboxDeltaPixels": 0.076141357421875
+    },
+    {
+      "imageId": 166563,
+      "referenceCount": 0,
+      "candidateCount": 0,
+      "matchedCount": 0,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [],
+      "maxScoreDelta": null,
+      "maxBboxDeltaPixels": null
+    },
+    {
+      "imageId": 173091,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 44,
+          "iou": 0.9999987968971336,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 0.00020427703861969349
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 67,
+          "iou": 0.99999980096067,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 5.8364868209537235e-05
+        }
+      ],
+      "maxScoreDelta": 1.0132789611816406e-06,
+      "maxBboxDeltaPixels": 0.00020427703861969349
+    },
+    {
+      "imageId": 200152,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 32,
+          "iou": 0.9999991514298828,
+          "scoreDelta": 4.708766937255859e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        }
+      ],
+      "maxScoreDelta": 4.708766937255859e-06,
+      "maxBboxDeltaPixels": 3.0517578125e-05
+    },
+    {
+      "imageId": 203629,
+      "referenceCount": 14,
+      "candidateCount": 14,
+      "matchedCount": 14,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.999995741269426,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.00037384033203125
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999990801523978,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 1,
+          "iou": 0.9999986604970368,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 5.09023666666053e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.999999470853966,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.00015270709991455078
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999948440476739,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 1,
+          "iou": 0.9999990321992154,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 4.07218933275999e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 1,
+          "iou": 0.9999964532336417,
+          "scoreDelta": 2.1457672119140625e-06,
+          "maxBboxDeltaPixels": 2.0360946621167386e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.999997367932997,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999988638056737,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 0.00018324851984630186
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 1,
+          "iou": 0.9999974728645398,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999986048410748,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 3.054141996017279e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999980780543188,
+          "scoreDelta": 1.6689300537109375e-06,
+          "maxBboxDeltaPixels": 8.144378662677809e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 46,
+          "iou": 0.9999978533471169,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 4.072189324233477e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 46,
+          "iou": 0.999999001448897,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        }
+      ],
+      "maxScoreDelta": 2.1457672119140625e-06,
+      "maxBboxDeltaPixels": 0.00037384033203125
+    },
+    {
+      "imageId": 204871,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 6,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999979560342102,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 4.377365112873122e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 3,
+          "iou": 0.9999986991755702,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 0.00011672973630538763
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 3,
+          "iou": 0.9999990675142039,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 2.9182434104768618e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 3,
+          "iou": 0.9999973677790828,
+          "scoreDelta": 1.5497207641601562e-06,
+          "maxBboxDeltaPixels": 0.00010943412780761719
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 10,
+          "iou": 0.9999960343866892,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 5.1069259640712517e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 11,
+          "iou": 0.9999994676174281,
+          "scoreDelta": 1.430511474609375e-06,
+          "maxBboxDeltaPixels": 8.7547302250357e-05
+        }
+      ],
+      "maxScoreDelta": 1.5497207641601562e-06,
+      "maxBboxDeltaPixels": 0.00011672973630538763
+    },
+    {
+      "imageId": 208423,
+      "referenceCount": 15,
+      "candidateCount": 15,
+      "matchedCount": 15,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 3,
+          "iou": 0.9999992607503532,
+          "scoreDelta": 2.9802322387695312e-06,
+          "maxBboxDeltaPixels": 2.6702880859375e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 3,
+          "iou": 0.999998192684997,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 8.392333984375e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 3,
+          "iou": 0.9999979205106049,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 3,
+          "iou": 0.9999987795734772,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 3,
+          "iou": 0.9999964645113361,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 3,
+          "iou": 0.9999994724303998,
+          "scoreDelta": 1.6689300537109375e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 3,
+          "iou": 0.9999994806160725,
+          "scoreDelta": 3.516674041748047e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 38,
+          "iou": 0.9999982904838806,
+          "scoreDelta": 2.9802322387695312e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 38,
+          "iou": 0.9999974905657028,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 38,
+          "iou": 0.9999986668272399,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 38,
+          "iou": 1.0,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 38,
+          "iou": 0.9999934402180789,
+          "scoreDelta": 2.86102294921875e-06,
+          "maxBboxDeltaPixels": 0.00011444091796875
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 38,
+          "iou": 0.9999963857773109,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 38,
+          "iou": 0.999999694663481,
+          "scoreDelta": 2.682209014892578e-06,
+          "maxBboxDeltaPixels": 7.152557373046875e-06
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 38,
+          "iou": 0.9999976503207312,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        }
+      ],
+      "maxScoreDelta": 3.516674041748047e-06,
+      "maxBboxDeltaPixels": 0.00011444091796875
+    },
+    {
+      "imageId": 209142,
+      "referenceCount": 16,
+      "candidateCount": 16,
+      "matchedCount": 16,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 48,
+          "iou": 0.9999988091276812,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 0.00018310546875
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 51,
+          "iou": 0.9999998082549779,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 56,
+          "iou": 0.9999971338583014,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 9.119510650634766e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 56,
+          "iou": 0.9999985468888862,
+          "scoreDelta": 1.8477439880371094e-06,
+          "maxBboxDeltaPixels": 0.00011146068572998047
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 56,
+          "iou": 0.9999986004616903,
+          "scoreDelta": 2.5033950805664062e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 56,
+          "iou": 0.9999985669677467,
+          "scoreDelta": 6.318092346191406e-06,
+          "maxBboxDeltaPixels": 6.079673767089844e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 57,
+          "iou": 0.9999963505501006,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 2.0265579223632812e-05
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 57,
+          "iou": 0.9999964685656225,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 57,
+          "iou": 0.9999989298208627,
+          "scoreDelta": 1.430511474609375e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 57,
+          "iou": 0.999998724196882,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 57,
+          "iou": 0.9999991849015827,
+          "scoreDelta": 3.2186508178710938e-06,
+          "maxBboxDeltaPixels": 1.2665987014770508e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 57,
+          "iou": 0.9999983384205358,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 57,
+          "iou": 0.9999993383604705,
+          "scoreDelta": 1.9073486328125e-06,
+          "maxBboxDeltaPixels": 7.599592208862305e-06
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 57,
+          "iou": 0.9999997470627664,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 5.066394805908203e-06
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 57,
+          "iou": 0.9999989549099376,
+          "scoreDelta": 1.7285346984863281e-06,
+          "maxBboxDeltaPixels": 5.066394805908203e-06
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 57,
+          "iou": 0.999996620237746,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 6.079673767089844e-05
+        }
+      ],
+      "maxScoreDelta": 6.318092346191406e-06,
+      "maxBboxDeltaPixels": 0.00018310546875
+    },
+    {
+      "imageId": 212166,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999991212182537,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 0.00023345947261077526
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 67,
+          "iou": 0.9999989954268905,
+          "scoreDelta": 2.562999725341797e-06,
+          "maxBboxDeltaPixels": 0.00020427703856285007
+        }
+      ],
+      "maxScoreDelta": 2.562999725341797e-06,
+      "maxBboxDeltaPixels": 0.00023345947261077526
+    },
+    {
+      "imageId": 227478,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999979818498329,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.000308990478515625
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999993753552558,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 3.814697265625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 15,
+          "iou": 0.9999990124098663,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 0.00020599365234375
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 15,
+          "iou": 0.9999987909384573,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        }
+      ],
+      "maxScoreDelta": 1.7881393432617188e-07,
+      "maxBboxDeltaPixels": 0.000308990478515625
+    },
+    {
+      "imageId": 228436,
+      "referenceCount": 12,
+      "candidateCount": 12,
+      "matchedCount": 12,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 2,
+          "iou": 0.9999993476689367,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 0.00016188621520996094
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 3,
+          "iou": 0.9999976262123613,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 3.814697265625e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 3,
+          "iou": 0.9999960524345933,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 9.5367431640625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 3,
+          "iou": 0.9999987170864216,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 3.24249267578125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 3,
+          "iou": 0.9999984355182546,
+          "scoreDelta": 2.86102294921875e-06,
+          "maxBboxDeltaPixels": 2.3126602172851562e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 9,
+          "iou": 0.9999939638761678,
+          "scoreDelta": 1.7285346984863281e-06,
+          "maxBboxDeltaPixels": 0.000762939453125
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 9,
+          "iou": 0.9999982253603937,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 9,
+          "iou": 0.9999962423675909,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 9,
+          "iou": 0.9999990716036559,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 9,
+          "iou": 0.9999916081533656,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 0.0002543926239013672
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 9,
+          "iou": 0.9999992553917086,
+          "scoreDelta": 3.0994415283203125e-06,
+          "maxBboxDeltaPixels": 1.1563301086425781e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 9,
+          "iou": 0.9999958763128909,
+          "scoreDelta": 3.039836883544922e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        }
+      ],
+      "maxScoreDelta": 3.0994415283203125e-06,
+      "maxBboxDeltaPixels": 0.000762939453125
+    },
+    {
+      "imageId": 235836,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 6,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999987302831013,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 0.000244140625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 37,
+          "iou": 0.9999986511269702,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 37,
+          "iou": 1.0,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 37,
+          "iou": 0.9999954985851547,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 6.1082839977189e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 62,
+          "iou": 0.9999971040411714,
+          "scoreDelta": 1.5497207641601562e-06,
+          "maxBboxDeltaPixels": 0.000213623046875
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 62,
+          "iou": 0.9999985650940308,
+          "scoreDelta": 3.635883331298828e-06,
+          "maxBboxDeltaPixels": 0.0001678466796875
+        }
+      ],
+      "maxScoreDelta": 3.635883331298828e-06,
+      "maxBboxDeltaPixels": 0.000244140625
+    },
+    {
+      "imageId": 236592,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 1,
+      "unmatchedCandidateCount": 1,
+      "unmatchedReference": [
+        {
+          "image_id": 236592,
+          "category_id": 18,
+          "bbox": [
+            0,
+            181.0719223022461,
+            246.48045349121094,
+            298.90152740478516
+          ],
+          "score": 0.88972008228302
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            0.05194091796875,
+            184.37822341918945,
+            246.75680541992188,
+            295.62177658081055
+          ],
+          "category_id": 18,
+          "image_id": 236592,
+          "score": 0.8753615617752075
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 82,
+          "iou": 0.99739125412077,
+          "scoreDelta": 0.0035982131958007812,
+          "maxBboxDeltaPixels": 0.76873779296875
+        }
+      ],
+      "maxScoreDelta": 0.0035982131958007812,
+      "maxBboxDeltaPixels": 0.76873779296875
+    },
+    {
+      "imageId": 238410,
+      "referenceCount": 18,
+      "candidateCount": 18,
+      "matchedCount": 18,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999975790970587,
+          "scoreDelta": 2.384185791015625e-06,
+          "maxBboxDeltaPixels": 0.00018310546875
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999994262508481,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999983599453455,
+          "scoreDelta": 2.4437904357910156e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999983535981444,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 0.00020599365234375
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999995058675423,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 1,
+          "iou": 0.9999996223485802,
+          "scoreDelta": 3.159046173095703e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999991116858267,
+          "scoreDelta": 2.0265579223632812e-06,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999985873430204,
+          "scoreDelta": 3.0994415283203125e-06,
+          "maxBboxDeltaPixels": 0.000244140625
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 28,
+          "iou": 0.9999968395178557,
+          "scoreDelta": 2.562999725341797e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 44,
+          "iou": 0.9999990096872394,
+          "scoreDelta": 2.86102294921875e-06,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 44,
+          "iou": 0.9999988615569803,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 46,
+          "iou": 0.9999971670458185,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 46,
+          "iou": 0.9999984012437475,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 46,
+          "iou": 0.9999992239793485,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 62,
+          "iou": 0.9999988547618925,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 62,
+          "iou": 0.9999996261163698,
+          "scoreDelta": 4.291534423828125e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 67,
+          "iou": 0.999998649634665,
+          "scoreDelta": 3.2186508178710938e-06,
+          "maxBboxDeltaPixels": 0.0001373291015625
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 84,
+          "iou": 0.9999967909381657,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 4.291534423828125e-06,
+      "maxBboxDeltaPixels": 0.000244140625
+    },
+    {
+      "imageId": 250282,
+      "referenceCount": 14,
+      "candidateCount": 14,
+      "matchedCount": 14,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.999999043242855,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.999999922359187,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 7.62939453125e-06
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 1,
+          "iou": 0.9999971701366925,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.00014495849609375
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 1,
+          "iou": 0.9999985768190777,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 5.340576171875e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999981939446347,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999986121883172,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999984688976008,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999991215012134,
+          "scoreDelta": 7.748603820800781e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999989250867208,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 1,
+          "iou": 0.9999969021487692,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.000213623046875
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999989711634418,
+          "scoreDelta": 2.4437904357910156e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 1,
+          "iou": 0.9999990092130394,
+          "scoreDelta": 1.9073486328125e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 32,
+          "iou": 0.999999999999997,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 5.684341886080802e-14
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 32,
+          "iou": 0.999999647997634,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 2.0313262979243518e-05
+        }
+      ],
+      "maxScoreDelta": 2.4437904357910156e-06,
+      "maxBboxDeltaPixels": 0.000213623046875
+    },
+    {
+      "imageId": 256868,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 6,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999998186126791,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.999998378520568,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999990111368922,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999993234891998,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 2.0408630348356382e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 15,
+          "iou": 0.9999995998473021,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 2.0408630348356382e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 41,
+          "iou": 0.9999992131761506,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        }
+      ],
+      "maxScoreDelta": 1.1324882507324219e-06,
+      "maxBboxDeltaPixels": 0.0001220703125
+    },
+    {
+      "imageId": 269866,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 78,
+          "iou": 0.9948217977228578,
+          "scoreDelta": 0.040111005306243896,
+          "maxBboxDeltaPixels": 0.7152862548828125
+        }
+      ],
+      "maxScoreDelta": 0.040111005306243896,
+      "maxBboxDeltaPixels": 0.7152862548828125
+    },
+    {
+      "imageId": 269942,
+      "referenceCount": 7,
+      "candidateCount": 6,
+      "matchedCount": 3,
+      "unmatchedReferenceCount": 4,
+      "unmatchedCandidateCount": 3,
+      "unmatchedReference": [
+        {
+          "image_id": 269942,
+          "category_id": 3,
+          "bbox": [
+            92.00380325317383,
+            460.8161315917969,
+            60.054691314697266,
+            48.640594482421875
+          ],
+          "score": 0.9565236568450928
+        },
+        {
+          "image_id": 269942,
+          "category_id": 10,
+          "bbox": [
+            376.8945007324219,
+            421.3848571777344,
+            8.258285522460938,
+            20.01373291015625
+          ],
+          "score": 0.5074319839477539
+        },
+        {
+          "image_id": 269942,
+          "category_id": 10,
+          "bbox": [
+            384.8410949707031,
+            414.96209716796875,
+            7.4425048828125,
+            25.991607666015625
+          ],
+          "score": 0.5293154120445251
+        },
+        {
+          "image_id": 269942,
+          "category_id": 10,
+          "bbox": [
+            427.21083068847656,
+            470.0644226074219,
+            24.20233154296875,
+            41.621612548828125
+          ],
+          "score": 0.5445505976676941
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            92.06203079223633,
+            460.6962585449219,
+            60.073768615722656,
+            49.0360107421875
+          ],
+          "category_id": 3,
+          "image_id": 269942,
+          "score": 0.9567098617553711
+        },
+        {
+          "bbox": [
+            376.9588851928711,
+            421.5064697265625,
+            8.340614318847656,
+            19.892333984375
+          ],
+          "category_id": 10,
+          "image_id": 269942,
+          "score": 0.5018397569656372
+        },
+        {
+          "bbox": [
+            384.6079559326172,
+            414.93145751953125,
+            7.6880035400390625,
+            26.05889892578125
+          ],
+          "category_id": 10,
+          "image_id": 269942,
+          "score": 0.5331035256385803
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 10,
+          "iou": 0.9959360054611702,
+          "scoreDelta": 0.02613067626953125,
+          "maxBboxDeltaPixels": 0.194244384765625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 10,
+          "iou": 0.997094075577325,
+          "scoreDelta": 7.420778274536133e-05,
+          "maxBboxDeltaPixels": 0.12055206298828125
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 10,
+          "iou": 0.9922175532603996,
+          "scoreDelta": 0.029645323753356934,
+          "maxBboxDeltaPixels": 0.13327789306640625
+        }
+      ],
+      "maxScoreDelta": 0.029645323753356934,
+      "maxBboxDeltaPixels": 0.194244384765625
+    },
+    {
+      "imageId": 270244,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 24,
+          "iou": 0.9999992146483037,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 2.384185791015625e-07,
+      "maxBboxDeltaPixels": 4.57763671875e-05
+    },
+    {
+      "imageId": 276024,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999995937786386,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999981591826284,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 19,
+          "iou": 0.9999976636908869,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 0.0001068115234375
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 19,
+          "iou": 0.9999984493269786,
+          "scoreDelta": 2.384185791015625e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 19,
+          "iou": 0.9999986281788824,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 21,
+          "iou": 0.9999985046387339,
+          "scoreDelta": 4.76837158203125e-06,
+          "maxBboxDeltaPixels": 3.814697265625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 21,
+          "iou": 0.9999996546869513,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 21,
+          "iou": 0.9999982649372546,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 21,
+          "iou": 0.9999988315049896,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 4.76837158203125e-06,
+      "maxBboxDeltaPixels": 0.0001068115234375
+    },
+    {
+      "imageId": 276720,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 3,
+          "iou": 0.9906674337775899,
+          "scoreDelta": 0.01036447286605835,
+          "maxBboxDeltaPixels": 0.0680084228515625
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 3,
+          "iou": 0.9925071028734938,
+          "scoreDelta": 0.014240145683288574,
+          "maxBboxDeltaPixels": 0.0861663818359375
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 3,
+          "iou": 0.9931480459255486,
+          "scoreDelta": 0.029649198055267334,
+          "maxBboxDeltaPixels": 0.1614990234375
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 13,
+          "iou": 0.9926616053722136,
+          "scoreDelta": 0.0011883378028869629,
+          "maxBboxDeltaPixels": 0.09848785400390625
+        }
+      ],
+      "maxScoreDelta": 0.029649198055267334,
+      "maxBboxDeltaPixels": 0.1614990234375
+    },
+    {
+      "imageId": 284698,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999948564390297,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 0.0004470348358154297
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 77,
+          "iou": 0.9999991051089292,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 2.682209014892578e-05
+        }
+      ],
+      "maxScoreDelta": 1.0728836059570312e-06,
+      "maxBboxDeltaPixels": 0.0004470348358154297
+    },
+    {
+      "imageId": 287874,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999999999999993,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 2.842170943040401e-14
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 1.0,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999979481244826,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 7,
+          "iou": 0.9999987878619235,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.00023798942564212666
+        }
+      ],
+      "maxScoreDelta": 1.0132789611816406e-06,
+      "maxBboxDeltaPixels": 0.00023798942564212666
+    },
+    {
+      "imageId": 318455,
+      "referenceCount": 18,
+      "candidateCount": 18,
+      "matchedCount": 18,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 61,
+          "iou": 0.9999995391019976,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 3.4332275390625e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 61,
+          "iou": 0.9999981896327813,
+          "scoreDelta": 2.1457672119140625e-06,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 61,
+          "iou": 0.9999997607830337,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 61,
+          "iou": 0.999998722363313,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 61,
+          "iou": 0.9999977104268142,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 61,
+          "iou": 0.9999953935490855,
+          "scoreDelta": 2.980232238769531e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 61,
+          "iou": 0.9999983026720621,
+          "scoreDelta": 1.5497207641601562e-06,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 61,
+          "iou": 0.9999978345913562,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 61,
+          "iou": 0.9999994109806172,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 61,
+          "iou": 0.9999964638048138,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 61,
+          "iou": 1.0,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 61,
+          "iou": 1.0,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 61,
+          "iou": 0.9999985708169847,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 61,
+          "iou": 0.9999994634303648,
+          "scoreDelta": 2.0265579223632812e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 61,
+          "iou": 0.9999994401162319,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 61,
+          "iou": 0.9999983501552906,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.0001373291015625
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 61,
+          "iou": 0.9999979084946952,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 67,
+          "iou": 0.9999996644666865,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        }
+      ],
+      "maxScoreDelta": 2.1457672119140625e-06,
+      "maxBboxDeltaPixels": 0.0001373291015625
+    },
+    {
+      "imageId": 341828,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999995569456644,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.00017509460449227632
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 77,
+          "iou": 0.999999105081707,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 5.8364868152693816e-05
+        }
+      ],
+      "maxScoreDelta": 5.960464477539062e-07,
+      "maxBboxDeltaPixels": 0.00017509460449227632
+    },
+    {
+      "imageId": 352760,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999995303664209,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 7.781982426990908e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 35,
+          "iou": 0.9999985896844469,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 0.0003242492675212816
+        }
+      ],
+      "maxScoreDelta": 1.2516975402832031e-06,
+      "maxBboxDeltaPixels": 0.0003242492675212816
+    },
+    {
+      "imageId": 356094,
+      "referenceCount": 5,
+      "candidateCount": 5,
+      "matchedCount": 5,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999938112212317,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 0.00115966796875
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999971879144384,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 0.000152587890625
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 39,
+          "iou": 0.9999990372177296,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 6.955862045288086e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 39,
+          "iou": 0.9999997747967877,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 9.274482735577294e-06
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 40,
+          "iou": 0.9999964636786867,
+          "scoreDelta": 1.430511474609375e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        }
+      ],
+      "maxScoreDelta": 1.430511474609375e-06,
+      "maxBboxDeltaPixels": 0.00115966796875
+    },
+    {
+      "imageId": 360951,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 62,
+          "iou": 0.9999983387573543,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 72,
+          "iou": 0.9999989468308803,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 0.0001678466796875
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 73,
+          "iou": 0.9999993802787657,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 74,
+          "iou": 0.9999999999999973,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 5.684341886080802e-14
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 74,
+          "iou": 0.9999981777479311,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 2.0360946678010805e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 74,
+          "iou": 0.9999992345845298,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 2.0360946621167386e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 76,
+          "iou": 0.9999986439466104,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 76,
+          "iou": 0.999999860883443,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 76,
+          "iou": 0.9999973686042369,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 8.144378662677809e-05
+        }
+      ],
+      "maxScoreDelta": 1.1920928955078125e-06,
+      "maxBboxDeltaPixels": 0.0001678466796875
+    },
+    {
+      "imageId": 368212,
+      "referenceCount": 3,
+      "candidateCount": 3,
+      "matchedCount": 3,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999994954158008,
+          "scoreDelta": 1.8477439880371094e-06,
+          "maxBboxDeltaPixels": 6.837844848561758e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 70,
+          "iou": 0.9999990961283137,
+          "scoreDelta": 4.112720489501953e-06,
+          "maxBboxDeltaPixels": 6.837844847495944e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 90,
+          "iou": 0.9999976304329713,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 6.837844853180286e-05
+        }
+      ],
+      "maxScoreDelta": 4.112720489501953e-06,
+      "maxBboxDeltaPixels": 6.837844853180286e-05
+    },
+    {
+      "imageId": 376093,
+      "referenceCount": 12,
+      "candidateCount": 12,
+      "matchedCount": 12,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.999996886228695,
+          "scoreDelta": 5.125999450683594e-06,
+          "maxBboxDeltaPixels": 0.000537872314453125
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999990590925707,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 0.000152587890625
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999988407637141,
+          "scoreDelta": 2.3245811462402344e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999985599121294,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 0.000217437744140625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.999999247776109,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 47,
+          "iou": 0.9999976602524635,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 47,
+          "iou": 0.9999978212000331,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 47,
+          "iou": 0.9999969448164059,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 47,
+          "iou": 0.9999971456348464,
+          "scoreDelta": 3.814697265625e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 47,
+          "iou": 0.9999994012144569,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 59,
+          "iou": 0.9999977776650067,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 4.0531158447265625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 59,
+          "iou": 0.9999978545299906,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 0.0001220703125
+        }
+      ],
+      "maxScoreDelta": 5.125999450683594e-06,
+      "maxBboxDeltaPixels": 0.000537872314453125
+    },
+    {
+      "imageId": 376900,
+      "referenceCount": 7,
+      "candidateCount": 7,
+      "matchedCount": 7,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999991547854995,
+          "scoreDelta": 2.1457672119140625e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999986782867303,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.0001220703125
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.999998630728774,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 1.0,
+          "scoreDelta": 1.9073486328125e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999978865934894,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999992948042589,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 43,
+          "iou": 0.9999978614481843,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        }
+      ],
+      "maxScoreDelta": 2.1457672119140625e-06,
+      "maxBboxDeltaPixels": 0.0001220703125
+    },
+    {
+      "imageId": 377497,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 24,
+          "iou": 0.9999992208064662,
+          "scoreDelta": 5.781650543212891e-06,
+          "maxBboxDeltaPixels": 0.000335693359375
+        }
+      ],
+      "maxScoreDelta": 5.781650543212891e-06,
+      "maxBboxDeltaPixels": 0.000335693359375
+    },
+    {
+      "imageId": 386879,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9939803312173952,
+          "scoreDelta": 0.00036597251892089844,
+          "maxBboxDeltaPixels": 1.7763542175292741
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 43,
+          "iou": 0.9971930544031044,
+          "scoreDelta": 0.012981653213500977,
+          "maxBboxDeltaPixels": 0.284881591796875
+        }
+      ],
+      "maxScoreDelta": 0.012981653213500977,
+      "maxBboxDeltaPixels": 1.7763542175292741
+    },
+    {
+      "imageId": 426372,
+      "referenceCount": 2,
+      "candidateCount": 2,
+      "matchedCount": 2,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 3,
+          "iou": 0.9999998132754551,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 1.1444091796875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 8,
+          "iou": 0.9999995480301445,
+          "scoreDelta": 1.6093254089355469e-06,
+          "maxBboxDeltaPixels": 0.00010180473327636719
+        }
+      ],
+      "maxScoreDelta": 1.6093254089355469e-06,
+      "maxBboxDeltaPixels": 0.00010180473327636719
+    },
+    {
+      "imageId": 438862,
+      "referenceCount": 7,
+      "candidateCount": 7,
+      "matchedCount": 7,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999994126536654,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.99999626253239,
+          "scoreDelta": 1.7285346984863281e-06,
+          "maxBboxDeltaPixels": 0.0001678466796875
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999994017217737,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 4.0721893313389046e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999973551828213,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 0.00038685798648430136
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 0.9999997499042136,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 1.527070996587554e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 15,
+          "iou": 0.9999980138174253,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 37,
+          "iou": 0.9999979989466651,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        }
+      ],
+      "maxScoreDelta": 1.7285346984863281e-06,
+      "maxBboxDeltaPixels": 0.00038685798648430136
+    },
+    {
+      "imageId": 439854,
+      "referenceCount": 8,
+      "candidateCount": 8,
+      "matchedCount": 8,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999971284867339,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 4.763603212154521e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999982453358187,
+          "scoreDelta": 2.4437904357910156e-06,
+          "maxBboxDeltaPixels": 3.17573547192751e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999977442318562,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 7.152557373046875e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999994844119692,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 2.384185791015625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999980759836694,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 4.76837158203125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 2,
+          "iou": 0.9999995918312369,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 2.384185791015625e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 2,
+          "iou": 0.9999988053436772,
+          "scoreDelta": 2.2649765014648438e-06,
+          "maxBboxDeltaPixels": 3.175735474769681e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 41,
+          "iou": 0.9999989973998933,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 1.7881393432617188e-05
+        }
+      ],
+      "maxScoreDelta": 2.4437904357910156e-06,
+      "maxBboxDeltaPixels": 7.152557373046875e-05
+    },
+    {
+      "imageId": 458325,
+      "referenceCount": 23,
+      "candidateCount": 23,
+      "matchedCount": 23,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 1,
+          "iou": 0.9999986144220644,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 1,
+          "iou": 0.9999980153650407,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 18,
+          "candidateIndex": 18,
+          "categoryId": 1,
+          "iou": 0.9999965230248218,
+          "scoreDelta": 1.7285346984863281e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999988467759668,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999991613735364,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 2.0360946649589096e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 3,
+          "iou": 0.9999974131526624,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 0.0001316070556640625
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 3,
+          "iou": 0.999997902496302,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 0.00016021728515625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 3,
+          "iou": 0.9999992387342811,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 8.392333984375e-05
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 3,
+          "iou": 0.9999980411570575,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 6.1082839977189e-05
+        },
+        {
+          "referenceIndex": 22,
+          "candidateIndex": 22,
+          "categoryId": 3,
+          "iou": 0.9999999999999978,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 2.842170943040401e-14
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 3,
+          "iou": 0.9999976575157777,
+          "scoreDelta": 1.6689300537109375e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 3,
+          "iou": 0.9999996969941202,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 2.0360946649589096e-05
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 3,
+          "iou": 0.9999992066593081,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 3,
+          "iou": 0.9999988633730258,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 3,
+          "iou": 0.9999978724791786,
+          "scoreDelta": 2.980232238769531e-07,
+          "maxBboxDeltaPixels": 0.000152587890625
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 3,
+          "iou": 0.9999982633224995,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 0.00018310546875
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 3,
+          "iou": 0.9999998878133932,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 2.0360946706432514e-05
+        },
+        {
+          "referenceIndex": 20,
+          "candidateIndex": 20,
+          "categoryId": 10,
+          "iou": 0.9999958401388984,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 1.5270709980086394e-05
+        },
+        {
+          "referenceIndex": 21,
+          "candidateIndex": 21,
+          "categoryId": 10,
+          "iou": 0.99999773628036,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 3.5631656643886345e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 10,
+          "iou": 0.9999980854248709,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 1.5270709980086394e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 10,
+          "iou": 0.9999958948118278,
+          "scoreDelta": 1.1324882507324219e-06,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 10,
+          "iou": 0.9999970958590323,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 19,
+          "candidateIndex": 19,
+          "categoryId": 41,
+          "iou": 0.9999944205520114,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 6.1082839977189e-05
+        }
+      ],
+      "maxScoreDelta": 1.7285346984863281e-06,
+      "maxBboxDeltaPixels": 0.00018310546875
+    },
+    {
+      "imageId": 459195,
+      "referenceCount": 5,
+      "candidateCount": 5,
+      "matchedCount": 5,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999990954815793,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 2.384185791015625e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999990887187413,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 5.364418029785156e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999992887284221,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 2.682209014892578e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 34,
+          "iou": 0.9999999999999979,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 2.842170943040401e-14
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 34,
+          "iou": 1.0,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.0
+        }
+      ],
+      "maxScoreDelta": 1.0728836059570312e-06,
+      "maxBboxDeltaPixels": 5.364418029785156e-05
+    },
+    {
+      "imageId": 472623,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 3,
+      "unmatchedReferenceCount": 1,
+      "unmatchedCandidateCount": 1,
+      "unmatchedReference": [
+        {
+          "image_id": 472623,
+          "category_id": 1,
+          "bbox": [
+            153.53943526744843,
+            230.8441619873047,
+            24.51167404651642,
+            73.19328308105469
+          ],
+          "score": 0.9276928901672363
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            153.6757618188858,
+            230.86280822753906,
+            24.281416535377502,
+            72.79206848144531
+          ],
+          "category_id": 1,
+          "image_id": 472623,
+          "score": 0.9288061857223511
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9917624663362505,
+          "scoreDelta": 0.006605327129364014,
+          "maxBboxDeltaPixels": 0.3311920166015625
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9969159341074881,
+          "scoreDelta": 0.0001551508903503418,
+          "maxBboxDeltaPixels": 0.42525291442871094
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 2,
+          "categoryId": 2,
+          "iou": 0.9917999385662888,
+          "scoreDelta": 0.007188856601715088,
+          "maxBboxDeltaPixels": 1.868011474609375
+        }
+      ],
+      "maxScoreDelta": 0.007188856601715088,
+      "maxBboxDeltaPixels": 1.868011474609375
+    },
+    {
+      "imageId": 479099,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 15,
+          "iou": 0.9999985457394802,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 3.4332275390625e-05
+        }
+      ],
+      "maxScoreDelta": 5.960464477539062e-07,
+      "maxBboxDeltaPixels": 3.4332275390625e-05
+    },
+    {
+      "imageId": 481386,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 6,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999995530753223,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 0.0001068115234375
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 47,
+          "iou": 0.9999992851219544,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 47,
+          "iou": 0.9999973191914093,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 2.0360946678010805e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 51,
+          "iou": 0.9999990128653692,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 51,
+          "iou": 0.9999989599724547,
+          "scoreDelta": 2.6226043701171875e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 64,
+          "iou": 0.9999997302456911,
+          "scoreDelta": 3.5762786865234375e-07,
+          "maxBboxDeltaPixels": 1.0180473339005403e-05
+        }
+      ],
+      "maxScoreDelta": 2.6226043701171875e-06,
+      "maxBboxDeltaPixels": 0.0001068115234375
+    },
+    {
+      "imageId": 483999,
+      "referenceCount": 26,
+      "candidateCount": 26,
+      "matchedCount": 26,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999983317008437,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 0.0001983642578125
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 1,
+          "iou": 0.9999977766435103,
+          "scoreDelta": 2.7418136596679688e-06,
+          "maxBboxDeltaPixels": 6.0558319091796875e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999984863497208,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 0.00018310546875
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 1,
+          "iou": 0.9999982066126786,
+          "scoreDelta": 1.0728836059570312e-06,
+          "maxBboxDeltaPixels": 8.392333984375e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9999998145043846,
+          "scoreDelta": 5.960464477539062e-07,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999991362504969,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.000152587890625
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999993856245554,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999989468830273,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 1,
+          "iou": 0.999999576781738,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 1.0204315188389046e-05
+        },
+        {
+          "referenceIndex": 22,
+          "candidateIndex": 22,
+          "categoryId": 1,
+          "iou": 0.9999993613785206,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 20,
+          "candidateIndex": 20,
+          "categoryId": 44,
+          "iou": 0.9999991261960732,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 25,
+          "candidateIndex": 25,
+          "categoryId": 44,
+          "iou": 0.9999996389564536,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 2.04086304051998e-05
+        },
+        {
+          "referenceIndex": 18,
+          "candidateIndex": 18,
+          "categoryId": 46,
+          "iou": 0.9999988356623296,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 2.0408630348356382e-05
+        },
+        {
+          "referenceIndex": 14,
+          "candidateIndex": 14,
+          "categoryId": 47,
+          "iou": 0.9999970772913641,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 2.0408630376778092e-05
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 47,
+          "iou": 1.0,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 15,
+          "candidateIndex": 15,
+          "categoryId": 47,
+          "iou": 1.0,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 47,
+          "iou": 0.9999988992215295,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 12,
+          "candidateIndex": 12,
+          "categoryId": 47,
+          "iou": 0.9999995955679077,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 2.04086304051998e-05
+        },
+        {
+          "referenceIndex": 21,
+          "candidateIndex": 21,
+          "categoryId": 47,
+          "iou": 0.9999971716629455,
+          "scoreDelta": 2.086162567138672e-06,
+          "maxBboxDeltaPixels": 6.122589113033428e-05
+        },
+        {
+          "referenceIndex": 23,
+          "candidateIndex": 23,
+          "categoryId": 47,
+          "iou": 0.9999972709707696,
+          "scoreDelta": 8.940696716308594e-07,
+          "maxBboxDeltaPixels": 2.0408630376778092e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 47,
+          "iou": 0.9999967691159862,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 47,
+          "iou": 0.9999990223930644,
+          "scoreDelta": 2.980232238769531e-07,
+          "maxBboxDeltaPixels": 4.0817260753556184e-05
+        },
+        {
+          "referenceIndex": 13,
+          "candidateIndex": 13,
+          "categoryId": 62,
+          "iou": 0.999997815425282,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 17,
+          "candidateIndex": 17,
+          "categoryId": 62,
+          "iou": 1.0,
+          "scoreDelta": 2.980232238769531e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 24,
+          "candidateIndex": 24,
+          "categoryId": 67,
+          "iou": 0.999998797280817,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.000335693359375
+        },
+        {
+          "referenceIndex": 19,
+          "candidateIndex": 19,
+          "categoryId": 67,
+          "iou": 0.9999997339235973,
+          "scoreDelta": 1.5497207641601562e-06,
+          "maxBboxDeltaPixels": 2.0408630376778092e-05
+        }
+      ],
+      "maxScoreDelta": 2.7418136596679688e-06,
+      "maxBboxDeltaPixels": 0.000335693359375
+    },
+    {
+      "imageId": 486479,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 18,
+          "iou": 0.9999991980876252,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 4.76837158203125e-05
+        }
+      ],
+      "maxScoreDelta": 1.1920928955078125e-07,
+      "maxBboxDeltaPixels": 4.76837158203125e-05
+    },
+    {
+      "imageId": 492992,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 21,
+          "iou": 0.9999988235187759,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 0.0003662109375
+        }
+      ],
+      "maxScoreDelta": 5.364418029785156e-07,
+      "maxBboxDeltaPixels": 0.0003662109375
+    },
+    {
+      "imageId": 493334,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 61,
+          "iou": 0.9999988613141763,
+          "scoreDelta": 0.0,
+          "maxBboxDeltaPixels": 0.00016312599183265775
+        }
+      ],
+      "maxScoreDelta": 0.0,
+      "maxBboxDeltaPixels": 0.00016312599183265775
+    },
+    {
+      "imageId": 497599,
+      "referenceCount": 4,
+      "candidateCount": 4,
+      "matchedCount": 4,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999991932633702,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.000396728515625
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999994838951547,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 7.62939453125e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 62,
+          "iou": 0.9999990624703019,
+          "scoreDelta": 6.139278411865234e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 73,
+          "iou": 0.9999986032935166,
+          "scoreDelta": 5.245208740234375e-06,
+          "maxBboxDeltaPixels": 0.0001425266266039671
+        }
+      ],
+      "maxScoreDelta": 6.139278411865234e-06,
+      "maxBboxDeltaPixels": 0.000396728515625
+    },
+    {
+      "imageId": 511398,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 18,
+          "iou": 0.9999994170226874,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.00021378993989173978
+        }
+      ],
+      "maxScoreDelta": 6.556510925292969e-07,
+      "maxBboxDeltaPixels": 0.00021378993989173978
+    },
+    {
+      "imageId": 527960,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 15,
+          "iou": 0.9999990397816106,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        }
+      ],
+      "maxScoreDelta": 5.960464477539063e-08,
+      "maxBboxDeltaPixels": 9.1552734375e-05
+    },
+    {
+      "imageId": 529568,
+      "referenceCount": 12,
+      "candidateCount": 12,
+      "matchedCount": 12,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 10,
+          "categoryId": 47,
+          "iou": 0.9999996016228292,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 1.1444091796875e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 62,
+          "iou": 0.9999988529696714,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 64,
+          "iou": 0.9999982067833766,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 67,
+          "iou": 0.9999994634396381,
+          "scoreDelta": 1.0132789611816406e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 72,
+          "iou": 0.9999978015499157,
+          "scoreDelta": 4.470348358154297e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 81,
+          "iou": 0.9999866085601254,
+          "scoreDelta": 8.344650268554688e-07,
+          "maxBboxDeltaPixels": 0.000213623046875
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 84,
+          "iou": 0.9999987509235099,
+          "scoreDelta": 3.7550926208496094e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 84,
+          "iou": 0.9999993865826612,
+          "scoreDelta": 9.5367431640625e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 84,
+          "iou": 0.9999936151304214,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 6.866455078125e-05
+        },
+        {
+          "referenceIndex": 9,
+          "candidateIndex": 9,
+          "categoryId": 84,
+          "iou": 0.9999950570661711,
+          "scoreDelta": 1.3709068298339844e-06,
+          "maxBboxDeltaPixels": 4.57763671875e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 86,
+          "iou": 0.9999982020962419,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 11,
+          "candidateIndex": 11,
+          "categoryId": 86,
+          "iou": 0.9999942283068883,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.00019311904907226562
+        }
+      ],
+      "maxScoreDelta": 4.470348358154297e-06,
+      "maxBboxDeltaPixels": 0.000213623046875
+    },
+    {
+      "imageId": 541123,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.9999991348427186,
+          "scoreDelta": 1.4901161193847656e-06,
+          "maxBboxDeltaPixels": 1.52587890625e-05
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999992459258036,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 4.07218933275999e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999987485778062,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999928819242454,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999967031482113,
+          "scoreDelta": 7.152557373046875e-07,
+          "maxBboxDeltaPixels": 3.05414199885945e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.999997378901147,
+          "scoreDelta": 2.384185791015625e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999982109546991,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 43,
+          "iou": 1.0,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 62,
+          "iou": 0.999999514965026,
+          "scoreDelta": 4.172325134277344e-07,
+          "maxBboxDeltaPixels": 1.0180473339005403e-05
+        }
+      ],
+      "maxScoreDelta": 1.4901161193847656e-06,
+      "maxBboxDeltaPixels": 6.103515625e-05
+    },
+    {
+      "imageId": 543300,
+      "referenceCount": 1,
+      "candidateCount": 1,
+      "matchedCount": 1,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 9,
+          "iou": 0.9999980267438718,
+          "scoreDelta": 1.3113021850585938e-06,
+          "maxBboxDeltaPixels": 0.00025177001953125
+        }
+      ],
+      "maxScoreDelta": 1.3113021850585938e-06,
+      "maxBboxDeltaPixels": 0.00025177001953125
+    },
+    {
+      "imageId": 546219,
+      "referenceCount": 18,
+      "candidateCount": 19,
+      "matchedCount": 7,
+      "unmatchedReferenceCount": 11,
+      "unmatchedCandidateCount": 12,
+      "unmatchedReference": [
+        {
+          "image_id": 546219,
+          "category_id": 1,
+          "bbox": [
+            0,
+            246.0292999267578,
+            97.0271987915039,
+            180.60289993286136
+          ],
+          "score": 0.9105969667434692
+        },
+        {
+          "image_id": 546219,
+          "category_id": 1,
+          "bbox": [
+            307.4499816894531,
+            241.90584173202515,
+            164.3197021484375,
+            185.09415826797485
+          ],
+          "score": 0.817273736000061
+        },
+        {
+          "image_id": 546219,
+          "category_id": 1,
+          "bbox": [
+            368.0627746582031,
+            211.26459202766418,
+            41.29205322265625,
+            116.00724692344667
+          ],
+          "score": 0.6511275172233582
+        },
+        {
+          "image_id": 546219,
+          "category_id": 1,
+          "bbox": [
+            444.3442077636719,
+            197.82740564346312,
+            55.8880615234375,
+            167.60618190765382
+          ],
+          "score": 0.7074974775314331
+        },
+        {
+          "image_id": 546219,
+          "category_id": 31,
+          "bbox": [
+            559.2514038085938,
+            328.1529996395111,
+            41.13720703125,
+            98.787872171402
+          ],
+          "score": 0.5549893379211426
+        },
+        {
+          "image_id": 546219,
+          "category_id": 47,
+          "bbox": [
+            197.44284057617188,
+            334.73626379966737,
+            22.724166870117188,
+            29.463124608993496
+          ],
+          "score": 0.7783448696136475
+        },
+        {
+          "image_id": 546219,
+          "category_id": 47,
+          "bbox": [
+            317.3680725097656,
+            318.2509011745453,
+            19.06353759765625,
+            25.30256876945498
+          ],
+          "score": 0.6734300255775452
+        },
+        {
+          "image_id": 546219,
+          "category_id": 47,
+          "bbox": [
+            323.69793701171875,
+            342.1556095123291,
+            22.102203369140625,
+            21.48377141952517
+          ],
+          "score": 0.8304871320724487
+        },
+        {
+          "image_id": 546219,
+          "category_id": 51,
+          "bbox": [
+            188.17868041992188,
+            366.1982632637024,
+            69.681396484375,
+            28.49844331741332
+          ],
+          "score": 0.6749206781387329
+        },
+        {
+          "image_id": 546219,
+          "category_id": 62,
+          "bbox": [
+            33.406551361083984,
+            367.06759424209594,
+            95.88550186157227,
+            59.882765769958496
+          ],
+          "score": 0.7554183006286621
+        },
+        {
+          "image_id": 546219,
+          "category_id": 67,
+          "bbox": [
+            169.78024291992188,
+            306.38910231590273,
+            221.53857421875,
+            119.3924171924591
+          ],
+          "score": 0.7082235813140869
+        }
+      ],
+      "unmatchedCandidate": [
+        {
+          "bbox": [
+            0,
+            245.97737951278685,
+            98.54811096191406,
+            180.46232795715332
+          ],
+          "category_id": 1,
+          "image_id": 546219,
+          "score": 0.9047175645828247
+        },
+        {
+          "bbox": [
+            304.84027099609375,
+            242.04254512786864,
+            166.50146484375,
+            184.95745487213136
+          ],
+          "category_id": 1,
+          "image_id": 546219,
+          "score": 0.8074954748153687
+        },
+        {
+          "bbox": [
+            366.7229919433594,
+            211.1606901168823,
+            42.584014892578125,
+            116.0730535030365
+          ],
+          "category_id": 1,
+          "image_id": 546219,
+          "score": 0.642294704914093
+        },
+        {
+          "bbox": [
+            444.6432800292969,
+            197.70220618247984,
+            55.5648193359375,
+            168.37564244270325
+          ],
+          "category_id": 1,
+          "image_id": 546219,
+          "score": 0.7317357063293457
+        },
+        {
+          "bbox": [
+            559.6488647460938,
+            327.8895900726318,
+            40.0765380859375,
+            99.03821001052859
+          ],
+          "category_id": 31,
+          "image_id": 546219,
+          "score": 0.5449115037918091
+        },
+        {
+          "bbox": [
+            192.16468811035156,
+            320.7677585124969,
+            20.404617309570312,
+            14.989179182052624
+          ],
+          "category_id": 47,
+          "image_id": 546219,
+          "score": 0.5049678683280945
+        },
+        {
+          "bbox": [
+            197.52627563476562,
+            334.7878584384918,
+            22.69781494140625,
+            29.32308201789857
+          ],
+          "category_id": 47,
+          "image_id": 546219,
+          "score": 0.7811461687088013
+        },
+        {
+          "bbox": [
+            317.3276062011719,
+            318.4619016647339,
+            19.124481201171875,
+            25.086111545562744
+          ],
+          "category_id": 47,
+          "image_id": 546219,
+          "score": 0.6689028143882751
+        },
+        {
+          "bbox": [
+            323.8508605957031,
+            342.1490125656128,
+            21.977294921875,
+            21.436900520324684
+          ],
+          "category_id": 47,
+          "image_id": 546219,
+          "score": 0.8298819661140442
+        },
+        {
+          "bbox": [
+            188.14190673828125,
+            366.0878254890442,
+            69.90521240234375,
+            28.970776557922363
+          ],
+          "category_id": 51,
+          "image_id": 546219,
+          "score": 0.6658903360366821
+        },
+        {
+          "bbox": [
+            33.74536895751953,
+            367.87095575332637,
+            95.30217742919922,
+            59.080177974700916
+          ],
+          "category_id": 62,
+          "image_id": 546219,
+          "score": 0.7561757564544678
+        },
+        {
+          "bbox": [
+            169.26856994628906,
+            306.5672605991363,
+            218.83946228027344,
+            119.18559069633483
+          ],
+          "category_id": 67,
+          "image_id": 546219,
+          "score": 0.7315678000450134
+        }
+      ],
+      "matches": [
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.990540354024934,
+          "scoreDelta": 0.0016979575157165527,
+          "maxBboxDeltaPixels": 0.7630875587463208
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9969317543669558,
+          "scoreDelta": 0.003990590572357178,
+          "maxBboxDeltaPixels": 0.1464080810546875
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9975174811458531,
+          "scoreDelta": 9.399652481079102e-05,
+          "maxBboxDeltaPixels": 0.19996485710143475
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 0.9900051156923265,
+          "scoreDelta": 0.004577457904815674,
+          "maxBboxDeltaPixels": 0.408935546875
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 7,
+          "categoryId": 47,
+          "iou": 0.9916172869561014,
+          "scoreDelta": 0.008784234523773193,
+          "maxBboxDeltaPixels": 0.0833587646484375
+        },
+        {
+          "referenceIndex": 16,
+          "candidateIndex": 16,
+          "categoryId": 51,
+          "iou": 0.9914113541898241,
+          "scoreDelta": 0.0019231438636779785,
+          "maxBboxDeltaPixels": 0.17485980987549965
+        },
+        {
+          "referenceIndex": 10,
+          "candidateIndex": 12,
+          "categoryId": 62,
+          "iou": 0.9936559520036139,
+          "scoreDelta": 0.007934927940368652,
+          "maxBboxDeltaPixels": 0.424560546875
+        }
+      ],
+      "maxScoreDelta": 0.008784234523773193,
+      "maxBboxDeltaPixels": 0.7630875587463208
+    },
+    {
+      "imageId": 562818,
+      "referenceCount": 9,
+      "candidateCount": 9,
+      "matchedCount": 9,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 1,
+          "iou": 0.9999971667455256,
+          "scoreDelta": 4.76837158203125e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 1,
+          "iou": 0.9999973166437428,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 1,
+          "iou": 0.9999986802268954,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        },
+        {
+          "referenceIndex": 7,
+          "candidateIndex": 7,
+          "categoryId": 1,
+          "iou": 0.999985979922366,
+          "scoreDelta": 1.9073486328125e-06,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 6,
+          "candidateIndex": 6,
+          "categoryId": 1,
+          "iou": 1.0,
+          "scoreDelta": 2.562999725341797e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 1,
+          "iou": 0.9999967030648309,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 3.0517578125e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 1,
+          "iou": 0.9999855148038704,
+          "scoreDelta": 1.1920928955078125e-06,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 1,
+          "iou": 1.0,
+          "scoreDelta": 6.556510925292969e-07,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 8,
+          "candidateIndex": 8,
+          "categoryId": 1,
+          "iou": 0.9999988609440496,
+          "scoreDelta": 1.6689300537109375e-06,
+          "maxBboxDeltaPixels": 2.288818359375e-05
+        }
+      ],
+      "maxScoreDelta": 2.562999725341797e-06,
+      "maxBboxDeltaPixels": 9.1552734375e-05
+    },
+    {
+      "imageId": 570456,
+      "referenceCount": 6,
+      "candidateCount": 6,
+      "matchedCount": 6,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "unmatchedReference": [],
+      "unmatchedCandidate": [],
+      "matches": [
+        {
+          "referenceIndex": 5,
+          "candidateIndex": 5,
+          "categoryId": 51,
+          "iou": 1.0,
+          "scoreDelta": 1.2516975402832031e-06,
+          "maxBboxDeltaPixels": 0.0
+        },
+        {
+          "referenceIndex": 3,
+          "candidateIndex": 3,
+          "categoryId": 62,
+          "iou": 0.9999991800591936,
+          "scoreDelta": 1.1920928955078125e-07,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 0,
+          "candidateIndex": 0,
+          "categoryId": 62,
+          "iou": 0.9999993094060962,
+          "scoreDelta": 1.7881393432617188e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 1,
+          "candidateIndex": 1,
+          "categoryId": 62,
+          "iou": 0.9999987260599063,
+          "scoreDelta": 5.364418029785156e-07,
+          "maxBboxDeltaPixels": 6.103515625e-05
+        },
+        {
+          "referenceIndex": 2,
+          "candidateIndex": 2,
+          "categoryId": 63,
+          "iou": 0.9999980364304457,
+          "scoreDelta": 5.960464477539063e-08,
+          "maxBboxDeltaPixels": 9.1552734375e-05
+        },
+        {
+          "referenceIndex": 4,
+          "candidateIndex": 4,
+          "categoryId": 72,
+          "iou": 0.9999983103863397,
+          "scoreDelta": 3.635883331298828e-06,
+          "maxBboxDeltaPixels": 0.000152587890625
+        }
+      ],
+      "maxScoreDelta": 3.635883331298828e-06,
+      "maxBboxDeltaPixels": 0.000152587890625
+    }
+  ]
+}

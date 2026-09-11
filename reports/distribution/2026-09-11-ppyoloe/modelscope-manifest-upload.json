@@ -1,0 +1,95 @@
+{
+  "capturedAt": "2026-09-11T15:59:32.936433+00:00",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "phase": "manifest",
+  "status": "uploaded",
+  "files": [
+    {
+      "localPath": "models/ppyoloe-plus-s-640/manifest.json",
+      "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+      "bytes": 4275,
+      "sha256": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411"
+    }
+  ],
+  "stableFilesBefore": {
+    ".gitattributes": {
+      "size": 2075,
+      "blobId": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6",
+      "sha256": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6"
+    },
+    "labels/coco.txt": {
+      "size": 621,
+      "blobId": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a",
+      "sha256": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a"
+    },
+    "manifest.json": {
+      "size": 4055,
+      "blobId": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9",
+      "sha256": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9"
+    },
+    "picodet-l-320-fp32.onnx": {
+      "size": 23243834,
+      "blobId": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+    },
+    "pipeline.json": {
+      "size": 580,
+      "blobId": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed",
+      "sha256": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed"
+    },
+    "README.md": {
+      "size": 831,
+      "blobId": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12",
+      "sha256": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12"
+    },
+    "source.yaml": {
+      "size": 2333,
+      "blobId": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1",
+      "sha256": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1"
+    }
+  },
+  "commitCandidates": [
+    "9f3f052a30bb8560aaabe204a84d5e51cf989079"
+  ],
+  "responseKeys": [
+    "commit_id"
+  ],
+  "stableFilesAfter": {
+    ".gitattributes": {
+      "size": 2075,
+      "blobId": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6",
+      "sha256": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6"
+    },
+    "labels/coco.txt": {
+      "size": 621,
+      "blobId": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a",
+      "sha256": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a"
+    },
+    "manifest.json": {
+      "size": 4055,
+      "blobId": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9",
+      "sha256": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9"
+    },
+    "picodet-l-320-fp32.onnx": {
+      "size": 23243834,
+      "blobId": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+    },
+    "pipeline.json": {
+      "size": 580,
+      "blobId": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed",
+      "sha256": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed"
+    },
+    "README.md": {
+      "size": 831,
+      "blobId": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12",
+      "sha256": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12"
+    },
+    "source.yaml": {
+      "size": 2333,
+      "blobId": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1",
+      "sha256": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1"
+    }
+  },
+  "stableFilesUnchanged": true
+}

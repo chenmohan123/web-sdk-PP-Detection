@@ -1,0 +1,436 @@
+{
+  "testedAt": "2026-09-11T16:09:41.526Z",
+  "status": "failed",
+  "scope": "真实桌面 Chromium；390px 仅验证布局，不代表小米 15 实机",
+  "origin": "http://127.0.0.1:4176/web-sdk-PP-Detection/",
+  "source": "modelscope",
+  "files": {
+    "apps/demo/src/App.tsx": "0257d94339f4c608a8d225fc9f95b82c29897f2498a5f492e140b3467c73c2f6",
+    "apps/demo/src/model-sources.ts": "e5c3ec2dcb5b1bcde5282e5b902c1102502b279b1eb966467770870caccd2728",
+    "apps/demo/src/execution-preferences.ts": "a4ff5832c80a3eb9c8c0861ea9a12094adf7a48a1c81a1fd830b77f8a7e0430e",
+    "apps/demo/src/styles.css": "917fc1628e418adcd23e4606ef82bf4ed1cf533858325ef993846a6c383ef415",
+    "models/pp-detection/manifest.json": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a",
+    "models/ppyoloe-plus-s-640/manifest.json": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411",
+    "packages/sdk/dist/index.js": "e147acbe005ec5c7e5e1587a060da4bef81fc873a4e369fdad140862d648a859"
+  },
+  "runs": [
+    {
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 23243834,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "852b3acbb768705c77359362546eae9999f4190c",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        }
+      },
+      "backend": "wasm",
+      "cacheRequested": false,
+      "export": "desktop-picodet-wasm-cold.json",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-11T16:09:45.349Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 22.399999998509884,
+        "preprocessMs": 66.30000000447035,
+        "inferenceMs": 546.1000000014901,
+        "postprocessMs": 0.7999999970197678,
+        "totalMs": 638.3999999985099
+      },
+      "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n2466 ms\n模型下载\n1290 ms\n缓存读取\n11 ms\n完整性校验\n67 ms\n模型来源\n网络下载\nSession 创建\n1009 ms",
+      "detectionCount": 12
+    },
+    {
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.0-labs.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "backend": "wasm",
+      "cacheRequested": false,
+      "export": "desktop-ppyoloe-wasm-cold.json",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-11T16:09:48.486Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.799999997019768,
+        "preprocessMs": 123,
+        "inferenceMs": 969.5999999940395,
+        "postprocessMs": 0.10000000149011612,
+        "totalMs": 1102.7999999970198
+      },
+      "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n1799 ms\n模型下载\n1479 ms\n缓存读取\n10 ms\n完整性校验\n82 ms\n模型来源\n网络下载\nSession 创建\n117 ms",
+      "detectionCount": 15
+    },
+    {
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.0-labs.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "backend": "wasm",
+      "cacheRequested": true,
+      "export": "desktop-ppyoloe-wasm-cached.json",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-11T16:09:50.789Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 7.4000000059604645,
+        "preprocessMs": 114.90000000596046,
+        "inferenceMs": 904.5,
+        "postprocessMs": 0.10000000149011612,
+        "totalMs": 1027.2000000029802
+      },
+      "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n607 ms\n模型下载\n-\n缓存读取\n439 ms\n完整性校验\n81 ms\n模型来源\n持久缓存\nSession 创建\n86 ms",
+      "detectionCount": 15
+    }
+  ],
+  "steps": [
+    {
+      "model": "picodet-l-320",
+      "backend": "wasm",
+      "repeat": false,
+      "phase": "完成"
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "wasm",
+      "repeat": false,
+      "phase": "完成"
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "wasm",
+      "repeat": true,
+      "phase": "完成"
+    },
+    {
+      "model": "picodet-l-320",
+      "backend": "webgpu",
+      "repeat": false,
+      "phase": "等待结果"
+    }
+  ],
+  "requests": [
+    {
+      "event": "request",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+      "at": "2026-09-11T16:09:42.898Z"
+    },
+    {
+      "event": "request",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/03/97/bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "at": "2026-09-11T16:09:43.121Z"
+    },
+    {
+      "event": "request",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "at": "2026-09-11T16:09:46.699Z"
+    },
+    {
+      "event": "request",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/d3/ae/6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "at": "2026-09-11T16:09:46.818Z"
+    },
+    {
+      "event": "request",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+      "at": "2026-09-11T16:09:52.948Z"
+    },
+    {
+      "event": "request",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/03/97/bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "at": "2026-09-11T16:09:53.062Z"
+    }
+  ],
+  "browserMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:4176/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.898698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_24'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.902198 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_23'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.902698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_22'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.903498 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_18'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.904098 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_17'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.904398 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_16'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.904698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_12'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.904998 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_11'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.905598 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_6'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.905898 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_5'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.906198 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_4'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.906498 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_3'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.906698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_2'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.907398 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_1'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.907798 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_10'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:09:44.908198 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_0'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 67,
+        "column": 231,
+        "lineNumber": 67,
+        "columnNumber": 231
+      }
+    }
+  ],
+  "httpErrors": [],
+  "pageErrors": [],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "platform": "Win32",
+    "hardwareConcurrency": 12,
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "gpu": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": null,
+      "description": null,
+      "isFallbackAdapter": false
+    },
+    "browserVersion": "153.0.8010.12"
+  },
+  "error": {
+    "name": "TimeoutError",
+    "message": "page.waitForFunction: Timeout 120000ms exceeded.",
+    "stack": "page.waitForFunction: Timeout 120000ms exceeded.\n    at run (F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\distribution\\2026-09-11-ppyoloe\\verify-demo.mjs:131:16)\n    at async file:///F:/git/00_chenmohan/github/web-sdk-PP-Detection/reports/distribution/2026-09-11-ppyoloe/verify-demo.mjs:177:5"
+  },
+  "failurePage": "ONNX RUNTIME WEB\nPP-Detection\nSDK 0.2.0\nGitHub\nEnglish\n自定义 manifest\n检测模型\nPicoDet-L 320\nPP-YOLOE+ S 640 (实验)\nPicoDet-L 320 · 1.0.1 · 稳定 · 22.2 MB\n验证范围：稳定模型；移动端浏览器仍待验证。\n模型来源\nHugging Face\nModelScope\nGitHub\n运行后端\n自动\nGPU\nCPU\n模型精度\n自动\nFP16\nFP32\n置信度阈值\n0.50\n输入场景\n图片\n摄像头\n视频\n更换图片\n开始检测\n取消\n类别阈值\n留空时继承全局阈值\n模型下载中 37%\npeople.jpg\n缓存已清理\n检测结果\n−\n100%\n+\n适应窗口\n显示标签\n操作说明\n示例图片\n来源: PaddleDetection 官方示例\n人物\n人物 · COCO\n街景\n街景 · COCO\n车辆\n轿车 · PaddleDetection\n水果\n橙子 · PaddleDetection\nPaddleDetection 官方示例\n性能\n初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n-\n模型下载\n-\n缓存读取\n-\n完整性校验\n-\n模型来源\n-\nSession 创建\n-\n本次检测\n端到端耗时\n-\n图片解码\n-\n预处理\n-\n模型推理\n-\n后处理\n-\n\n端到端耗时还包含 Worker 通信与结果传输等少量开销。\n\n模型信息\n模型来源\nModelScope\n模型清单\nmodels/pp-detection/manifest.json\n名称\n-\n请求来源\nModelScope\n实际来源\n-\n固定 revision\n-\nSHA-256\n-\n大小\n-\n参数量\n-\n实际后端\n-\n实际精度\n-\n运行模式\n-\nORT 运行时版本\n-\n运行平台\n-\n浏览器环境\n-\n环境采集时间\n-\n检测结果\n0 个目标\n\n未检测到目标\n\n导出标注图片\n导出 JSON\n清理当前模型缓存\n清理全部本 SDK 缓存\n\n当前模型缓存: 0 B\n\n全部本 SDK 缓存: 30.5 MB\n\n清理会取消当前操作并释放会话，仅清理 Detection 模型缓存。图片在本地处理。",
+  "requestUrlsOmitQuery": true
+}

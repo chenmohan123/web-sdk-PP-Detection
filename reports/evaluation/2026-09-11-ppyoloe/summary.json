@@ -1,0 +1,298 @@
+{
+  "capturedDate": "2026-09-11",
+  "scope": "COCO val2017 预先固定的64张场景覆盖子集，不等于全量COCO成绩",
+  "imageCount": 64,
+  "annotationCount": 716,
+  "cpu": {
+    "picodet": {
+      "metrics": {
+        "AP": 0.3431674773253368,
+        "AP50": 0.4770331172092201,
+        "AP75": 0.36803427929993043,
+        "APSmall": 0.15578708708810862,
+        "APMedium": 0.4593136348704288,
+        "APLarge": 0.67201605678986,
+        "AR1": 0.27934430314413383,
+        "AR10": 0.40622325905794276,
+        "AR100": 0.4176334641762927
+      },
+      "modelBytes": 23243834,
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sessionMs": 186.52499999734573,
+      "firstInferenceMs": 50.580999995872844,
+      "warmMedianInferenceMs": 43.8852000006591,
+      "warmP90InferenceMs": 53.239180000673514
+    },
+    "ppyoloe": {
+      "metrics": {
+        "AP": 0.4336001879737341,
+        "AP50": 0.6207755533689621,
+        "AP75": 0.4518647504318632,
+        "APSmall": 0.267922539578043,
+        "APMedium": 0.5582461072391423,
+        "APLarge": 0.7282551551821003,
+        "AR1": 0.32081275085909994,
+        "AR10": 0.5367708903540338,
+        "AR100": 0.5817043349631389
+      },
+      "modelBytes": 31954220,
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "sessionMs": 145.41069999540923,
+      "firstInferenceMs": 114.2418999952497,
+      "warmMedianInferenceMs": 110.86990000330843,
+      "warmP90InferenceMs": 175.4036600003019
+    },
+    "ppyoloe-pillow": {
+      "metrics": {
+        "AP": 0.433498849354288,
+        "AP50": 0.6200057215881901,
+        "AP75": 0.45843709374041486,
+        "APSmall": 0.2697325788826724,
+        "APMedium": 0.5613670388592868,
+        "APLarge": 0.7137830560565821,
+        "AR1": 0.31583916242707155,
+        "AR10": 0.5391603290120717,
+        "AR100": 0.5807611949302621
+      },
+      "modelBytes": 31954220,
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "sessionMs": 146.02279999962775,
+      "firstInferenceMs": 100.03239999787183,
+      "warmMedianInferenceMs": 113.66709999856539,
+      "warmP90InferenceMs": 163.10984000156168
+    },
+    "paddle": {
+      "metrics": {
+        "AP": 0.4335899810873177,
+        "AP50": 0.6207712218532158,
+        "AP75": 0.4518401191989712,
+        "APSmall": 0.26791584693786735,
+        "APMedium": 0.5582426278172158,
+        "APLarge": 0.7282540010915467,
+        "AR1": 0.32081275085909994,
+        "AR10": 0.5367708903540338,
+        "AR100": 0.5817043349631389
+      }
+    }
+  },
+  "browser": {
+    "browser-picodet-wasm": {
+      "metrics": {
+        "AP": 0.34215273096451604,
+        "AP50": 0.47399339671629215,
+        "AP75": 0.3675599157755509,
+        "APSmall": 0.15447831774148507,
+        "APMedium": 0.4590223817656648,
+        "APLarge": 0.6707719547842549,
+        "AR1": 0.2779591680089987,
+        "AR10": 0.4058765849523975,
+        "AR100": 0.417465189475153
+      },
+      "status": "passed",
+      "runtimeReport": "browser-picodet-wasm-runtime.json",
+      "sessionMs": 434.5949999988079,
+      "firstInferenceMs": 315.63499999791384,
+      "firstTotalMs": 393.26500000059605,
+      "warmMedianInferenceMs": 269.4050000011921,
+      "warmP90InferenceMs": 289.59899999946356,
+      "warmMedianTotalMs": 309.0949999988079,
+      "warmP90TotalMs": 333.08499999493364
+    },
+    "browser-picodet-webgpu": {
+      "metrics": {
+        "AP": 0.34215273096451604,
+        "AP50": 0.47399339671629215,
+        "AP75": 0.3675599157755509,
+        "APSmall": 0.15447831774148507,
+        "APMedium": 0.4590223817656648,
+        "APLarge": 0.6707719547842549,
+        "AR1": 0.2779591680089987,
+        "AR10": 0.4058765849523975,
+        "AR100": 0.417465189475153
+      },
+      "status": "passed",
+      "runtimeReport": "browser-picodet-webgpu-runtime.json",
+      "sessionMs": 1266.8999999985099,
+      "firstInferenceMs": 3453.8249999955297,
+      "firstTotalMs": 3541.375,
+      "warmMedianInferenceMs": 38.29999999701977,
+      "warmP90InferenceMs": 48.10700000077486,
+      "warmMedianTotalMs": 77.92999999970198,
+      "warmP90TotalMs": 109.52099999487406
+    },
+    "browser-ppyoloe-wasm": {
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "status": "passed",
+      "runtimeReport": "browser-ppyoloe-wasm-runtime.json",
+      "sessionMs": 431.88499999791384,
+      "firstInferenceMs": 864.25,
+      "firstTotalMs": 991.7050000056624,
+      "warmMedianInferenceMs": 856.7149999961257,
+      "warmP90InferenceMs": 948.2210000038147,
+      "warmMedianTotalMs": 918.0850000008941,
+      "warmP90TotalMs": 1014.6700000032783
+    },
+    "browser-ppyoloe-webgpu": {
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "status": "passed",
+      "runtimeReport": "browser-ppyoloe-webgpu-runtime.json",
+      "sessionMs": 1173.929999999702,
+      "firstInferenceMs": 2623.0100000053644,
+      "firstTotalMs": 2754.054999999702,
+      "warmMedianInferenceMs": 52.064999997615814,
+      "warmP90InferenceMs": 126.27199999839073,
+      "warmMedianTotalMs": 117.57000000029802,
+      "warmP90TotalMs": 187.11800000220538
+    }
+  },
+  "comparisons": {
+    "paddle-vs-onnx": {
+      "referenceCount": 443,
+      "candidateCount": 443,
+      "matchedCount": 443,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "maxScoreDelta": 5.424022674560547e-06,
+      "maxBboxDeltaPixels": 0.0009918212890625
+    },
+    "opencv-vs-pillow": {
+      "referenceCount": 443,
+      "candidateCount": 443,
+      "matchedCount": 389,
+      "unmatchedReferenceCount": 54,
+      "unmatchedCandidateCount": 54,
+      "maxScoreDelta": 0.023362934589385986,
+      "maxBboxDeltaPixels": 1.3169403076171875
+    },
+    "browser-picodet-wasm": {
+      "referenceCount": 293,
+      "candidateCount": 293,
+      "matchedCount": 272,
+      "unmatchedReferenceCount": 21,
+      "unmatchedCandidateCount": 21,
+      "maxScoreDelta": 0.044753074645996094,
+      "maxBboxDeltaPixels": 2.52740478515625
+    },
+    "browser-picodet-webgpu": {
+      "referenceCount": 293,
+      "candidateCount": 293,
+      "matchedCount": 272,
+      "unmatchedReferenceCount": 21,
+      "unmatchedCandidateCount": 21,
+      "maxScoreDelta": 0.044752299785614014,
+      "maxBboxDeltaPixels": 2.5273284912109375
+    },
+    "browser-ppyoloe-wasm": {
+      "referenceCount": 443,
+      "candidateCount": 443,
+      "matchedCount": 419,
+      "unmatchedReferenceCount": 24,
+      "unmatchedCandidateCount": 24,
+      "maxScoreDelta": 0.040107131004333496,
+      "maxBboxDeltaPixels": 1.868011474609375
+    },
+    "browser-ppyoloe-webgpu": {
+      "referenceCount": 443,
+      "candidateCount": 443,
+      "matchedCount": 419,
+      "unmatchedReferenceCount": 24,
+      "unmatchedCandidateCount": 24,
+      "maxScoreDelta": 0.040111005306243896,
+      "maxBboxDeltaPixels": 1.868011474609375
+    },
+    "browser-raster": {
+      "referenceCount": 443,
+      "candidateCount": 443,
+      "matchedCount": 443,
+      "unmatchedReferenceCount": 0,
+      "unmatchedCandidateCount": 0,
+      "maxScoreDelta": 6.318092346191406e-06,
+      "maxBboxDeltaPixels": 0.00115966796875
+    }
+  },
+  "artifacts": [
+    {
+      "path": "picodet-predictions.json.gz",
+      "bytes": 247325,
+      "sha256": "2ea917b4ed549521a8418b5504e50ba6bff42b90096e4c853a22b16dddd6a17d",
+      "uncompressedSha256": "839cc8e75bede2735e651e1c39da17a30cda69a63846e71b7bd1c5a5b6d1acc7",
+      "predictionCount": 6224
+    },
+    {
+      "path": "ppyoloe-predictions.json.gz",
+      "bytes": 734126,
+      "sha256": "323f6303b16eddad7ef5b439c358e657b09470ecc8db8a36baa82dc9aeadd8ba",
+      "uncompressedSha256": "587a38f9b53de3e28c4d7b981ef107245b64c1a14eddaa8364977a38148284f5",
+      "predictionCount": 19200
+    },
+    {
+      "path": "ppyoloe-pillow-predictions.json.gz",
+      "bytes": 733357,
+      "sha256": "571a8666a5ce9474bf39e59681ee8e698e731afd84feeba392105f1dcb7c61d3",
+      "uncompressedSha256": "854d01179fd6f8ae70d768df6f770122c4e68f85139ec22993eba35b1531a89c",
+      "predictionCount": 19200
+    },
+    {
+      "path": "paddle-predictions.json.gz",
+      "bytes": 736535,
+      "sha256": "5d641ffdc7698e392a652ce7e366e9b765e8f471ae6b24fca156d7efc1322609",
+      "uncompressedSha256": "7091e6c204a591bb52d398371e3f242e235fa5a37b5f492e11f4bf6a7b800de2",
+      "predictionCount": 19200
+    },
+    {
+      "path": "browser-picodet-wasm-predictions.json.gz",
+      "bytes": 248578,
+      "sha256": "1b1faaae59d9f6dfa939d9e074b9b9c580ee27a456d9230b70b8f9398b3054d2",
+      "uncompressedSha256": "21ce78d1602d8a282dddd640d7caf47f1d6c8a84202b871a5c9cfae32bfc4abc",
+      "predictionCount": 6234
+    },
+    {
+      "path": "browser-picodet-webgpu-predictions.json.gz",
+      "bytes": 248672,
+      "sha256": "4116053223ae3cb12a2e08693c40dabeaf07686b25784a1db9a21240dc89c2b1",
+      "uncompressedSha256": "a2b275b4744976f8cf1a026f8b2a9c3c7b3ae8feb9dc19bed40d1adef71b7f39",
+      "predictionCount": 6234
+    },
+    {
+      "path": "browser-ppyoloe-wasm-predictions.json.gz",
+      "bytes": 732228,
+      "sha256": "c268df7de593851c6a7a8e399592adfbf93ce823ffa10bedc39b87fcf7e6b857",
+      "uncompressedSha256": "80cd190a97e630094deb50942dde0bf7ab315df4e65a77f562d9c27a1d5f96b6",
+      "predictionCount": 19200
+    },
+    {
+      "path": "browser-ppyoloe-webgpu-predictions.json.gz",
+      "bytes": 735037,
+      "sha256": "48d1bfdc62728f597c330be01a278ed1f667aa167bf9aa8fbe4468ca4624eb4f",
+      "uncompressedSha256": "2a3e52cf2d7e308b9020fe4d2bca403cb3e1091534d9d7bd2b1eab0b206b93ec",
+      "predictionCount": 19200
+    },
+    {
+      "path": "browser-ppyoloe-webgpu-raster-predictions.json.gz",
+      "bytes": 736062,
+      "sha256": "6a3de3ff3a51381c754f5adb8a827b62d5c7e68ef5bd1fadfb69a8044d6baf9f",
+      "uncompressedSha256": "8f46a65db6e1de9ae0887bdfb09af250c375af86b9792f8cfd5a99fbc39b24d7",
+      "predictionCount": 19200
+    }
+  ]
+}

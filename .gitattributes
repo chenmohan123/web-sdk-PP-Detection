@@ -1,2 +1,10 @@
 * text=auto eol=lf
 models/**/*.onnx filter=lfs diff=lfs merge=lfs -text
+
+# 原始清单及评测、上传证据按字节归档，避免换行转换破坏记录中的摘要。
+models/**/manifest.json -text
+models/ppyoloe-plus-s-640/README.md -text
+reports/evaluation/**/*.json -text -whitespace
+reports/distribution/**/*.json -text -whitespace
+reports/stability/**/*.json -text -whitespace
+reports/stability/**/previous/* -text -whitespace

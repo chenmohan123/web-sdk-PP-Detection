@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0（2026-09-12）
+
+- 修复结果显示后缓存统计尚未完成时，快速切换后端并开始检测会忽略点击的问题；开始按钮等待当前任务完整结束后恢复可用。
+
+模型、来源、许可与验证边界见[发布说明](docs/zh-CN/release-0.3.0.md)（[English](docs/en/release-0.3.0.md)）。
+
+- PP-YOLOE+ S 640 FP32 经桌面验证和小米 15 人工实测后，按用户确认标记为 `0.1.0 stable`；默认加载无需 `allowExperimental`，已验证设备范围随记录保留。
+- Demo 增加独立模型选择，默认 PicoDet；来源仅显示 ModelScope 和 Hugging Face，两个模型均默认 ModelScope；随构建携带固定来源清单，切换模型时取消旧任务并隔离缓存身份。
+- PP-YOLOE 稳定清单复用 Hugging Face / ModelScope 已分发的相同模型文件；实验版清单、模型卡和评测记录保留为历史快照。当前稳定清单随 v0.3.0 标签归档并用于线上 Demo。
+- Demo 将检测列表与导出置顶，详细耗时、模型与缓存按需展开；移除冗余说明，示例只显示图片，选中信息移入固定工具栏，避免画面上下跳动。
+- 增加显式 `allowExperimental` 选项，用于本地 `labs` 模型验证；默认关闭，`blocked` 始终拒绝，同精度优先选择稳定变体。
+- 新增官方 COCOeval、一对一检测匹配、固定 COCO 子集和 PP-YOLOE+ S FP32 来源/转换/浏览器评测工具，提供本地候选接入指南和带日期的验证报告。
+
 ## 0.2.0（2026-09-08）
 
 完整模型、来源、许可与验证边界见[发布说明](docs/zh-CN/release-0.2.0.md)（[English](docs/en/release-0.2.0.md)）。

@@ -1,0 +1,454 @@
+{
+  "testedAt": "2026-09-11T16:52:13.770Z",
+  "status": "passed",
+  "scope": "真实桌面 Chromium；390px 仅验证布局，不代表小米 15 实机",
+  "origin": "http://127.0.0.1:4176/web-sdk-PP-Detection/",
+  "source": "modelscope",
+  "expectedVersion": "0.1.0",
+  "expectStable": true,
+  "requestedBackends": [
+    "webgpu"
+  ],
+  "files": {
+    "apps/demo/src/App.tsx": "0257d94339f4c608a8d225fc9f95b82c29897f2498a5f492e140b3467c73c2f6",
+    "apps/demo/src/model-sources.ts": "82cb7a36ae5736ea4c17babd72b7d465278da4865080da80d91e9cb811fd5ef5",
+    "apps/demo/src/execution-preferences.ts": "a4ff5832c80a3eb9c8c0861ea9a12094adf7a48a1c81a1fd830b77f8a7e0430e",
+    "apps/demo/src/styles.css": "917fc1628e418adcd23e4606ef82bf4ed1cf533858325ef993846a6c383ef415",
+    "models/pp-detection/manifest.json": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a",
+    "models/ppyoloe-plus-s-640/manifest.json": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0",
+    "packages/sdk/dist/index.js": "e147acbe005ec5c7e5e1587a060da4bef81fc873a4e369fdad140862d648a859"
+  },
+  "runs": [
+    {
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 23243834,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "852b3acbb768705c77359362546eae9999f4190c",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        }
+      },
+      "backend": "webgpu",
+      "cacheRequested": false,
+      "export": "desktop-picodet-webgpu-cold.json",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-11T16:52:18.175Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 12.299999997019768,
+        "preprocessMs": 67.39999999850988,
+        "inferenceMs": 3288.5,
+        "postprocessMs": 0.7000000029802322,
+        "totalMs": 3369.10000000149
+      },
+      "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n2791 ms\n模型下载\n1293 ms\n缓存读取\n10 ms\n完整性校验\n64 ms\n模型来源\n网络下载\nSession 创建\n1328 ms",
+      "detectionCount": 12
+    },
+    {
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "backend": "webgpu",
+      "cacheRequested": false,
+      "export": "desktop-ppyoloe-webgpu-cold.json",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-11T16:52:24.029Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 6.899999998509884,
+        "preprocessMs": 105.5,
+        "inferenceMs": 1666.8999999985099,
+        "postprocessMs": 0.10000000149011612,
+        "totalMs": 1779.7000000029802
+      },
+      "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n1861 ms\n模型下载\n1397 ms\n缓存读取\n12 ms\n完整性校验\n83 ms\n模型来源\n网络下载\nSession 创建\n243 ms",
+      "detectionCount": 15
+    }
+  ],
+  "steps": [
+    {
+      "model": "picodet-l-320",
+      "backend": "webgpu",
+      "repeat": false,
+      "phase": "完成"
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "webgpu",
+      "repeat": false,
+      "phase": "完成"
+    }
+  ],
+  "requests": [
+    {
+      "event": "request",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+      "at": "2026-09-11T16:52:15.398Z"
+    },
+    {
+      "event": "finished",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+      "at": "2026-09-11T16:52:15.641Z"
+    },
+    {
+      "event": "request",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/03/97/bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "at": "2026-09-11T16:52:15.641Z"
+    },
+    {
+      "event": "finished",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/03/97/bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "at": "2026-09-11T16:52:16.793Z"
+    },
+    {
+      "event": "request",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "at": "2026-09-11T16:52:22.181Z"
+    },
+    {
+      "event": "finished",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "at": "2026-09-11T16:52:22.299Z"
+    },
+    {
+      "event": "request",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/d3/ae/6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "at": "2026-09-11T16:52:22.299Z"
+    },
+    {
+      "event": "finished",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/d3/ae/6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "at": "2026-09-11T16:52:23.708Z"
+    }
+  ],
+  "requestUrlsOmitQuery": true,
+  "browserMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:4176/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "warning",
+      "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 78,
+        "column": 0,
+        "lineNumber": 78,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.412699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_24'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.415900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_23'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.416499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_22'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.416999 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_18'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.417400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_17'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.418200 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_16'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.418600 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_12'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.419000 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_11'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.419400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_6'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.419699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_5'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.420100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_4'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.420499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_3'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.421100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_2'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.421400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_1'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.421699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_10'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.422100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_0'. It is not used by any node and should be removed from the model.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.887900 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:17.888499 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "warning",
+      "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 78,
+        "column": 0,
+        "lineNumber": 78,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:23.948600 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    },
+    {
+      "type": "error",
+      "text": "\u001b[0;93m2026-09-12 00:52:23.948800 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+      "location": {
+        "url": "http://127.0.0.1:4176/web-sdk-PP-Detection/ort/ort-wasm-simd-threaded.asyncify.mjs",
+        "line": 82,
+        "column": 231,
+        "lineNumber": 82,
+        "columnNumber": 231
+      }
+    }
+  ],
+  "httpErrors": [],
+  "pageErrors": [],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "platform": "Win32",
+    "hardwareConcurrency": 12,
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "gpu": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": null,
+      "description": null,
+      "isFallbackAdapter": false
+    },
+    "browserVersion": "153.0.8010.12"
+  },
+  "narrowLayout": {
+    "clientWidth": 390,
+    "scrollWidth": 390
+  }
+}

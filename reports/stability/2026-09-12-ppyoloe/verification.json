@@ -1,0 +1,50 @@
+{
+  "verifiedAt": "2026-09-11T16:55:24.876Z",
+  "status": "passed",
+  "version": "0.1.0",
+  "modelStatus": "stable",
+  "variantStatus": "stable",
+  "manifestSha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0",
+  "modelSourcesUnchanged": true,
+  "previousFilesMatchUpload": true,
+  "reports": [
+    {
+      "backend": "wasm",
+      "runs": 3,
+      "pageErrors": 0
+    },
+    {
+      "backend": "webgpu",
+      "runs": 2,
+      "pageErrors": 0
+    }
+  ],
+  "lan": {
+    "url": "https://10.11.3.9:8443/web-sdk-PP-Detection/",
+    "status": "passed",
+    "summary": "PP-YOLOE+ S 640 · 0.1.0 · 稳定 · 30.5 MB\n验证范围：稳定模型；桌面 64 张子集验证，小米 15 CPU/GPU 人工实测通过。",
+    "secureContext": true
+  },
+  "standard": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "tests": {
+    "sdkFocused": 43,
+    "demoRelevant": 22,
+    "demoNote": "首次 21 项通过；修正旧单来源预期后补跑失败项 1 项通过。",
+    "docs": 5,
+    "demoTypecheck": "passed",
+    "demoLint": "passed",
+    "demoBuild": "passed",
+    "formatFiles": 266,
+    "diffCheck": "passed"
+  }
+}

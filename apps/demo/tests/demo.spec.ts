@@ -1,45 +1,57 @@
+import { expandDetails } from "./details-helpers";
 import { expect, test } from "playwright/test";
 
 const pixelPng =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=";
 
-test("默认使用 ModelScope 且仅提供两个远程模型来源", async ({ page }) => {
+test("默认使用 PicoDet 的随包清单和 ModelScope 来源", async ({ page }) => {
   await page.goto("/");
 
+  await expect(page.getByLabel("检测模型", { exact: true })).toHaveValue("picodet-l-320");
   await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("modelscope");
   await expect(page.getByLabel("模型来源").locator("option")).toHaveText([
     "ModelScope",
     "Hugging Face"
   ]);
-  await expect(page.getByLabel("模型来源").locator('option[value="huggingface"]')).toBeEnabled();
-  await expect(page.getByLabel("模型来源").locator('option[value="modelscope"]')).toBeEnabled();
 
   const contract = await page.evaluate(async (moduleUrl) => {
     const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
+    const picoDet = module.modelOption("picodet-l-320");
+    const ppyoloe = module.modelOption("ppyoloe-plus-s-640");
     return {
-      keys: module.MODEL_SOURCE_OPTIONS.map((option) => option.key),
-      available: module.MODEL_SOURCE_OPTIONS.map((option) => ({
-        key: option.key,
-        available: option.available,
-        disabledReason: option.disabledReason,
-        manifestUrl: option.manifestUrl
-      })),
-      defaultModel: module.selectionToModel(module.DEFAULT_MODEL_SOURCE),
-      huggingFaceModel: module.selectionToModel("huggingface"),
-      modelScopeModel: module.selectionToModel("modelscope")
+      defaultModel: module.DEFAULT_MODEL,
+      picoDetDefaultSource: module.defaultSource(picoDet),
+      picoDetIdentity: picoDet.manifest.model,
+      picoDetManifestPath: picoDet.manifestPath,
+      picoDetSources: module.sourceOptions(picoDet).map((option) => option.key),
+      ppyoloeDefaultSource: module.defaultSource(ppyoloe),
+      ppyoloeIdentity: ppyoloe.manifest.model,
+      ppyoloeManifestPath: ppyoloe.manifestPath,
+      ppyoloeSources: module.sourceOptions(ppyoloe).map((option) => option.key)
     };
   }, "/src/model-sources.ts");
 
-  expect(contract.keys).toEqual(["modelscope", "huggingface"]);
-  expect(contract.available).toHaveLength(2);
-  expect(contract.available.find((option) => option.key === "huggingface")?.available).toBe(true);
-  expect(contract.available.find((option) => option.key === "modelscope")?.available).toBe(true);
-  expect(contract.available.filter((option) => option.manifestUrl !== undefined)).toHaveLength(2);
-  expect(contract.huggingFaceModel).toContain("resolve/main/manifest.json?v=1.0.1");
-  expect(contract.modelScopeModel).toContain("resolve/master/manifest.json?v=1.0.1");
-  expect(contract.defaultModel).toBe(contract.modelScopeModel);
+  expect(contract).toEqual({
+    defaultModel: "picodet-l-320",
+    picoDetDefaultSource: "modelscope",
+    picoDetIdentity: { id: "pp-picodet-l-320", version: "1.0.1" },
+    picoDetManifestPath: "models/pp-detection/manifest.json",
+    picoDetSources: ["modelscope", "huggingface"],
+    ppyoloeDefaultSource: "modelscope",
+    ppyoloeIdentity: { id: "ppyoloe-plus-s-640", version: "0.1.0" },
+    ppyoloeManifestPath: "models/ppyoloe-plus-s-640/manifest.json",
+    ppyoloeSources: ["modelscope", "huggingface"]
+  });
+  await page.getByLabel("检测模型", { exact: true }).selectOption("ppyoloe-plus-s-640");
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("modelscope");
   await page.getByLabel("模型来源", { exact: true }).selectOption("huggingface");
   await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
+  await page.getByLabel("检测模型", { exact: true }).selectOption("picodet-l-320");
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("modelscope");
+  await page.getByLabel("模型来源", { exact: true }).selectOption("huggingface");
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("huggingface");
+  await page.reload();
+  await expect(page.getByLabel("模型来源", { exact: true })).toHaveValue("modelscope");
 });
 
 test("图片、摄像头和视频输入场景均可切换", async ({ page }) => {
@@ -303,7 +315,8 @@ test("reports loading before detecting for an in-memory model", async ({ page })
   );
   await page.getByRole("button", { name: "开始检测" }).click();
   await wasmRequest;
-  await expect(page.getByLabel("模型来源")).toBeDisabled();
+  await expect(page.getByLabel("检测模型")).toBeEnabled();
+  await expect(page.getByLabel("模型来源")).toBeEnabled();
   await expect(page.getByTestId("status")).toContainText("模型加载中");
   await expect(page.getByTestId("status")).toContainText("检测完成", { timeout: 15_000 });
   await expect(page.getByLabel("模型来源")).toBeEnabled();
@@ -337,7 +350,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   );
   await expect(page.getByRole("link", { name: "GitHub" })).toHaveAttribute("target", "_blank");
   await expect(page.getByRole("link", { name: "GitHub" })).toHaveAttribute("rel", "noreferrer");
-  await expect(page.getByText("SDK 0.2.0", { exact: true })).toBeVisible();
+  await expect(page.getByText("SDK 0.3.0", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "English", exact: true })).toBeVisible();
   await expect(page.getByRole("group", { name: "运行后端" })).toBeVisible();
   await expect(page.getByRole("group", { name: "模型精度" })).toBeVisible();
@@ -353,6 +366,9 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   const performance = page.getByTestId("performance-section");
   const initialization = performance.getByTestId("initialization-timings");
   const detection = performance.getByTestId("detection-timings");
+  await expect(initialization).toBeHidden();
+  await expect(detection).toBeHidden();
+  await expandDetails(page, "performance-details");
   await expect(initialization).toBeVisible();
   await expect(detection).toBeVisible();
 
@@ -375,7 +391,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   await expect(detection.getByText("端到端耗时", { exact: true })).toBeVisible();
   await expect(detection.getByText("图片解码", { exact: true })).toBeVisible();
   await expect(detection.getByText("模型推理", { exact: true })).toBeVisible();
-  await expect(detection).toContainText("端到端耗时还包含 Worker 通信与结果传输等少量开销。");
+  await expect(page.getByTestId("initialization-policy")).toHaveCount(0);
   expect(
     await performance.evaluate((section: HTMLElement) => {
       const initialization = section.querySelector('[data-testid="initialization-timings"]');
@@ -390,6 +406,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   await expect(page.getByTestId("timing-total")).toContainText("ms");
   await expect(page.getByTestId("model-name")).not.toHaveText("-");
   await expect(page.getByRole("button", { name: "导出 JSON" })).toBeEnabled();
+  await expandDetails(page, "cache-section");
   await expect(page.getByRole("button", { name: "清理当前模型缓存" })).toBeEnabled();
   await expect(page.getByRole("button", { name: "清理全部本 SDK 缓存" })).toBeEnabled();
   const downloadPromise = page.waitForEvent("download");
@@ -412,7 +429,7 @@ test("starts in Chinese and exposes the complete detection workflow", async ({
   await page.screenshot({ path: testInfo.outputPath("desktop.png"), fullPage: true });
 });
 
-test("enforces the validated default model matrix in controls", async ({ page }) => {
+test("enforces the selected manifest model matrix in controls", async ({ page }) => {
   await page.goto("/?fixture=1");
   const backend = page.getByRole("group", { name: "运行后端" });
   const precision = page.getByRole("group", { name: "模型精度" });
@@ -427,12 +444,11 @@ test("enforces the validated default model matrix in controls", async ({ page })
   await expect(page.getByTestId("notice")).toHaveCount(0);
 
   await backend.getByRole("button", { name: "自动" }).click();
-  await precision.getByRole("button", { name: "FP16" }).click();
   await backend.getByRole("button", { name: "CPU" }).click();
 
-  await expect(precision.getByRole("button", { name: "FP16" })).toBeEnabled();
-  await expect(precision.getByRole("button", { name: "FP16" })).not.toHaveAttribute("title");
-  await expect(precision.getByRole("button", { name: "FP16" })).toHaveAttribute(
+  await expect(precision.getByRole("button", { name: "FP16" })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "FP16" })).toHaveAttribute("title", /FP16/);
+  await expect(precision.getByRole("button", { name: "FP32" })).toHaveAttribute(
     "aria-pressed",
     "true"
   );
@@ -444,8 +460,9 @@ test("enforces the validated default model matrix in controls", async ({ page })
 
   await page.getByRole("button", { name: "开始检测" }).click();
   await expect(page.getByTestId("status")).toContainText("检测完成", { timeout: 15_000 });
+  await expandDetails(page, "model-section");
   await expect(page.getByText("wasm", { exact: true })).toBeVisible();
-  await expect(page.getByText("fp16", { exact: true })).toBeVisible();
+  await expect(page.getByText("fp32", { exact: true })).toBeVisible();
 });
 
 test("shows local PaddleDetection sample images and only previews a selected sample", async ({
@@ -453,9 +470,8 @@ test("shows local PaddleDetection sample images and only previews a selected sam
 }) => {
   await page.goto("/?fixture=1");
   await expect(page.getByTestId("sample-gallery")).toBeVisible();
-  await expect(page.getByTestId("result-panel").getByTestId("sample-gallery")).toBeVisible();
   expect(
-    await page.getByTestId("result-panel").evaluate((panel: HTMLElement) => {
+    await page.getByTestId("demo-shell").evaluate((panel: HTMLElement) => {
       const canvas = panel.querySelector(".canvas-wrap");
       const samples = panel.querySelector('[data-testid="sample-gallery"]');
       return Boolean(
@@ -469,27 +485,58 @@ test("shows local PaddleDetection sample images and only previews a selected sam
   await page.getByRole("button", { name: /人物/ }).first().click();
   await expect(page.getByTestId("status")).toContainText("准备就绪");
   await expect(page.getByRole("button", { name: "开始检测" })).toBeEnabled();
-  await expect(page.getByTestId("sample-source")).toContainText("PaddleDetection");
 });
 
-test("orders runtime details before fallback and potentially long detections", async ({ page }) => {
+test("检测列表优先展示，详情默认折叠且支持键盘展开", async ({ page }) => {
   await page.goto("/?fixture=1");
-
-  expect(
-    await page
-      .getByTestId("details-panel")
-      .evaluate((panel: HTMLElement) =>
-        [...panel.children]
-          .map((element) => element.getAttribute("data-testid"))
-          .filter((value): value is string => value !== null)
-      )
-  ).toEqual([
-    "performance-section",
-    "model-section",
-    "fallback-slot",
-    "detection-section",
-    "detail-actions"
-  ]);
+  await expect(page.getByTestId("detection-section")).toContainText("检测后在这里查看目标");
+  for (const testId of ["performance-details", "model-section", "cache-section"]) {
+    const details = page.getByTestId(testId);
+    await expect(details).not.toHaveAttribute("open");
+    await details.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    await expect(details).toHaveAttribute("open", "");
+    await page.keyboard.press("Enter");
+    await expect(details).not.toHaveAttribute("open");
+  }
+  await page.locator(".sample-card").first().click();
+  await page.getByRole("button", { name: "开始检测", exact: true }).click();
+  await expect(page.getByTestId("status")).toContainText("检测完成");
+  await expect(page.getByTestId("summary-total")).toContainText("ms");
+  await expect(page.getByTestId("summary-inference")).toContainText("ms");
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    const layout = await page.evaluate(() => {
+      const bounds = (selector: string) =>
+        document.querySelector(selector)!.getBoundingClientRect();
+      const preview = bounds('[data-testid="result-panel"]');
+      const results = bounds('[data-testid="detection-section"]');
+      const first = bounds(".detection-row");
+      const samples = bounds('[data-testid="sample-gallery"]');
+      const performance = bounds('[data-testid="performance-section"]');
+      return {
+        previewTop: preview.top,
+        previewBottom: preview.bottom,
+        resultsTop: results.top,
+        resultsBottom: results.bottom,
+        firstTop: first.top,
+        firstBottom: first.bottom,
+        samplesTop: samples.top,
+        performanceTop: performance.top
+      };
+    });
+    expect(layout.firstTop).toBeGreaterThan(layout.resultsTop);
+    expect(layout.firstBottom).toBeLessThanOrEqual(layout.resultsTop + 400);
+    expect(layout.resultsBottom).toBeLessThanOrEqual(layout.performanceTop);
+    if (width >= 1200) {
+      expect(layout.resultsTop).toBe(layout.previewTop);
+      expect(layout.firstBottom).toBeLessThan(900);
+    } else {
+      expect(layout.resultsTop - layout.previewBottom).toBeGreaterThanOrEqual(0);
+      expect(layout.resultsTop - layout.previewBottom).toBeLessThanOrEqual(1);
+      expect(layout.samplesTop).toBeGreaterThan(layout.resultsBottom);
+    }
+  }
 });
 
 test("switches language, validates custom model input, and cancels", async ({ page }) => {

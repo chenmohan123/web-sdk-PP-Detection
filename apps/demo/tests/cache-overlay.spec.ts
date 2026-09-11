@@ -1,3 +1,4 @@
+import { expandDetails } from "./details-helpers";
 import { expect, test } from "playwright/test";
 
 test("清理缓存后撤下检测框并恢复原图", async ({ page }) => {
@@ -25,6 +26,7 @@ test("清理缓存后撤下检测框并恢复原图", async ({ page }) => {
     await page.getByRole("button", { name: "开始检测", exact: true }).click();
     await expect(page.getByTestId("status")).toHaveClass(/success/);
     expect(await differentChannels()).toBeGreaterThan(0);
+    await expandDetails(page, "cache-section");
     await page.locator(`[data-sdk-cache-clear="${scope}"]`).click();
     await expect(page.getByText("缓存已清理", { exact: true })).toBeVisible();
     await expect.poll(differentChannels).toBe(0);

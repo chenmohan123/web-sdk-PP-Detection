@@ -1,3 +1,4 @@
+import { expandDetails } from "./details-helpers";
 import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "playwright/test";
 import type { PPDetectionResult } from "web-sdk-pp-detection";
@@ -51,6 +52,39 @@ test("列表定位高亮，隐藏标签时仍显示所选目标，导出与画�
   await expect(row).toHaveAttribute("aria-pressed", "false");
 });
 
+test("工具栏选中提示与取消操作不改变画布的位置和尺寸", async ({ page }) => {
+  await prepare(page);
+  const geometry = () =>
+    page.getByTestId("image-viewport").evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+      const panel = element.closest('[data-testid="result-panel"]')!.getBoundingClientRect();
+      return { top: bounds.top - panel.top, width: bounds.width, height: bounds.height };
+    });
+  for (const width of [1920, 1440, 1280, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const language of ["zh", "en"]) {
+      if (language === "en")
+        await page.getByRole("button", { name: "English", exact: true }).click();
+      const before = await geometry();
+      await page.locator(".detection-row").click();
+      await expect(page.locator(".result-toolbar").getByTestId("selected-target")).toBeVisible();
+      expect(await geometry()).toEqual(before);
+      await page
+        .getByRole("button", {
+          name: language === "zh" ? "取消选择" : "Clear selection",
+          exact: true
+        })
+        .click();
+      await expect(page.getByTestId("selected-target")).toHaveCount(0);
+      expect(await geometry()).toEqual(before);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true
+      );
+      if (language === "en") await page.getByRole("button", { name: "中文", exact: true }).click();
+    }
+  }
+});
+
 for (const viewport of [
   { width: 1440, height: 1000 },
   { width: 390, height: 844 }
@@ -88,6 +122,7 @@ test("筛掉目标、重新检测、换图和清理结果后不保留旧高亮",
   const selected = page.getByTestId("selected-target");
   await row.click();
   const filter = page.getByRole("group", { name: "筛选类别", exact: true });
+  await expandDetails(page, "filter-details");
   await filter.getByRole("checkbox").uncheck();
   await expect(selected).toHaveCount(0);
   await filter.getByRole("button", { name: "显示全部", exact: true }).click();
@@ -101,6 +136,7 @@ test("筛掉目标、重新检测、换图和清理结果后不保留旧高亮",
   await expect(selected).toHaveCount(0);
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
   await row.click();
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="current"]').click();
   await expect(selected).toHaveCount(0);
 });

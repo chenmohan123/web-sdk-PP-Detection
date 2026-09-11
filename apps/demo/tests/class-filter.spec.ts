@@ -1,3 +1,4 @@
+import { expandDetails } from "./details-helpers";
 import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "playwright/test";
 
@@ -6,6 +7,7 @@ async function detectSample(page: Page): Promise<void> {
   await page.locator('.sample-card:has(img[src*="fruit.jpg"])').click();
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
   await expect(page.getByTestId("status")).toHaveClass(/success/);
+  await expandDetails(page, "filter-details");
 }
 
 async function download(page: Page, button: string): Promise<Buffer> {
@@ -65,9 +67,11 @@ test("换图和清理缓存后重置筛选，零检测不误报为筛选无匹�
   await detectSample(page);
   await expect(filter.getByRole("checkbox")).toBeChecked();
   await filter.getByRole("checkbox").uncheck();
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="current"]').click();
   await expect(filter).toHaveCount(0);
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
+  await expandDetails(page, "filter-details");
   await expect(filter.getByRole("checkbox")).toBeChecked();
   await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("1");
   await page.getByRole("button", { name: "开始检测", exact: true }).click();

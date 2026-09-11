@@ -90,11 +90,15 @@ test("滚轮以指针位置缩放，放大后仍可点击框并由列表定位",
   const canvas = page.getByTestId("result-canvas");
   const view = page.getByTestId("image-viewport");
   await view.scrollIntoViewIfNeeded();
+  // 先让图片在两个方向都超过视口，避免居中边界限制覆盖指针锚点行为。
+  for (let index = 0; index < 3; index++)
+    await page.getByRole("button", { name: "放大图片", exact: true }).click();
+  const previousZoom = await page.getByTestId("zoom-level").innerText();
   const before = (await canvas.boundingBox())!;
   const anchor = { x: before.x + before.width * 0.4, y: before.y + before.height * 0.45 };
   await page.mouse.move(anchor.x, anchor.y);
   await page.mouse.wheel(0, -200);
-  await expect(page.getByTestId("zoom-level")).not.toHaveText("100%");
+  await expect(page.getByTestId("zoom-level")).not.toHaveText(previousZoom);
   const after = (await canvas.boundingBox())!;
   expect((anchor.x - after.x) / after.width).toBeCloseTo(0.4, 2);
   expect((anchor.y - after.y) / after.height).toBeCloseTo(0.45, 2);

@@ -34,3 +34,7 @@ the default SDK asset. Documentation and manifests keep FP16, quantized, mobile,
 WebView support outside the stable release claim.
 
 After official weights are exported, produce evidence for each FP32, FP16, INT8, INT4, or FP8 variant in this order: graph inspection, CPU numeric/detection parity, browser WASM and WebGPU validation, ONNX SHA-256 and immutable-source checks, then `build_manifest`. Mark a variant `stable` only when its evidence is complete and its target backend passes.
+
+## 第二模型评测（尚未发布）
+
+PP-YOLOE+ S 的实际转换入口位于 `tools/model-pipeline/ppyoloe/`，使用固定的官方 PaddleDetection 源码、Paddle 导出与 Paddle2ONNX opset 11。质量评测位于 `tools/model-pipeline/evaluation/`。来源、COCO 子集、原 Paddle 与 ONNX 对齐和浏览器结果见[2026-09-11 报告](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。本轮不使用其他模型的 mask/reading-order 历史报告，也不以 FP16 报告作为该候选的证据。

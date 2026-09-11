@@ -15,3 +15,14 @@ models/**/*.onnx
 models/**/manifest.json
 pnpm-lock.yaml
 tools/model-pipeline/artifacts/*.json
+
+# 评测 JSON 保留生成时的字节，供模型清单和数据摘要核验。
+reports/evaluation/**/*.json
+
+# 已上传模型卡及分发原始证据保持与上传清单中的字节摘要一致。
+models/ppyoloe-plus-s-640/README.md
+reports/distribution/**/*.json
+
+# 稳定状态变更保留原始清单、模型卡和验证记录字节。
+reports/stability/**/*.json
+reports/stability/**/previous/**

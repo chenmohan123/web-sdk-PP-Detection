@@ -4,15 +4,15 @@
 
 基于 ONNX Runtime Web 的浏览器端 PP-Detection 目标检测 SDK，支持 PC、移动端与各类 H5 页面。
 
-当前 SDK 版本为 **0.2.0**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.2.0.md)。
+当前 SDK 版本为 **0.3.0**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.3.0.md)。
 
 ## 安装
 
 ```bash
-pnpm add web-sdk-pp-detection@0.2.0
+pnpm add web-sdk-pp-detection@0.3.0
 ```
 
-也可以使用 `npm install web-sdk-pp-detection@0.2.0`。
+也可以使用 `npm install web-sdk-pp-detection@0.3.0`。
 
 ## 快速开始
 
@@ -82,15 +82,15 @@ const detector = await createPPDetection({
 
 A browser-first PP-Detection object detection SDK powered by ONNX Runtime Web for desktop, mobile, and H5 pages.
 
-The current SDK version is **0.2.0**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.2.0.md) for the complete changes.
+The current SDK version is **0.3.0**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.3.0.md) for the complete changes.
 
 ### Installation
 
 ```bash
-pnpm add web-sdk-pp-detection@0.2.0
+pnpm add web-sdk-pp-detection@0.3.0
 ```
 
-`npm install web-sdk-pp-detection@0.2.0` is also supported.
+`npm install web-sdk-pp-detection@0.3.0` is also supported.
 
 ### Quick start
 
@@ -148,6 +148,10 @@ From 0.2.0, without an active detector, `ModelManager.getCacheEstimate({ id, ver
 ### WeChat environments
 
 WeChat official-account pages and other H5/WebView integrations are supported. Native Mini Program inference is not claimed; a native Mini Program should host the H5 experience in a WebView or use server-side inference.
+
+### PP-YOLOE 稳定模型（0.3.0 起）
+
+0.3.0 配套提供 PP-YOLOE+ S 640 FP32 `0.1.0 stable` 清单，模型从 ModelScope 或 Hugging Face 的固定 revision 下载，npm 包不包含权重。见[模型接入](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/v0.3.0/examples/ppyoloe-candidate/README.md)。`allowExperimental` 默认关闭，仅运行 labs 候选时显式开启；blocked 仍被拒绝。Demo 默认 PicoDet，两个模型均默认 ModelScope。
 
 ### Documentation
 

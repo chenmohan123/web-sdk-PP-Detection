@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-09-11T15:59:17.663Z",
+  "status": "passed",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "modelRevision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+  "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+  "httpStatus": 200,
+  "bytes": 31954220,
+  "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+  "accessControlAllowOrigin": "*",
+  "stableFilesUnchanged": true,
+  "manifest": {
+    "revision": "9f3f052a30bb8560aaabe204a84d5e51cf989079",
+    "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/9f3f052a30bb8560aaabe204a84d5e51cf989079/ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+    "httpStatus": 200,
+    "bytes": 4275,
+    "sha256": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411",
+    "matchesLocal": true,
+    "verifiedAt": "2026-09-11T16:01:43.567Z",
+    "sources": [
+      "huggingface",
+      "modelscope"
+    ]
+  }
+}

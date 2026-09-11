@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-11",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "targetDirectory": "ppyoloe-plus-s-640/0.1.0-labs.1",
+  "modelCommit": {
+    "revision": "45a646ce13dcf2e2c05231954b1e32b9c412720b",
+    "commitUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/commit/45a646ce13dcf2e2c05231954b1e32b9c412720b",
+    "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/45a646ce13dcf2e2c05231954b1e32b9c412720b/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+    "httpStatus": 200,
+    "contentLength": 31954220,
+    "downloadedBytes": 31954220,
+    "downloadedSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+    "expectedBytes": 31954220,
+    "expectedSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+    "matches": true
+  },
+  "manifestCommit": {
+    "revision": "dd05670d8e54c187112cc77051cd742cdbba7e24",
+    "commitUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/commit/dd05670d8e54c187112cc77051cd742cdbba7e24",
+    "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/dd05670d8e54c187112cc77051cd742cdbba7e24/ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+    "httpStatus": 200,
+    "downloadedBytes": 3262,
+    "downloadedSha256": "7c319d86a80f4d09ba4bdfaa22b12b1e27d607d0b573ac6ecd84a62641c74d1b",
+    "localBytes": 3262,
+    "localSha256": "7c319d86a80f4d09ba4bdfaa22b12b1e27d607d0b573ac6ecd84a62641c74d1b",
+    "embeddedModelRevision": "45a646ce13dcf2e2c05231954b1e32b9c412720b",
+    "matches": true
+  },
+  "remotePaths": [
+    "ppyoloe-plus-s-640/0.1.0-labs.1/LICENSE",
+    "ppyoloe-plus-s-640/0.1.0-labs.1/README.md",
+    "ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+    "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx"
+  ],
+  "modelscope": {
+    "status": "not-distributed",
+    "reason": "现有 CLI 身份检查返回 Missing API token；未改变登录状态，未构造来源 revision。"
+  }
+}

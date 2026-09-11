@@ -90,4 +90,68 @@ describe("selectExecutionPlan", () => {
       selectExecutionPlan({ backend: "wasm", precision: "int8" }, capabilities, manifest)
     ).toThrowError(expect.objectContaining({ code: "MODEL_INCOMPATIBLE" }));
   });
+
+  it("显式允许实验变体时可以选择 labs", () => {
+    const plan = selectExecutionPlan(
+      { allowExperimental: true, backend: "wasm", precision: "int8" },
+      capabilities,
+      manifest
+    );
+
+    expect(plan.variantId).toBe("int8");
+    expect(plan.actualPrecision).toBe("int8");
+  });
+
+  it("同精度同时存在 stable 与 labs 时始终优先 stable", () => {
+    const mixedManifest: DetectionManifest = {
+      ...manifest,
+      variants: [
+        {
+          id: "fp32-labs",
+          precision: "fp32",
+          quantization: null,
+          backends: ["wasm"],
+          status: "labs"
+        },
+        {
+          id: "fp32-stable",
+          precision: "fp32",
+          quantization: null,
+          backends: ["wasm"],
+          status: "stable"
+        }
+      ]
+    };
+
+    const plan = selectExecutionPlan(
+      { allowExperimental: true, backend: "wasm", precision: "fp32" },
+      capabilities,
+      mixedManifest
+    );
+
+    expect(plan.variantId).toBe("fp32-stable");
+  });
+
+  it("blocked 变体即使显式允许实验能力也不能选择", () => {
+    const blockedManifest: DetectionManifest = {
+      ...manifest,
+      variants: [
+        {
+          id: "fp32-blocked",
+          precision: "fp32",
+          quantization: null,
+          backends: ["wasm"],
+          status: "blocked"
+        }
+      ]
+    };
+
+    expect(() =>
+      selectExecutionPlan(
+        { allowExperimental: true, backend: "wasm", precision: "fp32" },
+        capabilities,
+        blockedManifest
+      )
+    ).toThrowError(expect.objectContaining({ code: "MODEL_INCOMPATIBLE" }));
+  });
 });

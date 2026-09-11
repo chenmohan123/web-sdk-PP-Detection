@@ -1,6 +1,82 @@
+import { expandDetails } from "./details-helpers";
 import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "playwright/test";
 import { TINY_MODEL_BASE64, tinyModelManifest } from "../src/fixture";
+
+test("结果显示后缓存统计未完成时禁用开始按钮，完成后可立即重新检测", async ({ page }) => {
+  await page.addInitScript(() => {
+    const pending: Array<() => void> = [];
+    const state = {
+      waiting: false,
+      block: true,
+      release: () => {
+        state.block = false;
+        pending.splice(0).forEach((complete) => complete());
+      }
+    };
+    Object.assign(window, { cacheRefreshTest: state });
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- 下方通过 call 保留原型方法的 this。
+    const transaction = IDBDatabase.prototype.transaction;
+    IDBDatabase.prototype.transaction = function (storeNames, mode, options) {
+      const result = transaction.call(
+        this,
+        typeof storeNames === "string" ? storeNames : Array.from(storeNames),
+        mode,
+        options
+      );
+      result.addEventListener(
+        "complete",
+        (event) => {
+          if (
+            !state.block ||
+            !document.querySelector('[data-testid="status"]')?.textContent?.includes("检测完成") ||
+            !result.oncomplete
+          )
+            return;
+          event.stopImmediatePropagation();
+          const complete = result.oncomplete;
+          state.waiting = true;
+          pending.push(() => {
+            complete.call(result, event);
+          });
+        },
+        { capture: true }
+      );
+      return result;
+    };
+  });
+  await page.goto("/?fixture=1");
+  await page.getByRole("button", { name: "CPU", exact: true }).click();
+  await page.locator(".sample-card").first().click();
+  const start = page.getByRole("button", { name: "开始检测", exact: true });
+  await start.click();
+  await expect(page.getByTestId("status")).toContainText("检测完成");
+  await expect.poll(() => page.evaluate(() => window.cacheRefreshTest.waiting)).toBe(true);
+  await expect(start).toBeDisabled();
+  await page
+    .getByRole("group", { name: "运行后端", exact: true })
+    .getByRole("button", { name: "自动", exact: true })
+    .click();
+  await expect(start).toBeDisabled();
+  await page.evaluate(() => window.cacheRefreshTest.release());
+  await expect(start).toBeEnabled();
+  await page.getByRole("button", { name: "CPU", exact: true }).click();
+  await start.click();
+  await expect(page.getByTestId("status")).toContainText("检测完成");
+  await expect(start).toBeEnabled();
+});
+
+async function useTinyNetworkModel(page: Page, modelUrl: string): Promise<void> {
+  await page.getByRole("button", { name: "自定义 manifest", exact: true }).click();
+  await page.getByRole("textbox", { name: "manifest JSON", exact: true }).fill(
+    JSON.stringify({
+      ...tinyModelManifest,
+      variants: tinyModelManifest.variants.map((variant) => ({ ...variant, url: modelUrl }))
+    })
+  );
+  await page.getByRole("button", { name: "校验", exact: true }).click();
+  await page.getByRole("dialog").getByRole("button", { name: "关闭", exact: true }).last().click();
+}
 
 test("下载中清理当前模型，旧加载不能回填，清理后可重新检测", async ({ page }) => {
   let release!: () => void;
@@ -10,14 +86,6 @@ test("下载中清理当前模型，旧加载不能回填，清理后可重新�
   let downloading = false;
   let first = true;
   const modelUrl = "https://www.modelscope.cn/demo-cache-test/model.onnx";
-  await page.route("https://www.modelscope.cn/**/manifest.json*", (route) =>
-    route.fulfill({
-      json: {
-        ...tinyModelManifest,
-        variants: tinyModelManifest.variants.map((variant) => ({ ...variant, url: modelUrl }))
-      }
-    })
-  );
   await page.route(modelUrl, async (route) => {
     if (first) {
       first = false;
@@ -32,10 +100,12 @@ test("下载中清理当前模型，旧加载不能回填，清理后可重新�
       .catch(() => undefined);
   });
   await page.goto("/");
+  await useTinyNetworkModel(page, modelUrl);
   await page.getByRole("button", { name: "CPU", exact: true }).click();
   await page.locator(".sample-card").first().click();
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
   await expect.poll(() => downloading).toBe(true);
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="current"]').click();
   release();
   await expect(page.locator('[data-sdk-cache-clear="current"]')).toBeEnabled();
@@ -43,20 +113,13 @@ test("下载中清理当前模型，旧加载不能回填，清理后可重新�
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
   await expect(page.getByTestId("status")).toContainText("检测完成", { timeout: 20_000 });
   await expect(page.locator('[data-sdk-cache-usage="all"]')).toContainText("503 B");
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="all"]').click();
   await expect(page.locator('[data-sdk-cache-usage="all"]')).toContainText("0 B");
 });
 
 test("清理错误显示后可以重试，快速双击只执行一轮清理", async ({ page }) => {
   const modelUrl = "https://www.modelscope.cn/demo-cache-test/model.onnx";
-  await page.route("https://www.modelscope.cn/**/manifest.json*", (route) =>
-    route.fulfill({
-      json: {
-        ...tinyModelManifest,
-        variants: tinyModelManifest.variants.map((variant) => ({ ...variant, url: modelUrl }))
-      }
-    })
-  );
   await page.route(modelUrl, (route) =>
     route.fulfill({
       body: Buffer.from(TINY_MODEL_BASE64, "base64"),
@@ -64,6 +127,7 @@ test("清理错误显示后可以重试，快速双击只执行一轮清理", as
     })
   );
   await page.goto("/");
+  await useTinyNetworkModel(page, modelUrl);
   await page.getByRole("button", { name: "CPU", exact: true }).click();
   await page.locator(".sample-card").first().click();
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
@@ -80,6 +144,7 @@ test("清理错误显示后可以重试，快速双击只执行一轮清理", as
       return remove.call(this, key);
     };
   });
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="all"]').click();
   await expect(page.getByRole("alert")).toContainText("测试缓存事务异常");
   await expect(page.locator('[data-sdk-cache-clear="all"]')).toBeEnabled();
@@ -119,6 +184,7 @@ test("清理后迟到的视频 play 不会重启帧调度", async ({ page }) => 
       )
     )
     .toBe(true);
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="all"]').click();
   await page.evaluate(() =>
     (window as unknown as { videoCacheTest: { release(): void } }).videoCacheTest.release()
@@ -134,13 +200,14 @@ test("清理后迟到的视频 play 不会重启帧调度", async ({ page }) => 
 
 declare global {
   interface Window {
+    cacheRefreshTest: { waiting: boolean; release(): void };
     videoFrameTest: { callbacks: Map<number, (timestamp: number) => void> };
     cameraSessionTest: { streams: MediaStream[] };
     videoFrameExportTest: { release(): void } | undefined;
   }
 }
 
-async function prepareVideo(page: Page): Promise<() => number> {
+async function prepareVideo(page: Page): Promise<void> {
   await page.addInitScript(() => {
     const callbacks = new Map<number, (timestamp: number) => void>();
     let nextHandle = 0;
@@ -168,17 +235,7 @@ async function prepareVideo(page: Page): Promise<() => number> {
       callbacks.delete(handle);
     };
   });
-  let manifestRequests = 0;
   const modelUrl = "https://www.modelscope.cn/demo-video-test/model.onnx";
-  await page.route("https://www.modelscope.cn/**/manifest.json*", async (route) => {
-    manifestRequests += 1;
-    await route.fulfill({
-      json: {
-        ...tinyModelManifest,
-        variants: tinyModelManifest.variants.map((variant) => ({ ...variant, url: modelUrl }))
-      }
-    });
-  });
   await page.route(modelUrl, (route) =>
     route.fulfill({
       body: Buffer.from(TINY_MODEL_BASE64, "base64"),
@@ -186,6 +243,7 @@ async function prepareVideo(page: Page): Promise<() => number> {
     })
   );
   await page.goto("/");
+  await useTinyNetworkModel(page, modelUrl);
   await page.getByRole("button", { name: "CPU", exact: true }).click();
   const videoBytes = await page.evaluate(async () => {
     const canvas = document.createElement("canvas");
@@ -216,7 +274,6 @@ async function prepareVideo(page: Page): Promise<() => number> {
     buffer: Buffer.from(videoBytes)
   });
   await page.getByRole("button", { name: "播放视频", exact: true }).click();
-  return () => manifestRequests;
 }
 
 async function advanceVideoFrame(page: Page, timestampMs: number): Promise<void> {
@@ -236,7 +293,7 @@ async function advanceVideoFrame(page: Page, timestampMs: number): Promise<void>
 }
 
 test("导出视频帧时保持点击时的画布快照，后续检测可继续", async ({ page }) => {
-  const manifestRequests = await prepareVideo(page);
+  await prepareVideo(page);
   await advanceVideoFrame(page, 1);
   const snapshot = await page.getByTestId("result-canvas").evaluate((canvas: HTMLCanvasElement) => {
     const png = canvas.toDataURL("image/png").split(",")[1];
@@ -270,7 +327,6 @@ test("导出视频帧时保持点击时的画布快照，后续检测可继续",
   expect(download.suggestedFilename()).toBe("pp-detection-result.png");
   const png = await readFile(await download.path());
   expect(png.equals(Buffer.from(snapshot, "base64"))).toBe(true);
-  expect(manifestRequests()).toBe(1);
 });
 
 test("视频画面前进后停止并选择目标，仍使用检测时的原始帧", async ({ page }) => {
@@ -334,19 +390,19 @@ test("视频换帧不复用旧目标选择，停止后可点击画布定位", as
 });
 
 test("视频连续帧复用已加载会话并读取当前阈值", async ({ page }) => {
-  const manifestRequests = await prepareVideo(page);
+  await prepareVideo(page);
   await advanceVideoFrame(page, 1);
   await expect(page.locator(".detection-row strong")).toHaveText("人");
   await page.getByRole("slider", { name: "置信度阈值", exact: true }).fill("1");
   await advanceVideoFrame(page, 2);
   await expect(page.getByTestId("detection-section")).toContainText("未检测到目标");
-  expect(manifestRequests()).toBe(1);
 });
 
 test("视频筛选在目标消失后仍保留，切换后端时恢复全部类别", async ({ page }) => {
-  const manifestRequests = await prepareVideo(page);
+  await prepareVideo(page);
   await advanceVideoFrame(page, 1);
   const filter = page.getByRole("group", { name: "筛选类别", exact: true });
+  await expandDetails(page, "filter-details");
   const person = filter.getByRole("checkbox");
   // 手动选择一个类别，使筛选仅接受已选类别的后续结果。
   await person.uncheck();
@@ -362,7 +418,6 @@ test("视频筛选在目标消失后仍保留，切换后端时恢复全部类�
   await advanceVideoFrame(page, 4);
   await expect(page.locator(".detection-row")).toHaveCount(0);
   await expect(person).not.toBeChecked();
-  expect(manifestRequests()).toBe(1);
 
   await page.getByRole("button", { name: "停止媒体", exact: true }).click();
   await page
@@ -374,7 +429,7 @@ test("视频筛选在目标消失后仍保留，切换后端时恢复全部类�
 });
 
 test("视频停止后精度与后端切换生效，清缓存和输入切换会停止旧帧", async ({ page }) => {
-  const manifestRequests = await prepareVideo(page);
+  await prepareVideo(page);
   await advanceVideoFrame(page, 1);
   await page.getByRole("button", { name: "停止媒体", exact: true }).click();
   expect(await page.evaluate(() => window.videoFrameTest.callbacks.size)).toBe(0);
@@ -389,14 +444,13 @@ test("视频停止后精度与后端切换生效，清缓存和输入切换会�
   await page.getByRole("button", { name: "播放视频", exact: true }).click();
   await advanceVideoFrame(page, 2);
   await expect(page.getByTestId("model-section")).toContainText("fp32");
-  expect(manifestRequests()).toBe(2);
+  await expandDetails(page, "cache-section");
   await page.locator('[data-sdk-cache-clear="all"]').click();
   await expect(page.getByTestId("notice")).toContainText("缓存已清理");
   expect(await page.evaluate(() => window.videoFrameTest.callbacks.size)).toBe(0);
   await expect(page.locator('[data-sdk-cache-usage="all"]')).toContainText("0 B");
   await page.getByRole("button", { name: "播放视频", exact: true }).click();
   await advanceVideoFrame(page, 3);
-  expect(manifestRequests()).toBe(3);
   await expect(page.locator('[data-sdk-cache-usage="all"]')).toContainText("503 B");
   await page.getByRole("button", { name: "图片", exact: true }).click();
   expect(await page.evaluate(() => window.videoFrameTest.callbacks.size)).toBe(0);
@@ -423,7 +477,7 @@ test("视频更换同标识自定义模型后下一帧使用新清单", async ({
 });
 
 test("视频切换摄像头保留新媒体流，摄像头连续帧复用且重新选择精度生效", async ({ page }) => {
-  const manifestRequests = await prepareVideo(page);
+  await prepareVideo(page);
   await advanceVideoFrame(page, 1);
   await page.evaluate(() => {
     window.cameraSessionTest = { streams: [] };
@@ -450,7 +504,6 @@ test("视频切换摄像头保留新媒体流，摄像头连续帧复用且重�
   await expect.poll(() => page.evaluate(() => document.querySelector("video")?.videoWidth)).toBe(8);
   await advanceVideoFrame(page, 2);
   await advanceVideoFrame(page, 3);
-  expect(manifestRequests()).toBe(2);
   await page.getByRole("button", { name: "停止媒体", exact: true }).click();
   await page
     .getByRole("group", { name: "模型精度", exact: true })
@@ -460,5 +513,4 @@ test("视频切换摄像头保留新媒体流，摄像头连续帧复用且重�
   await expect.poll(() => page.evaluate(() => document.querySelector("video")?.videoWidth)).toBe(8);
   await advanceVideoFrame(page, 4);
   await expect(page.getByTestId("model-section")).toContainText("fp32");
-  expect(manifestRequests()).toBe(3);
 });

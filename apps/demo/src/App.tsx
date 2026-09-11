@@ -26,7 +26,7 @@ import {
   CURRENT_SDK_VERSION,
   ModelManager,
   PPDetectionError,
-  parseDetectionManifest,
+  adaptModelManifest,
   createPPDetection,
   parseModelManifest,
   type PPDetectionDetector,
@@ -39,13 +39,11 @@ import {
 import {
   allowFallbackForSelection,
   precisionForBackend,
-  supportsCombination,
   type BackendPreference,
   type PrecisionPreference
 } from "./execution-preferences";
 import {
   classThresholdValue,
-  DEFAULT_CLASS_LABELS,
   selectActiveClassThresholds,
   setClassThresholdValue,
   uniqueLabels
@@ -62,15 +60,17 @@ import { useImageViewport } from "./use-image-viewport";
 import { zhCN, type Copy } from "./i18n/zh-CN";
 import { modelProgressState } from "./model-progress";
 import {
-  DEFAULT_MODEL_SOURCE,
-  MODEL_SOURCE_OPTIONS,
-  selectionToModel,
+  DEFAULT_MODEL,
+  MODEL_OPTIONS,
+  defaultSource,
+  modelOption,
+  sourceOptions,
+  type DemoModelKey,
   type ModelSourceKey
 } from "./model-sources";
 import { formatFallbackCause, formatRuntimeError } from "./runtime-messages";
 import { VideoFrameScheduler } from "./media-frame-scheduler";
 import { exportCanvasImage } from "./export-image";
-import officialManifest from "../../../models/pp-detection/manifest.json";
 
 type Language = "zh" | "en";
 type Detection = PPDetectionResult["detections"][number];
@@ -95,6 +95,40 @@ type DemoRuntime = PPDetectionResult["runtime"] & {
 
 const demoFixture = new URLSearchParams(window.location.search).has("fixture");
 const ortWasmBaseUrl = new URL(`${import.meta.env.BASE_URL}ort/`, window.location.href).href;
+
+function fixtureModel(model: DemoModelKey, source: ModelSourceKey): PPDetectionModel {
+  const option = modelOption(model);
+  const fixture = adaptModelManifest(tinyModelManifest);
+  const selectedSource = option.manifest.variants
+    .flatMap((variant) => variant.sources)
+    .find((candidate) => candidate.kind === source);
+  if (selectedSource === undefined)
+    throw new PPDetectionError("MODEL_SOURCE_UNAVAILABLE", "当前模型没有所选来源", {
+      model,
+      source
+    });
+  const fixtureVariant = fixture.variants.find((variant) => variant.precision === "fp32")!;
+  return {
+    data: tinyModelData(),
+    manifest: {
+      ...fixture,
+      model: option.manifest.model,
+      variants: [
+        {
+          ...fixtureVariant,
+          status: option.experimental ? "labs" : "stable",
+          sources: [
+            {
+              ...selectedSource,
+              bytes: fixtureVariant.bytes,
+              sha256: fixtureVariant.sources[0].sha256
+            }
+          ]
+        }
+      ]
+    }
+  };
+}
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -233,7 +267,6 @@ function drawVideoSource(canvas: HTMLCanvasElement, source: HTMLVideoElement): v
 export function App(): ReactElement {
   const [language, setLanguage] = useState<Language>("zh");
   const [showLabels, setShowLabels] = useState(true);
-  const [showViewHelp, setShowViewHelp] = useState(false);
   const [selectedClasses, setSelectedClasses] = useState<ReadonlySet<string> | null>(null);
   const [targetSelection, setTargetSelection] = useState<{
     result: PPDetectionResult;
@@ -243,11 +276,15 @@ export function App(): ReactElement {
   const copy: Copy = language === "zh" ? zhCN : en;
   const [backend, setBackend] = useState<BackendPreference>("auto");
   const [precision, setPrecision] = useState<PrecisionPreference>("auto");
-  const [modelSource, setModelSource] = useState<ModelSourceKey>(DEFAULT_MODEL_SOURCE);
+  const [selectedModel, setSelectedModel] = useState<DemoModelKey>(DEFAULT_MODEL);
+  const [modelSource, setModelSource] = useState<ModelSourceKey>(() =>
+    defaultSource(modelOption(DEFAULT_MODEL))
+  );
   const [modelSourceChanging, setModelSourceChanging] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("image");
   const [threshold, setThreshold] = useState(0.5);
   const [status, setStatus] = useState<Status>("ready");
+  const [detectionActive, setDetectionActive] = useState(false);
   const [downloadPercentage, setDownloadPercentage] = useState<number | undefined>();
   const [file, setFile] = useState<File | undefined>();
   const [videoFile, setVideoFile] = useState<File | undefined>();
@@ -265,7 +302,6 @@ export function App(): ReactElement {
   const [notice, setNotice] = useState<string | undefined>();
   const [imageExporting, setImageExporting] = useState(false);
   const [imageExportError, setImageExportError] = useState(false);
-  const [selectedSample, setSelectedSample] = useState<DemoSample | undefined>();
   const [classThresholds, setClassThresholds] = useState<Record<string, number>>({});
   const imageRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -285,7 +321,7 @@ export function App(): ReactElement {
   >(() => Promise.resolve());
   const cacheManagerRef = useRef<ModelManager | undefined>(undefined);
   const cacheIdentityRef = useRef<{ id: string; version: string }>(
-    demoFixture ? tinyModelManifest.model : officialManifest.model
+    modelOption(DEFAULT_MODEL).manifest.model
   );
   const cacheClearingRef = useRef(false);
   const activeDetectionRef = useRef<Promise<void> | undefined>(undefined);
@@ -302,17 +338,18 @@ export function App(): ReactElement {
       ? initializationRef.current?.timings
       : undefined;
   const runtime: DemoRuntime | undefined = result?.runtime;
+  const activeModelOption = modelOption(selectedModel);
+  const activeSourceOptions = sourceOptions(activeModelOption);
   const activeModelSource =
-    MODEL_SOURCE_OPTIONS.find((option) => option.key === modelSource) ?? MODEL_SOURCE_OPTIONS[0];
-  const activeLabels = uniqueLabels(
-    customManifest?.labels ?? (demoFixture ? tinyModelManifest.labels : DEFAULT_CLASS_LABELS)
-  );
+    activeSourceOptions.find((option) => option.key === modelSource) ?? activeSourceOptions[0];
+  const activeLabels = uniqueLabels(customManifest?.labels ?? activeModelOption.manifest.labels);
   const activeClassThresholds = selectActiveClassThresholds(activeLabels, classThresholds);
   const hasResult = result !== undefined;
   const detectorConfig = JSON.stringify({
     inputMode,
     backend,
     precision,
+    selectedModel,
     modelSource,
     customManifest
   });
@@ -507,7 +544,6 @@ export function App(): ReactElement {
     setError(undefined);
     setNotice(undefined);
     setStatus("ready");
-    setSelectedSample(undefined);
   };
 
   const onVideo = (next: File | undefined): void => {
@@ -525,7 +561,6 @@ export function App(): ReactElement {
     setNotice(undefined);
     setStatus("ready");
     setInputMode("video");
-    setSelectedSample(undefined);
   };
 
   function stopCamera(): void {
@@ -599,7 +634,6 @@ export function App(): ReactElement {
       const next = await fetchSampleFile(sample);
       if (generation !== inputGenerationRef.current) return;
       onImage(next);
-      setSelectedSample(sample);
     } catch (caught) {
       if (generation !== inputGenerationRef.current) return;
       setError(formatRuntimeError(caught));
@@ -609,7 +643,11 @@ export function App(): ReactElement {
 
   const onBackend = (next: BackendPreference): void => {
     if (next !== backend) cancel();
-    const nextPrecision = precisionForBackend(next, precision, customManifest);
+    const nextPrecision = precisionForBackend(
+      next,
+      precision,
+      customManifest ?? activeModelOption.manifest
+    );
     setBackend(next);
     if (nextPrecision !== precision) {
       setPrecision(nextPrecision);
@@ -622,7 +660,10 @@ export function App(): ReactElement {
     setPrecision(next);
   };
 
-  const onModelSource = async (next: ModelSourceKey): Promise<void> => {
+  const onModelSelection = async (
+    nextModel: DemoModelKey,
+    nextSource: ModelSourceKey
+  ): Promise<void> => {
     if (cacheClearingRef.current || sourceChangingRef.current) return;
     sourceChangingRef.current = true;
     if (inputMode !== "image") stopVideo();
@@ -642,8 +683,9 @@ export function App(): ReactElement {
       sourceChangingRef.current = false;
       return;
     }
-    setModelSource(next);
-    cacheIdentityRef.current = demoFixture ? tinyModelManifest.model : officialManifest.model;
+    setSelectedModel(nextModel);
+    setModelSource(nextSource);
+    cacheIdentityRef.current = modelOption(nextModel).manifest.model;
     void refreshCache().catch(() => setCacheUsage(undefined));
     setCustomManifest(undefined);
     setResult(undefined);
@@ -655,6 +697,19 @@ export function App(): ReactElement {
     setModelSourceChanging(false);
     sourceChangingRef.current = false;
   };
+
+  const onModel = async (next: DemoModelKey): Promise<void> => {
+    const nextOption = modelOption(next);
+    const nextPrecision = precisionForBackend(backend, precision, nextOption.manifest);
+    await onModelSelection(next, defaultSource(nextOption));
+    if (nextPrecision !== precision) {
+      setPrecision(nextPrecision);
+      setNotice(copy.precisionAdjusted);
+    }
+  };
+
+  const onModelSource = (next: ModelSourceKey): Promise<void> =>
+    onModelSelection(selectedModel, next);
 
   const cancel = (): void => {
     abortRef.current?.abort("cancelled");
@@ -695,25 +750,15 @@ export function App(): ReactElement {
       let detector = detectorRef.current;
       if (detector === undefined) {
         const initializationStarted = performance.now();
-        let model: PPDetectionModel | undefined = demoFixture
-          ? { data: tinyModelData(), manifest: tinyModelManifest }
-          : (customManifest ?? selectionToModel(modelSource));
-        if (typeof model === "string") {
-          const response = await fetch(model, { signal: controller.signal });
-          if (!response.ok)
-            throw new PPDetectionError("MODEL_SOURCE_UNAVAILABLE", "模型清单下载失败", {
-              status: response.status
-            });
-          const candidate: unknown = await response.json();
-          if (controller.signal.aborted || abortRef.current !== controller) return;
-          model =
-            typeof candidate === "object" && candidate !== null && "postprocessing" in candidate
-              ? parseDetectionManifest(candidate)
-              : parseModelManifest(candidate);
-        }
+        const model: PPDetectionModel = demoFixture
+          ? fixtureModel(selectedModel, modelSource)
+          : (customManifest ?? activeModelOption.manifest);
         if (typeof model === "object" && model !== null)
           cacheIdentityRef.current = "manifest" in model ? model.manifest.model : model.model;
         detector = await createPPDetection({
+          ...(customManifest === undefined && activeModelOption.experimental
+            ? { allowExperimental: true }
+            : {}),
           allowFallback: allowFallbackForSelection(backend, precision),
           backend,
           cache: true,
@@ -729,7 +774,7 @@ export function App(): ReactElement {
           },
           ort: { wasm: { paths: ortWasmBaseUrl } },
           precision,
-          ...(demoFixture ? {} : { source: modelSource }),
+          ...(customManifest === undefined ? { source: modelSource } : {}),
           signal: controller.signal
         });
         if (controller.signal.aborted || abortRef.current !== controller) {
@@ -779,10 +824,14 @@ export function App(): ReactElement {
   ): Promise<void> => {
     if (cacheClearingRef.current || sourceChangingRef.current || activeDetectionRef.current)
       return Promise.resolve();
+    setDetectionActive(true);
     const operation = runDetectionActive(source, timestampMs);
     activeDetectionRef.current = operation;
     void operation.finally(() => {
-      if (activeDetectionRef.current === operation) activeDetectionRef.current = undefined;
+      if (activeDetectionRef.current === operation) {
+        activeDetectionRef.current = undefined;
+        setDetectionActive(false);
+      }
     });
     return operation;
   };
@@ -892,7 +941,7 @@ export function App(): ReactElement {
     } catch {
       cancel();
       setCustomManifest(undefined);
-      cacheIdentityRef.current = demoFixture ? tinyModelManifest.model : officialManifest.model;
+      cacheIdentityRef.current = activeModelOption.manifest.model;
       void refreshCache().catch(() => setCacheUsage(undefined));
       setCustomError(copy.invalidManifest);
     }
@@ -965,44 +1014,35 @@ export function App(): ReactElement {
         <aside className="controls-panel">
           <section className="control-band" data-testid="controls">
             <label className="control-group">
-              <span className="control-label">{copy.modelRepository}</span>
+              <span className="control-label">{copy.model}</span>
               <select
-                aria-describedby="model-source-limitations"
-                aria-label={copy.modelRepository}
-                disabled={
-                  cacheClearing ||
-                  modelSourceChanging ||
-                  status === "downloading" ||
-                  status === "loading" ||
-                  status === "running"
-                }
-                value={modelSource}
-                onChange={(event) => void onModelSource(event.target.value as ModelSourceKey)}
+                aria-label={copy.model}
+                disabled={cacheClearing || modelSourceChanging}
+                value={selectedModel}
+                onChange={(event) => void onModel(event.target.value as DemoModelKey)}
               >
-                {MODEL_SOURCE_OPTIONS.map((option) => (
-                  <option
-                    disabled={!option.available}
-                    key={option.key}
-                    title={option.disabledReason?.[language]}
-                    value={option.key}
-                  >
+                {MODEL_OPTIONS.map((option) => (
+                  <option key={option.key} value={option.key}>
                     {option.label[language]}
-                    {option.available ? "" : ` (${copy.unavailable})`}
+                    {option.experimental ? ` (${copy.experimental})` : ""}
                   </option>
                 ))}
               </select>
-              <small
-                className="model-source-limitations"
-                data-testid="model-source-limitations"
-                id="model-source-limitations"
+            </label>
+            <label className="control-group">
+              <span className="control-label">{copy.modelRepository}</span>
+              <select
+                aria-label={copy.modelRepository}
+                disabled={cacheClearing || modelSourceChanging}
+                value={modelSource}
+                onChange={(event) => void onModelSource(event.target.value as ModelSourceKey)}
               >
-                {MODEL_SOURCE_OPTIONS.filter((option) => !option.available)
-                  .map(
-                    (option) =>
-                      `${option.label[language]}: ${option.disabledReason?.[language] ?? copy.unavailable}`
-                  )
-                  .join(" ")}
-              </small>
+                {activeSourceOptions.map((option) => (
+                  <option key={option.key} value={option.key}>
+                    {option.label[language]}
+                  </option>
+                ))}
+              </select>
             </label>
             <div className="control-group" role="group" aria-label={copy.backend}>
               <span className="control-label">{copy.backend}</span>
@@ -1025,9 +1065,12 @@ export function App(): ReactElement {
               <div className="segmented">
                 {(["auto", "fp16", "fp32"] as const).map((value) => {
                   const unsupported =
-                    backend !== "auto" &&
                     value !== "auto" &&
-                    !supportsCombination(backend, value, customManifest);
+                    precisionForBackend(
+                      backend,
+                      value,
+                      customManifest ?? activeModelOption.manifest
+                    ) !== value;
                   return (
                     <button
                       key={value}
@@ -1136,6 +1179,7 @@ export function App(): ReactElement {
                     className="primary-button"
                     disabled={
                       file === undefined ||
+                      detectionActive ||
                       cacheClearing ||
                       modelSourceChanging ||
                       status === "downloading" ||
@@ -1264,6 +1308,26 @@ export function App(): ReactElement {
           <article className="result-panel" data-testid="result-panel">
             <div className="result-toolbar">
               <h2>{copy.result}</h2>
+              <div className="target-selection-slot" aria-live="polite" aria-atomic="true">
+                {selectedTarget !== undefined && (
+                  <div className="target-selection" data-testid="selected-target">
+                    <span
+                      title={`${copy.selectedTarget}: ${detectionLabel(selectedTarget.label, language)} ${(selectedTarget.score * 100).toFixed(1)}%`}
+                    >
+                      {copy.selectedTarget}: {detectionLabel(selectedTarget.label, language)}{" "}
+                      {(selectedTarget.score * 100).toFixed(1)}%
+                    </span>
+                    <button
+                      className="text-button"
+                      aria-label={copy.clearSelection}
+                      title={copy.clearSelection}
+                      onClick={() => setTargetSelection(undefined)}
+                    >
+                      <X size={14} aria-hidden="true" />
+                    </button>
+                  </div>
+                )}
+              </div>
               {inputMode === "image" && imageUrl !== undefined && (
                 <div className="zoom-toolbar" role="group" aria-label={copy.imageView}>
                   <button
@@ -1298,41 +1362,15 @@ export function App(): ReactElement {
                   </button>
                 </div>
               )}
-              <div className="result-view-actions">
-                <label className="label-toggle">
-                  <input
-                    type="checkbox"
-                    checked={showLabels}
-                    onChange={(event) => setShowLabels(event.target.checked)}
-                  />
-                  {copy.showLabels}
-                </label>
-                <button
-                  className="text-button"
-                  aria-expanded={showViewHelp}
-                  aria-controls="view-help"
-                  onClick={() => setShowViewHelp((shown) => !shown)}
-                >
-                  {copy.viewHelp}
-                  <ChevronDown size={14} aria-hidden="true" />
-                </button>
-              </div>
+              <label className="label-toggle">
+                <input
+                  type="checkbox"
+                  checked={showLabels}
+                  onChange={(event) => setShowLabels(event.target.checked)}
+                />
+                {copy.showLabels}
+              </label>
             </div>
-            <div className="view-help muted" id="view-help" hidden={!showViewHelp}>
-              {inputMode === "image" && <p>{copy.zoomHint}</p>}
-              <p id="target-hint">{copy.targetHint}</p>
-            </div>
-            {selectedTarget !== undefined && (
-              <div className="target-selection" data-testid="selected-target">
-                <span aria-live="polite">
-                  {copy.selectedTarget}: {detectionLabel(selectedTarget.label, language)}{" "}
-                  {(selectedTarget.score * 100).toFixed(1)}%
-                </span>
-                <button className="text-button" onClick={() => setTargetSelection(undefined)}>
-                  {copy.clearSelection}
-                </button>
-              </div>
-            )}
             <div
               ref={imageViewport.viewportRef}
               data-testid="image-viewport"
@@ -1408,7 +1446,6 @@ export function App(): ReactElement {
                 data-testid="result-canvas"
                 role="img"
                 aria-label={copy.result}
-                aria-describedby={hasResult ? "target-hint" : undefined}
                 tabIndex={hasResult ? 0 : undefined}
                 onKeyDown={(event) => {
                   if (event.key === "Escape") setTargetSelection(undefined);
@@ -1424,130 +1461,195 @@ export function App(): ReactElement {
                 }
               />
             </div>
-            <section
-              className="sample-gallery"
-              data-testid="sample-gallery"
-              aria-label={copy.samples}
-            >
-              <div className="sample-gallery-heading">
-                <span className="control-label">{copy.samples}</span>
-                <span className="sample-source" data-testid="sample-source">
-                  {selectedSample === undefined
-                    ? copy.sampleSource
-                    : `${copy.sampleSource}: ${copy.sampleAttribution}`}
-                </span>
-              </div>
-              <div className="sample-grid">
-                {demoSamples.map((sample) => (
-                  <button
-                    className="sample-card"
-                    key={sample.id}
-                    onClick={() => void onSample(sample)}
-                  >
-                    <img src={sampleUrl(sample)} alt={sample.label[language]} />
-                    <span>{sample.label[language]}</span>
-                    <small>{sample.coverage[language]}</small>
-                  </button>
-                ))}
-              </div>
-              {selectedSample !== undefined && (
-                <a
-                  className="sample-attribution"
-                  href={selectedSample.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {copy.sampleAttribution}
-                </a>
-              )}
-            </section>
           </article>
 
           <aside className="details-panel" data-testid="details-panel">
+            <section className="detail-section detection-section" data-testid="detection-section">
+              <div className="section-title">
+                <h2>{copy.result}</h2>
+                <span className="count-badge">
+                  {visibleResult?.detections.length ?? 0}
+                  {selectedClasses !== null ? ` / ${result?.detections.length ?? 0}` : ""}{" "}
+                  {copy.detections}
+                </span>
+              </div>
+              <div className="detail-actions export-actions" data-testid="detail-actions">
+                <button
+                  className="text-button"
+                  disabled={
+                    result === undefined || imageExporting || cacheClearing || modelSourceChanging
+                  }
+                  onClick={() => void exportImage()}
+                >
+                  <Download size={16} />
+                  {imageExporting ? copy.exportingImage : copy.exportImage}
+                </button>
+                <button
+                  className="text-button"
+                  disabled={result === undefined}
+                  onClick={exportJson}
+                >
+                  <Download size={16} />
+                  {copy.exportJson}
+                </button>
+                {imageExportError && (
+                  <div className="error-banner" role="alert">
+                    <CircleAlert size={18} />
+                    {copy.exportImageError}
+                  </div>
+                )}
+              </div>
+              {result !== undefined && (
+                <details
+                  className="detail-disclosure filter-disclosure"
+                  data-testid="filter-details"
+                >
+                  <summary className="section-title">
+                    <span>{copy.filterClasses}</span>
+                    <ChevronDown size={17} aria-hidden="true" />
+                  </summary>
+                  <ClassFilter
+                    detections={result.detections}
+                    selected={selectedClasses}
+                    onChange={setSelectedClasses}
+                    language={language}
+                    copy={copy}
+                  />
+                </details>
+              )}
+              <div className="detection-list" data-testid="detection-list">
+                {visibleResult?.detections.length ? (
+                  visibleResult.detections.map((detection, index) => (
+                    <button
+                      className="detection-row"
+                      type="button"
+                      ref={(element) => {
+                        detectionRowsRef.current[index] = element;
+                      }}
+                      aria-pressed={detection === selectedTarget}
+                      onClick={() => selectTarget(detection, false)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Escape") setTargetSelection(undefined);
+                      }}
+                      key={`${detection.labelId}-${index}`}
+                      style={
+                        { "--detection-color": detectionColor(detection.label) } as CSSProperties
+                      }
+                    >
+                      <span className="detection-color-dot" aria-hidden="true" />
+                      <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
+                      <span>
+                        <strong>{detectionLabel(detection.label, language)}</strong>
+                        <small>
+                          {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
+                          {detection.box.yMin.toFixed(0)}
+                        </small>
+                      </span>
+                    </button>
+                  ))
+                ) : (
+                  <p className="muted detection-empty">
+                    {result === undefined
+                      ? copy.awaitingDetection
+                      : result.detections.length
+                        ? copy.noMatchingDetections
+                        : copy.noDetections}
+                  </p>
+                )}
+              </div>
+            </section>
             <section
               className="detail-section"
               data-testid="performance-section"
               data-sdk-timing="true"
             >
-              <div className="section-title">
-                <h2>{copy.performance}</h2>
-                <ChevronDown size={17} />
-              </div>
-              <div className="timing-group" data-testid="initialization-timings">
-                <h3 className="timing-group-title">{copy.initializationGroup}</h3>
-                <p className="timing-note" data-testid="initialization-policy">
-                  {inputMode === "image" ? copy.imageInitialization : copy.mediaInitialization}
-                </p>
-                <dl className="metric-list">
-                  <div className="timing-total-row">
-                    <dt>{copy.loadTotal}</dt>
-                    <dd>{formatMs(loadTimings?.totalMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.modelDownload}</dt>
-                    <dd>{formatMs(loadTimings?.modelDownloadMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.modelCache}</dt>
-                    <dd>{formatMs(loadTimings?.modelCacheReadMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.integrity}</dt>
-                    <dd>{formatMs(loadTimings?.integrityMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.modelSource}</dt>
-                    <dd>
-                      {loadTimings?.modelSource === undefined
-                        ? "-"
-                        : copy[`source_${loadTimings.modelSource}`]}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>{copy.session}</dt>
-                    <dd>{formatMs(loadTimings?.sessionMs)}</dd>
-                  </div>
-                </dl>
-              </div>
-              <div className="timing-group" data-testid="detection-timings">
-                <h3 className="timing-group-title">
-                  {inputMode === "image" ? copy.detectionGroup : copy.frameDetectionGroup}
-                </h3>
-                <dl className="metric-list">
-                  <div className="timing-total-row">
-                    <dt>{copy.total}</dt>
-                    <dd data-testid="timing-total">{formatMs(result?.timings.totalMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.decode}</dt>
-                    <dd>{formatMs(result?.timings.decodeMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.preprocess}</dt>
-                    <dd>{formatMs(result?.timings.preprocessMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.inference}</dt>
-                    <dd>{formatMs(result?.timings.inferenceMs)}</dd>
-                  </div>
-                  <div>
-                    <dt>{copy.postprocess}</dt>
-                    <dd>{formatMs(result?.timings.postprocessMs)}</dd>
-                  </div>
-                </dl>
-                <p className="timing-note">{copy.timingOverhead}</p>
-              </div>
+              <dl className="timing-summary" data-testid="timing-summary">
+                <div>
+                  <dt>{copy.total}</dt>
+                  <dd data-testid="summary-total">{formatMs(result?.timings.totalMs)}</dd>
+                </div>
+                <div>
+                  <dt>{copy.inference}</dt>
+                  <dd data-testid="summary-inference">{formatMs(result?.timings.inferenceMs)}</dd>
+                </div>
+              </dl>
+              <details className="detail-disclosure" data-testid="performance-details">
+                <summary className="section-title">
+                  <h2>{copy.performanceDetails}</h2>
+                  <ChevronDown size={17} aria-hidden="true" />
+                </summary>
+                <div className="timing-group" data-testid="initialization-timings">
+                  <h3 className="timing-group-title">{copy.initializationGroup}</h3>
+                  <dl className="metric-list">
+                    <div className="timing-total-row">
+                      <dt>{copy.loadTotal}</dt>
+                      <dd>{formatMs(loadTimings?.totalMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.modelDownload}</dt>
+                      <dd>{formatMs(loadTimings?.modelDownloadMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.modelCache}</dt>
+                      <dd>{formatMs(loadTimings?.modelCacheReadMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.integrity}</dt>
+                      <dd>{formatMs(loadTimings?.integrityMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.modelSource}</dt>
+                      <dd>
+                        {loadTimings?.modelSource === undefined
+                          ? "-"
+                          : copy[`source_${loadTimings.modelSource}`]}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{copy.session}</dt>
+                      <dd>{formatMs(loadTimings?.sessionMs)}</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="timing-group" data-testid="detection-timings">
+                  <h3 className="timing-group-title">
+                    {inputMode === "image" ? copy.detectionGroup : copy.frameDetectionGroup}
+                  </h3>
+                  <dl className="metric-list">
+                    <div className="timing-total-row">
+                      <dt>{copy.total}</dt>
+                      <dd data-testid="timing-total">{formatMs(result?.timings.totalMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.decode}</dt>
+                      <dd>{formatMs(result?.timings.decodeMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.preprocess}</dt>
+                      <dd>{formatMs(result?.timings.preprocessMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.inference}</dt>
+                      <dd>{formatMs(result?.timings.inferenceMs)}</dd>
+                    </div>
+                    <div>
+                      <dt>{copy.postprocess}</dt>
+                      <dd>{formatMs(result?.timings.postprocessMs)}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
             </section>
-            <section
-              className="detail-section"
+            <details
+              className="detail-section detail-disclosure"
               data-testid="model-section"
               data-sdk-model-info="true"
               data-sdk-runtime-info="true"
             >
-              <div className="section-title">
+              <summary className="section-title">
                 <h2>{copy.modelInfo}</h2>
-                <ChevronDown size={17} />
-              </div>
+                <ChevronDown size={17} aria-hidden="true" />
+              </summary>
               <dl className="metric-list model-list">
                 <div>
                   <dt>{copy.modelRepository}</dt>
@@ -1561,7 +1663,7 @@ export function App(): ReactElement {
                   <dt>{copy.manifest}</dt>
                   <dd className="model-source-manifest" data-testid="model-source-manifest">
                     {customManifest === undefined
-                      ? (activeModelSource.manifestUrl ?? copy.sdkDefaultManifest)
+                      ? activeModelOption.manifestPath
                       : copy.source_custom}
                   </dd>
                 </div>
@@ -1646,12 +1748,7 @@ export function App(): ReactElement {
                   </dd>
                 </div>
               </dl>
-              {result === undefined && activeModelSource.disabledReason !== undefined ? (
-                <p className="model-source-blocked" data-testid="model-source-blocked">
-                  {activeModelSource.disabledReason[language]}
-                </p>
-              ) : null}
-            </section>
+            </details>
             <div data-testid="fallback-slot">
               {result?.runtime.fallbacks.length ? (
                 <section className="detail-section" data-testid="fallback-section">
@@ -1673,107 +1770,67 @@ export function App(): ReactElement {
                 </section>
               ) : null}
             </div>
-            <section className="detail-section detection-section" data-testid="detection-section">
-              <div className="section-title">
-                <h2>{copy.result}</h2>
-                <span className="count-badge">
-                  {visibleResult?.detections.length ?? 0}
-                  {selectedClasses !== null ? ` / ${result?.detections.length ?? 0}` : ""}{" "}
-                  {copy.detections}
-                </span>
-              </div>
-              {result !== undefined && (
-                <ClassFilter
-                  detections={result.detections}
-                  selected={selectedClasses}
-                  onChange={setSelectedClasses}
-                  language={language}
-                  copy={copy}
-                />
-              )}
-              {visibleResult?.detections.length ? (
-                visibleResult.detections.map((detection, index) => (
-                  <button
-                    className="detection-row"
-                    type="button"
-                    ref={(element) => {
-                      detectionRowsRef.current[index] = element;
-                    }}
-                    aria-pressed={detection === selectedTarget}
-                    onClick={() => selectTarget(detection, false)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Escape") setTargetSelection(undefined);
-                    }}
-                    key={`${detection.labelId}-${index}`}
-                    style={
-                      { "--detection-color": detectionColor(detection.label) } as CSSProperties
-                    }
-                  >
-                    <span className="detection-color-dot" aria-hidden="true" />
-                    <span className="detection-index">{String(index + 1).padStart(2, "0")}</span>
-                    <span>
-                      <strong>{detectionLabel(detection.label, language)}</strong>
-                      <small>
-                        {(detection.score * 100).toFixed(1)}% · {detection.box.xMin.toFixed(0)},
-                        {detection.box.yMin.toFixed(0)}
-                      </small>
-                    </span>
-                  </button>
-                ))
-              ) : (
-                <p className="muted">
-                  {result?.detections.length ? copy.noMatchingDetections : copy.noDetections}
-                </p>
-              )}
-            </section>
-            <div className="detail-actions" data-testid="detail-actions">
-              <button
-                className="text-button"
-                disabled={
-                  result === undefined || imageExporting || cacheClearing || modelSourceChanging
-                }
-                onClick={() => void exportImage()}
-              >
-                <Download size={16} />
-                {imageExporting ? copy.exportingImage : copy.exportImage}
-              </button>
-              <button className="text-button" disabled={result === undefined} onClick={exportJson}>
-                <Download size={16} />
-                {copy.exportJson}
-              </button>
-              <button
-                className="text-button"
-                data-sdk-cache-clear="current"
-                disabled={cacheClearing || modelSourceChanging}
-                onClick={() => void clearCache("current")}
-              >
-                <Trash2 size={16} />
-                {copy.clearCurrentCache}
-              </button>
-              <button
-                className="text-button"
-                data-sdk-cache-clear="all"
-                disabled={cacheClearing || modelSourceChanging}
-                onClick={() => void clearCache("all")}
-              >
-                <Trash2 size={16} />
-                {copy.clearAllCache}
-              </button>
-              {imageExportError && (
-                <div className="error-banner" role="alert">
-                  <CircleAlert size={18} />
-                  {copy.exportImageError}
+            <details className="detail-section detail-disclosure" data-testid="cache-section">
+              <summary className="section-title">
+                <h2>{copy.cacheManagement}</h2>
+                <ChevronDown size={17} aria-hidden="true" />
+              </summary>
+              <dl className="metric-list cache-usage">
+                <div>
+                  <dt>{copy.currentCache}</dt>
+                  <dd data-sdk-cache-usage="current">
+                    {cacheUsage ? formatBytes(cacheUsage.current) : "—"}
+                  </dd>
                 </div>
-              )}
-            </div>
-            <p data-sdk-cache-usage="current">
-              {copy.currentCache}: {cacheUsage ? formatBytes(cacheUsage.current) : "—"}
-            </p>
-            <p data-sdk-cache-usage="all">
-              {copy.allCache}: {cacheUsage ? formatBytes(cacheUsage.all) : "—"}
-            </p>
-            <p className="muted">{copy.cacheScope}</p>
+                <div>
+                  <dt>{copy.allCache}</dt>
+                  <dd data-sdk-cache-usage="all">
+                    {cacheUsage ? formatBytes(cacheUsage.all) : "—"}
+                  </dd>
+                </div>
+              </dl>
+              <div className="detail-actions cache-actions">
+                <button
+                  className="text-button"
+                  data-sdk-cache-clear="current"
+                  disabled={cacheClearing || modelSourceChanging}
+                  onClick={() => void clearCache("current")}
+                >
+                  <Trash2 size={16} />
+                  {copy.clearCurrentCache}
+                </button>
+                <button
+                  className="text-button"
+                  data-sdk-cache-clear="all"
+                  disabled={cacheClearing || modelSourceChanging}
+                  onClick={() => void clearCache("all")}
+                >
+                  <Trash2 size={16} />
+                  {copy.clearAllCache}
+                </button>
+              </div>
+            </details>
           </aside>
+          <section
+            className="sample-gallery"
+            data-testid="sample-gallery"
+            aria-label={copy.samples}
+          >
+            <div className="sample-gallery-heading">
+              <span className="control-label">{copy.samples}</span>
+            </div>
+            <div className="sample-grid">
+              {demoSamples.map((sample) => (
+                <button
+                  className="sample-card"
+                  key={sample.id}
+                  onClick={() => void onSample(sample)}
+                >
+                  <img src={sampleUrl(sample)} alt={sample.label[language]} />
+                </button>
+              ))}
+            </div>
+          </section>
         </section>
       </div>
 

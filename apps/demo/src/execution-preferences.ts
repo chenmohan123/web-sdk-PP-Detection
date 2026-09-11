@@ -1,4 +1,4 @@
-import type { ModelBackend, ModelManifest } from "web-sdk-pp-detection";
+import type { ModelBackend, ModelManifest, RuntimeDetectionManifest } from "web-sdk-pp-detection";
 
 export type BackendPreference = "auto" | ModelBackend;
 export type PrecisionPreference = "auto" | "fp16" | "fp32";
@@ -7,6 +7,28 @@ const DEFAULT_SUPPORT = {
   webgpu: ["fp16", "fp32"],
   wasm: ["fp16", "fp32"]
 } as const;
+
+type SelectionManifest = ModelManifest | RuntimeDetectionManifest;
+
+function supportsManifestCombination(
+  manifest: SelectionManifest,
+  backend: BackendPreference,
+  precision: Exclude<PrecisionPreference, "auto">
+): boolean {
+  return manifest.variants.some((variant) => {
+    const backends =
+      "backendCompatibility" in variant ? variant.backendCompatibility : variant.backends;
+    const usable =
+      "validation" in variant
+        ? variant.validation.included && variant.validation.pass
+        : variant.status !== "blocked";
+    return (
+      variant.precision === precision &&
+      usable &&
+      (backend === "auto" || backends.includes(backend))
+    );
+  });
+}
 
 export function allowFallbackForSelection(
   backend: BackendPreference,
@@ -20,35 +42,32 @@ export function allowFallbackForSelection(
 export function supportsCombination(
   backend: ModelBackend,
   precision: Exclude<PrecisionPreference, "auto">,
-  manifest?: ModelManifest
+  manifest?: SelectionManifest
 ): boolean {
   if (manifest === undefined) {
     return (DEFAULT_SUPPORT[backend] as readonly string[]).includes(precision);
   }
-  return manifest.variants.some(
-    (variant) =>
-      variant.precision === precision &&
-      variant.backendCompatibility.includes(backend) &&
-      variant.validation.included &&
-      variant.validation.pass
-  );
+  return supportsManifestCombination(manifest, backend, precision);
 }
 
 export function precisionForBackend(
   backend: BackendPreference,
   precision: PrecisionPreference,
-  manifest?: ModelManifest
+  manifest?: SelectionManifest
 ): PrecisionPreference {
   if (
-    backend === "auto" ||
     precision === "auto" ||
-    supportsCombination(backend, precision, manifest)
+    (manifest === undefined
+      ? backend === "auto" || supportsCombination(backend, precision)
+      : supportsManifestCombination(manifest, backend, precision))
   ) {
     return precision;
   }
   return (
     (["fp16", "fp32"] as const).find((candidate) =>
-      supportsCombination(backend, candidate, manifest)
+      manifest === undefined
+        ? backend === "auto" || supportsCombination(backend, candidate)
+        : supportsManifestCombination(manifest, backend, candidate)
     ) ?? "auto"
   );
 }

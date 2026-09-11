@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-11",
+  "model": {
+    "id": "ppyoloe-plus-s-640",
+    "version": "0.1.0-labs.1",
+    "status": "labs",
+    "filename": "ppyoloe-plus-s-640-fp32.onnx",
+    "bytes": 31954220,
+    "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+  },
+  "upstream": {
+    "repository": "https://github.com/PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "configuration": "configs/ppyoloe/ppyoloe_plus_crn_s_80e_coco.yml",
+    "reader": "configs/ppyoloe/_base_/ppyoloe_plus_reader.yml",
+    "weightsUrl": "https://paddledet.bj.bcebos.com/models/ppyoloe_plus_crn_s_80e_coco.pdparams",
+    "weightsBytes": 32466105,
+    "weightsSha256": "9ab2b1fb7ddec42a0bb6cb544b0ac627c2d0054f0655bf402cf7c8f4def3219c"
+  },
+  "candidate": {
+    "path": ".tmp/phase2/ppyoloe-plus-s-candidate.onnx",
+    "conversionEvidence": "reports/evaluation/2026-09-11-ppyoloe/conversion.lock.json",
+    "sourceEvidence": "reports/evaluation/2026-09-11-ppyoloe/sources.lock.json",
+    "bytes": 31954220,
+    "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+    "opset": 11
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "localPath": "models/ppyoloe-plus-s-640/LICENSE",
+    "upstreamUrl": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE"
+  },
+  "preprocessing": {
+    "sdk": "Pillow bicubic、RGB、stretch 640、除以 255、mean=0、std=1",
+    "upstream": "OpenCV INTER_CUBIC、RGB、stretch 640、除以 255、mean=0、std=1",
+    "equivalence": "64 张子集 AP 接近，但严格匹配仅 389/443，不能声明逐框一致。"
+  },
+  "evaluation": {
+    "scope": "COCO val2017 预先固定的 64 张场景覆盖子集，共 716 条标注；不等于全量 COCO 成绩。",
+    "report": "reports/evaluation/2026-09-11-ppyoloe/README.md",
+    "summary": "reports/evaluation/2026-09-11-ppyoloe/summary.json",
+    "mobileStatus": "partial-user-verified",
+    "mobileEvidence": "mobile-xiaomi15-2026-09-12/evidence.json",
+    "mobileScope": "小米 15：用户反馈 CPU/GPU 正常，截图确认 Android Edge 摄像头 WebGPU/FP32；完整移动验收仍待完成。"
+  },
+  "distributions": [
+    {
+      "kind": "huggingface",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "status": "distributed-and-verified",
+      "modelRevision": "45a646ce13dcf2e2c05231954b1e32b9c412720b",
+      "manifestRevision": "dd05670d8e54c187112cc77051cd742cdbba7e24",
+      "manifestDownloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/dd05670d8e54c187112cc77051cd742cdbba7e24/ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/45a646ce13dcf2e2c05231954b1e32b9c412720b/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "verification": {
+        "method": "从固定 revision URL 回下载后本地复算",
+        "httpStatus": 200,
+        "contentLength": 31954220,
+        "downloadedBytes": 31954220,
+        "downloadedSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+        "verifiedAt": "2026-09-11",
+        "manifestBytes": 3262,
+        "manifestSha256": "7c319d86a80f4d09ba4bdfaa22b12b1e27d607d0b573ac6ecd84a62641c74d1b",
+        "manifestSourceRevision": "45a646ce13dcf2e2c05231954b1e32b9c412720b"
+      },
+      "manifestScope": "2026-09-11 初始分发快照，仅声明 Hugging Face；原始验证保留。"
+    },
+    {
+      "kind": "modelscope",
+      "repository": "chenmohan/web-sdk-pp-detection",
+      "path": "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "status": "distributed-and-verified",
+      "modelRevision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+      "manifestRevision": "9f3f052a30bb8560aaabe204a84d5e51cf989079",
+      "manifestDownloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/9f3f052a30bb8560aaabe204a84d5e51cf989079/ppyoloe-plus-s-640/0.1.0-labs.1/manifest.json",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "manifestScope": "当前双来源清单，含 Hugging Face 与 ModelScope；与本地清单字节一致。",
+      "verification": {
+        "method": "从固定 revision URL 回下载后本地复算；清单使用 SDK 解析验证。",
+        "httpStatus": 200,
+        "downloadedBytes": 31954220,
+        "downloadedSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+        "verifiedAt": "2026-09-11T15:59:17.663Z",
+        "accessControlAllowOrigin": "*",
+        "manifestBytes": 4275,
+        "manifestSha256": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411",
+        "manifestVerifiedAt": "2026-09-11T16:01:43.567Z",
+        "manifestSourceRevision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+        "stableFilesUnchanged": true,
+        "evidence": "modelscope-verification.json"
+      },
+      "browserVerification": {
+        "verifiedAt": "2026-09-12",
+        "scope": "Windows 桌面 Chromium，ModelScope 来源；移动端仍待验证。",
+        "wasm": "modelscope-browser-wasm/desktop-browser.json",
+        "webgpu": "modelscope-browser-webgpu/desktop-browser.json",
+        "repeatedColdDownload": "两次连续验收在重复冷下载 PicoDet 时超时，诊断停在 37%；分后端独立会话的 5 次验收通过，失败记录保留。"
+      }
+    }
+  ],
+  "policy": "只在固定 revision URL 回下载并通过 bytes/SHA-256 校验后，才把来源写入本地 manifest。",
+  "updatedAt": "2026-09-12",
+  "timeZone": "Asia/Shanghai"
+}

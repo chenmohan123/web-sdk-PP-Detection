@@ -13,6 +13,10 @@
 | Chromium 151.0.7922.34  | Linux 6.17.0-1022-azure | GitHub Actions Linux runner | WASM / FP32   | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
 | Chromium 151.0.7922.174 | Windows 10.0.26200      | NVIDIA Blackwell            | WebGPU / FP32 | [`remote-validation.json`](../../tools/model-pipeline/reports/1.0.1/remote-validation.json) |
 
+## 开发版小米 15 实测（2026-09-12）
+
+用户在小米 15 的 Android Edge（UA `EdgA/152.0.0.0`）反馈 PP-YOLOE CPU/GPU 正常，提供的后置摄像头截图确认 ModelScope 模型 `0.1.0-labs.1`、实际 WebGPU/FP32/main 和 ORT 1.27.0。证据属于当前开发构建；完整移动验收、真实 Android/HyperOS 版本、CPU 独立运行时记录仍待补充。用户随后明确确认转为 `0.1.0 stable`，见[稳定记录](../../reports/stability/2026-09-12-ppyoloe/README.md)。详见[实测记录](../../reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+
 ## 尚未验证的平台
 
 - Android Chrome、Android WebView、iOS Safari/WebKit 和其他移动浏览器尚未完成真实设备验证；不能仅凭桌面窄屏模拟宣称兼容。

@@ -1,0 +1,12 @@
+{
+  "paddle": {
+    "predictionCount": 19200,
+    "equalIgnoringOrder": true
+  },
+  "ppyoloe-pillow": {
+    "predictionCount": 19200,
+    "equalIgnoringOrder": true
+  },
+  "sdkBundleSha256AfterRuns": "8110c0cd82ae659dbd18bdce4581205b357e34624642029afd47ea104a55d8e2",
+  "capturedDate": "2026-09-11"
+}

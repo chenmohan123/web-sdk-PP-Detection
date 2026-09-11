@@ -1,0 +1,55 @@
+{
+  "verifiedAt": "2026-09-11T16:19:11.931Z",
+  "status": "passed",
+  "fileComparisons": 14,
+  "manifestSha256": "e6ac38bfb8039f1b518e345e791db7a9261d472624b99bbf0c77bf72f431a411",
+  "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+  "stableFilesUnchanged": true,
+  "runs": [
+    {
+      "model": "pp-picodet-l-320",
+      "backend": "wasm",
+      "cache": false,
+      "detections": 12
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "wasm",
+      "cache": false,
+      "detections": 15
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "wasm",
+      "cache": true,
+      "detections": 15
+    },
+    {
+      "model": "pp-picodet-l-320",
+      "backend": "webgpu",
+      "cache": false,
+      "detections": 12
+    },
+    {
+      "model": "ppyoloe-plus-s-640",
+      "backend": "webgpu",
+      "cache": false,
+      "detections": 15
+    }
+  ],
+  "standard": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "tokenScan": {
+    "scannedFiles": 440,
+    "matchedFiles": 0
+  }
+}

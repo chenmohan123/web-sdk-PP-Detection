@@ -1,0 +1,124 @@
+{
+  "about": {
+    "topics": [
+      "browser-inference",
+      "computer-vision",
+      "object-detection",
+      "onnx",
+      "onnxruntime-web",
+      "paddledetection",
+      "paddlepaddle",
+      "typescript",
+      "wasm",
+      "web-sdk",
+      "webgpu"
+    ],
+    "homepage": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+    "description": "基于 ONNX Runtime Web 的 PaddleDetection 浏览器目标检测 SDK，支持图片、摄像头和视频帧"
+  },
+  "tagRuleset": {
+    "id": 21779094,
+    "name": "保护 v* 发布标签",
+    "target": "tag",
+    "source_type": "Repository",
+    "source": "chenmohan123/web-sdk-PP-Detection",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": ["refs/tags/v*"]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "update"
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5QdbehzgFMUpY",
+    "created_at": "2026-08-29T10:31:11.967+08:00",
+    "updated_at": "2026-08-31T13:03:56.569+08:00",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Detection/rulesets/21779094"
+      },
+      "html": {
+        "href": "https://github.com/chenmohan123/web-sdk-PP-Detection/rules/21779094"
+      }
+    }
+  },
+  "verifiedAt": "2026-09-11T18:01:29.1498234Z",
+  "branchRuleset": {
+    "id": 21779070,
+    "name": "保护 main 分支",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "chenmohan123/web-sdk-PP-Detection",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": ["refs/heads/main"]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": ["merge", "squash", "rebase"]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Validate workspace"
+            },
+            {
+              "context": "Browser WASM and package smoke"
+            }
+          ]
+        }
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5QdbehzgFMUn4",
+    "created_at": "2026-08-29T10:30:53.018+08:00",
+    "updated_at": "2026-08-29T10:30:53.069+08:00",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Detection/rulesets/21779070"
+      },
+      "html": {
+        "href": "https://github.com/chenmohan123/web-sdk-PP-Detection/rules/21779070"
+      }
+    }
+  },
+  "repository": "chenmohan123/web-sdk-PP-Detection",
+  "pages": {
+    "html_url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+    "build_type": "workflow",
+    "https_enforced": true
+  }
+}

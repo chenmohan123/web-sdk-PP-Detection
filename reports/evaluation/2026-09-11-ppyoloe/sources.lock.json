@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-11",
+  "upstream": {
+    "repository": "https://github.com/PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "configuration": "configs/ppyoloe/ppyoloe_plus_crn_s_80e_coco.yml",
+    "reader": "configs/ppyoloe/_base_/ppyoloe_plus_reader.yml"
+  },
+  "files": [
+    {
+      "id": "weights",
+      "filename": "ppyoloe-plus-s.pdparams",
+      "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_plus_crn_s_80e_coco.pdparams",
+      "bytes": 32466105,
+      "sha256": "9ab2b1fb7ddec42a0bb6cb544b0ac627c2d0054f0655bf402cf7c8f4def3219c"
+    },
+    {
+      "id": "upstream",
+      "filename": "paddledetection.zip",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/archive/b25522a0f4bde8c80603f3ba5e3472059972e3b5.zip",
+      "bytes": 45991481,
+      "sha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6"
+    },
+    {
+      "id": "coco-annotations",
+      "filename": "annotations_trainval2017.zip",
+      "url": "https://s3.amazonaws.com/images.cocodataset.org/annotations/annotations_trainval2017.zip",
+      "bytes": 252907541,
+      "sha256": "113a836d90195ee1f884e704da6304dfaaecff1f023f49b6ca93c4aaae470268"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "configs/ppyoloe/ppyoloe_plus_crn_s_80e_coco.yml",
+      "bytes": 409,
+      "sha256": "0b26b3e1f5b5eef5b4bb5402557e1b25461e19dc87258bb64d62edb6739fb8ec"
+    },
+    {
+      "path": "configs/ppyoloe/_base_/ppyoloe_plus_reader.yml",
+      "bytes": 1236,
+      "sha256": "f99136e96213a9482d25a8e66b6d3e083e147a7632efd304fcff411f5d69e0cc"
+    }
+  ],
+  "policy": "任何下载文件的字节数或 SHA-256 不匹配时拒绝继续转换。"
+}

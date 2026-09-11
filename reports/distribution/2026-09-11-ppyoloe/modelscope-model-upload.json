@@ -1,0 +1,107 @@
+{
+  "capturedAt": "2026-09-11T15:57:37.429740+00:00",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "phase": "model",
+  "status": "uploaded",
+  "files": [
+    {
+      "localPath": ".tmp/phase2/ppyoloe-plus-s-candidate.onnx",
+      "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+      "bytes": 31954220,
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+    },
+    {
+      "localPath": "models/ppyoloe-plus-s-640/README.md",
+      "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/README.md",
+      "bytes": 2810,
+      "sha256": "b9ed546f85a2cb1a731df9abdc95f52f6d55963152ce45dbcdca3c12be526d37"
+    },
+    {
+      "localPath": "models/ppyoloe-plus-s-640/LICENSE",
+      "remotePath": "ppyoloe-plus-s-640/0.1.0-labs.1/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    }
+  ],
+  "stableFilesBefore": {
+    ".gitattributes": {
+      "size": 2075,
+      "blobId": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6",
+      "sha256": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6"
+    },
+    "labels/coco.txt": {
+      "size": 621,
+      "blobId": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a",
+      "sha256": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a"
+    },
+    "manifest.json": {
+      "size": 4055,
+      "blobId": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9",
+      "sha256": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9"
+    },
+    "picodet-l-320-fp32.onnx": {
+      "size": 23243834,
+      "blobId": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+    },
+    "pipeline.json": {
+      "size": 580,
+      "blobId": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed",
+      "sha256": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed"
+    },
+    "README.md": {
+      "size": 831,
+      "blobId": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12",
+      "sha256": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12"
+    },
+    "source.yaml": {
+      "size": 2333,
+      "blobId": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1",
+      "sha256": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1"
+    }
+  },
+  "commitCandidates": [
+    "af865f1c515634de08fe0fc5eeeac8942456241c"
+  ],
+  "responseKeys": [
+    "commit_id"
+  ],
+  "stableFilesAfter": {
+    ".gitattributes": {
+      "size": 2075,
+      "blobId": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6",
+      "sha256": "247a3cfc672484dd40bdf07af0f83ee7a4457e9a995dadb47eedc36c630103b6"
+    },
+    "labels/coco.txt": {
+      "size": 621,
+      "blobId": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a",
+      "sha256": "bd17f1ee35d5f3c862a4894605855abbb9dda4b0621fdb0ac4c2c8c7bb7e730a"
+    },
+    "manifest.json": {
+      "size": 4055,
+      "blobId": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9",
+      "sha256": "777f9cb80b398fbaa68e4b7f444eee9a11a710a8cb1b7c1a5adc7164b9de90e9"
+    },
+    "picodet-l-320-fp32.onnx": {
+      "size": 23243834,
+      "blobId": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+    },
+    "pipeline.json": {
+      "size": 580,
+      "blobId": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed",
+      "sha256": "b1c72cb7e66bb8d8495f6f5abb9a893c46c9a6aad0ef2f3b353664bcf1aaf8ed"
+    },
+    "README.md": {
+      "size": 831,
+      "blobId": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12",
+      "sha256": "c751c66838f31f94b3e6b7cd33a24fb75eca3c0b493cbdf1631cd6c779db8c12"
+    },
+    "source.yaml": {
+      "size": 2333,
+      "blobId": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1",
+      "sha256": "23f1192a8e122975b1ce3d6431ccfa96055169fecf9f357e0a6a50911bd4c4f1"
+    }
+  },
+  "stableFilesUnchanged": true
+}

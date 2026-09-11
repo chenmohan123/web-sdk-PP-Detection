@@ -34,3 +34,7 @@ HeadlessChrome 的 WASM/CPU smoke test，证据见
 微信 WebView 仍保持 labs/blocked，不得据此扩展稳定兼容承诺。
 
 完成官方权重导出后，按以下顺序为每个 FP32、FP16、INT8、INT4 或 FP8 变体生成证据：结构检查、CPU 数值/检测对齐、浏览器 WASM 与 WebGPU 验证、文件 SHA-256 和不可变来源校验，最后运行 `build_manifest`。只有证据完整且目标后端通过的变体才能标记为 `stable`。
+
+## 第二模型评测（尚未发布）
+
+PP-YOLOE+ S 的实际转换入口位于 `tools/model-pipeline/ppyoloe/`，使用固定的官方 PaddleDetection 源码、Paddle 导出与 Paddle2ONNX opset 11。质量评测位于 `tools/model-pipeline/evaluation/`。来源、COCO 子集、原 Paddle 与 ONNX 对齐和浏览器结果见[2026-09-11 报告](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。本轮不使用其他模型的 mask/reading-order 历史报告，也不以 FP16 报告作为该候选的证据。

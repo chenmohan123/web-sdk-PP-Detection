@@ -1,0 +1,2323 @@
+{
+  "createdAt": "2026-09-12T14:33:37.927552+00:00",
+  "sdkVersion": "0.3.2",
+  "imageCount": 64,
+  "nonCrowd": 700,
+  "small": 399,
+  "evaluationEnvironment": {
+    "python": "3.11.15 (main, Jul 18 2026, 17:06:27) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "1.26.4",
+      "Pillow": "11.3.0",
+      "pycocotools": "2.0.11"
+    }
+  },
+  "rows": [
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3365295559180082,
+        "AP50": 0.46494352034029557,
+        "AP75": 0.36069944962400036,
+        "APSmall": 0.15278036422200492,
+        "APMedium": 0.44467929412417173,
+        "APLarge": 0.6672640425053443,
+        "AR1": 0.2779591680089987,
+        "AR10": 0.3943126488188019,
+        "AR100": 0.4040994117455982
+      },
+      "operating": {
+        "tp": 227,
+        "fp": 50,
+        "fn": 473,
+        "ignored": 10,
+        "duplicateFp": 0,
+        "smallTp": 42,
+        "smallTotal": 399,
+        "precision": 0.8194945848375451,
+        "recall": 0.3242857142857143,
+        "smallRecall": 0.10526315789473684
+      },
+      "timeMs": {
+        "median": 56.72749999165535,
+        "p90": 65.21349999308586
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2764044142073168,
+        "AP50": 0.43777747063843675,
+        "AP75": 0.29341178054328154,
+        "APSmall": 0.281772361996542,
+        "APMedium": 0.5042862082296011,
+        "APLarge": 0.23502000333337225,
+        "AR1": 0.2073262480914769,
+        "AR10": 0.37570548761638,
+        "AR100": 0.39814011589097015
+      },
+      "operating": {
+        "tp": 280,
+        "fp": 222,
+        "fn": 420,
+        "ignored": 39,
+        "duplicateFp": 7,
+        "smallTp": 97,
+        "smallTotal": 399,
+        "precision": 0.5577689243027888,
+        "recall": 0.4,
+        "smallRecall": 0.24310776942355888
+      },
+      "timeMs": {
+        "median": 183.6275000050664,
+        "p90": 204.28299998641015
+      },
+      "vsWhole": {
+        "smallGained": 56,
+        "smallLost": 1,
+        "imagesWithSmallGain": 26,
+        "imagesWithSmallLoss": 1,
+        "fpDelta": 172
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.35206535705779696,
+        "AP50": 0.5127631914585314,
+        "AP75": 0.3725134373290389,
+        "APSmall": 0.2807818636497905,
+        "APMedium": 0.5113895428981882,
+        "APLarge": 0.5298557178417894,
+        "AR1": 0.2677464958349512,
+        "AR10": 0.4729841622097076,
+        "AR100": 0.49623583930337095
+      },
+      "operating": {
+        "tp": 317,
+        "fp": 246,
+        "fn": 383,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5630550621669627,
+        "recall": 0.45285714285714285,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 236.6925000026822,
+        "p90": 259.8990000039339
+      },
+      "vsWhole": {
+        "smallGained": 56,
+        "smallLost": 0,
+        "imagesWithSmallGain": 26,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 196
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3360142011869641,
+        "AP50": 0.462666885406675,
+        "AP75": 0.3606287549282017,
+        "APSmall": 0.15416465707089871,
+        "APMedium": 0.43712207866340297,
+        "APLarge": 0.6764953635277329,
+        "AR1": 0.278506606596817,
+        "AR10": 0.39346160332035335,
+        "AR100": 0.40291869591747925
+      },
+      "operating": {
+        "tp": 226,
+        "fp": 49,
+        "fn": 474,
+        "ignored": 9,
+        "duplicateFp": 0,
+        "smallTp": 41,
+        "smallTotal": 399,
+        "precision": 0.8218181818181818,
+        "recall": 0.32285714285714284,
+        "smallRecall": 0.10275689223057644
+      },
+      "timeMs": {
+        "median": 52.77750001102686,
+        "p90": 62.04800000041723
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2760539283655145,
+        "AP50": 0.43659184767518044,
+        "AP75": 0.29357638563379473,
+        "APSmall": 0.28218818023783226,
+        "APMedium": 0.4929652319745059,
+        "APLarge": 0.23218069234510358,
+        "AR1": 0.20556238807761684,
+        "AR10": 0.3745237513307266,
+        "AR100": 0.3968389210969561
+      },
+      "operating": {
+        "tp": 279,
+        "fp": 218,
+        "fn": 421,
+        "ignored": 37,
+        "duplicateFp": 7,
+        "smallTp": 97,
+        "smallTotal": 399,
+        "precision": 0.5613682092555332,
+        "recall": 0.3985714285714286,
+        "smallRecall": 0.24310776942355888
+      },
+      "timeMs": {
+        "median": 169.98500000685453,
+        "p90": 191.48399999886752
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 1,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 1,
+        "fpDelta": 169
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.3525645703531559,
+        "AP50": 0.5110661355203963,
+        "AP75": 0.3732836635170278,
+        "APSmall": 0.28108393073732013,
+        "APMedium": 0.509494047645655,
+        "APLarge": 0.5271980209914441,
+        "AR1": 0.2673965304849858,
+        "AR10": 0.4715123847304051,
+        "AR100": 0.4947117149617667
+      },
+      "operating": {
+        "tp": 316,
+        "fp": 241,
+        "fn": 384,
+        "ignored": 38,
+        "duplicateFp": 6,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5673249551166966,
+        "recall": 0.4514285714285714,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 217.5949999988079,
+        "p90": 248.0000000074506
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 0,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 192
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3365495395126624,
+        "AP50": 0.4627684362819495,
+        "AP75": 0.361909275447895,
+        "APSmall": 0.1552805602829185,
+        "APMedium": 0.4378109044409415,
+        "APLarge": 0.6768564449056291,
+        "AR1": 0.27990926176791603,
+        "AR10": 0.3959842250089539,
+        "AR100": 0.40559306680194684
+      },
+      "operating": {
+        "tp": 229,
+        "fp": 52,
+        "fn": 471,
+        "ignored": 11,
+        "duplicateFp": 0,
+        "smallTp": 42,
+        "smallTotal": 399,
+        "precision": 0.8149466192170819,
+        "recall": 0.3271428571428571,
+        "smallRecall": 0.10526315789473684
+      },
+      "timeMs": {
+        "median": 58.66499999165535,
+        "p90": 67.24500000327826
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2762016683122681,
+        "AP50": 0.4385943618262578,
+        "AP75": 0.2906083094960596,
+        "APSmall": 0.2803951706361717,
+        "APMedium": 0.5042105673420941,
+        "APLarge": 0.23143435341102364,
+        "AR1": 0.2043580702846703,
+        "AR10": 0.3689934229415964,
+        "AR100": 0.3955199024089547
+      },
+      "operating": {
+        "tp": 280,
+        "fp": 226,
+        "fn": 420,
+        "ignored": 40,
+        "duplicateFp": 7,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5533596837944664,
+        "recall": 0.4,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 194.1099999845028,
+        "p90": 214.508499994874
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 1,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 1,
+        "fpDelta": 174
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.3511204128880532,
+        "AP50": 0.5130653070246455,
+        "AP75": 0.3686730015135465,
+        "APSmall": 0.2781350746660224,
+        "APMedium": 0.5139322801670418,
+        "APLarge": 0.5269056717373384,
+        "AR1": 0.265619521024325,
+        "AR10": 0.4651168797179415,
+        "AR100": 0.4905703410756064
+      },
+      "operating": {
+        "tp": 318,
+        "fp": 251,
+        "fn": 382,
+        "ignored": 41,
+        "duplicateFp": 6,
+        "smallTp": 99,
+        "smallTotal": 399,
+        "precision": 0.5588752196836555,
+        "recall": 0.4542857142857143,
+        "smallRecall": 0.24812030075187969
+      },
+      "timeMs": {
+        "median": 246.66749998182058,
+        "p90": 275.08250000923874
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 0,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 199
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "operating": {
+        "tp": 320,
+        "fp": 83,
+        "fn": 380,
+        "ignored": 40,
+        "duplicateFp": 5,
+        "smallTp": 103,
+        "smallTotal": 399,
+        "precision": 0.794044665012407,
+        "recall": 0.45714285714285713,
+        "smallRecall": 0.2581453634085213
+      },
+      "timeMs": {
+        "median": 76.29249998927116,
+        "p90": 147.55300000160935
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.34360623737280244,
+        "AP50": 0.5371365940444663,
+        "AP75": 0.362066111335528,
+        "APSmall": 0.3715535861577399,
+        "APMedium": 0.5449304053442025,
+        "APLarge": 0.25370409637981767,
+        "AR1": 0.24966130482156298,
+        "AR10": 0.4136937373230384,
+        "AR100": 0.44316749907793584
+      },
+      "operating": {
+        "tp": 343,
+        "fp": 210,
+        "fn": 357,
+        "ignored": 57,
+        "duplicateFp": 7,
+        "smallTp": 148,
+        "smallTotal": 399,
+        "precision": 0.620253164556962,
+        "recall": 0.49,
+        "smallRecall": 0.37092731829573933
+      },
+      "timeMs": {
+        "median": 245.9200000166893,
+        "p90": 390.9764999777079
+      },
+      "vsWhole": {
+        "smallGained": 53,
+        "smallLost": 8,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 7,
+        "fpDelta": 127
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.4205738504954628,
+        "AP50": 0.613690207034441,
+        "AP75": 0.4311150889702326,
+        "APSmall": 0.37392887259257007,
+        "APMedium": 0.5568414724996161,
+        "APLarge": 0.5918887980593535,
+        "AR1": 0.2955258953890434,
+        "AR10": 0.5328686092408096,
+        "AR100": 0.565088660898393
+      },
+      "operating": {
+        "tp": 390,
+        "fp": 238,
+        "fn": 310,
+        "ignored": 63,
+        "duplicateFp": 6,
+        "smallTp": 156,
+        "smallTotal": 399,
+        "precision": 0.6210191082802548,
+        "recall": 0.5571428571428572,
+        "smallRecall": 0.39097744360902253
+      },
+      "timeMs": {
+        "median": 313.8250000104308,
+        "p90": 530.7794999867679
+      },
+      "vsWhole": {
+        "smallGained": 53,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 155
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.43859654913849266,
+        "AP50": 0.6232272798444568,
+        "AP75": 0.46466478620004836,
+        "APSmall": 0.2678552399593114,
+        "APMedium": 0.5691913640729813,
+        "APLarge": 0.7238903627655277,
+        "AR1": 0.3234080445120858,
+        "AR10": 0.5413722892512873,
+        "AR100": 0.583152115183458
+      },
+      "operating": {
+        "tp": 322,
+        "fp": 85,
+        "fn": 378,
+        "ignored": 42,
+        "duplicateFp": 7,
+        "smallTp": 107,
+        "smallTotal": 399,
+        "precision": 0.7911547911547911,
+        "recall": 0.46,
+        "smallRecall": 0.2681704260651629
+      },
+      "timeMs": {
+        "median": 77.31999999284744,
+        "p90": 143.74400001168252
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.3430812101482214,
+        "AP50": 0.5376569203099293,
+        "AP75": 0.3594334081056691,
+        "APSmall": 0.3747117679464022,
+        "APMedium": 0.5401144880868184,
+        "APLarge": 0.2568053437430151,
+        "AR1": 0.2507575846678428,
+        "AR10": 0.4127637983596623,
+        "AR100": 0.442650922824753
+      },
+      "operating": {
+        "tp": 343,
+        "fp": 210,
+        "fn": 357,
+        "ignored": 57,
+        "duplicateFp": 7,
+        "smallTp": 147,
+        "smallTotal": 399,
+        "precision": 0.620253164556962,
+        "recall": 0.49,
+        "smallRecall": 0.3684210526315789
+      },
+      "timeMs": {
+        "median": 246.7550000101328,
+        "p90": 383.67300000488757
+      },
+      "vsWhole": {
+        "smallGained": 49,
+        "smallLost": 9,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 8,
+        "fpDelta": 125
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.42376394069076395,
+        "AP50": 0.6143053882041928,
+        "AP75": 0.42735688318058535,
+        "APSmall": 0.38061446367614543,
+        "APMedium": 0.5556897129238163,
+        "APLarge": 0.5972039288773631,
+        "AR1": 0.3032797602006006,
+        "AR10": 0.532999089986675,
+        "AR100": 0.5663524916302131
+      },
+      "operating": {
+        "tp": 390,
+        "fp": 239,
+        "fn": 310,
+        "ignored": 64,
+        "duplicateFp": 7,
+        "smallTp": 156,
+        "smallTotal": 399,
+        "precision": 0.6200317965023847,
+        "recall": 0.5571428571428572,
+        "smallRecall": 0.39097744360902253
+      },
+      "timeMs": {
+        "median": 317.80000000447035,
+        "p90": 517.8174999937415
+      },
+      "vsWhole": {
+        "smallGained": 49,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 154
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.4336402558100753,
+        "AP50": 0.6125967612784866,
+        "AP75": 0.47364064317811727,
+        "APSmall": 0.2715689554208162,
+        "APMedium": 0.5760863544891595,
+        "APLarge": 0.7043778078046546,
+        "AR1": 0.3161490267369359,
+        "AR10": 0.5396856214945098,
+        "AR100": 0.577946956018311
+      },
+      "operating": {
+        "tp": 315,
+        "fp": 83,
+        "fn": 385,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 102,
+        "smallTotal": 399,
+        "precision": 0.7914572864321608,
+        "recall": 0.45,
+        "smallRecall": 0.2556390977443609
+      },
+      "timeMs": {
+        "median": 79.65000001341105,
+        "p90": 149.49000000655653
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.33549134320613455,
+        "AP50": 0.5374627857519331,
+        "AP75": 0.35034789318195547,
+        "APSmall": 0.3689211744194601,
+        "APMedium": 0.5378753068043585,
+        "APLarge": 0.24417696867763125,
+        "AR1": 0.24880444415510475,
+        "AR10": 0.4064771065256636,
+        "AR100": 0.43666722346102793
+      },
+      "operating": {
+        "tp": 341,
+        "fp": 211,
+        "fn": 359,
+        "ignored": 58,
+        "duplicateFp": 8,
+        "smallTp": 148,
+        "smallTotal": 399,
+        "precision": 0.6177536231884058,
+        "recall": 0.48714285714285716,
+        "smallRecall": 0.37092731829573933
+      },
+      "timeMs": {
+        "median": 255.57249998301268,
+        "p90": 395.5795000001788
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 6,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 5,
+        "fpDelta": 128
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.40711042664084784,
+        "AP50": 0.6039099549584775,
+        "AP75": 0.417813475086126,
+        "APSmall": 0.3705620071559836,
+        "APMedium": 0.5548298717296531,
+        "APLarge": 0.5681480545438804,
+        "AR1": 0.2815966977750632,
+        "AR10": 0.5309283949889865,
+        "AR100": 0.5635527234776357
+      },
+      "operating": {
+        "tp": 384,
+        "fp": 236,
+        "fn": 316,
+        "ignored": 64,
+        "duplicateFp": 7,
+        "smallTp": 154,
+        "smallTotal": 399,
+        "precision": 0.6193548387096774,
+        "recall": 0.5485714285714286,
+        "smallRecall": 0.38596491228070173
+      },
+      "timeMs": {
+        "median": 325.58250000327826,
+        "p90": 533.0900000184774
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 153
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3365295559180082,
+        "AP50": 0.46494352034029557,
+        "AP75": 0.36069944962400036,
+        "APSmall": 0.15278036422200492,
+        "APMedium": 0.44467929412417173,
+        "APLarge": 0.6672640425053443,
+        "AR1": 0.2779591680089987,
+        "AR10": 0.3943126488188019,
+        "AR100": 0.4040994117455982
+      },
+      "operating": {
+        "tp": 227,
+        "fp": 50,
+        "fn": 473,
+        "ignored": 10,
+        "duplicateFp": 0,
+        "smallTp": 42,
+        "smallTotal": 399,
+        "precision": 0.8194945848375451,
+        "recall": 0.3242857142857143,
+        "smallRecall": 0.10526315789473684
+      },
+      "timeMs": {
+        "median": 287.9624999985099,
+        "p90": 311.7674999877811
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2764044142073168,
+        "AP50": 0.43777747063843675,
+        "AP75": 0.29341178054328154,
+        "APSmall": 0.281772361996542,
+        "APMedium": 0.5042862082296011,
+        "APLarge": 0.23502000333337225,
+        "AR1": 0.2073262480914769,
+        "AR10": 0.37570548761638,
+        "AR100": 0.39814011589097015
+      },
+      "operating": {
+        "tp": 280,
+        "fp": 222,
+        "fn": 420,
+        "ignored": 39,
+        "duplicateFp": 7,
+        "smallTp": 97,
+        "smallTotal": 399,
+        "precision": 0.5577689243027888,
+        "recall": 0.4,
+        "smallRecall": 0.24310776942355888
+      },
+      "timeMs": {
+        "median": 1111.259999975562,
+        "p90": 1193.1084999963641
+      },
+      "vsWhole": {
+        "smallGained": 56,
+        "smallLost": 1,
+        "imagesWithSmallGain": 26,
+        "imagesWithSmallLoss": 1,
+        "fpDelta": 172
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.35206535705779696,
+        "AP50": 0.5127631914585314,
+        "AP75": 0.3725134373290389,
+        "APSmall": 0.2807818636497905,
+        "APMedium": 0.5113895428981882,
+        "APLarge": 0.5298557178417894,
+        "AR1": 0.2677464958349512,
+        "AR10": 0.4729841622097076,
+        "AR100": 0.49623583930337095
+      },
+      "operating": {
+        "tp": 317,
+        "fp": 246,
+        "fn": 383,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5630550621669627,
+        "recall": 0.45285714285714285,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 1397.8574999943376,
+        "p90": 1487.6179999813437
+      },
+      "vsWhole": {
+        "smallGained": 56,
+        "smallLost": 0,
+        "imagesWithSmallGain": 26,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 196
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3357441396203424,
+        "AP50": 0.46262944093476643,
+        "AP75": 0.36081633345830455,
+        "APSmall": 0.15295064814819875,
+        "APMedium": 0.4397561911005592,
+        "APLarge": 0.6780152199765211,
+        "AR1": 0.2772860910859218,
+        "AR10": 0.3934934311749237,
+        "AR100": 0.40328712410865
+      },
+      "operating": {
+        "tp": 226,
+        "fp": 50,
+        "fn": 474,
+        "ignored": 10,
+        "duplicateFp": 0,
+        "smallTp": 41,
+        "smallTotal": 399,
+        "precision": 0.8188405797101449,
+        "recall": 0.32285714285714284,
+        "smallRecall": 0.10275689223057644
+      },
+      "timeMs": {
+        "median": 290.86250000447035,
+        "p90": 304.9280000001192
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2761344056904371,
+        "AP50": 0.4355730702644277,
+        "AP75": 0.29289692495129305,
+        "APSmall": 0.2818954770374333,
+        "APMedium": 0.5042420788460128,
+        "APLarge": 0.23477768161155205,
+        "AR1": 0.2069416327068615,
+        "AR10": 0.3766986114771509,
+        "AR100": 0.3989095138314207
+      },
+      "operating": {
+        "tp": 279,
+        "fp": 222,
+        "fn": 421,
+        "ignored": 40,
+        "duplicateFp": 7,
+        "smallTp": 96,
+        "smallTotal": 399,
+        "precision": 0.5568862275449101,
+        "recall": 0.3985714285714286,
+        "smallRecall": 0.24060150375939848
+      },
+      "timeMs": {
+        "median": 1119.719999998808,
+        "p90": 1202.404500003159
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 2,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 2,
+        "fpDelta": 172
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.35207538244317355,
+        "AP50": 0.5106787191900225,
+        "AP75": 0.3721619842938257,
+        "APSmall": 0.2813994390345108,
+        "APMedium": 0.5112695183170949,
+        "APLarge": 0.5298026323184146,
+        "AR1": 0.2676695727580281,
+        "AR10": 0.4742380445665312,
+        "AR100": 0.49745772593160426
+      },
+      "operating": {
+        "tp": 317,
+        "fp": 246,
+        "fn": 383,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5630550621669627,
+        "recall": 0.45285714285714285,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 1407.0949999913573,
+        "p90": 1487.1555000022054
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 0,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 196
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3365495395126624,
+        "AP50": 0.4627684362819495,
+        "AP75": 0.361909275447895,
+        "APSmall": 0.1552805602829185,
+        "APMedium": 0.4378109044409415,
+        "APLarge": 0.6768564449056291,
+        "AR1": 0.27990926176791603,
+        "AR10": 0.3959842250089539,
+        "AR100": 0.40559306680194684
+      },
+      "operating": {
+        "tp": 229,
+        "fp": 52,
+        "fn": 471,
+        "ignored": 11,
+        "duplicateFp": 0,
+        "smallTp": 42,
+        "smallTotal": 399,
+        "precision": 0.8149466192170819,
+        "recall": 0.3271428571428571,
+        "smallRecall": 0.10526315789473684
+      },
+      "timeMs": {
+        "median": 293.72999999672174,
+        "p90": 317.7865000128746
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.2762016683122681,
+        "AP50": 0.4385943618262578,
+        "AP75": 0.2906083094960596,
+        "APSmall": 0.2803951706361717,
+        "APMedium": 0.5042105673420941,
+        "APLarge": 0.23143435341102364,
+        "AR1": 0.2043580702846703,
+        "AR10": 0.3689934229415964,
+        "AR100": 0.3955199024089547
+      },
+      "operating": {
+        "tp": 280,
+        "fp": 226,
+        "fn": 420,
+        "ignored": 40,
+        "duplicateFp": 7,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5533596837944664,
+        "recall": 0.4,
+        "smallRecall": 0.24561403508771928
+      },
+      "timeMs": {
+        "median": 1134.1649999916553,
+        "p90": 1221.7029999986291
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 1,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 1,
+        "fpDelta": 174
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.3511204128880532,
+        "AP50": 0.5130653070246455,
+        "AP75": 0.3686730015135465,
+        "APSmall": 0.2781350746660224,
+        "APMedium": 0.5139322801670418,
+        "APLarge": 0.5269056717373384,
+        "AR1": 0.265619521024325,
+        "AR10": 0.4651168797179415,
+        "AR100": 0.4905703410756064
+      },
+      "operating": {
+        "tp": 318,
+        "fp": 251,
+        "fn": 382,
+        "ignored": 41,
+        "duplicateFp": 6,
+        "smallTp": 99,
+        "smallTotal": 399,
+        "precision": 0.5588752196836555,
+        "recall": 0.4542857142857143,
+        "smallRecall": 0.24812030075187969
+      },
+      "timeMs": {
+        "median": 1432.8575000017881,
+        "p90": 1518.3775000020862
+      },
+      "vsWhole": {
+        "smallGained": 57,
+        "smallLost": 0,
+        "imagesWithSmallGain": 27,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 199
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "operating": {
+        "tp": 320,
+        "fp": 83,
+        "fn": 380,
+        "ignored": 40,
+        "duplicateFp": 5,
+        "smallTp": 103,
+        "smallTotal": 399,
+        "precision": 0.794044665012407,
+        "recall": 0.45714285714285713,
+        "smallRecall": 0.2581453634085213
+      },
+      "timeMs": {
+        "median": 879.5949999913573,
+        "p90": 966.8374999940396
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.34360623737280244,
+        "AP50": 0.5371365940444663,
+        "AP75": 0.362066111335528,
+        "APSmall": 0.3715535861577399,
+        "APMedium": 0.5449304053442025,
+        "APLarge": 0.25370409637981767,
+        "AR1": 0.24966130482156298,
+        "AR10": 0.4136937373230384,
+        "AR100": 0.44316749907793584
+      },
+      "operating": {
+        "tp": 343,
+        "fp": 210,
+        "fn": 357,
+        "ignored": 57,
+        "duplicateFp": 7,
+        "smallTp": 148,
+        "smallTotal": 399,
+        "precision": 0.620253164556962,
+        "recall": 0.49,
+        "smallRecall": 0.37092731829573933
+      },
+      "timeMs": {
+        "median": 3447.6625000089407,
+        "p90": 3655.031500005722
+      },
+      "vsWhole": {
+        "smallGained": 53,
+        "smallLost": 8,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 7,
+        "fpDelta": 127
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.4205738504954628,
+        "AP50": 0.613690207034441,
+        "AP75": 0.4311150889702326,
+        "APSmall": 0.37392887259257007,
+        "APMedium": 0.5568414724996161,
+        "APLarge": 0.5918887980593535,
+        "AR1": 0.2955258953890434,
+        "AR10": 0.5328686092408096,
+        "AR100": 0.565088660898393
+      },
+      "operating": {
+        "tp": 390,
+        "fp": 238,
+        "fn": 310,
+        "ignored": 63,
+        "duplicateFp": 6,
+        "smallTp": 156,
+        "smallTotal": 399,
+        "precision": 0.6210191082802548,
+        "recall": 0.5571428571428572,
+        "smallRecall": 0.39097744360902253
+      },
+      "timeMs": {
+        "median": 4348.522500000894,
+        "p90": 4603.151499994099
+      },
+      "vsWhole": {
+        "smallGained": 53,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 155
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.4340307813020401,
+        "AP50": 0.6177908022297782,
+        "AP75": 0.46346079996770356,
+        "APSmall": 0.27042801563258967,
+        "APMedium": 0.5598246915299527,
+        "APLarge": 0.7309575826898681,
+        "AR1": 0.3201738977018521,
+        "AR10": 0.5392214342202357,
+        "AR100": 0.5813121462153168
+      },
+      "operating": {
+        "tp": 321,
+        "fp": 83,
+        "fn": 379,
+        "ignored": 40,
+        "duplicateFp": 5,
+        "smallTp": 105,
+        "smallTotal": 399,
+        "precision": 0.7945544554455446,
+        "recall": 0.4585714285714286,
+        "smallRecall": 0.2631578947368421
+      },
+      "timeMs": {
+        "median": 897.5050000026822,
+        "p90": 976.5124999970197
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.3435168093933936,
+        "AP50": 0.5376454701758766,
+        "AP75": 0.3625517900578143,
+        "APSmall": 0.36871756874189215,
+        "APMedium": 0.5448915089234774,
+        "APLarge": 0.25509059252635186,
+        "AR1": 0.25025641916667735,
+        "AR10": 0.41414745089439886,
+        "AR100": 0.44631913557346375
+      },
+      "operating": {
+        "tp": 343,
+        "fp": 210,
+        "fn": 357,
+        "ignored": 57,
+        "duplicateFp": 7,
+        "smallTp": 148,
+        "smallTotal": 399,
+        "precision": 0.620253164556962,
+        "recall": 0.49,
+        "smallRecall": 0.37092731829573933
+      },
+      "timeMs": {
+        "median": 3516.5874999836087,
+        "p90": 3784.202999995649
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 9,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 8,
+        "fpDelta": 127
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.42392718433921145,
+        "AP50": 0.6116678870115181,
+        "AP75": 0.43842218871178407,
+        "APSmall": 0.3715484303453057,
+        "APMedium": 0.5599463828050086,
+        "APLarge": 0.5953385549395475,
+        "AR1": 0.2965500304708708,
+        "AR10": 0.535204535119722,
+        "AR100": 0.5703986937182134
+      },
+      "operating": {
+        "tp": 390,
+        "fp": 238,
+        "fn": 310,
+        "ignored": 63,
+        "duplicateFp": 6,
+        "smallTp": 157,
+        "smallTotal": 399,
+        "precision": 0.6210191082802548,
+        "recall": 0.5571428571428572,
+        "smallRecall": 0.39348370927318294
+      },
+      "timeMs": {
+        "median": 4407.552500016987,
+        "p90": 4703.644000013172
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 155
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.4336402558100753,
+        "AP50": 0.6125967612784866,
+        "AP75": 0.47364064317811727,
+        "APSmall": 0.2715689554208162,
+        "APMedium": 0.5760863544891595,
+        "APLarge": 0.7043778078046546,
+        "AR1": 0.3161490267369359,
+        "AR10": 0.5396856214945098,
+        "AR100": 0.577946956018311
+      },
+      "operating": {
+        "tp": 315,
+        "fp": 83,
+        "fn": 385,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 102,
+        "smallTotal": 399,
+        "precision": 0.7914572864321608,
+        "recall": 0.45,
+        "smallRecall": 0.2556390977443609
+      },
+      "timeMs": {
+        "median": 891.1124999970198,
+        "p90": 970.3679999947548
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "tiles",
+      "metrics": {
+        "AP": 0.3354912835016716,
+        "AP50": 0.5374627857519331,
+        "AP75": 0.35034789318195547,
+        "APSmall": 0.368921005553282,
+        "APMedium": 0.5378753068043585,
+        "APLarge": 0.24417696867763125,
+        "AR1": 0.24880444415510475,
+        "AR10": 0.4064771065256636,
+        "AR100": 0.43666722346102793
+      },
+      "operating": {
+        "tp": 341,
+        "fp": 211,
+        "fn": 359,
+        "ignored": 58,
+        "duplicateFp": 8,
+        "smallTp": 148,
+        "smallTotal": 399,
+        "precision": 0.6177536231884058,
+        "recall": 0.48714285714285716,
+        "smallRecall": 0.37092731829573933
+      },
+      "timeMs": {
+        "median": 3527.2824999839067,
+        "p90": 3722.6779999881983
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 6,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 5,
+        "fpDelta": 128
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.4071103897441123,
+        "AP50": 0.6039099549584775,
+        "AP75": 0.417813475086126,
+        "APSmall": 0.3705619467646076,
+        "APMedium": 0.5548298717296531,
+        "APLarge": 0.5681480545438804,
+        "AR1": 0.2815966977750632,
+        "AR10": 0.5309283949889865,
+        "AR100": 0.5635527234776357
+      },
+      "operating": {
+        "tp": 384,
+        "fp": 236,
+        "fn": 316,
+        "ignored": 64,
+        "duplicateFp": 7,
+        "smallTp": 154,
+        "smallTotal": 399,
+        "precision": 0.6193548387096774,
+        "recall": 0.5485714285714286,
+        "smallRecall": 0.38596491228070173
+      },
+      "timeMs": {
+        "median": 4436.139999985695,
+        "p90": 4684.407499992848
+      },
+      "vsWhole": {
+        "smallGained": 52,
+        "smallLost": 0,
+        "imagesWithSmallGain": 24,
+        "imagesWithSmallLoss": 0,
+        "fpDelta": 153
+      }
+    }
+  ],
+  "runs": [
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:06:25.881Z",
+      "completedAt": "2026-09-12T14:06:52.935Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 200.51500000059605,
+        "initializeWallMs": 1236.5900000035763,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "fp32",
+          "precision": "fp32",
+          "bytes": 23243834,
+          "parameterCount": 5787988,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "852b3acbb768705c77359362546eae9999f4190c",
+            "bytes": 23243834,
+            "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:06:28.116Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1171.6149999946356,
+          "totalMs": 1232.719999998808,
+          "integrityMs": 58.724999994039536,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-fp32-webgpu.json.gz",
+      "sha256": "65f23e248f0724224acff651924c39a6d6dfcf6b86a4dc763417e629e3a6a9ea",
+      "bytes": 4170895,
+      "warningCount": 20
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:06:54.317Z",
+      "completedAt": "2026-09-12T14:07:20.620Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 145.03999999165535,
+        "initializeWallMs": 1371.809999987483,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "fp16",
+          "precision": "fp16",
+          "bytes": 14813981,
+          "parameterCount": 5787988,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 14813981,
+            "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:06:56.680Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp16",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1320.449999988079,
+          "totalMs": 1362.5999999940395,
+          "integrityMs": 37.91499999165535,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-fp16-webgpu.json.gz",
+      "sha256": "e8853bd5db2cef9bd52579ff612608902e5879e726dcb2d7f163546371ba332c",
+      "bytes": 2524478,
+      "warningCount": 20
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:07:21.949Z",
+      "completedAt": "2026-09-12T14:07:49.988Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 62.979999989271164,
+        "initializeWallMs": 1220.5099999904633,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "w8a32",
+          "precision": "int8",
+          "bytes": 6117685,
+          "parameterCount": 5787988,
+          "opset": 13,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 6117685,
+            "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:07:23.995Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "int8",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1195.8400000035763,
+          "totalMs": 1216.2750000059605,
+          "integrityMs": 17.685000002384186,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-w8a32-webgpu.json.gz",
+      "sha256": "edf88ecf8b797bffe9cd057b985fe5c6fece47cc0af07652123716d2b1eb924f",
+      "bytes": 4213772,
+      "warningCount": 4
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:07:51.365Z",
+      "completedAt": "2026-09-12T14:08:46.667Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 261.05500000715256,
+        "initializeWallMs": 1233.5900000035763,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "fp32",
+          "precision": "fp32",
+          "bytes": 31954220,
+          "parameterCount": null,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+            "bytes": 31954220,
+            "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:07:53.756Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1133.9650000035763,
+          "totalMs": 1228.2550000101328,
+          "integrityMs": 91.89000000059605,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-fp32-webgpu.json.gz",
+      "sha256": "d52feb63a860ca6a60e0538d312658b410f62a870ef67915e90ca5f016419171",
+      "bytes": 15067789,
+      "warningCount": 4
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:08:50.188Z",
+      "completedAt": "2026-09-12T14:09:46.190Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 168.40000000596046,
+        "initializeWallMs": 1353.155000001192,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "fp16",
+          "precision": "fp16",
+          "bytes": 16054567,
+          "parameterCount": null,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 16054567,
+            "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:08:52.504Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp16",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1300.675000011921,
+          "totalMs": 1348.2049999982119,
+          "integrityMs": 44.83500000834465,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-fp16-webgpu.json.gz",
+      "sha256": "1dc12d81105bf26ea00bd5336b48db005e91a02184ec69e5d502249ea921de32",
+      "bytes": 8747421,
+      "warningCount": 4
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "webgpu",
+      "startedAt": "2026-09-12T14:09:49.546Z",
+      "completedAt": "2026-09-12T14:10:48.448Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 75.48499999940395,
+        "initializeWallMs": 1115.7550000101328,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "w8a32",
+          "precision": "int8",
+          "bytes": 8225467,
+          "parameterCount": null,
+          "opset": 13,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 8225467,
+            "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:09:51.511Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "int8",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 1082.0900000035763,
+          "totalMs": 1105.5550000071526,
+          "integrityMs": 21.070000007748604,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-w8a32-webgpu.json.gz",
+      "sha256": "220711a30e13e8dcc76d49ee023a80b1a372260efddd461ef8d4f9708a3a5d77",
+      "bytes": 14833405,
+      "warningCount": 4
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:10:52.031Z",
+      "completedAt": "2026-09-12T14:12:33.939Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 224.81999999284744,
+        "initializeWallMs": 536.5349999964237,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "fp32",
+          "precision": "fp32",
+          "bytes": 23243834,
+          "parameterCount": 5787988,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "852b3acbb768705c77359362546eae9999f4190c",
+            "bytes": 23243834,
+            "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:10:53.552Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 462.9800000041723,
+          "totalMs": 529.1950000077486,
+          "integrityMs": 63.90500000119209,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-fp32-wasm.json.gz",
+      "sha256": "8f7c230b624c9a15ca1116256983323af3f547d612a6ed03fc9515a16393fbee",
+      "bytes": 4171117,
+      "warningCount": 17
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:12:35.354Z",
+      "completedAt": "2026-09-12T14:14:17.875Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 169.1499999910593,
+        "initializeWallMs": 676.4699999988079,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "fp16",
+          "precision": "fp16",
+          "bytes": 14813981,
+          "parameterCount": 5787988,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 14813981,
+            "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:12:36.994Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp16",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 625.765000000596,
+          "totalMs": 669.8999999910593,
+          "integrityMs": 41.63500000536442,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-fp16-wasm.json.gz",
+      "sha256": "3fd992383c068a02ea921d22a5ddf0d028090a90948c817e9c7fd15c5b1cc737",
+      "bytes": 2525861,
+      "warningCount": 17
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:14:19.177Z",
+      "completedAt": "2026-09-12T14:16:02.848Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 56.945000007748604,
+        "initializeWallMs": 505.57999999821186,
+        "model": {
+          "id": "pp-picodet-l-320",
+          "version": "1.0.2",
+          "variantId": "w8a32",
+          "precision": "int8",
+          "bytes": 6117685,
+          "parameterCount": 5787988,
+          "opset": 13,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 6117685,
+            "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:14:20.534Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "int8",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 480.32499998807907,
+          "totalMs": 502.23499999940395,
+          "integrityMs": 19.430000007152557,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/picodet-w8a32-wasm.json.gz",
+      "sha256": "ce36469c4a9d3e0e8d72925d6ec872fb6529e0a685931ef009f85430d1ffd064",
+      "bytes": 4212880,
+      "warningCount": 1
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:16:04.233Z",
+      "completedAt": "2026-09-12T14:21:20.319Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 307.9350000023842,
+        "initializeWallMs": 597.1949999928474,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "fp32",
+          "precision": "fp32",
+          "bytes": 31954220,
+          "parameterCount": null,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+            "bytes": 31954220,
+            "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:16:05.926Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 509.7399999946356,
+          "totalMs": 593.6149999946356,
+          "integrityMs": 81.81999999284744,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-fp32-wasm.json.gz",
+      "sha256": "327977555dccd37f36558524f2dd109d6dcceb35ad6dea43dab9d61f0e36159d",
+      "bytes": 15035924,
+      "warningCount": 1
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:21:23.818Z",
+      "completedAt": "2026-09-12T14:26:45.020Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 159.5400000065565,
+        "initializeWallMs": 640.2849999964237,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "fp16",
+          "precision": "fp16",
+          "bytes": 16054567,
+          "parameterCount": null,
+          "opset": 11,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 16054567,
+            "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:21:25.428Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp16",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 591.7199999988079,
+          "totalMs": 636.6599999964237,
+          "integrityMs": 42.83499999344349,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-fp16-wasm.json.gz",
+      "sha256": "7cc4b9de4ab2be0e4270a058cd0e3fb0bfbd2f2269c9f25617f8982fc62dc87f",
+      "bytes": 8851882,
+      "warningCount": 1
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "backend": "wasm",
+      "startedAt": "2026-09-12T14:26:48.382Z",
+      "completedAt": "2026-09-12T14:32:08.034Z",
+      "browserVersion": "153.0.8010.12",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "isFallbackAdapter": false
+      },
+      "host": {
+        "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+        "logicalCores": 12,
+        "platform": "win32",
+        "release": "10.0.26200",
+        "arch": "x64"
+      },
+      "initialization": {
+        "modelReadMs": 86.56999999284744,
+        "initializeWallMs": 428.0600000023842,
+        "model": {
+          "id": "ppyoloe-plus-s-640",
+          "version": "0.1.1",
+          "variantId": "w8a32",
+          "precision": "int8",
+          "bytes": 8225467,
+          "parameterCount": null,
+          "opset": 13,
+          "source": {
+            "kind": "modelscope",
+            "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+            "bytes": 8225467,
+            "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-12T14:26:49.687Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "int8",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        },
+        "loadTimings": {
+          "sessionMs": 401.69499999284744,
+          "totalMs": 424.68000000715256,
+          "integrityMs": 20.95999999344349,
+          "modelSource": "memory"
+        },
+        "sdkVersion": "0.3.2",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 12,
+        "crossOriginIsolated": true
+      },
+      "scripts": {
+        "browser-probe.mjs": "2aa07f9fb4cf99d6e2fa046f129c282048ddbad83d6645e787f00f2ae9e7333b",
+        "tiling.mjs": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7"
+      },
+      "file": "browser/ppyoloe-w8a32-wasm.json.gz",
+      "sha256": "e5e2ad83adcb44c3de2f8782284483e13cb582c4f1b8dda881f8ca8be8816f22",
+      "bytes": 14802303,
+      "warningCount": 1
+    }
+  ]
+}

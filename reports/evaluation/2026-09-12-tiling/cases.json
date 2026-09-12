@@ -1,0 +1,216 @@
+[
+  {
+    "model": "picodet",
+    "rule": "small-gain",
+    "selection": "净小目标收益最高",
+    "imageId": 483999,
+    "selectionValue": 8,
+    "file": "figures/picodet-small-gain-483999.jpg",
+    "smallGainedGtIds": [
+      676946,
+      1512918,
+      1513675,
+      1515030,
+      1595558,
+      1601286,
+      1877731,
+      2103784
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [
+      390891
+    ],
+    "fpBefore": 2,
+    "fpAfter": 7,
+    "source": {
+      "imageId": 483999,
+      "filename": "000000483999.jpg",
+      "width": 640,
+      "height": 428,
+      "bytes": 173239,
+      "sha256": "f962e1a9fc03577dbf716dfbf96f8e9b519807b59d5e25ae4718667f753daea4",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000483999.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+        "id": 3,
+        "name": "Attribution-NonCommercial-NoDerivs License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000483999.jpg",
+      "flickrUrl": "http://farm8.staticflickr.com/7350/9302552335_f384163d1b_z.jpg"
+    }
+  },
+  {
+    "model": "picodet",
+    "rule": "large-loss",
+    "selection": "丢失大目标最多",
+    "imageId": 483999,
+    "selectionValue": 1,
+    "file": "figures/picodet-large-loss-483999.jpg",
+    "smallGainedGtIds": [
+      676946,
+      1512918,
+      1513675,
+      1515030,
+      1595558,
+      1601286,
+      1877731,
+      2103784
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [
+      390891
+    ],
+    "fpBefore": 2,
+    "fpAfter": 7,
+    "source": {
+      "imageId": 483999,
+      "filename": "000000483999.jpg",
+      "width": 640,
+      "height": 428,
+      "bytes": 173239,
+      "sha256": "f962e1a9fc03577dbf716dfbf96f8e9b519807b59d5e25ae4718667f753daea4",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000483999.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+        "id": 3,
+        "name": "Attribution-NonCommercial-NoDerivs License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000483999.jpg",
+      "flickrUrl": "http://farm8.staticflickr.com/7350/9302552335_f384163d1b_z.jpg"
+    }
+  },
+  {
+    "model": "picodet",
+    "rule": "fp-increase",
+    "selection": "误检增量最高",
+    "imageId": 209142,
+    "selectionValue": 15,
+    "file": "figures/picodet-fp-increase-209142.jpg",
+    "smallGainedGtIds": [
+      2116191
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [],
+    "fpBefore": 1,
+    "fpAfter": 16,
+    "source": {
+      "imageId": 209142,
+      "filename": "000000209142.jpg",
+      "width": 640,
+      "height": 425,
+      "bytes": 202143,
+      "sha256": "faaa39e1fa18df9268a45821d7f6a2608b026df2df4ead67746c3a3faf7dfa8d",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000209142.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+        "id": 1,
+        "name": "Attribution-NonCommercial-ShareAlike License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000209142.jpg",
+      "flickrUrl": "http://farm2.staticflickr.com/1200/4722943655_bb785be622_z.jpg"
+    }
+  },
+  {
+    "model": "ppyoloe",
+    "rule": "small-gain",
+    "selection": "净小目标收益最高",
+    "imageId": 287874,
+    "selectionValue": 6,
+    "file": "figures/ppyoloe-small-gain-287874.jpg",
+    "smallGainedGtIds": [
+      201843,
+      1265911,
+      1391943,
+      1392348,
+      2014031,
+      2016459
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [],
+    "fpBefore": 1,
+    "fpAfter": 4,
+    "source": {
+      "imageId": 287874,
+      "filename": "000000287874.jpg",
+      "width": 640,
+      "height": 434,
+      "bytes": 215410,
+      "sha256": "0cc4df971844484c680888590fe5498676d7c69411405ee99d40a2188c21ea7e",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000287874.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+        "id": 3,
+        "name": "Attribution-NonCommercial-NoDerivs License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000287874.jpg",
+      "flickrUrl": "http://farm9.staticflickr.com/8118/8603470324_ff356ace1f_z.jpg"
+    }
+  },
+  {
+    "model": "ppyoloe",
+    "rule": "large-loss",
+    "selection": "丢失大目标最多",
+    "imageId": 238410,
+    "selectionValue": 1,
+    "file": "figures/ppyoloe-large-loss-238410.jpg",
+    "smallGainedGtIds": [
+      83297,
+      86844,
+      664363,
+      2182803
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [
+      534445
+    ],
+    "fpBefore": 5,
+    "fpAfter": 6,
+    "source": {
+      "imageId": 238410,
+      "filename": "000000238410.jpg",
+      "width": 640,
+      "height": 480,
+      "bytes": 168411,
+      "sha256": "980b3adbde3e49f6cc92f0611ea9ef8dde633715a7d9041bafa8048fb61c24de",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000238410.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+        "id": 3,
+        "name": "Attribution-NonCommercial-NoDerivs License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000238410.jpg",
+      "flickrUrl": "http://farm4.staticflickr.com/3730/9435282039_03928a6b9c_z.jpg"
+    }
+  },
+  {
+    "model": "ppyoloe",
+    "rule": "fp-increase",
+    "selection": "误检增量最高",
+    "imageId": 209142,
+    "selectionValue": 7,
+    "file": "figures/ppyoloe-fp-increase-209142.jpg",
+    "smallGainedGtIds": [
+      1560604
+    ],
+    "smallLostGtIds": [],
+    "lostLargeGtIds": [],
+    "fpBefore": 11,
+    "fpAfter": 18,
+    "source": {
+      "imageId": 209142,
+      "filename": "000000209142.jpg",
+      "width": 640,
+      "height": 425,
+      "bytes": 202143,
+      "sha256": "faaa39e1fa18df9268a45821d7f6a2608b026df2df4ead67746c3a3faf7dfa8d",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000209142.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+        "id": 1,
+        "name": "Attribution-NonCommercial-ShareAlike License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000209142.jpg",
+      "flickrUrl": "http://farm2.staticflickr.com/1200/4722943655_bb785be622_z.jpg"
+    }
+  }
+]

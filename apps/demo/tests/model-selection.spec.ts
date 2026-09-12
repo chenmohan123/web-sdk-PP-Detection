@@ -165,7 +165,7 @@ test("显式选择的 PP-YOLOE 来源失败时不会请求其他来源", async (
   await page.getByRole("button", { name: "开始检测", exact: true }).click();
 
   await expect(page.getByRole("alert")).toContainText(/MODEL_SOURCE_UNAVAILABLE|模型来源/);
-  expect(requests).toEqual([selected.url]);
+  expect(requests).toEqual([selected.url, selected.url, selected.url]);
   await expect(page.locator(".detection-row")).toHaveCount(0);
 });
 

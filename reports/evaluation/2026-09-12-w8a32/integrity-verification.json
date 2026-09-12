@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "archiveFilesVerified": 41,
+  "browserRuns": 12,
+  "allSdkVersions": "0.3.1",
+  "physicalGpu": true,
+  "noBackendFallback": true,
+  "artifactsMatchEvaluatedModels": true
+}

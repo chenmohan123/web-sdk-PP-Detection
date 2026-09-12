@@ -3,8 +3,8 @@ import {
   type ModelSourceKind,
   type RuntimeDetectionManifest
 } from "web-sdk-pp-detection";
-import picoDetManifestJson from "../../../models/pp-detection/manifest.json";
-import ppyoloeManifestJson from "../../../models/ppyoloe-plus-s-640/manifest.json";
+import picoDetManifestJson from "../../../models/pp-detection/1.0.2/manifest.json";
+import ppyoloeManifestJson from "../../../models/ppyoloe-plus-s-640/0.1.1/manifest.json";
 
 export type DemoModelKey = "picodet-l-320" | "ppyoloe-plus-s-640";
 export type ModelSourceKey = Extract<ModelSourceKind, "modelscope" | "huggingface">;
@@ -37,14 +37,14 @@ export const MODEL_OPTIONS: readonly DemoModelOption[] = [
     key: "picodet-l-320",
     label: { en: "PicoDet-L 320", zh: "PicoDet-L 320" },
     manifest: parseDetectionManifest(picoDetManifestJson),
-    manifestPath: "models/pp-detection/manifest.json"
+    manifestPath: "models/pp-detection/1.0.2/manifest.json"
   },
   {
     experimental: false,
     key: "ppyoloe-plus-s-640",
     label: { en: "PP-YOLOE+ S 640", zh: "PP-YOLOE+ S 640" },
     manifest: parseDetectionManifest(ppyoloeManifestJson),
-    manifestPath: "models/ppyoloe-plus-s-640/manifest.json"
+    manifestPath: "models/ppyoloe-plus-s-640/0.1.1/manifest.json"
   }
 ] as const;
 

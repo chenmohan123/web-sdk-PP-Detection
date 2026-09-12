@@ -39,6 +39,7 @@ import {
 import {
   allowFallbackForSelection,
   precisionForBackend,
+  precisionLabel,
   type BackendPreference,
   type PrecisionPreference
 } from "./execution-preferences";
@@ -339,6 +340,7 @@ export function App(): ReactElement {
       : undefined;
   const runtime: DemoRuntime | undefined = result?.runtime;
   const activeModelOption = modelOption(selectedModel);
+  const activeManifest = customManifest ?? activeModelOption.manifest;
   const activeSourceOptions = sourceOptions(activeModelOption);
   const activeModelSource =
     activeSourceOptions.find((option) => option.key === modelSource) ?? activeSourceOptions[0];
@@ -651,7 +653,7 @@ export function App(): ReactElement {
     setBackend(next);
     if (nextPrecision !== precision) {
       setPrecision(nextPrecision);
-      setNotice(next === "webgpu" ? copy.precisionAdjusted : copy.cpuFp16Unsupported);
+      setNotice(copy.precisionAdjusted);
     }
   };
 
@@ -1063,7 +1065,7 @@ export function App(): ReactElement {
             <div className="control-group" role="group" aria-label={copy.precision}>
               <span className="control-label">{copy.precision}</span>
               <div className="segmented">
-                {(["auto", "fp16", "fp32"] as const).map((value) => {
+                {(["auto", "fp32", "fp16", "int8"] as const).map((value) => {
                   const unsupported =
                     value !== "auto" &&
                     precisionForBackend(
@@ -1077,16 +1079,10 @@ export function App(): ReactElement {
                       className={precision === value ? "selected" : ""}
                       aria-pressed={precision === value}
                       disabled={unsupported || (inputMode !== "image" && status === "running")}
-                      title={
-                        unsupported
-                          ? backend === "webgpu"
-                            ? copy.precisionAdjusted
-                            : copy.cpuFp16Unsupported
-                          : undefined
-                      }
+                      title={unsupported ? copy.precisionAdjusted : undefined}
                       onClick={() => onPrecision(value)}
                     >
-                      {copy[value]}
+                      {value === "int8" ? precisionLabel(value, activeManifest) : copy[value]}
                     </button>
                   );
                 })}
@@ -1715,7 +1711,15 @@ export function App(): ReactElement {
                 </div>
                 <div>
                   <dt>{copy.precisionInfo}</dt>
-                  <dd>{result?.runtime.precision ?? "-"}</dd>
+                  <dd data-testid="model-precision">
+                    {result
+                      ? precisionLabel(
+                          result.runtime.precision,
+                          activeManifest,
+                          result.model.variantId
+                        )
+                      : "-"}
+                  </dd>
                 </div>
                 <div>
                   <dt>{copy.mode}</dt>
@@ -1759,7 +1763,8 @@ export function App(): ReactElement {
                   {result.runtime.fallbacks.map((fallback, index) => (
                     <div className="fallback-row" key={`${fallback.variantId}-${index}`}>
                       <strong>
-                        {fallback.provider} · {fallback.precision}
+                        {fallback.provider} ·{" "}
+                        {precisionLabel(fallback.precision, activeManifest, fallback.variantId)}
                       </strong>
                       <small>
                         {fallback.code} · {fallback.stage}

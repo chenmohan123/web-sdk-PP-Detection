@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "indexedArtifacts": 91,
+  "browserRuns": 20,
+  "allSameSdkBundle": true,
+  "allStrictBackends": true,
+  "manifestAndModelHashesMatch": true,
+  "calibrationEvaluationOverlap": 0,
+  "stableModelUnchanged": true,
+  "trackedFilesUnchanged": true
+}

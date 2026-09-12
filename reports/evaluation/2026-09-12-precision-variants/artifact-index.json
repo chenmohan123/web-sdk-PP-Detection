@@ -1,0 +1,482 @@
+[
+  {
+    "path": "browser/picodet-wasm-fp32-1.json.gz",
+    "bytes": 1476932,
+    "sha256": "d103ed1e842c52c681d82acec19005fd867a761b419a44203a4da928bf4982ab",
+    "storedSha256": "ecc72a8b6562083afb2a777ca6dd1b925f0a45c4ece5f570cb3b79aece874f95"
+  },
+  {
+    "path": "browser/picodet-wasm-fp32-1-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-wasm-fp32-2.json.gz",
+    "bytes": 1476908,
+    "sha256": "e80b223b6d6e538c7d3ac19c8dd255acf3b40b794c0ee02098da05c2341ef676",
+    "storedSha256": "963a3f04bf07f66409a1fe75c11c7bf7cb5472eab968bf03974ddefd19e72ae4"
+  },
+  {
+    "path": "browser/picodet-wasm-fp32-2-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-wasm-fp32-3.json.gz",
+    "bytes": 1476862,
+    "sha256": "72a2683655262cfff0590ef60f1fc005d37f2ba871cb5f3a49758f82ae6c354f",
+    "storedSha256": "4c9372cdc16f4d130bcf91dad4630b20501616b798b3407cd8d57aa8b8c25836"
+  },
+  {
+    "path": "browser/picodet-wasm-fp32-3-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-1.json.gz",
+    "bytes": 1477320,
+    "sha256": "60e926212ed7f3876d6daa3aa4ef9b50e7c166535899fcc15905d405f4d562d1",
+    "storedSha256": "91fbe87bd896885abde7d726a245461900fc9d93808b64f9b4157ad1b1240ffe"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-1-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-2.json.gz",
+    "bytes": 1477349,
+    "sha256": "2c735476fe69a1b4f9ae6d6755bad190bd8fdaf53abffd517195d47b8dab7326",
+    "storedSha256": "e3047b7fde04a4a068ba7721b7bdb665273e72b2cbe60c6ead46138a27c612cf"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-2-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-3.json.gz",
+    "bytes": 1477510,
+    "sha256": "5faab0c2917bb50c8b2bcd4dd907d5649c9e846cc0fca075da2cb5a5e5147685",
+    "storedSha256": "a3996b0f52fd4162024d8d044489511138a0db0cd24cd4e50469051a8c81f2b5"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp32-3-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "317f044058c6ebbd5b1087f46b5599da3f95aca655fb25875cd9151883cc1e37",
+    "storedSha256": "cdaa16030b212b58b80b8befdc62e5829367ae9051726116bfc98538f0918f58"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-1.json.gz",
+    "bytes": 1250357,
+    "sha256": "29706f41f2cc27a7eae44b0aa1f2440a9416f7379903086c67a0772278dd28f1",
+    "storedSha256": "27d27a642699d5b55c6bd8b46c83dc7f61903e99d4037ddf572b0ad10e2e2192"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-1-coco.json.gz",
+    "bytes": 1301,
+    "sha256": "6b402bff507a3fc6512565292d4d1b14e6d96a95a418b377f50005f68665e5eb",
+    "storedSha256": "2c6b5a4b779e9805c14b2ede9b04d78ef65ed453d9d43f8bf5d3648f364c7694"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-2.json.gz",
+    "bytes": 1250417,
+    "sha256": "a25048f6ce57f921c3a70cbeb352ec30d211990e7735c93dd318d1feaaee014f",
+    "storedSha256": "62a4b3c42d8e50de763ce1c1b7e6b5dd2d905bb140e118dd2a550d980d130b5c"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-2-coco.json.gz",
+    "bytes": 1301,
+    "sha256": "6b402bff507a3fc6512565292d4d1b14e6d96a95a418b377f50005f68665e5eb",
+    "storedSha256": "2c6b5a4b779e9805c14b2ede9b04d78ef65ed453d9d43f8bf5d3648f364c7694"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-3.json.gz",
+    "bytes": 1250400,
+    "sha256": "62a21a93bb380fae6486977cec94ea952e1d91cebb851c8813548fb9a6dda246",
+    "storedSha256": "cda00288f47d5ceef9737d0251d15493e3a9d1493f0dbe76718cd0efd0771b42"
+  },
+  {
+    "path": "browser/picodet-wasm-fp16-3-coco.json.gz",
+    "bytes": 1301,
+    "sha256": "6b402bff507a3fc6512565292d4d1b14e6d96a95a418b377f50005f68665e5eb",
+    "storedSha256": "2c6b5a4b779e9805c14b2ede9b04d78ef65ed453d9d43f8bf5d3648f364c7694"
+  },
+  {
+    "path": "parity/picodet-wasm-fp16-parity.json.gz",
+    "bytes": 99130,
+    "sha256": "e0c4741597070678137eb88fc2d39346933cd2eba499770448d715e99b4b6acc",
+    "storedSha256": "3891a7257b620b3dd14d297404f1b01c712c23f66d8f70da4461773801530cfa"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-1.json.gz",
+    "bytes": 1249077,
+    "sha256": "bc992ab5e483252e02ed150bd5109406697081158fa41b0796ed997f9317511e",
+    "storedSha256": "98f958fd8c2f0eaad804a4a2cb713b2bfa1f859c1b332281c913aef563b7a76c"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-1-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "15feecb43bf22b944f9ee619f1539f956e57848ce7906bcedb4c527d1e40b362",
+    "storedSha256": "a5d8ea5ae5e443fd745caf81635e48f2ffaf638fd30c89ccc30438bb8859a4b9"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-2.json.gz",
+    "bytes": 1249151,
+    "sha256": "3383ed382324d734db3ec59f46e1ad015e807076a4e79f34c43b0f65e7feaae7",
+    "storedSha256": "fe6d013de4dbd098a228f183696283a8057de7ae47786b9edc62bbc99460a7b4"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-2-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "15feecb43bf22b944f9ee619f1539f956e57848ce7906bcedb4c527d1e40b362",
+    "storedSha256": "a5d8ea5ae5e443fd745caf81635e48f2ffaf638fd30c89ccc30438bb8859a4b9"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-3.json.gz",
+    "bytes": 1249116,
+    "sha256": "21d20e4ed4c7e90fcca24dfc76af1775734928db8dfde6863dcdd64d5cfda640",
+    "storedSha256": "da2e73291d6413b0c4163bbf1aa1b44788449a407302d1c4caa36317a954f503"
+  },
+  {
+    "path": "browser/picodet-webgpu-fp16-3-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "15feecb43bf22b944f9ee619f1539f956e57848ce7906bcedb4c527d1e40b362",
+    "storedSha256": "a5d8ea5ae5e443fd745caf81635e48f2ffaf638fd30c89ccc30438bb8859a4b9"
+  },
+  {
+    "path": "parity/picodet-webgpu-fp16-parity.json.gz",
+    "bytes": 99189,
+    "sha256": "92ea5cc35ce973e024db49dcac24fa8a159f33f974a60334c06b7eb36d1663cf",
+    "storedSha256": "c04022dfb21cd0f39c6a11083032b1b027c51cb623df7a6d5e7e4076bc50dfd8"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-1.json.gz",
+    "bytes": 1475860,
+    "sha256": "dbf89941572a42e49ab2ff661df77836716cb37a40e8433d58be7e751b2c2f65",
+    "storedSha256": "52447b555ae784567138ee43259bd7f70b6e41ece2cf3549b8d2157fb7ce836e"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-1-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-2.json.gz",
+    "bytes": 1475835,
+    "sha256": "87d4c90efb80aea58cd501ad05e510aece2d68483103ef2c791b5a13d456d463",
+    "storedSha256": "4d5b3b52a18704965fbe3b731288518ba46eb70e03f7db31dada194cf104711a"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-2-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-3.json.gz",
+    "bytes": 1475847,
+    "sha256": "5ba527c1ccc5ec69e995ed92370655bd0a1838b73b82e2cfb6bc62d7c17e4bb8",
+    "storedSha256": "21d81a99f5e02ec253962e6a25003bbe5906553772231bf3a0fdfccab79477b7"
+  },
+  {
+    "path": "browser/picodet-wasm-w8a32-3-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "parity/picodet-wasm-w8a32-parity.json.gz",
+    "bytes": 101267,
+    "sha256": "abcfb62a263a091beefa193fe112ff69dff95aa842da795679aaf67a451efe3e",
+    "storedSha256": "e8bc599ae73e51e522e78918fcdc6114827c217f27297abd9c2dfd1de0500f8c"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-1.json.gz",
+    "bytes": 1476825,
+    "sha256": "cb76c3b288e5c94f55286933a96792dc735fde373e5c584b1ea49b78761814b6",
+    "storedSha256": "108e613e9314207c4b01f8f8064c0ff55c10a8d1a72dd264d811296c59a8fb76"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-1-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-2.json.gz",
+    "bytes": 1476818,
+    "sha256": "c09bb3f8984143dcfd226d9168b7578abe2b95971e9e7407df8745b1a6070768",
+    "storedSha256": "e644456a743f6d1a76b3864025ba860ac6abca88b3ac2de3d9661fc92ffdc7d8"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-2-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-3.json.gz",
+    "bytes": 1476717,
+    "sha256": "c796da5208eecc086b5072583a4fe744b336918685fb08998cbca6ee334a0160",
+    "storedSha256": "9bc23ff94c14fae6dd0bd4a6643a75ef0c3500a4ad37baf589c9f66ffe4db8b8"
+  },
+  {
+    "path": "browser/picodet-webgpu-w8a32-3-coco.json.gz",
+    "bytes": 1300,
+    "sha256": "c40827e5d00b27526758b3177146d5052b2f9c5ab30c412ba563a5b71db55853",
+    "storedSha256": "327368b37392d0299ddfed3e4a215bce14109a8f237604b9ba9b1f0066da7e22"
+  },
+  {
+    "path": "parity/picodet-webgpu-w8a32-parity.json.gz",
+    "bytes": 101289,
+    "sha256": "2e862ce4ca5e3fd1484a18932ab323e52657d1ffe98d2450d39ab459549eb167",
+    "storedSha256": "8092a7418637cea4e81411c4ffa516568907542a6dfdfa3c864bf940040c76b0"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-1.json.gz",
+    "bytes": 4467387,
+    "sha256": "49216912c171febb75f88ec8fbb8b02205f73fc9efd1aba7320db7e6cd216d5a",
+    "storedSha256": "0797081147a2514c85f93a541a2006851ea33687a3a1f774f7e3195249993ed0"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-1-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-2.json.gz",
+    "bytes": 4467451,
+    "sha256": "707e96297e60992d7b49660f5270c19aecccf9a61cb882550edf449c501f83f3",
+    "storedSha256": "a44e377f6ad6ab27b0df561fc2462681fdcc3f54080684fcd90b7049fc2c6834"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-2-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-3.json.gz",
+    "bytes": 4467351,
+    "sha256": "7aae3bc1be1789cd092beb915f3dbc1cb0ff531589e4b8cd74fbfa2bc1f21fdf",
+    "storedSha256": "749772e2e859511f8f18ec0004f24d8b3296cd80b34715965081bdc64518fef6"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp32-3-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-1.json.gz",
+    "bytes": 4468048,
+    "sha256": "88acd5f4a99f7712bb7aebbc7f3e1528f8193eca1d7e69762f33d449bb43850a",
+    "storedSha256": "9ed22fab31d556bace178b8b1e428b738baf7efac4c76a53866f645237c7af77"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-1-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-2.json.gz",
+    "bytes": 4467950,
+    "sha256": "f4e1f4fd05a6482f7f2f89f8ae1c6411aba70e5248edbc51f39de583392a8c6e",
+    "storedSha256": "6606a59fad1afda479a88c17d411b26653550a6e316f0e7064db3ffb7e99dad8"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-2-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-3.json.gz",
+    "bytes": 4467909,
+    "sha256": "4a386f968669ca15b1936de266442a6b595635d8402829133d6292bb2e5e1f8a",
+    "storedSha256": "74794add91e0b40c965eef8f847c69023aa5103269fe1fb3372bfb0aa10c223e"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp32-3-coco.json.gz",
+    "bytes": 1294,
+    "sha256": "f106cc554d556504a8fedd9613c84e776c1cea422e50bee80efbc3c0f60917df",
+    "storedSha256": "2368c8c990b41698eda0c56d46f72d779adbb9958468098be106bf8548efc8fe"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-1.json.gz",
+    "bytes": 3772056,
+    "sha256": "5ef85f03e810ba36d1901a5e8d5b9c6c8d2debb22a1aaeaa5fc2362476e20bd0",
+    "storedSha256": "aa61b8446d92f445f5220ceea19c0d38f57c876a9ad6c752a8344ff243a7c0e2"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-1-coco.json.gz",
+    "bytes": 1298,
+    "sha256": "dbb16a43f93f7f17a995f2454af050c25fb8c18e51c5b0618b06ab020fd59264",
+    "storedSha256": "6a0e8b9c21f5645952e49faf67cf8a1342892be146a3d5af3d00f7321e3a4272"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-2.json.gz",
+    "bytes": 3772005,
+    "sha256": "6206ac2224aa82ac0372d3c216556ad762f66e798e15599a823a5424e4b3e562",
+    "storedSha256": "5efeaa6544766aefc6f06efe5fb60aebb7bf149b52245c6f756f86fa5a0b758a"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-2-coco.json.gz",
+    "bytes": 1298,
+    "sha256": "dbb16a43f93f7f17a995f2454af050c25fb8c18e51c5b0618b06ab020fd59264",
+    "storedSha256": "6a0e8b9c21f5645952e49faf67cf8a1342892be146a3d5af3d00f7321e3a4272"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-3.json.gz",
+    "bytes": 3772022,
+    "sha256": "94acad0ac3a91d8281b118e78fadcb1b9848b28f1fb2591ab6b7b3a864ba00c4",
+    "storedSha256": "78e58ec6ba1bc3b77a4541c6f7cc0a0dde2033ae6be5fe94607db1785ae79608"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-fp16-3-coco.json.gz",
+    "bytes": 1298,
+    "sha256": "dbb16a43f93f7f17a995f2454af050c25fb8c18e51c5b0618b06ab020fd59264",
+    "storedSha256": "6a0e8b9c21f5645952e49faf67cf8a1342892be146a3d5af3d00f7321e3a4272"
+  },
+  {
+    "path": "parity/ppyoloe-wasm-fp16-parity.json.gz",
+    "bytes": 137417,
+    "sha256": "ed09408e8c033ae724d1b7d9a1cfc7a16a72df16921551f3fe362075b2fbf716",
+    "storedSha256": "7d05ec784dec0b3c42cb8a9e9678210803159d200d5c33456fb7d6dace3b7e02"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-1.json.gz",
+    "bytes": 3774538,
+    "sha256": "ed297fedfdcdb04f5b7530f7320f2b85873ce8573f52d8721516eb8784a7f41c",
+    "storedSha256": "91b9b5e3245295dc0fd4cd96439bef41eb3c7f2291443d1f7d0b5b37dba56201"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-1-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "25bba1c41e5036afc7e281b82543ff02cf1164bc7dbcaf6cf6581cb7186d6d2c",
+    "storedSha256": "f1f9e0d77cac92eb230cc7768c71576b1a77fdc61e6fddf799a88b4dd663d6db"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-2.json.gz",
+    "bytes": 3774635,
+    "sha256": "dc8c3656cd69356dde06f8a06b789e025c058a2d44a0f6685eeb44566823a124",
+    "storedSha256": "5e2adbe62a65aa760bbb526c2877679463b9e9f89ebd114e9208b70f3c74a82b"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-2-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "25bba1c41e5036afc7e281b82543ff02cf1164bc7dbcaf6cf6581cb7186d6d2c",
+    "storedSha256": "f1f9e0d77cac92eb230cc7768c71576b1a77fdc61e6fddf799a88b4dd663d6db"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-3.json.gz",
+    "bytes": 3774467,
+    "sha256": "87f42febbc7ca730da7d8b3e1f74c4a0ab8b71b5728b3522cf7b39527d6275c8",
+    "storedSha256": "feef5c7a1a7678af06642fe9116e8012c6150743a542265b2468f915352a1756"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-fp16-3-coco.json.gz",
+    "bytes": 1297,
+    "sha256": "25bba1c41e5036afc7e281b82543ff02cf1164bc7dbcaf6cf6581cb7186d6d2c",
+    "storedSha256": "f1f9e0d77cac92eb230cc7768c71576b1a77fdc61e6fddf799a88b4dd663d6db"
+  },
+  {
+    "path": "parity/ppyoloe-webgpu-fp16-parity.json.gz",
+    "bytes": 138925,
+    "sha256": "9e1d8f93ccd6716343cb2f4b5cc1e1e3b60e547eb71212b119e46b64e0b636da",
+    "storedSha256": "5dab2cc51e347e634984ce05479375822df0e4a3107407fc2cfe5c9d8a4e3b21"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-1.json.gz",
+    "bytes": 4461325,
+    "sha256": "269519de09ef57a23946b3a5cc791c40aeb6cbbd87b187aea2ff278e7415f73a",
+    "storedSha256": "0d9b5d69b1f80f966a3fe0fa552fc236e0de8176ca113e2f1250d9b67d2b89f0"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-1-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-2.json.gz",
+    "bytes": 4461412,
+    "sha256": "1ad876828570264cd97689453b9dac890c74a88aae5a987bd2586235f0ed0fc7",
+    "storedSha256": "2de9668562b056fd94986c62f095fcf6769941a6f522748f925ea391ef6633d3"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-2-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-3.json.gz",
+    "bytes": 4461357,
+    "sha256": "c8751cdafd89fc060f85cc0a700837c78dac2e27abb239b5c1de275c237be2af",
+    "storedSha256": "acd2cf6062ffce446b7b207e9d84d7aaf2cf814c95d712e756facc57a093eb07"
+  },
+  {
+    "path": "browser/ppyoloe-wasm-w8a32-3-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "parity/ppyoloe-wasm-w8a32-parity.json.gz",
+    "bytes": 140838,
+    "sha256": "9ad0de5a045d6b7aa8ae951d6884ac2407f90d0c196f9fe73a31d7a9c891a09f",
+    "storedSha256": "8b822df3f6da90d226f7d798922dfc3022921a2dff7ea337de0410b382575d4c"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-1.json.gz",
+    "bytes": 4462714,
+    "sha256": "8b6d786fba9901e7094a9233afdcc44f9384a637be58f7deab44fc79414587cf",
+    "storedSha256": "be62ff4c7b0ec0d807335293b5f5cca4d070453861eb0d8a9f5151abb9eaec38"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-1-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-2.json.gz",
+    "bytes": 4462735,
+    "sha256": "60f851839aa0f394dfaf2b1ac2daad780c2ae96875d3d192d4e4a5422b7fb680",
+    "storedSha256": "15c66cbd93653b1efcbeb7285147c446ede6d8fa6359429792100cf4d83a9b6d"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-2-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-3.json.gz",
+    "bytes": 4462702,
+    "sha256": "7e1f1744a8f4c101694f827417347cc3439020104571115b2510412f501b4f95",
+    "storedSha256": "6ae92ea83cf3608a75c2db069046be4a063f66fe6e61c574e0c1fac22521f025"
+  },
+  {
+    "path": "browser/ppyoloe-webgpu-w8a32-3-coco.json.gz",
+    "bytes": 1296,
+    "sha256": "be4ef416235d7e5acb5cac297c67517c088943b35e04b0a81fb5e3b6d8d229d7",
+    "storedSha256": "a49c6221a4f31cd493e413aee401a021fd5a03f66579828b574647c820ce9c7c"
+  },
+  {
+    "path": "parity/ppyoloe-webgpu-w8a32-parity.json.gz",
+    "bytes": 140876,
+    "sha256": "659a72c6cc7a99578d514299728b87b3b22f89c11d7f9e38bf3f24c498a48bfc",
+    "storedSha256": "b7b601231c6286affdc3d6003f77f7976cab71f1ac4c5e5749045ce4c4d59fd5"
+  }
+]

@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4188/web-sdk-PP-Detection/",
+  "testedAt": "2026-09-12T09:26:13.827Z",
+  "runs": [
+    {
+      "key": "huggingface-picodet-wasm-fp16",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14813981,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 14813981,
+          "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:20.871Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "huggingface-picodet-wasm-fp16.json"
+    },
+    {
+      "key": "huggingface-picodet-wasm-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:23.726Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "huggingface-picodet-wasm-w8a32.json"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/picodet-l-320/1.0.2/picodet-fp16.onnx",
+    "https://us.aws.cdn.hf.co/xet-bridge-us/6a9245420ee93453d0ef5992/d9a22612b3518880393db3aea02cb46da5acd073ac3a674295696e0030b73518",
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/picodet-l-320/1.0.2/picodet-w8a32.onnx",
+    "https://us.aws.cdn.hf.co/xet-bridge-us/6a9245420ee93453d0ef5992/cfdd4693cd3dff830cd864a6ccda3bbaf39a032ea95f456abc9271e221c8ad3c"
+  ],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "crossOriginIsolated": true,
+    "gpu": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "isFallbackAdapter": false,
+      "shaderF16": true
+    }
+  },
+  "browserVersion": "153.0.8010.12"
+}

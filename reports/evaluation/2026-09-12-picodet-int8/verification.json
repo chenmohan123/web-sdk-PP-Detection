@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-12",
+  "nodeEvaluationTests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "pythonEvaluationTests": {
+    "passed": 25,
+    "failed": 0
+  },
+  "browserFullDatasetRuns": 20,
+  "pythonFullDatasetRuns": 7,
+  "calibrationImages": 128,
+  "evaluationImages": 64,
+  "calibrationOverlap": 0,
+  "weightReproduction": {
+    "status": "passed",
+    "identicalBytes": true,
+    "bytes": 6117685,
+    "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+  },
+  "runtimeSourceChanged": false,
+  "stableModelChanged": false,
+  "published": false,
+  "limitations": [
+    "未完成移动端候选验证",
+    "未测峰值内存",
+    "64图是开发子集，不是全COCO"
+  ],
+  "standardBefore": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "standardAfter": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "archiveIntegrity": "91 个索引产物压缩前后 SHA-256 全部一致，20 组运行的 SDK/模型/清单身份一致"
+}

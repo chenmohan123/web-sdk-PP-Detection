@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "testedAt": "2026-09-12T09:34:20.992Z",
+  "results": [
+    {
+      "width": 1440,
+      "boxes": [
+        {
+          "text": "自动",
+          "x": 17,
+          "y": 329,
+          "width": 58.75,
+          "height": 34,
+          "scrollWidth": 58,
+          "clientWidth": 58
+        },
+        {
+          "text": "FP32",
+          "x": 75.75,
+          "y": 329,
+          "width": 58.75,
+          "height": 34,
+          "scrollWidth": 58,
+          "clientWidth": 58
+        },
+        {
+          "text": "FP16",
+          "x": 134.5,
+          "y": 329,
+          "width": 58.75,
+          "height": 34,
+          "scrollWidth": 58,
+          "clientWidth": 58
+        },
+        {
+          "text": "W8A32",
+          "x": 193.25,
+          "y": 329,
+          "width": 58.75,
+          "height": 34,
+          "scrollWidth": 59,
+          "clientWidth": 59
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "width": 390,
+      "boxes": [
+        {
+          "text": "自动",
+          "x": 13,
+          "y": 299,
+          "width": 44,
+          "height": 34,
+          "scrollWidth": 43,
+          "clientWidth": 43
+        },
+        {
+          "text": "FP32",
+          "x": 57,
+          "y": 299,
+          "width": 44,
+          "height": 34,
+          "scrollWidth": 43,
+          "clientWidth": 43
+        },
+        {
+          "text": "FP16",
+          "x": 101,
+          "y": 299,
+          "width": 44,
+          "height": 34,
+          "scrollWidth": 43,
+          "clientWidth": 43
+        },
+        {
+          "text": "W8A32",
+          "x": 145,
+          "y": 299,
+          "width": 44,
+          "height": 34,
+          "scrollWidth": 44,
+          "clientWidth": 44
+        }
+      ],
+      "status": "passed"
+    }
+  ]
+}

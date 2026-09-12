@@ -62,7 +62,7 @@ test("无 manifest 的工厂以 INVALID_MANIFEST 拒绝且不会访问网络", a
   }
 });
 
-test("manifest 记录 1.0.1 FP32 stable 资产且不伪造 runtime 稳定变体", () => {
+test("manifest 记录 1.0.2 三精度资产和默认 ModelScope", () => {
   const manifest = readFileSync(join(root, "sdk-manifest.yaml"), "utf8");
   const model = manifest.slice(
     manifest.indexOf("\nmodel:\n"),
@@ -72,15 +72,15 @@ test("manifest 记录 1.0.1 FP32 stable 资产且不伪造 runtime 稳定变体"
   assert.match(manifest, /^\s*defaultVariant:\s*\S+/m);
   assert.match(manifest, /^\s*defaultSource:\s*\S+/m);
   assert.match(model, /^\s*assets:\s*$/m);
-  assert.match(model, /version:\s*1\.0\.1/);
+  assert.match(model, /version:\s*1\.0\.2/);
   assert.match(model, /bytes:\s*23243834/);
   assert.match(model, /sha256:\s*0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1/);
   assert.match(
     model,
-    /url:\s*https:\/\/huggingface\.co\/chenmohan\/web-sdk-pp-detection\/resolve\//
+    /url:\s*https:\/\/[^/]*modelscope\.cn\/models\/chenmohan\/web-sdk-pp-detection\/resolve\//
   );
   assert.match(model, /^\s*defaultVariant:\s*fp32/m);
-  assert.match(model, /^\s*defaultSource:\s*huggingface/m);
+  assert.match(model, /^\s*defaultSource:\s*modelscope/m);
 });
 
 test("五类示例标记为 available 并指向现有目录", () => {

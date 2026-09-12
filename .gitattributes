@@ -8,3 +8,18 @@ reports/evaluation/**/*.json -text -whitespace
 reports/distribution/**/*.json -text -whitespace
 reports/stability/**/*.json -text -whitespace
 reports/stability/**/previous/* -text -whitespace
+
+# 多精度模型分发记录与复现脚本保持归档时的字节身份。
+models/pp-detection/1.0.2/README.md -text -whitespace
+models/pp-detection/1.0.2/*-conversion.json -text -whitespace
+models/ppyoloe-plus-s-640/0.1.1/README.md -text -whitespace
+models/ppyoloe-plus-s-640/0.1.1/*-conversion.json -text -whitespace
+reports/evaluation/2026-09-12-picodet-int8/reproduction/*.py -text -whitespace
+reports/evaluation/2026-09-12-w8a32/reproduction/*.py -text -whitespace
+reports/evaluation/2026-09-12-precision-variants/reproduction/*.py -text -whitespace
+
+# 新版本清单、许可证也按已上传字节保留。
+models/pp-detection/1.0.2/manifest.json -text -whitespace
+models/ppyoloe-plus-s-640/0.1.1/manifest.json -text -whitespace
+models/pp-detection/1.0.2/LICENSE -text -whitespace
+models/ppyoloe-plus-s-640/0.1.1/LICENSE -text -whitespace

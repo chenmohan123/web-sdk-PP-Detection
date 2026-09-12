@@ -21,20 +21,121 @@ runtime:
   runtimeVersion: onnxruntime-web@1.27.0
 model:
   id: pp-picodet-l-320
-  version: 1.0.1
+  version: 1.0.2
   format: onnx
   parameterCount: 5787988
-  precision: [fp32]
-  source: PaddleDetection release/2.9 PicoDet-L-320 LCNet 后处理 ONNX 清理产物；Git LFS、Hugging Face 和 ModelScope 均固定到不可变 revision。
-  license: Apache-2.0（依据 PaddleDetection 官方模型说明）
+  precision: [fp32, fp16, int8]
+  source: PaddleDetection 官方固定源；FP16 与 W8A32 已完成桌面识别验证，ModelScope 与 Hugging Face 固定不可变 revision。
+  license: Apache-2.0
+  defaultVariant: fp32
+  defaultSource: modelscope
   assets:
     - id: fp32
       bytes: 23243834
       precision: fp32
-      url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/picodet-l-320-fp32.onnx?v=1.0.1
+      url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx
       sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
-  defaultVariant: fp32
-  defaultSource: huggingface
+    - id: fp16
+      bytes: 14813981
+      precision: fp16
+      url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-fp16.onnx
+      sha256: 4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa
+    - id: w8a32
+      bytes: 6117685
+      precision: int8
+      url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-w8a32.onnx
+      sha256: 3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59
+  variants:
+    - {
+        "id": "fp32",
+        "precision": "fp32",
+        "quantization": "none",
+        "opset": 11,
+        "bytes": 23243834,
+        "parameterCount": 5787988,
+        "backends": ["wasm", "webgpu"],
+        "sources":
+          [
+            {
+              "kind": "modelscope",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "852b3acbb768705c77359362546eae9999f4190c",
+              "path": "picodet-l-320-fp32.onnx",
+              "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+              "bytes": 23243834,
+              "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+            },
+            {
+              "kind": "huggingface",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff",
+              "path": "picodet-l-320-fp32.onnx",
+              "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff/picodet-l-320-fp32.onnx",
+              "bytes": 23243834,
+              "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+            }
+          ]
+      }
+    - {
+        "id": "fp16",
+        "precision": "fp16",
+        "quantization": "mixed-fp16-sensitive-ops-fp32",
+        "opset": 11,
+        "bytes": 14813981,
+        "parameterCount": 5787988,
+        "backends": ["wasm", "webgpu"],
+        "sources":
+          [
+            {
+              "kind": "modelscope",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+              "path": "picodet-l-320/1.0.2/picodet-fp16.onnx",
+              "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-fp16.onnx",
+              "bytes": 14813981,
+              "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+            },
+            {
+              "kind": "huggingface",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+              "path": "picodet-l-320/1.0.2/picodet-fp16.onnx",
+              "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/picodet-l-320/1.0.2/picodet-fp16.onnx",
+              "bytes": 14813981,
+              "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+            }
+          ]
+      }
+    - {
+        "id": "w8a32",
+        "precision": "int8",
+        "quantization": "weight-only-int8-activation-fp32",
+        "opset": 13,
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "backends": ["wasm", "webgpu"],
+        "sources":
+          [
+            {
+              "kind": "modelscope",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+              "path": "picodet-l-320/1.0.2/picodet-w8a32.onnx",
+              "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-w8a32.onnx",
+              "bytes": 6117685,
+              "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+            },
+            {
+              "kind": "huggingface",
+              "repository": "chenmohan/web-sdk-pp-detection",
+              "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+              "path": "picodet-l-320/1.0.2/picodet-w8a32.onnx",
+              "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/picodet-l-320/1.0.2/picodet-w8a32.onnx",
+              "bytes": 6117685,
+              "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+            }
+          ]
+      }
 performance:
   timings:
     [

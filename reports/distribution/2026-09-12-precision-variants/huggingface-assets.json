@@ -1,0 +1,71 @@
+{
+  "provider": "huggingface",
+  "phase": "assets",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "files": [
+    {
+      "path": "picodet-l-320/1.0.2/fp16-conversion.json",
+      "bytes": 1221,
+      "sha256": "1a255c1f4052ac2881b5d6b27308692e0718926c43c4385eb0bf16dbab98dc37"
+    },
+    {
+      "path": "picodet-l-320/1.0.2/LICENSE",
+      "bytes": 10296,
+      "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+    },
+    {
+      "path": "picodet-l-320/1.0.2/picodet-fp16.onnx",
+      "bytes": 14813981,
+      "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+    },
+    {
+      "path": "picodet-l-320/1.0.2/picodet-w8a32.onnx",
+      "bytes": 6117685,
+      "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+    },
+    {
+      "path": "picodet-l-320/1.0.2/README.md",
+      "bytes": 1573,
+      "sha256": "62079a8fe9fe5f249be082b007e104a3441c2c5af719eb82ac62b62cfd0de890"
+    },
+    {
+      "path": "picodet-l-320/1.0.2/w8a32-conversion.json",
+      "bytes": 10916,
+      "sha256": "ba0372158e18d1f5ae17a5c3db1cba5be73efacd687125b8c7d8e4f737787fc0"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/fp16-conversion.json",
+      "bytes": 1187,
+      "sha256": "835da58e7d92c41927ef5f148b8882aa4a5de5b7553d65298977da17b7130bb3"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/ppyoloe-fp16.onnx",
+      "bytes": 16054567,
+      "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+      "bytes": 8225467,
+      "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/README.md",
+      "bytes": 1575,
+      "sha256": "5cbcdae8abe593a9978ddc61985f998ea7c392092b6940da004c2409c62fdf59"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/w8a32-conversion.json",
+      "bytes": 10940,
+      "sha256": "80f4b4fd18adf1324d3dec2eb36230afc80a45139589c2bb35300ef85170d19d"
+    }
+  ],
+  "capturedAt": "2026-09-12T08:58:16.867959+00:00",
+  "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+  "previousFilesUnchanged": true,
+  "status": "uploaded"
+}

@@ -34,12 +34,12 @@ test("默认使用 PicoDet 的随包清单和 ModelScope 来源", async ({ page 
   expect(contract).toEqual({
     defaultModel: "picodet-l-320",
     picoDetDefaultSource: "modelscope",
-    picoDetIdentity: { id: "pp-picodet-l-320", version: "1.0.1" },
-    picoDetManifestPath: "models/pp-detection/manifest.json",
+    picoDetIdentity: { id: "pp-picodet-l-320", version: "1.0.2" },
+    picoDetManifestPath: "models/pp-detection/1.0.2/manifest.json",
     picoDetSources: ["modelscope", "huggingface"],
     ppyoloeDefaultSource: "modelscope",
-    ppyoloeIdentity: { id: "ppyoloe-plus-s-640", version: "0.1.0" },
-    ppyoloeManifestPath: "models/ppyoloe-plus-s-640/manifest.json",
+    ppyoloeIdentity: { id: "ppyoloe-plus-s-640", version: "0.1.1" },
+    ppyoloeManifestPath: "models/ppyoloe-plus-s-640/0.1.1/manifest.json",
     ppyoloeSources: ["modelscope", "huggingface"]
   });
   await page.getByLabel("检测模型", { exact: true }).selectOption("ppyoloe-plus-s-640");
@@ -446,8 +446,8 @@ test("enforces the selected manifest model matrix in controls", async ({ page })
   await backend.getByRole("button", { name: "自动" }).click();
   await backend.getByRole("button", { name: "CPU" }).click();
 
-  await expect(precision.getByRole("button", { name: "FP16" })).toBeDisabled();
-  await expect(precision.getByRole("button", { name: "FP16" })).toHaveAttribute("title", /FP16/);
+  await expect(precision.getByRole("button", { name: "FP16" })).toBeEnabled();
+  await expect(precision.getByRole("button", { name: "W8A32" })).toBeEnabled();
   await expect(precision.getByRole("button", { name: "FP32" })).toHaveAttribute(
     "aria-pressed",
     "true"

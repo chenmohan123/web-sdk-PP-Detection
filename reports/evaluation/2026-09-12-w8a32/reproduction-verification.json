@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "models": {
+    "picodet": {
+      "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "bytes": 6117685,
+      "matchesEvaluatedModel": true
+    },
+    "ppyoloe": {
+      "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "bytes": 8225467,
+      "matchesEvaluatedModel": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "provider": "modelscope",
+  "phase": "manifests",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "files": [
+    {
+      "path": "picodet-l-320/1.0.2/manifest.json",
+      "bytes": 7405,
+      "sha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378"
+    },
+    {
+      "path": "ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "bytes": 7561,
+      "sha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63"
+    }
+  ],
+  "capturedAt": "2026-09-12T09:01:16.493612+00:00",
+  "revision": "88d23d254e9cc2c98874ae8bd8a7c092612e65f6",
+  "previousFilesUnchanged": true,
+  "status": "uploaded"
+}

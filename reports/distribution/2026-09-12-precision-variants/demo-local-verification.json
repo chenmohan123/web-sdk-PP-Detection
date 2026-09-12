@@ -1,0 +1,664 @@
+{
+  "status": "passed",
+  "testedAt": "2026-09-12T09:32:30.648860+00:00",
+  "scope": "生产构建预览，真实公开模型，16种组合；失败下载重试成功。",
+  "runs": [
+    {
+      "key": "modelscope-picodet-wasm-fp32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 23243834,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "852b3acbb768705c77359362546eae9999f4190c",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:12:24.718Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-wasm-fp32.json"
+    },
+    {
+      "key": "modelscope-picodet-wasm-fp16",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14813981,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 14813981,
+          "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:12:27.256Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-wasm-fp16.json"
+    },
+    {
+      "key": "modelscope-picodet-wasm-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:14:36.939Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-wasm-w8a32.json"
+    },
+    {
+      "key": "modelscope-picodet-webgpu-fp32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 23243834,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "852b3acbb768705c77359362546eae9999f4190c",
+          "bytes": 23243834,
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:14:41.609Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-webgpu-fp32.json"
+    },
+    {
+      "key": "modelscope-picodet-webgpu-fp16",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14813981,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 14813981,
+          "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:14:50.043Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-webgpu-fp16.json"
+    },
+    {
+      "key": "modelscope-picodet-webgpu-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:14:56.798Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-local-final/modelscope-picodet-webgpu-w8a32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-fp32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:22:48.429Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-wasm-fp32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:22:51.053Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-wasm-fp16.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:43.251Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-wasm-w8a32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-fp32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:47.626Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-webgpu-fp32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:52.775Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-webgpu-fp16.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:56.816Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "demo-local/demo-ppyoloe-final/modelscope-ppyoloe-webgpu-w8a32.json"
+    },
+    {
+      "key": "huggingface-ppyoloe-wasm-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:01.017Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "demo-local/demo-ppyoloe-final/huggingface-ppyoloe-wasm-fp16.json"
+    },
+    {
+      "key": "huggingface-ppyoloe-wasm-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:04.552Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "demo-local/demo-ppyoloe-final/huggingface-ppyoloe-wasm-w8a32.json"
+    },
+    {
+      "key": "huggingface-picodet-wasm-fp16",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14813981,
+        "parameterCount": 5787988,
+        "opset": 11,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 14813981,
+          "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:20.871Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-hf-picodet/huggingface-picodet-wasm-fp16.json"
+    },
+    {
+      "key": "huggingface-picodet-wasm-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:23.726Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "demo-local/demo-hf-picodet/huggingface-picodet-wasm-w8a32.json"
+    }
+  ],
+  "attempts": [
+    {
+      "path": "demo-local/demo-local-final/verification.json",
+      "status": "failed",
+      "error": "TimeoutError: page.waitForFunction: Timeout 180000ms exceeded."
+    },
+    {
+      "path": "demo-local/demo-ppyoloe-final/verification.json",
+      "status": "passed",
+      "error": null
+    },
+    {
+      "path": "demo-local/demo-hf-picodet/verification.json",
+      "status": "passed",
+      "error": null
+    }
+  ]
+}

@@ -30,6 +30,9 @@ reports/stability/**/previous/**
 # 切片实验执行时的脚本与预先固定协议保留原始字节，供运行摘要复核。
 reports/evaluation/2026-09-12-tiling/reproduction/*.mjs
 reports/evaluation/2026-09-12-tiling/protocol.md
+reports/evaluation/2026-09-12-tiling-refinement/reproduction/*.mjs
+reports/evaluation/2026-09-12-tiling-refinement/development-v1/
+reports/evaluation/2026-09-12-tiling-refinement/protocol.md
 
 # 新版本模型卡与转换记录保持已上传Hub的原始字节。
 models/pp-detection/1.0.2/README.md

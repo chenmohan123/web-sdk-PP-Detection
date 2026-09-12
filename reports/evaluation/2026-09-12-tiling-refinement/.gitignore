@@ -1,0 +1,7 @@
+/browser/
+/predictions/
+/matches*.json.gz
+/figures/*.jpg
+/reproduction/__pycache__/
+/development-v1/__pycache__/
+/holdout-annotations.json

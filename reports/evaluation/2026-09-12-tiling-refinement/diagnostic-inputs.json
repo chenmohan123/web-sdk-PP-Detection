@@ -1,0 +1,66 @@
+{
+  "protocolSha256": "c8b8d2e042e76b39924d8e79000515b741f2ac00d8924d1fdff73a7efa9ad558",
+  "mergeSha256": "fd4460c6ed1aed96d337b81045fe958d7892eda2b1d05edb98bee2d09cc5a78a",
+  "runs": [
+    {
+      "name": "picodet",
+      "file": "predictions/picodet-diagnostic.json.gz",
+      "sha256": "a14914733335e81d4f2ef91d58955c309e808df1d6425cb095affbce950ce547",
+      "sourceSha256": "65f23e248f0724224acff651924c39a6d6dfcf6b86a4dc763417e629e3a6a9ea",
+      "reasonCounts": {
+        "whole-first": {
+          "iou": 480,
+          "accepted": 133
+        },
+        "edge-contained": {
+          "internal-edge": 290,
+          "iou": 291,
+          "accepted": 22,
+          "contained": 10
+        },
+        "small-additions": {
+          "internal-edge": 290,
+          "iou": 247,
+          "large-fragment": 47,
+          "accepted": 20,
+          "contained": 9
+        },
+        "confident-anchor": {
+          "internal-edge": 290,
+          "iou": 168,
+          "accepted": 141,
+          "contained": 14
+        }
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "file": "predictions/ppyoloe-diagnostic.json.gz",
+      "sha256": "8f562dbad01d5e8691cefb50d1a51216edcf40dc422ede74552cfb7d8319fbc4",
+      "sourceSha256": "d52feb63a860ca6a60e0538d312658b410f62a870ef67915e90ca5f016419171",
+      "reasonCounts": {
+        "whole-first": {
+          "iou": 657,
+          "accepted": 67
+        },
+        "edge-contained": {
+          "internal-edge": 296,
+          "iou": 424,
+          "accepted": 4
+        },
+        "small-additions": {
+          "internal-edge": 296,
+          "iou": 376,
+          "large-fragment": 48,
+          "accepted": 4
+        },
+        "confident-anchor": {
+          "internal-edge": 296,
+          "iou": 307,
+          "accepted": 105,
+          "contained": 16
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4188/web-sdk-PP-Detection/",
+  "testedAt": "2026-09-12T09:22:43.039Z",
+  "runs": [
+    {
+      "key": "modelscope-ppyoloe-wasm-fp32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:22:48.429Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "modelscope-ppyoloe-wasm-fp32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:22:51.053Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "modelscope-ppyoloe-wasm-fp16.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:43.251Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "modelscope-ppyoloe-wasm-w8a32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-fp32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:47.626Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "modelscope-ppyoloe-webgpu-fp32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:52.775Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "modelscope-ppyoloe-webgpu-fp16.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:25:56.816Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "modelscope-ppyoloe-webgpu-w8a32.json"
+    },
+    {
+      "key": "huggingface-ppyoloe-wasm-fp16",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 16054567,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 16054567,
+          "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:01.017Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 15,
+      "resultFile": "huggingface-ppyoloe-wasm-fp16.json"
+    },
+    {
+      "key": "huggingface-ppyoloe-wasm-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T09:26:04.552Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "huggingface-ppyoloe-wasm-w8a32.json"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+    "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/d3/ae/6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-fp16.onnx",
+    "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/c5/f9/cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+    "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/ce/f7/cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/ppyoloe-plus-s-640/0.1.1/ppyoloe-fp16.onnx",
+    "https://us.aws.cdn.hf.co/xet-bridge-us/6a9245420ee93453d0ef5992/d0e44c83ae40cc7cdd8392bd37c8ebe1cb033a1298096620ae86a587c5d84fd4",
+    "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/768d6bdf1b9cb906a6b640516b835d39cc6c375e/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+    "https://us.aws.cdn.hf.co/xet-bridge-us/6a9245420ee93453d0ef5992/2d0c14b3391889e746378f56bf14d4becc11ff125562fbfc1eb0311f8f764247"
+  ],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "crossOriginIsolated": true,
+    "gpu": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "isFallbackAdapter": false,
+      "shaderF16": true
+    }
+  },
+  "browserVersion": "153.0.8010.12"
+}

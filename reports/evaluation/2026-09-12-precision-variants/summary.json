@@ -1,0 +1,622 @@
+{
+  "date": "2026-09-12",
+  "sdkVersion": "0.3.1",
+  "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+  "datasetImages": 64,
+  "annotations": 716,
+  "models": {
+    "picodet": {
+      "fp32": {
+        "bytes": 23243834,
+        "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+        "backends": {
+          "wasm": {
+            "AP": 34.215273096451604,
+            "sessionMs": 424.955000013113,
+            "firstImageMs": 468.07999999821186,
+            "inferenceMs": 269.8850000053644,
+            "totalMs": 290.92499999701977,
+            "p90Ms": 312.38900000154973,
+            "APPerRound": [
+              34.215273096451604,
+              34.215273096451604,
+              34.215273096451604
+            ],
+            "timingRounds": [
+              3
+            ]
+          },
+          "webgpu": {
+            "AP": 34.215273096451604,
+            "sessionMs": 1157.5750000029802,
+            "firstImageMs": 3159.0999999940395,
+            "inferenceMs": 37.69999998807907,
+            "totalMs": 61.189999997615814,
+            "p90Ms": 91.24199999868877,
+            "APPerRound": [
+              34.215273096451604,
+              34.215273096451604,
+              34.215273096451604
+            ],
+            "timingRounds": [
+              3
+            ]
+          }
+        },
+        "reductionPercent": 0.0
+      },
+      "fp16": {
+        "bytes": 14813981,
+        "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+        "backends": {
+          "wasm": {
+            "AP": 34.10934570095729,
+            "sessionMs": 583.3700000047684,
+            "firstImageMs": 382.39000000059605,
+            "inferenceMs": 273.7549999952316,
+            "totalMs": 295.45000000298023,
+            "p90Ms": 329.8400000005961,
+            "APPerRound": [
+              34.10934570095729,
+              34.10934570095729,
+              34.10934570095729
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 293,
+              "candidateCount": 293,
+              "matchedCount": 293,
+              "unmatchedReferenceCount": 0,
+              "unmatchedCandidateCount": 0,
+              "maxScoreDelta": 0.0024722814559936523,
+              "maxBboxDeltaPixels": 1.8814790725707553,
+              "matchedReferenceFraction": 1.0
+            }
+          },
+          "webgpu": {
+            "AP": 34.20800763508575,
+            "sessionMs": 1326.5049999952316,
+            "firstImageMs": 3561.5,
+            "inferenceMs": 36.18000000715256,
+            "totalMs": 57.73499999940395,
+            "p90Ms": 90.64600000083453,
+            "APPerRound": [
+              34.20800763508575,
+              34.20800763508575,
+              34.20800763508575
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 293,
+              "candidateCount": 291,
+              "matchedCount": 290,
+              "unmatchedReferenceCount": 3,
+              "unmatchedCandidateCount": 1,
+              "maxScoreDelta": 0.021509170532226562,
+              "maxBboxDeltaPixels": 31.526153564453125,
+              "matchedReferenceFraction": 0.9897610921501706
+            }
+          }
+        },
+        "reductionPercent": 36.26705043582741
+      },
+      "w8a32": {
+        "bytes": 6117685,
+        "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+        "backends": {
+          "wasm": {
+            "AP": 34.260618097873476,
+            "sessionMs": 461.0600000023842,
+            "firstImageMs": 397.8799999952316,
+            "inferenceMs": 277.29999999701977,
+            "totalMs": 298.0949999988079,
+            "p90Ms": 323.7519999921322,
+            "APPerRound": [
+              34.260618097873476,
+              34.260618097873476,
+              34.260618097873476
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 293,
+              "candidateCount": 298,
+              "matchedCount": 290,
+              "unmatchedReferenceCount": 3,
+              "unmatchedCandidateCount": 8,
+              "maxScoreDelta": 0.06134378910064697,
+              "maxBboxDeltaPixels": 69.8626708984375,
+              "matchedReferenceFraction": 0.9897610921501706
+            }
+          },
+          "webgpu": {
+            "AP": 34.260618097873476,
+            "sessionMs": 1160.8850000053644,
+            "firstImageMs": 3335.1500000059605,
+            "inferenceMs": 43.76000000536442,
+            "totalMs": 64.59000000357628,
+            "p90Ms": 104.02800000309948,
+            "APPerRound": [
+              34.260618097873476,
+              34.260618097873476,
+              34.260618097873476
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 293,
+              "candidateCount": 298,
+              "matchedCount": 290,
+              "unmatchedReferenceCount": 3,
+              "unmatchedCandidateCount": 8,
+              "maxScoreDelta": 0.06134587526321411,
+              "maxBboxDeltaPixels": 69.86251831054688,
+              "matchedReferenceFraction": 0.9897610921501706
+            }
+          }
+        },
+        "reductionPercent": 73.68039627197476
+      }
+    },
+    "ppyoloe": {
+      "fp32": {
+        "bytes": 31954220,
+        "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+        "backends": {
+          "wasm": {
+            "AP": 43.426535438809466,
+            "sessionMs": 423.7199999988079,
+            "firstImageMs": 936.5750000029802,
+            "inferenceMs": 845.3499999940395,
+            "totalMs": 875.1200000047684,
+            "p90Ms": 958.683000010252,
+            "APPerRound": [
+              43.426535438809466,
+              43.426535438809466,
+              43.426535438809466
+            ],
+            "timingRounds": [
+              3
+            ]
+          },
+          "webgpu": {
+            "AP": 43.426535438809466,
+            "sessionMs": 1179.4299999922514,
+            "firstImageMs": 2758.4249999970198,
+            "inferenceMs": 50.560000002384186,
+            "totalMs": 86.46500000357628,
+            "p90Ms": 157.4189999908209,
+            "APPerRound": [
+              43.426535438809466,
+              43.426535438809466,
+              43.426535438809466
+            ],
+            "timingRounds": [
+              3
+            ]
+          }
+        },
+        "reductionPercent": 0.0
+      },
+      "fp16": {
+        "bytes": 16054567,
+        "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+        "backends": {
+          "wasm": {
+            "AP": 43.40307813020401,
+            "sessionMs": 532.9050000011921,
+            "firstImageMs": 986.375,
+            "inferenceMs": 869.0600000023842,
+            "totalMs": 901.359999999404,
+            "p90Ms": 1028.087999996543,
+            "APPerRound": [
+              43.40307813020401,
+              43.40307813020401,
+              43.40307813020401
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 443,
+              "candidateCount": 444,
+              "matchedCount": 443,
+              "unmatchedReferenceCount": 0,
+              "unmatchedCandidateCount": 1,
+              "maxScoreDelta": 0.005278348922729492,
+              "maxBboxDeltaPixels": 1.911529541015625,
+              "matchedReferenceFraction": 1.0
+            }
+          },
+          "webgpu": {
+            "AP": 43.85965491384927,
+            "sessionMs": 1262.125,
+            "firstImageMs": 2741.7549999952316,
+            "inferenceMs": 48.63500000536442,
+            "totalMs": 84.18999999761581,
+            "p90Ms": 155.4010000050068,
+            "APPerRound": [
+              43.85965491384927,
+              43.85965491384927,
+              43.85965491384927
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 443,
+              "candidateCount": 449,
+              "matchedCount": 441,
+              "unmatchedReferenceCount": 2,
+              "unmatchedCandidateCount": 8,
+              "maxScoreDelta": 0.017864763736724854,
+              "maxBboxDeltaPixels": 6.265891790390015,
+              "matchedReferenceFraction": 0.9954853273137697
+            }
+          }
+        },
+        "reductionPercent": 49.75760009163109
+      },
+      "w8a32": {
+        "bytes": 8225467,
+        "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+        "backends": {
+          "wasm": {
+            "AP": 43.36402558100753,
+            "sessionMs": 443.4399999976158,
+            "firstImageMs": 1013.7049999982119,
+            "inferenceMs": 900.0200000107288,
+            "totalMs": 932.2950000017881,
+            "p90Ms": 1037.8480000019074,
+            "APPerRound": [
+              43.36402558100753,
+              43.36402558100753,
+              43.36402558100753
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 443,
+              "candidateCount": 438,
+              "matchedCount": 426,
+              "unmatchedReferenceCount": 17,
+              "unmatchedCandidateCount": 12,
+              "maxScoreDelta": 0.08238708972930908,
+              "maxBboxDeltaPixels": 20.864456176757812,
+              "matchedReferenceFraction": 0.9616252821670429
+            }
+          },
+          "webgpu": {
+            "AP": 43.36402558100753,
+            "sessionMs": 1045.594999998808,
+            "firstImageMs": 2822.6649999916553,
+            "inferenceMs": 50.67499999701977,
+            "totalMs": 80.79999999701977,
+            "p90Ms": 156.38400000333786,
+            "APPerRound": [
+              43.36402558100753,
+              43.36402558100753,
+              43.36402558100753
+            ],
+            "timingRounds": [
+              3
+            ],
+            "parity": {
+              "referenceCount": 443,
+              "candidateCount": 438,
+              "matchedCount": 426,
+              "unmatchedReferenceCount": 17,
+              "unmatchedCandidateCount": 12,
+              "maxScoreDelta": 0.08238369226455688,
+              "maxBboxDeltaPixels": 20.864395141601562,
+              "matchedReferenceFraction": 0.9616252821670429
+            }
+          }
+        },
+        "reductionPercent": 74.25858931934499
+      }
+    }
+  },
+  "qualityGate": {
+    "maxApDropPoints": 0.5,
+    "minMatchedReferenceFraction": 0.95
+  },
+  "runs": {
+    "picodet-wasm-fp32-1": {
+      "AP": 34.215273096451604,
+      "sessionMs": 431.0300000011921,
+      "firstImageMs": 374.3600000143051,
+      "inferenceMs": 278.85499998927116,
+      "totalMs": 299.7399999946356,
+      "p90Ms": 343.2729999929667
+    },
+    "picodet-wasm-fp32-2": {
+      "AP": 34.215273096451604,
+      "sessionMs": 415.625,
+      "firstImageMs": 382.45000000298023,
+      "inferenceMs": 272.13499999046326,
+      "totalMs": 295.25,
+      "p90Ms": 318.1940000027418
+    },
+    "picodet-wasm-fp32-3": {
+      "AP": 34.215273096451604,
+      "sessionMs": 424.955000013113,
+      "firstImageMs": 468.07999999821186,
+      "inferenceMs": 269.8850000053644,
+      "totalMs": 290.92499999701977,
+      "p90Ms": 312.38900000154973
+    },
+    "picodet-webgpu-fp32-1": {
+      "AP": 34.215273096451604,
+      "sessionMs": 1252.3649999946356,
+      "firstImageMs": 3226.814999997616,
+      "inferenceMs": 40.064999997615814,
+      "totalMs": 62.875,
+      "p90Ms": 90.72700000703341
+    },
+    "picodet-webgpu-fp32-2": {
+      "AP": 34.215273096451604,
+      "sessionMs": 1152.0200000107288,
+      "firstImageMs": 3164.969999998808,
+      "inferenceMs": 38.019999995827675,
+      "totalMs": 60.54500000178814,
+      "p90Ms": 83.70699999630453
+    },
+    "picodet-webgpu-fp32-3": {
+      "AP": 34.215273096451604,
+      "sessionMs": 1157.5750000029802,
+      "firstImageMs": 3159.0999999940395,
+      "inferenceMs": 37.69999998807907,
+      "totalMs": 61.189999997615814,
+      "p90Ms": 91.24199999868877
+    },
+    "picodet-wasm-fp16-1": {
+      "AP": 34.10934570095729,
+      "sessionMs": 585.5399999916553,
+      "firstImageMs": 393.26500000059605,
+      "inferenceMs": 274.0549999922514,
+      "totalMs": 294.44499999284744,
+      "p90Ms": 318.3320000052452
+    },
+    "picodet-wasm-fp16-2": {
+      "AP": 34.10934570095729,
+      "sessionMs": 593.9399999976158,
+      "firstImageMs": 387.6050000041723,
+      "inferenceMs": 274.8999999910593,
+      "totalMs": 296.65000000596046,
+      "p90Ms": 324.01400000751016
+    },
+    "picodet-wasm-fp16-3": {
+      "AP": 34.10934570095729,
+      "sessionMs": 583.3700000047684,
+      "firstImageMs": 382.39000000059605,
+      "inferenceMs": 273.7549999952316,
+      "totalMs": 295.45000000298023,
+      "p90Ms": 329.8400000005961
+    },
+    "picodet-webgpu-fp16-1": {
+      "AP": 34.20800763508575,
+      "sessionMs": 1253.5799999982119,
+      "firstImageMs": 3493.1149999946356,
+      "inferenceMs": 37.980000004172325,
+      "totalMs": 58.67500001192093,
+      "p90Ms": 91.06399999260904
+    },
+    "picodet-webgpu-fp16-2": {
+      "AP": 34.20800763508575,
+      "sessionMs": 1313.2450000047684,
+      "firstImageMs": 3402.714999988675,
+      "inferenceMs": 36.88500000536442,
+      "totalMs": 58.42000000178814,
+      "p90Ms": 82.03700000047688
+    },
+    "picodet-webgpu-fp16-3": {
+      "AP": 34.20800763508575,
+      "sessionMs": 1326.5049999952316,
+      "firstImageMs": 3561.5,
+      "inferenceMs": 36.18000000715256,
+      "totalMs": 57.73499999940395,
+      "p90Ms": 90.64600000083453
+    },
+    "picodet-wasm-w8a32-1": {
+      "AP": 34.260618097873476,
+      "sessionMs": 442.26500000059605,
+      "firstImageMs": 377.06999999284744,
+      "inferenceMs": 276.0949999988079,
+      "totalMs": 297.0050000101328,
+      "p90Ms": 315.7249999910593
+    },
+    "picodet-wasm-w8a32-2": {
+      "AP": 34.260618097873476,
+      "sessionMs": 610,
+      "firstImageMs": 368.9950000047684,
+      "inferenceMs": 310.3149999976158,
+      "totalMs": 332.0300000011921,
+      "p90Ms": 372.0400000065565
+    },
+    "picodet-wasm-w8a32-3": {
+      "AP": 34.260618097873476,
+      "sessionMs": 461.0600000023842,
+      "firstImageMs": 397.8799999952316,
+      "inferenceMs": 277.29999999701977,
+      "totalMs": 298.0949999988079,
+      "p90Ms": 323.7519999921322
+    },
+    "picodet-webgpu-w8a32-1": {
+      "AP": 34.260618097873476,
+      "sessionMs": 1312.484999999404,
+      "firstImageMs": 3231.935000002384,
+      "inferenceMs": 41.815000012516975,
+      "totalMs": 65.74000000953674,
+      "p90Ms": 99.35900000631813
+    },
+    "picodet-webgpu-w8a32-2": {
+      "AP": 34.260618097873476,
+      "sessionMs": 1273.4399999976158,
+      "firstImageMs": 3367.109999999404,
+      "inferenceMs": 40.070000007748604,
+      "totalMs": 61.770000010728836,
+      "p90Ms": 94.13999999761587
+    },
+    "picodet-webgpu-w8a32-3": {
+      "AP": 34.260618097873476,
+      "sessionMs": 1160.8850000053644,
+      "firstImageMs": 3335.1500000059605,
+      "inferenceMs": 43.76000000536442,
+      "totalMs": 64.59000000357628,
+      "p90Ms": 104.02800000309948
+    },
+    "ppyoloe-wasm-fp32-1": {
+      "AP": 43.426535438809466,
+      "sessionMs": 426.0349999964237,
+      "firstImageMs": 1038.1700000017881,
+      "inferenceMs": 895.1499999910593,
+      "totalMs": 929.7200000137091,
+      "p90Ms": 1927.2570000082255
+    },
+    "ppyoloe-wasm-fp32-2": {
+      "AP": 43.426535438809466,
+      "sessionMs": 480.5849999934435,
+      "firstImageMs": 932.0549999922514,
+      "inferenceMs": 867.1799999922514,
+      "totalMs": 900.4350000023842,
+      "p90Ms": 990.8050000011922
+    },
+    "ppyoloe-wasm-fp32-3": {
+      "AP": 43.426535438809466,
+      "sessionMs": 423.7199999988079,
+      "firstImageMs": 936.5750000029802,
+      "inferenceMs": 845.3499999940395,
+      "totalMs": 875.1200000047684,
+      "p90Ms": 958.683000010252
+    },
+    "ppyoloe-webgpu-fp32-1": {
+      "AP": 43.426535438809466,
+      "sessionMs": 1109.3149999976158,
+      "firstImageMs": 2975.140000000596,
+      "inferenceMs": 51.15500000119209,
+      "totalMs": 86.07999999821186,
+      "p90Ms": 151.58600000441075
+    },
+    "ppyoloe-webgpu-fp32-2": {
+      "AP": 43.426535438809466,
+      "sessionMs": 1330.3549999892712,
+      "firstImageMs": 3348.435000002384,
+      "inferenceMs": 51.00500001013279,
+      "totalMs": 86.15000000596046,
+      "p90Ms": 159.5689999997616
+    },
+    "ppyoloe-webgpu-fp32-3": {
+      "AP": 43.426535438809466,
+      "sessionMs": 1179.4299999922514,
+      "firstImageMs": 2758.4249999970198,
+      "inferenceMs": 50.560000002384186,
+      "totalMs": 86.46500000357628,
+      "p90Ms": 157.4189999908209
+    },
+    "ppyoloe-wasm-fp16-1": {
+      "AP": 43.40307813020401,
+      "sessionMs": 547.4500000029802,
+      "firstImageMs": 950.3499999940395,
+      "inferenceMs": 878.4749999940395,
+      "totalMs": 910.3100000023842,
+      "p90Ms": 1058.4669999957084
+    },
+    "ppyoloe-wasm-fp16-2": {
+      "AP": 43.40307813020401,
+      "sessionMs": 513.5400000065565,
+      "firstImageMs": 977.015000000596,
+      "inferenceMs": 873.4900000095367,
+      "totalMs": 904.6949999928474,
+      "p90Ms": 980.0979999899864
+    },
+    "ppyoloe-wasm-fp16-3": {
+      "AP": 43.40307813020401,
+      "sessionMs": 532.9050000011921,
+      "firstImageMs": 986.375,
+      "inferenceMs": 869.0600000023842,
+      "totalMs": 901.359999999404,
+      "p90Ms": 1028.087999996543
+    },
+    "ppyoloe-webgpu-fp16-1": {
+      "AP": 43.85965491384927,
+      "sessionMs": 1115.9950000047684,
+      "firstImageMs": 2816.5700000077486,
+      "inferenceMs": 49.020000010728836,
+      "totalMs": 79.17000000178814,
+      "p90Ms": 151.31600000560286
+    },
+    "ppyoloe-webgpu-fp16-2": {
+      "AP": 43.85965491384927,
+      "sessionMs": 1172.6450000107288,
+      "firstImageMs": 2851.5400000065565,
+      "inferenceMs": 49.89000000059605,
+      "totalMs": 82.37999999523163,
+      "p90Ms": 155.65999999940396
+    },
+    "ppyoloe-webgpu-fp16-3": {
+      "AP": 43.85965491384927,
+      "sessionMs": 1262.125,
+      "firstImageMs": 2741.7549999952316,
+      "inferenceMs": 48.63500000536442,
+      "totalMs": 84.18999999761581,
+      "p90Ms": 155.4010000050068
+    },
+    "ppyoloe-wasm-w8a32-1": {
+      "AP": 43.36402558100753,
+      "sessionMs": 462.7300000041723,
+      "firstImageMs": 1010.5349999964237,
+      "inferenceMs": 869.7399999946356,
+      "totalMs": 904.3250000029802,
+      "p90Ms": 1065.3219999969006
+    },
+    "ppyoloe-wasm-w8a32-2": {
+      "AP": 43.36402558100753,
+      "sessionMs": 414.5900000035763,
+      "firstImageMs": 983.1299999952316,
+      "inferenceMs": 853.3299999982119,
+      "totalMs": 887.359999999404,
+      "p90Ms": 966.2410000026226
+    },
+    "ppyoloe-wasm-w8a32-3": {
+      "AP": 43.36402558100753,
+      "sessionMs": 443.4399999976158,
+      "firstImageMs": 1013.7049999982119,
+      "inferenceMs": 900.0200000107288,
+      "totalMs": 932.2950000017881,
+      "p90Ms": 1037.8480000019074
+    },
+    "ppyoloe-webgpu-w8a32-1": {
+      "AP": 43.36402558100753,
+      "sessionMs": 1128.4450000077486,
+      "firstImageMs": 2917.2150000035763,
+      "inferenceMs": 50.70499999821186,
+      "totalMs": 84.41500000655651,
+      "p90Ms": 157.45399999618533
+    },
+    "ppyoloe-webgpu-w8a32-2": {
+      "AP": 43.36402558100753,
+      "sessionMs": 1247.3500000089407,
+      "firstImageMs": 3067.0999999940395,
+      "inferenceMs": 60.439999997615814,
+      "totalMs": 97.62000000476837,
+      "p90Ms": 160.08000000417232
+    },
+    "ppyoloe-webgpu-w8a32-3": {
+      "AP": 43.36402558100753,
+      "sessionMs": 1045.594999998808,
+      "firstImageMs": 2822.6649999916553,
+      "inferenceMs": 50.67499999701977,
+      "totalMs": 80.79999999701977,
+      "p90Ms": 156.38400000333786
+    }
+  },
+  "status": "passed"
+}

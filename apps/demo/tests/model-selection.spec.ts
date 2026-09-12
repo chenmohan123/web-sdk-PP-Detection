@@ -48,12 +48,14 @@ test("选择 PP-YOLOE 后按稳定模型加载，并清除旧模型结果", asyn
     .getByRole("group", { name: "运行后端", exact: true })
     .getByRole("button", { name: "自动", exact: true })
     .click();
-  await expect(
-    page.getByRole("group", { name: "模型精度", exact: true }).getByRole("button", {
-      name: "FP16",
-      exact: true
-    })
-  ).toBeDisabled();
+  for (const name of ["FP32", "FP16", "W8A32"]) {
+    await expect(
+      page.getByRole("group", { name: "模型精度", exact: true }).getByRole("button", {
+        name,
+        exact: true
+      })
+    ).toBeEnabled();
+  }
   await runFixture(page);
   await expect(page.getByTestId("model-name")).toHaveText("ppyoloe-plus-s-640");
   await expect(page.getByRole("alert")).toHaveCount(0);
@@ -102,8 +104,8 @@ test("当前模型缓存按所选 manifest 的 id 和 version 隔离", async ({ 
     const transaction = database.transaction("models", "readwrite");
     const store = transaction.objectStore("models");
     for (const [id, version, size] of [
-      ["pp-picodet-l-320", "1.0.1", 503],
-      ["ppyoloe-plus-s-640", "0.1.0", 607]
+      ["pp-picodet-l-320", "1.0.2", 503],
+      ["ppyoloe-plus-s-640", "0.1.1", 607]
     ] as const) {
       const key = JSON.stringify([
         "web-sdk-pp-detection:cache-v1",

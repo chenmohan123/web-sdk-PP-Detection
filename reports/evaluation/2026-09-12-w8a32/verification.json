@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-12",
+  "status": "passed",
+  "pythonTests": {
+    "passed": 32,
+    "command": "python -m pytest tools/model-pipeline/tests/test_weight_only.py tools/model-pipeline/tests/test_detection_evaluation.py tools/model-pipeline/tests/test_picodet_parity.py -q -p no:cacheprovider",
+    "weightOnlyTests": 7
+  },
+  "nodeTests": {
+    "passed": 5,
+    "command": "node --test tools/model-pipeline/browser/evaluation-runner.test.mjs"
+  },
+  "sdkBuild": {
+    "command": "pnpm build",
+    "exitCode": 0,
+    "browserBundleSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+    "matchesEvaluationBundle": true
+  },
+  "browserRuns": [
+    "wasm-fp32-1",
+    "wasm-fp32-2",
+    "wasm-fp32-3",
+    "wasm-w8a32-1",
+    "wasm-w8a32-2",
+    "wasm-w8a32-3",
+    "webgpu-fp32-1",
+    "webgpu-fp32-2",
+    "webgpu-fp32-3",
+    "webgpu-w8a32-1",
+    "webgpu-w8a32-2",
+    "webgpu-w8a32-3"
+  ],
+  "pythonFullSubsetRuns": 2,
+  "standardBefore": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "standardAfter": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "modelReproduction": {
+    "status": "passed",
+    "models": {
+      "picodet": {
+        "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+        "bytes": 6117685,
+        "matchesEvaluatedModel": true
+      },
+      "ppyoloe": {
+        "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+        "bytes": 8225467,
+        "matchesEvaluatedModel": true
+      }
+    }
+  },
+  "modelPackageVerified": true,
+  "sourceFiles": {
+    "tools/model-pipeline/weight_only.py": "ca5e6f5e9be152c485dd48183a45cb88541041eed98660a6498c3df458bb890c",
+    "tools/model-pipeline/tests/test_weight_only.py": "58f793f53f4624e0c72ab14a929a418ce286f76ff09944e4f92512dc383f3e5d"
+  },
+  "scope": "仅本机桌面实验；未验证移动端、峰值内存或全量 COCO，未执行远程发布。"
+}

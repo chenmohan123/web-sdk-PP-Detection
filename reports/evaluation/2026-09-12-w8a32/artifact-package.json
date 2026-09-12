@@ -1,0 +1,17 @@
+{
+  "filename": "detection-w8a32-models.zip",
+  "bytes": 11948220,
+  "sha256": "5a12c6512bed3ec11f66d0eb32b0d4894920cba37c3f31cc7400e51c3a615535",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "picodet/picodet-w8a32.onnx",
+    "picodet/manifest.json",
+    "picodet/conversion.json",
+    "ppyoloe/ppyoloe-w8a32.onnx",
+    "ppyoloe/manifest.json",
+    "ppyoloe/conversion.json"
+  ],
+  "status": "本地实验包，尚未公开发布"
+}

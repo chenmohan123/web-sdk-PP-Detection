@@ -1,0 +1,42 @@
+[
+  {
+    "command": "node C:/Users/chenm/AppData/Local/Temp/detection-precision-release-20260912/format-check.mjs",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm docs:test",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm examples:check",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm release:test",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm benchmark:test",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm benchmark:parity",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm lint",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm typecheck",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm test",
+    "exitCode": 0
+  },
+  {
+    "command": "pnpm build",
+    "exitCode": 0
+  }
+]

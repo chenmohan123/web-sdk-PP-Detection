@@ -26,3 +26,9 @@ reports/distribution/**/*.json
 # 稳定状态变更保留原始清单、模型卡和验证记录字节。
 reports/stability/**/*.json
 reports/stability/**/previous/**
+
+# 新版本模型卡与转换记录保持已上传Hub的原始字节。
+models/pp-detection/1.0.2/README.md
+models/pp-detection/1.0.2/*-conversion.json
+models/ppyoloe-plus-s-640/0.1.1/README.md
+models/ppyoloe-plus-s-640/0.1.1/*-conversion.json

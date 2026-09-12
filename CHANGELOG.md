@@ -1,5 +1,13 @@
 # Changelog
 
+## 模型与 Demo 更新（2026-09-12，SDK 0.3.1）
+
+- 上线 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32/FP16/W8A32 稳定模型选择，默认FP32，双源默认ModelScope。
+- FP16体积分别减少36.3%/49.8%，W8A32减少73.7%/74.3%；体积与速度独立比较。
+- 36组固定COCO子集识别验证通过；两Hub新版本资产及清单固定revision并校验SHA-256。
+- SDK API及npm版本继续0.3.1；模型文件与Demo独立更新。新精度的手机兼容性尚未实测。
+- [识别和性能对比](reports/evaluation/2026-09-12-precision-variants/README.md)。
+
 ## 0.3.1（2026-09-12）
 
 模型、来源、许可和验证边界见[发布说明](docs/zh-CN/release-0.3.1.md)（[English](docs/en/release-0.3.1.md)）。

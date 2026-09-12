@@ -1,0 +1,47 @@
+{
+  "sdkCommit": "42e01fe9e083b827ba986399eefce9853d181981",
+  "releaseCommit": "3351d83bdaba173a1c5e1d6087a40795c5a60655",
+  "releaseTag": "v0.3.1",
+  "files": [
+    {
+      "path": "tools/model-pipeline/picodet/quantize_int8.py",
+      "sha256": "ed148afe6ea6f40d53bbf41d70c9a1ae9f95494d1c110538d8a1e1cba639ac68",
+      "bytes": 3736
+    },
+    {
+      "path": "tools/model-pipeline/ppyoloe/inference.py",
+      "sha256": "c5aad12337492850b5c0a575aed7551056649720fc3661d0ecf059abc255ca54",
+      "bytes": 6105
+    },
+    {
+      "path": "tools/model-pipeline/evaluation/prepare_subset.py",
+      "sha256": "292f47a691521c86b0eb6bf9c67dfc4a77d6b3092f346671417fdae316eff866",
+      "bytes": 7484
+    },
+    {
+      "path": "tools/model-pipeline/evaluation/coco.py",
+      "sha256": "915c8fd351a17272f4f08fd8e350761e1b580d43cf815df2f875b1aed5eb9903",
+      "bytes": 7873
+    },
+    {
+      "path": "tools/model-pipeline/browser/evaluation-runner.mjs",
+      "sha256": "bf8e0be5f7a5c0df9b43f4d5bc7b242680f88febafe1b121cddad825a5224470",
+      "bytes": 21432
+    },
+    {
+      "path": "packages/sdk/dist/browser-global.js",
+      "sha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "bytes": 821772
+    },
+    {
+      "path": "models/pp-detection/manifest.json",
+      "sha256": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a",
+      "bytes": 4111
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "e70d4235c61254433c57baceb5bb22e65fffb3905a4f1f84988e3fe88e799fd9",
+      "bytes": 106141
+    }
+  ]
+}

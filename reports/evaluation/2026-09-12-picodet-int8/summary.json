@@ -1,0 +1,788 @@
+{
+  "date": "2026-09-12",
+  "baselineSdkVersion": "0.3.1",
+  "modelVersion": "1.0.1",
+  "calibrationImages": 128,
+  "evaluationImages": 64,
+  "groundTruthCount": 716,
+  "status": "labs",
+  "runs": {
+    "wasm-fp32-1": {
+      "status": "passed",
+      "path": "browser/wasm-fp32-1.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 424.9699999988079,
+      "firstImageMs": 381.8400000035763,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.015000000596046,
+        "p90": 20.28400000035763
+      },
+      "inferenceMs": {
+        "median": 269.875,
+        "p90": 283.08299999535086
+      },
+      "totalMs": {
+        "median": 292.2699999958277,
+        "p90": 307.79199999570847
+      },
+      "wallClockMs": {
+        "median": 292.2849999964237,
+        "p90": 307.80700000822543
+      }
+    },
+    "wasm-fp32-2": {
+      "status": "passed",
+      "path": "browser/wasm-fp32-2.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 437.2549999952316,
+      "firstImageMs": 372.31999999284744,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.459999993443489,
+        "p90": 20.611999991536145
+      },
+      "inferenceMs": {
+        "median": 269.8850000053644,
+        "p90": 284.3930000066757
+      },
+      "totalMs": {
+        "median": 290.9050000011921,
+        "p90": 306.9800000041723
+      },
+      "wallClockMs": {
+        "median": 290.92000000178814,
+        "p90": 306.9990000009537
+      }
+    },
+    "wasm-fp32-3": {
+      "status": "passed",
+      "path": "browser/wasm-fp32-3.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 392.60999999940395,
+      "firstImageMs": 379.0849999934435,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.814999997615814,
+        "p90": 22.25299999713898
+      },
+      "inferenceMs": {
+        "median": 270.7350000143051,
+        "p90": 288.7050000101328
+      },
+      "totalMs": {
+        "median": 291.9350000023842,
+        "p90": 317.0880000084639
+      },
+      "wallClockMs": {
+        "median": 291.95499999821186,
+        "p90": 317.102999997139
+      }
+    },
+    "wasm-fp32-4": {
+      "status": "passed",
+      "path": "browser/wasm-fp32-4.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 403.68000000715256,
+      "firstImageMs": 374.5549999922514,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.879999995231628,
+        "p90": 19.57799999713898
+      },
+      "inferenceMs": {
+        "median": 268.75999999046326,
+        "p90": 287.7429999917746
+      },
+      "totalMs": {
+        "median": 291.75,
+        "p90": 307.307000002265
+      },
+      "wallClockMs": {
+        "median": 291.75999999046326,
+        "p90": 307.32200000286105
+      }
+    },
+    "wasm-qdq-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/wasm-qdq-stem-fp32-1.json.gz",
+      "AP": 29.844101165686787,
+      "AP50": 43.227708093178826,
+      "APSmall": 15.272658505237704,
+      "sessionMs": 637.3199999928474,
+      "firstImageMs": 422.99000000953674,
+      "sdk": "0.3.1",
+      "modelSha256": "275b68642f8529a14822125a35cd11ca3d57fd176a69a2f685e7cb13b3ab94b4",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.974999994039536,
+        "p90": 23.430000010132794
+      },
+      "inferenceMs": {
+        "median": 312.5249999910593,
+        "p90": 335.2019999921322
+      },
+      "totalMs": {
+        "median": 333.89000000059605,
+        "p90": 359.3830000013113
+      },
+      "wallClockMs": {
+        "median": 333.919999986887,
+        "p90": 359.3949999958277
+      }
+    },
+    "wasm-qoperator-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/wasm-qoperator-stem-fp32-1.json.gz",
+      "AP": 29.679448227988015,
+      "AP50": 43.14169398021754,
+      "APSmall": 13.891588328277926,
+      "sessionMs": 608.1899999976158,
+      "firstImageMs": 423.4699999988079,
+      "sdk": "0.3.1",
+      "modelSha256": "23e0723939166745cb181c0effe7e630f01da40cd7b7d37f95fe01feb7d37fae",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.805000007152557,
+        "p90": 24.673000004887584
+      },
+      "inferenceMs": {
+        "median": 313.9099999964237,
+        "p90": 335.32399999797343
+      },
+      "totalMs": {
+        "median": 334.1899999976158,
+        "p90": 359.3190000027418
+      },
+      "wallClockMs": {
+        "median": 334.21000000834465,
+        "p90": 359.3380000025034
+      }
+    },
+    "wasm-weight-only-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/wasm-weight-only-stem-fp32-1.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 486.98499999940395,
+      "firstImageMs": 378.05500000715256,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.935000002384186,
+        "p90": 23.114000007510185
+      },
+      "inferenceMs": {
+        "median": 272.8949999958277,
+        "p90": 291.5990000039339
+      },
+      "totalMs": {
+        "median": 294.9800000041723,
+        "p90": 313.69299999773506
+      },
+      "wallClockMs": {
+        "median": 295.0100000053644,
+        "p90": 313.70799999535086
+      }
+    },
+    "wasm-weight-only-stem-fp32-2": {
+      "status": "passed",
+      "path": "browser/wasm-weight-only-stem-fp32-2.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 441.9950000047684,
+      "firstImageMs": 379.48499999940395,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 14.964999988675117,
+        "p90": 23.280999994277956
+      },
+      "inferenceMs": {
+        "median": 271.125,
+        "p90": 289.1590000092983
+      },
+      "totalMs": {
+        "median": 295.0350000113249,
+        "p90": 310.707000002265
+      },
+      "wallClockMs": {
+        "median": 295.04500000178814,
+        "p90": 310.72699999809265
+      }
+    },
+    "wasm-weight-only-stem-fp32-3": {
+      "status": "passed",
+      "path": "browser/wasm-weight-only-stem-fp32-3.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 478.13499999046326,
+      "firstImageMs": 369.27500000596046,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.20499999821186,
+        "p90": 22.47899999618531
+      },
+      "inferenceMs": {
+        "median": 276.09999999403954,
+        "p90": 298.1079999893904
+      },
+      "totalMs": {
+        "median": 296.04999999701977,
+        "p90": 321.6590000063181
+      },
+      "wallClockMs": {
+        "median": 296.0549999922514,
+        "p90": 321.67399999201297
+      }
+    },
+    "wasm-weight-only-stem-fp32-4": {
+      "status": "passed",
+      "path": "browser/wasm-weight-only-stem-fp32-4.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 480.8550000041723,
+      "firstImageMs": 364.2900000065565,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "wasm",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.669999986886978,
+        "p90": 23.034000003337866
+      },
+      "inferenceMs": {
+        "median": 273.57500000298023,
+        "p90": 294.1699999898672
+      },
+      "totalMs": {
+        "median": 295.0049999952316,
+        "p90": 317.7039999961853
+      },
+      "wallClockMs": {
+        "median": 295.0249999910593,
+        "p90": 317.7189999997616
+      }
+    },
+    "webgpu-fp32-1": {
+      "status": "passed",
+      "path": "browser/webgpu-fp32-1.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 1250.125,
+      "firstImageMs": 3235.3949999958277,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 16.219999998807907,
+        "p90": 23.94000000953675
+      },
+      "inferenceMs": {
+        "median": 38.07500000298023,
+        "p90": 50.70099999308589
+      },
+      "totalMs": {
+        "median": 61.34499999880791,
+        "p90": 90.81400000453003
+      },
+      "wallClockMs": {
+        "median": 61.35999999940395,
+        "p90": 90.8430000066758
+      }
+    },
+    "webgpu-fp32-2": {
+      "status": "passed",
+      "path": "browser/webgpu-fp32-2.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 1156.7899999916553,
+      "firstImageMs": 3161.2699999958277,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.879999995231628,
+        "p90": 24.14800000190736
+      },
+      "inferenceMs": {
+        "median": 38.29999999701977,
+        "p90": 56.52399999797345
+      },
+      "totalMs": {
+        "median": 58.82500000298023,
+        "p90": 90.92700000703336
+      },
+      "wallClockMs": {
+        "median": 58.83500000834465,
+        "p90": 90.94799999594689
+      }
+    },
+    "webgpu-fp32-3": {
+      "status": "passed",
+      "path": "browser/webgpu-fp32-3.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 1174.6599999964237,
+      "firstImageMs": 3281.765000000596,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.230000004172325,
+        "p90": 26.50599999129772
+      },
+      "inferenceMs": {
+        "median": 37.15500000119209,
+        "p90": 57.113999998569525
+      },
+      "totalMs": {
+        "median": 58.15500000119209,
+        "p90": 92.10300000309948
+      },
+      "wallClockMs": {
+        "median": 58.189999997615814,
+        "p90": 92.12699999511246
+      }
+    },
+    "webgpu-fp32-4": {
+      "status": "passed",
+      "path": "browser/webgpu-fp32-4.json.gz",
+      "AP": 34.215273096451604,
+      "AP50": 47.399339671629214,
+      "APSmall": 15.447831774148508,
+      "sessionMs": 1184.8250000029802,
+      "firstImageMs": 3170.5,
+      "sdk": "0.3.1",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "fp32",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.42000000178814,
+        "p90": 26.521000000834487
+      },
+      "inferenceMs": {
+        "median": 36.99500000476837,
+        "p90": 52.187999996542935
+      },
+      "totalMs": {
+        "median": 58.17500001192093,
+        "p90": 89.90000000000005
+      },
+      "wallClockMs": {
+        "median": 58.185000002384186,
+        "p90": 89.9099999904633
+      }
+    },
+    "webgpu-qdq-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/webgpu-qdq-stem-fp32-1.json.gz",
+      "AP": 30.096487183002573,
+      "AP50": 44.46852082740023,
+      "APSmall": 15.22582002081388,
+      "sessionMs": 1698.984999999404,
+      "firstImageMs": 3834.920000001788,
+      "sdk": "0.3.1",
+      "modelSha256": "275b68642f8529a14822125a35cd11ca3d57fd176a69a2f685e7cb13b3ab94b4",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.724999994039536,
+        "p90": 22.716000002622607
+      },
+      "inferenceMs": {
+        "median": 822.2599999904633,
+        "p90": 852.4359999924898
+      },
+      "totalMs": {
+        "median": 844.2300000041723,
+        "p90": 872.3429999917746
+      },
+      "wallClockMs": {
+        "median": 844.2399999946356,
+        "p90": 872.3659999996423
+      }
+    },
+    "webgpu-qoperator-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/webgpu-qoperator-stem-fp32-1.json.gz",
+      "AP": 30.601405316429865,
+      "AP50": 44.853124790586676,
+      "APSmall": 13.633216618373917,
+      "sessionMs": 1477.780000001192,
+      "firstImageMs": 2548.7750000059605,
+      "sdk": "0.3.1",
+      "modelSha256": "23e0723939166745cb181c0effe7e630f01da40cd7b7d37f95fe01feb7d37fae",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.280000001192093,
+        "p90": 21.495000001788142
+      },
+      "inferenceMs": {
+        "median": 673.0649999976158,
+        "p90": 710.8219999939204
+      },
+      "totalMs": {
+        "median": 693.4000000059605,
+        "p90": 731.7040000021458
+      },
+      "wallClockMs": {
+        "median": 693.4149999916553,
+        "p90": 731.7239999949933
+      }
+    },
+    "webgpu-weight-only-stem-fp32-1": {
+      "status": "passed",
+      "path": "browser/webgpu-weight-only-stem-fp32-1.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 1173.155000001192,
+      "firstImageMs": 3457.1349999904633,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 16.019999995827675,
+        "p90": 26.78899999856949
+      },
+      "inferenceMs": {
+        "median": 41.78499999642372,
+        "p90": 64.34499999880792
+      },
+      "totalMs": {
+        "median": 62.355000004172325,
+        "p90": 103.19599999487401
+      },
+      "wallClockMs": {
+        "median": 62.375,
+        "p90": 103.21799999773503
+      }
+    },
+    "webgpu-weight-only-stem-fp32-2": {
+      "status": "passed",
+      "path": "browser/webgpu-weight-only-stem-fp32-2.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 1163.9949999898672,
+      "firstImageMs": 3254.094999998808,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.884999990463257,
+        "p90": 27.588999998569495
+      },
+      "inferenceMs": {
+        "median": 40.86999998986721,
+        "p90": 56.372999995946884
+      },
+      "totalMs": {
+        "median": 62.65500000119209,
+        "p90": 94.81399999856949
+      },
+      "wallClockMs": {
+        "median": 62.67000000178814,
+        "p90": 94.83400000631809
+      }
+    },
+    "webgpu-weight-only-stem-fp32-3": {
+      "status": "passed",
+      "path": "browser/webgpu-weight-only-stem-fp32-3.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 1220.0100000053644,
+      "firstImageMs": 3445.5849999934435,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.274999991059303,
+        "p90": 25.891000005602848
+      },
+      "inferenceMs": {
+        "median": 38.96999999880791,
+        "p90": 60.02900000214577
+      },
+      "totalMs": {
+        "median": 60.92000000178814,
+        "p90": 93.6010000020266
+      },
+      "wallClockMs": {
+        "median": 60.940000012516975,
+        "p90": 93.6259999930859
+      }
+    },
+    "webgpu-weight-only-stem-fp32-4": {
+      "status": "passed",
+      "path": "browser/webgpu-weight-only-stem-fp32-4.json.gz",
+      "AP": 34.260618097873476,
+      "AP50": 47.23752627761274,
+      "APSmall": 15.800954786246772,
+      "sessionMs": 1185.5,
+      "firstImageMs": 3231.4750000089407,
+      "sdk": "0.3.1",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "actualBackend": "webgpu",
+      "precision": "int8",
+      "fallbacks": [],
+      "preprocessMs": {
+        "median": 15.54500000178814,
+        "p90": 26.173000001907358
+      },
+      "inferenceMs": {
+        "median": 41.025000005960464,
+        "p90": 54.554000002145784
+      },
+      "totalMs": {
+        "median": 61.690000012516975,
+        "p90": 100.93699999749667
+      },
+      "wallClockMs": {
+        "median": 61.70499999821186,
+        "p90": 100.9650000005961
+      }
+    }
+  },
+  "comparison": {
+    "wasm": {
+      "fp32": {
+        "rounds": [
+          2,
+          3,
+          4
+        ],
+        "AP": [
+          34.215273096451604,
+          34.215273096451604,
+          34.215273096451604
+        ],
+        "preprocessMs": {
+          "median": 14.879999995231628,
+          "p90": 20.611999991536145
+        },
+        "inferenceMs": {
+          "median": 269.8850000053644,
+          "p90": 287.7429999917746
+        },
+        "totalMs": {
+          "median": 291.75,
+          "p90": 307.307000002265
+        },
+        "wallClockMs": {
+          "median": 291.75999999046326,
+          "p90": 307.32200000286105
+        },
+        "sessionMs": 403.68000000715256,
+        "firstImageMs": 374.5549999922514
+      },
+      "weight-only-stem-fp32": {
+        "rounds": [
+          2,
+          3,
+          4
+        ],
+        "AP": [
+          34.260618097873476,
+          34.260618097873476,
+          34.260618097873476
+        ],
+        "preprocessMs": {
+          "median": 15.20499999821186,
+          "p90": 23.034000003337866
+        },
+        "inferenceMs": {
+          "median": 273.57500000298023,
+          "p90": 294.1699999898672
+        },
+        "totalMs": {
+          "median": 295.0350000113249,
+          "p90": 317.7039999961853
+        },
+        "wallClockMs": {
+          "median": 295.04500000178814,
+          "p90": 317.7189999997616
+        },
+        "sessionMs": 478.13499999046326,
+        "firstImageMs": 369.27500000596046
+      }
+    },
+    "webgpu": {
+      "fp32": {
+        "rounds": [
+          2,
+          3,
+          4
+        ],
+        "AP": [
+          34.215273096451604,
+          34.215273096451604,
+          34.215273096451604
+        ],
+        "preprocessMs": {
+          "median": 15.42000000178814,
+          "p90": 26.50599999129772
+        },
+        "inferenceMs": {
+          "median": 37.15500000119209,
+          "p90": 56.52399999797345
+        },
+        "totalMs": {
+          "median": 58.17500001192093,
+          "p90": 90.92700000703336
+        },
+        "wallClockMs": {
+          "median": 58.189999997615814,
+          "p90": 90.94799999594689
+        },
+        "sessionMs": 1174.6599999964237,
+        "firstImageMs": 3170.5
+      },
+      "weight-only-stem-fp32": {
+        "rounds": [
+          2,
+          3,
+          4
+        ],
+        "AP": [
+          34.260618097873476,
+          34.260618097873476,
+          34.260618097873476
+        ],
+        "preprocessMs": {
+          "median": 15.54500000178814,
+          "p90": 26.173000001907358
+        },
+        "inferenceMs": {
+          "median": 40.86999998986721,
+          "p90": 56.372999995946884
+        },
+        "totalMs": {
+          "median": 61.690000012516975,
+          "p90": 94.81399999856949
+        },
+        "wallClockMs": {
+          "median": 61.70499999821186,
+          "p90": 94.83400000631809
+        },
+        "sessionMs": 1185.5,
+        "firstImageMs": 3254.094999998808
+      }
+    }
+  },
+  "parity": {
+    "wasm": {
+      "referenceCount": 293,
+      "candidateCount": 298,
+      "matchedCount": 290,
+      "unmatchedReferenceCount": 3,
+      "unmatchedCandidateCount": 8,
+      "maxScoreDelta": 0.06134378910064697,
+      "maxBboxDeltaPixels": 69.8626708984375,
+      "iouThreshold": 0.5,
+      "scoreThreshold": 0.5
+    },
+    "webgpu": {
+      "referenceCount": 293,
+      "candidateCount": 298,
+      "matchedCount": 290,
+      "unmatchedReferenceCount": 3,
+      "unmatchedCandidateCount": 8,
+      "maxScoreDelta": 0.06134587526321411,
+      "maxBboxDeltaPixels": 69.86251831054688,
+      "iouThreshold": 0.5,
+      "scoreThreshold": 0.5
+    }
+  },
+  "sourceSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+  "weightCandidateSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+  "size": {
+    "fp32": 23243834,
+    "W8A32": 6117685,
+    "reductionPercent": 73.68039627197476
+  }
+}

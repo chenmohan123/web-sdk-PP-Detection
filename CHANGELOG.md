@@ -2,6 +2,8 @@
 
 ## 尚未发布
 
+- 优化两款模型共用的 bicubic 预处理，保持逐位张量和同后端检测结果一致；本机 PP-YOLOE WebGPU 热端到端中位数降低 25.5%，详见 [2026-09-12 评测](reports/evaluation/2026-09-12-preprocess/README.md)。
+
 - 归档 PP-YOLOE FP16 体积、精度和真实性能评测及 WebGPU 归约溢出的最小复现，候选保持 labs。
 - 同步门户与模型说明，六类独立示例升级到公开 SDK 0.3.0。
 - npm 发布后等待 registry 最多十分钟，区分暂时和永久错误，并归档成功或失败的等待记录。

@@ -13,3 +13,5 @@ Each result snapshots its actual backend, precision, execution mode, and fallbac
 The current default model is PicoDet-L-320 1.0.1 FP32. See [compatibility](compatibility.md) for dated WASM/WebGPU environments and seven-fixture evidence. FP16 is blocked and INT8, INT4, and FP8 are labs. Historical FP16 records for other models do not establish support for the current Detection model. One measurement on one device is not a universal benchmark.
 
 Prioritize detector reuse, IndexedDB caching, avoiding concurrent large sessions, submitting one frame at a time, cancellation, and resource release. Label network initialization, cache initialization, and session reuse separately; do not treat first session creation as steady-state inference throughput.
+
+本次尚未发布的 bicubic 优化在固定 64 图、桌面主线程测试中，PP-YOLOE WebGPU 三轮热端到端中位数降低 25.5%，预处理中位数降低 54.4%；两款模型在相同后端的新旧预测逐项一致。环境、逐轮数据、复现与手机验证清单见 [2026-09-12 预处理评测](../../reports/evaluation/2026-09-12-preprocess/README.md)。尚未验证本次实现的小米 15 性能，也未测峰值内存。

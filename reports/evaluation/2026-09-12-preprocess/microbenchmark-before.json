@@ -1,0 +1,2367 @@
+{
+  "capturedAt": "2026-09-12T03:05:21.812Z",
+  "scope": "预处理微基准，不含解码、会话或推理；同图输入两版各三轮",
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "os": "10.0.26200",
+  "browser": "153.0.8010.12",
+  "sourceHashes": {
+    "baseline": "9ea30b885d5220326c20be1e05ae314f8ad467569ee3db9fe7722137c12f5ac7",
+    "candidate": "c61230a86a687050689e1e2d730a88e0a06a517a1b2f9cf49e83eb0adf9d85e3"
+  },
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+  "compared": 128,
+  "rounds": [
+    [
+      {
+        "imageId": 270244,
+        "model": "picodet",
+        "baseline": 36.29999999701977,
+        "candidate": 33.29999999701977
+      },
+      {
+        "imageId": 270244,
+        "model": "ppyoloe",
+        "baseline": 75,
+        "candidate": 69
+      },
+      {
+        "imageId": 438862,
+        "model": "picodet",
+        "candidate": 35.3999999910593,
+        "baseline": 37.70000000298023
+      },
+      {
+        "imageId": 438862,
+        "model": "ppyoloe",
+        "candidate": 67.1000000089407,
+        "baseline": 64.09999999403954
+      },
+      {
+        "imageId": 212166,
+        "model": "picodet",
+        "baseline": 39.70000000298023,
+        "candidate": 38.5
+      },
+      {
+        "imageId": 212166,
+        "model": "ppyoloe",
+        "baseline": 82.59999999403954,
+        "candidate": 79.5
+      },
+      {
+        "imageId": 486479,
+        "model": "picodet",
+        "candidate": 26.5,
+        "baseline": 24.099999994039536
+      },
+      {
+        "imageId": 486479,
+        "model": "ppyoloe",
+        "candidate": 57.900000005960464,
+        "baseline": 57.099999994039536
+      },
+      {
+        "imageId": 439854,
+        "model": "picodet",
+        "baseline": 22.5,
+        "candidate": 24.899999991059303
+      },
+      {
+        "imageId": 439854,
+        "model": "ppyoloe",
+        "baseline": 52.19999998807907,
+        "candidate": 53.6000000089407
+      },
+      {
+        "imageId": 227478,
+        "model": "picodet",
+        "candidate": 31.5,
+        "baseline": 31.600000008940697
+      },
+      {
+        "imageId": 227478,
+        "model": "ppyoloe",
+        "candidate": 64.1000000089407,
+        "baseline": 64.79999999701977
+      },
+      {
+        "imageId": 250282,
+        "model": "picodet",
+        "baseline": 28.80000001192093,
+        "candidate": 28.19999998807907
+      },
+      {
+        "imageId": 250282,
+        "model": "ppyoloe",
+        "baseline": 64.5,
+        "candidate": 61.099999994039536
+      },
+      {
+        "imageId": 235836,
+        "model": "picodet",
+        "candidate": 37.69999998807907,
+        "baseline": 38.900000005960464
+      },
+      {
+        "imageId": 235836,
+        "model": "ppyoloe",
+        "candidate": 88.6000000089407,
+        "baseline": 84.8999999910593
+      },
+      {
+        "imageId": 497599,
+        "model": "picodet",
+        "baseline": 38.599999994039536,
+        "candidate": 38.400000005960464
+      },
+      {
+        "imageId": 497599,
+        "model": "ppyoloe",
+        "baseline": 83.29999999701977,
+        "candidate": 81.29999999701977
+      },
+      {
+        "imageId": 10977,
+        "model": "picodet",
+        "candidate": 25.599999994039536,
+        "baseline": 26
+      },
+      {
+        "imageId": 10977,
+        "model": "ppyoloe",
+        "candidate": 57,
+        "baseline": 56.29999999701977
+      },
+      {
+        "imageId": 26690,
+        "model": "picodet",
+        "baseline": 36.900000005960464,
+        "candidate": 37.79999999701977
+      },
+      {
+        "imageId": 26690,
+        "model": "ppyoloe",
+        "baseline": 77.70000000298023,
+        "candidate": 80.20000000298023
+      },
+      {
+        "imageId": 284698,
+        "model": "picodet",
+        "candidate": 31.399999991059303,
+        "baseline": 34.1000000089407
+      },
+      {
+        "imageId": 284698,
+        "model": "ppyoloe",
+        "candidate": 69.20000000298023,
+        "baseline": 71.59999999403954
+      },
+      {
+        "imageId": 166563,
+        "model": "picodet",
+        "baseline": 27.700000002980232,
+        "candidate": 34.79999999701977
+      },
+      {
+        "imageId": 166563,
+        "model": "ppyoloe",
+        "baseline": 70.59999999403954,
+        "candidate": 64.20000000298023
+      },
+      {
+        "imageId": 105264,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 28.399999991059303
+      },
+      {
+        "imageId": 105264,
+        "model": "ppyoloe",
+        "candidate": 60.20000000298023,
+        "baseline": 59.6000000089407
+      },
+      {
+        "imageId": 479099,
+        "model": "picodet",
+        "baseline": 45.20000000298023,
+        "candidate": 35.29999999701977
+      },
+      {
+        "imageId": 479099,
+        "model": "ppyoloe",
+        "baseline": 69.3999999910593,
+        "candidate": 66.40000000596046
+      },
+      {
+        "imageId": 541123,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 29.299999997019768
+      },
+      {
+        "imageId": 541123,
+        "model": "ppyoloe",
+        "candidate": 62.19999998807907,
+        "baseline": 61.30000001192093
+      },
+      {
+        "imageId": 287874,
+        "model": "picodet",
+        "baseline": 30,
+        "candidate": 29.099999994039536
+      },
+      {
+        "imageId": 287874,
+        "model": "ppyoloe",
+        "baseline": 61.1000000089407,
+        "candidate": 61.5
+      },
+      {
+        "imageId": 492992,
+        "model": "picodet",
+        "candidate": 36.900000005960464,
+        "baseline": 43
+      },
+      {
+        "imageId": 492992,
+        "model": "ppyoloe",
+        "candidate": 83.29999999701977,
+        "baseline": 93.3999999910593
+      },
+      {
+        "imageId": 483999,
+        "model": "picodet",
+        "baseline": 29.799999997019768,
+        "candidate": 28.899999991059303
+      },
+      {
+        "imageId": 483999,
+        "model": "ppyoloe",
+        "baseline": 60.6000000089407,
+        "candidate": 59.3999999910593
+      },
+      {
+        "imageId": 236592,
+        "model": "picodet",
+        "candidate": 31.5,
+        "baseline": 31.099999994039536
+      },
+      {
+        "imageId": 236592,
+        "model": "ppyoloe",
+        "candidate": 67.20000000298023,
+        "baseline": 63.900000005960464
+      },
+      {
+        "imageId": 368212,
+        "model": "picodet",
+        "baseline": 38.8999999910593,
+        "candidate": 36.900000005960464
+      },
+      {
+        "imageId": 368212,
+        "model": "ppyoloe",
+        "baseline": 77.29999999701977,
+        "candidate": 79.79999999701977
+      },
+      {
+        "imageId": 341828,
+        "model": "picodet",
+        "candidate": 38.20000000298023,
+        "baseline": 39.29999999701977
+      },
+      {
+        "imageId": 341828,
+        "model": "ppyoloe",
+        "candidate": 74.3999999910593,
+        "baseline": 86.40000000596046
+      },
+      {
+        "imageId": 459195,
+        "model": "picodet",
+        "baseline": 24.30000001192093,
+        "candidate": 25.099999994039536
+      },
+      {
+        "imageId": 459195,
+        "model": "ppyoloe",
+        "baseline": 56.1000000089407,
+        "candidate": 56.29999999701977
+      },
+      {
+        "imageId": 376900,
+        "model": "picodet",
+        "candidate": 39.599999994039536,
+        "baseline": 37.400000005960464
+      },
+      {
+        "imageId": 376900,
+        "model": "ppyoloe",
+        "candidate": 76.40000000596046,
+        "baseline": 77
+      },
+      {
+        "imageId": 173091,
+        "model": "picodet",
+        "baseline": 39.1000000089407,
+        "candidate": 39.3999999910593
+      },
+      {
+        "imageId": 173091,
+        "model": "ppyoloe",
+        "baseline": 75.3999999910593,
+        "candidate": 72.70000000298023
+      },
+      {
+        "imageId": 60823,
+        "model": "picodet",
+        "candidate": 31.19999998807907,
+        "baseline": 32.30000001192093
+      },
+      {
+        "imageId": 60823,
+        "model": "ppyoloe",
+        "candidate": 65.70000000298023,
+        "baseline": 70.5
+      },
+      {
+        "imageId": 256868,
+        "model": "picodet",
+        "baseline": 31,
+        "candidate": 28.400000005960464
+      },
+      {
+        "imageId": 256868,
+        "model": "ppyoloe",
+        "baseline": 74.1000000089407,
+        "candidate": 70.29999999701977
+      },
+      {
+        "imageId": 386879,
+        "model": "picodet",
+        "candidate": 37.3999999910593,
+        "baseline": 37.30000001192093
+      },
+      {
+        "imageId": 386879,
+        "model": "ppyoloe",
+        "candidate": 80,
+        "baseline": 82.20000000298023
+      },
+      {
+        "imageId": 546219,
+        "model": "picodet",
+        "baseline": 31.799999997019768,
+        "candidate": 30.099999994039536
+      },
+      {
+        "imageId": 546219,
+        "model": "ppyoloe",
+        "baseline": 60.70000000298023,
+        "candidate": 60.70000000298023
+      },
+      {
+        "imageId": 228436,
+        "model": "picodet",
+        "candidate": 33.599999994039536,
+        "baseline": 32.20000000298023
+      },
+      {
+        "imageId": 228436,
+        "model": "ppyoloe",
+        "candidate": 65.29999999701977,
+        "baseline": 65.79999999701977
+      },
+      {
+        "imageId": 125072,
+        "model": "picodet",
+        "baseline": 23,
+        "candidate": 23.100000008940697
+      },
+      {
+        "imageId": 125072,
+        "model": "ppyoloe",
+        "baseline": 51.70000000298023,
+        "candidate": 53.900000005960464
+      },
+      {
+        "imageId": 458325,
+        "model": "picodet",
+        "candidate": 28.799999997019768,
+        "baseline": 29.299999997019768
+      },
+      {
+        "imageId": 458325,
+        "model": "ppyoloe",
+        "candidate": 67.90000000596046,
+        "baseline": 62
+      },
+      {
+        "imageId": 208423,
+        "model": "picodet",
+        "baseline": 31.399999991059303,
+        "candidate": 30.80000001192093
+      },
+      {
+        "imageId": 208423,
+        "model": "ppyoloe",
+        "baseline": 67.20000000298023,
+        "candidate": 70.8999999910593
+      },
+      {
+        "imageId": 119516,
+        "model": "picodet",
+        "candidate": 31.799999997019768,
+        "baseline": 29.200000002980232
+      },
+      {
+        "imageId": 119516,
+        "model": "ppyoloe",
+        "candidate": 59.900000005960464,
+        "baseline": 60.70000000298023
+      },
+      {
+        "imageId": 269866,
+        "model": "picodet",
+        "baseline": 28.599999994039536,
+        "candidate": 29.700000002980232
+      },
+      {
+        "imageId": 269866,
+        "model": "ppyoloe",
+        "baseline": 59.79999999701977,
+        "candidate": 59.70000000298023
+      },
+      {
+        "imageId": 527960,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 33.20000000298023
+      },
+      {
+        "imageId": 527960,
+        "model": "ppyoloe",
+        "candidate": 70.5,
+        "baseline": 62.29999999701977
+      },
+      {
+        "imageId": 570456,
+        "model": "picodet",
+        "baseline": 31.200000002980232,
+        "candidate": 32
+      },
+      {
+        "imageId": 570456,
+        "model": "ppyoloe",
+        "baseline": 73.5,
+        "candidate": 69.79999999701977
+      },
+      {
+        "imageId": 134322,
+        "model": "picodet",
+        "candidate": 31.099999994039536,
+        "baseline": 31.200000002980232
+      },
+      {
+        "imageId": 134322,
+        "model": "ppyoloe",
+        "candidate": 64.09999999403954,
+        "baseline": 63.70000000298023
+      },
+      {
+        "imageId": 481386,
+        "model": "picodet",
+        "baseline": 37.30000001192093,
+        "candidate": 37.099999994039536
+      },
+      {
+        "imageId": 481386,
+        "model": "ppyoloe",
+        "baseline": 77.5,
+        "candidate": 78.40000000596046
+      },
+      {
+        "imageId": 376093,
+        "model": "picodet",
+        "candidate": 37.79999999701977,
+        "baseline": 33.1000000089407
+      },
+      {
+        "imageId": 376093,
+        "model": "ppyoloe",
+        "candidate": 67.79999999701977,
+        "baseline": 67
+      },
+      {
+        "imageId": 529568,
+        "model": "picodet",
+        "baseline": 45.70000000298023,
+        "candidate": 45.5
+      },
+      {
+        "imageId": 529568,
+        "model": "ppyoloe",
+        "baseline": 80.59999999403954,
+        "candidate": 79.20000000298023
+      },
+      {
+        "imageId": 276720,
+        "model": "picodet",
+        "candidate": 37.29999999701977,
+        "baseline": 34.29999999701977
+      },
+      {
+        "imageId": 276720,
+        "model": "ppyoloe",
+        "candidate": 64.29999999701977,
+        "baseline": 63.599999994039536
+      },
+      {
+        "imageId": 129756,
+        "model": "picodet",
+        "baseline": 31.299999997019768,
+        "candidate": 32.3999999910593
+      },
+      {
+        "imageId": 129756,
+        "model": "ppyoloe",
+        "baseline": 64.40000000596046,
+        "candidate": 63.400000005960464
+      },
+      {
+        "imageId": 472623,
+        "model": "picodet",
+        "candidate": 42.6000000089407,
+        "baseline": 37.29999999701977
+      },
+      {
+        "imageId": 472623,
+        "model": "ppyoloe",
+        "candidate": 82.90000000596046,
+        "baseline": 75.59999999403954
+      },
+      {
+        "imageId": 276024,
+        "model": "picodet",
+        "baseline": 31.299999997019768,
+        "candidate": 31.200000002980232
+      },
+      {
+        "imageId": 276024,
+        "model": "ppyoloe",
+        "baseline": 64.79999999701977,
+        "candidate": 72.70000000298023
+      },
+      {
+        "imageId": 269942,
+        "model": "picodet",
+        "candidate": 42.79999999701977,
+        "baseline": 40.80000001192093
+      },
+      {
+        "imageId": 269942,
+        "model": "ppyoloe",
+        "candidate": 77.20000000298023,
+        "baseline": 83.29999999701977
+      },
+      {
+        "imageId": 493334,
+        "model": "picodet",
+        "baseline": 20.899999991059303,
+        "candidate": 21.30000001192093
+      },
+      {
+        "imageId": 493334,
+        "model": "ppyoloe",
+        "baseline": 51.20000000298023,
+        "candidate": 50.20000000298023
+      },
+      {
+        "imageId": 318455,
+        "model": "picodet",
+        "candidate": 31.600000008940697,
+        "baseline": 30.799999997019768
+      },
+      {
+        "imageId": 318455,
+        "model": "ppyoloe",
+        "candidate": 65,
+        "baseline": 64
+      },
+      {
+        "imageId": 200152,
+        "model": "picodet",
+        "baseline": 28.5,
+        "candidate": 28.299999997019768
+      },
+      {
+        "imageId": 200152,
+        "model": "ppyoloe",
+        "baseline": 60.79999999701977,
+        "candidate": 59.29999999701977
+      },
+      {
+        "imageId": 511398,
+        "model": "picodet",
+        "candidate": 28.5,
+        "baseline": 28.700000002980232
+      },
+      {
+        "imageId": 511398,
+        "model": "ppyoloe",
+        "candidate": 60,
+        "baseline": 61.599999994039536
+      },
+      {
+        "imageId": 352760,
+        "model": "picodet",
+        "baseline": 41.599999994039536,
+        "candidate": 39.6000000089407
+      },
+      {
+        "imageId": 352760,
+        "model": "ppyoloe",
+        "baseline": 78.90000000596046,
+        "candidate": 88.20000000298023
+      },
+      {
+        "imageId": 27186,
+        "model": "picodet",
+        "candidate": 28.5,
+        "baseline": 28.400000005960464
+      },
+      {
+        "imageId": 27186,
+        "model": "ppyoloe",
+        "candidate": 60.599999994039536,
+        "baseline": 60.1000000089407
+      },
+      {
+        "imageId": 204871,
+        "model": "picodet",
+        "baseline": 43.099999994039536,
+        "candidate": 44
+      },
+      {
+        "imageId": 204871,
+        "model": "ppyoloe",
+        "baseline": 76,
+        "candidate": 75.79999999701977
+      },
+      {
+        "imageId": 426372,
+        "model": "picodet",
+        "candidate": 28.799999997019768,
+        "baseline": 31.900000005960464
+      },
+      {
+        "imageId": 426372,
+        "model": "ppyoloe",
+        "candidate": 66.79999999701977,
+        "baseline": 61.70000000298023
+      },
+      {
+        "imageId": 209142,
+        "model": "picodet",
+        "baseline": 28.599999994039536,
+        "candidate": 30.5
+      },
+      {
+        "imageId": 209142,
+        "model": "ppyoloe",
+        "baseline": 75.70000000298023,
+        "candidate": 63.599999994039536
+      },
+      {
+        "imageId": 203629,
+        "model": "picodet",
+        "candidate": 30,
+        "baseline": 39.20000000298023
+      },
+      {
+        "imageId": 203629,
+        "model": "ppyoloe",
+        "candidate": 75.29999999701977,
+        "baseline": 67.29999999701977
+      },
+      {
+        "imageId": 27932,
+        "model": "picodet",
+        "baseline": 18.799999997019768,
+        "candidate": 19.5
+      },
+      {
+        "imageId": 27932,
+        "model": "ppyoloe",
+        "baseline": 54.099999994039536,
+        "candidate": 51.79999999701977
+      },
+      {
+        "imageId": 360951,
+        "model": "picodet",
+        "candidate": 28.700000002980232,
+        "baseline": 28.799999997019768
+      },
+      {
+        "imageId": 360951,
+        "model": "ppyoloe",
+        "candidate": 61.099999994039536,
+        "baseline": 64.5
+      },
+      {
+        "imageId": 543300,
+        "model": "picodet",
+        "baseline": 35.900000005960464,
+        "candidate": 31.200000002980232
+      },
+      {
+        "imageId": 543300,
+        "model": "ppyoloe",
+        "baseline": 64.1000000089407,
+        "candidate": 74.5
+      },
+      {
+        "imageId": 562818,
+        "model": "picodet",
+        "candidate": 49.3999999910593,
+        "baseline": 46.6000000089407
+      },
+      {
+        "imageId": 562818,
+        "model": "ppyoloe",
+        "candidate": 92,
+        "baseline": 74.90000000596046
+      },
+      {
+        "imageId": 356094,
+        "model": "picodet",
+        "baseline": 26.599999994039536,
+        "candidate": 26
+      },
+      {
+        "imageId": 356094,
+        "model": "ppyoloe",
+        "baseline": 65.29999999701977,
+        "candidate": 62.20000000298023
+      },
+      {
+        "imageId": 377497,
+        "model": "picodet",
+        "candidate": 36.8999999910593,
+        "baseline": 37.20000000298023
+      },
+      {
+        "imageId": 377497,
+        "model": "ppyoloe",
+        "candidate": 76.90000000596046,
+        "baseline": 75.5
+      },
+      {
+        "imageId": 238410,
+        "model": "picodet",
+        "baseline": 32.20000000298023,
+        "candidate": 31.799999997019768
+      },
+      {
+        "imageId": 238410,
+        "model": "ppyoloe",
+        "baseline": 64.6000000089407,
+        "candidate": 66.5
+      },
+      {
+        "imageId": 119641,
+        "model": "picodet",
+        "candidate": 34.1000000089407,
+        "baseline": 32
+      },
+      {
+        "imageId": 119641,
+        "model": "ppyoloe",
+        "candidate": 70.5,
+        "baseline": 76
+      }
+    ],
+    [
+      {
+        "imageId": 270244,
+        "model": "picodet",
+        "candidate": 29.200000002980232,
+        "baseline": 31
+      },
+      {
+        "imageId": 270244,
+        "model": "ppyoloe",
+        "candidate": 70.29999999701977,
+        "baseline": 64.59999999403954
+      },
+      {
+        "imageId": 438862,
+        "model": "picodet",
+        "baseline": 29.599999994039536,
+        "candidate": 28.799999997019768
+      },
+      {
+        "imageId": 438862,
+        "model": "ppyoloe",
+        "baseline": 69.30000001192093,
+        "candidate": 61.19999998807907
+      },
+      {
+        "imageId": 212166,
+        "model": "picodet",
+        "candidate": 38.70000000298023,
+        "baseline": 38.69999998807907
+      },
+      {
+        "imageId": 212166,
+        "model": "ppyoloe",
+        "candidate": 74.30000001192093,
+        "baseline": 73.19999998807907
+      },
+      {
+        "imageId": 486479,
+        "model": "picodet",
+        "baseline": 23.600000008940697,
+        "candidate": 24.399999991059303
+      },
+      {
+        "imageId": 486479,
+        "model": "ppyoloe",
+        "baseline": 55.400000005960464,
+        "candidate": 56.900000005960464
+      },
+      {
+        "imageId": 439854,
+        "model": "picodet",
+        "candidate": 22.5,
+        "baseline": 22.900000005960464
+      },
+      {
+        "imageId": 439854,
+        "model": "ppyoloe",
+        "candidate": 52.80000001192093,
+        "baseline": 55
+      },
+      {
+        "imageId": 227478,
+        "model": "picodet",
+        "baseline": 33,
+        "candidate": 32.400000005960464
+      },
+      {
+        "imageId": 227478,
+        "model": "ppyoloe",
+        "baseline": 66.19999998807907,
+        "candidate": 69.40000000596046
+      },
+      {
+        "imageId": 250282,
+        "model": "picodet",
+        "candidate": 29.399999991059303,
+        "baseline": 28.5
+      },
+      {
+        "imageId": 250282,
+        "model": "ppyoloe",
+        "candidate": 59.5,
+        "baseline": 66.1000000089407
+      },
+      {
+        "imageId": 235836,
+        "model": "picodet",
+        "baseline": 37.79999999701977,
+        "candidate": 37.29999999701977
+      },
+      {
+        "imageId": 235836,
+        "model": "ppyoloe",
+        "baseline": 76.1000000089407,
+        "candidate": 77.70000000298023
+      },
+      {
+        "imageId": 497599,
+        "model": "picodet",
+        "candidate": 36.29999999701977,
+        "baseline": 38.1000000089407
+      },
+      {
+        "imageId": 497599,
+        "model": "ppyoloe",
+        "candidate": 75.5,
+        "baseline": 76.3999999910593
+      },
+      {
+        "imageId": 10977,
+        "model": "picodet",
+        "baseline": 24.400000005960464,
+        "candidate": 25.200000002980232
+      },
+      {
+        "imageId": 10977,
+        "model": "ppyoloe",
+        "baseline": 59.6000000089407,
+        "candidate": 57.19999998807907
+      },
+      {
+        "imageId": 26690,
+        "model": "picodet",
+        "candidate": 40,
+        "baseline": 40.79999999701977
+      },
+      {
+        "imageId": 26690,
+        "model": "ppyoloe",
+        "candidate": 83.20000000298023,
+        "baseline": 76.5
+      },
+      {
+        "imageId": 284698,
+        "model": "picodet",
+        "baseline": 29,
+        "candidate": 29.299999997019768
+      },
+      {
+        "imageId": 284698,
+        "model": "ppyoloe",
+        "baseline": 73.5,
+        "candidate": 65.80000001192093
+      },
+      {
+        "imageId": 166563,
+        "model": "picodet",
+        "candidate": 28.19999998807907,
+        "baseline": 27.80000001192093
+      },
+      {
+        "imageId": 166563,
+        "model": "ppyoloe",
+        "candidate": 61.29999999701977,
+        "baseline": 63.599999994039536
+      },
+      {
+        "imageId": 105264,
+        "model": "picodet",
+        "baseline": 40.70000000298023,
+        "candidate": 38.70000000298023
+      },
+      {
+        "imageId": 105264,
+        "model": "ppyoloe",
+        "baseline": 68.59999999403954,
+        "candidate": 62.70000000298023
+      },
+      {
+        "imageId": 479099,
+        "model": "picodet",
+        "candidate": 32.6000000089407,
+        "baseline": 32.29999999701977
+      },
+      {
+        "imageId": 479099,
+        "model": "ppyoloe",
+        "candidate": 64.5,
+        "baseline": 64.90000000596046
+      },
+      {
+        "imageId": 541123,
+        "model": "picodet",
+        "baseline": 39.5,
+        "candidate": 30.200000002980232
+      },
+      {
+        "imageId": 541123,
+        "model": "ppyoloe",
+        "baseline": 69.09999999403954,
+        "candidate": 61.099999994039536
+      },
+      {
+        "imageId": 287874,
+        "model": "picodet",
+        "candidate": 30,
+        "baseline": 29.599999994039536
+      },
+      {
+        "imageId": 287874,
+        "model": "ppyoloe",
+        "candidate": 70.20000000298023,
+        "baseline": 61.900000005960464
+      },
+      {
+        "imageId": 492992,
+        "model": "picodet",
+        "baseline": 38,
+        "candidate": 37.099999994039536
+      },
+      {
+        "imageId": 492992,
+        "model": "ppyoloe",
+        "baseline": 77.30000001192093,
+        "candidate": 76.70000000298023
+      },
+      {
+        "imageId": 483999,
+        "model": "picodet",
+        "candidate": 34.599999994039536,
+        "baseline": 42.29999999701977
+      },
+      {
+        "imageId": 483999,
+        "model": "ppyoloe",
+        "candidate": 60.6000000089407,
+        "baseline": 69
+      },
+      {
+        "imageId": 236592,
+        "model": "picodet",
+        "baseline": 32.599999994039536,
+        "candidate": 33.6000000089407
+      },
+      {
+        "imageId": 236592,
+        "model": "ppyoloe",
+        "baseline": 66,
+        "candidate": 63.70000000298023
+      },
+      {
+        "imageId": 368212,
+        "model": "picodet",
+        "candidate": 39,
+        "baseline": 40.20000000298023
+      },
+      {
+        "imageId": 368212,
+        "model": "ppyoloe",
+        "candidate": 76.3999999910593,
+        "baseline": 76.29999999701977
+      },
+      {
+        "imageId": 341828,
+        "model": "picodet",
+        "baseline": 44.5,
+        "candidate": 39.099999994039536
+      },
+      {
+        "imageId": 341828,
+        "model": "ppyoloe",
+        "baseline": 78,
+        "candidate": 82.5
+      },
+      {
+        "imageId": 459195,
+        "model": "picodet",
+        "candidate": 24.899999991059303,
+        "baseline": 27.200000002980232
+      },
+      {
+        "imageId": 459195,
+        "model": "ppyoloe",
+        "candidate": 63,
+        "baseline": 65.5
+      },
+      {
+        "imageId": 376900,
+        "model": "picodet",
+        "baseline": 38.29999999701977,
+        "candidate": 38.20000000298023
+      },
+      {
+        "imageId": 376900,
+        "model": "ppyoloe",
+        "baseline": 77,
+        "candidate": 77.90000000596046
+      },
+      {
+        "imageId": 173091,
+        "model": "picodet",
+        "candidate": 39.599999994039536,
+        "baseline": 39.6000000089407
+      },
+      {
+        "imageId": 173091,
+        "model": "ppyoloe",
+        "candidate": 76.8999999910593,
+        "baseline": 75.80000001192093
+      },
+      {
+        "imageId": 60823,
+        "model": "picodet",
+        "baseline": 31.5,
+        "candidate": 31.399999991059303
+      },
+      {
+        "imageId": 60823,
+        "model": "ppyoloe",
+        "baseline": 72.20000000298023,
+        "candidate": 64.70000000298023
+      },
+      {
+        "imageId": 256868,
+        "model": "picodet",
+        "candidate": 31,
+        "baseline": 28.19999998807907
+      },
+      {
+        "imageId": 256868,
+        "model": "ppyoloe",
+        "candidate": 60.70000000298023,
+        "baseline": 59.6000000089407
+      },
+      {
+        "imageId": 386879,
+        "model": "picodet",
+        "baseline": 37.20000000298023,
+        "candidate": 40.6000000089407
+      },
+      {
+        "imageId": 386879,
+        "model": "ppyoloe",
+        "baseline": 81.69999998807907,
+        "candidate": 82.30000001192093
+      },
+      {
+        "imageId": 546219,
+        "model": "picodet",
+        "candidate": 29.599999994039536,
+        "baseline": 28.400000005960464
+      },
+      {
+        "imageId": 546219,
+        "model": "ppyoloe",
+        "candidate": 63.69999998807907,
+        "baseline": 65.90000000596046
+      },
+      {
+        "imageId": 228436,
+        "model": "picodet",
+        "baseline": 31.5,
+        "candidate": 31.299999997019768
+      },
+      {
+        "imageId": 228436,
+        "model": "ppyoloe",
+        "baseline": 66.09999999403954,
+        "candidate": 64.79999999701977
+      },
+      {
+        "imageId": 125072,
+        "model": "picodet",
+        "candidate": 21.69999998807907,
+        "baseline": 22.700000002980232
+      },
+      {
+        "imageId": 125072,
+        "model": "ppyoloe",
+        "candidate": 56.6000000089407,
+        "baseline": 55.3999999910593
+      },
+      {
+        "imageId": 458325,
+        "model": "picodet",
+        "baseline": 28.700000002980232,
+        "candidate": 28.200000002980232
+      },
+      {
+        "imageId": 458325,
+        "model": "ppyoloe",
+        "baseline": 60.29999999701977,
+        "candidate": 60.900000005960464
+      },
+      {
+        "imageId": 208423,
+        "model": "picodet",
+        "candidate": 31.599999994039536,
+        "baseline": 31
+      },
+      {
+        "imageId": 208423,
+        "model": "ppyoloe",
+        "candidate": 65.5,
+        "baseline": 64.59999999403954
+      },
+      {
+        "imageId": 119516,
+        "model": "picodet",
+        "baseline": 29.200000002980232,
+        "candidate": 31
+      },
+      {
+        "imageId": 119516,
+        "model": "ppyoloe",
+        "baseline": 60.3999999910593,
+        "candidate": 67.70000000298023
+      },
+      {
+        "imageId": 269866,
+        "model": "picodet",
+        "candidate": 29,
+        "baseline": 28.700000002980232
+      },
+      {
+        "imageId": 269866,
+        "model": "ppyoloe",
+        "candidate": 62,
+        "baseline": 61.099999994039536
+      },
+      {
+        "imageId": 527960,
+        "model": "picodet",
+        "baseline": 29.5,
+        "candidate": 30.600000008940697
+      },
+      {
+        "imageId": 527960,
+        "model": "ppyoloe",
+        "baseline": 59.79999999701977,
+        "candidate": 62.70000000298023
+      },
+      {
+        "imageId": 570456,
+        "model": "picodet",
+        "candidate": 31.69999998807907,
+        "baseline": 33.1000000089407
+      },
+      {
+        "imageId": 570456,
+        "model": "ppyoloe",
+        "candidate": 63.79999999701977,
+        "baseline": 64.90000000596046
+      },
+      {
+        "imageId": 134322,
+        "model": "picodet",
+        "baseline": 31.399999991059303,
+        "candidate": 31.100000008940697
+      },
+      {
+        "imageId": 134322,
+        "model": "ppyoloe",
+        "baseline": 63.8999999910593,
+        "candidate": 69
+      },
+      {
+        "imageId": 481386,
+        "model": "picodet",
+        "candidate": 37.400000005960464,
+        "baseline": 37.79999999701977
+      },
+      {
+        "imageId": 481386,
+        "model": "ppyoloe",
+        "candidate": 76.59999999403954,
+        "baseline": 85.40000000596046
+      },
+      {
+        "imageId": 376093,
+        "model": "picodet",
+        "baseline": 31.700000002980232,
+        "candidate": 32
+      },
+      {
+        "imageId": 376093,
+        "model": "ppyoloe",
+        "baseline": 64.70000000298023,
+        "candidate": 66.3999999910593
+      },
+      {
+        "imageId": 529568,
+        "model": "picodet",
+        "candidate": 37.5,
+        "baseline": 37.29999999701977
+      },
+      {
+        "imageId": 529568,
+        "model": "ppyoloe",
+        "candidate": 77.1000000089407,
+        "baseline": 81.5
+      },
+      {
+        "imageId": 276720,
+        "model": "picodet",
+        "baseline": 31,
+        "candidate": 31.30000001192093
+      },
+      {
+        "imageId": 276720,
+        "model": "ppyoloe",
+        "baseline": 65.19999998807907,
+        "candidate": 68.1000000089407
+      },
+      {
+        "imageId": 129756,
+        "model": "picodet",
+        "candidate": 31.80000001192093,
+        "baseline": 31
+      },
+      {
+        "imageId": 129756,
+        "model": "ppyoloe",
+        "candidate": 65.09999999403954,
+        "baseline": 64.5
+      },
+      {
+        "imageId": 472623,
+        "model": "picodet",
+        "baseline": 38,
+        "candidate": 38.400000005960464
+      },
+      {
+        "imageId": 472623,
+        "model": "ppyoloe",
+        "baseline": 76.59999999403954,
+        "candidate": 77.59999999403954
+      },
+      {
+        "imageId": 276024,
+        "model": "picodet",
+        "candidate": 30.900000005960464,
+        "baseline": 31.299999997019768
+      },
+      {
+        "imageId": 276024,
+        "model": "ppyoloe",
+        "candidate": 66,
+        "baseline": 72
+      },
+      {
+        "imageId": 269942,
+        "model": "picodet",
+        "baseline": 39.8999999910593,
+        "candidate": 38.80000001192093
+      },
+      {
+        "imageId": 269942,
+        "model": "ppyoloe",
+        "baseline": 81.5,
+        "candidate": 80.19999998807907
+      },
+      {
+        "imageId": 493334,
+        "model": "picodet",
+        "candidate": 23.799999997019768,
+        "baseline": 23.599999994039536
+      },
+      {
+        "imageId": 493334,
+        "model": "ppyoloe",
+        "candidate": 51.5,
+        "baseline": 56.1000000089407
+      },
+      {
+        "imageId": 318455,
+        "model": "picodet",
+        "baseline": 32.8999999910593,
+        "candidate": 37.6000000089407
+      },
+      {
+        "imageId": 318455,
+        "model": "ppyoloe",
+        "baseline": 63.79999999701977,
+        "candidate": 64
+      },
+      {
+        "imageId": 200152,
+        "model": "picodet",
+        "candidate": 28.600000008940697,
+        "baseline": 28.5
+      },
+      {
+        "imageId": 200152,
+        "model": "ppyoloe",
+        "candidate": 59.79999999701977,
+        "baseline": 60.599999994039536
+      },
+      {
+        "imageId": 511398,
+        "model": "picodet",
+        "baseline": 29.299999997019768,
+        "candidate": 28.400000005960464
+      },
+      {
+        "imageId": 511398,
+        "model": "ppyoloe",
+        "baseline": 60.79999999701977,
+        "candidate": 64.5
+      },
+      {
+        "imageId": 352760,
+        "model": "picodet",
+        "candidate": 39.3999999910593,
+        "baseline": 38.70000000298023
+      },
+      {
+        "imageId": 352760,
+        "model": "ppyoloe",
+        "candidate": 81.29999999701977,
+        "baseline": 77.6000000089407
+      },
+      {
+        "imageId": 27186,
+        "model": "picodet",
+        "baseline": 28.900000005960464,
+        "candidate": 28.200000002980232
+      },
+      {
+        "imageId": 27186,
+        "model": "ppyoloe",
+        "baseline": 60.3999999910593,
+        "candidate": 60.29999999701977
+      },
+      {
+        "imageId": 204871,
+        "model": "picodet",
+        "candidate": 40.20000000298023,
+        "baseline": 39.29999999701977
+      },
+      {
+        "imageId": 204871,
+        "model": "ppyoloe",
+        "candidate": 74.5,
+        "baseline": 77
+      },
+      {
+        "imageId": 426372,
+        "model": "picodet",
+        "baseline": 31.400000005960464,
+        "candidate": 28.5
+      },
+      {
+        "imageId": 426372,
+        "model": "ppyoloe",
+        "baseline": 60,
+        "candidate": 61.20000000298023
+      },
+      {
+        "imageId": 209142,
+        "model": "picodet",
+        "candidate": 28.099999994039536,
+        "baseline": 28
+      },
+      {
+        "imageId": 209142,
+        "model": "ppyoloe",
+        "candidate": 73.40000000596046,
+        "baseline": 60.5
+      },
+      {
+        "imageId": 203629,
+        "model": "picodet",
+        "baseline": 28.399999991059303,
+        "candidate": 28.80000001192093
+      },
+      {
+        "imageId": 203629,
+        "model": "ppyoloe",
+        "baseline": 67.59999999403954,
+        "candidate": 59.900000005960464
+      },
+      {
+        "imageId": 27932,
+        "model": "picodet",
+        "candidate": 19.599999994039536,
+        "baseline": 23.30000001192093
+      },
+      {
+        "imageId": 27932,
+        "model": "ppyoloe",
+        "candidate": 64.79999999701977,
+        "baseline": 51.5
+      },
+      {
+        "imageId": 360951,
+        "model": "picodet",
+        "baseline": 29.5,
+        "candidate": 28.599999994039536
+      },
+      {
+        "imageId": 360951,
+        "model": "ppyoloe",
+        "baseline": 60.5,
+        "candidate": 59.70000000298023
+      },
+      {
+        "imageId": 543300,
+        "model": "picodet",
+        "candidate": 32.30000001192093,
+        "baseline": 41
+      },
+      {
+        "imageId": 543300,
+        "model": "ppyoloe",
+        "candidate": 73,
+        "baseline": 67.59999999403954
+      },
+      {
+        "imageId": 562818,
+        "model": "picodet",
+        "baseline": 31.099999994039536,
+        "candidate": 30.799999997019768
+      },
+      {
+        "imageId": 562818,
+        "model": "ppyoloe",
+        "baseline": 63.80000001192093,
+        "candidate": 68.59999999403954
+      },
+      {
+        "imageId": 356094,
+        "model": "picodet",
+        "candidate": 26.200000002980232,
+        "baseline": 26.5
+      },
+      {
+        "imageId": 356094,
+        "model": "ppyoloe",
+        "candidate": 57.400000005960464,
+        "baseline": 65
+      },
+      {
+        "imageId": 377497,
+        "model": "picodet",
+        "baseline": 37.30000001192093,
+        "candidate": 39.5
+      },
+      {
+        "imageId": 377497,
+        "model": "ppyoloe",
+        "baseline": 76.59999999403954,
+        "candidate": 77.20000000298023
+      },
+      {
+        "imageId": 238410,
+        "model": "picodet",
+        "candidate": 31.099999994039536,
+        "baseline": 31.30000001192093
+      },
+      {
+        "imageId": 238410,
+        "model": "ppyoloe",
+        "candidate": 63.79999999701977,
+        "baseline": 63.3999999910593
+      },
+      {
+        "imageId": 119641,
+        "model": "picodet",
+        "baseline": 31.200000002980232,
+        "candidate": 31.399999991059303
+      },
+      {
+        "imageId": 119641,
+        "model": "ppyoloe",
+        "baseline": 63.6000000089407,
+        "candidate": 64.8999999910593
+      }
+    ],
+    [
+      {
+        "imageId": 270244,
+        "model": "picodet",
+        "baseline": 29.200000002980232,
+        "candidate": 28.5
+      },
+      {
+        "imageId": 270244,
+        "model": "ppyoloe",
+        "baseline": 60,
+        "candidate": 71.40000000596046
+      },
+      {
+        "imageId": 438862,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 28.700000002980232
+      },
+      {
+        "imageId": 438862,
+        "model": "ppyoloe",
+        "candidate": 60.79999999701977,
+        "baseline": 85.09999999403954
+      },
+      {
+        "imageId": 212166,
+        "model": "picodet",
+        "baseline": 60,
+        "candidate": 56.29999999701977
+      },
+      {
+        "imageId": 212166,
+        "model": "ppyoloe",
+        "baseline": 95.70000000298023,
+        "candidate": 92.8999999910593
+      },
+      {
+        "imageId": 486479,
+        "model": "picodet",
+        "candidate": 28.599999994039536,
+        "baseline": 24.600000008940697
+      },
+      {
+        "imageId": 486479,
+        "model": "ppyoloe",
+        "candidate": 56.5,
+        "baseline": 63.19999998807907
+      },
+      {
+        "imageId": 439854,
+        "model": "picodet",
+        "baseline": 24.5,
+        "candidate": 23.299999997019768
+      },
+      {
+        "imageId": 439854,
+        "model": "ppyoloe",
+        "baseline": 53.400000005960464,
+        "candidate": 52.70000000298023
+      },
+      {
+        "imageId": 227478,
+        "model": "picodet",
+        "candidate": 32.20000000298023,
+        "baseline": 33.599999994039536
+      },
+      {
+        "imageId": 227478,
+        "model": "ppyoloe",
+        "candidate": 70.70000000298023,
+        "baseline": 71.5
+      },
+      {
+        "imageId": 250282,
+        "model": "picodet",
+        "baseline": 30.599999994039536,
+        "candidate": 32
+      },
+      {
+        "imageId": 250282,
+        "model": "ppyoloe",
+        "baseline": 74,
+        "candidate": 60.400000005960464
+      },
+      {
+        "imageId": 235836,
+        "model": "picodet",
+        "candidate": 37.900000005960464,
+        "baseline": 39.5
+      },
+      {
+        "imageId": 235836,
+        "model": "ppyoloe",
+        "candidate": 86,
+        "baseline": 76.09999999403954
+      },
+      {
+        "imageId": 497599,
+        "model": "picodet",
+        "baseline": 36.5,
+        "candidate": 37.1000000089407
+      },
+      {
+        "imageId": 497599,
+        "model": "ppyoloe",
+        "baseline": 77.29999999701977,
+        "candidate": 77.59999999403954
+      },
+      {
+        "imageId": 10977,
+        "model": "picodet",
+        "candidate": 24,
+        "baseline": 24.099999994039536
+      },
+      {
+        "imageId": 10977,
+        "model": "ppyoloe",
+        "candidate": 55.400000005960464,
+        "baseline": 55.8999999910593
+      },
+      {
+        "imageId": 26690,
+        "model": "picodet",
+        "baseline": 37.70000000298023,
+        "candidate": 36.900000005960464
+      },
+      {
+        "imageId": 26690,
+        "model": "ppyoloe",
+        "baseline": 82.79999999701977,
+        "candidate": 78.29999999701977
+      },
+      {
+        "imageId": 284698,
+        "model": "picodet",
+        "candidate": 34.30000001192093,
+        "baseline": 34.599999994039536
+      },
+      {
+        "imageId": 284698,
+        "model": "ppyoloe",
+        "candidate": 70.5,
+        "baseline": 67.59999999403954
+      },
+      {
+        "imageId": 166563,
+        "model": "picodet",
+        "baseline": 27.799999997019768,
+        "candidate": 28.100000008940697
+      },
+      {
+        "imageId": 166563,
+        "model": "ppyoloe",
+        "baseline": 62.79999999701977,
+        "candidate": 59.099999994039536
+      },
+      {
+        "imageId": 105264,
+        "model": "picodet",
+        "candidate": 28.799999997019768,
+        "baseline": 28.700000002980232
+      },
+      {
+        "imageId": 105264,
+        "model": "ppyoloe",
+        "candidate": 59.5,
+        "baseline": 65.59999999403954
+      },
+      {
+        "imageId": 479099,
+        "model": "picodet",
+        "baseline": 31.600000008940697,
+        "candidate": 31
+      },
+      {
+        "imageId": 479099,
+        "model": "ppyoloe",
+        "baseline": 64.70000000298023,
+        "candidate": 64
+      },
+      {
+        "imageId": 541123,
+        "model": "picodet",
+        "candidate": 29.099999994039536,
+        "baseline": 28.799999997019768
+      },
+      {
+        "imageId": 541123,
+        "model": "ppyoloe",
+        "candidate": 66.29999999701977,
+        "baseline": 62
+      },
+      {
+        "imageId": 287874,
+        "model": "picodet",
+        "baseline": 28.799999997019768,
+        "candidate": 34.20000000298023
+      },
+      {
+        "imageId": 287874,
+        "model": "ppyoloe",
+        "baseline": 66.29999999701977,
+        "candidate": 62.79999999701977
+      },
+      {
+        "imageId": 492992,
+        "model": "picodet",
+        "candidate": 38.3999999910593,
+        "baseline": 36.70000000298023
+      },
+      {
+        "imageId": 492992,
+        "model": "ppyoloe",
+        "candidate": 76.5,
+        "baseline": 78.40000000596046
+      },
+      {
+        "imageId": 483999,
+        "model": "picodet",
+        "baseline": 28.5,
+        "candidate": 28.5
+      },
+      {
+        "imageId": 483999,
+        "model": "ppyoloe",
+        "baseline": 60.6000000089407,
+        "candidate": 62.099999994039536
+      },
+      {
+        "imageId": 236592,
+        "model": "picodet",
+        "candidate": 31.700000002980232,
+        "baseline": 31.299999997019768
+      },
+      {
+        "imageId": 236592,
+        "model": "ppyoloe",
+        "candidate": 64.5,
+        "baseline": 71.29999999701977
+      },
+      {
+        "imageId": 368212,
+        "model": "picodet",
+        "baseline": 37.19999998807907,
+        "candidate": 38
+      },
+      {
+        "imageId": 368212,
+        "model": "ppyoloe",
+        "baseline": 83.70000000298023,
+        "candidate": 82.69999998807907
+      },
+      {
+        "imageId": 341828,
+        "model": "picodet",
+        "candidate": 46.5,
+        "baseline": 44.79999999701977
+      },
+      {
+        "imageId": 341828,
+        "model": "ppyoloe",
+        "candidate": 75.90000000596046,
+        "baseline": 77.8999999910593
+      },
+      {
+        "imageId": 459195,
+        "model": "picodet",
+        "baseline": 23.80000001192093,
+        "candidate": 25.599999994039536
+      },
+      {
+        "imageId": 459195,
+        "model": "ppyoloe",
+        "baseline": 66,
+        "candidate": 55.5
+      },
+      {
+        "imageId": 376900,
+        "model": "picodet",
+        "candidate": 37.400000005960464,
+        "baseline": 37.5
+      },
+      {
+        "imageId": 376900,
+        "model": "ppyoloe",
+        "candidate": 76.19999998807907,
+        "baseline": 75.40000000596046
+      },
+      {
+        "imageId": 173091,
+        "model": "picodet",
+        "baseline": 40,
+        "candidate": 38.79999999701977
+      },
+      {
+        "imageId": 173091,
+        "model": "ppyoloe",
+        "baseline": 81,
+        "candidate": 96.29999999701977
+      },
+      {
+        "imageId": 60823,
+        "model": "picodet",
+        "candidate": 33.400000005960464,
+        "baseline": 34.5
+      },
+      {
+        "imageId": 60823,
+        "model": "ppyoloe",
+        "candidate": 77.90000000596046,
+        "baseline": 70
+      },
+      {
+        "imageId": 256868,
+        "model": "picodet",
+        "baseline": 33,
+        "candidate": 34.79999999701977
+      },
+      {
+        "imageId": 256868,
+        "model": "ppyoloe",
+        "baseline": 61.400000005960464,
+        "candidate": 62.599999994039536
+      },
+      {
+        "imageId": 386879,
+        "model": "picodet",
+        "candidate": 37.20000000298023,
+        "baseline": 37.19999998807907
+      },
+      {
+        "imageId": 386879,
+        "model": "ppyoloe",
+        "candidate": 85.40000000596046,
+        "baseline": 84.90000000596046
+      },
+      {
+        "imageId": 546219,
+        "model": "picodet",
+        "baseline": 29,
+        "candidate": 29.299999997019768
+      },
+      {
+        "imageId": 546219,
+        "model": "ppyoloe",
+        "baseline": 60.20000000298023,
+        "candidate": 60.400000005960464
+      },
+      {
+        "imageId": 228436,
+        "model": "picodet",
+        "candidate": 38.20000000298023,
+        "baseline": 31.700000002980232
+      },
+      {
+        "imageId": 228436,
+        "model": "ppyoloe",
+        "candidate": 86.09999999403954,
+        "baseline": 77.90000000596046
+      },
+      {
+        "imageId": 125072,
+        "model": "picodet",
+        "baseline": 30.299999997019768,
+        "candidate": 30.399999991059303
+      },
+      {
+        "imageId": 125072,
+        "model": "ppyoloe",
+        "baseline": 55.1000000089407,
+        "candidate": 54.20000000298023
+      },
+      {
+        "imageId": 458325,
+        "model": "picodet",
+        "candidate": 30.700000002980232,
+        "baseline": 29.299999997019768
+      },
+      {
+        "imageId": 458325,
+        "model": "ppyoloe",
+        "candidate": 70.70000000298023,
+        "baseline": 79.29999999701977
+      },
+      {
+        "imageId": 208423,
+        "model": "picodet",
+        "baseline": 33.20000000298023,
+        "candidate": 37.79999999701977
+      },
+      {
+        "imageId": 208423,
+        "model": "ppyoloe",
+        "baseline": 75.5,
+        "candidate": 76.1000000089407
+      },
+      {
+        "imageId": 119516,
+        "model": "picodet",
+        "candidate": 32.29999999701977,
+        "baseline": 33
+      },
+      {
+        "imageId": 119516,
+        "model": "ppyoloe",
+        "candidate": 68.1000000089407,
+        "baseline": 66.8999999910593
+      },
+      {
+        "imageId": 269866,
+        "model": "picodet",
+        "baseline": 37.69999998807907,
+        "candidate": 36.70000000298023
+      },
+      {
+        "imageId": 269866,
+        "model": "ppyoloe",
+        "baseline": 88.5,
+        "candidate": 101.8999999910593
+      },
+      {
+        "imageId": 527960,
+        "model": "picodet",
+        "candidate": 30.299999997019768,
+        "baseline": 33.70000000298023
+      },
+      {
+        "imageId": 527960,
+        "model": "ppyoloe",
+        "candidate": 76.20000000298023,
+        "baseline": 74.5
+      },
+      {
+        "imageId": 570456,
+        "model": "picodet",
+        "baseline": 42.5,
+        "candidate": 37.099999994039536
+      },
+      {
+        "imageId": 570456,
+        "model": "ppyoloe",
+        "baseline": 70.29999999701977,
+        "candidate": 66.5
+      },
+      {
+        "imageId": 134322,
+        "model": "picodet",
+        "candidate": 35.599999994039536,
+        "baseline": 36
+      },
+      {
+        "imageId": 134322,
+        "model": "ppyoloe",
+        "candidate": 78.40000000596046,
+        "baseline": 72.29999999701977
+      },
+      {
+        "imageId": 481386,
+        "model": "picodet",
+        "baseline": 40.79999999701977,
+        "candidate": 42.20000000298023
+      },
+      {
+        "imageId": 481386,
+        "model": "ppyoloe",
+        "baseline": 91.09999999403954,
+        "candidate": 93.90000000596046
+      },
+      {
+        "imageId": 376093,
+        "model": "picodet",
+        "candidate": 50.5,
+        "baseline": 34.6000000089407
+      },
+      {
+        "imageId": 376093,
+        "model": "ppyoloe",
+        "candidate": 68.79999999701977,
+        "baseline": 67.3999999910593
+      },
+      {
+        "imageId": 529568,
+        "model": "picodet",
+        "baseline": 49,
+        "candidate": 40.5
+      },
+      {
+        "imageId": 529568,
+        "model": "ppyoloe",
+        "baseline": 105.8999999910593,
+        "candidate": 84.79999999701977
+      },
+      {
+        "imageId": 276720,
+        "model": "picodet",
+        "candidate": 35.19999998807907,
+        "baseline": 31.5
+      },
+      {
+        "imageId": 276720,
+        "model": "ppyoloe",
+        "candidate": 70.30000001192093,
+        "baseline": 85.5
+      },
+      {
+        "imageId": 129756,
+        "model": "picodet",
+        "baseline": 32.20000000298023,
+        "candidate": 36.79999999701977
+      },
+      {
+        "imageId": 129756,
+        "model": "ppyoloe",
+        "baseline": 70.40000000596046,
+        "candidate": 78.79999999701977
+      },
+      {
+        "imageId": 472623,
+        "model": "picodet",
+        "candidate": 39.5,
+        "baseline": 59.29999999701977
+      },
+      {
+        "imageId": 472623,
+        "model": "ppyoloe",
+        "candidate": 84.6000000089407,
+        "baseline": 84.19999998807907
+      },
+      {
+        "imageId": 276024,
+        "model": "picodet",
+        "baseline": 31.299999997019768,
+        "candidate": 32.099999994039536
+      },
+      {
+        "imageId": 276024,
+        "model": "ppyoloe",
+        "baseline": 91.1000000089407,
+        "candidate": 77.70000000298023
+      },
+      {
+        "imageId": 269942,
+        "model": "picodet",
+        "candidate": 50.8999999910593,
+        "baseline": 41.79999999701977
+      },
+      {
+        "imageId": 269942,
+        "model": "ppyoloe",
+        "candidate": 84.40000000596046,
+        "baseline": 88.20000000298023
+      },
+      {
+        "imageId": 493334,
+        "model": "picodet",
+        "baseline": 25.200000002980232,
+        "candidate": 25.700000002980232
+      },
+      {
+        "imageId": 493334,
+        "model": "ppyoloe",
+        "baseline": 60.599999994039536,
+        "candidate": 61.80000001192093
+      },
+      {
+        "imageId": 318455,
+        "model": "picodet",
+        "candidate": 32.70000000298023,
+        "baseline": 33.599999994039536
+      },
+      {
+        "imageId": 318455,
+        "model": "ppyoloe",
+        "candidate": 87.20000000298023,
+        "baseline": 66.59999999403954
+      },
+      {
+        "imageId": 200152,
+        "model": "picodet",
+        "baseline": 28.900000005960464,
+        "candidate": 35.70000000298023
+      },
+      {
+        "imageId": 200152,
+        "model": "ppyoloe",
+        "baseline": 61,
+        "candidate": 62.19999998807907
+      },
+      {
+        "imageId": 511398,
+        "model": "picodet",
+        "candidate": 35.900000005960464,
+        "baseline": 39.599999994039536
+      },
+      {
+        "imageId": 511398,
+        "model": "ppyoloe",
+        "candidate": 70.70000000298023,
+        "baseline": 81.59999999403954
+      },
+      {
+        "imageId": 352760,
+        "model": "picodet",
+        "baseline": 52.29999999701977,
+        "candidate": 56.900000005960464
+      },
+      {
+        "imageId": 352760,
+        "model": "ppyoloe",
+        "baseline": 81.70000000298023,
+        "candidate": 77.29999999701977
+      },
+      {
+        "imageId": 27186,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 28.5
+      },
+      {
+        "imageId": 27186,
+        "model": "ppyoloe",
+        "candidate": 70,
+        "baseline": 60.79999999701977
+      },
+      {
+        "imageId": 204871,
+        "model": "picodet",
+        "baseline": 46.5,
+        "candidate": 40.900000005960464
+      },
+      {
+        "imageId": 204871,
+        "model": "ppyoloe",
+        "baseline": 74.79999999701977,
+        "candidate": 74.40000000596046
+      },
+      {
+        "imageId": 426372,
+        "model": "picodet",
+        "candidate": 28.400000005960464,
+        "baseline": 28.599999994039536
+      },
+      {
+        "imageId": 426372,
+        "model": "ppyoloe",
+        "candidate": 63.70000000298023,
+        "baseline": 60.900000005960464
+      },
+      {
+        "imageId": 209142,
+        "model": "picodet",
+        "baseline": 28.5,
+        "candidate": 31.30000001192093
+      },
+      {
+        "imageId": 209142,
+        "model": "ppyoloe",
+        "baseline": 62.099999994039536,
+        "candidate": 64.59999999403954
+      },
+      {
+        "imageId": 203629,
+        "model": "picodet",
+        "candidate": 29.099999994039536,
+        "baseline": 29
+      },
+      {
+        "imageId": 203629,
+        "model": "ppyoloe",
+        "candidate": 60.1000000089407,
+        "baseline": 60.19999998807907
+      },
+      {
+        "imageId": 27932,
+        "model": "picodet",
+        "baseline": 18.900000005960464,
+        "candidate": 19
+      },
+      {
+        "imageId": 27932,
+        "model": "ppyoloe",
+        "baseline": 51.79999999701977,
+        "candidate": 53.599999994039536
+      },
+      {
+        "imageId": 360951,
+        "model": "picodet",
+        "candidate": 28.900000005960464,
+        "baseline": 29.200000002980232
+      },
+      {
+        "imageId": 360951,
+        "model": "ppyoloe",
+        "candidate": 67.29999999701977,
+        "baseline": 60.29999999701977
+      },
+      {
+        "imageId": 543300,
+        "model": "picodet",
+        "baseline": 31.799999997019768,
+        "candidate": 30.799999997019768
+      },
+      {
+        "imageId": 543300,
+        "model": "ppyoloe",
+        "baseline": 63.5,
+        "candidate": 65.20000000298023
+      },
+      {
+        "imageId": 562818,
+        "model": "picodet",
+        "candidate": 31.799999997019768,
+        "baseline": 31.099999994039536
+      },
+      {
+        "imageId": 562818,
+        "model": "ppyoloe",
+        "candidate": 64.80000001192093,
+        "baseline": 71
+      },
+      {
+        "imageId": 356094,
+        "model": "picodet",
+        "baseline": 26.299999997019768,
+        "candidate": 26.899999991059303
+      },
+      {
+        "imageId": 356094,
+        "model": "ppyoloe",
+        "baseline": 57.1000000089407,
+        "candidate": 57.79999999701977
+      },
+      {
+        "imageId": 377497,
+        "model": "picodet",
+        "candidate": 38.099999994039536,
+        "baseline": 36.900000005960464
+      },
+      {
+        "imageId": 377497,
+        "model": "ppyoloe",
+        "candidate": 77,
+        "baseline": 77.5
+      },
+      {
+        "imageId": 238410,
+        "model": "picodet",
+        "baseline": 31.30000001192093,
+        "candidate": 39.5
+      },
+      {
+        "imageId": 238410,
+        "model": "ppyoloe",
+        "baseline": 69.3999999910593,
+        "candidate": 71.5
+      },
+      {
+        "imageId": 119641,
+        "model": "picodet",
+        "candidate": 36.400000005960464,
+        "baseline": 32.599999994039536
+      },
+      {
+        "imageId": 119641,
+        "model": "ppyoloe",
+        "candidate": 63.900000005960464,
+        "baseline": 64.59999999403954
+      }
+    ]
+  ],
+  "summary": {
+    "picodet": {
+      "rounds": [
+        {
+          "baseline": 31.850000001490116,
+          "candidate": 31.5
+        },
+        {
+          "baseline": 31.30000000447035,
+          "candidate": 31.200000002980232
+        },
+        {
+          "baseline": 32,
+          "candidate": 33.80000000447035
+        }
+      ],
+      "baselineMedianMs": 31.850000001490116,
+      "candidateMedianMs": 31.5,
+      "reductionPercent": 1.098901103528227
+    },
+    "ppyoloe": {
+      "rounds": [
+        {
+          "baseline": 65.04999999701977,
+          "candidate": 66.95000000298023
+        },
+        {
+          "baseline": 65.34999999403954,
+          "candidate": 64.84999999403954
+        },
+        {
+          "baseline": 70.35000000149012,
+          "candidate": 70.40000000596046
+        }
+      ],
+      "baselineMedianMs": 65.34999999403954,
+      "candidateMedianMs": 66.95000000298023,
+      "reductionPercent": -2.4483550253812325
+    }
+  },
+  "performanceTargetMet": false
+}

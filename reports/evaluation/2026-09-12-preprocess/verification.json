@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-12",
+  "sdkBundleSha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e",
+  "checks": [
+    {
+      "command": "pnpm lint",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "pnpm test",
+      "status": "passed",
+      "tests": 146,
+      "files": 19
+    },
+    {
+      "command": "pnpm evaluation:test",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "command": "pnpm docs:test",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "command": "pnpm benchmark:test",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "command": "pnpm exec playwright test tests/browser/picodet.spec.ts tests/browser/benchmark-parity.spec.ts tests/browser/runtime.spec.ts --grep-invert @real-model",
+      "status": "passed",
+      "tests": 18,
+      "environment": {
+        "PLAYWRIGHT_BROWSERS_PATH": ".tmp/dependencies-compatible-browsers",
+        "PPDETECTION_REAL_MODEL": "1"
+      },
+      "scope": "真实 PicoDet WASM/WebGPU、确定性 WASM 生命周期及缓存；排除 runtime.spec.ts 中其他模型的历史 @real-model 用例"
+    },
+    {
+      "command": "pnpm build",
+      "status": "passed",
+      "matchesMeasuredBundle": true
+    },
+    {
+      "command": "node .tmp/phase2/check-format.mjs",
+      "status": "passed",
+      "files": 284,
+      "scope": "Git 可见文件，沿用项目 Prettier 配置与忽略规则；避开历史 pytest 目录 ACL"
+    },
+    {
+      "command": "node reports/evaluation/2026-09-12-preprocess/reproduction/bundle.mjs 45cf9be .tmp/preprocess-reproduction-modules",
+      "status": "passed",
+      "scope": "新旧两个模块逐字节匹配测量模块"
+    },
+    {
+      "command": "归档完整性校验",
+      "status": "passed",
+      "scope": "12 轮 runtime 引用的预测条数、压缩 SHA-256 和解压后 SHA-256 均匹配"
+    }
+  ],
+  "review": {
+    "status": "无阻塞问题",
+    "scope": "基线 45cf9be 至本地预处理、测试及 runner 差异的独立只读审查",
+    "remediation": "补充非零 padLeft/padTop 的独立 Pillow 像素断言，未声称峰值内存下降"
+  },
+  "standard": {
+    "before": "standard/before.json",
+    "after": "standard/after.json",
+    "snapshot": "standard/snapshot.json"
+  },
+  "limits": [
+    "仅本机 Windows Chromium 153 验证",
+    "未测小米 15 上本次实现",
+    "未测峰值内存或 Worker 性能",
+    "未推送或发布本次 SDK 改动"
+  ]
+}

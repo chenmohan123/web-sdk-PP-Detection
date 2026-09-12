@@ -118,3 +118,22 @@ test("物理 GPU 判定拒绝回退和已知软件适配器", () => {
     { physical: false, reason: "适配器身份信息不足" }
   );
 });
+test("可指定独立 SDK 构建进行同模型前后对照", () => {
+  const options = parseEvaluationOptions([
+    "--model",
+    "candidate.onnx",
+    "--manifest",
+    "manifest.json",
+    "--annotations",
+    "annotations.json",
+    "--image-root",
+    "images",
+    "--backend",
+    "webgpu",
+    "--output",
+    "result.json",
+    "--sdk-bundle",
+    "baseline/browser-global.js"
+  ]);
+  assert.equal(options.sdkBundle, "baseline/browser-global.js");
+});

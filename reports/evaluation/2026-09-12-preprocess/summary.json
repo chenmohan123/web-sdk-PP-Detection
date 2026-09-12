@@ -1,0 +1,1963 @@
+{
+  "date": "2026-09-12",
+  "baselineCommit": "45cf9be",
+  "scope": "主线程 FP32；每轮 64 图，热值排除首图，三轮时取每轮统计量的中位数；预测按原顺序逐项完全相等。",
+  "runs": {
+    "ppyoloe-webgpu-baseline-1": {
+      "sourceSha256": "2809b8c337b065e45fd81eb819518cd8fcae6192f33ba1d0c1ef254fbb433b76",
+      "runtime": "runtime/ppyoloe-webgpu-baseline-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.354999989271164,
+          "p90": 5.972999995946885
+        },
+        "preprocessMs": {
+          "median": 52.89000000059605,
+          "p90": 74.04500000476837
+        },
+        "inferenceMs": {
+          "median": 50.83499999344349,
+          "p90": 121.25400000214577
+        },
+        "postprocessMs": {
+          "median": 0.7999999970197678,
+          "p90": 1.364000001549721
+        },
+        "totalMs": {
+          "median": 112.71000000834465,
+          "p90": 178.7200000077486
+        }
+      },
+      "sessionMs": 1145.3649999946356,
+      "firstImageMs": 1354.6299999952316
+    },
+    "ppyoloe-webgpu-candidate-1": {
+      "sourceSha256": "f898ba5a6481503ed9cd2386e29af18972b1abf1a6c2fa615260fd610345431b",
+      "runtime": "runtime/ppyoloe-webgpu-candidate-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.419999986886978,
+          "p90": 5.902000001072884
+        },
+        "preprocessMs": {
+          "median": 23.864999994635582,
+          "p90": 39.24500000476839
+        },
+        "inferenceMs": {
+          "median": 49.20500001311302,
+          "p90": 117.36100000143053
+        },
+        "postprocessMs": {
+          "median": 0.7800000011920929,
+          "p90": 1.280000001192093
+        },
+        "totalMs": {
+          "median": 85.25,
+          "p90": 146.63300000429155
+        }
+      },
+      "sessionMs": 1060.6299999952316,
+      "firstImageMs": 1312.6450000107288
+    },
+    "ppyoloe-webgpu-baseline-2": {
+      "sourceSha256": "746eb79c6562c0cbdfa75fe5c8b18f65c8d743317d793f9da597e8f67bf9940d",
+      "runtime": "runtime/ppyoloe-webgpu-baseline-2.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.375,
+          "p90": 6.100000005960465
+        },
+        "preprocessMs": {
+          "median": 56.28000000119209,
+          "p90": 70.79999999701977
+        },
+        "inferenceMs": {
+          "median": 50.44499999284744,
+          "p90": 118.52300000190738
+        },
+        "postprocessMs": {
+          "median": 0.8400000035762787,
+          "p90": 1.2879999935626985
+        },
+        "totalMs": {
+          "median": 113.58499999344349,
+          "p90": 178.11200000047685
+        }
+      },
+      "sessionMs": 1033.015000000596,
+      "firstImageMs": 1347.1600000113249
+    },
+    "ppyoloe-webgpu-candidate-2": {
+      "sourceSha256": "3bf4e5e94c0651b481f65025fe76723460a247ef7df452526bd20705abccc12c",
+      "runtime": "runtime/ppyoloe-webgpu-candidate-2.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.394999995827675,
+          "p90": 6.275999987125397
+        },
+        "preprocessMs": {
+          "median": 24.435000002384186,
+          "p90": 33.71600000560284
+        },
+        "inferenceMs": {
+          "median": 49.95499999821186,
+          "p90": 113.47199999690056
+        },
+        "postprocessMs": {
+          "median": 0.8300000131130219,
+          "p90": 1.2979999989271165
+        },
+        "totalMs": {
+          "median": 84.62000000476837,
+          "p90": 143.05300000607969
+        }
+      },
+      "sessionMs": 1199.0699999928474,
+      "firstImageMs": 1372.330000013113
+    },
+    "ppyoloe-webgpu-baseline-3": {
+      "sourceSha256": "0b202452d876cb2e8946f6388f96aa86626371bc5f33f2f264ef6ee8b367db62",
+      "runtime": "runtime/ppyoloe-webgpu-baseline-3.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.319999992847443,
+          "p90": 5.867000004649163
+        },
+        "preprocessMs": {
+          "median": 52.25499999523163,
+          "p90": 69.67200000286103
+        },
+        "inferenceMs": {
+          "median": 51.53499999642372,
+          "p90": 124.75400000214582
+        },
+        "postprocessMs": {
+          "median": 0.7950000017881393,
+          "p90": 1.4899999946355822
+        },
+        "totalMs": {
+          "median": 119.9750000089407,
+          "p90": 184.19100000262262
+        }
+      },
+      "sessionMs": 1174.6949999928474,
+      "firstImageMs": 1436.3699999898672
+    },
+    "ppyoloe-webgpu-candidate-3": {
+      "sourceSha256": "5a7f882056af4fd8fc8156cd88ee4eb6f359ef392b412a5390807c1ad8cda6be",
+      "runtime": "runtime/ppyoloe-webgpu-candidate-3.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.4100000113248825,
+          "p90": 6.038000002503396
+        },
+        "preprocessMs": {
+          "median": 24.094999998807907,
+          "p90": 32.77400000095368
+        },
+        "inferenceMs": {
+          "median": 48.644999995827675,
+          "p90": 118.08100000619889
+        },
+        "postprocessMs": {
+          "median": 0.7549999952316284,
+          "p90": 1.3009999930858613
+        },
+        "totalMs": {
+          "median": 81.56500001251698,
+          "p90": 148.45699999928473
+        }
+      },
+      "sessionMs": 1075.5750000029802,
+      "firstImageMs": 1503.9449999928474
+    },
+    "ppyoloe-wasm-baseline-1": {
+      "sourceSha256": "f80c5be703bc8051a7d54adeea84759d3f892c73db1a0c6aa0bc49170ce15e03",
+      "runtime": "runtime/ppyoloe-wasm-baseline-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/1ff864ca8d25e48cd54be575bde4c2cd7da395a67c312dda98c7e492ef50b449.json.gz",
+        "jsonSha256": "1ff864ca8d25e48cd54be575bde4c2cd7da395a67c312dda98c7e492ef50b449",
+        "gzipSha256": "780e18f85d9871700937674e585b57b7d3f971dbe4a0547bff14ba16e55e34c7",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.429999992251396,
+          "p90": 6.276000007987023
+        },
+        "preprocessMs": {
+          "median": 50.04999999701977,
+          "p90": 60.00599999427796
+        },
+        "inferenceMs": {
+          "median": 847.0699999928474,
+          "p90": 914.6400000065565
+        },
+        "postprocessMs": {
+          "median": 0.7549999952316284,
+          "p90": 1.521999999880791
+        },
+        "totalMs": {
+          "median": 903.9050000011921,
+          "p90": 971.3100000023842
+        }
+      },
+      "sessionMs": 448.56999999284744,
+      "firstImageMs": 981.25
+    },
+    "ppyoloe-wasm-candidate-1": {
+      "sourceSha256": "23835bf6f88a6423e1fc8deac2230127a880f4e256017ca0695e7be51826b2be",
+      "runtime": "runtime/ppyoloe-wasm-candidate-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+          "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+        },
+        "model": {
+          "bytes": 31954220,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/1ff864ca8d25e48cd54be575bde4c2cd7da395a67c312dda98c7e492ef50b449.json.gz",
+        "jsonSha256": "1ff864ca8d25e48cd54be575bde4c2cd7da395a67c312dda98c7e492ef50b449",
+        "gzipSha256": "780e18f85d9871700937674e585b57b7d3f971dbe4a0547bff14ba16e55e34c7",
+        "count": 19200
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.43426535438809466,
+          "AP50": 0.621071429526277,
+          "AP75": 0.4610334915172564,
+          "APSmall": 0.269684903571951,
+          "APMedium": 0.5612572286136099,
+          "APLarge": 0.720772546008972,
+          "AR1": 0.3186577898780519,
+          "AR10": 0.5400229630312078,
+          "AR100": 0.5817798648291181
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 19200,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.450000002980232,
+          "p90": 6.194000008702278
+        },
+        "preprocessMs": {
+          "median": 24.769999995827675,
+          "p90": 32.097999995946886
+        },
+        "inferenceMs": {
+          "median": 860.4099999964237,
+          "p90": 980.9899999946356
+        },
+        "postprocessMs": {
+          "median": 0.989999994635582,
+          "p90": 2.090000000596047
+        },
+        "totalMs": {
+          "median": 892.1200000047684,
+          "p90": 1008.9379999995232
+        }
+      },
+      "sessionMs": 414.35999999940395,
+      "firstImageMs": 920.875
+    },
+    "picodet-webgpu-baseline-1": {
+      "sourceSha256": "990de40a603fdc6cec4aa841c58e17ab884943f753fa4a035285b007a639c8b5",
+      "runtime": "runtime/picodet-webgpu-baseline-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\manifest.json",
+          "sha256": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a"
+        },
+        "model": {
+          "bytes": 23243834,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\picodet-l-320-fp32.onnx",
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/ff6c41aecc37c1b81d71c2bb7186ff50eb7a498dee9902e0a28665a3a50c73fa.json.gz",
+        "jsonSha256": "ff6c41aecc37c1b81d71c2bb7186ff50eb7a498dee9902e0a28665a3a50c73fa",
+        "gzipSha256": "c1970c6a98c69ad2499863e79d4eff4e67c4547f0d8c3bcd3107ecf849693c0f",
+        "count": 6234
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.34215273096451604,
+          "AP50": 0.47399339671629215,
+          "AP75": 0.3675599157755509,
+          "APSmall": 0.15447831774148507,
+          "APMedium": 0.4590223817656648,
+          "APLarge": 0.6707719547842549,
+          "AR1": 0.2779591680089987,
+          "AR10": 0.4058765849523975,
+          "AR100": 0.417465189475153
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 6234,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.194999992847443,
+          "p90": 6.222999998927117
+        },
+        "preprocessMs": {
+          "median": 32.979999989271164,
+          "p90": 40.88699998855591
+        },
+        "inferenceMs": {
+          "median": 36.689999997615814,
+          "p90": 63.18800000846393
+        },
+        "postprocessMs": {
+          "median": 0.17500001192092896,
+          "p90": 0.35799999833107
+        },
+        "totalMs": {
+          "median": 75.2800000011921,
+          "p90": 106.10699999928475
+        }
+      },
+      "sessionMs": 1109.2449999898672,
+      "firstImageMs": 2656.564999997616
+    },
+    "picodet-webgpu-candidate-1": {
+      "sourceSha256": "4afc6f171b1b2f36bda8a3d7d212fe8ebbd321c7a3daff982b71976be19e3571",
+      "runtime": "runtime/picodet-webgpu-candidate-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\manifest.json",
+          "sha256": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a"
+        },
+        "model": {
+          "bytes": 23243834,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\picodet-l-320-fp32.onnx",
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/ff6c41aecc37c1b81d71c2bb7186ff50eb7a498dee9902e0a28665a3a50c73fa.json.gz",
+        "jsonSha256": "ff6c41aecc37c1b81d71c2bb7186ff50eb7a498dee9902e0a28665a3a50c73fa",
+        "gzipSha256": "c1970c6a98c69ad2499863e79d4eff4e67c4547f0d8c3bcd3107ecf849693c0f",
+        "count": 6234
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.34215273096451604,
+          "AP50": 0.47399339671629215,
+          "AP75": 0.3675599157755509,
+          "APSmall": 0.15447831774148507,
+          "APMedium": 0.4590223817656648,
+          "APLarge": 0.6707719547842549,
+          "AR1": 0.2779591680089987,
+          "AR10": 0.4058765849523975,
+          "AR100": 0.417465189475153
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 6234,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.364999994635582,
+          "p90": 6.120000007748604
+        },
+        "preprocessMs": {
+          "median": 15.114999994635582,
+          "p90": 23.806000006198886
+        },
+        "inferenceMs": {
+          "median": 36.81999999284744,
+          "p90": 49.48600000143051
+        },
+        "postprocessMs": {
+          "median": 0.17499999701976776,
+          "p90": 0.3500000059604645
+        },
+        "totalMs": {
+          "median": 58.04500000178814,
+          "p90": 84.69899999797347
+        }
+      },
+      "sessionMs": 1109.9000000059605,
+      "firstImageMs": 1557.6350000053644
+    },
+    "picodet-wasm-baseline-1": {
+      "sourceSha256": "2f4e34b614ae8820315cf104ec0c9323b6214afef6904ded87074f8556b8f429",
+      "runtime": "runtime/picodet-wasm-baseline-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\manifest.json",
+          "sha256": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a"
+        },
+        "model": {
+          "bytes": 23243834,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\picodet-l-320-fp32.onnx",
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        "sdk": {
+          "bytes": 820197,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-baseline.js",
+          "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/f17ff1e2764337c9066009193804e72db83ddf86c29a93d9bb7b9aea58944d36.json.gz",
+        "jsonSha256": "f17ff1e2764337c9066009193804e72db83ddf86c29a93d9bb7b9aea58944d36",
+        "gzipSha256": "5f7db13248dbd043aca87a1cabd1ed3060b1aa0dfafb31f582d79ed1159c01c7",
+        "count": 6234
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.34215273096451604,
+          "AP50": 0.47399339671629215,
+          "AP75": 0.3675599157755509,
+          "APSmall": 0.15447831774148507,
+          "APMedium": 0.4590223817656648,
+          "APLarge": 0.6707719547842549,
+          "AR1": 0.2779591680089987,
+          "AR10": 0.4058765849523975,
+          "AR100": 0.417465189475153
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 6234,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.480000004172325,
+          "p90": 5.843999999761581
+        },
+        "preprocessMs": {
+          "median": 32.46999999880791,
+          "p90": 39.700999996066095
+        },
+        "inferenceMs": {
+          "median": 270.1149999946356,
+          "p90": 285.29600000083445
+        },
+        "postprocessMs": {
+          "median": 0.19500000774860382,
+          "p90": 0.33500000536441804
+        },
+        "totalMs": {
+          "median": 306.10999999940395,
+          "p90": 323.37099999785426
+        }
+      },
+      "sessionMs": 422.23499999940395,
+      "firstImageMs": 390.8700000047684
+    },
+    "picodet-wasm-candidate-1": {
+      "sourceSha256": "3f4a41c02f13386cf047731cc228b6eb2570f0d5eff981a38fa2edd75112d445",
+      "runtime": "runtime/picodet-wasm-candidate-1.json",
+      "artifacts": {
+        "annotations": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+          "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+        },
+        "imageCount": 64,
+        "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+        "manifest": {
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\manifest.json",
+          "sha256": "92c82a81a38190e6b01d3a775b250fb2c320f2fd6f7eee008662ac5fe4d76c3a"
+        },
+        "model": {
+          "bytes": 23243834,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\picodet-l-320-fp32.onnx",
+          "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+        },
+        "sdk": {
+          "bytes": 821772,
+          "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\preprocess-2026-09-12\\browser-global-candidate.js",
+          "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+        }
+      },
+      "predictions": {
+        "path": "../predictions/f17ff1e2764337c9066009193804e72db83ddf86c29a93d9bb7b9aea58944d36.json.gz",
+        "jsonSha256": "f17ff1e2764337c9066009193804e72db83ddf86c29a93d9bb7b9aea58944d36",
+        "gzipSha256": "5f7db13248dbd043aca87a1cabd1ed3060b1aa0dfafb31f582d79ed1159c01c7",
+        "count": 6234
+      },
+      "quality": {
+        "metrics": {
+          "AP": 0.34215273096451604,
+          "AP50": 0.47399339671629215,
+          "AP75": 0.3675599157755509,
+          "APSmall": 0.15447831774148507,
+          "APMedium": 0.4590223817656648,
+          "APLarge": 0.6707719547842549,
+          "AR1": 0.2779591680089987,
+          "AR10": 0.4058765849523975,
+          "AR100": 0.417465189475153
+        },
+        "imageIds": [
+          270244,
+          438862,
+          212166,
+          486479,
+          439854,
+          227478,
+          250282,
+          235836,
+          497599,
+          10977,
+          26690,
+          284698,
+          166563,
+          105264,
+          479099,
+          541123,
+          287874,
+          492992,
+          483999,
+          236592,
+          368212,
+          341828,
+          459195,
+          376900,
+          173091,
+          60823,
+          256868,
+          386879,
+          546219,
+          228436,
+          125072,
+          458325,
+          208423,
+          119516,
+          269866,
+          527960,
+          570456,
+          134322,
+          481386,
+          376093,
+          529568,
+          276720,
+          129756,
+          472623,
+          276024,
+          269942,
+          493334,
+          318455,
+          200152,
+          511398,
+          352760,
+          27186,
+          204871,
+          426372,
+          209142,
+          203629,
+          27932,
+          360951,
+          543300,
+          562818,
+          356094,
+          377497,
+          238410,
+          119641
+        ],
+        "imageCount": 64,
+        "groundTruthCount": 716,
+        "predictionCount": 6234,
+        "evaluator": "pycocotools.COCOeval"
+      },
+      "warmImages": 63,
+      "warm": {
+        "decodeMs": {
+          "median": 4.424999997019768,
+          "p90": 6.062999990582466
+        },
+        "preprocessMs": {
+          "median": 14.875,
+          "p90": 20.270999997854233
+        },
+        "inferenceMs": {
+          "median": 268.6850000023842,
+          "p90": 288.3469999998808
+        },
+        "postprocessMs": {
+          "median": 0.22999998927116394,
+          "p90": 0.3970000028610231
+        },
+        "totalMs": {
+          "median": 288.45000000298023,
+          "p90": 313.327999997139
+        }
+      },
+      "sessionMs": 472.1299999952316,
+      "firstImageMs": 411.5600000023842
+    }
+  },
+  "comparisons": {
+    "ppyoloe-webgpu": {
+      "pairs": [
+        {
+          "baseline": "ppyoloe-webgpu-baseline-1",
+          "candidate": "ppyoloe-webgpu-candidate-1",
+          "predictionsExactlyEqual": true
+        },
+        {
+          "baseline": "ppyoloe-webgpu-baseline-2",
+          "candidate": "ppyoloe-webgpu-candidate-2",
+          "predictionsExactlyEqual": true
+        },
+        {
+          "baseline": "ppyoloe-webgpu-baseline-3",
+          "candidate": "ppyoloe-webgpu-candidate-3",
+          "predictionsExactlyEqual": true
+        }
+      ],
+      "baseline": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.354999989271164,
+            "p90": 5.972999995946885
+          },
+          "preprocessMs": {
+            "median": 52.89000000059605,
+            "p90": 70.79999999701977
+          },
+          "inferenceMs": {
+            "median": 50.83499999344349,
+            "p90": 121.25400000214577
+          },
+          "postprocessMs": {
+            "median": 0.7999999970197678,
+            "p90": 1.364000001549721
+          },
+          "totalMs": {
+            "median": 113.58499999344349,
+            "p90": 178.7200000077486
+          }
+        },
+        "sessionMs": 1145.3649999946356,
+        "firstImageMs": 1354.6299999952316
+      },
+      "candidate": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.4100000113248825,
+            "p90": 6.038000002503396
+          },
+          "preprocessMs": {
+            "median": 24.094999998807907,
+            "p90": 33.71600000560284
+          },
+          "inferenceMs": {
+            "median": 49.20500001311302,
+            "p90": 117.36100000143053
+          },
+          "postprocessMs": {
+            "median": 0.7800000011920929,
+            "p90": 1.2979999989271165
+          },
+          "totalMs": {
+            "median": 84.62000000476837,
+            "p90": 146.63300000429155
+          }
+        },
+        "sessionMs": 1075.5750000029802,
+        "firstImageMs": 1372.330000013113
+      },
+      "reductionPercent": {
+        "preprocessMs": 54.443183969490704,
+        "inferenceMs": 3.20645220918796,
+        "totalMs": 25.50072631980198
+      }
+    },
+    "ppyoloe-wasm": {
+      "pairs": [
+        {
+          "baseline": "ppyoloe-wasm-baseline-1",
+          "candidate": "ppyoloe-wasm-candidate-1",
+          "predictionsExactlyEqual": true
+        }
+      ],
+      "baseline": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.429999992251396,
+            "p90": 6.276000007987023
+          },
+          "preprocessMs": {
+            "median": 50.04999999701977,
+            "p90": 60.00599999427796
+          },
+          "inferenceMs": {
+            "median": 847.0699999928474,
+            "p90": 914.6400000065565
+          },
+          "postprocessMs": {
+            "median": 0.7549999952316284,
+            "p90": 1.521999999880791
+          },
+          "totalMs": {
+            "median": 903.9050000011921,
+            "p90": 971.3100000023842
+          }
+        },
+        "sessionMs": 448.56999999284744,
+        "firstImageMs": 981.25
+      },
+      "candidate": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.450000002980232,
+            "p90": 6.194000008702278
+          },
+          "preprocessMs": {
+            "median": 24.769999995827675,
+            "p90": 32.097999995946886
+          },
+          "inferenceMs": {
+            "median": 860.4099999964237,
+            "p90": 980.9899999946356
+          },
+          "postprocessMs": {
+            "median": 0.989999994635582,
+            "p90": 2.090000000596047
+          },
+          "totalMs": {
+            "median": 892.1200000047684,
+            "p90": 1008.9379999995232
+          }
+        },
+        "sessionMs": 414.35999999940395,
+        "firstImageMs": 920.875
+      },
+      "reductionPercent": {
+        "preprocessMs": 50.50949051487991,
+        "inferenceMs": -1.5748403324033378,
+        "totalMs": 1.3037874551427575
+      }
+    },
+    "picodet-webgpu": {
+      "pairs": [
+        {
+          "baseline": "picodet-webgpu-baseline-1",
+          "candidate": "picodet-webgpu-candidate-1",
+          "predictionsExactlyEqual": true
+        }
+      ],
+      "baseline": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.194999992847443,
+            "p90": 6.222999998927117
+          },
+          "preprocessMs": {
+            "median": 32.979999989271164,
+            "p90": 40.88699998855591
+          },
+          "inferenceMs": {
+            "median": 36.689999997615814,
+            "p90": 63.18800000846393
+          },
+          "postprocessMs": {
+            "median": 0.17500001192092896,
+            "p90": 0.35799999833107
+          },
+          "totalMs": {
+            "median": 75.2800000011921,
+            "p90": 106.10699999928475
+          }
+        },
+        "sessionMs": 1109.2449999898672,
+        "firstImageMs": 2656.564999997616
+      },
+      "candidate": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.364999994635582,
+            "p90": 6.120000007748604
+          },
+          "preprocessMs": {
+            "median": 15.114999994635582,
+            "p90": 23.806000006198886
+          },
+          "inferenceMs": {
+            "median": 36.81999999284744,
+            "p90": 49.48600000143051
+          },
+          "postprocessMs": {
+            "median": 0.17499999701976776,
+            "p90": 0.3500000059604645
+          },
+          "totalMs": {
+            "median": 58.04500000178814,
+            "p90": 84.69899999797347
+          }
+        },
+        "sessionMs": 1109.9000000059605,
+        "firstImageMs": 1557.6350000053644
+      },
+      "reductionPercent": {
+        "preprocessMs": 54.16919345193241,
+        "inferenceMs": -0.35431996522234943,
+        "totalMs": 22.894527097676708
+      }
+    },
+    "picodet-wasm": {
+      "pairs": [
+        {
+          "baseline": "picodet-wasm-baseline-1",
+          "candidate": "picodet-wasm-candidate-1",
+          "predictionsExactlyEqual": true
+        }
+      ],
+      "baseline": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.480000004172325,
+            "p90": 5.843999999761581
+          },
+          "preprocessMs": {
+            "median": 32.46999999880791,
+            "p90": 39.700999996066095
+          },
+          "inferenceMs": {
+            "median": 270.1149999946356,
+            "p90": 285.29600000083445
+          },
+          "postprocessMs": {
+            "median": 0.19500000774860382,
+            "p90": 0.33500000536441804
+          },
+          "totalMs": {
+            "median": 306.10999999940395,
+            "p90": 323.37099999785426
+          }
+        },
+        "sessionMs": 422.23499999940395,
+        "firstImageMs": 390.8700000047684
+      },
+      "candidate": {
+        "warm": {
+          "decodeMs": {
+            "median": 4.424999997019768,
+            "p90": 6.062999990582466
+          },
+          "preprocessMs": {
+            "median": 14.875,
+            "p90": 20.270999997854233
+          },
+          "inferenceMs": {
+            "median": 268.6850000023842,
+            "p90": 288.3469999998808
+          },
+          "postprocessMs": {
+            "median": 0.22999998927116394,
+            "p90": 0.3970000028610231
+          },
+          "totalMs": {
+            "median": 288.45000000298023,
+            "p90": 313.327999997139
+          }
+        },
+        "sessionMs": 472.1299999952316,
+        "firstImageMs": 411.5600000023842
+      },
+      "reductionPercent": {
+        "preprocessMs": 54.188481673710754,
+        "inferenceMs": 0.5294041398218541,
+        "totalMs": 5.769167945006082
+      }
+    }
+  }
+}

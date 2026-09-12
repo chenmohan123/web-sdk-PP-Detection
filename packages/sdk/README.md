@@ -4,15 +4,15 @@
 
 基于 ONNX Runtime Web 的浏览器端 PP-Detection 目标检测 SDK，支持 PC、移动端与各类 H5 页面。
 
-当前 SDK 版本为 **0.3.1**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.3.1.md)。
+当前 SDK 版本为 **0.3.2**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.3.2.md)。
 
 ## 安装
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.1
+pnpm add web-sdk-pp-detection@0.3.2
 ```
 
-也可以使用 `npm install web-sdk-pp-detection@0.3.1`。
+也可以使用 `npm install web-sdk-pp-detection@0.3.2`。
 
 ## 快速开始
 
@@ -82,15 +82,15 @@ const detector = await createPPDetection({
 
 A browser-first PP-Detection object detection SDK powered by ONNX Runtime Web for desktop, mobile, and H5 pages.
 
-The current SDK version is **0.3.1**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.3.1.md) for the complete changes.
+The current SDK version is **0.3.2**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.3.2.md) for the complete changes.
 
 ### Installation
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.1
+pnpm add web-sdk-pp-detection@0.3.2
 ```
 
-`npm install web-sdk-pp-detection@0.3.1` is also supported.
+`npm install web-sdk-pp-detection@0.3.2` is also supported.
 
 ### Quick start
 
@@ -153,9 +153,9 @@ WeChat official-account pages and other H5/WebView integrations are supported. N
 
 当前 PP-YOLOE+ S 640 为 `0.1.1`，与 PicoDet 1.0.2 一样提供 FP32、FP16、W8A32 stable 变体。见[六变体示例](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/main/examples/model-variants)。`allowExperimental` 默认关闭，仅运行旧 labs 候选时显式开启；blocked 仍被拒绝。Demo 默认 PicoDet、ModelScope、FP32。
 
-### 工作区维护版下载配置
+### 下载配置（0.3.2 起）
 
-当前工作区新增 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`。这些选项尚未随 npm `0.3.1` 发布，公开包消费者不能依赖。
+0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次。仅 ONNX 权重下载使用此策略，清单 JSON 加载沿用既有流程。
 
 ### Documentation
 

@@ -19,13 +19,13 @@
 
 ## 版本与安装
 
-当前 SDK 版本为 **0.3.1**：
+当前 SDK 版本为 **0.3.2**：
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.1
+pnpm add web-sdk-pp-detection@0.3.2
 ```
 
-0.3.1 优化两款模型共用的预处理，保持检测结果一致；本机 PP-YOLOE WebGPU 热端到端中位数降低 25.5%，并完成小米 15 基础功能回归。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.3.1.md)。
+0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，并补齐六个稳定变体的接入说明。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.3.2.md)。
 
 ## 当前边界
 
@@ -62,6 +62,6 @@ PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模�
 
 在线 Demo 提供两模型与三精度选择，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。旧 Hub 实验清单和 v0.3.0 资产是历史快照；模型分发见[历史记录](reports/distribution/2026-09-11-ppyoloe/README.md)，小米 15 的实际设备范围见[实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
 
-## 工作区维护版下载配置
+## 下载配置（0.3.2 起）
 
-当前工作区维护版本新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。该配置尚未随 npm `0.3.1` 发布；公开包示例不传这些选项，不能把它写成 `0.3.1` 的公开能力。
+0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。

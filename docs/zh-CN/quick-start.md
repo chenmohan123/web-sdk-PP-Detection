@@ -2,7 +2,7 @@
 
 [English](../en/quick-start.md)
 
-安装 `web-sdk-pp-detection@0.3.1` 后，浏览器会在第一次创建检测器时探测能力、下载外部清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。npm 包不内置清单或 ONNX 权重，必须显式传入 `model` 或 `manifest`。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 均提供 FP32、FP16、W8A32 稳定变体；默认组合为 PicoDet、ModelScope、FP32。
+安装 `web-sdk-pp-detection@0.3.2` 后，浏览器会在第一次创建检测器时探测能力、下载外部清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。npm 包不内置清单或 ONNX 权重，必须显式传入 `model` 或 `manifest`。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 均提供 FP32、FP16、W8A32 稳定变体；默认组合为 PicoDet、ModelScope、FP32。
 
 页面至少需要一个单图文件输入：
 
@@ -72,4 +72,4 @@ export async function detectVideoFrame(): Promise<void> {
 
 六变体、CDN、Vanilla Vite、React、Vue 和微信 H5/WebView 的完整用法在 [`examples/`](../../examples/) 中。
 
-当前工作区维护版本另有 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`；这些选项尚未随 npm `0.3.1` 发布，因此上面的公开包代码不使用它们。
+0.3.2 提供 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`；省略配置时使用每次请求 180 秒、无新增字节 30 秒、最多重试 2 次的默认策略。

@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/api.md)
 
-All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.3.1 API; see the [release notes](release-0.3.1.md) for version changes.
+All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.3.2 API; see the [release notes](release-0.3.2.md) for version changes.
 
 ## `createPPDetection(options?)`
 
@@ -92,9 +92,9 @@ are outside the cross-environment coordination guarantee.
 
 0.3.0 增加 `allowExperimental?: boolean`，默认 `false`。显式开启时可以运行 `status: "labs"` 的模型；`blocked` 仍拒绝，同精度优先选择稳定变体。这个选项不会放宽 SHA-256 或后端校验，也不代表候选已经达到稳定发布门槛。当前六个已发布变体均为 stable，正常加载无需开启该选项。见[六变体示例](../../examples/model-variants/README.md)。
 
-## 工作区维护版下载选项
+## 下载选项（0.3.2 起）
 
-当前工作区的 `CreatePPDetectionOptions` 新增 `download?: { timeoutMs?, idleTimeoutMs?, maxRetries? }`。`timeoutMs` 是单次请求总时限，`idleTimeoutMs` 是响应数据停滞时限，`maxRetries` 是可重试失败后的额外尝试次数；取消仍由 `signal` 负责。该选项尚未随 npm `0.3.1` 发布，只用于当前工作区构建验证，公开 `0.3.1` 消费者不能依赖它。
+0.3.2 的 `CreatePPDetectionOptions` 新增 `download?: { timeoutMs?, idleTimeoutMs?, maxRetries? }`。`timeoutMs` 是单次请求总时限，`idleTimeoutMs` 是响应数据停滞时限，`maxRetries` 是可重试失败后的额外尝试次数；取消仍由 `signal` 负责。升级到 npm `0.3.2` 即可使用；省略配置时应用下表默认策略。
 
 | 参数            |    默认值 | 有效范围                                             |
 | --------------- | --------: | ---------------------------------------------------- |
@@ -114,7 +114,7 @@ const detector = await createPPDetection({
 });
 ```
 
-以上代码仅适用于当前未发布工作区构建。公开 `ModelDownloadOptions` 类型也用于 `ModelManager` 构造配置。非法参数返回 `INVALID_INPUT`。
+以上代码适用于 npm `0.3.2` 及后续兼容版本。公开 `ModelDownloadOptions` 类型也用于 `ModelManager` 构造配置。非法参数返回 `INVALID_INPUT`。
 
 仅 ONNX 权重下载受该策略控制，清单 JSON 加载不变。只有网络/响应流故障、内部超时和 HTTP 408、429、500、502、503、504 会重试；等待依次为 500、1000、2000、4000、4000 毫秒，可随 `signal` 取消。每次请求保持同一不可变 URL，不拼接残片，重试进度从 0 开始。用户取消、完整性错误、错误 206 范围及其他 HTTP 错误不重试；显式来源失败仍返回 `MODEL_SOURCE_UNAVAILABLE`，其 `cause` 保留下载错误，完整性错误为 `MODEL_INTEGRITY_FAILED`，取消为 `ABORTED`。
 

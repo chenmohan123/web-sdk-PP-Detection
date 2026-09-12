@@ -6,7 +6,7 @@
 
 先确认当前选择的固定 manifest URL 可访问、响应为 200、CORS 允许当前 Origin，并且 HTTPS 页面没有混入 HTTP 资源。再核对 manifest 中所选来源的模型 URL、`bytes` 与 SHA-256。响应没有 `Content-Length` 时使用清单声明的总字节数，下载仍可继续。显式选择 ModelScope 或 Hugging Face 失败时不会静默换源；需要换源时由用户重新选择，或明确使用 `source: "auto"`。
 
-当前工作区维护版本提供 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`，用于区分总请求超时、数据停滞和可重试失败。它们尚未随 npm `0.3.1` 发布；公开包消费者应继续使用 `AbortSignal` 取消，并在失败后由宿主决定是否重试。
+0.3.2 提供 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`，用于区分总请求超时、数据停滞和可重试失败。默认最多重试 2 次，且只重试同一固定权重 URL；使用 `AbortSignal` 可取消下载和重试等待。旧版消费者需要升级到 0.3.2 才能使用此策略。
 
 ## WebGPU is unavailable
 

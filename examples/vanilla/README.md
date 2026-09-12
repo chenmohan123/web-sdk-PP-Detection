@@ -1,6 +1,6 @@
 # 静态浏览器示例
 
-本目录可原样复制，无需构建。SDK 脚本固定为公开版本 `web-sdk-pp-detection@0.2.0`，默认从 ModelScope 加载官方 PicoDet-L-320 v1.0.1 清单。
+本目录可原样复制，无需构建。SDK 脚本固定为公开版本 `web-sdk-pp-detection@0.3.0`，默认从 ModelScope 加载官方 PicoDet-L-320 v1.0.1 清单。
 
 ```powershell
 pnpm dlx http-server@14.1.1 . -p 8080 -c-1

@@ -2,7 +2,7 @@
 
 [English](../en/api.md)
 
-所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。本文描述 0.3.0 API，版本变更见[发布说明](release-0.3.0.md)。
+所有稳定入口都从包根路径导出，不要导入 `src/` 或其他内部文件。本文描述 0.3.1 API，版本变更见[发布说明](release-0.3.1.md)。
 
 ## `createPPDetection(options?)`
 

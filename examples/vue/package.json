@@ -10,7 +10,7 @@
   "dependencies": {
     "@vitejs/plugin-vue": "6.0.8",
     "vue": "3.5.42",
-    "web-sdk-pp-detection": "0.2.0"
+    "web-sdk-pp-detection": "0.3.0"
   },
   "devDependencies": {
     "typescript": "5.9.3",

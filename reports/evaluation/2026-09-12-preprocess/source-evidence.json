@@ -1,0 +1,45 @@
+{
+  "baselineCommit": "45cf9bed37ce027c960bb383138b9f82e6d528cc",
+  "files": [
+    {
+      "path": "packages/sdk/src/detection/preprocess.ts",
+      "bytes": 10088,
+      "sha256": "8844e382276e852702616d72e6ab4d22da8a1799ce848db5a9ab50f381cd7464"
+    },
+    {
+      "path": "packages/sdk/tests/fixtures/bicubic-pillow.json",
+      "bytes": 12383,
+      "sha256": "20fac9393bb5a622005ec84eb5cd6982e855980b158e09de2863e2bd95e67aea"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 106141,
+      "sha256": "e9995b4644db1d60560c01a3b2600cbea53a678f66d000bf18a2a1413247c7c6"
+    },
+    {
+      "path": ".tmp/preprocess-2026-09-12/browser-global-baseline.js",
+      "bytes": 820197,
+      "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175"
+    },
+    {
+      "path": ".tmp/preprocess-2026-09-12/browser-global-candidate.js",
+      "bytes": 821772,
+      "sha256": "0ced2f1884a1198c99c6bd6f1ef8581a3f3967abdfa92f440e645a62de2b8c4e"
+    },
+    {
+      "path": ".tmp/preprocess-2026-09-12/baseline.mjs",
+      "bytes": 7164,
+      "sha256": "9ea30b885d5220326c20be1e05ae314f8ad467569ee3db9fe7722137c12f5ac7"
+    },
+    {
+      "path": ".tmp/preprocess-2026-09-12/candidate.mjs",
+      "bytes": 8648,
+      "sha256": "b5302d75bb3c560bb907398c6af356022d9125a7b0a0871393aa69f95fd412e1"
+    }
+  ],
+  "baselineSource": {
+    "gitPath": "45cf9be:packages/sdk/src/detection/preprocess.ts",
+    "bytes": 8132,
+    "sha256": "dcfcdb33e09c76e88a2c93211689a9600ca475f1806f944a97b6e43bded36819"
+  }
+}

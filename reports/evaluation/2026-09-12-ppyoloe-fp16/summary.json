@@ -1,0 +1,750 @@
+{
+  "date": "2026-09-12",
+  "scope": "预先固定的 64 张 COCO val2017 子集，非全量 COCO 成绩",
+  "annotationCount": 716,
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+  "runs": {
+    "webgpu-fp16": {
+      "capturedAt": "2026-09-12T02:19:06.895Z",
+      "runtimeEvidence": "webgpu-fp16-runtime.json",
+      "modelSha256": "6b465c33ce1e31431bd8ff0024e61b3b5c91b471ffdbb8547a3e0ab3fce823d9",
+      "modelBytes": 16053329,
+      "metrics": {
+        "AP": 0.00017429999217298775,
+        "AP50": 0.00029114510212611386,
+        "AP75": 0.00029027576197387516,
+        "APSmall": 0.0,
+        "APMedium": 8.615430028346371e-07,
+        "APLarge": 0.0003148525061330624,
+        "AR1": 0.009230769230769232,
+        "AR10": 0.009230769230769232,
+        "AR100": 0.0093000693000693
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp16-predictions.json.gz",
+        "jsonSha256": "d07d995efc8ffe0b7bff4fc05acc07b3242b070bce87460860b4374990dc5307",
+        "gzipSha256": "366a8dd59887990d446c9c3ca02e345563c0cf3caa1d98ae2194f7c52581d061",
+        "cocoPath": "webgpu-fp16-coco.json"
+      },
+      "sessionMs": 1119.890000000596,
+      "firstImageMs": 2798.1800000071526,
+      "firstInferenceMs": 2677.1799999922514,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 27.974999994039536,
+      "warmInferenceP90Ms": 33.18900000751019,
+      "warmPreprocessMedianMs": 53.07500000298023,
+      "warmPreprocessP90Ms": 67.07599999308586,
+      "warmTotalMedianMs": 88.00499999523163,
+      "warmTotalP90Ms": 100.66799999773502
+    },
+    "webgpu-fp16-2": {
+      "capturedAt": "2026-09-12T02:23:53.535Z",
+      "runtimeEvidence": "webgpu-fp16-2-runtime.json",
+      "modelSha256": "6b465c33ce1e31431bd8ff0024e61b3b5c91b471ffdbb8547a3e0ab3fce823d9",
+      "modelBytes": 16053329,
+      "metrics": {
+        "AP": 0.00017429999217298775,
+        "AP50": 0.00029114510212611386,
+        "AP75": 0.00029027576197387516,
+        "APSmall": 0.0,
+        "APMedium": 8.615430028346371e-07,
+        "APLarge": 0.0003148525061330624,
+        "AR1": 0.009230769230769232,
+        "AR10": 0.009230769230769232,
+        "AR100": 0.0093000693000693
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp16-predictions.json.gz",
+        "jsonSha256": "d07d995efc8ffe0b7bff4fc05acc07b3242b070bce87460860b4374990dc5307",
+        "gzipSha256": "366a8dd59887990d446c9c3ca02e345563c0cf3caa1d98ae2194f7c52581d061",
+        "cocoPath": "webgpu-fp16-coco.json"
+      },
+      "sessionMs": 1049.7750000059605,
+      "firstImageMs": 1474.1500000059605,
+      "firstInferenceMs": 1316.8149999976158,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 29.42000000178814,
+      "warmInferenceP90Ms": 32.99900000095368,
+      "warmPreprocessMedianMs": 57.46999999880791,
+      "warmPreprocessP90Ms": 70.34000000059605,
+      "warmTotalMedianMs": 90.3449999988079,
+      "warmTotalP90Ms": 108.6229999959469
+    },
+    "webgpu-fp16-3": {
+      "capturedAt": "2026-09-12T02:24:19.134Z",
+      "runtimeEvidence": "webgpu-fp16-3-runtime.json",
+      "modelSha256": "6b465c33ce1e31431bd8ff0024e61b3b5c91b471ffdbb8547a3e0ab3fce823d9",
+      "modelBytes": 16053329,
+      "metrics": {
+        "AP": 0.00017429999217298775,
+        "AP50": 0.00029114510212611386,
+        "AP75": 0.00029027576197387516,
+        "APSmall": 0.0,
+        "APMedium": 8.615430028346371e-07,
+        "APLarge": 0.0003148525061330624,
+        "AR1": 0.009230769230769232,
+        "AR10": 0.009230769230769232,
+        "AR100": 0.0093000693000693
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp16-predictions.json.gz",
+        "jsonSha256": "d07d995efc8ffe0b7bff4fc05acc07b3242b070bce87460860b4374990dc5307",
+        "gzipSha256": "366a8dd59887990d446c9c3ca02e345563c0cf3caa1d98ae2194f7c52581d061",
+        "cocoPath": "webgpu-fp16-coco.json"
+      },
+      "sessionMs": 1044.7699999958277,
+      "firstImageMs": 1377.5999999940395,
+      "firstInferenceMs": 1257.2900000065565,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 27.554999992251396,
+      "warmInferenceP90Ms": 31.00900000333786,
+      "warmPreprocessMedianMs": 55.21999999880791,
+      "warmPreprocessP90Ms": 70.64700000286103,
+      "warmTotalMedianMs": 89.14500001072884,
+      "warmTotalP90Ms": 105.04500000178814
+    },
+    "webgpu-fp32-1": {
+      "capturedAt": "2026-09-12T02:23:38.233Z",
+      "runtimeEvidence": "webgpu-fp32-1-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1157.2049999982119,
+      "firstImageMs": 2767.1350000053644,
+      "firstInferenceMs": 2646.5499999970198,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 48.144999995827675,
+      "warmInferenceP90Ms": 120.725,
+      "warmPreprocessMedianMs": 53.08499999344349,
+      "warmPreprocessP90Ms": 61.00600000023842,
+      "warmTotalMedianMs": 110.28499999642372,
+      "warmTotalP90Ms": 185.4680000036955
+    },
+    "webgpu-fp32-2": {
+      "capturedAt": "2026-09-12T02:24:05.032Z",
+      "runtimeEvidence": "webgpu-fp32-2-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1106.8299999982119,
+      "firstImageMs": 1445.4450000077486,
+      "firstInferenceMs": 1316.3549999892712,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 48.21000000834465,
+      "warmInferenceP90Ms": 119.41699999868872,
+      "warmPreprocessMedianMs": 52.810000002384186,
+      "warmPreprocessP90Ms": 67.89099999666215,
+      "warmTotalMedianMs": 114.55500000715256,
+      "warmTotalP90Ms": 183.75100000202661
+    },
+    "webgpu-fp32-3": {
+      "capturedAt": "2026-09-12T02:24:30.272Z",
+      "runtimeEvidence": "webgpu-fp32-3-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1077.2750000059605,
+      "firstImageMs": 1427.8850000053644,
+      "firstInferenceMs": 1320.3700000047684,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 52.95000000298023,
+      "warmInferenceP90Ms": 118.99199999272827,
+      "warmPreprocessMedianMs": 53.0249999910593,
+      "warmPreprocessP90Ms": 68.04600000977517,
+      "warmTotalMedianMs": 119.49000000953674,
+      "warmTotalP90Ms": 181.73699999451637
+    },
+    "webgpu-fp32-4": {
+      "capturedAt": "2026-09-12T02:34:52.299Z",
+      "runtimeEvidence": "webgpu-fp32-4-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1132.5999999940395,
+      "firstImageMs": 1370.8799999952316,
+      "firstInferenceMs": 1249.4399999976158,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 53.58499999344349,
+      "warmInferenceP90Ms": 120.71400000154973,
+      "warmPreprocessMedianMs": 56.40999999642372,
+      "warmPreprocessP90Ms": 67.27699998915196,
+      "warmTotalMedianMs": 120.19999998807907,
+      "warmTotalP90Ms": 177.745999994874
+    },
+    "webgpu-fp32-5": {
+      "capturedAt": "2026-09-12T02:35:19.970Z",
+      "runtimeEvidence": "webgpu-fp32-5-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1163.324999988079,
+      "firstImageMs": 1366.0099999904633,
+      "firstInferenceMs": 1244.5450000017881,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 48.90999999642372,
+      "warmInferenceP90Ms": 117.2800000101328,
+      "warmPreprocessMedianMs": 51.57999999821186,
+      "warmPreprocessP90Ms": 67.14099999964237,
+      "warmTotalMedianMs": 109.30000001192093,
+      "warmTotalP90Ms": 174.0719999998808
+    },
+    "webgpu-fp32-6": {
+      "capturedAt": "2026-09-12T02:35:47.379Z",
+      "runtimeEvidence": "webgpu-fp32-6-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-fp32-1-predictions.json.gz",
+        "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+        "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+        "cocoPath": "webgpu-fp32-1-coco.json"
+      },
+      "sessionMs": 1137.3550000041723,
+      "firstImageMs": 1328.300000011921,
+      "firstInferenceMs": 1197.9500000029802,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 47.38500000536442,
+      "warmInferenceP90Ms": 115.60599999427797,
+      "warmPreprocessMedianMs": 52.24499998986721,
+      "warmPreprocessP90Ms": 66.26200000941753,
+      "warmTotalMedianMs": 112.3449999988079,
+      "warmTotalP90Ms": 173.7620000034571
+    },
+    "webgpu-mixed-1": {
+      "capturedAt": "2026-09-12T02:33:20.495Z",
+      "runtimeEvidence": "webgpu-mixed-1-runtime.json",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "modelBytes": 16054567,
+      "metrics": {
+        "AP": 0.43859654913849266,
+        "AP50": 0.6232272798444568,
+        "AP75": 0.46466478620004836,
+        "APSmall": 0.2678552399593114,
+        "APMedium": 0.5691913640729813,
+        "APLarge": 0.7238903627655277,
+        "AR1": 0.3234080445120858,
+        "AR10": 0.5413722892512873,
+        "AR100": 0.583152115183458
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-mixed-1-predictions.json.gz",
+        "jsonSha256": "b52f6160dacb46cb0c5fb538501fcfe77dbf153677706f38e07f5545394897c1",
+        "gzipSha256": "980d6b62726592c3ba91d86441353dc5f0d074eae4c75e0cce7ffa85a26dd5dd",
+        "cocoPath": "webgpu-mixed-1-coco.json"
+      },
+      "sessionMs": 1131.7950000017881,
+      "firstImageMs": 1537.2049999982119,
+      "firstInferenceMs": 1398.1799999922514,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 49.41999998688698,
+      "warmInferenceP90Ms": 116.1309999972582,
+      "warmPreprocessMedianMs": 54.849999994039536,
+      "warmPreprocessP90Ms": 64.425,
+      "warmTotalMedianMs": 115.50499999523163,
+      "warmTotalP90Ms": 180.52700000405312
+    },
+    "webgpu-mixed-2": {
+      "capturedAt": "2026-09-12T02:35:06.369Z",
+      "runtimeEvidence": "webgpu-mixed-2-runtime.json",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "modelBytes": 16054567,
+      "metrics": {
+        "AP": 0.43859654913849266,
+        "AP50": 0.6232272798444568,
+        "AP75": 0.46466478620004836,
+        "APSmall": 0.2678552399593114,
+        "APMedium": 0.5691913640729813,
+        "APLarge": 0.7238903627655277,
+        "AR1": 0.3234080445120858,
+        "AR10": 0.5413722892512873,
+        "AR100": 0.583152115183458
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-mixed-1-predictions.json.gz",
+        "jsonSha256": "b52f6160dacb46cb0c5fb538501fcfe77dbf153677706f38e07f5545394897c1",
+        "gzipSha256": "980d6b62726592c3ba91d86441353dc5f0d074eae4c75e0cce7ffa85a26dd5dd",
+        "cocoPath": "webgpu-mixed-1-coco.json"
+      },
+      "sessionMs": 1064.6899999976158,
+      "firstImageMs": 1403.2749999910593,
+      "firstInferenceMs": 1261.8299999982119,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 46.429999992251396,
+      "warmInferenceP90Ms": 119.74000000059605,
+      "warmPreprocessMedianMs": 54.17000000178814,
+      "warmPreprocessP90Ms": 68.13499999940396,
+      "warmTotalMedianMs": 112.91999998688698,
+      "warmTotalP90Ms": 179.96499999761582
+    },
+    "webgpu-mixed-3": {
+      "capturedAt": "2026-09-12T02:35:33.830Z",
+      "runtimeEvidence": "webgpu-mixed-3-runtime.json",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "modelBytes": 16054567,
+      "metrics": {
+        "AP": 0.43859654913849266,
+        "AP50": 0.6232272798444568,
+        "AP75": 0.46466478620004836,
+        "APSmall": 0.2678552399593114,
+        "APMedium": 0.5691913640729813,
+        "APLarge": 0.7238903627655277,
+        "AR1": 0.3234080445120858,
+        "AR10": 0.5413722892512873,
+        "AR100": 0.583152115183458
+      },
+      "predictionsEvidence": {
+        "path": "webgpu-mixed-1-predictions.json.gz",
+        "jsonSha256": "b52f6160dacb46cb0c5fb538501fcfe77dbf153677706f38e07f5545394897c1",
+        "gzipSha256": "980d6b62726592c3ba91d86441353dc5f0d074eae4c75e0cce7ffa85a26dd5dd",
+        "cocoPath": "webgpu-mixed-1-coco.json"
+      },
+      "sessionMs": 1048.030000001192,
+      "firstImageMs": 1345.3250000029802,
+      "firstInferenceMs": 1217.559999987483,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 48.68000000715256,
+      "warmInferenceP90Ms": 117.90500000119211,
+      "warmPreprocessMedianMs": 52.12999999523163,
+      "warmPreprocessP90Ms": 66.20799999833108,
+      "warmTotalMedianMs": 114.375,
+      "warmTotalP90Ms": 176.75800000429155
+    },
+    "wasm-fp16": {
+      "capturedAt": "2026-09-12T02:26:10.544Z",
+      "runtimeEvidence": "wasm-fp16-runtime.json",
+      "modelSha256": "6b465c33ce1e31431bd8ff0024e61b3b5c91b471ffdbb8547a3e0ab3fce823d9",
+      "modelBytes": 16053329,
+      "metrics": {
+        "AP": 0.4338999260329082,
+        "AP50": 0.6177920889592837,
+        "AP75": 0.46324551749196263,
+        "APSmall": 0.2704119613605558,
+        "APMedium": 0.5598210820248564,
+        "APLarge": 0.7309570837486213,
+        "AR1": 0.3201738977018521,
+        "AR10": 0.5392214342202357,
+        "AR100": 0.5811903115282647
+      },
+      "predictionsEvidence": {
+        "path": "wasm-fp16-predictions.json.gz",
+        "jsonSha256": "423d5cc4ef41f84b445f2aa994370b00ae8076af8eb5688e05632686da25b46d",
+        "gzipSha256": "500f322d4f28fca59a86c5659d2efae1e4134d8d6cb96f3d4fd8dae449ce44ff",
+        "cocoPath": "wasm-fp16-coco.json"
+      },
+      "sessionMs": 555.5649999976158,
+      "firstImageMs": 967.6550000011921,
+      "firstInferenceMs": 859.5799999982119,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 860.234999999404,
+      "warmInferenceP90Ms": 943.9159999966621,
+      "warmPreprocessMedianMs": 52.09499999880791,
+      "warmPreprocessP90Ms": 65.6509999960661,
+      "warmTotalMedianMs": 915.234999999404,
+      "warmTotalP90Ms": 1002.0469999998808
+    },
+    "wasm-mixed": {
+      "capturedAt": "2026-09-12T02:36:01.195Z",
+      "runtimeEvidence": "wasm-mixed-runtime.json",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "modelBytes": 16054567,
+      "metrics": {
+        "AP": 0.4340307813020401,
+        "AP50": 0.6177908022297782,
+        "AP75": 0.46346079996770356,
+        "APSmall": 0.27042801563258967,
+        "APMedium": 0.5598246915299527,
+        "APLarge": 0.7309575826898681,
+        "AR1": 0.3201738977018521,
+        "AR10": 0.5392214342202357,
+        "AR100": 0.5813121462153168
+      },
+      "predictionsEvidence": {
+        "path": "wasm-mixed-predictions.json.gz",
+        "jsonSha256": "2ce089751ecd1091dfcb0ea9dfa492309371b2b48f6e528230ee47047a8d58c7",
+        "gzipSha256": "a780bb7a6f74ef323513eb64060ed0fe5a99596a287616e85aff098bac4bd9df",
+        "cocoPath": "wasm-mixed-coco.json"
+      },
+      "sessionMs": 503.2250000089407,
+      "firstImageMs": 1066.4949999898672,
+      "firstInferenceMs": 949.875,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 850.4100000113249,
+      "warmInferenceP90Ms": 936.594000005722,
+      "warmPreprocessMedianMs": 49.85999999940395,
+      "warmPreprocessP90Ms": 62.043999999761596,
+      "warmTotalMedianMs": 912.3250000029802,
+      "warmTotalP90Ms": 993.0710000038148
+    },
+    "wasm-fp32": {
+      "capturedAt": "2026-09-12T02:37:04.704Z",
+      "runtimeEvidence": "wasm-fp32-runtime.json",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "modelBytes": 31954220,
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "predictionsEvidence": {
+        "path": "wasm-fp32-predictions.json.gz",
+        "jsonSha256": "1ff864ca8d25e48cd54be575bde4c2cd7da395a67c312dda98c7e492ef50b449",
+        "gzipSha256": "780e18f85d9871700937674e585b57b7d3f971dbe4a0547bff14ba16e55e34c7",
+        "cocoPath": "wasm-fp32-coco.json"
+      },
+      "sessionMs": 408.3449999988079,
+      "firstImageMs": 973.1799999922514,
+      "firstInferenceMs": 856.6750000119209,
+      "warmCount": 63,
+      "warmInferenceMedianMs": 842.2849999964237,
+      "warmInferenceP90Ms": 898.5909999996423,
+      "warmPreprocessMedianMs": 49.66500000655651,
+      "warmPreprocessP90Ms": 63.16399998962879,
+      "warmTotalMedianMs": 898.3649999946356,
+      "warmTotalP90Ms": 953.9449999958276
+    }
+  },
+  "environment": {
+    "cpu": {
+      "logicalCores": 12,
+      "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+    },
+    "os": {
+      "arch": "x64",
+      "platform": "win32",
+      "release": "10.0.26200"
+    },
+    "browser": {
+      "version": "153.0.8010.12",
+      "launchArgs": [],
+      "crossOriginIsolated": true,
+      "hardwareConcurrency": 12,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "userAgentData": {
+        "brands": [
+          {
+            "brand": "Chromium",
+            "version": "153"
+          },
+          {
+            "brand": "Not_A Brand",
+            "version": "8"
+          }
+        ],
+        "mobile": false,
+        "platform": "Windows"
+      }
+    },
+    "browserMessages": [
+      {
+        "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "type": "warning"
+      },
+      {
+        "text": "wasm：8/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：16/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：24/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：32/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：40/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：48/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：56/64",
+        "type": "log"
+      },
+      {
+        "text": "wasm：64/64",
+        "type": "log"
+      }
+    ],
+    "gpu": {
+      "adapter": {
+        "architecture": "blackwell",
+        "description": null,
+        "device": null,
+        "isFallbackAdapter": false,
+        "subgroupMaxSize": 32,
+        "subgroupMinSize": 32,
+        "features": [
+          "depth32float-stencil8",
+          "rg11b10ufloat-renderable",
+          "texture-formats-tier1",
+          "bgra8unorm-storage",
+          "texture-compression-bc",
+          "dual-source-blending",
+          "core-features-and-limits",
+          "float32-filterable",
+          "indirect-first-instance",
+          "float32-blendable",
+          "subgroup-size-control",
+          "depth-clip-control",
+          "texture-compression-bc-sliced-3d",
+          "texture-formats-tier2",
+          "shader-f16",
+          "timestamp-query",
+          "clip-distances",
+          "primitive-index",
+          "texture-component-swizzle",
+          "subgroups"
+        ],
+        "vendor": "nvidia"
+      },
+      "physical": true,
+      "reason": null
+    }
+  },
+  "runtimeVersions": {
+    "onnxruntimeWeb": "1.27.0",
+    "sdk": "0.3.0"
+  },
+  "gpuEnvironment": {
+    "adapter": {
+      "architecture": "blackwell",
+      "description": null,
+      "device": null,
+      "isFallbackAdapter": false,
+      "subgroupMaxSize": 32,
+      "subgroupMinSize": 32,
+      "features": [
+        "depth32float-stencil8",
+        "rg11b10ufloat-renderable",
+        "bgra8unorm-storage",
+        "texture-formats-tier1",
+        "texture-compression-bc",
+        "dual-source-blending",
+        "core-features-and-limits",
+        "float32-filterable",
+        "indirect-first-instance",
+        "float32-blendable",
+        "subgroup-size-control",
+        "depth-clip-control",
+        "texture-compression-bc-sliced-3d",
+        "timestamp-query",
+        "clip-distances",
+        "texture-formats-tier2",
+        "shader-f16",
+        "primitive-index",
+        "texture-component-swizzle",
+        "subgroups"
+      ],
+      "vendor": "nvidia"
+    },
+    "physical": true,
+    "reason": null
+  },
+  "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+  "webgpuComparison": {
+    "fp32": {
+      "runs": [
+        "webgpu-fp32-4",
+        "webgpu-fp32-5",
+        "webgpu-fp32-6"
+      ],
+      "sessionMs": 1137.3550000041723,
+      "firstImageMs": 1366.0099999904633,
+      "firstInferenceMs": 1244.5450000017881,
+      "warmInferenceMedianMs": 48.90999999642372,
+      "warmInferenceP90Ms": 117.2800000101328,
+      "warmPreprocessMedianMs": 52.24499998986721,
+      "warmTotalMedianMs": 112.3449999988079,
+      "warmTotalP90Ms": 174.0719999998808
+    },
+    "fp16ReduceMeanFp32": {
+      "runs": [
+        "webgpu-mixed-1",
+        "webgpu-mixed-2",
+        "webgpu-mixed-3"
+      ],
+      "sessionMs": 1064.6899999976158,
+      "firstImageMs": 1403.2749999910593,
+      "firstInferenceMs": 1261.8299999982119,
+      "warmInferenceMedianMs": 48.68000000715256,
+      "warmInferenceP90Ms": 117.90500000119211,
+      "warmPreprocessMedianMs": 54.17000000178814,
+      "warmTotalMedianMs": 114.375,
+      "warmTotalP90Ms": 179.96499999761582
+    }
+  },
+  "cpu": {
+    "cpu": {
+      "runtimeEvidence": "cpu-runtime.json",
+      "metrics": {
+        "AP": 0.4332482690900607,
+        "AP50": 0.6168055258311439,
+        "AP75": 0.4622207479000299,
+        "APSmall": 0.27050654216401504,
+        "APMedium": 0.5599806810505421,
+        "APLarge": 0.7246078779097259,
+        "AR1": 0.3173854361633905,
+        "AR10": 0.5383026171596225,
+        "AR100": 0.5800066728278
+      },
+      "parity": {
+        "thresholds": {
+          "score": 0.5,
+          "iou": 0.5
+        },
+        "referenceCount": 443,
+        "candidateCount": 444,
+        "matchedCount": 443,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 1,
+        "maxScoreDelta": 0.0052800774574279785,
+        "maxBboxDeltaPixels": 0.9564971923828125
+      }
+    },
+    "cpu-mixed": {
+      "runtimeEvidence": "cpu-mixed-runtime.json",
+      "metrics": {
+        "AP": 0.4332542653895331,
+        "AP50": 0.6167961325728749,
+        "AP75": 0.46222106635002463,
+        "APSmall": 0.270514480851948,
+        "APMedium": 0.5599820638853982,
+        "APLarge": 0.7246084112532996,
+        "AR1": 0.3173854361633905,
+        "AR10": 0.5383026171596225,
+        "AR100": 0.580061617882745
+      },
+      "parity": {
+        "thresholds": {
+          "score": 0.5,
+          "iou": 0.5
+        },
+        "referenceCount": 443,
+        "candidateCount": 444,
+        "matchedCount": 443,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 1,
+        "maxScoreDelta": 0.0052800774574279785,
+        "maxBboxDeltaPixels": 1.9114837646484375
+      }
+    }
+  },
+  "webgpuParity": {
+    "thresholds": {
+      "score": 0.5,
+      "iou": 0.5
+    },
+    "referenceCount": 443,
+    "candidateCount": 449,
+    "matchedCount": 441,
+    "unmatchedReferenceCount": 2,
+    "unmatchedCandidateCount": 8,
+    "maxScoreDelta": 0.017864763736724854,
+    "maxBboxDeltaPixels": 6.265891790390015
+  }
+}

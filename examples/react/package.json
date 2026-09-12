@@ -11,7 +11,7 @@
     "@vitejs/plugin-react": "6.1.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "web-sdk-pp-detection": "0.2.0"
+    "web-sdk-pp-detection": "0.3.0"
   },
   "devDependencies": {
     "@types/react": "19.2.18",

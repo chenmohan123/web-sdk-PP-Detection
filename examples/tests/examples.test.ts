@@ -119,7 +119,7 @@ describe("公开固定版本的原样独立消费者构建", () => {
       const packageJson = JSON.parse(readFileSync(packagePath, "utf8")) as {
         dependencies?: Record<string, string>;
       };
-      expect(packageJson.dependencies?.[packageName]).toBe("0.2.0");
+      expect(packageJson.dependencies?.[packageName]).toBe("0.3.0");
       runPackageManager(["install", "--ignore-scripts", "--no-frozen-lockfile"], target);
       runPackageManager(["run", "build"], target);
     },

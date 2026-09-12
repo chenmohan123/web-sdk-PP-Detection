@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-12",
+  "device": "小米 15",
+  "testedCommit": "1c33a7a65644f8645488101f7cf9d7a0cd79b236",
+  "displayedSdkVersion": "0.3.0",
+  "context": "0.3.1 发布前的预处理优化构建；局域网 HTTPS Demo",
+  "userConfirmation": "测试都正常",
+  "requestedMatrix": ["PicoDet CPU", "PicoDet GPU", "PP-YOLOE CPU", "PP-YOLOE GPU"],
+  "matrixEvidence": "用户在四组合及重复检测、切换模型的回归请求后确认测试均正常；截图只直接证明 PP-YOLOE GPU 组合。",
+  "screenshotObservation": {
+    "modelId": "ppyoloe-plus-s-640",
+    "source": "modelscope",
+    "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+    "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+    "requestedBackend": "auto",
+    "actualBackend": "webgpu",
+    "precision": "fp32",
+    "executionMode": "main",
+    "ortVersion": "1.27.0",
+    "browser": "Android Edge 152",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36 EdgA/152.0.0.0",
+    "actualOsVersion": null,
+    "runtimeCapturedAt": "2026-09-12T03:48:25.047Z",
+    "detections": 2,
+    "timingsMs": {
+      "initialization": 236,
+      "modelCacheRead": 34,
+      "integrity": 15,
+      "session": 187,
+      "total": 705,
+      "decode": 67,
+      "preprocess": 86,
+      "inference": 551,
+      "postprocess": 0
+    },
+    "modelAcquisition": "持久缓存"
+  },
+  "screenshots": [
+    {
+      "filename": "codex-clipboard-07e582bd-ae88-46b7-b9c3-dae97a629044.jpg",
+      "bytes": 413873,
+      "sha256": "e8fda705d8ea2a7b4c1b873cf9621ba0e5113408113554df6ebb1ee3dcee5fd0"
+    },
+    {
+      "filename": "codex-clipboard-c54593e8-b3de-4cdb-bdfc-0617b3d3bbde.jpg",
+      "bytes": 334688,
+      "sha256": "8d7d24703732b1bc8a1ccab1b9072751614bf195e63379ee3091941f0db9185e"
+    },
+    {
+      "filename": "codex-clipboard-b9e5bf66-73a4-4f4b-a9e4-9b01efd1795a.jpg",
+      "bytes": 864213,
+      "sha256": "351cfb7ab1606431b05713223cc93b7c7309beb418944ee3f8b7c896fda2d3f7"
+    },
+    {
+      "filename": "codex-clipboard-48803a90-5d3c-48cf-942c-74e0ff64be52.jpg",
+      "bytes": 507324,
+      "sha256": "32761cb4b98839b2d248286ef59c2c270bd414f5a1379314de8a3217b37ccd2c"
+    },
+    {
+      "filename": "codex-clipboard-ad3ce1df-8298-42d2-a493-c071eaffe520.jpg",
+      "bytes": 674916,
+      "sha256": "de03b455e93c3d8f14410f5230b1b67327869d762bbca83f9090c2f9c6841895"
+    }
+  ],
+  "limits": [
+    "截图数值按页面整数毫秒转录",
+    "没有旧版手机对照或统计样本，不计算手机提速",
+    "实际 Android/HyperOS 版本未知；UA 不可代替系统版本",
+    "不包含 Worker、峰值内存或长时间视频吞吐证据"
+  ],
+  "privacy": "原始截图仅保留在用户本机，公开报告只记录验证字段及文件摘要。"
+}

@@ -114,40 +114,76 @@ function clipBicubic(value: number): number {
   return Math.max(0, Math.min(255, rounded));
 }
 
-function bicubicChannel(
+interface BicubicTarget {
+  readonly data: Float32Array;
+  readonly inputWidth: number;
+  readonly inputHeight: number;
+  readonly padLeft: number;
+  readonly padTop: number;
+  readonly values: Float32Array;
+}
+
+function writeBicubicChannels(
   raster: ImageRaster,
   resizedWidth: number,
   resizedHeight: number,
-  channel: number
-): Uint8Array {
+  target: BicubicTarget
+): void {
   const horizontal = createBicubicAxis(raster.width, resizedWidth);
   const vertical = createBicubicAxis(raster.height, resizedHeight);
-  const intermediate = new Uint8Array(raster.height * resizedWidth);
+  const rowStride = resizedWidth * 3;
+  const intermediate = new Uint8Array(raster.height * rowStride);
+
+  // 三个通道共享系数和像素索引；每个通道仍按原顺序累加及舍入。
   for (let y = 0; y < raster.height; y += 1) {
+    const sourceRow = y * raster.width * 4;
+    const targetRow = y * rowStride;
     for (let x = 0; x < resizedWidth; x += 1) {
       const [start, count] = horizontal.bounds[x];
       const coefficients = horizontal.coefficients[x];
-      let sum = BICUBIC_ROUNDING;
+      let red = BICUBIC_ROUNDING;
+      let green = BICUBIC_ROUNDING;
+      let blue = BICUBIC_ROUNDING;
+      let source = sourceRow + start * 4;
       for (let index = 0; index < count; index += 1) {
-        sum += raster.rgba[(y * raster.width + start + index) * 4 + channel] * coefficients[index];
+        const coefficient = coefficients[index];
+        red += raster.rgba[source] * coefficient;
+        green += raster.rgba[source + 1] * coefficient;
+        blue += raster.rgba[source + 2] * coefficient;
+        source += 4;
       }
-      intermediate[y * resizedWidth + x] = clipBicubic(sum);
+      const offset = targetRow + x * 3;
+      intermediate[offset] = clipBicubic(red);
+      intermediate[offset + 1] = clipBicubic(green);
+      intermediate[offset + 2] = clipBicubic(blue);
     }
   }
 
-  const output = new Uint8Array(resizedWidth * resizedHeight);
+  const plane = target.inputWidth * target.inputHeight;
   for (let y = 0; y < resizedHeight; y += 1) {
     const [start, count] = vertical.bounds[y];
     const coefficients = vertical.coefficients[y];
+    const sourceRow = start * rowStride;
+    const targetRow = (y + target.padTop) * target.inputWidth + target.padLeft;
     for (let x = 0; x < resizedWidth; x += 1) {
-      let sum = BICUBIC_ROUNDING;
+      let red = BICUBIC_ROUNDING;
+      let green = BICUBIC_ROUNDING;
+      let blue = BICUBIC_ROUNDING;
+      let source = sourceRow + x * 3;
       for (let index = 0; index < count; index += 1) {
-        sum += intermediate[(start + index) * resizedWidth + x] * coefficients[index];
+        const coefficient = coefficients[index];
+        red += intermediate[source] * coefficient;
+        green += intermediate[source + 1] * coefficient;
+        blue += intermediate[source + 2] * coefficient;
+        source += rowStride;
       }
-      output[y * resizedWidth + x] = clipBicubic(sum);
+      // 保留垂直重采样后的 8 位裁剪，直接写入最终 CHW 张量。
+      const offset = targetRow + x;
+      target.data[offset] = target.values[clipBicubic(red)];
+      target.data[plane + offset] = target.values[256 + clipBicubic(green)];
+      target.data[plane * 2 + offset] = target.values[512 + clipBicubic(blue)];
     }
   }
-  return output;
 }
 
 export function preprocessImage(
@@ -187,26 +223,43 @@ export function preprocessImage(
   const std = normalize ? (preprocessing.std ?? [1, 1, 1]) : [1, 1, 1];
   const interpolation = preprocessing.interpolation ?? "bilinear";
 
+  const bicubicValues =
+    doResize && interpolation === "bicubic" ? new Float32Array(256 * 3) : undefined;
+
   for (let channel = 0; channel < 3; channel += 1) {
     const padding = normalize && mean[channel] !== 0 ? -mean[channel] / std[channel] : 0;
     data.fill(padding, channel * plane, (channel + 1) * plane);
-    const bicubic =
-      doResize && interpolation === "bicubic"
-        ? bicubicChannel(raster, resizedWidth, resizedHeight, channel)
-        : undefined;
+    if (bicubicValues) {
+      // bicubic 的裁剪输出只有 256 个值，按相同公式预计算 Float32 归一化结果。
+      for (let pixel = 0; pixel < 256; pixel += 1) {
+        const scaled = rescale ? pixel * preprocessing.rescaleFactor : pixel;
+        bicubicValues[channel * 256 + pixel] = normalize
+          ? (scaled - mean[channel]) / std[channel]
+          : scaled;
+      }
+      continue;
+    }
     for (let y = 0; y < resizedHeight; y += 1) {
       for (let x = 0; x < resizedWidth; x += 1) {
-        const pixel = bicubic
-          ? bicubic[y * resizedWidth + x]
-          : doResize
-            ? bilinearChannel(raster, x, y, resizedWidth, resizedHeight, channel)
-            : sampleChannel(raster, x, y, channel);
+        const pixel = doResize
+          ? bilinearChannel(raster, x, y, resizedWidth, resizedHeight, channel)
+          : sampleChannel(raster, x, y, channel);
         const scaled = rescale ? pixel * preprocessing.rescaleFactor : pixel;
         data[channel * plane + (y + padTop) * inputWidth + x + padLeft] = normalize
           ? (scaled - mean[channel]) / std[channel]
           : scaled;
       }
     }
+  }
+  if (bicubicValues) {
+    writeBicubicChannels(raster, resizedWidth, resizedHeight, {
+      data,
+      inputWidth,
+      inputHeight,
+      padLeft,
+      padTop,
+      values: bicubicValues
+    });
   }
 
   return {

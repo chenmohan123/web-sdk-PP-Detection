@@ -45,7 +45,7 @@ export function parseEvaluationOptions(argv) {
   const missing = REQUIRED_FLAGS.filter((name) => !values.has(name));
   if (missing.length > 0)
     throw new TypeError(`缺少必填参数：${missing.map((x) => `--${x}`).join("、")}`);
-  const allowed = new Set([...REQUIRED_FLAGS, "expected-images"]);
+  const allowed = new Set([...REQUIRED_FLAGS, "expected-images", "sdk-bundle"]);
   const unknown = [...values.keys()].filter((name) => !allowed.has(name));
   if (unknown.length > 0) throw new TypeError(`无法识别参数：--${unknown[0]}`);
   const backend = values.get("backend");
@@ -63,7 +63,8 @@ export function parseEvaluationOptions(argv) {
     imageRoot: values.get("image-root"),
     manifest: values.get("manifest"),
     model: values.get("model"),
-    output: values.get("output")
+    output: values.get("output"),
+    ...(values.has("sdk-bundle") ? { sdkBundle: values.get("sdk-bundle") } : {})
   };
 }
 
@@ -412,9 +413,11 @@ export async function runEvaluation(options) {
     const inputs = await collectInputs(options);
     const browserDirectory = dirname(fileURLToPath(import.meta.url));
     const repositoryRoot = resolve(browserDirectory, "../../..");
-    const sdkPath = join(repositoryRoot, "packages/sdk/dist/browser-global.js");
+    const sdkPath = options.sdkBundle
+      ? resolve(process.cwd(), options.sdkBundle)
+      : join(repositoryRoot, "packages/sdk/dist/browser-global.js");
     const ortDirectory = join(repositoryRoot, "packages/sdk/node_modules/onnxruntime-web/dist");
-    await Promise.all([stat(sdkPath), stat(ortDirectory)]);
+    const [sdkEvidence] = await Promise.all([fileEvidence(sdkPath), stat(ortDirectory)]);
     process.env.PLAYWRIGHT_BROWSERS_PATH ??= join(
       repositoryRoot,
       ".tmp/dependencies-compatible-browsers"
@@ -472,7 +475,8 @@ export async function runEvaluation(options) {
           path: inputs.paths.manifest,
           sha256: inputs.manifest.sha256
         },
-        model: inputs.model
+        model: inputs.model,
+        sdk: sdkEvidence
       },
       capturedAt,
       environment: {

@@ -32,3 +32,7 @@ The following evidence covers the 1.0.1 FP32 model, `onnxruntime-web@1.27.0`, an
 These statuses describe manifest capability; this repository provides the 1.0.1 FP32 stable default model. WebGPU FP16 requires `navigator.gpu` and `shader-f16`; WebGPU FP32 does not require `shader-f16`. WASM/CPU and WebGPU combinations must follow the variant manifest and runtime probing. The Demo keeps manual backend and precision choices strict, and the SDK rejects explicit pairs absent from the manifest with `CAPABILITY_UNSUPPORTED`. The source model is float32; FP64 is unsupported.
 
 Single-thread WASM does not require cross-origin isolation. Multithreaded WASM needs COOP `same-origin` plus COEP `require-corp` or `credentialless`; model, WASM, and Worker assets must also satisfy same-origin/CORS/CORP rules. The SDK chooses threads from actual capabilities instead of assuming every mobile WebView has SharedArrayBuffer.
+
+## 0.3.1 预处理优化的小米 15 回归（2026-09-12）
+
+用户对预处理优化提交 `1c33a7a` 的局域网 Demo 确认两款模型的 CPU/GPU 测试均正常。截图直接确认 PP-YOLOE 的 ModelScope、WebGPU/FP32/main、ORT 1.27.0 和 Android Edge 152；具体 Android/HyperOS 版本未知，不能用缩减后的 UA 中 Android 10 推断系统版本。没有旧版对照或多次计时样本；完整记录见[本次实机证据](../../reports/releases/2026-09-12-0.3.1/mobile-xiaomi15.md)。

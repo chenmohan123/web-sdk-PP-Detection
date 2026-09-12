@@ -3,6 +3,8 @@ import { PPDetectionError } from "../src/errors";
 import { decodeImageSource } from "../src/input/decode-image";
 import { preprocessImage } from "../src/detection/preprocess";
 
+import bicubicReference from "./fixtures/bicubic-pillow.json";
+
 describe("preprocessImage", () => {
   it("忽略透明通道并按 RGB/CHW 排列和归一化", () => {
     const result = preprocessImage(
@@ -103,6 +105,91 @@ describe("preprocessImage", () => {
     expect(Array.from(result.data.slice(0, 16))).toEqual([
       0, 8, 65, 96, 29, 52, 111, 139, 112, 141, 201, 225, 153, 185, 247, 255
     ]);
+  });
+
+  it.each(bicubicReference.cases)("bicubic 与独立 Pillow 像素一致：$name", (fixture) => {
+    const result = preprocessImage(
+      {
+        width: fixture.inputWidth,
+        height: fixture.inputHeight,
+        rgba: new Uint8ClampedArray(fixture.rgba)
+      },
+      {
+        size: { width: fixture.outputWidth, height: fixture.outputHeight },
+        interpolation: "bicubic",
+        resizeMode: "stretch",
+        rescaleFactor: 1,
+        doRescale: false,
+        doNormalize: false
+      }
+    );
+    const plane = fixture.outputWidth * fixture.outputHeight;
+    for (let channel = 0; channel < 3; channel += 1) {
+      expect(Array.from(result.data.subarray(channel * plane, (channel + 1) * plane))).toEqual(
+        fixture.rgb.filter((_, index) => index % 3 === channel)
+      );
+    }
+  });
+
+  it("bicubic 保留独立通道归一化、letterbox 边界和既有结果所有权", () => {
+    const fixture = bicubicReference.cases[1];
+    const input = {
+      width: fixture.inputWidth,
+      height: fixture.inputHeight,
+      rgba: new Uint8ClampedArray(fixture.rgba)
+    };
+    const config = {
+      size: { width: 7, height: 7 },
+      interpolation: "bicubic" as const,
+      resizeMode: "letterbox" as const,
+      rescaleFactor: 1 / 255,
+      mean: [0.485, 0.456, 0.406] as const,
+      std: [0.229, 0.224, 0.225] as const
+    };
+    const result = preprocessImage(input, config);
+    // 11×9 等比放入 7×7 会变成 7×6；单独读取无归一化版本作为坐标和像素对照。
+    const pixels = preprocessImage(input, { ...config, doRescale: false, doNormalize: false });
+    for (let channel = 0; channel < 3; channel += 1) {
+      for (let index = 0; index < 49; index += 1) {
+        expect(result.data[channel * 49 + index]).toBe(
+          Math.fround(
+            (pixels.data[channel * 49 + index] / 255 - config.mean[channel]) / config.std[channel]
+          )
+        );
+      }
+    }
+    const snapshot = result.data.slice();
+    preprocessImage({ width: 1, height: 1, rgba: new Uint8ClampedArray([255, 0, 128, 0]) }, config);
+    expect(result.data).toEqual(snapshot);
+    expect(Array.from(input.rgba)).toEqual(fixture.rgba);
+  });
+
+  it.each([
+    { size: { width: 11, height: 3 }, padLeft: 3, padTop: 0 },
+    { size: { width: 5, height: 9 }, padLeft: 0, padTop: 3 }
+  ])("bicubic letterbox 正确写入非零偏移：$padLeft/$padTop", ({ size, padLeft, padTop }) => {
+    const fixture = bicubicReference.cases.find(
+      (item) => item.inputWidth === 5 && item.inputHeight === 3
+    )!;
+    const mean = [0.485, 0.456, 0.406];
+    const std = [0.229, 0.224, 0.225];
+    const result = preprocessImage(
+      { width: 5, height: 3, rgba: new Uint8ClampedArray(fixture.rgba) },
+      { size, resizeMode: "letterbox", interpolation: "bicubic", rescaleFactor: 1 / 255, mean, std }
+    );
+    expect(result.transform).toMatchObject({ padLeft, padTop, resizedWidth: 5, resizedHeight: 3 });
+    const plane = size.width * size.height;
+    for (let channel = 0; channel < 3; channel += 1) {
+      for (let y = 0; y < size.height; y += 1) {
+        for (let x = 0; x < size.width; x += 1) {
+          const inside = x >= padLeft && x < padLeft + 5 && y >= padTop && y < padTop + 3;
+          const pixel = inside ? fixture.rgb[((y - padTop) * 5 + x - padLeft) * 3 + channel] : 0;
+          expect(result.data[channel * plane + y * size.width + x]).toBe(
+            Math.fround((pixel * (1 / 255) - mean[channel]) / std[channel])
+          );
+        }
+      }
+    }
   });
 
   it("禁用缩放时拒绝超过模型输入尺寸的图像", () => {

@@ -11,4 +11,4 @@ allowBuilds:
   esbuild: true
   protobufjs: true
 minimumReleaseAgeExclude:
-  - web-sdk-pp-detection@0.2.0
+  - web-sdk-pp-detection@0.2.0 || 0.3.0

@@ -32,3 +32,7 @@
 上述状态描述清单能力；当前仓库提供 1.0.1 FP32 stable 默认模型。WebGPU FP16 需要 `navigator.gpu` 和 `shader-f16`；WebGPU FP32 不需要 `shader-f16`。WASM/CPU 与 WebGPU 的具体组合必须以变体清单和运行时探测为准。Demo 对手动后端或精度选择严格执行，SDK 会以 `CAPABILITY_UNSUPPORTED` 拒绝清单中不存在的显式组合。原始模型是 float32，不支持 FP64。
 
 WASM 单线程不要求跨源隔离。多线程 WASM 需要 COOP `same-origin` 与 COEP `require-corp` 或 `credentialless`，并要求模型、WASM、Worker 资源满足同源/CORS/CORP 规则。SDK 会根据实际能力选择线程数，而不是假定所有移动 WebView 都支持 SharedArrayBuffer。
+
+## 0.3.1 预处理优化的小米 15 回归（2026-09-12）
+
+用户对预处理优化提交 `1c33a7a` 的局域网 Demo 确认两款模型的 CPU/GPU 测试均正常。截图直接确认 PP-YOLOE 的 ModelScope、WebGPU/FP32/main、ORT 1.27.0 和 Android Edge 152；具体 Android/HyperOS 版本未知，不能用缩减后的 UA 中 Android 10 推断系统版本。没有旧版对照或多次计时样本；完整记录见[本次实机证据](../../reports/releases/2026-09-12-0.3.1/mobile-xiaomi15.md)。

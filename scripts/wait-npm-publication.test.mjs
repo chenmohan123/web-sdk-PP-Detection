@@ -84,3 +84,63 @@ test("持续不可用十分钟后失败并保留尝试记录", async () => {
   assert.equal(result.attempts, 100);
   assert.match(result.error, /超时/u);
 });
+
+for (const bodyError of [
+  new TypeError("响应体传输中断"),
+  new DOMException("响应体读取超时", "TimeoutError")
+]) {
+  test(`HTTP 200 的临时响应体错误可以重试：${bodyError.name}`, async () => {
+    let calls = 0;
+    const result = await waitForNpmPublication({
+      packageName: metadata.name,
+      version: metadata.version,
+      ...clock(),
+      fetchImpl: async () =>
+        ++calls === 1
+          ? new Response(
+              new ReadableStream({
+                start(controller) {
+                  controller.error(bodyError);
+                }
+              })
+            )
+          : Response.json(metadata)
+    });
+    assert.equal(result.status, "passed");
+    assert.equal(result.attempts, 2);
+    assert.equal(result.elapsedMs, 6000);
+    assert.equal(result.history[0].httpStatus, 200);
+    assert.match(result.history[0].error, /响应体/u);
+  });
+}
+test("响应体持续中断受总超时限制并保留记录", async () => {
+  const result = await waitForNpmPublication({
+    packageName: metadata.name,
+    version: metadata.version,
+    timeoutMs: 12000,
+    ...clock(),
+    fetchImpl: async () =>
+      new Response(
+        new ReadableStream({
+          start(controller) {
+            controller.error(new TypeError("响应体中断"));
+          }
+        })
+      )
+  });
+  assert.equal(result.status, "failed");
+  assert.equal(result.attempts, 2);
+  assert.equal(result.elapsedMs, 12000);
+  assert.match(result.error, /超时/u);
+});
+test("完整响应中的无效 JSON 立即失败", async () => {
+  const result = await waitForNpmPublication({
+    packageName: metadata.name,
+    version: metadata.version,
+    ...clock(),
+    fetchImpl: async () => new Response("{invalid")
+  });
+  assert.equal(result.status, "failed");
+  assert.equal(result.attempts, 1);
+  assert.match(result.error, /无效 JSON/u);
+});

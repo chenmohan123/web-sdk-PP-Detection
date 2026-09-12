@@ -21,7 +21,7 @@ function read(relativePath) {
 }
 
 describe("发布工作流契约", () => {
-  test("验证当前 0.3.0 SDK 的稳定模型清单静态配置", () => {
+  test("验证当前 0.3.1 SDK 的稳定模型清单静态配置", () => {
     const output = execFileSync(process.execPath, [verifier, "--static"], {
       cwd: repositoryRoot,
       encoding: "utf8"
@@ -185,16 +185,16 @@ describe("发布工作流契约", () => {
     assert.match(release, /cp "\$accepted_model" models\/pp-detection\/picodet-l-320-fp32\.onnx/);
   });
 
-  test("package、runtime 和 changelog 版本保持 0.3.0 一致", () => {
+  test("package、runtime 和 changelog 版本保持 0.3.1 一致", () => {
     const packageMetadata = JSON.parse(read("packages/sdk/package.json"));
     const runtime = read("packages/sdk/src/index.ts");
     const changelog = read("CHANGELOG.md");
 
-    assert.equal(packageMetadata.version, "0.3.0");
+    assert.equal(packageMetadata.version, "0.3.1");
     assert.equal(JSON.parse(read("package.json")).version, packageMetadata.version);
-    assert.match(read("sdk-manifest.yaml"), /version: 0\.3\.0/);
-    assert.match(runtime, /CURRENT_SDK_VERSION = "0\.3\.0"/);
-    assert.match(changelog, /^## 0\.3\.0（2026-09-12）$/m);
+    assert.match(read("sdk-manifest.yaml"), /version: 0\.3\.1/);
+    assert.match(runtime, /CURRENT_SDK_VERSION = "0\.3\.1"/);
+    assert.match(changelog, /^## 0\.3\.1（2026-09-12）$/m);
   });
 
   test("Pages 暂存脚本从当前根目录复制稳定模型且不访问网络", async () => {

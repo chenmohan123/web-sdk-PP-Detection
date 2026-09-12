@@ -1,6 +1,10 @@
 # Changelog
 
-## 尚未发布
+## 0.3.1（2026-09-12）
+
+模型、来源、许可和验证边界见[发布说明](docs/zh-CN/release-0.3.1.md)（[English](docs/en/release-0.3.1.md)）。
+
+- 小米 15 Android Edge 实机回归：用户确认两款模型的 CPU/GPU 测试均正常，截图直接确认 PP-YOLOE WebGPU/FP32/main。
 
 - 优化两款模型共用的 bicubic 预处理，保持逐位张量和同后端检测结果一致；本机 PP-YOLOE WebGPU 热端到端中位数降低 25.5%，详见 [2026-09-12 评测](reports/evaluation/2026-09-12-preprocess/README.md)。
 

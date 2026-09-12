@@ -6,13 +6,13 @@
 
 ## Version and installation
 
-The current SDK version is **0.3.0**:
+The current SDK version is **0.3.1**:
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.0
+pnpm add web-sdk-pp-detection@0.3.1
 ```
 
-Version 0.3.0 adds the stable PP-YOLOE+ S 640 FP32 model, explicit experimental-variant opt-in, and a result-first Demo. See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.3.0.md).
+0.3.1 优化两款模型共用的预处理，保持检测结果一致；本机 PP-YOLOE WebGPU 热端到端中位数降低 25.5%，并完成小米 15 基础功能回归。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.3.1.md).
 
 ## Current boundaries
 

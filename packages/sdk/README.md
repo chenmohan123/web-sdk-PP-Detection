@@ -4,15 +4,15 @@
 
 基于 ONNX Runtime Web 的浏览器端 PP-Detection 目标检测 SDK，支持 PC、移动端与各类 H5 页面。
 
-当前 SDK 版本为 **0.3.0**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.3.0.md)。
+当前 SDK 版本为 **0.3.1**，完整变更见[发布说明](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/release-0.3.1.md)。
 
 ## 安装
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.0
+pnpm add web-sdk-pp-detection@0.3.1
 ```
 
-也可以使用 `npm install web-sdk-pp-detection@0.3.0`。
+也可以使用 `npm install web-sdk-pp-detection@0.3.1`。
 
 ## 快速开始
 
@@ -82,15 +82,15 @@ const detector = await createPPDetection({
 
 A browser-first PP-Detection object detection SDK powered by ONNX Runtime Web for desktop, mobile, and H5 pages.
 
-The current SDK version is **0.3.0**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.3.0.md) for the complete changes.
+The current SDK version is **0.3.1**. See the [release notes](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/release-0.3.1.md) for the complete changes.
 
 ### Installation
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.0
+pnpm add web-sdk-pp-detection@0.3.1
 ```
 
-`npm install web-sdk-pp-detection@0.3.0` is also supported.
+`npm install web-sdk-pp-detection@0.3.1` is also supported.
 
 ### Quick start
 

@@ -35,6 +35,7 @@ export async function waitForNpmPublication({
   });
   while (now() - start < timeoutMs) {
     let response;
+    let metadata;
     try {
       response = await fetchImpl(
         `https://registry.npmjs.org/${encodeURIComponent(packageName)}/${encodeURIComponent(version)}`,
@@ -43,18 +44,22 @@ export async function waitForNpmPublication({
           headers: { accept: "application/json" }
         }
       );
+      if (response.ok) metadata = await response.json();
     } catch (error) {
-      attempts.push({ elapsedMs: now() - start, error: String(error) });
+      attempts.push({
+        elapsedMs: now() - start,
+        ...(response ? { httpStatus: response.status } : {}),
+        error: String(error)
+      });
+      if (error instanceof SyntaxError) {
+        return result("failed", { error: "registry 返回无效 JSON 元数据" });
+      }
+      // HTTP 200 的响应体也可能断流或超时，沿用总时限内的网络重试。
+      response = undefined;
     }
     if (response) {
       attempts.push({ elapsedMs: now() - start, httpStatus: response.status });
       if (response.ok) {
-        let metadata;
-        try {
-          metadata = await response.json();
-        } catch {
-          return result("failed", { error: "registry 返回无效 JSON 元数据" });
-        }
         if (
           !metadata ||
           typeof metadata !== "object" ||

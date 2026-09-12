@@ -15,32 +15,35 @@ describe("documentation contract", () => {
     });
   });
 
-  it("描述当前内置的 1.0.1 FP32 stable 默认模型", () => {
+  it("描述当前两模型六个 stable 变体和设备证据边界", () => {
     const chineseReadme = readFileSync(new URL("README.md", repositoryRoot), "utf8");
     const englishReadme = readFileSync(new URL("README.en.md", repositoryRoot), "utf8");
 
-    assert.match(chineseReadme, /PicoDet 1\.0\.1 的 FP32 变体已标记为 stable/);
-    assert.match(englishReadme, /PicoDet 1\.0\.1 FP32 is stable/);
-    assert.match(chineseReadme, /FP16、INT8、INT4、FP8.*labs\/blocked/);
-    assert.match(englishReadme, /FP16, INT8, INT4, and FP8.*labs\/blocked/);
+    for (const document of [chineseReadme, englishReadme]) {
+      assert.match(document, /PicoDet.*1\.0\.2/);
+      assert.match(document, /PP-YOLOE.*0\.1\.1/);
+      assert.match(document, /FP32、FP16、W8A32.*stable/);
+      assert.match(document, /小米 15.*仅覆盖原 FP32/);
+    }
   });
 
-  it("documents only the validated default backend and precision pairs", () => {
+  it("记录当前默认组合、六变体和 W8A32 API 映射", () => {
     const rootReadme = readFileSync(new URL("README.md", repositoryRoot), "utf8");
     const packageReadme = readFileSync(new URL("packages/sdk/README.md", repositoryRoot), "utf8");
     const modelReadme = readFileSync(new URL("models/README.md", repositoryRoot), "utf8");
     const englishModels = readFileSync(new URL("docs/en/models.md", repositoryRoot), "utf8");
     const chineseModels = readFileSync(new URL("docs/zh-CN/models.md", repositoryRoot), "utf8");
 
-    for (const precision of ["FP32", "FP16", "INT8", "INT4", "FP8"]) {
+    for (const precision of ["FP32", "FP16", "W8A32"]) {
       assert.match(rootReadme, new RegExp(precision));
     }
-    assert.match(packageReadme, /FP32/);
-    assert.match(packageReadme, /FP16、INT8、INT4 和 FP8/);
-    assert.match(packageReadme, /FP16, INT8, INT4, and FP8/);
-    assert.match(modelReadme, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
-    assert.match(englishModels, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
-    assert.match(chineseModels, /FP32[\s\S]*stable[\s\S]*FP16[\s\S]*labs\/blocked/);
+    for (const document of [packageReadme, modelReadme, englishModels, chineseModels]) {
+      assert.match(document, /ModelScope/);
+      assert.match(document, /FP32/);
+      assert.match(document, /FP16/);
+      assert.match(document, /W8A32/);
+      assert.match(document, /precision: "int8"/);
+    }
   });
 
   it("records the current model asset gate in both languages", () => {
@@ -55,7 +58,7 @@ describe("documentation contract", () => {
     );
 
     for (const document of [modelReadme, englishConversion, chineseConversion]) {
-      assert.match(document, /stable/);
+      assert.match(document, /stable|稳定/);
       assert.match(document, /FP16/);
       assert.match(document, /SHA-256/);
       assert.match(document, /不可变来源|immutable source/is);

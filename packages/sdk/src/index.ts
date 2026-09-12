@@ -23,7 +23,7 @@ declare global {
   var __PPDETECTION_SCRIPT_URL__: string | undefined;
 }
 
-export const CURRENT_SDK_VERSION = "0.3.1";
+export const CURRENT_SDK_VERSION = "0.3.2";
 
 export type {
   Backend,
@@ -41,6 +41,7 @@ export type {
   DetectOptions,
   ExecutionMode,
   ModelBackend,
+  ModelDownloadOptions,
   ModelInfo,
   ModelManifest,
   ModelManifestMetadata,
@@ -259,6 +260,7 @@ export async function createPPDetection(
     simpleManifest(runtimeManifest)
   );
   const modelManager = new ModelManager({
+    download: options.download,
     cache: options.cache === false ? false : options.cache === "memory" ? "memory" : undefined
   });
   let executor: DetectionExecutor | undefined;

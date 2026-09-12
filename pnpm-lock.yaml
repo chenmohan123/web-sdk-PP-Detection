@@ -73,6 +73,19 @@ importers:
         specifier: 8.2.2
         version: 8.2.2(@types/node@24.13.3)(esbuild@0.28.2)
 
+  examples/model-variants:
+    dependencies:
+      web-sdk-pp-detection:
+        specifier: 0.3.1
+        version: 0.3.1
+    devDependencies:
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+      vite:
+        specifier: 8.2.2
+        version: 8.2.2(@types/node@24.13.3)(esbuild@0.28.2)
+
   examples/react:
     dependencies:
       '@vitejs/plugin-react':
@@ -1795,6 +1808,10 @@ packages:
     resolution: {integrity: sha512-CGJWK3dheFP2AJB8uVgcuMBjrYKlOXnrY73ZukWh03fjcNWNkwIULka/O0eCKGlIkPnSD2EIKdx/htVYOZGUIQ==}
     engines: {node: '>=22'}
 
+  web-sdk-pp-detection@0.3.1:
+    resolution: {integrity: sha512-XtvVAhJFGFYzTGOnwoy8PN18A9Erlq4siFaZZ9Gwezl9Z12zClVe+/JAwaAg5sGa7vAx3UTaV5Qz4Ob0LZNtQw==}
+    engines: {node: '>=22'}
+
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -3218,6 +3235,10 @@ snapshots:
       typescript: 5.9.3
 
   web-sdk-pp-detection@0.3.0:
+    dependencies:
+      onnxruntime-web: 1.27.0
+
+  web-sdk-pp-detection@0.3.1:
     dependencies:
       onnxruntime-web: 1.27.0
 

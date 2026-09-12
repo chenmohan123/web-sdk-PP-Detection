@@ -115,7 +115,7 @@ it("清理前开始的 auto 加载不能由迟到后备来源写回", async () =
       if (++calls === 1) {
         entered.release();
         await gate.promise;
-        return new Response("失败", { status: 503 });
+        return new Response("失败", { status: 404 });
       }
       return new Response(new Uint8Array([1, 2, 3, 4]));
     }
@@ -350,7 +350,7 @@ it("显式来源下载失败时不尝试其他来源", async () => {
   ).rejects.toMatchObject({
     code: "MODEL_SOURCE_UNAVAILABLE"
   });
-  expect(fetcher).toHaveBeenCalledTimes(1);
+  expect(fetcher).toHaveBeenCalledTimes(3);
 });
 
 it("auto 按清单顺序尝试来源并返回实际来源", async () => {
@@ -363,7 +363,7 @@ it("auto 按清单顺序尝试来源并返回实际来源", async () => {
   };
   const fetcher = vi
     .fn()
-    .mockResolvedValueOnce(new Response("unavailable", { status: 503 }))
+    .mockResolvedValueOnce(new Response("unavailable", { status: 404 }))
     .mockResolvedValueOnce(new Response(new Uint8Array([1, 2, 3, 4])));
   const manager = new ModelManager({ fetcher, cache: "memory" });
   const candidate = {
@@ -426,7 +426,9 @@ it("流式下载报告已加载字节并支持取消", async () => {
     cache: "memory"
   });
   await manager.load({ manifest: candidate, sourceKind: "custom", onProgress: progress });
-  expect(progress).toHaveBeenLastCalledWith({ loadedBytes: 4, totalBytes: 4 });
+  expect(progress).toHaveBeenLastCalledWith(
+    expect.objectContaining({ loadedBytes: 4, totalBytes: 4 })
+  );
 
   const controller = new AbortController();
   controller.abort();
@@ -545,4 +547,130 @@ it("dispose 取消并等待在途 load，完成后才关闭缓存", async () => 
   expect(cache.put).not.toHaveBeenCalled();
   expect(close).toHaveBeenCalledTimes(1);
   await expect(manager.load({ manifest: candidate })).rejects.toMatchObject({ code: "DISPOSED" });
+});
+
+it("下载策略经管理器传递，显式来源重试耗尽不换源且不写缓存", async () => {
+  vi.useFakeTimers();
+  const cache = new MemoryModelCache();
+  const fetcher = vi.fn(
+    async (_url: RequestInfo | URL) => new Response("暂不可用", { status: 503 })
+  );
+  const manager = new ModelManager({ cache, fetcher, download: { maxRetries: 1 } });
+  try {
+    const loading = manager.load({ manifest: validManifest, sourceKind: "custom" });
+    const failure = expect(loading).rejects.toMatchObject({
+      code: "MODEL_SOURCE_UNAVAILABLE",
+      cause: { code: "MODEL_DOWNLOAD_FAILED" }
+    });
+    await vi.advanceTimersByTimeAsync(500);
+    await failure;
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    expect(fetcher.mock.calls.every((call) => call[0] === source.downloadUrl)).toBe(true);
+    expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  } finally {
+    await manager.dispose();
+    vi.useRealTimers();
+  }
+});
+
+it("释放管理器及时取消不遵守信号的请求并阻止迟到缓存写入", async () => {
+  vi.useFakeTimers();
+  let resolve!: (response: Response) => void;
+  const cache = new MemoryModelCache();
+  const manager = new ModelManager({
+    cache,
+    fetcher: () =>
+      new Promise((r) => {
+        resolve = r;
+      })
+  });
+  const loading = manager.load({ manifest: validManifest, sourceKind: "custom" });
+  const outcome: { error?: unknown; disposed?: boolean } = {};
+  void loading.catch((error) => {
+    outcome.error = error;
+  });
+  await vi.advanceTimersByTimeAsync(0);
+  void manager.dispose().then(() => {
+    outcome.disposed = true;
+  });
+  await vi.advanceTimersByTimeAsync(0);
+  try {
+    expect(outcome).toMatchObject({ error: { code: "ABORTED" }, disposed: true });
+    const cancel = vi.fn();
+    resolve(new Response(new ReadableStream({ cancel })));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+  } finally {
+    vi.useRealTimers();
+  }
+});
+
+it("重试成功后只缓存完整权重，后续加载直接命中缓存", async () => {
+  vi.useFakeTimers();
+  const cache = new MemoryModelCache();
+  let requests = 0;
+  const manager = new ModelManager({
+    cache,
+    fetcher: async () => {
+      if (++requests === 1)
+        return new Response(
+          new ReadableStream({
+            start(controller) {
+              controller.enqueue(new Uint8Array([9]));
+              controller.error(new TypeError("连接中断"));
+            }
+          })
+        );
+      return new Response(new Uint8Array([1, 2, 3, 4]));
+    }
+  });
+  try {
+    const loading = manager.load({ manifest: validManifest, sourceKind: "custom" });
+    const checked = loading.then(
+      (value) => ({ value, error: undefined }),
+      (error) => ({ value: undefined, error })
+    );
+    await vi.advanceTimersByTimeAsync(0);
+    expect(await cache.estimate()).toEqual({ bytes: 0, entries: 0 });
+    await vi.advanceTimersByTimeAsync(500);
+    const outcome = await checked;
+    expect(outcome.error).toBeUndefined();
+    expect(outcome.value!.fromCache).toBe(false);
+    const cached = await manager.load({ manifest: validManifest, sourceKind: "custom" });
+    expect(cached.fromCache).toBe(true);
+    expect(Array.from(new Uint8Array(cached.bytes))).toEqual([1, 2, 3, 4]);
+    expect(requests).toBe(2);
+    expect(await cache.estimate()).toEqual({ bytes: 4, entries: 1 });
+  } finally {
+    await manager.dispose();
+    vi.useRealTimers();
+  }
+});
+
+it("并发下载各自拥有取消控制，取消一个不影响另一个成功缓存", async () => {
+  vi.useFakeTimers();
+  const cache = new MemoryModelCache();
+  const aborter = new AbortController();
+  const manager = new ModelManager({ cache, fetcher: () => new Promise<Response>(() => {}) });
+  const other = new ModelManager({
+    cache,
+    fetcher: async () => new Response(new Uint8Array([1, 2, 3, 4]))
+  });
+  let failure: unknown;
+  void manager.load({ manifest: validManifest, signal: aborter.signal }).catch((error) => {
+    failure = error;
+  });
+  const loading = other.load({ manifest: validManifest });
+  await vi.advanceTimersByTimeAsync(0);
+  aborter.abort();
+  await vi.advanceTimersByTimeAsync(0);
+  try {
+    expect(failure).toMatchObject({ code: "ABORTED" });
+    expect((await loading).bytes.byteLength).toBe(4);
+    expect(await cache.estimate()).toEqual({ bytes: 4, entries: 1 });
+  } finally {
+    await Promise.all([manager.dispose(), other.dispose()]);
+    vi.useRealTimers();
+  }
 });

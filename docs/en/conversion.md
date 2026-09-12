@@ -29,12 +29,10 @@ distribution sources with immutable source revisions, download URLs, byte sizes,
 `tools/model-pipeline/reports/picodet-source-evidence.json`. One Windows HeadlessChrome WASM/CPU smoke test is recorded in
 `tools/model-pipeline/reports/picodet-browser-evidence.json`; WebGPU had no available
 adapter in that run, while mobile, WeChat WebView, and other browsers remain unverified;
-source licensing verification is still pending. The 1.0.1 FP32 manifest is `stable` and is
-the default SDK asset. Documentation and manifests keep FP16, quantized, mobile, and WeChat
-WebView support outside the stable release claim.
+source licensing verification is still pending. 以上内容是 1.0.1 FP32 的历史生成证据。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 已发布 FP32、FP16、W8A32 六个 stable 变体；FP16/W8A32 的证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图，移动端和微信 WebView 仍需独立验证。
 
 After official weights are exported, produce evidence for each FP32, FP16, INT8, INT4, or FP8 variant in this order: graph inspection, CPU numeric/detection parity, browser WASM and WebGPU validation, ONNX SHA-256 and immutable-source checks, then `build_manifest`. Mark a variant `stable` only when its evidence is complete and its target backend passes.
 
-## 第二模型评测（尚未发布）
+## 第二模型历史评测
 
-PP-YOLOE+ S 的实际转换入口位于 `tools/model-pipeline/ppyoloe/`，使用固定的官方 PaddleDetection 源码、Paddle 导出与 Paddle2ONNX opset 11。质量评测位于 `tools/model-pipeline/evaluation/`。来源、COCO 子集、原 Paddle 与 ONNX 对齐和浏览器结果见[2026-09-11 报告](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。本轮不使用其他模型的 mask/reading-order 历史报告，也不以 FP16 报告作为该候选的证据。
+PP-YOLOE+ S 的实际转换入口位于 `tools/model-pipeline/ppyoloe/`，使用固定的官方 PaddleDetection 源码、Paddle 导出与 Paddle2ONNX opset 11。0.1.0 的来源、COCO 子集、原 Paddle 与 ONNX 对齐和浏览器结果见[2026-09-11 报告](../../reports/evaluation/2026-09-11-ppyoloe/README.md)；当前 0.1.1 三精度结果见[2026-09-12 报告](../../reports/evaluation/2026-09-12-precision-variants/README.md)。

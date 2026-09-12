@@ -35,7 +35,9 @@ it("按 Response 流读取模型并报告进度和耗时", async () => {
   expect(Array.from(new Uint8Array(result.bytes))).toEqual([1, 2, 3, 4]);
   expect(result.timings.modelDownloadMs).toBeGreaterThanOrEqual(0);
   expect(result.timings.integrityMs).toBeGreaterThanOrEqual(0);
-  expect(onProgress).toHaveBeenLastCalledWith({ loadedBytes: 4, totalBytes: 4 });
+  expect(onProgress).toHaveBeenLastCalledWith(
+    expect.objectContaining({ loadedBytes: 4, totalBytes: 4 })
+  );
 });
 
 it("Content-Length 与清单不一致时在读取前拒绝", async () => {
@@ -111,7 +113,9 @@ it("读取响应流异常时调用 reader.cancel", async () => {
       })
     }
   } as unknown as Response;
-  await expect(loadModelAsset(asset, { fetcher: async () => response })).rejects.toMatchObject({
+  await expect(
+    loadModelAsset(asset, { fetcher: async () => response, download: { maxRetries: 0 } })
+  ).rejects.toMatchObject({
     code: "MODEL_DOWNLOAD_FAILED"
   });
   expect(cancel).toHaveBeenCalledTimes(1);

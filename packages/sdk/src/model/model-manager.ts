@@ -6,12 +6,18 @@ import { PPDetectionError } from "../errors";
 import type {
   DetectionModelVariant,
   ModelIdentity,
+  ModelDownloadOptions,
   ModelSource,
   ModelSourceKind,
   RuntimeDetectionManifest,
   TimingBreakdown
 } from "../types";
-import { loadModelAsset, type ModelDownloadProgress, type ModelFetcher } from "./download";
+import {
+  loadModelAsset,
+  resolveDownloadOptions,
+  type ModelDownloadProgress,
+  type ModelFetcher
+} from "./download";
 import { verifyModelIntegrity } from "./integrity";
 import { parseDetectionManifest } from "./manifest";
 import {
@@ -37,6 +43,7 @@ function matchesModel(key: string, model?: ModelIdentity): boolean {
 }
 
 export interface ModelManagerOptions {
+  readonly download?: ModelDownloadOptions;
   readonly fetcher?: ModelFetcher;
   readonly cache?: "memory" | "indexeddb" | false | ModelCache;
 }
@@ -92,6 +99,7 @@ function throwIfAborted(signal?: AbortSignal): void {
 
 export class ModelManager {
   private readonly fetcher?: ModelFetcher;
+  private readonly download: Required<ModelDownloadOptions>;
   private readonly cache: ModelCache;
   private readonly coordinator: ReturnType<typeof coordinateCache>;
   private readonly lifecycle = new AbortController();
@@ -101,6 +109,7 @@ export class ModelManager {
   private disposePromise?: Promise<void>;
 
   constructor(options: ModelManagerOptions = {}) {
+    this.download = resolveDownloadOptions(options.download);
     this.fetcher = options.fetcher;
     this.cache = createCache(options.cache);
     this.coordinator = coordinateCache(this.cache);
@@ -206,6 +215,7 @@ export class ModelManager {
       try {
         loaded = await loadModelAsset(asset, {
           fetcher: this.fetcher,
+          download: this.download,
           signal: options.signal,
           onProgress: options.onProgress
         });

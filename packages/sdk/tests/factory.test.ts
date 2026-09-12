@@ -301,3 +301,81 @@ describe("createPPDetection", () => {
     }
   });
 });
+
+it("工厂将权重下载时限与禁用重试策略传到实际请求", async () => {
+  vi.useFakeTimers();
+  const fetcher = vi.fn(() => new Promise<Response>(() => {}));
+  vi.stubGlobal("fetch", fetcher);
+  const outcome: { error?: unknown } = {};
+  const loading = createPPDetection({
+    model: manifest,
+    backend: "wasm",
+    source: "custom",
+    cache: false,
+    download: { timeoutMs: 75, idleTimeoutMs: 0, maxRetries: 0 }
+  });
+  void loading.catch((error) => {
+    outcome.error = error;
+  });
+  try {
+    await vi.advanceTimersByTimeAsync(75);
+    expect(outcome.error).toMatchObject({
+      code: "MODEL_SOURCE_UNAVAILABLE",
+      cause: { code: "MODEL_DOWNLOAD_FAILED" }
+    });
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(vi.getTimerCount()).toBe(0);
+  } finally {
+    vi.unstubAllGlobals();
+    vi.useRealTimers();
+  }
+});
+
+it("工厂模型进度携带重试序号且不重试清单JSON", async () => {
+  vi.useFakeTimers();
+  let requests = 0;
+  const fetcher = vi.fn(async (url: RequestInfo | URL) => {
+    if (String(url).endsWith("manifest.json")) return new Response(JSON.stringify(manifest));
+    if (++requests === 1) return new Response("暂不可用", { status: 503 });
+    return new Response(new Uint8Array([1, 2, 3, 4]));
+  });
+  vi.stubGlobal("fetch", fetcher);
+  const onProgress = vi.fn();
+  try {
+    const loading = createPPDetection({
+      model: "https://fixture.invalid/manifest.json",
+      backend: "wasm",
+      source: "custom",
+      cache: false,
+      download: { maxRetries: 1 },
+      onProgress,
+      ort: {
+        module: {
+          env: { wasm: {} },
+          InferenceSession: { create: async () => ({ run: vi.fn(), release: vi.fn() }) }
+        }
+      }
+    });
+    const checked = loading.then(
+      (value) => ({ value, error: undefined }),
+      (error) => ({ value: undefined, error })
+    );
+    await vi.advanceTimersByTimeAsync(500);
+    const outcome = await checked;
+    expect(outcome.error).toBeUndefined();
+    const detector = outcome.value!;
+    expect(fetcher).toHaveBeenCalledTimes(3);
+    expect(onProgress).toHaveBeenCalledWith({
+      phase: "model",
+      status: "progress",
+      loadedBytes: 0,
+      totalBytes: 4,
+      attempt: 2,
+      maxAttempts: 2
+    });
+    await detector.dispose();
+  } finally {
+    vi.unstubAllGlobals();
+    vi.useRealTimers();
+  }
+});

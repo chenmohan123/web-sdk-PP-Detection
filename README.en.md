@@ -19,23 +19,23 @@
 
 ## Version and installation
 
-The current SDK version is **0.3.1**:
+The current SDK version is **0.3.2**:
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.1
+pnpm add web-sdk-pp-detection@0.3.2
 ```
 
-0.3.1 优化两款模型共用的预处理，保持检测结果一致；本机 PP-YOLOE WebGPU 热端到端中位数降低 25.5%，并完成小米 15 基础功能回归。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.3.1.md).
+0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，并补齐六个稳定变体的接入说明。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.3.2.md).
 
 ## Current boundaries
 
-- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` error without a model network request. The repository provides PicoDet 1.0.1 and PP-YOLOE 0.1.0 FP32 stable manifests and externally distributed models; the npm package contains no ONNX model binary.
+- 工厂必须显式提供 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络请求。仓库提供 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的六个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
-- The repository model manifest defaults to Hugging Face. The live Demo independently configures its source selector to default to ModelScope.
+- 两份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
-- PicoDet 1.0.1 FP32 is stable and has passed seven-fixture validation on Linux WASM and Windows NVIDIA WebGPU. FP16, INT8, INT4, and FP8 remain labs/blocked and are outside this release.
+- PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 均为 stable。FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
 - `classThresholds` overrides object-detection thresholds for manifest labels such as `person` and `car`; unspecified labels inherit the global threshold.
-- Common options include `backend` (`auto`, `webgpu`, `wasm`), `precision` (`auto`, `fp16`, `fp32`), and `allowFallback`; `model` accepts a manifest URL or binary `data`.
+- 常用配置包括 `backend`（`auto`、`webgpu`、`wasm`）、`precision`（`auto`、`fp16`、`fp32`、`int8`）和 `allowFallback`；其中 `int8` 选择 W8A32，`model` 可传入清单 URL 或二进制 `data`。
 - Cross-origin models need correct CORS; multithreaded WASM needs COOP/COEP, otherwise use single-thread WASM.
 
 ## Platform boundaries
@@ -52,11 +52,16 @@ pnpm add web-sdk-pp-detection@0.3.1
 - [Live Demo](https://chenmohan123.github.io/web-sdk-PP-Detection/)
 - [Chinese docs](docs/zh-CN/quick-start.md)
 - [English docs](docs/en/quick-start.md)
+- [六变体示例](examples/model-variants/README.md)
 
 Code is Apache-2.0. Upstream licenses for model weights and COCO labels are tracked in `THIRD_PARTY_NOTICES.md`.
 
 ## PP-YOLOE 稳定模型
 
-PP-YOLOE+ S 640 FP32 已于 2026-09-12 按用户确认标记为 **0.1.0 stable**，依据桌面 64 张 COCO 子集验证及小米 15 CPU/GPU 人工实测。当前清单默认可加载，无需设置 `allowExperimental`；其他 labs 候选仍须显式开启，blocked 仍会被拒绝。见[稳定记录](reports/stability/2026-09-12-ppyoloe/README.md)与[接入说明](examples/ppyoloe-candidate/README.md)。
+PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模型版本为 **0.1.1**，新增 FP16 与 W8A32 稳定变体。当前清单默认可加载，无需设置 `allowExperimental`；旧 labs 候选仍须显式开启，blocked 仍会被拒绝。见[稳定记录](reports/stability/2026-09-12-ppyoloe/README.md)与[六变体示例](examples/model-variants/README.md)。
 
-在线 Demo 提供 PicoDet 与 PP-YOLOE 模型选择，PicoDet 继续默认。稳定清单复用 Hugging Face 和 ModelScope 的固定模型文件，切换时取消旧任务、释放实例并更新缓存身份。现有 Hub 实验清单是历史快照；当前稳定清单随 Demo 构建，并归档于 v0.3.0 发布标签。模型分发见[历史记录](reports/distribution/2026-09-11-ppyoloe/README.md)，小米 15 的实际设备范围见[实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+在线 Demo 提供两模型与三精度选择，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。旧 Hub 实验清单和 v0.3.0 资产是历史快照；模型分发见[历史记录](reports/distribution/2026-09-11-ppyoloe/README.md)，小米 15 的实际设备范围见[实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+
+## 下载配置（0.3.2 起）
+
+0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。

@@ -160,10 +160,19 @@ export interface PPDetectionProgressEvent {
   readonly status: "start" | "progress" | "complete";
   readonly loadedBytes?: number;
   readonly totalBytes?: number;
+  readonly attempt?: number;
+  readonly maxAttempts?: number;
   readonly fallback?: PPDetectionFallback;
 }
 
+export interface ModelDownloadOptions {
+  readonly timeoutMs?: number;
+  readonly idleTimeoutMs?: number;
+  readonly maxRetries?: number;
+}
+
 export interface CreatePPDetectionOptions {
+  readonly download?: ModelDownloadOptions;
   readonly allowExperimental?: boolean;
   readonly allowFallback?: boolean;
   readonly backend?: BackendPreference;

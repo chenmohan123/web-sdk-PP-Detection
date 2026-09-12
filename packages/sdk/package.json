@@ -1,6 +1,6 @@
 {
   "name": "web-sdk-pp-detection",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": false,
   "description": "基于 ONNX Runtime Web 的 PaddleDetection 浏览器目标检测 SDK",
   "repository": {

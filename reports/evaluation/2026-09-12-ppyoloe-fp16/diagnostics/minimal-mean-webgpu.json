@@ -1,0 +1,98 @@
+{
+  "runtime": "1.27.0",
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+  "adapter": {
+    "features": [
+      "depth32float-stencil8",
+      "rg11b10ufloat-renderable",
+      "bgra8unorm-storage",
+      "texture-formats-tier1",
+      "texture-compression-bc",
+      "dual-source-blending",
+      "core-features-and-limits",
+      "float32-filterable",
+      "indirect-first-instance",
+      "float32-blendable",
+      "subgroup-size-control",
+      "depth-clip-control",
+      "texture-compression-bc-sliced-3d",
+      "texture-formats-tier2",
+      "shader-f16",
+      "timestamp-query",
+      "clip-distances",
+      "primitive-index",
+      "texture-component-swizzle",
+      "subgroups"
+    ]
+  },
+  "models": {
+    "minimal-mean-fp16": [
+      {
+        "fill": 0,
+        "outputs": {
+          "output": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "sample": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "fill": 1,
+        "outputs": {
+          "output": {
+            "min": null,
+            "max": null,
+            "mean": null,
+            "nonfinite": 3,
+            "sample": [
+              null,
+              null,
+              null
+            ]
+          }
+        }
+      }
+    ],
+    "minimal-mean-fp32": [
+      {
+        "fill": 0,
+        "outputs": {
+          "output": {
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "nonfinite": 0,
+            "sample": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "fill": 1,
+        "outputs": {
+          "output": {
+            "min": 1,
+            "max": 1,
+            "mean": 1,
+            "nonfinite": 0,
+            "sample": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,50 +1,28 @@
-# 模型文件 / Model files
+# 模型文件
 
-## 中文
+当前 SDK 为 `web-sdk-pp-detection@0.3.0`，提供两款 FP32 稳定模型。模型权重由外部固定来源下载，npm 包不携带 ONNX 文件。
 
-本目录保存 PP-Detection 的当前 ONNX 产物和由构建脚本生成的清单；更新时直接替换根目录文件。当前默认
-PicoDet 1.0.1 FP32 变体为 `stable`，仓库中的清理后 ONNX 产物与 PaddleDetection
-官方下载文件字节不一致；官方 URL、文档 revision、字节数和 SHA-256，以及候选
-文件的大小和 SHA-256，见
-`tools/model-pipeline/reports/picodet-source-evidence.json`。Git LFS、Hugging Face
-和 ModelScope 均已有相同字节的正式副本，固定 revision 和 SHA-256 已核验；1.0.1 FP32
-已完成 Linux WASM 和 Windows NVIDIA WebGPU 的 7 张 fixture 验证，并作为 stable 默认模型。
-来源许可、FP16、移动端和微信 WebView 证据不属于本次稳定兼容承诺。验证索引见
-`tools/model-pipeline/reports/1.0.1/remote-validation.json`。
+| 模型                | 模型版本 | 状态   | 文件字节数 | 清单                                         |
+| ------------------- | -------- | ------ | ---------: | -------------------------------------------- |
+| PicoDet-L-320 LCNet | 1.0.1    | stable | 23,243,834 | [PicoDet](pp-detection/manifest.json)        |
+| PP-YOLOE+ S 640     | 0.1.0    | stable | 31,954,220 | [PP-YOLOE](ppyoloe-plus-s-640/manifest.json) |
 
-### 默认清单状态
+Demo 默认 PicoDet，两款模型的来源选项均为 ModelScope（默认）和 Hugging Face。SDK 清单自身默认 Hugging Face；SDK 还允许清单明确提供的 Git LFS 或自托管来源。显式指定来源失败时不会静默换源。
 
-| 变体            | 状态         | 说明                                           |
-| --------------- | ------------ | ---------------------------------------------- |
-| FP32            | stable       | 1.0.1；WASM 和 NVIDIA WebGPU 七张 fixture 通过 |
-| FP16            | labs/blocked | 需要重新完成精度、大小、内存和后端验证         |
-| INT8、INT4、FP8 | labs         | 需要完成量化精度、大小、内存和后端验证         |
+两份清单固定来源 revision、大小和 SHA-256。稳定 PP-YOLOE 复用 `0.1.0-labs.1` 目录中的同一文件，历史目录名不决定当前状态；稳定清单归档于 [v0.3.0](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/v0.3.0/models)。Git LFS pointer 不是可运行的模型本体。
 
-清单中的 `precision` 区分精度，`quantization` 记录量化方法。模型来源支持 Git LFS（默认）、Hugging Face、ModelScope 和 custom；只有资产和证据齐全的变体才能发布为 `stable`。不要把 Git LFS pointer 文件当作浏览器可用的模型本体。
+## 来源、许可与验证
 
-### 生成清单
+两款模型来自 PaddleDetection，PP-YOLOE 经 Paddle2ONNX 转换与定向修复。来源、权重许可、固定上游提交和模型 SHA-256 分别见 [PicoDet 模型卡](pp-detection/README.md)、[PP-YOLOE 模型卡](ppyoloe-plus-s-640/README.md)及[第三方声明](../THIRD_PARTY_NOTICES.md)。不能使用其他模型或 PaddleOCR 的历史记录作为这两款模型的证据。
 
-完成模型导出和验证后，在 `tools/model-pipeline` 中运行 `build_manifest`。生成器必须绑定实际文件字节数、SHA-256、opset、输入输出契约、不可变来源 revision 以及对应后端的浏览器证据；禁止手工填写或复制历史版本的数值。
+2026-09-12 正式 Demo 的两模型 WASM / NVIDIA WebGPU 路径已通过。小米 15 用户反馈 CPU/GPU 基础功能正常，完整系统版本与 CPU 独立记录待补齐。64 张 COCO 子集评测不代表完整 COCO mAP。验证结果、运行环境和边界见 [0.3.0 发布说明](../docs/zh-CN/release-0.3.0.md)及 [Release 验收附件](https://github.com/chenmohan123/web-sdk-PP-Detection/releases/tag/v0.3.0)。
 
-### 来源与许可
+## 新变体
 
-转换输入来自 PaddlePaddle 的 [PP-Detection safetensors](https://huggingface.co/PaddlePaddle/PP-Detection_safetensors)。上游模型也见 [ModelScope](https://modelscope.cn/models/PaddlePaddle/PP-Detection)，项目实现与资料见 [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)。根据官方模型元数据，模型以 Apache-2.0 许可提供。完整归属与论文引用见仓库根目录的 `THIRD_PARTY_NOTICES.md`。
+当前稳定范围仅为 FP32。FP16、INT8、INT4、FP8 需分别完成转换、数值、后端和设备验证。FP16 专项候选保留为独立实验产物，状态为 labs/blocked；转换成功不等于可提升为 stable。
 
-## English
+生成新清单时绑定实际文件的 bytes、SHA-256、opset、输入输出、后处理和不可变来源。以新模型版本发布，保留旧清单及原始评测；不要覆盖已发布标签、模型目录或历史资产。
 
-This directory contains the current PP-Detection ONNX artifacts and generated manifest; updates replace files in this root directory.
-The current PicoDet FP32 variant is `stable`. The reproducible cleaned FP32 ONNX
-candidate is not byte-identical to the official PaddleDetection download; its official
-URL, documentation revision, size, and SHA-256, together with the candidate's size and
-SHA-256, are recorded in
-`tools/model-pipeline/reports/picodet-source-evidence.json`. Immutable Git LFS, Hugging
-Face, and ModelScope distribution sources now contain the same bytes, with revisions and
-SHA-256 verified. The 1.0.1 FP32 variant has passed seven-fixture validation on Linux WASM
-and Windows NVIDIA WebGPU and is the stable bundled default. Source licensing, FP16, mobile
-browser, and WeChat WebView evidence are outside this release claim. Historical reports are evidence only, not current model directories.
+## English entry
 
-The manifest distinguishes `fp32`, `fp16`, `int8`, `int4`, and `fp8`, with `quantization` recording the quantization method. Model distribution supports Git LFS, Hugging Face (the Demo default), ModelScope, and custom hosting. Git LFS, Hugging Face, and ModelScope now contain the same FP32 bytes; only FP32 WASM/WebGPU evidence is complete, while FP16, mobile browser, and WeChat WebView evidence remain pending. Only variants with complete assets and evidence may be released as `stable`; a Git LFS pointer is not a browser-runnable model.
-
-After export and validation, run `build_manifest` from `tools/model-pipeline`. The generator must bind actual bytes, SHA-256, opset, tensor contracts, immutable source revisions, and browser evidence for each target backend; do not copy values from historical releases.
-
-The upstream PaddlePaddle model is identified as Apache-2.0 by its official metadata. See `THIRD_PARTY_NOTICES.md` for attribution and citation details.
+The current release provides PicoDet-L-320 1.0.1 and PP-YOLOE+ S 640 0.1.0 as FP32 stable models. The Demo defaults to PicoDet and ModelScope for both models; Hugging Face remains selectable. See the [release notes](../docs/en/release-0.3.0.md) for immutable sources, licenses, dated validation, and limitations. New precision variants require separate validation and versioned publication.

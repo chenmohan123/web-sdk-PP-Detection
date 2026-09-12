@@ -19,7 +19,7 @@
     "format:check": "prettier --check .",
     "lint": "pnpm -r --if-present lint",
     "model:test": "python -m pytest tools/model-pipeline",
-    "release:test": "node --test scripts/verify-release.test.mjs scripts/dependency-security.test.mjs scripts/repository-contract.test.mjs",
+    "release:test": "node --test scripts/verify-release.test.mjs scripts/dependency-security.test.mjs scripts/repository-contract.test.mjs scripts/wait-npm-publication.test.mjs",
     "test": "pnpm --filter web-sdk-pp-detection test",
     "test:browser": "playwright test",
     "typecheck": "pnpm --filter web-sdk-pp-detection typecheck",

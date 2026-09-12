@@ -1,6 +1,6 @@
 # vanilla-vite 示例
 
-本目录可原样复制到仓库外。使用公开 npm 包 `web-sdk-pp-detection@0.2.0`，默认加载 ModelScope 的官方 PicoDet-L-320 v1.0.1 清单。首次运行需要访问模型仓库和 ONNX Runtime CDN。
+本目录可原样复制到仓库外。使用公开 npm 包 `web-sdk-pp-detection@0.3.0`，默认加载 ModelScope 的官方 PicoDet-L-320 v1.0.1 清单。首次运行需要访问模型仓库和 ONNX Runtime CDN。
 
 ```powershell
 pnpm install

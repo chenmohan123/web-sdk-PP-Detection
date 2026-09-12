@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "packageName": "web-sdk-pp-detection",
+  "version": "0.3.0",
+  "attempts": 1,
+  "elapsedMs": 704,
+  "history": [
+    {
+      "elapsedMs": 698,
+      "httpStatus": 200
+    }
+  ],
+  "integrity": "sha512-CGJWK3dheFP2AJB8uVgcuMBjrYKlOXnrY73ZukWh03fjcNWNkwIULka/O0eCKGlIkPnSD2EIKdx/htVYOZGUIQ==",
+  "attestations": {
+    "url": "https://registry.npmjs.org/-/npm/v1/attestations/web-sdk-pp-detection@0.3.0",
+    "provenance": {
+      "predicateType": "https://slsa.dev/provenance/v1"
+    }
+  }
+}

@@ -64,22 +64,12 @@ jobs:
         working-directory: packages/sdk
         run: npm publish --access public --provenance
       - name: Record published integrity
-        shell: bash
-        run: |
-          set -o pipefail
-          package="web-sdk-pp-detection@${GITHUB_REF_NAME#v}"
-          for attempt in {1..20}; do
-            if metadata="$(npm view "$package" version dist.integrity --json)"; then
-              {
-                echo '## npm integrity'
-                echo "$metadata"
-              } | tee -a "$GITHUB_STEP_SUMMARY"
-              exit 0
-            fi
-            if (( attempt < 20 )); then
-              echo "npm registry has not exposed $package yet; retrying in 6 seconds..." >&2
-              sleep 6
-            fi
-          done
-          echo "Failed to read published integrity for $package after 20 attempts." >&2
-          exit 1
+        timeout-minutes: 12
+        run: node scripts/wait-npm-publication.mjs web-sdk-pp-detection "${GITHUB_REF_NAME#v}" "$RUNNER_TEMP/npm-publication.json"
+      - name: 保存 npm 发布等待记录
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-publication
+          if-no-files-found: ignore
+          path: ${{ runner.temp }}/npm-publication.json

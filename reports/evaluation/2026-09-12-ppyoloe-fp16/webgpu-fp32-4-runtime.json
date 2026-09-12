@@ -1,0 +1,1127 @@
+{
+  "artifacts": {
+    "annotations": {
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+      "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+    },
+    "imageCount": 64,
+    "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+    "manifest": {
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\manifest.json",
+      "sha256": "1db2223eafde0d157a41dac28f396785a521b057b99ff5f5e9968182dc2831a0"
+    },
+    "model": {
+      "bytes": 31954220,
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+    }
+  },
+  "capturedAt": "2026-09-12T02:34:52.299Z",
+  "environment": {
+    "cpu": {
+      "logicalCores": 12,
+      "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+    },
+    "os": {
+      "arch": "x64",
+      "platform": "win32",
+      "release": "10.0.26200"
+    },
+    "browser": {
+      "version": "153.0.8010.12",
+      "launchArgs": [],
+      "crossOriginIsolated": true,
+      "hardwareConcurrency": 12,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "userAgentData": {
+        "brands": [
+          {
+            "brand": "Chromium",
+            "version": "153"
+          },
+          {
+            "brand": "Not_A Brand",
+            "version": "8"
+          }
+        ],
+        "mobile": false,
+        "platform": "Windows"
+      }
+    },
+    "browserMessages": [
+      {
+        "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "type": "warning"
+      },
+      {
+        "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "type": "warning"
+      },
+      {
+        "text": "\u001b[0;93m2026-09-12 10:34:54.848604 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+        "type": "error"
+      },
+      {
+        "text": "\u001b[0;93m2026-09-12 10:34:54.851924 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+        "type": "error"
+      },
+      {
+        "text": "webgpu：8/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：16/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：24/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：32/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：40/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：48/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：56/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：64/64",
+        "type": "log"
+      }
+    ],
+    "gpu": {
+      "adapter": {
+        "architecture": "blackwell",
+        "description": null,
+        "device": null,
+        "isFallbackAdapter": false,
+        "subgroupMaxSize": 32,
+        "subgroupMinSize": 32,
+        "features": [
+          "depth32float-stencil8",
+          "rg11b10ufloat-renderable",
+          "bgra8unorm-storage",
+          "texture-formats-tier1",
+          "texture-compression-bc",
+          "dual-source-blending",
+          "core-features-and-limits",
+          "float32-filterable",
+          "indirect-first-instance",
+          "float32-blendable",
+          "subgroup-size-control",
+          "depth-clip-control",
+          "texture-compression-bc-sliced-3d",
+          "clip-distances",
+          "texture-formats-tier2",
+          "timestamp-query",
+          "shader-f16",
+          "primitive-index",
+          "texture-component-swizzle",
+          "subgroups"
+        ],
+        "vendor": "nvidia"
+      },
+      "physical": true,
+      "reason": null
+    }
+  },
+  "evaluation": {
+    "allowExperimental": true,
+    "allowFallback": false,
+    "executionMode": "main",
+    "expectedImages": 64,
+    "manifestOverrides": {
+      "iouThreshold": 1,
+      "scoreThreshold": 0.001
+    },
+    "numThreads": 1,
+    "preprocessing": {
+      "interpolation": "bicubic",
+      "reference": "Pillow bicubic"
+    },
+    "requestedBackend": "webgpu",
+    "scoreThreshold": 0.001
+  },
+  "schemaVersion": 1,
+  "images": [
+    {
+      "detectionCount": 300,
+      "fileName": "000000270244.jpg",
+      "imageId": 270244,
+      "sha256": "0d451a8b013beb0d9ca425aa5f9d9984ff48267cd5cc1d57786701e342fbec78",
+      "timings": {
+        "decodeMs": 8.79500000178814,
+        "preprocessMs": 109.13499999046326,
+        "inferenceMs": 1249.4399999976158,
+        "postprocessMs": 2.7750000059604645,
+        "totalMs": 1370.5549999922514
+      },
+      "wallClockMs": 1370.8799999952316
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000438862.jpg",
+      "imageId": 438862,
+      "sha256": "3689831ed23f734ebab9405f48ffbfbbefb778e9de3101a9d56e421ea45288cf",
+      "timings": {
+        "decodeMs": 5.114999994635582,
+        "preprocessMs": 67.14499999582767,
+        "inferenceMs": 93.5549999922514,
+        "postprocessMs": 1.5450000017881393,
+        "totalMs": 167.51999999582767
+      },
+      "wallClockMs": 167.54500000178814
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000212166.jpg",
+      "imageId": 212166,
+      "sha256": "0dede49a6e46d23e1ddf122a8040e537cc0c3477021091424bc6f96f84cac30f",
+      "timings": {
+        "decodeMs": 5.010000005364418,
+        "preprocessMs": 94.12999999523163,
+        "inferenceMs": 68.05000001192093,
+        "postprocessMs": 0.9749999940395355,
+        "totalMs": 168.3500000089407
+      },
+      "wallClockMs": 168.375
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000486479.jpg",
+      "imageId": 486479,
+      "sha256": "9f3bf68815b9d35646131e84d97ed6d20fd9de4d343cded54a8f726e4c167de7",
+      "timings": {
+        "decodeMs": 3.314999997615814,
+        "preprocessMs": 109.99000000953674,
+        "inferenceMs": 56.71500000357628,
+        "postprocessMs": 1.1300000101327896,
+        "totalMs": 171.1899999976158
+      },
+      "wallClockMs": 171.22499999403954
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000439854.jpg",
+      "imageId": 439854,
+      "sha256": "d6e7d64034450928727ac679856ac954dd617129144f713e29beb0cf619b5e16",
+      "timings": {
+        "decodeMs": 2.165000006556511,
+        "preprocessMs": 57.73499999940395,
+        "inferenceMs": 58.57999999821186,
+        "postprocessMs": 0.6949999928474426,
+        "totalMs": 119.21500000357628
+      },
+      "wallClockMs": 119.23999999463558
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000227478.jpg",
+      "imageId": 227478,
+      "sha256": "f33a398b80d99a15d4608148d0dd3258bc592df878eca25e81ba726605e35158",
+      "timings": {
+        "decodeMs": 4.1500000059604645,
+        "preprocessMs": 63.314999997615814,
+        "inferenceMs": 79.81000000238419,
+        "postprocessMs": 1.3949999958276749,
+        "totalMs": 148.77000001072884
+      },
+      "wallClockMs": 148.7900000065565
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000250282.jpg",
+      "imageId": 250282,
+      "sha256": "1c6e13427eb53f4c0faeb97a39dfabf28895f8c099a6f617df695674f161e42b",
+      "timings": {
+        "decodeMs": 3.519999995827675,
+        "preprocessMs": 58.07999999821186,
+        "inferenceMs": 147.4350000023842,
+        "postprocessMs": 1.2449999898672104,
+        "totalMs": 210.3800000101328
+      },
+      "wallClockMs": 210.40999999642372
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000235836.jpg",
+      "imageId": 235836,
+      "sha256": "2a2269de29e82e4eac88dc306453c3840961ca79626d52f7c700b8c998284801",
+      "timings": {
+        "decodeMs": 6.754999995231628,
+        "preprocessMs": 82.16500000655651,
+        "inferenceMs": 43.91499999165535,
+        "postprocessMs": 0.5799999982118607,
+        "totalMs": 133.51500000059605
+      },
+      "wallClockMs": 133.5600000023842
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000497599.jpg",
+      "imageId": 497599,
+      "sha256": "4bde154898740c69f124650678a4476fdcd29a6095cdb8d467c614c49d40407c",
+      "timings": {
+        "decodeMs": 4.829999998211861,
+        "preprocessMs": 75.42000000178814,
+        "inferenceMs": 62.810000002384186,
+        "postprocessMs": 0.8349999934434891,
+        "totalMs": 143.98499999940395
+      },
+      "wallClockMs": 144.0300000011921
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000010977.jpg",
+      "imageId": 10977,
+      "sha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6",
+      "timings": {
+        "decodeMs": 2.0050000101327896,
+        "preprocessMs": 62.00999999046326,
+        "inferenceMs": 35.44499999284744,
+        "postprocessMs": 1.2000000029802322,
+        "totalMs": 100.67000000178814
+      },
+      "wallClockMs": 100.6799999922514
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000026690.jpg",
+      "imageId": 26690,
+      "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4",
+      "timings": {
+        "decodeMs": 4.299999997019768,
+        "preprocessMs": 77.34000000357628,
+        "inferenceMs": 88.21500000357628,
+        "postprocessMs": 1.1749999970197678,
+        "totalMs": 171.17000000178814
+      },
+      "wallClockMs": 171.1799999922514
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000284698.jpg",
+      "imageId": 284698,
+      "sha256": "ec1b02bdd97c3f384d9f9de71d38212504c9ad64ba6440ba70e9f1c662b07c45",
+      "timings": {
+        "decodeMs": 2.304999992251396,
+        "preprocessMs": 60.95499999821186,
+        "inferenceMs": 39.54000000655651,
+        "postprocessMs": 0.6400000005960464,
+        "totalMs": 103.45999999344349
+      },
+      "wallClockMs": 103.4699999988079
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000166563.jpg",
+      "imageId": 166563,
+      "sha256": "c8478b6b153105a252bd65c4c415da6c1f37f249e304cc6232d9b66c501e6d49",
+      "timings": {
+        "decodeMs": 3.554999992251396,
+        "preprocessMs": 58.23999999463558,
+        "inferenceMs": 42.04000000655651,
+        "postprocessMs": 1.530000001192093,
+        "totalMs": 105.50499999523163
+      },
+      "wallClockMs": 105.5249999910593
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000105264.jpg",
+      "imageId": 105264,
+      "sha256": "b50b07e5e896fcbca93bc91392a327bb7800ae9322b7331f577f41889fa01cf8",
+      "timings": {
+        "decodeMs": 4.769999995827675,
+        "preprocessMs": 57.895000010728836,
+        "inferenceMs": 50.61499999463558,
+        "postprocessMs": 0.9449999928474426,
+        "totalMs": 114.375
+      },
+      "wallClockMs": 114.39000000059605
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000479099.jpg",
+      "imageId": 479099,
+      "sha256": "5c237332390d380fdc0ca82d0fb0fec54f59ed3bb6100517119a8fd9edfd53e7",
+      "timings": {
+        "decodeMs": 5.9849999994039536,
+        "preprocessMs": 59.14000000059605,
+        "inferenceMs": 31.905000001192093,
+        "postprocessMs": 0.7199999988079071,
+        "totalMs": 97.9050000011921
+      },
+      "wallClockMs": 97.92000000178814
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000541123.jpg",
+      "imageId": 541123,
+      "sha256": "1806e9f95eab844099d6f07e24958c3411a8085969d3f1297bf5e29e10a2a7e8",
+      "timings": {
+        "decodeMs": 4.340000003576279,
+        "preprocessMs": 53.70000000298023,
+        "inferenceMs": 111.875,
+        "postprocessMs": 2.064999997615814,
+        "totalMs": 172.14499999582767
+      },
+      "wallClockMs": 172.17000000178814
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000287874.jpg",
+      "imageId": 287874,
+      "sha256": "0cc4df971844484c680888590fe5498676d7c69411405ee99d40a2188c21ea7e",
+      "timings": {
+        "decodeMs": 5.2650000005960464,
+        "preprocessMs": 67.30999998748302,
+        "inferenceMs": 70.56500001251698,
+        "postprocessMs": 0.8699999898672104,
+        "totalMs": 144.3449999988079
+      },
+      "wallClockMs": 144.37000000476837
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000492992.jpg",
+      "imageId": 492992,
+      "sha256": "bcfcd4c5d5bfe054720bb8a979fe099a2b04fd42b9cc44d00a2691c3a184465f",
+      "timings": {
+        "decodeMs": 3.5450000017881393,
+        "preprocessMs": 60.875,
+        "inferenceMs": 68.23499999940395,
+        "postprocessMs": 1.290000006556511,
+        "totalMs": 134.07500000298023
+      },
+      "wallClockMs": 134.0949999988079
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000483999.jpg",
+      "imageId": 483999,
+      "sha256": "f962e1a9fc03577dbf716dfbf96f8e9b519807b59d5e25ae4718667f753daea4",
+      "timings": {
+        "decodeMs": 4.5,
+        "preprocessMs": 53.92000000178814,
+        "inferenceMs": 172.20000000298023,
+        "postprocessMs": 0.6700000017881393,
+        "totalMs": 231.42499999701977
+      },
+      "wallClockMs": 231.4399999976158
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000236592.jpg",
+      "imageId": 236592,
+      "sha256": "57c0d2e822895cc40b3ef2949b29f33622662ce386d62f0da8bdf61cabd3bb30",
+      "timings": {
+        "decodeMs": 6.0150000005960464,
+        "preprocessMs": 50.724999994039536,
+        "inferenceMs": 41.349999994039536,
+        "postprocessMs": 1.2400000095367432,
+        "totalMs": 99.46000000834465
+      },
+      "wallClockMs": 99.47499999403954
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000368212.jpg",
+      "imageId": 368212,
+      "sha256": "3f39f80efab771fb3810973df268b456634fd3495c26778e278968753cd20ecf",
+      "timings": {
+        "decodeMs": 4.6400000005960464,
+        "preprocessMs": 58.269999995827675,
+        "inferenceMs": 27.060000002384186,
+        "postprocessMs": 0.7149999886751175,
+        "totalMs": 90.8500000089407
+      },
+      "wallClockMs": 90.87000000476837
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000341828.jpg",
+      "imageId": 341828,
+      "sha256": "c287d4d6d8fd2b891c933dae96cd7489c160bcfad5417f3ccddf4c771cacbb33",
+      "timings": {
+        "decodeMs": 4.090000003576279,
+        "preprocessMs": 57.730000004172325,
+        "inferenceMs": 36.46999999880791,
+        "postprocessMs": 0.5499999970197678,
+        "totalMs": 99
+      },
+      "wallClockMs": 99.01500000059605
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000459195.jpg",
+      "imageId": 459195,
+      "sha256": "15a0f308fd7628a8ad89347c7b98c2326569920228c8b2bd1a6240d9f9f3b250",
+      "timings": {
+        "decodeMs": 3.084999993443489,
+        "preprocessMs": 45.07999999821186,
+        "inferenceMs": 40.74500000476837,
+        "postprocessMs": 1.2049999982118607,
+        "totalMs": 90.13499999046326
+      },
+      "wallClockMs": 90.15000000596046
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000376900.jpg",
+      "imageId": 376900,
+      "sha256": "09359564291303089b691418a019548a7a795d7e577d9c7682199128bcdab251",
+      "timings": {
+        "decodeMs": 4.5,
+        "preprocessMs": 58.51000000536442,
+        "inferenceMs": 68.59000000357628,
+        "postprocessMs": 1.1899999976158142,
+        "totalMs": 132.9399999976158
+      },
+      "wallClockMs": 132.95499999821186
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000173091.jpg",
+      "imageId": 173091,
+      "sha256": "5bdb8ddfed0c5373619499698e9b5a4f1a1b9a151d6df7fcd49797e09533309c",
+      "timings": {
+        "decodeMs": 4.064999997615814,
+        "preprocessMs": 56.40999999642372,
+        "inferenceMs": 39.95499999821186,
+        "postprocessMs": 0.6050000041723251,
+        "totalMs": 101.22499999403954
+      },
+      "wallClockMs": 101.23499999940395
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000060823.jpg",
+      "imageId": 60823,
+      "sha256": "14c5d41fd1b2673c7d2697ead475b106d65dd9ae3ff6d089cf7b35a99e76fc26",
+      "timings": {
+        "decodeMs": 5.655000001192093,
+        "preprocessMs": 50.04499998688698,
+        "inferenceMs": 201.7900000065565,
+        "postprocessMs": 1.3199999928474426,
+        "totalMs": 258.99000000953674
+      },
+      "wallClockMs": 258.9950000047684
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000256868.jpg",
+      "imageId": 256868,
+      "sha256": "ab716aabb5a40999712cd54718432222846c96c1d97729566e8c05ec4bff9e0b",
+      "timings": {
+        "decodeMs": 3.564999997615814,
+        "preprocessMs": 53.84499999880791,
+        "inferenceMs": 66.82500000298023,
+        "postprocessMs": 0.75,
+        "totalMs": 125.13500000536442
+      },
+      "wallClockMs": 125.14500001072884
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000386879.jpg",
+      "imageId": 386879,
+      "sha256": "163a945478cd35cf95e40f35b0bdbbfb74c171af494a393c67adaecbd072486a",
+      "timings": {
+        "decodeMs": 5.995000004768372,
+        "preprocessMs": 57.60999999940395,
+        "inferenceMs": 30.525000005960464,
+        "postprocessMs": 0.6550000011920929,
+        "totalMs": 94.92499999701977
+      },
+      "wallClockMs": 94.9299999922514
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000546219.jpg",
+      "imageId": 546219,
+      "sha256": "209d0fc903230a816f60e2279594d263ae62ff6d3219b961c877ea369926941a",
+      "timings": {
+        "decodeMs": 6.2650000005960464,
+        "preprocessMs": 48.144999995827675,
+        "inferenceMs": 118.0700000077486,
+        "postprocessMs": 0.7199999988079071,
+        "totalMs": 173.3200000077486
+      },
+      "wallClockMs": 173.32999999821186
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000228436.jpg",
+      "imageId": 228436,
+      "sha256": "6d819938ee8cee9e1db68e26d24d668aa8f4b1365b1ad2c7d072a7435cfa9778",
+      "timings": {
+        "decodeMs": 5.03999999165535,
+        "preprocessMs": 50.82500000298023,
+        "inferenceMs": 121.375,
+        "postprocessMs": 1.4500000029802322,
+        "totalMs": 178.8349999934435
+      },
+      "wallClockMs": 178.84999999403954
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000125072.jpg",
+      "imageId": 125072,
+      "sha256": "0d109c18c8dc0c44d759ec72dfa69a12e000ddd4261ffadfaf33b3bd92adf2de",
+      "timings": {
+        "decodeMs": 4.4649999886751175,
+        "preprocessMs": 43.19499999284744,
+        "inferenceMs": 30.66500000655651,
+        "postprocessMs": 0.9149999916553497,
+        "totalMs": 79.26500000059605
+      },
+      "wallClockMs": 79.2800000011921
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000458325.jpg",
+      "imageId": 458325,
+      "sha256": "cc9d8a2d6fdd06220bb2e63d0e41b13cddd7a83758c74b2aa0161e56c8aa18a9",
+      "timings": {
+        "decodeMs": 4.674999997019768,
+        "preprocessMs": 48.14000000059605,
+        "inferenceMs": 80.44499999284744,
+        "postprocessMs": 0.8100000023841858,
+        "totalMs": 134.1950000077486
+      },
+      "wallClockMs": 134.2099999934435
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000208423.jpg",
+      "imageId": 208423,
+      "sha256": "8d9c134ecfb0e96cc02d5b78120aa9e11286217ac7e1fef4c8afbd4a3a7d3070",
+      "timings": {
+        "decodeMs": 3.2849999964237213,
+        "preprocessMs": 57.37999999523163,
+        "inferenceMs": 54.95000000298023,
+        "postprocessMs": 0.9849999994039536,
+        "totalMs": 116.75500001013279
+      },
+      "wallClockMs": 116.76000000536442
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000119516.jpg",
+      "imageId": 119516,
+      "sha256": "ee4d278eecc42f9c6830e030207fbabe888aebb36c58681f034f27081594d8c9",
+      "timings": {
+        "decodeMs": 5.559999987483025,
+        "preprocessMs": 62.75999999046326,
+        "inferenceMs": 71.64499999582767,
+        "postprocessMs": 0.7000000029802322,
+        "totalMs": 140.8100000023842
+      },
+      "wallClockMs": 140.81999999284744
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000269866.jpg",
+      "imageId": 269866,
+      "sha256": "8ed86217a895bb5484ccf37bc50af39b67ba1fa68220003c86515199a291d321",
+      "timings": {
+        "decodeMs": 5.7149999886751175,
+        "preprocessMs": 49.95499999821186,
+        "inferenceMs": 29.094999998807907,
+        "postprocessMs": 0.6499999910593033,
+        "totalMs": 85.54500000178814
+      },
+      "wallClockMs": 85.56000000238419
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000527960.jpg",
+      "imageId": 527960,
+      "sha256": "8be06a8ebb4f0b7626a8315f158d65bf862e6817ad4a191b80edc5d662f98249",
+      "timings": {
+        "decodeMs": 4.340000003576279,
+        "preprocessMs": 51.54000000655651,
+        "inferenceMs": 28.594999998807907,
+        "postprocessMs": 0.5750000029802322,
+        "totalMs": 85.17499999701977
+      },
+      "wallClockMs": 85.18500000238419
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000570456.jpg",
+      "imageId": 570456,
+      "sha256": "fabe7272f19d1b61303802b7d8183d018a88a9129d1cb028613fdeb7aa050639",
+      "timings": {
+        "decodeMs": 3.9099999964237213,
+        "preprocessMs": 51.150000005960464,
+        "inferenceMs": 66.68999999761581,
+        "postprocessMs": 1.260000005364418,
+        "totalMs": 123.13500000536442
+      },
+      "wallClockMs": 123.1550000011921
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000134322.jpg",
+      "imageId": 134322,
+      "sha256": "33141512239a36606c04cb1ce97b30787ba3bf050f45a213e7787c4581a3ad6f",
+      "timings": {
+        "decodeMs": 6.009999990463257,
+        "preprocessMs": 50.33500000834465,
+        "inferenceMs": 82.12000000476837,
+        "postprocessMs": 1.114999994635582,
+        "totalMs": 139.75
+      },
+      "wallClockMs": 139.7550000101328
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000481386.jpg",
+      "imageId": 481386,
+      "sha256": "f218e3c3a63a1600ad6b696d35f324bf78b0f787459d10793e39b420f80cad27",
+      "timings": {
+        "decodeMs": 4.754999995231628,
+        "preprocessMs": 62.15500000119209,
+        "inferenceMs": 130.50999999046326,
+        "postprocessMs": 0.7650000005960464,
+        "totalMs": 198.43000000715256
+      },
+      "wallClockMs": 198.4450000077486
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000376093.jpg",
+      "imageId": 376093,
+      "sha256": "fa66e91ef2d1370f2ddaf69fb3f41383dbd79f970b0382f21b3c336f1d1c8e3b",
+      "timings": {
+        "decodeMs": 4.645000010728836,
+        "preprocessMs": 50.75,
+        "inferenceMs": 79.08499999344349,
+        "postprocessMs": 0.7549999952316284,
+        "totalMs": 135.49500000476837
+      },
+      "wallClockMs": 135.50499999523163
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000529568.jpg",
+      "imageId": 529568,
+      "sha256": "2c97efcc385141e55c77afcf239cf59639637e9155cacf5ac870c87d2a6de42e",
+      "timings": {
+        "decodeMs": 4.329999998211861,
+        "preprocessMs": 58.10999999940395,
+        "inferenceMs": 87.13500000536442,
+        "postprocessMs": 0.9200000017881393,
+        "totalMs": 150.62999999523163
+      },
+      "wallClockMs": 150.64499999582767
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000276720.jpg",
+      "imageId": 276720,
+      "sha256": "9dcd1f0112ea7eb4d389150b940d0d4c0c9738703ad9af443b267f05228b87b5",
+      "timings": {
+        "decodeMs": 8.254999995231628,
+        "preprocessMs": 57.11499999463558,
+        "inferenceMs": 43.40999999642372,
+        "postprocessMs": 0.5949999988079071,
+        "totalMs": 109.5949999988079
+      },
+      "wallClockMs": 109.61999998986721
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000129756.jpg",
+      "imageId": 129756,
+      "sha256": "46c0e8721b27741971feadc7eb37aa3d710e50294a3b27dbe8b522e3eab3295f",
+      "timings": {
+        "decodeMs": 5.245000004768372,
+        "preprocessMs": 50.07999999821186,
+        "inferenceMs": 38.75999999046326,
+        "postprocessMs": 0.6800000071525574,
+        "totalMs": 94.89499999582767
+      },
+      "wallClockMs": 94.91000001132488
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000472623.jpg",
+      "imageId": 472623,
+      "sha256": "3b1a4b3e7a06e2f67ff42f2821f089e5038d53d9a06de390a23f65652af85d6d",
+      "timings": {
+        "decodeMs": 5.6400000005960464,
+        "preprocessMs": 59.07999999821186,
+        "inferenceMs": 40.37000000476837,
+        "postprocessMs": 1.1899999976158142,
+        "totalMs": 106.4050000011921
+      },
+      "wallClockMs": 106.41500000655651
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000276024.jpg",
+      "imageId": 276024,
+      "sha256": "b07d707d132181c971b53e0c097a0bd985f020547bbb9dff0f5bfbbea1809f5d",
+      "timings": {
+        "decodeMs": 4.584999993443489,
+        "preprocessMs": 51.41999998688698,
+        "inferenceMs": 40.23999999463558,
+        "postprocessMs": 0.7800000011920929,
+        "totalMs": 97.17000000178814
+      },
+      "wallClockMs": 97.18499998748302
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000269942.jpg",
+      "imageId": 269942,
+      "sha256": "b0185e227082a1aa4406912643dcd320ae48e6713ab2bdeae35566f1597a9e31",
+      "timings": {
+        "decodeMs": 5.870000004768372,
+        "preprocessMs": 56.814999997615814,
+        "inferenceMs": 39.11500000953674,
+        "postprocessMs": 0.9699999988079071,
+        "totalMs": 102.91000001132488
+      },
+      "wallClockMs": 102.92000000178814
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000493334.jpg",
+      "imageId": 493334,
+      "sha256": "06be922134b4177ddea7373a1c92c3236d12e290a9b43c9dfbc018c36fa235f6",
+      "timings": {
+        "decodeMs": 2.5049999952316284,
+        "preprocessMs": 41.98499999940395,
+        "inferenceMs": 38.4750000089407,
+        "postprocessMs": 0.5750000029802322,
+        "totalMs": 83.55000001192093
+      },
+      "wallClockMs": 83.56499999761581
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000318455.jpg",
+      "imageId": 318455,
+      "sha256": "d4524c09516bff37126a7cc7fab0bfb6f81d96ab16d6d211979d2699513d64a5",
+      "timings": {
+        "decodeMs": 4.034999996423721,
+        "preprocessMs": 52.98999999463558,
+        "inferenceMs": 123.52500000596046,
+        "postprocessMs": 0.9599999934434891,
+        "totalMs": 181.6550000011921
+      },
+      "wallClockMs": 181.67000000178814
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000200152.jpg",
+      "imageId": 200152,
+      "sha256": "bd2c91c0773fb7d4dbf3b9cf4d155d6d77ed4e343acdda1263cb92d45d8375f8",
+      "timings": {
+        "decodeMs": 3.1399999856948853,
+        "preprocessMs": 49.28000000119209,
+        "inferenceMs": 66.92499999701977,
+        "postprocessMs": 0.7000000029802322,
+        "totalMs": 120.18999999761581
+      },
+      "wallClockMs": 120.19999998807907
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000511398.jpg",
+      "imageId": 511398,
+      "sha256": "7948bc967ac3b7526ce99e970eae3e87832cace645299565ef5da3d8b20d96b4",
+      "timings": {
+        "decodeMs": 4.5150000005960464,
+        "preprocessMs": 48.60999999940395,
+        "inferenceMs": 28.62000000476837,
+        "postprocessMs": 0.510000005364418,
+        "totalMs": 82.40000000596046
+      },
+      "wallClockMs": 82.4050000011921
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000352760.jpg",
+      "imageId": 352760,
+      "sha256": "e8e628840f8275433d429abede2e426da7092545c692d418a12cf58e4fa2ee4d",
+      "timings": {
+        "decodeMs": 4.135000005364418,
+        "preprocessMs": 64.93500000238419,
+        "inferenceMs": 26.225000008940697,
+        "postprocessMs": 1.199999988079071,
+        "totalMs": 96.63499999046326
+      },
+      "wallClockMs": 96.64499999582767
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000027186.jpg",
+      "imageId": 27186,
+      "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e",
+      "timings": {
+        "decodeMs": 5.094999998807907,
+        "preprocessMs": 48.37000000476837,
+        "inferenceMs": 30.905000001192093,
+        "postprocessMs": 0.7349999994039536,
+        "totalMs": 85.26500000059605
+      },
+      "wallClockMs": 85.2800000011921
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000204871.jpg",
+      "imageId": 204871,
+      "sha256": "f471e48c808ea689a1e3a4a1214bc03e81a95195146b0c42601dbd6eaa006c89",
+      "timings": {
+        "decodeMs": 4.230000004172325,
+        "preprocessMs": 67.36999998986721,
+        "inferenceMs": 53.58499999344349,
+        "postprocessMs": 1.0649999976158142,
+        "totalMs": 126.41499999165535
+      },
+      "wallClockMs": 126.4299999922514
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000426372.jpg",
+      "imageId": 426372,
+      "sha256": "2008ffc31ea397b00e132ab370a273a61ac65d00d7ad76789fb43ef404f88ca5",
+      "timings": {
+        "decodeMs": 5.825000002980232,
+        "preprocessMs": 66.61499999463558,
+        "inferenceMs": 47.025000005960464,
+        "postprocessMs": 1.2300000041723251,
+        "totalMs": 120.91499999165535
+      },
+      "wallClockMs": 120.93500000238419
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000209142.jpg",
+      "imageId": 209142,
+      "sha256": "faaa39e1fa18df9268a45821d7f6a2608b026df2df4ead67746c3a3faf7dfa8d",
+      "timings": {
+        "decodeMs": 4.86999998986721,
+        "preprocessMs": 53.185000002384186,
+        "inferenceMs": 89.51999999582767,
+        "postprocessMs": 1.3350000083446503,
+        "totalMs": 149.0849999934435
+      },
+      "wallClockMs": 149.09999999403954
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000203629.jpg",
+      "imageId": 203629,
+      "sha256": "39ca3711f193e0c662ac3f1474f51959a2a8ed59de4663cd3afd2e696651b850",
+      "timings": {
+        "decodeMs": 3.2999999970197678,
+        "preprocessMs": 50.185000002384186,
+        "inferenceMs": 108.02500000596046,
+        "postprocessMs": 0.9099999964237213,
+        "totalMs": 162.5400000065565
+      },
+      "wallClockMs": 162.55500000715256
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000027932.jpg",
+      "imageId": 27932,
+      "sha256": "9ab6d8c5a124427d77add9827dc6ad58ce94efb003c34e5e20699acd82f43731",
+      "timings": {
+        "decodeMs": 2.3700000047683716,
+        "preprocessMs": 42.67499999701977,
+        "inferenceMs": 34.57500000298023,
+        "postprocessMs": 0.5299999862909317,
+        "totalMs": 80.17000000178814
+      },
+      "wallClockMs": 80.18500000238419
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000360951.jpg",
+      "imageId": 360951,
+      "sha256": "27d49fbfe39cbd55cf9af5bea2b1a0aba997ab6acc465d2beb0d118e82a57321",
+      "timings": {
+        "decodeMs": 4.295000001788139,
+        "preprocessMs": 48.5,
+        "inferenceMs": 74.26500000059605,
+        "postprocessMs": 1.125,
+        "totalMs": 128.29500000178814
+      },
+      "wallClockMs": 128.3100000023842
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000543300.jpg",
+      "imageId": 543300,
+      "sha256": "72bcd0502e2cce873aa3acc1524f314b242550b5362c57edf178966abd400c7c",
+      "timings": {
+        "decodeMs": 4.114999994635582,
+        "preprocessMs": 50.63500000536442,
+        "inferenceMs": 51.064999997615814,
+        "postprocessMs": 1.2000000029802322,
+        "totalMs": 107.1499999910593
+      },
+      "wallClockMs": 107.16999998688698
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000562818.jpg",
+      "imageId": 562818,
+      "sha256": "a5b154b5d98591146404e3a3693890107c046485ba746f2bc3c4ec7beb2241a4",
+      "timings": {
+        "decodeMs": 4.25,
+        "preprocessMs": 51.28999999165535,
+        "inferenceMs": 38.13500000536442,
+        "postprocessMs": 0.6950000077486038,
+        "totalMs": 94.52000001072884
+      },
+      "wallClockMs": 94.53999999165535
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000356094.jpg",
+      "imageId": 356094,
+      "sha256": "8395d0b485c3a2c218178bb7190a8030a2db742f363539a914c892d1617584da",
+      "timings": {
+        "decodeMs": 3.4549999982118607,
+        "preprocessMs": 47.33500000834465,
+        "inferenceMs": 28.99500000476837,
+        "postprocessMs": 0.9249999970197678,
+        "totalMs": 80.82999999821186
+      },
+      "wallClockMs": 80.84000000357628
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000377497.jpg",
+      "imageId": 377497,
+      "sha256": "8d4170dea501b2865a5955e020045fbe184da8025d6cef2e72d1bd9c7cdbdcac",
+      "timings": {
+        "decodeMs": 3.355000004172325,
+        "preprocessMs": 57.599999994039536,
+        "inferenceMs": 25.725000008940697,
+        "postprocessMs": 0.6299999952316284,
+        "totalMs": 87.43999999761581
+      },
+      "wallClockMs": 87.44999998807907
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000238410.jpg",
+      "imageId": 238410,
+      "sha256": "980b3adbde3e49f6cc92f0611ea9ef8dde633715a7d9041bafa8048fb61c24de",
+      "timings": {
+        "decodeMs": 3.804999992251396,
+        "preprocessMs": 51.13500000536442,
+        "inferenceMs": 237.51000000536442,
+        "postprocessMs": 0.699999988079071,
+        "totalMs": 293.2749999910593
+      },
+      "wallClockMs": 293.2900000065565
+    },
+    {
+      "detectionCount": 300,
+      "fileName": "000000119641.jpg",
+      "imageId": 119641,
+      "sha256": "4c194846e3c0bbac0667517f786ecfa4677d6687791a2a1123ecf72840370464",
+      "timings": {
+        "decodeMs": 4.0350000113248825,
+        "preprocessMs": 53.16499999165535,
+        "inferenceMs": 47.25,
+        "postprocessMs": 0.7950000017881393,
+        "totalMs": 105.36499999463558
+      },
+      "wallClockMs": 105.38000001013279
+    }
+  ],
+  "loadTimings": {
+    "sessionMs": 1132.5999999940395,
+    "totalMs": 1222.8149999976158,
+    "integrityMs": 88.10999999940395,
+    "modelSource": "memory"
+  },
+  "model": {
+    "id": "ppyoloe-plus-s-640",
+    "version": "0.1.0",
+    "variantId": "fp32",
+    "precision": "fp32",
+    "bytes": 31954220,
+    "parameterCount": null,
+    "opset": 11,
+    "source": {
+      "kind": "huggingface",
+      "revision": "45a646ce13dcf2e2c05231954b1e32b9c412720b",
+      "bytes": 31954220,
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+    }
+  },
+  "performance": {
+    "firstImageMs": 1370.8799999952316,
+    "sessionMs": 1132.5999999940395,
+    "warmRuns": {
+      "count": 63,
+      "medianMs": 120.19999998807907,
+      "p90Ms": 177.745999994874
+    }
+  },
+  "runtime": {
+    "runtimeVersion": "1.27.0",
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "platform": "Win32",
+      "capturedAt": "2026-09-12T02:34:55.004Z"
+    },
+    "requestedBackend": "webgpu",
+    "backend": "webgpu",
+    "precision": "fp32",
+    "mode": "main",
+    "fallbacks": [],
+    "capabilities": {
+      "webgpu": true,
+      "worker": true,
+      "offscreenCanvas": true,
+      "wasmSimd": false,
+      "wasmThreads": true
+    }
+  },
+  "runtimeVersions": {
+    "onnxruntimeWeb": "1.27.0",
+    "sdk": "0.3.0"
+  },
+  "status": "passed",
+  "predictionsEvidence": {
+    "path": "webgpu-fp32-1-predictions.json.gz",
+    "jsonSha256": "76408344cd4fd318a896ad5527b4283a0b9ea00a3c7fe6ca52dc58bcdde63d6f",
+    "gzipSha256": "6e527722594a5bafcb5a38083121d55eb32ecd68ad2772506e9cf778be7fc7dc",
+    "cocoPath": "webgpu-fp32-1-coco.json"
+  },
+  "measurementSummary": {
+    "sessionMs": 1132.5999999940395,
+    "firstImageMs": 1370.8799999952316,
+    "firstInferenceMs": 1249.4399999976158,
+    "warmCount": 63,
+    "warmInferenceMedianMs": 53.58499999344349,
+    "warmInferenceP90Ms": 120.71400000154973,
+    "warmPreprocessMedianMs": 56.40999999642372,
+    "warmPreprocessP90Ms": 67.27699998915196,
+    "warmTotalMedianMs": 120.19999998807907,
+    "warmTotalP90Ms": 177.745999994874
+  }
+}

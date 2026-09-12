@@ -1,6 +1,8 @@
 # PP-YOLOE+ S 640 FP32 复现
 
-所有命令从仓库根目录执行。候选仍为 `labs`；本轮没有公开模型分发 revision，也没有发布 SDK。来源、指标和限制见 [评测报告](../../../reports/evaluation/2026-09-11-ppyoloe/README.md)。
+所有命令从仓库根目录执行。本文复现已随 SDK 0.3.0 发布的 PP-YOLOE+ S 640 FP32。当前稳定模型为 0.1.0，固定来源与清单见 [模型目录](../../../models/ppyoloe-plus-s-640/README.md)。下方生成的是用于复现实验的本地清单。来源、指标和限制见 [评测报告](../../../reports/evaluation/2026-09-11-ppyoloe/README.md)。
+
+2026-09-12 完成 [FP16 可行性评测](../../../reports/evaluation/2026-09-12-ppyoloe-fp16/README.md)：定向修正后体积约减半，本机未测得明显加速，保持 labs。
 
 ## 环境、来源与数据
 

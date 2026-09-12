@@ -24,7 +24,7 @@ for (const [name, entry] of Object.entries(sources)) {
       const pkg = JSON.parse(
         readFileSync(new URL(`../examples/${name}/package.json`, import.meta.url), "utf8")
       );
-      assert.equal(pkg.dependencies["web-sdk-pp-detection"], "0.2.0");
+      assert.equal(pkg.dependencies["web-sdk-pp-detection"], "0.3.0");
       assert.ok(pkg.scripts.dev && pkg.scripts.build);
     });
   }

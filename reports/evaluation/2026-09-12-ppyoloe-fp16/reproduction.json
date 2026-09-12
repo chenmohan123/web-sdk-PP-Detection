@@ -1,0 +1,27 @@
+{
+  "baseCommit": "567724cfd067e943cd5413261c5ad2d6b7c5a836",
+  "sdkVersion": "0.3.0",
+  "inputs": {
+    "packages/sdk/dist/browser-global.js": {
+      "sha256": "6589f86362c6a0f065febc52024adc38f9442dacbcae1b61440033ac4d8cb175",
+      "bytes": 820197
+    },
+    "tools/model-pipeline/browser/evaluation-runner.mjs": {
+      "sha256": "329240e9e217140ce349726bc416bc9aad658f38a76472180f283d44e9eb064e",
+      "bytes": 21204
+    },
+    ".tmp/fp16-2026-09-12/browser-probe.mjs": {
+      "sha256": "1835290d444cc097348015545a34b4a7d1209445e79229361f519142ca12a69c",
+      "bytes": 21353
+    }
+  },
+  "candidateHashesReproduced": true,
+  "sdkBundleHashScope": "验证后由相同未修改的 runtime 源码构建；原始 runner 未记录测量时的 SDK bundle 摘要。",
+  "archivedHarnessSmoke": {
+    "status": "passed",
+    "imageCount": 1,
+    "predictionsEqualOriginal": true,
+    "actualBackend": "webgpu",
+    "fallbacks": []
+  }
+}

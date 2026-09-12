@@ -153,9 +153,10 @@ describe("发布工作流契约", () => {
     const release = read(".github/workflows/release.yml");
     const integrityStep = release.slice(release.indexOf("- name: Record published integrity"));
 
-    assert.match(integrityStep, /for attempt in \{1\.\.20\}; do/);
-    assert.match(integrityStep, /sleep 6/);
-    assert.match(integrityStep, /Failed to read published integrity/);
+    assert.match(integrityStep, /node scripts\/wait-npm-publication\.mjs/);
+    assert.match(integrityStep, /timeout-minutes: 12/);
+    assert.match(integrityStep, /if: always\(\)/);
+    assert.doesNotMatch(integrityStep, /npm publish/);
   });
 
   test("npm 发布在校验前还原两份真实模型文件", () => {

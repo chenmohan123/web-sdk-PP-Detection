@@ -6,6 +6,7 @@ const sources = {
   react: "src/App.tsx",
   vue: "src/App.vue",
   "vanilla-vite": "src/main.ts",
+  "model-variants": "src/main.ts",
   "wechat-webview": "src/main.ts",
   vanilla: "main.js",
   cdn: "index.html"
@@ -24,7 +25,10 @@ for (const [name, entry] of Object.entries(sources)) {
       const pkg = JSON.parse(
         readFileSync(new URL(`../examples/${name}/package.json`, import.meta.url), "utf8")
       );
-      assert.equal(pkg.dependencies["web-sdk-pp-detection"], "0.3.0");
+      assert.equal(
+        pkg.dependencies["web-sdk-pp-detection"],
+        name === "model-variants" ? "0.3.1" : "0.3.0"
+      );
       assert.ok(pkg.scripts.dev && pkg.scripts.build);
     });
   }

@@ -4,7 +4,7 @@
 
 Compatibility claims are limited to the evidence below. Capability probing can decide whether a page may try a backend; it does not replace validation on a specific browser, operating system, and device.
 
-## Verified environments
+## 历史 FP32 环境
 
 The following evidence covers the 1.0.1 FP32 model, `onnxruntime-web@1.27.0`, and seven fixtures. Both runs were verified on 2026-08-30:
 
@@ -23,13 +23,11 @@ The following evidence covers the 1.0.1 FP32 model, `onnxruntime-web@1.27.0`, an
 - The WeChat Official Account H5 and mini-program `web-view` example is a web deployment reference, but this release has no real WeChat Android/iOS WebView evidence. The page must run in an HTTPS web context; native mini-program JavaScript/WASM inference is unsupported.
 - Safari, Firefox, and desktop browsers not listed above should be evaluated with `probePPDetectionCapabilities()` and an actual run.
 
-| Default model variant | Status  | Release condition                                                              |
-| --------------------- | ------- | ------------------------------------------------------------------------------ |
-| FP32                  | stable  | 1.0.1; seven-fixture validation passed on Linux WASM and Windows NVIDIA WebGPU |
-| FP16                  | blocked | Real ONNX, SHA-256, immutable source revision, and browser evidence            |
-| INT8, INT4, FP8       | labs    | Precision, size, memory, and target-backend validation                         |
+## 当前桌面变体证据（2026-09-12）
 
-These statuses describe manifest capability; this repository provides the 1.0.1 FP32 stable default model. WebGPU FP16 requires `navigator.gpu` and `shader-f16`; WebGPU FP32 does not require `shader-f16`. WASM/CPU and WebGPU combinations must follow the variant manifest and runtime probing. The Demo keeps manual backend and precision choices strict, and the SDK rejects explicit pairs absent from the manifest with `CAPABILITY_UNSUPPORTED`. The source model is float32; FP64 is unsupported.
+PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 已完成桌面 WASM/WebGPU 固定 64 图三轮验证，六个变体均为 stable。环境、逐轮识别和差异记录见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。W8A32 对应 SDK 的 `precision: "int8"`。
+
+当前两份清单默认 ModelScope 与 FP32，并可选择 ModelScope 或 Hugging Face。WASM/CPU 与 WebGPU 的具体组合仍以变体清单和运行时探测为准。Demo 对手动后端、精度或来源选择严格执行，SDK 会以 `CAPABILITY_UNSUPPORTED` 拒绝清单中不存在的显式组合。小米 15 实测只覆盖原 FP32，不构成 FP16/W8A32 移动端证据。
 
 Single-thread WASM does not require cross-origin isolation. Multithreaded WASM needs COOP `same-origin` plus COEP `require-corp` or `credentialless`; model, WASM, and Worker assets must also satisfy same-origin/CORS/CORP rules. The SDK chooses threads from actual capabilities instead of assuming every mobile WebView has SharedArrayBuffer.
 

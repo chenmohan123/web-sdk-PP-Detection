@@ -1,8 +1,8 @@
-# PP-YOLOE+ S 640 FP32（稳定）
+# PP-YOLOE+ S 640
 
-此目录描述 `ppyoloe-plus-s-640` 的 `0.1.0 stable` 清单。模型用于浏览器端目标检测，输入为 `1x3x640x640` FP32 张量，输出包含图内 NMS 后的 `[N,6]` 检测结果和 `[1]` 检测数量。2026-09-12 根据用户确认转为稳定状态，默认加载无需 `allowExperimental`。Demo 默认模型仍为 PicoDet。
+此目录根部保留 `0.1.0` FP32 历史清单；当前发布清单位于 [`0.1.1/manifest.json`](0.1.1/manifest.json)，提供 FP32、FP16、W8A32 三个 stable 变体，默认 ModelScope 与 FP32。模型用于浏览器端目标检测，输入为 `1x3x640x640` FP32 张量，输出包含图内 NMS 后的 `[N,6]` 检测结果和 `[1]` 检测数量。
 
-稳定清单复用已分发的相同 ONNX 字节和不可变来源；URL 中的 `0.1.0-labs.1` 是历史资产目录，不决定当前清单状态。Hub 上已有固定清单与旧模型卡属于实验版快照。状态变更和旧文件字节见[稳定记录](../../reports/stability/2026-09-12-ppyoloe/README.md)。
+0.1.0 FP32 的状态变更和旧文件字节见[稳定记录](../../reports/stability/2026-09-12-ppyoloe/README.md)；0.1.1 三精度清单和模型卡是当前依据。旧 URL 中的 `0.1.0-labs.1` 只描述历史资产路径，不决定当前状态。
 
 ## 来源与许可
 
@@ -35,9 +35,9 @@
 
 2026-09-12 小米 15 用户反馈 CPU/GPU 正常；Android Edge 摄像头截图确认实际 WebGPU/FP32/main、ORT 1.27.0。实测范围与原图见[移动端记录](../../reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。用户据此明确确认稳定状态，其他设备按后续实际反馈维护。
 
-## 限制
+## 当前限制
 
-- 该版本为 FP32 稳定模型，支持已验证的 `wasm` 和 `webgpu`；FP16、INT8、INT4、FP8 未纳入本版本。
-- 移动端已有小米 15 Android Edge 基础功能实测，其他移动设备、微信 WebView、其他浏览器和 GPU 仍需各自的运行证据。
+- 0.1.1 的 FP32、FP16、W8A32 均为 stable；W8A32 通过 SDK 参数 `precision: "int8"` 选择。
+- FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 Android Edge 实测仅覆盖原 FP32，其他移动设备、微信 WebView、浏览器和 GPU 仍需各自证据。
 - 浏览器 JPEG 解码路径与 Pillow CPU 参考存在差异；同一 RGBA 输入下 WebGPU 与 Pillow 参考匹配 443/443 项检测。
-- 分发文件必须通过固定 revision URL 下载，并校验 `31,954,220` 字节和 SHA-256 `d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c`。
+- 分发文件必须通过当前 0.1.1 清单中的固定 revision URL 下载，并按所选变体校验字节数和 SHA-256。

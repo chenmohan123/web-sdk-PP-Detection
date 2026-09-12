@@ -10,7 +10,7 @@ Metrics have two independent scopes. `detector.loadTimings` starts at factory en
 
 Each result snapshots its actual backend, precision, execution mode, and fallback history. `runtimeVersion` comes from the loaded ORT module's `env.versions.web`; a custom runtime without this information reports `null`. `environment` captures the browser's public `userAgent`, `platform`, and `capturedAt` during initialization; unavailable values are `null`. This describes the current run, not a compatibility guarantee.
 
-The current default model is PicoDet-L-320 1.0.1 FP32. See [compatibility](compatibility.md) for dated WASM/WebGPU environments and seven-fixture evidence. FP16 is blocked and INT8, INT4, and FP8 are labs. Historical FP16 records for other models do not establish support for the current Detection model. One measurement on one device is not a universal benchmark.
+当前默认组合为 PicoDet-L-320 1.0.2、ModelScope、FP32；PP-YOLOE 0.1.1 和两模型的 FP16/W8A32 也均为 stable。FP16/W8A32 性能证据只覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证，详见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。小米 15 实测仅覆盖原 FP32，不能以一次测试或单台设备的耗时代表普遍性能。
 
 Prioritize detector reuse, IndexedDB caching, avoiding concurrent large sessions, submitting one frame at a time, cancellation, and resource release. Label network initialization, cache initialization, and session reuse separately; do not treat first session creation as steady-state inference throughput.
 

@@ -4,7 +4,9 @@
 
 ## 下载失败或进度不动
 
-检查固定 URL 是否可访问、响应是否为 200、是否有 `Content-Length`、CORS 是否允许当前 Origin，以及 HTTPS 页面是否混入 HTTP 资源。清除模型缓存后重试；不要把 `latest` 地址写入生产清单。
+先确认当前选择的固定 manifest URL 可访问、响应为 200、CORS 允许当前 Origin，并且 HTTPS 页面没有混入 HTTP 资源。再核对 manifest 中所选来源的模型 URL、`bytes` 与 SHA-256。响应没有 `Content-Length` 时使用清单声明的总字节数，下载仍可继续。显式选择 ModelScope 或 Hugging Face 失败时不会静默换源；需要换源时由用户重新选择，或明确使用 `source: "auto"`。
+
+当前工作区维护版本提供 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`，用于区分总请求超时、数据停滞和可重试失败。它们尚未随 npm `0.3.1` 发布；公开包消费者应继续使用 `AbortSignal` 取消，并在失败后由宿主决定是否重试。
 
 ## WebGPU 不可用
 
@@ -16,7 +18,11 @@
 
 ## 自定义清单无效
 
-使用 `parseModelManifest()`，核对 schemaVersion、输入 `[1,3,800,800]`、四个输出、25 个标签、opset、字节数和 SHA-256。模型能被 ONNX Runtime 打开不代表后处理契约正确。
+使用 `parseModelManifest()`，核对 `schemaVersion`、模型实际输入输出、标签、预处理、后处理、opset、字节数和 SHA-256。PicoDet 与 PP-YOLOE 的输入尺寸和输出名称不同；不要复制其他 SDK 的固定形状。模型能被 ONNX Runtime 打开不代表后处理契约正确。
+
+## 变体无法加载
+
+确认清单包含所选稳定变体及当前后端。界面中的 W8A32 对应 SDK 的 `precision: "int8"`；不要传入 `"w8a32"`。FP16/W8A32 当前验证证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图，移动设备应单独验证。
 
 ## 微信 H5/WebView
 

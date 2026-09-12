@@ -2,16 +2,24 @@
 
 [中文](../zh-CN/quick-start.md)
 
-After installing `web-sdk-pp-detection`, the first detector creation probes browser capabilities, downloads the manifest and model, checks SHA-256, and creates an ONNX Runtime session. The repository includes a built-in PicoDet 1.0.1 FP32 stable manifest; you can also pass a verified runtime or custom manifest. `backend: "auto"` prefers WebGPU and `precision: "auto"` selects an available stable manifest variant; `allowFallback` is disabled by default and must be set to `true` explicitly before a failure may try the next backend.
+安装 `web-sdk-pp-detection@0.3.1` 后，浏览器会在第一次创建检测器时探测能力、下载外部清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。npm 包不内置清单或 ONNX 权重，必须显式传入 `model` 或 `manifest`。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 均提供 FP32、FP16、W8A32 稳定变体；默认组合为 PicoDet、ModelScope、FP32。
 
 Start with a single-image file input:
 
 ```ts
 import { createPPDetection, PPDetectionError } from "web-sdk-pp-detection";
 
-export async function detectOne(file: File): Promise<void> {
+const manifestUrl =
+  "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/88d23d254e9cc2c98874ae8bd8a7c092612e65f6/picodet-l-320/1.0.2/manifest.json";
+
+export async function detectOne(file: File, signal: AbortSignal): Promise<void> {
   const detector = await createPPDetection({
-    model: "https://models.example.com/pp-detection/manifest.json",
+    model: manifestUrl,
+    source: "modelscope",
+    precision: "fp32",
+    backend: "auto",
+    allowFallback: true,
+    signal,
     onProgress: (event) => console.log(event.phase, event.status)
   });
   try {
@@ -20,7 +28,8 @@ export async function detectOne(file: File): Promise<void> {
       classThresholds: {
         person: 0.6,
         car: 0.5
-      }
+      },
+      signal
     });
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
@@ -31,6 +40,8 @@ export async function detectOne(file: File): Promise<void> {
   }
 }
 ```
+
+如需 PP-YOLOE、Hugging Face、FP16 或 W8A32，切换固定清单、`source` 和 `precision` 即可；W8A32 对应 `precision: "int8"`。完整的两模型 × 三精度选择、取消与画布绘制见[六变体示例](../../examples/model-variants/README.md)。显式来源失败不会静默切换到另一个 Hub。
 
 `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. For example, PicoDet can use separate thresholds for `person` and `car`. Unknown class names and values outside `0` through `1` are rejected.
 
@@ -59,4 +70,6 @@ export async function detectVideoFrame(): Promise<void> {
 
 Await each frame before submitting the next one, and stop scheduling when the page is hidden, playback ends, or permission is revoked.
 
-Complete CDN, Vanilla Vite, React, Vue, and WeChat H5/WebView integrations live under [`examples/`](../../examples/).
+六变体、CDN、Vanilla Vite、React、Vue 和微信 H5/WebView 的完整用法在 [`examples/`](../../examples/) 中。
+
+当前工作区维护版本另有 `download.timeoutMs`、`download.idleTimeoutMs` 和 `download.maxRetries`；这些选项尚未随 npm `0.3.1` 发布，因此上面的公开包代码不使用它们。

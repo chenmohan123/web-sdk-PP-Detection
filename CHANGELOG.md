@@ -1,5 +1,12 @@
 # Changelog
 
+## 未发布维护改动
+
+- ONNX 权重下载新增可取消的请求总时限、无新增字节时限和有限同源重试；默认 180 秒、30 秒和 2 次重试，失败残片不缓存。
+- `createPPDetection` 和 `ModelManager` 接受可选 `download` 配置，下载进度新增 `attempt/maxAttempts`，耗时包含重试与等待。
+- 同步两模型六个稳定变体的接入文档，新增使用公开 npm 0.3.1 与固定 Hub 清单的 `examples/model-variants` 示例。
+- SDK/npm 版本仍为 0.3.1；上述下载能力尚未发布，模型清单和资产字节保持既有发布状态。
+
 ## 模型与 Demo 更新（2026-09-12，SDK 0.3.1）
 
 - 上线 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32/FP16/W8A32 稳定模型选择，默认FP32，双源默认ModelScope。

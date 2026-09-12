@@ -10,7 +10,7 @@
 
 每次结果的 `runtime` 保留当次实际后端、精度、执行模式和回退记录快照。`runtimeVersion` 来自实际载入 ORT 的 `env.versions.web`；自定义运行时没有该信息时为 `null`。`environment` 记录初始化时浏览器公开的 `userAgent`、`platform` 及 `capturedAt`，字段不可获取时为 `null`。这描述当前运行环境，不是设备兼容性承诺。
 
-当前默认模型是 PicoDet-L-320 1.0.1 FP32，已验证的 WASM/WebGPU 环境与七张 fixture 证据见[兼容性](compatibility.md)。FP16 当前为 blocked，INT8、INT4、FP8 为 labs；历史其他模型的 FP16 记录不代表当前 Detection 模型支持。不能以一次测试或单台设备的耗时代表普遍性能。
+当前默认组合为 PicoDet-L-320 1.0.2、ModelScope、FP32；PP-YOLOE 0.1.1 和两模型的 FP16/W8A32 也均为 stable。FP16/W8A32 性能证据只覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证，详见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。小米 15 实测仅覆盖原 FP32，不能以一次测试或单台设备的耗时代表普遍性能。
 
 优化优先级：复用检测器、启用 IndexedDB、避免同时创建多个大模型会话、逐帧等待上一帧完成、允许取消并正确释放。分别记录网络初始化、缓存初始化与会话复用运行，不用首轮会话创建时间代表稳定推理吞吐。
 

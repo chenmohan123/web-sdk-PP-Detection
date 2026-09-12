@@ -1,41 +1,22 @@
 # 模型文件
 
-## FP32、FP16 与 W8A32（2026-09-12）
+## 当前稳定范围（2026-09-12）
 
-当前 Demo 使用 PicoDet **1.0.2**、PP-YOLOE **0.1.1**，两款均提供 FP32、FP16、W8A32 稳定变体，默认 FP32，来源仅 ModelScope 和 Hugging Face，默认 ModelScope。FP16/W8A32 在本机 WASM 和 WebGPU 完成三轮64图识别对照；手机证据仅覆盖原FP32，其他设备按后续实测维护。
+当前 SDK 为 `web-sdk-pp-detection@0.3.1`，提供两款模型、每款三种精度，共六个稳定变体。模型权重从外部固定来源下载，npm 包不内置清单或 ONNX 文件。下表模型大小的单位为字节。
 
-| 模型     |     FP32 |                  FP16 |                W8A32 |
-| -------- | -------: | --------------------: | -------------------: |
-| PicoDet  | 23.24 MB | 14.81 MB（减少36.3%） | 6.12 MB（减少73.7%） |
-| PP-YOLOE | 31.95 MB | 16.05 MB（减少49.8%） | 8.23 MB（减少74.3%） |
+| 模型                | 版本  |       FP32 |       FP16 |     W8A32 | 清单                                               |
+| ------------------- | ----- | ---------: | ---------: | --------: | -------------------------------------------------- |
+| PicoDet-L-320 LCNet | 1.0.2 | 23,243,834 | 14,813,981 | 6,117,685 | [PicoDet](pp-detection/1.0.2/manifest.json)        |
+| PP-YOLOE+ S 640     | 0.1.1 | 31,954,220 | 16,054,567 | 8,225,467 | [PP-YOLOE](ppyoloe-plus-s-640/0.1.1/manifest.json) |
 
-文件缩小是独立优势。FP16保留敏感算子FP32；W8A32仅压缩权重，激活和卷积计算保持FP32。SDK参数使用 `precision: "int8"` 选择W8A32，实际策略见清单 `quantization`。新清单可用于SDK 0.3.1，无需更换API。完整识别、速度和逐框差异见[三精度对比](../reports/evaluation/2026-09-12-precision-variants/README.md)。
+Demo 默认 PicoDet；两份 manifest 均默认 ModelScope 与 FP32，两款模型都可显式选择 ModelScope 或 Hugging Face。显式来源失败时不会静默换源。两份 Hub manifest 使用固定 revision、路径、大小与 SHA-256，Git LFS pointer 不是可运行的模型本体。
 
-旧版本清单与以下既有版本记录继续保留；其中对FP16/INT8的labs/blocked限制只描述旧版候选，不覆盖上述已通过的新变体。
+W8A32 通过 SDK 参数 `precision: "int8"` 选择，表示权重 INT8 存储、激活与卷积计算 FP32。FP16 保留敏感算子为 FP32。文件缩小不代表运行内存同比下降。
 
-当前 SDK 为 `web-sdk-pp-detection@0.3.1`，提供两款 FP32 稳定模型。模型权重由外部固定来源下载，npm 包不携带 ONNX 文件。
+FP16 与 W8A32 已完成 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证。小米 15 用户实测仅覆盖原 FP32；完整环境、指标和限制见[三精度对比](../reports/evaluation/2026-09-12-precision-variants/README.md)。旧版 1.0.1/0.1.0 清单、labs/blocked 候选与带日期报告继续保留为历史证据。
 
-| 模型                | 模型版本 | 状态   | 文件字节数 | 清单                                         |
-| ------------------- | -------- | ------ | ---------: | -------------------------------------------- |
-| PicoDet-L-320 LCNet | 1.0.1    | stable | 23,243,834 | [PicoDet](pp-detection/manifest.json)        |
-| PP-YOLOE+ S 640     | 0.1.0    | stable | 31,954,220 | [PP-YOLOE](ppyoloe-plus-s-640/manifest.json) |
-
-Demo 默认 PicoDet，两款模型的来源选项均为 ModelScope（默认）和 Hugging Face。SDK 清单自身默认 Hugging Face；SDK 还允许清单明确提供的 Git LFS 或自托管来源。显式指定来源失败时不会静默换源。
-
-两份清单固定来源 revision、大小和 SHA-256。稳定 PP-YOLOE 复用 `0.1.0-labs.1` 目录中的同一文件，历史目录名不决定当前状态；稳定清单归档于 [v0.3.0](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/v0.3.0/models)。Git LFS pointer 不是可运行的模型本体。
-
-## 来源、许可与验证
-
-两款模型来自 PaddleDetection，PP-YOLOE 经 Paddle2ONNX 转换与定向修复。来源、权重许可、固定上游提交和模型 SHA-256 分别见 [PicoDet 模型卡](pp-detection/README.md)、[PP-YOLOE 模型卡](ppyoloe-plus-s-640/README.md)及[第三方声明](../THIRD_PARTY_NOTICES.md)。不能使用其他模型或 PaddleOCR 的历史记录作为这两款模型的证据。
-
-2026-09-12 正式 Demo 的两模型 WASM / NVIDIA WebGPU 路径已通过。小米 15 用户反馈 CPU/GPU 基础功能正常，完整系统版本与 CPU 独立记录待补齐。64 张 COCO 子集评测不代表完整 COCO mAP。验证结果、运行环境和边界见 [0.3.0 发布说明](../docs/zh-CN/release-0.3.0.md)及 [Release 验收附件](https://github.com/chenmohan123/web-sdk-PP-Detection/releases/tag/v0.3.0)。
-
-## 新变体
-
-当前稳定范围仅为 FP32。FP16、INT8、INT4、FP8 需分别完成转换、数值、后端和设备验证。FP16 专项候选保留为独立实验产物，状态为 labs/blocked；转换成功不等于可提升为 stable。
-
-生成新清单时绑定实际文件的 bytes、SHA-256、opset、输入输出、后处理和不可变来源。以新模型版本发布，保留旧清单及原始评测；不要覆盖已发布标签、模型目录或历史资产。
+来源、权重许可、固定上游提交和模型 SHA-256 分别见 [PicoDet 模型卡](pp-detection/1.0.2/README.md)、[PP-YOLOE 模型卡](ppyoloe-plus-s-640/0.1.1/README.md)及[第三方声明](../THIRD_PARTY_NOTICES.md)。生成新清单时必须绑定实际文件的 bytes、SHA-256、opset、输入输出、后处理和不可变来源，并以新模型版本发布。
 
 ## English entry
 
-The current release provides PicoDet-L-320 1.0.1 and PP-YOLOE+ S 640 0.1.0 as FP32 stable models. The Demo defaults to PicoDet and ModelScope for both models; Hugging Face remains selectable. See the [release notes](../docs/en/release-0.3.0.md) for immutable sources, licenses, dated validation, and limitations. New precision variants require separate validation and versioned publication.
+当前发布 PicoDet-L-320 1.0.2 与 PP-YOLOE+ S 640 0.1.1 的 FP32、FP16、W8A32 六个稳定变体。默认组合为 PicoDet、ModelScope、FP32；W8A32 对应 SDK 的 `precision: "int8"`。FP16/W8A32 当前证据仅覆盖 2026-09-12 桌面 64 图验证，小米 15 实测仅覆盖原 FP32。

@@ -9,7 +9,7 @@ All stable entry points are exported from the package root. Do not import `src/`
 Returns a `Promise<PPDetectionDetector>`. Supply `model` or `manifest` explicitly; omitting both throws `INVALID_MANIFEST`. The npm package contains no ONNX model binary. Common options:
 
 - `backend`: `"auto" | "webgpu" | "wasm"`
-- `precision`: `"auto" | "fp16" | "fp32" | "int8"`; the default manifest has no INT8 variant
+- `precision`: `"auto" | "fp16" | "fp32" | "int8"`；`int8` 选择当前清单中的 W8A32
 - `allowFallback`: whether session failures try the next valid candidate; defaults to `false`. Set it to `true` explicitly to allow fallback; it never rewrites a backend/precision pair absent from the manifest
 - `model`: manifest URL, manifest object, or `{ manifest, data }`
 - `manifest`: manifest object; `model` takes precedence when both are supplied
@@ -18,15 +18,17 @@ Returns a `Promise<PPDetectionDetector>`. Supply `model` or `manifest` explicitl
 - `onProgress`: capability, manifest, model, session, fallback, and ready phases
 - `ort.wasm`: WASM asset paths and thread options
 
-For `phase: "model"` and `status: "progress"`, `loadedBytes` and the optional `totalBytes` describe model network-transfer bytes only, not overall initialization progress. They exclude integrity verification and ONNX Runtime Session creation. `totalBytes` can be absent when the response has no `Content-Length`, and cache, memory, or custom binary model sources may emit no byte progress.
+For `phase: "model"` and `status: "progress"`, `loadedBytes` and the optional `totalBytes` describe model network-transfer bytes only, not overall initialization progress. They exclude integrity verification and ONNX Runtime Session creation. 响应没有 `Content-Length` 时按清单声明的模型字节数提供 `totalBytes`；缓存、内存或自定义二进制模型可能不产生字节进度。
 
-The default PicoDet 1.0.1 manifest contains a downloadable stable FP32 asset with WASM and WebGPU browser evidence. Available combinations of `webgpu`, `wasm` (CPU), `fp32`, `fp16`, `int8`, `int4`, and `fp8` must follow manifest variants and runtime probing. Explicit pairs absent from the manifest throw `CAPABILITY_UNSUPPORTED`. `allowFallback` handles runtime failures among valid candidates; it does not rewrite an invalid pair. The Demo prefers WebGPU when the backend is Auto and allows a failed WebGPU run to fall back to WASM; manually selected backends remain strict. The source model is float32; FP64 inference is unsupported.
+当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 manifest 均含 FP32、FP16、W8A32 stable 资产，默认 ModelScope 和 FP32。`webgpu`、`wasm`（CPU）与具体精度的可用组合仍以 manifest 变体和运行时探测为准。清单中不存在的显式组合会抛出 `CAPABILITY_UNSUPPORTED`；`allowFallback` 只处理有效候选的运行时失败，不会改写无效组合。Demo 在后端选择“自动”时优先 WebGPU，并允许 WebGPU 失败后回退 WASM；手动指定后端或来源时保持严格执行。
 
 ```ts
 import { createPPDetection } from "web-sdk-pp-detection";
 
 const detector = await createPPDetection({
-  model: "https://models.example.com/pp-detection/manifest.json",
+  model:
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/88d23d254e9cc2c98874ae8bd8a7c092612e65f6/picodet-l-320/1.0.2/manifest.json",
+  source: "modelscope",
   backend: "wasm",
   precision: "fp32",
   allowFallback: false,
@@ -57,7 +59,7 @@ const result = await detector.detect(file, {
 });
 ```
 
-`precision: "auto"` selects the first available stable precision in manifest variant order. The default PicoDet keeps only the FP32 evidence, so the SDK does not guess an FP16 switch. `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
+`precision: "auto"` 选择清单默认的可用稳定精度；两份当前清单都默认 FP32。显式 `"fp16"` 选择 FP16，显式 `"int8"` 选择 W8A32。`classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
 When a manifest sets `preprocessing.doResize` to `false`, both input dimensions must fit within the model input size. Larger images throw `INVALID_INPUT` instead of being silently cropped.
 
@@ -88,4 +90,32 @@ are outside the cross-environment coordination guarantee.
 
 ## 实验变体选项（0.3.0 起）
 
-0.3.0 增加 `allowExperimental?: boolean`，默认 `false`。显式开启时可以运行 `status: "labs"` 的模型；`blocked` 仍拒绝，同精度优先选择稳定变体。这个选项不会放宽 SHA-256 或后端校验，也不代表候选已经达到稳定发布门槛。PP-YOLOE 0.1.0 为稳定模型，正常加载无需开启该选项。见[PP-YOLOE 候选接入](../../examples/ppyoloe-candidate/README.md)和[验证证据](../../reports/evaluation/2026-09-11-ppyoloe/README.md)。
+0.3.0 增加 `allowExperimental?: boolean`，默认 `false`。显式开启时可以运行 `status: "labs"` 的模型；`blocked` 仍拒绝，同精度优先选择稳定变体。这个选项不会放宽 SHA-256 或后端校验，也不代表候选已经达到稳定发布门槛。当前六个已发布变体均为 stable，正常加载无需开启该选项。见[六变体示例](../../examples/model-variants/README.md)。
+
+## 工作区维护版下载选项
+
+当前工作区的 `CreatePPDetectionOptions` 新增 `download?: { timeoutMs?, idleTimeoutMs?, maxRetries? }`。`timeoutMs` 是单次请求总时限，`idleTimeoutMs` 是响应数据停滞时限，`maxRetries` 是可重试失败后的额外尝试次数；取消仍由 `signal` 负责。该选项尚未随 npm `0.3.1` 发布，只用于当前工作区构建验证，公开 `0.3.1` 消费者不能依赖它。
+
+| 参数            |    默认值 | 有效范围                                             |
+| --------------- | --------: | ---------------------------------------------------- |
+| `timeoutMs`     | `180_000` | 0 至 2,147,483,647 的安全整数；0 关闭单次请求总时限  |
+| `idleTimeoutMs` |  `30_000` | 相同整数范围；0 关闭无新增字节时限，等待响应头也计入 |
+| `maxRetries`    |       `2` | 0 至 5 的安全整数；0 禁用重试，默认共请求 3 次       |
+
+```ts
+import { createPPDetection } from "web-sdk-pp-detection";
+
+const detector = await createPPDetection({
+  model:
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/88d23d254e9cc2c98874ae8bd8a7c092612e65f6/picodet-l-320/1.0.2/manifest.json",
+  source: "modelscope",
+  precision: "int8",
+  download: { timeoutMs: 180_000, idleTimeoutMs: 30_000, maxRetries: 2 }
+});
+```
+
+以上代码仅适用于当前未发布工作区构建。公开 `ModelDownloadOptions` 类型也用于 `ModelManager` 构造配置。非法参数返回 `INVALID_INPUT`。
+
+仅 ONNX 权重下载受该策略控制，清单 JSON 加载不变。只有网络/响应流故障、内部超时和 HTTP 408、429、500、502、503、504 会重试；等待依次为 500、1000、2000、4000、4000 毫秒，可随 `signal` 取消。每次请求保持同一不可变 URL，不拼接残片，重试进度从 0 开始。用户取消、完整性错误、错误 206 范围及其他 HTTP 错误不重试；显式来源失败仍返回 `MODEL_SOURCE_UNAVAILABLE`，其 `cause` 保留下载错误，完整性错误为 `MODEL_INTEGRITY_FAILED`，取消为 `ABORTED`。
+
+模型下载进度新增可选 `attempt`（从 1 开始）和 `maxAttempts`；`modelDownloadMs` 包含重试和等待。持续收到少量字节不能延长总时限；完整字节数与 SHA-256 校验通过后才写缓存。自定义 fetch/reader 忽略取消时 SDK 也会结束等待并尽力清理，迟到结果不能推进进度或写缓存。

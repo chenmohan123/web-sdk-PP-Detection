@@ -16,7 +16,14 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const examplesRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const repositoryRoot = resolve(examplesRoot, "..");
 const packageName = "web-sdk-pp-detection";
-const exampleNames = ["cdn", "vanilla-vite", "react", "vue", "wechat-webview"] as const;
+const exampleNames = [
+  "cdn",
+  "vanilla-vite",
+  "model-variants",
+  "react",
+  "vue",
+  "wechat-webview"
+] as const;
 const buildableExamples = exampleNames.filter((name) => name !== "cdn");
 
 let sandbox = "";
@@ -30,6 +37,7 @@ function allSource(name: (typeof exampleNames)[number]): string {
   const files: Record<(typeof exampleNames)[number], readonly string[]> = {
     cdn: ["index.html"],
     "vanilla-vite": ["src/main.ts", "index.html", "README.md"],
+    "model-variants": ["src/main.ts", "index.html", "README.md"],
     react: ["src/App.tsx", "index.html", "README.md"],
     vue: ["src/App.vue", "index.html", "README.md"],
     "wechat-webview": ["src/main.ts", "index.html", "README.md"]
@@ -119,7 +127,9 @@ describe("公开固定版本的原样独立消费者构建", () => {
       const packageJson = JSON.parse(readFileSync(packagePath, "utf8")) as {
         dependencies?: Record<string, string>;
       };
-      expect(packageJson.dependencies?.[packageName]).toBe("0.3.0");
+      expect(packageJson.dependencies?.[packageName]).toBe(
+        name === "model-variants" ? "0.3.1" : "0.3.0"
+      );
       runPackageManager(["install", "--ignore-scripts", "--no-frozen-lockfile"], target);
       runPackageManager(["run", "build"], target);
     },

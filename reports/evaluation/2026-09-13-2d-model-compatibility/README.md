@@ -4,7 +4,7 @@
 
 PP-Detection 不承诺兼容 PaddleDetection 模型库中的全部模型。当前稳定范围仍是 PicoDet-L-320 1.0.2 与 PP-YOLOE+ S 640 0.1.1 的六个精度变体；这些模型用于后续比较，不需要重复移植。
 
-本轮对 PP-YOLOE+ SOD L 640 COCO 完成了固定来源下载、官方 Paddle 导出、Paddle2ONNX opset 11 转换、定向 NMS 轴修正、Python 64 图参考核验，以及桌面 Chromium 的 WASM/WebGPU 8 图 smoke。Paddle 与 ONNX 在 64 张图片的 531 个阈值以上检测框全部匹配，最大框坐标差约 0.00018 像素。该候选仍为 `candidate`，不进入稳定 manifest：模型约 345.6 MB，尚未完成 Worker、取消/释放、移动端和正式分发审查。
+本轮对 PP-YOLOE+ SOD L 640 COCO 完成了固定来源下载、官方 Paddle 导出、Paddle2ONNX opset 11 转换、定向 NMS 轴修正、Python 64 图参考核验，以及桌面 Chromium 的 WASM/WebGPU 8 图 smoke。Paddle 与 ONNX 在 64 张图片的 531 个阈值以上检测框全部匹配，最大框坐标差约 0.00018 像素。该候选已标记为 `selected`，允许进入浏览器专项验证；不进入稳定 manifest：模型约 345.6 MB，尚未完成 Worker、取消/释放、移动端和正式分发审查。
 
 RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetection 入口，不能扩展为所有版本或所有项目均不兼容。
 
@@ -16,7 +16,7 @@ RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetecti
 
 | 优先级 | 候选                     | 状态      | 依据                                        | 主要风险                             |
 | -----: | ------------------------ | --------- | ------------------------------------------- | ------------------------------------ |
-|      1 | PP-YOLOE+ SOD L 640 COCO | candidate | 已有完整转换和参考核验，输出接近现有框契约  | 345.6 MB；移动端和 Worker 成本待验证 |
+|      1 | PP-YOLOE+ SOD L 640 COCO | selected  | 已有完整转换和参考核验，输出接近现有框契约  | 345.6 MB；移动端和 Worker 成本待验证 |
 |      2 | RTMDet tiny              | blocked   | 固定的 PaddleDetection 版本树扫描未找到入口 | 需找到明确上游配置、权重和导出链     |
 |      3 | PP-YOLOE 其他规模        | candidate | 可复用现有系列经验                          | 每个规模仍需独立转换和移动端评估     |
 |      4 | PP-YOLO、FCOS、SSD       | candidate | 保留原规划的通用轴对齐 2D 范围              | 导出图、后处理和维护价值待确认       |

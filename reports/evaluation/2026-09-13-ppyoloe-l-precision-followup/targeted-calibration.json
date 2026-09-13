@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-13",
+  "sourceSha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+  "excludedNodes": ["Conv.28", "Conv.45", "Conv.62", "Conv.73", "Conv.75", "Conv.87", "Conv.95", "Conv.97", "Conv.122", "Conv.129"],
+  "bytes": 62144193,
+  "sha256": "542a8fed097242f1dd15dd8763fa0de7df183a6febd2c22998cd8076bef000f7",
+  "dataset": {"images": 64, "reference": 533, "iouThreshold": 0.99, "scoreThreshold": 0.5},
+  "matched": 444,
+  "matchedFraction": 0.833,
+  "maxBboxDeltaPixels": 5.717620849609375,
+  "maxScoreDelta": 0.05188804864883423,
+  "medianInferenceMs": 579.6518999995897,
+  "status": "labs",
+  "decision": "只排除敏感度最高的十个卷积层仍低于稳定门槛，量化误差并非少数孤立节点造成。"
+}

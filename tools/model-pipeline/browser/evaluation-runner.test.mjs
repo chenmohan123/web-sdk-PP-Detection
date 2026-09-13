@@ -40,7 +40,8 @@ test("评测参数要求模型、清单、标注、图片目录、后端和输�
     imageRoot: "images",
     manifest: "manifest.json",
     model: "candidate.onnx",
-    output: "result.json"
+    output: "result.json",
+    precision: "fp32"
   });
   assert.throws(() => parseEvaluationOptions(["--model", "candidate.onnx"]), /缺少必填参数/u);
   assert.throws(
@@ -60,6 +61,26 @@ test("评测参数要求模型、清单、标注、图片目录、后端和输�
         "result.json"
       ]),
     /backend 只能是 wasm 或 webgpu/u
+  );
+  assert.throws(
+    () =>
+      parseEvaluationOptions([
+        "--model",
+        "candidate.onnx",
+        "--manifest",
+        "manifest.json",
+        "--annotations",
+        "annotations.json",
+        "--image-root",
+        "images",
+        "--backend",
+        "wasm",
+        "--output",
+        "result.json",
+        "--precision",
+        "fp8"
+      ]),
+    /precision 只能是 fp32、fp16 或 int8/u
   );
 });
 
@@ -136,4 +157,5 @@ test("可指定独立 SDK 构建进行同模型前后对照", () => {
     "baseline/browser-global.js"
   ]);
   assert.equal(options.sdkBundle, "baseline/browser-global.js");
+  assert.equal(options.precision, "fp32");
 });

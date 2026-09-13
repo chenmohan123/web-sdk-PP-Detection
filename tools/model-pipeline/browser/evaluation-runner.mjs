@@ -45,12 +45,16 @@ export function parseEvaluationOptions(argv) {
   const missing = REQUIRED_FLAGS.filter((name) => !values.has(name));
   if (missing.length > 0)
     throw new TypeError(`缺少必填参数：${missing.map((x) => `--${x}`).join("、")}`);
-  const allowed = new Set([...REQUIRED_FLAGS, "expected-images", "sdk-bundle"]);
+  const allowed = new Set([...REQUIRED_FLAGS, "expected-images", "sdk-bundle", "precision"]);
   const unknown = [...values.keys()].filter((name) => !allowed.has(name));
   if (unknown.length > 0) throw new TypeError(`无法识别参数：--${unknown[0]}`);
   const backend = values.get("backend");
   if (backend !== "wasm" && backend !== "webgpu") {
     throw new TypeError("--backend 只能是 wasm 或 webgpu");
+  }
+  const precision = values.get("precision") ?? "fp32";
+  if (!["fp32", "fp16", "int8"].includes(precision)) {
+    throw new TypeError("--precision 只能是 fp32、fp16 或 int8");
   }
   const expectedImages = Number(values.get("expected-images") ?? "64");
   if (!Number.isInteger(expectedImages) || expectedImages < 1) {
@@ -64,6 +68,7 @@ export function parseEvaluationOptions(argv) {
     manifest: values.get("manifest"),
     model: values.get("model"),
     output: values.get("output"),
+    precision,
     ...(values.has("sdk-bundle") ? { sdkBundle: values.get("sdk-bundle") } : {})
   };
 }
@@ -327,7 +332,7 @@ async function inspectAdapter(page) {
 }
 
 async function evaluateInBrowser(page, payload) {
-  return page.evaluate(async ({ backend, categoryIds, images, manifest, origin }) => {
+  return page.evaluate(async ({ backend, categoryIds, images, manifest, origin, precision }) => {
     const ort = await import(
       backend === "webgpu" ? "/ort/ort.webgpu.min.mjs" : "/ort/ort.wasm.min.mjs"
     );
@@ -347,7 +352,7 @@ async function evaluateInBrowser(page, payload) {
       executionMode: "main",
       model: { data: modelData, manifest },
       ort: { module: ort, wasm: { numThreads: 1, paths: `${origin}/ort/` } },
-      precision: "fp32"
+      precision
     });
     try {
       const imageResults = [];
@@ -500,6 +505,7 @@ export async function runEvaluation(options) {
               : "SDK bilinear"
         },
         requestedBackend: options.backend,
+        precision: options.precision,
         scoreThreshold: 0.001
       },
       schemaVersion: 1
@@ -513,6 +519,7 @@ export async function runEvaluation(options) {
     }
     const result = await evaluateInBrowser(page, {
       backend: options.backend,
+      precision: options.precision,
       categoryIds: inputs.categoryIds,
       images: inputs.imageAssets.map(({ fileName, imageId, sha256 }) => ({
         fileName,

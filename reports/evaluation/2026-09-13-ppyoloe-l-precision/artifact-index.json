@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "artifacts": [
+    {
+      "path": "browser-fp16-webgpu.json.gz",
+      "bytes": 368172,
+      "sha256": "19bca745526a63b7c78e30d84cb234260bc9c877a420a2cd87f083668d8a2acf"
+    },
+    {
+      "path": "browser-w8a32-webgpu.json.gz",
+      "bytes": 794272,
+      "sha256": "e18988a665fddc11a0274f874354678982970cfdd8ae1bb36bfb94e4aa2ce815"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 2589,
+      "sha256": "ae9f6db33bb9af3d197ea07767ba25b9035c7ecf09d65b00e5fa339079b64e60"
+    },
+    {
+      "path": "fp16-conversion.json",
+      "bytes": 1189,
+      "sha256": "7a81e8b0f2c313307339c44de3f7a37c80bb7dd4d35d5879856b638af1970fb7"
+    },
+    {
+      "path": "fp16-manifest.json",
+      "bytes": 3299,
+      "sha256": "940b423b4fab4f575d73ab5eed5393ecb078fe7827ceabbd86943cc8aaccc407"
+    },
+    {
+      "path": "fp16-predictions.json.gz",
+      "bytes": 344316,
+      "sha256": "2f1240297365eb017ab0924d303dffa97ef77f0a8604e5bc1b1ccfbc0228ac67"
+    },
+    {
+      "path": "fp16-runtime.json",
+      "bytes": 11664,
+      "sha256": "362cedb7b5d9ee2f32e8cad61c1a69d78dc2102b6fdf961441c31cd8484f6e23"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1995,
+      "sha256": "b77ff2c56ed30cafb10c89dbdaf8e70df653c0a49ee702cd693ebf32c237b14a"
+    },
+    {
+      "path": "w8a32-conversion.json",
+      "bytes": 15716,
+      "sha256": "0168d235a86500caa0c369b17cc9165172692dbc7f3bb7ee44816db93c8f0951"
+    },
+    {
+      "path": "w8a32-manifest.json",
+      "bytes": 3329,
+      "sha256": "21073d32c9393dad56aa72a5c600ab7c0ecc4d1aef1a788c68796846d32c4651"
+    },
+    {
+      "path": "w8a32-predictions.json.gz",
+      "bytes": 725548,
+      "sha256": "e6428f2ade7685f2b2b03972aa9b3000c3a1b02c86cd2823d79c35f04c9a61f5"
+    },
+    {
+      "path": "w8a32-runtime.json",
+      "bytes": 11685,
+      "sha256": "92c1a77071a2dee067e1797037c4a4e6bc18337eeb7503266af0dc7083ae80f0"
+    }
+  ]
+}

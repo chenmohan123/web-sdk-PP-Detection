@@ -27,7 +27,7 @@
     "./inference.worker.js": "./dist/inference.worker.js"
   },
   "dependencies": {
-    "onnxruntime-web": "1.27.0"
+    "onnxruntime-web": "1.29.0"
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts",

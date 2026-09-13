@@ -1,5 +1,12 @@
 # Changelog
 
+## 模型与 Demo 更新（2026-09-14，SDK 0.4.0）
+
+- Demo 上线 PP-YOLOE+ S/M/L/X 640 四规格 FP32，新增 M/L/X 0.1.0 稳定清单；S 保留现有三精度。
+- 五款模型均默认 ModelScope，仅提供 ModelScope 与 Hugging Face；新增清单固定 revision、字节数、SHA-256 和许可归因。
+- 四规格复用同一 SDK 检测契约，切换到 M/L/X 时自动恢复可用的 FP32，取消旧任务并隔离缓存。
+- 新规格完成桌面核验，未新增手机兼容承诺；SDK API 与 npm 版本保持 0.4.0。见[发布证据](reports/distribution/2026-09-14-ppyoloe-smlx/README.md)。
+
 ## 0.4.0（2026-09-13）
 
 - SDK 新增默认关闭的小目标增强实验选项，串行整图和最多四片，共用会话，支持进度、取消和像素上限。

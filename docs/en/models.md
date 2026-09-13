@@ -1,5 +1,20 @@
 # Models and precision
 
+## PP-YOLOE+ S/M/L/X FP32（2026-09-14）
+
+Demo 新增 PP-YOLOE+ M、L、X 640 的 FP32 稳定模型；S 0.1.1 继续保留 FP32、FP16、W8A32。M/L/X 的模型版本均为 0.1.0，只开放 FP32。所有模型均默认 ModelScope，可显式选择 Hugging Face，显式来源失败不静默换源。Demo 总默认仍为 PicoDet、ModelScope、FP32。
+
+| PP-YOLOE+ 规格 | FP32 下载体积 |
+| -------------- | ------------: |
+| S              |      31.95 MB |
+| M              |      94.02 MB |
+| L              |     209.18 MB |
+| X              |     394.16 MB |
+
+四规格来自同一固定 PaddleDetection 提交的官方 COCO 权重，沿用已发布 S 的 Apache-2.0 发布口径，保留上游许可与转换说明。模型逐份固定双源 revision、路径、字节数和 SHA-256；不是上游官方 Hub 镜像。新增规格的证据限于 Windows 11 / Chromium 153 / ORT Web 1.27.0 桌面，不增加手机兼容承诺。大模型的下载、CPU 推理与内存开销更高；64 图子集指标不是完整 COCO mAP。
+
+本次为模型和 Demo 独立更新，SDK API 与 npm 版本保持 **0.4.0**。见[四规格发布证据](../../reports/distribution/2026-09-14-ppyoloe-smlx/README.md)和[模型清单](../../models/README.md)。
+
 [中文](../zh-CN/models.md)
 
 ## 当前稳定清单（2026-09-12）

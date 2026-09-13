@@ -1,8 +1,10 @@
-# PP-YOLOE+ S 640 FP32 复现
+# PP-YOLOE+ S/M/L/X 640 FP32 复现
 
 所有命令从仓库根目录执行。本文复现已随 SDK 0.3.0 发布的 PP-YOLOE+ S 640 FP32。当前稳定模型为 0.1.0，固定来源与清单见 [模型目录](../../../models/ppyoloe-plus-s-640/README.md)。下方生成的是用于复现实验的本地清单。来源、指标和限制见 [评测报告](../../../reports/evaluation/2026-09-11-ppyoloe/README.md)。
 
-2026-09-12 完成 [FP16 可行性评测](../../../reports/evaluation/2026-09-12-ppyoloe-fp16/README.md)：定向修正后体积约减半，本机未测得明显加速，保持 labs。
+导出脚本现支持官方 PP-YOLOE+ S/M/L/X 四种规格。S 沿用既有 `sources.lock.json`；M、L、X 使用脚本内置的官方权重字节数和 SHA-256 校验，并分别校验对应配置文件及共享 reader。通过 `--variant m|l|x` 选择规格，导出目录名会随规格变化；未指定时保持 S 的兼容行为。四种规格仍需分别完成 ONNX 修复、桌面 WASM/WebGPU 验证和模型清单后才能发布。
+
+2026-09-12 完成 [FP16 可行性评测](../../../reports/evaluation/2026-09-12-ppyoloe-fp16/README.md)：定向修正后体积约减半；后续三精度稳定发布见模型目录，原评测保持历史证据。
 
 ## 环境、来源与数据
 
@@ -27,7 +29,7 @@ if ($LASTEXITCODE -ne 0) { throw "数据子集校验失败" }
 导出入口在运行 Paddle 前再次校验权重和两个关键配置文件。完整源码归档的哈希由上一步校验；不要修改解压后的源码。Paddle 的临时转换缓存落在显式目录。
 
 ```powershell
-& $python tools/model-pipeline/ppyoloe/export.py --upstream .tmp/phase2/upstream/PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5 --weights .tmp/phase2/downloads/ppyoloe-plus-s.pdparams --output-dir .tmp/phase2/exported --temp-dir .tmp/phase2/paddle-cache --onnx-output .tmp/phase2/ppyoloe-plus-s-fp32.onnx
+& $python tools/model-pipeline/ppyoloe/export.py --variant s --upstream .tmp/phase2/upstream/PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5 --weights .tmp/phase2/downloads/ppyoloe-plus-s.pdparams --output-dir .tmp/phase2/exported --temp-dir .tmp/phase2/paddle-cache --onnx-output .tmp/phase2/ppyoloe-plus-s-fp32.onnx
 if ($LASTEXITCODE -ne 0) { throw "导出失败" }
 & $python tools/model-pipeline/ppyoloe/fix_onnx.py --input .tmp/phase2/ppyoloe-plus-s-fp32.onnx --output .tmp/phase2/ppyoloe-plus-s-candidate.onnx --report .tmp/phase2/ppyoloe-fix.json
 if ($LASTEXITCODE -ne 0) { throw "定向修复失败" }
@@ -46,7 +48,8 @@ if ($LASTEXITCODE -ne 0) { throw "定向修复失败" }
 已有任意 COCO 预测时，可单独运行：
 
 ```powershell
-& $python tools/model-pipeline/evaluation/cli.py coco --annotations reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json --predictions .tmp/phase2/results/ppyoloe-predictions.json --image-ids reports/evaluation/2026-09-11-ppyoloe/dataset/image-ids.json --output .tmp/phase2/results/ppyoloe-coco.json
+$env:PYTHONPATH = (Resolve-Path tools/model-pipeline).Path
+& $python -m evaluation.cli coco --annotations reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json --predictions .tmp/phase2/results/ppyoloe-predictions.json --image-ids reports/evaluation/2026-09-11-ppyoloe/dataset/image-ids.json --output .tmp/phase2/results/ppyoloe-coco.json
 ```
 
 浏览器使用 [候选接入指南](../../../examples/ppyoloe-candidate/README.md)中的正式 runner。浏览器 JSON 的 `predictions` 数组可抽取后交给同一 COCOeval 入口。WASM/WebGPU 必须顺序运行；首张与后续图片的耗时分开统计。

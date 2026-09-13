@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-09-13",
+  "candidate": "ppyoloe-sod-l-640-coco",
+  "artifact": {
+    "format": "onnx",
+    "bytes": 345644377,
+    "sha256": "a8fb0978485d42f78346339490302e4f3116daa2cdc7c192b2e2250b1675cd2e",
+    "opset": 11
+  },
+  "upstream": {
+    "repository": "https://github.com/PaddlePaddle/PaddleDetection",
+    "commit": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "license": "Apache-2.0",
+    "licenseEvidence": "distribution-evidence/source-snapshot.json",
+    "notice": {
+      "status": "not-found-at-fixed-commit",
+      "interpretation": "未找到独立 NOTICE，不等于不存在第三方义务"
+    },
+    "separateWeightLicenseFound": false
+  },
+  "data": {
+    "training": "COCO train2017",
+    "evaluation": "COCO val2017",
+    "termsEvidence": "distribution-evidence/coco-terms.json",
+    "redistributionBoundary": "模型资产不包含 COCO 图片/标注；评测子集标注按 CC BY 4.0 归因",
+    "pretraining": "官方配置引用 Objects365 预训练权重"
+  },
+  "sources": {
+    "modelscope": {
+      "searchEvidence": "distribution-evidence/modelscope-search.json",
+      "verifiedOfficialSource": false,
+      "status": "待创建正式仓库；现有 AIBS/ppyoloe 无许可证且无本模型权重"
+    },
+    "huggingface": {
+      "searchEvidence": "distribution-evidence/huggingface-search.json",
+      "verifiedOfficialSource": false,
+      "status": "搜索结果不是已识别官方 SOD L COCO 来源"
+    }
+  },
+  "decision": {
+    "canEnterDistributionPreparation": true,
+    "formallyDistributed": false,
+    "stableManifestEligible": false,
+    "reason": "源码 Apache-2.0 已核实；权重独立许可和正式固定平台来源尚未核实"
+  },
+  "modelCardRequired": [
+    "分开声明源码与权重许可",
+    "固定上游 commit、来源 revision、ONNX SHA256/字节数",
+    "COCO 训练数据归因与官方条款链接",
+    "转换差异和输入输出签名",
+    "性能证据、345.6 MB 限制、移动端状态"
+  ],
+  "unresolved": [
+    "权重许可适用范围",
+    "ModelScope/Hugging Face 正式仓库与不可变 revision",
+    "SOD 需更多专项收益或体积成本证据才恢复优先接入",
+    "按发布范围和风险安排移动端复核"
+  ],
+  "evidenceFiles": [
+    "distribution-evidence/source-snapshot.json",
+    "distribution-evidence/modelscope-search.json",
+    "distribution-evidence/huggingface-search.json",
+    "distribution-evidence/coco-terms.json"
+  ],
+  "comparisonEvidence": "../summary.json",
+  "modelCardDraft": "model-card-draft.md"
+}

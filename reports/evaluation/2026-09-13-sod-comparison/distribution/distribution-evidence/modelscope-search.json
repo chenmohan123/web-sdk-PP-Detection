@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-13",
+  "query": "ppyoloe",
+  "endpoint": "https://modelscope.cn",
+  "search": "model repo list, RepoType.MODEL, page_size=50",
+  "totalCount": 1,
+  "items": [
+    {
+      "id": "AIBS/ppyoloe",
+      "description": "",
+      "downloads": 83,
+      "likes": 0,
+      "created_at": "2025-09-01T06:05:41Z",
+      "last_modified": "2026-08-28T11:31:13+00:00",
+      "license": "",
+      "tags": [
+        "task:image-object-detection"
+      ],
+      "display_name": "ppyoloe",
+      "file_size": 19372,
+      "tasks": [
+        "image-object-detection"
+      ],
+      "private": false,
+      "gated": false,
+      "repo_id": "AIBS/ppyoloe",
+      "files": [
+        {
+          "path": ".gitattributes",
+          "size": 2273,
+          "sha256": "ea9e225291ffcaee201e1e2fa206f795fc6c98a38f7682fe1616c9522dc5f815",
+          "blob_id": "ea9e225291ffcaee201e1e2fa206f795fc6c98a38f7682fe1616c9522dc5f815"
+        },
+        {
+          "path": ".gitignore",
+          "size": 205,
+          "sha256": "d2c1635d3a7cbf995ac9f4c74a2bac274badb153fa8e5f00d0763a261f2cf4e1",
+          "blob_id": "d2c1635d3a7cbf995ac9f4c74a2bac274badb153fa8e5f00d0763a261f2cf4e1"
+        },
+        {
+          "path": "configuration.json",
+          "size": 33,
+          "sha256": "dff059eff7457beccbf72ec7642e73d81c13f423232c56b96c6c806627d4a655",
+          "blob_id": "dff059eff7457beccbf72ec7642e73d81c13f423232c56b96c6c806627d4a655"
+        },
+        {
+          "path": "README.md",
+          "size": 16861,
+          "sha256": "b0e0ab52874eea2d7c8a99fea540d176c7613e02dd27c65c68ac1c407734f8c9",
+          "blob_id": "b0e0ab52874eea2d7c8a99fea540d176c7613e02dd27c65c68ac1c407734f8c9"
+        }
+      ],
+      "readme": {
+        "url": "https://modelscope.cn/models/AIBS/ppyoloe/resolve/master/README.md",
+        "status": 200,
+        "bytes": 16861,
+        "sha256": "b0e0ab52874eea2d7c8a99fea540d176c7613e02dd27c65c68ac1c407734f8c9",
+        "textPrefix": "# icraft_modelzoo\n\n<div style=\"background-color: #FFFFCC; color: #FF0000; padding: 10px; border-left: 5px solid #FFA500;\">\n\n<u>**免责声明**</u>：<br>\n\n1. 本仓库**仅作为研究、参考**，若要实际使用，请务必遵守原算法工程的开源规则。<br>\n2. 本仓库**仅作为模型部署参考**，大部分模型前后处理的迁移等运行时代码做了精度测试并与原算法做了对比，但未做全面的功能测试验证。**请勿**未经验证直接将本仓库代码直接用于实际项目，本仓库 ***不承担任何不良后果***。<br>\n3. 本仓库**仅测试过PSIN（socket，axi）模式**，其中包含的 ***PLIN模式代码仅适用于最初部署的icraft版本***，后续需根据所用版本的参考实现工程进行迁移升级。</div><br>\n\n\n\n## 1.简介\n\n### 1.1 模型下载\n\n请在“模型文件”页面选取您安装icraft版本所对应的tag版本，并 **参照其下`README.md`文件说明** 配套使用，推荐您使用最新的icraft版本和模型tag版本。\n\n使用git下载所需模型`MODEL` **（运行以下命令时将其中`MODEL`和`TAG`分别替换为实际模型和版本名）** ：\n```shell\n# 请确保已安装lfs\ngit lfs install\n# clone模型至本地\n# 1. 可直接clone所需的TAG版本至本地\ngit clone -b TAG https://www.modelscope.cn/AIBS/MODEL.git\n# 2. 也可将模型clone至本地后，再切换到该TAG版本\ngit clone https://www.modelscope.cn/AIBS/MODEL.git\ncd MODEL\ngit checkout tags/TAG\n```\n\n\n\n### 1.2 基本介绍\n\n本仓库主要放一些已经适配、跑通的模型。\n\n已支持模型名单请查看：[模型清单](https://ucnb4916m9po.feishu.cn/wiki/UPp5wSnPEijIHskhbA2chb66nu9?fromScene=spaceOverview&table=tblZKXh7avc6OGwQ&view=vewDjwhLhU)\n\n> 索引中只记录了开发版本上的模型性能数据，详细的测试数据参考：[benchmark](https://gitee.com/mxh-spiger/benchmark/tree/master/benchmark)\n\n每个模型都有全流程使用说明的readme文档，里面记录了模型适配的状态。\n\n其中状态徽章的含义：\n\n- ![author](https://img.shields.io/badge/author-cd-blue)：适配模型的作者\n- ![metrics](https://img.shields.io/badge/metrics-OK-green?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAPYQAAD2EBqD+naQAABLZJREFUaEPtmmnIpWMYx39/+75lyy6ELGNohA8GIUvEB6RBtomYmhhDIlskkmUSWcLIyDKU9QOy88FSjCIylmSZsoxl7OPSf7pOPY7zvs8573Oa55x3nqveOr33fT/P/buv5f7f9zliGTMtY7w0wOPd442HGw+PsxVoQrrdoRGxOrBN4f8LJC0YVseXejgidgXeLQBeJ2lmAzwkK9B4uEMONyFdlsMRsTywPrAKsFDSj4MS8X0P6YjYCJgK7A2sCnwPvAA8IOm7usH7ChwRWwNP5DZm79oC+BV4EjhT0sI6ofsGHBGbA48Du40C9DRwvKSf6oLuC3BErAlcDpwNrJQw3wBfALtkLrcY7wBmSPq5Duh+Ae8P3AVslRBfA1cCLwJHARcAa2WbvTvD/SX9s7ShKwNHhHP1UuB8YDngb8BenClpUUpTA18IrJA5/TpwmqQPhxF4U+Clgt52KB8p6c0WTETY83cCB8CSWxYvihdhliR/7tkiwou3WJKLYtfWDw87ZB9J7/rFDwJTJC0uziIipgC3FELb+vxQSQ7/ri33+B2BycDcXg8y/QA24LGFGR8s6dl2gohYA3gUOCjbvCAO69nd0kbE2sAprvTAzsCNki7qdrz7VQLO1bawaBWkz4HtJP3VaRIR4eL2fKFtnqQJZROOCM/THr0W2AlYLcf8Buwj6Z2yZ7TaqwLvAbxVeNlsSSeP9vKIeAOYVOgzWdLLIyyQ89Q14hzgdMBn83bzTuDU+L0b6KrAnsj1hRcdJ+mhEuCTgLsLOX8PcGqn4hMRvni4DDgEWK8wpviKX4Bzc5v7T93oNI+qwI+5IueDvb9OkvRRCbAVmbV16xblE2BfSV92yHunypb5t316eYe2fq7Sr7mtm22uKrDDbU9gIrAucImkH0qArcpmAa3Qt+KaJuneknEOb4e+DyW2RYAXy0ruT+Bi4CZJ/jyiVQLuJmc6eM3vPCHFycrZPicr9h8jPTMivLjO/02yj/f5w1PIuPLb8zeUHU6WOrAnGxG7A85de8f2nrcbSW+PAnwE4ChYJ/vclprcnu7a6gL2nmwRYjFiOeoKa319eyflFRHuc1X2WTFDeLqjpF3glJHXApxePibD2mLC9ipwtKRvO6TBZnk4aYmW+RkRr5QBtrfXCezi5SJUPD+fKOm+4iRTdByWWnzjbPO52irNur0nqw04vWxJej/gOzDbp8CBklx9l1ietq4Bzkpl6PD30fPqsRwv6wb20XJuVtsWo/X2VEmWrAbeLw8kG2aHr6zHJb3fk2uzc63ACWRt/Exhu/HWdGsqLIew78K2LcDdDEwfi3f9jEEA9pXQtAxT33IuWYcM7w0A53rLHPITq1z71g6cXjbYFdbUhTux9oj9LBXZU2MJ5daYgQBO6C3ymuiMvAoqcn2cIf5wmXQsW4yBAU5oC5K9gPPyCGld/lyKlA9GOmeXQRbbBwq4l4mPtW8D3L5yzRfi0PwCYKz5VMe4JoebHP7/r3h8teKvVgbRXF9G/UnVWEJ6EEFbc5ogad5oE2yAu8jhce9hX6X6EnwYbL6/"
+      }
+    }
+  ],
+  "assessment": "本次单关键词查询返回 AIBS/ppyoloe；读取的默认分支未包含本 SOD 权重且未声明许可，未枚举全部 tag，不能作为已验证来源。"
+}

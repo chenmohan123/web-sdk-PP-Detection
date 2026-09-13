@@ -102,7 +102,7 @@ workerScope.onmessage = async (event: MessageEvent<WorkerRequest>) => {
           error: { code: mapped.code, message: mapped.message, details: mapped.details }
         });
       } finally {
-        activeRuns.delete(task);
+        activeRuns.delete(settled);
         running.delete(request.id);
       }
       return;

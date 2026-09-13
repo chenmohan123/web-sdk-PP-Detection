@@ -51,7 +51,8 @@ def summarize(raw):
     require(raw["runner"] == digest((report / "reproduction/verify_lifecycle.mjs").read_bytes()), "实测脚本与归档版本不同")
     reference = load_archive("pillow-predictions.json.gz")
     old = load_archive("browser-wasm.json.gz")
-    require(raw["sdk"]["bytes"] == old["artifacts"]["sdk"]["bytes"], "SDK 构建大小异常")
+    require(raw["sdk"] == digest((root / "packages/sdk/dist/browser-global.js").read_bytes()), "SDK 构建摘要不符")
+    require(raw["worker"] == digest((root / "packages/sdk/dist/inference.worker.js").read_bytes()), "Worker 构建摘要不符")
     image_ids = [i["imageId"] for i in raw["images"]]
     require(image_ids == [i["imageId"] for i in old["images"]], "输入图片集合或顺序不符")
     for image in raw["images"]:

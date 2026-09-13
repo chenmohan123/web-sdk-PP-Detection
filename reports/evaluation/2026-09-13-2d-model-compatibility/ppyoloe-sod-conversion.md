@@ -22,4 +22,3 @@
 原始日志、预测、清单和浏览器报告以 gzip 证据存档并由 `evidence-index.json` 校验。当前结论是 `selected`：允许进入浏览器专项验证，不修改 runtime、manifest、Demo 或稳定模型。
 
 复现入口：`reproduction/export_sod.py`、`reproduction/prepare_sod.py`、`reproduction/summarize.py`。
-

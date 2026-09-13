@@ -16,9 +16,9 @@ RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetecti
 
 | 优先级 | 候选                     | 状态      | 依据                                        | 主要风险                             |
 | -----: | ------------------------ | --------- | ------------------------------------------- | ------------------------------------ |
-|      1 | PP-YOLOE+ SOD L 640 COCO | selected  | 已有完整转换和参考核验，输出接近现有框契约  | 345.6 MB；移动端和 Worker 成本待验证 |
+|      1 | PP-YOLOE+ SOD L 640 COCO | selected  | 转换、参考核验和桌面四种执行组合已通过      | 345.6 MB；移动端未验证，正式分发待审查 |
 |      2 | RTMDet tiny              | blocked   | 固定的 PaddleDetection 版本树扫描未找到入口 | 需找到明确上游配置、权重和导出链     |
-|      3 | PP-YOLOE 其他规模        | candidate | 可复用现有系列经验                          | 每个规模仍需独立转换和移动端评估     |
+|      3 | PP-YOLOE 其他规模        | candidate | 可复用现有系列经验                          | 每个规模仍需独立转换和桌面兼容验证   |
 |      4 | PP-YOLO、FCOS、SSD       | candidate | 保留原规划的通用轴对齐 2D 范围              | 导出图、后处理和维护价值待确认       |
 |      — | YOLOv3/5/6/7/8、YOLOX    | blocked   | 系列名不能代替单模型契约                    | 必须拆成具体架构、权重和许可证       |
 
@@ -33,7 +33,9 @@ RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetecti
 
 ## 下一步
 
-1. 在可用移动设备上记录同一候选的真实浏览器结果；当前记录见 [ppyoloe-sod-lifecycle.json](ppyoloe-sod-lifecycle.json) 和压缩原始证据 [sod-lifecycle.json.gz](evidence/sod-lifecycle.json.gz)。
-2. 在可用移动设备上记录同一候选的真实浏览器结果；当前小米 15 的历史结论不能外推到该 345.6 MB 新模型。
-3. 评估 ModelScope/Hugging Face 分发条件及模型卡许可后，再决定是否建立独立实现计划。
+桌面 Chromium 的 WASM/WebGPU、main/Worker 和生命周期核验已完成，见 [ppyoloe-sod-lifecycle.json](ppyoloe-sod-lifecycle.json) 和压缩原始证据 [sod-lifecycle.json.gz](evidence/sod-lifecycle.json.gz)。后续迭代先确保电脑端通过与改动相关的验证，不要求每轮重复手机测试。
+
+1. 评估 ModelScope/Hugging Face 正式分发条件及模型卡许可。
+2. 补充与普通 PP-YOLOE+ L 在相同图片集、输入尺寸和评测配置下的小目标收益对比，再决定是否建立独立实现计划。
+3. 候选准备发布、涉及移动端专项问题或重大 runtime 变化时，按影响范围安排移动设备人工 smoke；缺少手机证据不阻塞桌面评估与后续开发。当前小米 15 的历史结论不能外推到该 345.6 MB 新模型，未验证时明确记录移动端未知。
 4. 只有新模型通过上述门槛并完成发布，才更新稳定 manifest 和门户登记。

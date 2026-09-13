@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-13",
+  "image": "000000010977.jpg",
+  "sourceSha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+  "method": "将 Conv、Mul、Sigmoid、Add、ReduceMean 节点追加为图输出，在 ONNX Runtime CPU 中比较 FP32、FP16 和 W8A32 的中间张量。",
+  "outputsCompared": 308,
+  "largestW8a32MeanAbsoluteError": [
+    {"node": "Conv.87", "output": "conv2d_87.tmp_0", "meanAbs": 0.06710660457611084, "maxAbs": 1.0738065242767334},
+    {"node": "Conv.75", "output": "conv2d_75.tmp_0", "meanAbs": 0.06584323197603226, "maxAbs": 0.6503677368164062},
+    {"node": "Conv.28", "output": "conv2d_28.tmp_0", "meanAbs": 0.05987698212265968, "maxAbs": 4.316680908203125},
+    {"node": "Conv.73", "output": "conv2d_73.tmp_0", "meanAbs": 0.05948536470532417, "maxAbs": 0.5356985330581665},
+    {"node": "Conv.62", "output": "conv2d_62.tmp_0", "meanAbs": 0.05832488656044006, "maxAbs": 0.5695648193359375}
+  ],
+  "firstConvolutionSamples": [
+    {"node": "Conv.7", "output": "conv2d_7.tmp_0", "fp16MeanAbs": 0.0020704478956758976, "w8a32MeanAbs": 0.03347962349653244, "w8a32MaxAbs": 0.6091303825378418},
+    {"node": "Conv.9", "output": "conv2d_9.tmp_0", "fp16MeanAbs": 0.002926574321463704, "w8a32MeanAbs": 0.04280838742852211, "w8a32MaxAbs": 0.7842552661895752},
+    {"node": "Conv.11", "output": "conv2d_11.tmp_0", "fp16MeanAbs": 0.003488425863906741, "w8a32MeanAbs": 0.055682409554719925, "w8a32MaxAbs": 1.7344675064086914}
+  ],
+  "decision": "W8A32 误差从早期卷积开始累积，单独保留检测头不能恢复稳定匹配率；FP16 的中间误差较小但仍在后续算子放大。下一步应做多图片算子敏感度统计或重新校准量化。"
+}

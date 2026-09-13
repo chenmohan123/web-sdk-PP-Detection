@@ -3,26 +3,67 @@
   "generatedAt": "2026-09-13",
   "scope": "PaddleDetection 轴对齐 2D 单帧目标检测",
   "statusDefinitions": {
-    "candidate": "进入下一轮转换可行性评估，但尚未证明浏览器兼容",
-    "blocked": "当前缺少转换、许可证、输出契约或浏览器运行所需证据",
+    "candidate": "值得继续评估；未知字段是待收集证据，不代表兼容或不兼容",
+    "blocked": "当前存在明确的入口缺失或实测失败；原因必须限定版本和范围",
     "deferred": "属于其他任务类型或当前阶段明确不处理",
-    "selected": "已通过矩阵筛选，允许进入转换可行性任务"
+    "selected": "转换和 Python 参考核验通过，且已满足进入下一轮验证所需证据；不是 stable"
   },
   "candidates": [
     {
       "id": "pp-picodet-l-320",
       "task": "axis-aligned-2d-detection",
       "architecture": "PicoDet-L-320 LCNet",
-      "upstreamRevision": "recorded-in-current-manifest",
+      "upstreamRevision": null,
       "inputShape": "[1,3,320,320]",
-      "outputContract": "multiclass NMS boxes plus count",
-      "preprocess": "bicubic resize, ImageNet normalization",
-      "postprocess": "pixel-coordinate NMS output",
-      "license": "Apache-2.0; current model card evidence",
-      "conversionPath": "existing Paddle2ONNX conversion and runtime manifest",
+      "outputContract": [
+        {
+          "name": "multiclass_nms3_0.tmp_0",
+          "shape": [
+            -1,
+            6
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "multiclass_nms3_0.tmp_2",
+          "shape": [
+            1
+          ],
+          "dtype": "int32"
+        }
+      ],
+      "preprocess": {
+        "size": {
+          "width": 320,
+          "height": 320
+        },
+        "resizeMode": "stretch",
+        "interpolation": "bicubic",
+        "rescaleFactor": 0.00392156862745098,
+        "doResize": true,
+        "doRescale": true,
+        "doNormalize": true,
+        "mean": [
+          0.48500001430511475,
+          0.4560000002384186,
+          0.4059999883174896
+        ],
+        "std": [
+          0.2290000021457672,
+          0.2240000069141388,
+          0.22499999403953552
+        ]
+      },
+      "postprocess": {
+        "type": "nms",
+        "scoreThreshold": 0.5,
+        "iouThreshold": 0.5,
+        "matrixCoordinates": "pixels"
+      },
+      "license": "沿用当前稳定模型卡的 Apache-2.0 许可记录",
+      "conversionPath": "复用已有转换记录；本轮没有重新验证稳定变体",
       "browserRisks": [
-        "new variants must preserve existing output names",
-        "WASM/WebGPU evidence already scoped to current variants"
+        "已有验证范围以模型卡的日期和设备为准"
       ],
       "estimatedBytes": {
         "fp32": 23243834,
@@ -31,22 +72,81 @@
       },
       "currentSdkStatus": "stable",
       "status": "candidate",
-      "reason": "现有稳定基线，用于比较新候选的输出和性能；不需要重复移植。"
+      "reason": "现有稳定基线，用于比较新候选的输出和性能；不需要重复移植。",
+      "manifestEvidence": "models/pp-detection/1.0.2/manifest.json",
+      "entryRole": "现有稳定基线",
+      "distributionRevisions": {
+        "fp32": [
+          "852b3acbb768705c77359362546eae9999f4190c",
+          "df2b6b79ccdadbaa84fc56ef66369c7cf5cdacff"
+        ],
+        "fp16": [
+          "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "768d6bdf1b9cb906a6b640516b835d39cc6c375e"
+        ],
+        "w8a32": [
+          "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "768d6bdf1b9cb906a6b640516b835d39cc6c375e"
+        ]
+      }
     },
     {
       "id": "pp-ppyoloe-plus-s-640",
       "task": "axis-aligned-2d-detection",
       "architecture": "PP-YOLOE+ S 640",
-      "upstreamRevision": "recorded-in-current-manifest",
+      "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
       "inputShape": "[1,3,640,640]",
-      "outputContract": "multiclass NMS boxes plus count",
-      "preprocess": "bicubic resize, ImageNet normalization",
-      "postprocess": "pixel-coordinate NMS output",
-      "license": "Apache-2.0; current model card evidence",
-      "conversionPath": "existing Paddle2ONNX conversion and runtime manifest",
+      "outputContract": [
+        {
+          "name": "save_infer_model/scale_0.tmp_0",
+          "shape": [
+            -1,
+            6
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "save_infer_model/scale_1.tmp_0",
+          "shape": [
+            1
+          ],
+          "dtype": "int32"
+        }
+      ],
+      "preprocess": {
+        "size": {
+          "width": 640,
+          "height": 640
+        },
+        "resizeMode": "stretch",
+        "interpolation": "bicubic",
+        "rescaleFactor": 0.00392156862745098,
+        "doResize": true,
+        "doRescale": true,
+        "doNormalize": true,
+        "mean": [
+          0,
+          0,
+          0
+        ],
+        "std": [
+          1,
+          1,
+          1
+        ]
+      },
+      "postprocess": {
+        "type": "nms",
+        "scoreThreshold": 0.001,
+        "iouThreshold": 1,
+        "matrixCoordinates": "pixels",
+        "queryCoordinates": "pixels",
+        "queryBoxFormat": "xyxy"
+      },
+      "license": "沿用当前稳定模型卡的 Apache-2.0 许可记录",
+      "conversionPath": "复用已有转换记录；本轮没有重新验证稳定变体",
       "browserRisks": [
-        "larger input and model increase mobile cost",
-        "WebGPU shader-f16 and INT8 behavior require per-variant evidence"
+        "已有验证范围以模型卡的日期和设备为准"
       ],
       "estimatedBytes": {
         "fp32": 31954220,
@@ -55,28 +155,53 @@
       },
       "currentSdkStatus": "stable",
       "status": "candidate",
-      "reason": "现有稳定基线，用于比较新候选的精度和耗时；不需要重复移植。"
+      "reason": "现有稳定基线，用于比较新候选的精度和耗时；不需要重复移植。",
+      "manifestEvidence": "models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "entryRole": "现有稳定基线",
+      "distributionRevisions": {
+        "fp32": [
+          "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "45a646ce13dcf2e2c05231954b1e32b9c412720b"
+        ],
+        "fp16": [
+          "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "768d6bdf1b9cb906a6b640516b835d39cc6c375e"
+        ],
+        "w8a32": [
+          "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "768d6bdf1b9cb906a6b640516b835d39cc6c375e"
+        ]
+      }
     },
     {
       "id": "pp-ppyoloe-sod",
       "task": "axis-aligned-2d-detection",
-      "architecture": "PP-YOLOE-SOD",
-      "upstreamRevision": "develop@ad4c52eac56fad3303169d02c6f6578abbdcf106",
-      "inputShape": "官方配置未声明固定 TestReader.inputs_def.image_shape",
-      "outputContract": "官方导出文档未将 PP-YOLOE-SOD 列入已测试 ONNX 模型清单",
-      "preprocess": "需从部署配置确认输入尺寸和归一化",
-      "postprocess": "需确认 NMS、类别和坐标输出",
-      "license": "PaddleDetection 仓库 Apache-2.0；具体 model_final 权重许可和再分发条件未找到",
-      "conversionPath": "官方导出说明与 Paddle2ONNX 可行性待验证",
+      "architecture": "PP-YOLOE+ SOD L 640 COCO",
+      "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "inputShape": "[1,3,640,640]，单图",
+      "outputContract": "float32 [N,6]：类别、置信度、x1、y1、x2、y2；int32 [1]：框数量",
+      "preprocess": "RGB 拉伸至 640×640；官方 OpenCV INTER_CUBIC；除以 255；NCHW",
+      "postprocess": "图内 MultiClassNMS；像素坐标；准备脚本固定 scale_factor=[[1,1]]",
+      "license": "固定仓库 Apache-2.0；官方模型表提供权重；未发现单独权重许可，正式分发前补齐模型卡审查",
+      "conversionPath": "Paddle 2.6.2 官方导出 → Paddle2ONNX 1.3.1 opset 11 → 本次固定图 NMS 轴修正和单输入准备",
       "browserRisks": [
         "小目标专用输入尺寸可能增加移动端开销",
         "输出可能需要专用解码",
         "与切片增强策略的收益必须分开评估"
       ],
-      "estimatedBytes": null,
+      "estimatedBytes": {
+        "fp32": 345644377,
+        "fp16": null,
+        "w8a32": null
+      },
       "currentSdkStatus": "unreleased",
-      "status": "blocked",
-      "reason": "官方配置存在，但官方 ONNX 导出支持表只列 PP-YOLOE，不列 PP-YOLOE-SOD；配置引用训练输出 model_final，没有固定公开权重 URL、输入 shape 或 ONNX 输出契约。需先取得可分发权重和可复现导出证据。"
+      "status": "candidate",
+      "reason": "已实际完成 ONNX 转换和 64 图 Paddle/Python 数值对齐；本轮记录浏览器初步验证。体积较大，完整 Worker/生命周期、移动端与分发审查仍待完成。",
+      "evidence": [
+        "sources.lock.json",
+        "ppyoloe-sod-conversion.json",
+        "ppyoloe-sod-conversion.md"
+      ]
     },
     {
       "id": "rtmdet-tiny",
@@ -88,7 +213,7 @@
       "preprocess": "需确认 resize、padding 和归一化",
       "postprocess": "需确认解码和 NMS 算子",
       "license": "需核对上游权重和再分发条件",
-      "conversionPath": "官方导出说明与 Paddle2ONNX 可行性待验证",
+      "conversionPath": "待找到明确上游入口；若采用 MMDetection，需要另行核对来源和导出链",
       "browserRisks": [
         "动态检测头可能引入额外算子",
         "不同导出配置的输出契约可能不一致"
@@ -96,12 +221,16 @@
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
       "status": "blocked",
-      "reason": "PaddleDetection 官方 develop 树未发现 RTMDet 配置或导出入口；当前无法固定上游 revision、权重 URL 和输出契约。"
+      "reason": "仅限本次扫描的 PaddleDetection b25522a0 和 65e64357 两棵未截断源码树，路径 rtmdet 匹配数均为 0；尚未确定 PaddleDetection 导出入口。不能据此推断其他项目、历史版本或整个模型家族不兼容。",
+      "evidence": [
+        "upstream-tree-scan.json",
+        "rtmdet-feasibility.md"
+      ]
     },
     {
       "id": "pp-yoloe",
       "task": "axis-aligned-2d-detection",
-      "architecture": "PP-YOLOE family",
+      "architecture": "PP-YOLOE 其他规模",
       "upstreamRevision": null,
       "inputShape": "未固定，需按具体规模和部署配置拆分",
       "outputContract": "候选为轴对齐框，需确认导出输出",
@@ -121,7 +250,7 @@
     {
       "id": "pp-yolo",
       "task": "axis-aligned-2d-detection",
-      "architecture": "PP-YOLO family",
+      "architecture": "PP-YOLO 系列",
       "upstreamRevision": null,
       "inputShape": "未固定，需从官方部署配置确认",
       "outputContract": "需确认是否可导出为统一轴对齐框结果",
@@ -226,7 +355,7 @@
       "reason": "需要跨帧状态和轨迹生命周期，规划为独立 tracking SDK。"
     },
     {
-      "id": "pointpillars-centernet-petr",
+      "id": "pointpillars-centerpoint-petr",
       "task": "3d-detection",
       "status": "deferred",
       "reason": "输入、坐标系和 3D 输出不同，当前不列入浏览器首批。"

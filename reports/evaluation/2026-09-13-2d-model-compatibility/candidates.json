@@ -207,6 +207,76 @@
       ]
     },
     {
+      "id": "pp-ppyoloe-plus-l-640",
+      "task": "axis-aligned-2d-detection",
+      "architecture": "PP-YOLOE+ L 640",
+      "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "inputShape": "[1,3,640,640]",
+      "outputContract": [
+        {
+          "name": "save_infer_model/scale_0.tmp_0",
+          "shape": [
+            -1,
+            6
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "save_infer_model/scale_1.tmp_0",
+          "shape": [
+            1
+          ],
+          "dtype": "int32"
+        }
+      ],
+      "preprocess": {
+        "size": {
+          "width": 640,
+          "height": 640
+        },
+        "resizeMode": "stretch",
+        "interpolation": "bicubic",
+        "rescaleFactor": 0.00392156862745098,
+        "mean": [
+          0,
+          0,
+          0
+        ],
+        "std": [
+          1,
+          1,
+          1
+        ]
+      },
+      "postprocess": {
+        "type": "nms",
+        "scoreThreshold": 0.001,
+        "iouThreshold": 1,
+        "matrixCoordinates": "pixels",
+        "queryCoordinates": "pixels",
+        "queryBoxFormat": "xyxy"
+      },
+      "license": "固定 PaddleDetection 源码 Apache-2.0；权重外部分发许可和固定镜像尚待补证",
+      "conversionPath": "官方 Paddle 2.6.2 导出 → Paddle2ONNX 1.3.1 opset 11；FP16 使用 ORT 混合转换，W8A32 使用按通道权重压缩并升 opset 13",
+      "browserRisks": [
+        "L 模型体积较大，移动端未验证",
+        "FP16/W8A32 与 FP32 的逐框差异超过当前稳定门槛"
+      ],
+      "estimatedBytes": {
+        "fp32": 209181400,
+        "fp16": 104700181,
+        "w8a32": 52698311
+      },
+      "currentSdkStatus": "unreleased",
+      "status": "selected",
+      "reason": "FP16 与 W8A32 已完成 Python 和桌面 WebGPU 64 图识别，但 IoU≥0.99、score≥0.5 逐框匹配率分别低于 95%（FP16 约 85%/54%，W8A32 约 6%），仅保留 labs 评估，不进入稳定 manifest。",
+      "evidence": [
+        "../2026-09-13-sod-comparison/ordinary-manifest.json",
+        "../2026-09-13-ppyoloe-l-precision/README.md",
+        "../2026-09-13-ppyoloe-l-precision/comparison.json"
+      ]
+    },
+    {
       "id": "rtmdet-tiny",
       "task": "axis-aligned-2d-detection",
       "architecture": "RTMDet tiny",

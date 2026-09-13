@@ -1,0 +1,29 @@
+{
+  "commit": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "archiveSha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6",
+  "files": [
+    {
+      "path": "configs/ppyoloe/ppyoloe_plus_crn_l_80e_coco.yml",
+      "bytes": 407,
+      "sha256": "5101704c3f5a7fa2ec1f6a6f3843bf031a608dd4a4405b67d93d6a90abf924e7",
+      "snapshot": "upstream/configs/ppyoloe/ppyoloe_plus_crn_l_80e_coco.yml.gz"
+    },
+    {
+      "path": "configs/ppyoloe/README.md",
+      "bytes": 24040,
+      "sha256": "137b0c59711289a1c6f8bed84ad496607c14ab97df5813be5c6b6f7427794d32",
+      "snapshot": "upstream/configs/ppyoloe/README.md.gz"
+    },
+    {
+      "path": "configs/ppyoloe/_base_/ppyoloe_plus_crn.yml",
+      "bytes": 930,
+      "sha256": "1b231af97f948f1ad628ce54c81900d64b2470907300153767355fa225afb2f6",
+      "snapshot": "upstream/configs/ppyoloe/_base_/ppyoloe_plus_crn.yml.gz"
+    }
+  ],
+  "weight": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_plus_crn_l_80e_coco.pdparams",
+    "bytes": 216672732,
+    "sha256": "4348bb04b0c23b6b815dbc1e05eca22ad62fdf9c42192a600d37497ca4023c88"
+  }
+}

@@ -1,0 +1,756 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "dataset": {
+    "annotations": {
+      "bytes": 198359,
+      "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+    },
+    "imageCount": 64,
+    "groundTruthCount": 716,
+    "nonCrowdSmallCount": 399,
+    "imagesWithSmallObjects": 40
+  },
+  "models": {
+    "ordinary": {
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "nmsConstants": {
+        "maxOutputBoxesPerClass": [
+          1000
+        ],
+        "iouThreshold": [
+          0.699999988079071
+        ],
+        "scoreThreshold": [
+          0.009999999776482582
+        ]
+      },
+      "manifestSha256": "420427da3006a3f5f44929adf726f667de8759ed483e19815961d4ed865dd252"
+    },
+    "sod": {
+      "bytes": 345644377,
+      "sha256": "a8fb0978485d42f78346339490302e4f3116daa2cdc7c192b2e2250b1675cd2e",
+      "nmsConstants": {
+        "maxOutputBoxesPerClass": [
+          1000
+        ],
+        "iouThreshold": [
+          0.699999988079071
+        ],
+        "scoreThreshold": [
+          0.009999999776482582
+        ]
+      },
+      "manifestSha256": "52d3403d41985c5ab7c7bbd0ef3569cb21a4dba1b276fd0d90fc8f5def20484b"
+    }
+  },
+  "sizeIncreasePercent": 65.23666874779497,
+  "cpu": {
+    "ordinary": {
+      "opencv": {
+        "metrics": {
+          "AP": 0.513663286909532,
+          "AP50": 0.6833133369792846,
+          "AP75": 0.5661274358321051,
+          "APSmall": 0.38906944427061685,
+          "APMedium": 0.6485663367255455,
+          "APLarge": 0.8285238119046623,
+          "AR1": 0.3668419544687963,
+          "AR10": 0.6099310985328593,
+          "AR100": 0.6448937730629126
+        },
+        "sessionMs": 710.6424999947194,
+        "firstInferenceMs": 430.9320000174921,
+        "warmInference": {
+          "count": 63,
+          "medianMs": 458.0015999963507,
+          "p90Ms": 517.0857599994633
+        },
+        "environment": {
+          "python": "3.11.15",
+          "platform": "Windows-10-10.0.26200-SP0",
+          "onnxruntime": "1.20.1",
+          "backend": "CPUExecutionProvider",
+          "intraOpThreads": 4
+        }
+      },
+      "pillow": {
+        "metrics": {
+          "AP": 0.5130727036075136,
+          "AP50": 0.6850603640981209,
+          "AP75": 0.5616509146560685,
+          "APSmall": 0.3905571354458626,
+          "APMedium": 0.646981118082096,
+          "APLarge": 0.8291338401079489,
+          "AR1": 0.3668676353096945,
+          "AR10": 0.6090378919761252,
+          "AR100": 0.6466547676599035
+        },
+        "sessionMs": 753.4183999814559,
+        "firstInferenceMs": 419.47299998719245,
+        "warmInference": {
+          "count": 63,
+          "medianMs": 462.03130000503734,
+          "p90Ms": 523.7367199850269
+        },
+        "environment": {
+          "python": "3.11.15",
+          "platform": "Windows-10-10.0.26200-SP0",
+          "onnxruntime": "1.20.1",
+          "backend": "CPUExecutionProvider",
+          "intraOpThreads": 4
+        }
+      }
+    },
+    "sod": {
+      "opencv": {
+        "metrics": {
+          "AP": 0.5165087081927612,
+          "AP50": 0.695406031199007,
+          "AP75": 0.5508446912226157,
+          "APSmall": 0.3908138348577634,
+          "APMedium": 0.6348314326636778,
+          "APLarge": 0.8138012629042606,
+          "AR1": 0.3725886374689791,
+          "AR10": 0.6091978835645547,
+          "AR100": 0.6557622599233981
+        },
+        "sessionMs": 1041.3700999924913,
+        "firstInferenceMs": 614.2485000018496,
+        "warmInference": {
+          "count": 63,
+          "medianMs": 577.9254999943078,
+          "p90Ms": 643.137399997795
+        },
+        "environment": {
+          "python": "3.11.15",
+          "platform": "Windows-10-10.0.26200-SP0",
+          "onnxruntime": "1.20.1",
+          "backend": "CPUExecutionProvider",
+          "intraOpThreads": 4
+        }
+      },
+      "pillow": {
+        "metrics": {
+          "AP": 0.5171903118653666,
+          "AP50": 0.7036350821826506,
+          "AP75": 0.5488048886598836,
+          "APSmall": 0.3937462097212895,
+          "APMedium": 0.6360358499160572,
+          "APLarge": 0.8136361006430923,
+          "AR1": 0.3732511704473015,
+          "AR10": 0.6121330278506496,
+          "AR100": 0.6543162096730261
+        },
+        "sessionMs": 1046.159199991962,
+        "firstInferenceMs": 528.397500020219,
+        "warmInference": {
+          "count": 63,
+          "medianMs": 570.0420000066515,
+          "p90Ms": 621.8312999932095
+        },
+        "environment": {
+          "python": "3.11.15",
+          "platform": "Windows-10-10.0.26200-SP0",
+          "onnxruntime": "1.20.1",
+          "backend": "CPUExecutionProvider",
+          "intraOpThreads": 4
+        }
+      }
+    }
+  },
+  "browser": {
+    "ordinary": {
+      "webgpu": {
+        "capturedAt": "2026-09-13T11:31:48.274Z",
+        "imageCount": 64,
+        "metrics": {
+          "AP": 0.5130727036075136,
+          "AP50": 0.6850603640981209,
+          "AP75": 0.5616509146560685,
+          "APSmall": 0.3905571354458626,
+          "APMedium": 0.646981118082096,
+          "APLarge": 0.8291338401079489,
+          "AR1": 0.3668676353096945,
+          "AR10": 0.6090378919761252,
+          "AR100": 0.6466547676599035
+        },
+        "parity": {
+          "images": 64,
+          "iouThreshold": 0.99,
+          "scoreThreshold": 0.5,
+          "matchedCount": 538,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "maxBboxDeltaPixels": 0.00091552734375,
+          "maxScoreDelta": 8.404254913330078e-06
+        },
+        "sessionMs": 1579.469999998808,
+        "firstImageMs": 2743.020000010729,
+        "warmTotal": {
+          "count": 63,
+          "medianMs": 99.0949999988079,
+          "p90Ms": 144.5719999909401
+        },
+        "warmInference": {
+          "count": 63,
+          "medianMs": 63.42500001192093,
+          "p90Ms": 110.97599998712545
+        },
+        "environment": {
+          "cpu": {
+            "logicalCores": 12,
+            "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+          },
+          "os": {
+            "arch": "x64",
+            "platform": "win32",
+            "release": "10.0.26200"
+          },
+          "browser": {
+            "version": "153.0.8010.12",
+            "launchArgs": [],
+            "crossOriginIsolated": true,
+            "hardwareConcurrency": 12,
+            "platform": "Win32",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "userAgentData": {
+              "brands": [
+                {
+                  "brand": "Chromium",
+                  "version": "153"
+                },
+                {
+                  "brand": "Not_A Brand",
+                  "version": "8"
+                }
+              ],
+              "mobile": false,
+              "platform": "Windows"
+            }
+          },
+          "browserMessages": [
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "\u001b[0;93m2026-09-13 19:31:53.824640 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+              "type": "error"
+            },
+            {
+              "text": "\u001b[0;93m2026-09-13 19:31:53.826964 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+              "type": "error"
+            },
+            {
+              "text": "webgpu：8/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：16/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：24/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：32/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：40/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：48/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：56/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：64/64",
+              "type": "log"
+            }
+          ],
+          "gpu": {
+            "adapter": {
+              "architecture": "blackwell",
+              "description": null,
+              "device": null,
+              "isFallbackAdapter": false,
+              "subgroupMaxSize": 32,
+              "subgroupMinSize": 32,
+              "vendor": "nvidia"
+            },
+            "physical": true,
+            "reason": null
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-13T11:31:54.179Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        }
+      },
+      "wasm": {
+        "capturedAt": "2026-09-13T11:33:31.477Z",
+        "imageCount": 8,
+        "metrics": {
+          "AP": 0.6442084276331207,
+          "AP50": 0.8653875119725076,
+          "AP75": 0.6793755756012834,
+          "APSmall": 0.6390814615094317,
+          "APMedium": 0.6598514851485149,
+          "APLarge": 0.7992024202420241,
+          "AR1": 0.5326608848667671,
+          "AR10": 0.6956699346405227,
+          "AR100": 0.7404851684263448
+        },
+        "parity": {
+          "images": 8,
+          "iouThreshold": 0.99,
+          "scoreThreshold": 0.5,
+          "matchedCount": 53,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "maxBboxDeltaPixels": 9.1552734375e-05,
+          "maxScoreDelta": 1.6093254089355469e-06
+        },
+        "sessionMs": 644.0250000059605,
+        "firstImageMs": 4861.370000004768,
+        "warmTotal": {
+          "count": 7,
+          "medianMs": 4680.079999983311,
+          "p90Ms": 4791.413000005484
+        },
+        "warmInference": {
+          "count": 7,
+          "medianMs": 4643.465000003576,
+          "p90Ms": 4759.597000002861
+        },
+        "environment": {
+          "cpu": {
+            "logicalCores": 12,
+            "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+          },
+          "os": {
+            "arch": "x64",
+            "platform": "win32",
+            "release": "10.0.26200"
+          },
+          "browser": {
+            "version": "153.0.8010.12",
+            "launchArgs": [],
+            "crossOriginIsolated": true,
+            "hardwareConcurrency": 12,
+            "platform": "Win32",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "userAgentData": {
+              "brands": [
+                {
+                  "brand": "Chromium",
+                  "version": "153"
+                },
+                {
+                  "brand": "Not_A Brand",
+                  "version": "8"
+                }
+              ],
+              "mobile": false,
+              "platform": "Windows"
+            }
+          },
+          "browserMessages": [
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "wasm：8/8",
+              "type": "log"
+            }
+          ],
+          "gpu": {
+            "adapter": {
+              "architecture": "blackwell",
+              "description": null,
+              "device": null,
+              "isFallbackAdapter": false,
+              "subgroupMaxSize": 32,
+              "subgroupMinSize": 32,
+              "vendor": "nvidia"
+            },
+            "physical": true,
+            "reason": null
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-13T11:33:36.053Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        }
+      }
+    },
+    "sod": {
+      "webgpu": {
+        "capturedAt": "2026-09-13T11:32:48.442Z",
+        "imageCount": 64,
+        "metrics": {
+          "AP": 0.5171903118653666,
+          "AP50": 0.7036350821826506,
+          "AP75": 0.5488048886598836,
+          "APSmall": 0.3937462097212895,
+          "APMedium": 0.6360358499160572,
+          "APLarge": 0.8136361006430923,
+          "AR1": 0.3732511704473015,
+          "AR10": 0.6121330278506496,
+          "AR100": 0.6543162096730261
+        },
+        "parity": {
+          "images": 64,
+          "iouThreshold": 0.99,
+          "scoreThreshold": 0.5,
+          "matchedCount": 530,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "maxBboxDeltaPixels": 0.000751495361328125,
+          "maxScoreDelta": 6.198883056640625e-06
+        },
+        "sessionMs": 2190.3049999773502,
+        "firstImageMs": 3380.4099999964237,
+        "warmTotal": {
+          "count": 63,
+          "medianMs": 106.16499999165535,
+          "p90Ms": 156.38499999642374
+        },
+        "warmInference": {
+          "count": 63,
+          "medianMs": 72.34500002861023,
+          "p90Ms": 119.21399999260903
+        },
+        "environment": {
+          "cpu": {
+            "logicalCores": 12,
+            "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+          },
+          "os": {
+            "arch": "x64",
+            "platform": "win32",
+            "release": "10.0.26200"
+          },
+          "browser": {
+            "version": "153.0.8010.12",
+            "launchArgs": [],
+            "crossOriginIsolated": true,
+            "hardwareConcurrency": 12,
+            "platform": "Win32",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "userAgentData": {
+              "brands": [
+                {
+                  "brand": "Chromium",
+                  "version": "153"
+                },
+                {
+                  "brand": "Not_A Brand",
+                  "version": "8"
+                }
+              ],
+              "mobile": false,
+              "platform": "Windows"
+            }
+          },
+          "browserMessages": [
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "\u001b[0;93m2026-09-13 19:32:55.601629 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+              "type": "error"
+            },
+            {
+              "text": "\u001b[0;93m2026-09-13 19:32:55.604074 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+              "type": "error"
+            },
+            {
+              "text": "webgpu：8/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：16/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：24/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：32/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：40/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：48/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：56/64",
+              "type": "log"
+            },
+            {
+              "text": "webgpu：64/64",
+              "type": "log"
+            }
+          ],
+          "gpu": {
+            "adapter": {
+              "architecture": "blackwell",
+              "description": null,
+              "device": null,
+              "isFallbackAdapter": false,
+              "subgroupMaxSize": 32,
+              "subgroupMinSize": 32,
+              "vendor": "nvidia"
+            },
+            "physical": true,
+            "reason": null
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-13T11:32:56.128Z"
+          },
+          "requestedBackend": "webgpu",
+          "backend": "webgpu",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        }
+      },
+      "wasm": {
+        "capturedAt": "2026-09-13T11:34:14.434Z",
+        "imageCount": 8,
+        "metrics": {
+          "AP": 0.6692998372494878,
+          "AP50": 0.8690346623210484,
+          "AP75": 0.7119995651534186,
+          "APSmall": 0.640866198276428,
+          "APMedium": 0.67721573736321,
+          "APLarge": 0.8099009900990097,
+          "AR1": 0.5293929110105581,
+          "AR10": 0.7083081950729009,
+          "AR100": 0.7574220713926596
+        },
+        "parity": {
+          "images": 8,
+          "iouThreshold": 0.99,
+          "scoreThreshold": 0.5,
+          "matchedCount": 49,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "maxBboxDeltaPixels": 0.00011672973630538763,
+          "maxScoreDelta": 1.1920928955078125e-06
+        },
+        "sessionMs": 1002.625,
+        "firstImageMs": 6037.670000016689,
+        "warmTotal": {
+          "count": 7,
+          "medianMs": 5912.915000021458,
+          "p90Ms": 6005.955000001192
+        },
+        "warmInference": {
+          "count": 7,
+          "medianMs": 5876.324999988079,
+          "p90Ms": 5961.875999993086
+        },
+        "environment": {
+          "cpu": {
+            "logicalCores": 12,
+            "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+          },
+          "os": {
+            "arch": "x64",
+            "platform": "win32",
+            "release": "10.0.26200"
+          },
+          "browser": {
+            "version": "153.0.8010.12",
+            "launchArgs": [],
+            "crossOriginIsolated": true,
+            "hardwareConcurrency": 12,
+            "platform": "Win32",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "userAgentData": {
+              "brands": [
+                {
+                  "brand": "Chromium",
+                  "version": "153"
+                },
+                {
+                  "brand": "Not_A Brand",
+                  "version": "8"
+                }
+              ],
+              "mobile": false,
+              "platform": "Windows"
+            }
+          },
+          "browserMessages": [
+            {
+              "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+              "type": "warning"
+            },
+            {
+              "text": "wasm：8/8",
+              "type": "log"
+            }
+          ],
+          "gpu": {
+            "adapter": {
+              "architecture": "blackwell",
+              "description": null,
+              "device": null,
+              "isFallbackAdapter": false,
+              "subgroupMaxSize": 32,
+              "subgroupMinSize": 32,
+              "vendor": "nvidia"
+            },
+            "physical": true,
+            "reason": null
+          }
+        },
+        "runtime": {
+          "runtimeVersion": "1.27.0",
+          "environment": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "capturedAt": "2026-09-13T11:34:20.965Z"
+          },
+          "requestedBackend": "wasm",
+          "backend": "wasm",
+          "precision": "fp32",
+          "mode": "main",
+          "fallbacks": [],
+          "capabilities": {
+            "webgpu": true,
+            "worker": true,
+            "offscreenCanvas": true,
+            "wasmSimd": false,
+            "wasmThreads": true
+          }
+        }
+      }
+    }
+  },
+  "ordinaryPaddleParity": {
+    "images": 64,
+    "iouThreshold": 0.99,
+    "scoreThreshold": 0.5,
+    "matchedCount": 533,
+    "unmatchedReferenceCount": 0,
+    "unmatchedCandidateCount": 0,
+    "maxBboxDeltaPixels": 0.00018310546875,
+    "maxScoreDelta": 2.086162567138672e-06
+  },
+  "ordinaryPaddleMetrics": {
+    "AP": 0.5136596803479457,
+    "AP50": 0.6832985773422001,
+    "AP75": 0.5661256586957174,
+    "APSmall": 0.3890693314409765,
+    "APMedium": 0.6485657468143685,
+    "APLarge": 0.8285238119046623,
+    "AR1": 0.3668419544687963,
+    "AR10": 0.6099310985328593,
+    "AR100": 0.6448937730629126
+  },
+  "deltaPercentagePoints": {
+    "pythonOpenCV": {
+      "AP": 0.2845421283229177,
+      "AP50": 1.2092694219722366,
+      "AP75": -1.5282744609489418,
+      "APSmall": 0.17443905871465382,
+      "APMedium": -1.3734904061867725,
+      "APLarge": -1.4722549000401708
+    },
+    "pythonPillow": {
+      "AP": 0.41176082578530115,
+      "AP50": 1.8574718084529707,
+      "AP75": -1.2846025996184895,
+      "APSmall": 0.3189074275426862,
+      "APMedium": -1.0945268166038802,
+      "APLarge": -1.5497739464856553
+    },
+    "browserWebGPU": {
+      "AP": 0.41176082578530115,
+      "AP50": 1.8574718084529707,
+      "AP75": -1.2846025996184895,
+      "APSmall": 0.3189074275426862,
+      "APMedium": -1.0945268166038802,
+      "APLarge": -1.5497739464856553
+    }
+  },
+  "sdkBundleSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "limitations": [
+    "64 图为固定场景子集，不代表完整 COCO 或统计显著性",
+    "浏览器使用像素相等的 PNG，解码时间不是 JPEG 性能",
+    "WASM 仅 8 图可用性和计时，不与 WebGPU 64 图 AP 混排",
+    "每种配置仅一次顺序运行；冷启动样本不足以排名",
+    "手机与正式分发均未增加兼容承诺"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-13",
+  "query": "ppyoloe",
+  "url": "https://huggingface.co/api/models?search=ppyoloe",
+  "status": 200,
+  "bytes": 659,
+  "sha256": "c5df538abfdc92a7ecc56fd66d1299f68574f591ecd4dd538f1c012c2f1586cc",
+  "items": [
+    {
+      "_id": "69410d51dfd9ef3182619692",
+      "id": "ChatchatTech/ppyoloe_crn_l_ustc_0103",
+      "likes": 0,
+      "trendingScore": 0,
+      "private": false,
+      "downloads": 0,
+      "tags": [
+        "region:us"
+      ],
+      "createdAt": "2025-12-16T07:42:09.000Z",
+      "modelId": "ChatchatTech/ppyoloe_crn_l_ustc_0103"
+    },
+    {
+      "_id": "6aa3552aacf0eba80ee2ef07",
+      "id": "ownlwh/bookbuddy-ppyoloe-r-s-dev",
+      "likes": 0,
+      "trendingScore": 0,
+      "private": false,
+      "downloads": 0,
+      "tags": [
+        "onnxruntime",
+        "onnx",
+        "object-detection",
+        "oriented-bounding-box",
+        "ppyoloe-r",
+        "development-only",
+        "license:other",
+        "region:us"
+      ],
+      "pipeline_tag": "object-detection",
+      "library_name": "onnxruntime",
+      "createdAt": "2026-09-11T01:11:06.000Z",
+      "modelId": "ownlwh/bookbuddy-ppyoloe-r-s-dev"
+    }
+  ],
+  "assessment": "本次单关键词查询返回两个非官方或不相关模型，未建立官方 SOD 固定来源；不是对全站镜像的穷尽判断。"
+}

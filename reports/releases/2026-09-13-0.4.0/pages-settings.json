@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Detection/pages",
+  "status": null,
+  "cname": null,
+  "custom_404": false,
+  "html_url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "build_type": "workflow",
+  "source": { "branch": "main", "path": "/" },
+  "public": true,
+  "protected_domain_state": null,
+  "pending_domain_unverified_at": null,
+  "https_enforced": true
+}

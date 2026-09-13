@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/api.md)
 
-All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.3.2 API; see the [release notes](release-0.3.2.md) for version changes.
+All stable entry points are exported from the package root. Do not import `src/` or other internal files. This guide describes the 0.4.0 API; see the [release notes](release-0.4.0.md) for version changes.
 
 ## `createPPDetection(options?)`
 

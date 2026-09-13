@@ -19,13 +19,13 @@
 
 ## Version and installation
 
-The current SDK version is **0.3.2**:
+The current SDK version is **0.4.0**:
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.2
+pnpm add web-sdk-pp-detection@0.4.0
 ```
 
-0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，并补齐六个稳定变体的接入说明。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.3.2.md).
+0.4.0 新增默认关闭的小目标增强实验 API 和图片 Demo 开关，支持切片进度、取消及统一结果合并。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.4.0.md).
 
 ## Current boundaries
 

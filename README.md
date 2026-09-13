@@ -19,13 +19,13 @@
 
 ## 版本与安装
 
-当前 SDK 版本为 **0.3.2**：
+当前 SDK 版本为 **0.4.0**：
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.2
+pnpm add web-sdk-pp-detection@0.4.0
 ```
 
-0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，并补齐六个稳定变体的接入说明。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.3.2.md)。
+0.4.0 新增默认关闭的小目标增强实验 API 和图片 Demo 开关，支持切片进度、取消及统一结果合并。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.4.0.md)。
 
 ## 当前边界
 

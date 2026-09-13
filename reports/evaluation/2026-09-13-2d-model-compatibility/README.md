@@ -4,7 +4,7 @@
 
 PP-Detection 不承诺兼容 PaddleDetection 模型库中的全部模型。当前稳定范围仍是 PicoDet-L-320 1.0.2 与 PP-YOLOE+ S 640 0.1.1 的六个精度变体；这些模型用于后续比较，不需要重复移植。
 
-本轮对 PP-YOLOE+ SOD L 640 COCO 完成了固定来源下载、官方 Paddle 导出、Paddle2ONNX opset 11 转换、定向 NMS 轴修正、Python 64 图参考核验，以及桌面 Chromium 的 WASM/WebGPU 8 图 smoke。Paddle 与 ONNX 在 64 张图片的 531 个阈值以上检测框全部匹配，最大框坐标差约 0.00018 像素。该候选已标记为 `selected`，允许进入浏览器专项验证；不进入稳定 manifest：模型约 345.6 MB，尚未完成 Worker、取消/释放、移动端和正式分发审查。
+本轮对 PP-YOLOE+ SOD L 640 COCO 完成了固定来源下载、官方 Paddle 导出、Paddle2ONNX opset 11 转换、定向 NMS 轴修正、Python 64 图参考核验，以及桌面 Chromium 的 WASM/WebGPU 8 图 smoke。Paddle 与 ONNX 在 64 张图片的 531 个阈值以上检测框全部匹配，最大框坐标差约 0.00018 像素。随后完成了 WASM/main、WASM/Worker、WebGPU/main、WebGPU/Worker 的真实模型生命周期核验；四种组合均通过识别、取消、取消后复用、释放、重复释放和显式来源失败路径，四种组合的 49 个阈值以上框均与 Python 参考匹配。Worker 调度已修复为串行执行，并增加了在途释放与排队请求回归测试。该候选仍标记为 `selected`，不进入稳定 manifest：模型约 345.6 MB，移动端和正式分发审查尚未完成。
 
 RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetection 入口，不能扩展为所有版本或所有项目均不兼容。
 
@@ -33,7 +33,7 @@ RTMDet 的 `blocked` 仅限本次固定版本源码树没有找到 PaddleDetecti
 
 ## 下一步
 
-1. 为 SOD 候选补齐完整 WASM/WebGPU × main/Worker 生命周期验证和显式来源失败路径。
+1. 在可用移动设备上记录同一候选的真实浏览器结果；当前记录见 [ppyoloe-sod-lifecycle.json](ppyoloe-sod-lifecycle.json) 和压缩原始证据 [sod-lifecycle.json.gz](evidence/sod-lifecycle.json.gz)。
 2. 在可用移动设备上记录同一候选的真实浏览器结果；当前小米 15 的历史结论不能外推到该 345.6 MB 新模型。
 3. 评估 ModelScope/Hugging Face 分发条件及模型卡许可后，再决定是否建立独立实现计划。
 4. 只有新模型通过上述门槛并完成发布，才更新稳定 manifest 和门户登记。

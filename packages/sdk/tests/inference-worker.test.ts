@@ -76,3 +76,71 @@ it("Worker 重复加载模型时释放旧 Session", async () => {
   expect(createdSessions[0].dispose).toHaveBeenCalledTimes(1);
   expect(createdSessions[1].dispose).not.toHaveBeenCalled();
 });
+
+it("Worker 取消后立即重试会等待原推理结束，不重入底层会话", async () => {
+  const postMessage = vi.fn();
+  globalThis.postMessage = postMessage as typeof globalThis.postMessage;
+  await import("../src/runtime/inference.worker");
+  const handler = globalThis.onmessage as (event: MessageEvent) => Promise<void>;
+  const dispatch = (data: unknown) => handler({ data } as MessageEvent);
+  await dispatch({ id: "load", type: "load", modelBytes: new ArrayBuffer(1), plan: {} });
+  let finish!: () => void;
+  const firstFinished = new Promise<void>((resolve) => (finish = resolve));
+  let active = false;
+  const entries: string[] = [];
+  createdSessions[0].run.mockImplementation(async (input, options) => {
+    if (active) throw new Error("底层会话不能重入");
+    entries.push(input.name);
+    active = true;
+    try {
+      if (input.name === "first") await firstFinished;
+      if (options.signal.aborted) throw new Error("已取消的底层任务收敛");
+      return { name: input.name };
+    } finally {
+      active = false;
+    }
+  });
+  const first = dispatch({ id: "first", type: "run", input: { name: "first" } });
+  await vi.waitFor(() => expect(entries).toEqual(["first"]));
+  await dispatch({ id: "cancel", type: "cancel", requestId: "first" });
+  const second = dispatch({ id: "second", type: "run", input: { name: "second" } });
+  // 让第二条消息有机会执行；原推理仍由测试控制保持未完成。
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  finish();
+  await Promise.all([first, second]);
+  expect(entries).toEqual(["first", "second"]);
+  expect(
+    postMessage.mock.calls.find(([r]) => r.id === "second" && r.type === "result")?.[0].result
+  ).toEqual({ name: "second" });
+});
+
+it("Worker 释放时等待在途任务，并取消尚未启动的排队任务", async () => {
+  const postMessage = vi.fn();
+  globalThis.postMessage = postMessage as typeof globalThis.postMessage;
+  await import("../src/runtime/inference.worker");
+  const handler = globalThis.onmessage as (event: MessageEvent) => Promise<void>;
+  const dispatch = (data: unknown) => handler({ data } as MessageEvent);
+  await dispatch({ id: "load", type: "load", modelBytes: new ArrayBuffer(1), plan: {} });
+  let finish!: () => void;
+  const waiting = new Promise<void>((resolve) => (finish = resolve));
+  const entries: string[] = [];
+  createdSessions[0].run.mockImplementation(async (input) => {
+    entries.push(input.name);
+    await waiting;
+    return { name: input.name };
+  });
+  const first = dispatch({ id: "first", type: "run", input: { name: "first" } });
+  await vi.waitFor(() => expect(entries).toEqual(["first"]));
+  const second = dispatch({ id: "second", type: "run", input: { name: "second" } });
+  const disposal = dispatch({ id: "dispose", type: "dispose" });
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  const releasedEarly = createdSessions[0].dispose.mock.calls.length;
+  finish();
+  await Promise.all([first, second, disposal]);
+  expect(releasedEarly).toBe(0);
+  expect(entries).toEqual(["first"]);
+  expect(createdSessions[0].dispose).toHaveBeenCalledTimes(1);
+  expect(
+    postMessage.mock.calls.find(([r]) => r.id === "second" && r.type === "error")?.[0].error.code
+  ).toBe("ABORTED");
+});

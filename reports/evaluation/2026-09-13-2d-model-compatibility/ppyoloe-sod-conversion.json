@@ -395,11 +395,10 @@
     }
   },
   "remaining": [
-    "完整 WASM/WebGPU × main/Worker 验证",
-    "取消、释放后调用、显式来源与后端失败路径的候选专项核验",
     "至少一台移动设备的本模型验证",
     "正式权重分发审查和来源锁定",
     "独立小目标数据集与普通 PP-YOLOE+ L 的公平对照"
   ],
-  "decision": "转换和 Python 参考核验通过，进入浏览器专项验证；暂不进入稳定模型清单。FP32 约为现有 PP-YOLOE+ S 的 10.8 倍；初步 smoke 不足以决定移动端接入。"
+  "decision": "转换、Python 参考及桌面 Chromium 四种 WASM/WebGPU × main/Worker 生命周期核验通过；WebGPU Worker 已通过串行调度回归，仍保持 selected，不进入稳定模型清单。",
+  "browserLifecycleEvidence": "ppyoloe-sod-lifecycle.json"
 }

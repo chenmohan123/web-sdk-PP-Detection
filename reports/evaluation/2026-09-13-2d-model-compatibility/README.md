@@ -4,7 +4,7 @@
 
 PP-Detection 不承诺兼容 PaddleDetection 模型库中的全部模型。当前 SDK 的稳定范围仍是 PicoDet-L-320 1.0.2 与 PP-YOLOE+ S 640 0.1.1 的六个精度变体。它们是本次矩阵的稳定基线，用于比较后续候选，不需要重复移植。
 
-下一轮首选候选是 **PP-YOLOE-SOD**，备选是轻量 **RTMDet** 变体。两者都只是 `candidate`，尚未证明可以在浏览器运行，也没有进入 manifest 或 Demo。PP-YOLOE-SOD 与 0.4.0 的小目标切片增强属于两条不同路线：前者是新模型，后者是现有模型的推理策略实验。
+PP-YOLOE-SOD 已因缺少官方 ONNX 导出、固定权重和输出契约标记为 `blocked`；RTMDet tiny 也因官方仓库没有配置或导出入口标记为 `blocked`。当前不进入 manifest 或 Demo。PP-YOLOE-SOD 与 0.4.0 的小目标切片增强属于两条不同路线：前者是新模型，后者是现有模型的推理策略实验。
 
 ## 判定方式
 
@@ -33,4 +33,4 @@ PP-Detection 不承诺兼容 PaddleDetection 模型库中的全部模型。当�
 
 ## 下一步
 
-进入任务 2：固定 PP-YOLOE-SOD 的上游 revision 和许可，执行可复现 Paddle2ONNX 转换，使用固定图片集生成 Python ONNX Runtime 参考输出。转换或输出契约任一项无法确认时，记录 `blocked`，转评 RTMDet tiny；不通过评估门槛时不修改 runtime。
+任务 2 已完成候选可行性初筛：PP-YOLOE-SOD 和 RTMDet tiny 均为 `blocked`，未修改 runtime。下一步应选择有固定官方权重和 ONNX 导出证据的具体 PP-YOLOE 规模，或先补齐上述候选所缺证据；通过门槛前不进入稳定 manifest。

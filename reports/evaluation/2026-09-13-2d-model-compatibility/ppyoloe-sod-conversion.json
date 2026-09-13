@@ -1,0 +1,36 @@
+{
+  "candidate": "pp-ppyoloe-sod",
+  "checkedAt": "2026-09-13",
+  "upstream": {
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "develop@ad4c52eac56fad3303169d02c6f6578abbdcf106",
+    "config": "configs/smalldet/ppyoloe_plus_sod_crn_l_80e_coco.yml",
+    "configEvidence": "ppyoloe-sod-upstream.yml",
+    "licenseEvidence": "paddledetection-license.txt"
+  },
+  "officialExportEvidence": {
+    "document": "deploy/EXPORT_ONNX_MODEL_en.md",
+    "documentRevision": "develop@e1f4027833973a9c37fb9f144e77beeead3acb41",
+    "listedAsSupported": false,
+    "note": "导出支持表列出 PP-YOLOE，但未列 PP-YOLOE-SOD；文档要求导出前固定输入 shape。"
+  },
+  "observedConfig": {
+    "architecture": "PPYOLOEHead + CustomCSPPAN",
+    "weights": "output/ppyoloe_plus_sod_crn_l_80e_coco/model_final",
+    "nms": { "type": "MultiClassNMS", "scoreThreshold": 0.01, "nmsThreshold": 0.7, "keepTopK": 300 },
+    "inputShape": null,
+    "publicWeightUrl": null,
+    "onnxOutputSignature": null
+  },
+  "conversionCommand": null,
+  "pythonReference": null,
+  "onnx": null,
+  "status": "blocked",
+  "blockingReasons": [
+    "配置只引用训练输出 model_final，未提供固定公开权重 URL",
+    "官方 ONNX 导出支持表未列 PP-YOLOE-SOD",
+    "输入 shape、ONNX 输出张量和标签契约尚未固定",
+    "具体权重许可和再分发条件尚未取得"
+  ],
+  "nextAction": "不修改 SDK runtime；转评 RTMDet tiny，或先取得 PP-YOLOE-SOD 的固定权重、许可证和可复现导出证据。"
+}

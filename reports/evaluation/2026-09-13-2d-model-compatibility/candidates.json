@@ -20,8 +20,15 @@
       "postprocess": "pixel-coordinate NMS output",
       "license": "Apache-2.0; current model card evidence",
       "conversionPath": "existing Paddle2ONNX conversion and runtime manifest",
-      "browserRisks": ["new variants must preserve existing output names", "WASM/WebGPU evidence already scoped to current variants"],
-      "estimatedBytes": { "fp32": 23243834, "fp16": 14813981, "w8a32": 6117685 },
+      "browserRisks": [
+        "new variants must preserve existing output names",
+        "WASM/WebGPU evidence already scoped to current variants"
+      ],
+      "estimatedBytes": {
+        "fp32": 23243834,
+        "fp16": 14813981,
+        "w8a32": 6117685
+      },
       "currentSdkStatus": "stable",
       "status": "candidate",
       "reason": "现有稳定基线，用于比较新候选的输出和性能；不需要重复移植。"
@@ -37,8 +44,15 @@
       "postprocess": "pixel-coordinate NMS output",
       "license": "Apache-2.0; current model card evidence",
       "conversionPath": "existing Paddle2ONNX conversion and runtime manifest",
-      "browserRisks": ["larger input and model increase mobile cost", "WebGPU shader-f16 and INT8 behavior require per-variant evidence"],
-      "estimatedBytes": { "fp32": 31954220, "fp16": 16054567, "w8a32": 8225467 },
+      "browserRisks": [
+        "larger input and model increase mobile cost",
+        "WebGPU shader-f16 and INT8 behavior require per-variant evidence"
+      ],
+      "estimatedBytes": {
+        "fp32": 31954220,
+        "fp16": 16054567,
+        "w8a32": 8225467
+      },
       "currentSdkStatus": "stable",
       "status": "candidate",
       "reason": "现有稳定基线，用于比较新候选的精度和耗时；不需要重复移植。"
@@ -47,18 +61,22 @@
       "id": "pp-ppyoloe-sod",
       "task": "axis-aligned-2d-detection",
       "architecture": "PP-YOLOE-SOD",
-      "upstreamRevision": null,
-      "inputShape": "未固定，需从官方部署配置确认",
-      "outputContract": "候选为轴对齐框，需确认是否为 NMS 后输出",
+      "upstreamRevision": "develop@ad4c52eac56fad3303169d02c6f6578abbdcf106",
+      "inputShape": "官方配置未声明固定 TestReader.inputs_def.image_shape",
+      "outputContract": "官方导出文档未将 PP-YOLOE-SOD 列入已测试 ONNX 模型清单",
       "preprocess": "需从部署配置确认输入尺寸和归一化",
       "postprocess": "需确认 NMS、类别和坐标输出",
-      "license": "需核对上游权重和再分发条件",
+      "license": "PaddleDetection 仓库 Apache-2.0；具体 model_final 权重许可和再分发条件未找到",
       "conversionPath": "官方导出说明与 Paddle2ONNX 可行性待验证",
-      "browserRisks": ["小目标专用输入尺寸可能增加移动端开销", "输出可能需要专用解码", "与切片增强策略的收益必须分开评估"],
+      "browserRisks": [
+        "小目标专用输入尺寸可能增加移动端开销",
+        "输出可能需要专用解码",
+        "与切片增强策略的收益必须分开评估"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
-      "status": "candidate",
-      "reason": "与当前 2D 检测契约最接近，且能直接验证小目标场景；优先进入转换可行性评估。"
+      "status": "blocked",
+      "reason": "官方配置存在，但官方 ONNX 导出支持表只列 PP-YOLOE，不列 PP-YOLOE-SOD；配置引用训练输出 model_final，没有固定公开权重 URL、输入 shape 或 ONNX 输出契约。需先取得可分发权重和可复现导出证据。"
     },
     {
       "id": "rtmdet-tiny",
@@ -71,11 +89,14 @@
       "postprocess": "需确认解码和 NMS 算子",
       "license": "需核对上游权重和再分发条件",
       "conversionPath": "官方导出说明与 Paddle2ONNX 可行性待验证",
-      "browserRisks": ["动态检测头可能引入额外算子", "不同导出配置的输出契约可能不一致"],
+      "browserRisks": [
+        "动态检测头可能引入额外算子",
+        "不同导出配置的输出契约可能不一致"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
-      "status": "candidate",
-      "reason": "轻量实时检测候选；若 PP-YOLOE-SOD 转换风险过高，作为替代候选。"
+      "status": "blocked",
+      "reason": "PaddleDetection 官方 develop 树未发现 RTMDet 配置或导出入口；当前无法固定上游 revision、权重 URL 和输出契约。"
     },
     {
       "id": "pp-yoloe",
@@ -88,7 +109,10 @@
       "postprocess": "需按具体模型配置确认",
       "license": "需核对具体权重许可",
       "conversionPath": "已有 S 640 基线；其他规模必须独立转换和验证",
-      "browserRisks": ["大模型体积和显存可能不适合移动端", "不同规模不能共享未经验证的后处理"],
+      "browserRisks": [
+        "大模型体积和显存可能不适合移动端",
+        "不同规模不能共享未经验证的后处理"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "partial-stable",
       "status": "candidate",
@@ -105,7 +129,10 @@
       "postprocess": "需确认 NMS 和坐标输出",
       "license": "需核对具体权重许可",
       "conversionPath": "官方导出与 Paddle2ONNX 待验证",
-      "browserRisks": ["老模型导出图可能包含浏览器不支持算子", "维护价值需与现有 PP-YOLOE 比较"],
+      "browserRisks": [
+        "老模型导出图可能包含浏览器不支持算子",
+        "维护价值需与现有 PP-YOLOE 比较"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
       "status": "candidate",
@@ -122,7 +149,10 @@
       "postprocess": "需确认解码、top-k 和 NMS",
       "license": "需核对具体权重许可",
       "conversionPath": "官方导出与 Paddle2ONNX 待验证",
-      "browserRisks": ["多尺度输出和后处理复杂", "导出后可能需要额外运行时解码"],
+      "browserRisks": [
+        "多尺度输出和后处理复杂",
+        "导出后可能需要额外运行时解码"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
       "status": "candidate",
@@ -139,7 +169,10 @@
       "postprocess": "需确认 NMS 输出和坐标单位",
       "license": "需核对具体权重许可",
       "conversionPath": "官方导出与 Paddle2ONNX 待验证",
-      "browserRisks": ["模型较旧，实际接入价值需要与 PicoDet 对比", "部署配置和标签集可能分散"],
+      "browserRisks": [
+        "模型较旧，实际接入价值需要与 PicoDet 对比",
+        "部署配置和标签集可能分散"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
       "status": "candidate",
@@ -156,7 +189,11 @@
       "postprocess": "按具体模型确认",
       "license": "必须按具体上游项目和权重核对",
       "conversionPath": "不能以系列名代替单模型转换；需逐个固定配置",
-      "browserRisks": ["系列内部结构差异大", "许可证和权重来源不能批量推断", "大模型可能不适合移动端"],
+      "browserRisks": [
+        "系列内部结构差异大",
+        "许可证和权重来源不能批量推断",
+        "大模型可能不适合移动端"
+      ],
       "estimatedBytes": null,
       "currentSdkStatus": "unreleased",
       "status": "blocked",
@@ -164,12 +201,47 @@
     }
   ],
   "excludedTasks": [
-    { "id": "pp-yoloe-r-fcosr", "task": "rotated-detection", "status": "deferred", "reason": "角度框结果契约不同，规划为独立 rotated-detection SDK。" },
-    { "id": "mask-rcnn-cascade-mask-rcnn-solov2", "task": "instance-segmentation", "status": "deferred", "reason": "mask/多边形输出和渲染契约不同，规划为独立 segmentation SDK。" },
-    { "id": "pp-tinypose-hrnet-lite-hrnet", "task": "keypoint-detection", "status": "deferred", "reason": "关键点、可见性和骨架拓扑不同，规划为独立 keypoint SDK。" },
-    { "id": "jde-fairmot-deepsort-bytetrack-ocsort-botsort", "task": "multi-object-tracking", "status": "deferred", "reason": "需要跨帧状态和轨迹生命周期，规划为独立 tracking SDK。" },
-    { "id": "pointpillars-centernet-petr", "task": "3d-detection", "status": "deferred", "reason": "输入、坐标系和 3D 输出不同，当前不列入浏览器首批。" },
-    { "id": "pp-human-pp-vehicle-pp-sports", "task": "workflow", "status": "deferred", "reason": "属于多模型和业务规则组合，先作为 Portal Workflow 候选。" },
-    { "id": "denseteacher", "task": "training-method", "status": "deferred", "reason": "属于训练方法，不是浏览器推理 SDK。" }
+    {
+      "id": "pp-yoloe-r-fcosr",
+      "task": "rotated-detection",
+      "status": "deferred",
+      "reason": "角度框结果契约不同，规划为独立 rotated-detection SDK。"
+    },
+    {
+      "id": "mask-rcnn-cascade-mask-rcnn-solov2",
+      "task": "instance-segmentation",
+      "status": "deferred",
+      "reason": "mask/多边形输出和渲染契约不同，规划为独立 segmentation SDK。"
+    },
+    {
+      "id": "pp-tinypose-hrnet-lite-hrnet",
+      "task": "keypoint-detection",
+      "status": "deferred",
+      "reason": "关键点、可见性和骨架拓扑不同，规划为独立 keypoint SDK。"
+    },
+    {
+      "id": "jde-fairmot-deepsort-bytetrack-ocsort-botsort",
+      "task": "multi-object-tracking",
+      "status": "deferred",
+      "reason": "需要跨帧状态和轨迹生命周期，规划为独立 tracking SDK。"
+    },
+    {
+      "id": "pointpillars-centernet-petr",
+      "task": "3d-detection",
+      "status": "deferred",
+      "reason": "输入、坐标系和 3D 输出不同，当前不列入浏览器首批。"
+    },
+    {
+      "id": "pp-human-pp-vehicle-pp-sports",
+      "task": "workflow",
+      "status": "deferred",
+      "reason": "属于多模型和业务规则组合，先作为 Portal Workflow 候选。"
+    },
+    {
+      "id": "denseteacher",
+      "task": "training-method",
+      "status": "deferred",
+      "reason": "属于训练方法，不是浏览器推理 SDK。"
+    }
   ]
 }

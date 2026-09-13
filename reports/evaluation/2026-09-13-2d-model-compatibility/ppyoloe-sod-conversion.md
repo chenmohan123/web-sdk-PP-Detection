@@ -19,6 +19,7 @@
 - Chromium WASM/main：8 张图全部运行，49 个阈值以上检测框全部匹配，最大框坐标差 `0.000117` 像素；首图约 5.9 秒，热身后中位约 5.84 秒。
 - Chromium WebGPU/main：8 张图全部运行，49 个阈值以上检测框全部匹配，最大框坐标差 `0.000412` 像素；首图约 2.04 秒，热身后中位约 110 ms。运行日志显示部分 shape 节点由 CPU 执行。
 
-原始日志、预测、清单和浏览器报告以 gzip 证据存档并由 `evidence-index.json` 校验。当前结论是 `candidate`：不修改 runtime、manifest、Demo 或稳定模型。
+原始日志、预测、清单和浏览器报告以 gzip 证据存档并由 `evidence-index.json` 校验。当前结论是 `selected`：允许进入浏览器专项验证，不修改 runtime、manifest、Demo 或稳定模型。
 
 复现入口：`reproduction/export_sod.py`、`reproduction/prepare_sod.py`、`reproduction/summarize.py`。
+

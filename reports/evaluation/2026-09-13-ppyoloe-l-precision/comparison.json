@@ -1,0 +1,82 @@
+{
+  "fp16": {
+    "pythonMetrics": {
+      "AP": 0.5142373241524933,
+      "AP50": 0.6901283216181663,
+      "AP75": 0.5627218668942836,
+      "APSmall": 0.391995450493214,
+      "APMedium": 0.6471607762561977,
+      "APLarge": 0.8298491591091518,
+      "AR1": 0.3674353805697475,
+      "AR10": 0.6072532938890974,
+      "AR100": 0.6453638401799066
+    },
+    "webgpuMetrics": {
+      "AP": 0.5147334337815469,
+      "AP50": 0.6858842182573847,
+      "AP75": 0.5660316959476767,
+      "APSmall": 0.3938222845674552,
+      "APMedium": 0.6510831024514381,
+      "APLarge": 0.8313365822087943,
+      "AR1": 0.3680601543428666,
+      "AR10": 0.6091544854672851,
+      "AR100": 0.6469022929374488
+    },
+    "pythonParity": {
+      "matchedCount": 457,
+      "unmatchedReferenceCount": 81,
+      "unmatchedCandidateCount": 80,
+      "maxBboxDeltaPixels": 0.45745849609375,
+      "maxScoreDelta": 0.003983736038208008,
+      "matchedReferenceFraction": 0.8494423791821561
+    },
+    "webgpuParity": {
+      "matchedCount": 291,
+      "unmatchedReferenceCount": 247,
+      "unmatchedCandidateCount": 243,
+      "maxBboxDeltaPixels": 2.3887939453125,
+      "maxScoreDelta": 0.04637479782104492,
+      "matchedReferenceFraction": 0.5408921933085502
+    }
+  },
+  "w8a32": {
+    "pythonMetrics": {
+      "AP": 0.5132523469276146,
+      "AP50": 0.689049878872468,
+      "AP75": 0.552730018068248,
+      "APSmall": 0.39004719668231347,
+      "APMedium": 0.6466667399472023,
+      "APLarge": 0.8247060552344996,
+      "AR1": 0.3672273236116905,
+      "AR10": 0.6049282217204781,
+      "AR100": 0.6430048650337331
+    },
+    "webgpuMetrics": {
+      "AP": 0.5132523469276146,
+      "AP50": 0.689049878872468,
+      "AP75": 0.552730018068248,
+      "APSmall": 0.39004719668231347,
+      "APMedium": 0.6466667399472023,
+      "APLarge": 0.8247060552344996,
+      "AR1": 0.3672273236116905,
+      "AR10": 0.6049282217204781,
+      "AR100": 0.6430048650337331
+    },
+    "pythonParity": {
+      "matchedCount": 34,
+      "unmatchedReferenceCount": 504,
+      "unmatchedCandidateCount": 507,
+      "maxBboxDeltaPixels": 3.6946128845214616,
+      "maxScoreDelta": 0.03524059057235718,
+      "matchedReferenceFraction": 0.06319702602230483
+    },
+    "webgpuParity": {
+      "matchedCount": 34,
+      "unmatchedReferenceCount": 504,
+      "unmatchedCandidateCount": 507,
+      "maxBboxDeltaPixels": 3.694321060180755,
+      "maxScoreDelta": 0.035250961780548096,
+      "matchedReferenceFraction": 0.06319702602230483
+    }
+  }
+}

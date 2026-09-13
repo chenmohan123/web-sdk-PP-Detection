@@ -18,6 +18,8 @@
 
 ## 判定
 
+针对敏感节点进行定向排除后，W8A32 模型大小为 62,144,193 bytes，但 64 图逐框匹配率降至 83.3%，详见 [targeted-calibration.json](targeted-calibration.json)。量化误差不是少数孤立卷积层造成，当前量化路线暂不继续扩大排除范围。
+
 对固定样本前 8 张图片进行卷积节点敏感度统计后，FP16 的平均误差最高节点为 `conv2d_62.tmp_0`（0.00308），W8A32 最高节点为 `conv2d_129.tmp_0`（0.09212）和 `conv2d_122.tmp_0`（0.08875）。统计脚本和原始结果见 [node_sensitivity.py](node_sensitivity.py) 与 [node-sensitivity-8.json](node-sensitivity-8.json)。这说明 W8A32 需要按层校准，FP16 更适合继续检查后端算子累积误差。
 
 仅保留检测头不能使 FP16/W8A32 达到当前稳定门槛。继续扩大 FP32 保留范围会削弱体积优势，暂不进入稳定 manifest、Demo 或门户登记。下一次复查需要基于多图片算子敏感度统计或重新训练/校准量化，而不是继续盲目扩大排除节点列表。

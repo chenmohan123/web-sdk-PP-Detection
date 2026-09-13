@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-13",
+  "source": {
+    "path": "../detection-sod-comparison/work/sod-comparison/ppyoloe-plus-l-candidate.onnx",
+    "bytes": 209181400,
+    "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075"
+  },
+  "dataset": {
+    "images": 64,
+    "annotations": 716,
+    "referenceThreshold": 0.5,
+    "iouThreshold": 0.99
+  },
+  "experiments": [
+    {
+      "id": "fp16-headfp32",
+      "precision": "fp16",
+      "blockedNodes": ["Conv.100-Conv.129"],
+      "bytes": 104713272,
+      "sha256": "2f8af2173f73e7f2e5c15f936f67dd7500392910bcc2539ccc3ceba506888776",
+      "matched": 456,
+      "reference": 533,
+      "matchedFraction": 0.8555,
+      "maxBboxDeltaPixels": 1.1137619018554688,
+      "maxScoreDelta": 0.0036610960960388184,
+      "status": "labs"
+    },
+    {
+      "id": "w8a32-headfp32",
+      "precision": "weight-only-int8-activation-fp32",
+      "excludedNodes": ["Conv.100-Conv.129"],
+      "bytes": 95612180,
+      "sha256": "798364c6c09c883c30f16f3a5984ba93896754e9b1cc33ef1d08b9ec00e047ee",
+      "matched": 473,
+      "reference": 533,
+      "matchedFraction": 0.8874,
+      "maxBboxDeltaPixels": 6.056640625,
+      "maxScoreDelta": 0.05371922254562378,
+      "status": "labs"
+    },
+    {
+      "id": "w8a32-head40fp32",
+      "precision": "weight-only-int8-activation-fp32",
+      "excludedNodes": ["Conv.90-Conv.129"],
+      "bytes": 106656240,
+      "sha256": "7274cfeeb6eab826d9c0916cd0ff53a13b7b214ac75ece48b3f00e2b4607a104",
+      "matched": 478,
+      "reference": 533,
+      "matchedFraction": 0.8968,
+      "maxBboxDeltaPixels": 6.036376953125,
+      "maxScoreDelta": 0.06379443407058716,
+      "status": "labs"
+    }
+  ],
+  "decision": "检测头保留 FP32 未达到稳定门槛；后续需要算子级误差定位或重新校准量化。"
+}

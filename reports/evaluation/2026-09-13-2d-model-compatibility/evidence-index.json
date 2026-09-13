@@ -103,5 +103,12 @@
     "uncompressedSha256": "4437308daa7e5eb51ada790fc7d1b2481693f81829df83143d8a1b1ddf4096a4",
     "bytes": 1606,
     "sha256": "3bc6a2b3c2a73b67be2ce631f93987ff9f6529e92173d26a1080405b167a3ff5"
+  },
+  {
+    "path": "evidence/sod-lifecycle.json.gz",
+    "uncompressedBytes": 178787,
+    "uncompressedSha256": "ba03920156f8a2868360c4e8fc689a452a14f813ee5f94708503b27edfebab45",
+    "bytes": 13107,
+    "sha256": "e73eab92c1ca6aca60bc5c9daa26d2e3931ce7e549dea48cec45ab582074a315"
   }
 ]

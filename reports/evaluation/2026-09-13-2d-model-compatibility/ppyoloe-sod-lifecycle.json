@@ -1,0 +1,541 @@
+{
+  "candidate": "ppyoloe-sod-l-640-coco",
+  "status": "selected",
+  "startedAt": "2026-09-13T10:03:22.708Z",
+  "completedAt": "2026-09-13T10:06:37.734Z",
+  "environment": {
+    "os": {
+      "platform": "win32",
+      "release": "10.0.26200",
+      "arch": "x64"
+    },
+    "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+    "logicalCores": 12,
+    "browser": "153.0.8010.12"
+  },
+  "model": {
+    "bytes": 345644377,
+    "sha256": "a8fb0978485d42f78346339490302e4f3116daa2cdc7c192b2e2250b1675cd2e"
+  },
+  "scoreThreshold": 0.5,
+  "iouThreshold": 0.99,
+  "reference": "ONNX Runtime Python + Pillow BICUBIC RGB /255",
+  "combinations": [
+    {
+      "backend": "wasm",
+      "mode": "main",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T10:03:28.443Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "pythonParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 1.1920928955078125e-06,
+        "maxBboxDeltaPixels": 0.00011672973630538763
+      },
+      "mainParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "loadTimings": {
+        "sessionMs": 1059.8050000071526,
+        "totalMs": 2011.3899999856949,
+        "integrityMs": 947.6649999916553,
+        "modelSource": "memory"
+      },
+      "coldImageMs": 6449.479999989271,
+      "warmImageCount": 7,
+      "warmMedianMs": 6366.294999986887,
+      "lifecycle": {
+        "preAborted": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "boundaryAbort": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "inflightAbort": {
+          "code": "ABORTED",
+          "message": "推理已取消",
+          "details": {
+            "phase": "run"
+          },
+          "responseMs": 6369.8499999940395
+        },
+        "reuseAfterAbort": {
+          "parity": true,
+          "timings": {
+            "decodeMs": 5.259999990463257,
+            "preprocessMs": 47.67500001192093,
+            "inferenceMs": 6103.085000008345,
+            "postprocessMs": 0.03999999165534973,
+            "totalMs": 6156.655000001192
+          },
+          "wallClockMs": 6156.674999982119
+        },
+        "eventLoop": {
+          "requestedDelayMs": 20,
+          "observedDelayMs": 6126.935000002384,
+          "firedBeforeResult": false,
+          "inferenceMs": 6126.550000011921
+        },
+        "disposeActive": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {},
+          "releaseMs": 6458.310000002384
+        },
+        "disposeQueued": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "detectAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "loadAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "repeatedDispose": "passed"
+      },
+      "metrics": {
+        "runs": 13,
+        "releases": 1,
+        "workersCreated": 0,
+        "workersTerminated": 0
+      }
+    },
+    {
+      "backend": "wasm",
+      "mode": "worker",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T10:04:57.343Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "pythonParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 1.1920928955078125e-06,
+        "maxBboxDeltaPixels": 0.00011672973630538763
+      },
+      "mainParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "loadTimings": {
+        "sessionMs": 1924.280000001192,
+        "totalMs": 2823.9600000083447,
+        "integrityMs": 895.494999974966,
+        "modelSource": "memory"
+      },
+      "coldImageMs": 6797.405000001192,
+      "warmImageCount": 7,
+      "warmMedianMs": 6197.715000003576,
+      "lifecycle": {
+        "preAborted": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "boundaryAbort": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "inflightAbort": {
+          "code": "ABORTED",
+          "message": "Worker 推理已取消",
+          "details": {},
+          "responseMs": 0.1899999976158142
+        },
+        "reuseAfterAbort": {
+          "parity": true,
+          "timings": {
+            "decodeMs": 4.319999992847443,
+            "preprocessMs": 27.30000001192093,
+            "inferenceMs": 12221.460000008345,
+            "postprocessMs": 0.03999999165534973,
+            "totalMs": 12253.709999978542
+          },
+          "wallClockMs": 12253.714999973774
+        },
+        "eventLoop": {
+          "requestedDelayMs": 20,
+          "observedDelayMs": 22.25,
+          "firedBeforeResult": true,
+          "inferenceMs": 5950.260000020266
+        },
+        "disposeActive": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {},
+          "releaseMs": 6025.639999985695
+        },
+        "disposeQueued": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "detectAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "loadAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "repeatedDispose": "passed"
+      },
+      "metrics": {
+        "runs": 13,
+        "releases": 0,
+        "workersCreated": 1,
+        "workersTerminated": 1
+      }
+    },
+    {
+      "backend": "webgpu",
+      "mode": "main",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T10:06:25.050Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "pythonParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 4.351139068603516e-06,
+        "maxBboxDeltaPixels": 0.0004119873046875
+      },
+      "mainParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "loadTimings": {
+        "sessionMs": 1886.9200000166893,
+        "totalMs": 2805.0499999821186,
+        "integrityMs": 912.6349999904633,
+        "modelSource": "memory"
+      },
+      "coldImageMs": 1619.7899999916553,
+      "warmImageCount": 7,
+      "warmMedianMs": 107.78499999642372,
+      "lifecycle": {
+        "preAborted": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "boundaryAbort": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "inflightAbort": {
+          "code": "ABORTED",
+          "message": "推理已取消",
+          "details": {
+            "phase": "run"
+          },
+          "responseMs": 54.59000000357628
+        },
+        "reuseAfterAbort": {
+          "parity": true,
+          "timings": {
+            "decodeMs": 4.66499999165535,
+            "preprocessMs": 26.75,
+            "inferenceMs": 59.889999985694885,
+            "postprocessMs": 0.03999999165534973,
+            "totalMs": 91.85499998927116
+          },
+          "wallClockMs": 91.875
+        },
+        "eventLoop": {
+          "requestedDelayMs": 20,
+          "observedDelayMs": 20.389999985694885,
+          "firedBeforeResult": true,
+          "inferenceMs": 59.32500001788139
+        },
+        "disposeActive": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {},
+          "releaseMs": 65.3449999988079
+        },
+        "disposeQueued": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "detectAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "loadAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "repeatedDispose": "passed"
+      },
+      "metrics": {
+        "runs": 13,
+        "releases": 1,
+        "workersCreated": 0,
+        "workersTerminated": 0
+      }
+    },
+    {
+      "backend": "webgpu",
+      "mode": "worker",
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T10:06:34.082Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": true
+        }
+      },
+      "pythonParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 4.351139068603516e-06,
+        "maxBboxDeltaPixels": 0.0004119873046875
+      },
+      "mainParity": {
+        "images": 8,
+        "matched": 49,
+        "emptyImages": 0,
+        "unmatchedReference": 0,
+        "unmatchedCandidate": 0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "loadTimings": {
+        "sessionMs": 2055.794999986887,
+        "totalMs": 2955.7899999916553,
+        "integrityMs": 895.0699999928474,
+        "modelSource": "memory"
+      },
+      "coldImageMs": 1556.9849999845028,
+      "warmImageCount": 7,
+      "warmMedianMs": 112.48500001430511,
+      "lifecycle": {
+        "preAborted": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "boundaryAbort": {
+          "code": "ABORTED",
+          "message": "检测已取消",
+          "details": {
+            "reason": {
+              "name": "AbortError"
+            }
+          },
+          "dispatchedRuns": 0
+        },
+        "inflightAbort": {
+          "code": "ABORTED",
+          "message": "Worker 推理已取消",
+          "details": {},
+          "responseMs": 0.2199999988079071
+        },
+        "reuseAfterAbort": {
+          "parity": true,
+          "timings": {
+            "decodeMs": 4.6500000059604645,
+            "preprocessMs": 51.20500001311302,
+            "inferenceMs": 62.59499999880791,
+            "postprocessMs": 0.030000001192092896,
+            "totalMs": 118.98000001907349
+          },
+          "wallClockMs": 118.99500000476837
+        },
+        "eventLoop": {
+          "requestedDelayMs": 20,
+          "observedDelayMs": 20.955000013113022,
+          "firedBeforeResult": true,
+          "inferenceMs": 58.78000000119209
+        },
+        "disposeActive": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {},
+          "releaseMs": 66.28499999642372
+        },
+        "disposeQueued": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "detectAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "loadAfterDispose": {
+          "code": "DISPOSED",
+          "message": "检测器已释放",
+          "details": {}
+        },
+        "repeatedDispose": "passed"
+      },
+      "metrics": {
+        "runs": 13,
+        "releases": 0,
+        "workersCreated": 1,
+        "workersTerminated": 1
+      }
+    }
+  ],
+  "failureCaseCount": 10,
+  "remaining": [
+    "SOD 本模型的移动端验证",
+    "模型卡许可与正式分发来源锁定",
+    "小目标收益和同规模普通模型的公平对照"
+  ],
+  "decision": "桌面四种组合和生命周期验证通过；保持 selected，优先 Worker，尚不进入稳定清单或公开 Demo。",
+  "evidence": {
+    "path": "evidence/sod-lifecycle.json.gz",
+    "bytes": 13107,
+    "sha256": "e73eab92c1ca6aca60bc5c9daa26d2e3931ce7e549dea48cec45ab582074a315",
+    "uncompressed": {
+      "bytes": 178787,
+      "sha256": "ba03920156f8a2868360c4e8fc689a452a14f813ee5f94708503b27edfebab45"
+    }
+  }
+}

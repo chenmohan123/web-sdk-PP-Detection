@@ -4,11 +4,11 @@
 
 ## 结果
 
-| 变体 | 保留 FP32 的节点 | 文件大小 | 参考框匹配率（IoU≥0.99、score≥0.5） | 结论 |
-| --- | --- | ---: | ---: | --- |
-| FP16 检测头复查 | `Conv.100`–`Conv.129` | 104,713,272 bytes | 85.6% | 与原 FP16 的 85.0% 基本相同 |
-| W8A32 检测头复查 | `Conv.100`–`Conv.129` 不量化 | 95,612,180 bytes | 88.7% | 比原 W8A32 的 6.3% 有改善，仍低于 95% |
-| W8A32 扩大保留范围 | `Conv.90`–`Conv.129` 不量化 | 106,656,240 bytes | 89.7% | 体积增加但收益有限，仍低于 95% |
+| 变体               | 保留 FP32 的节点             |          文件大小 | 参考框匹配率（IoU≥0.99、score≥0.5） | 结论                                  |
+| ------------------ | ---------------------------- | ----------------: | ----------------------------------: | ------------------------------------- |
+| FP16 检测头复查    | `Conv.100`–`Conv.129`        | 104,713,272 bytes |                               85.6% | 与原 FP16 的 85.0% 基本相同           |
+| W8A32 检测头复查   | `Conv.100`–`Conv.129` 不量化 |  95,612,180 bytes |                               88.7% | 比原 W8A32 的 6.3% 有改善，仍低于 95% |
+| W8A32 扩大保留范围 | `Conv.90`–`Conv.129` 不量化  | 106,656,240 bytes |                               89.7% | 体积增加但收益有限，仍低于 95%        |
 
 三组实验均在 Python ONNX Runtime CPU 上完成 64 图推理；源模型 SHA-256 为 `01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075`。实验模型和预测文件保存在本机临时目录，不进入发布清单。
 
@@ -23,4 +23,3 @@ $py = '.tmp/phase2/venv/Scripts/python.exe'
 python tools/model-pipeline/weight_only.py --input <l-fp32.onnx> --output <w8a32-headfp32.onnx> --sha256 01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075 --report <report.json> --exclude-node Conv.100 --exclude-node ... --exclude-node Conv.129
 python tools/model-pipeline/ppyoloe/inference.py --model-kind ppyoloe --model <variant.onnx> --annotations reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json --images-dir .tmp/phase2/dataset/images --predictions <predictions.json> --report <runtime.json>
 ```
-

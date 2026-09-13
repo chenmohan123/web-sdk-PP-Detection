@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-09-13",
+  "repository": "https://github.com/PaddlePaddle/PaddleDetection",
+  "commit": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "commitTree": "7d7b4c0ca5a9b2b2398409959100d99ff35dfe15",
+  "archive": {
+    "id": "upstream",
+    "filename": "paddledetection.zip",
+    "url": "https://github.com/PaddlePaddle/PaddleDetection/archive/b25522a0f4bde8c80603f3ba5e3472059972e3b5.zip",
+    "bytes": 45991481,
+    "sha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6"
+  },
+  "archiveAndExtractedFilesVerified": true,
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE",
+      "blobSha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "snapshot": "upstream/LICENSE.gz"
+    },
+    {
+      "path": "configs/smalldet/README.md",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/smalldet/README.md",
+      "blobSha1": "db9c6366c210014a4e5c678bb2aca9d4365b47b4",
+      "bytes": 30791,
+      "sha256": "e53ddc4ff18ce7da749d787adc8abe6bccb3783b0f00c8a75619287b5409a653",
+      "snapshot": "upstream/configs/smalldet/README.md.gz"
+    },
+    {
+      "path": "configs/smalldet/ppyoloe_plus_sod_crn_l_80e_coco.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/smalldet/ppyoloe_plus_sod_crn_l_80e_coco.yml",
+      "blobSha1": "ad4c52eac56fad3303169d02c6f6578abbdcf106",
+      "bytes": 736,
+      "sha256": "ecc9160e03a392ba63e6d768c893995728bcb5711d463ce7671c8f6d586b2021",
+      "snapshot": "upstream/configs/smalldet/ppyoloe_plus_sod_crn_l_80e_coco.yml.gz"
+    },
+    {
+      "path": "configs/datasets/coco_detection.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/datasets/coco_detection.yml",
+      "blobSha1": "176ba271c7910531ef1e6f8ed72572cd2a5d4efa",
+      "bytes": 585,
+      "sha256": "d928cce669f165ea1fb5f5b11d01ec7249d93903460f90494ecec98c63589dc9",
+      "snapshot": "upstream/configs/datasets/coco_detection.yml.gz"
+    },
+    {
+      "path": "configs/runtime.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/runtime.yml",
+      "blobSha1": "32803ac442ba44f6d5bbc520c4172e79b477b85d",
+      "bytes": 513,
+      "sha256": "c1223b0c56fda9af34904e8f406cfea6e6e58179349ac66937ef248e9d2af76e",
+      "snapshot": "upstream/configs/runtime.yml.gz"
+    },
+    {
+      "path": "configs/ppyoloe/_base_/optimizer_80e.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe/_base_/optimizer_80e.yml",
+      "blobSha1": "b6ba4ec31a9703c56d2e470b646354cfdfdb7ddc",
+      "bytes": 281,
+      "sha256": "588b1081f243566518565ae4fe5f36aecfb243a2089bbaf0c76c270d9aa59a6d",
+      "snapshot": "upstream/configs/ppyoloe/_base_/optimizer_80e.yml.gz"
+    },
+    {
+      "path": "configs/ppyoloe/_base_/ppyoloe_plus_crn.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe/_base_/ppyoloe_plus_crn.yml",
+      "blobSha1": "c8e6191fdd4515b79596f4bd9ecb48731523a83b",
+      "bytes": 930,
+      "sha256": "1b231af97f948f1ad628ce54c81900d64b2470907300153767355fa225afb2f6",
+      "snapshot": "upstream/configs/ppyoloe/_base_/ppyoloe_plus_crn.yml.gz"
+    },
+    {
+      "path": "configs/ppyoloe/_base_/ppyoloe_plus_reader.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe/_base_/ppyoloe_plus_reader.yml",
+      "blobSha1": "cd9cdeff8b9d46e41a4e6fb518339168dfd4b154",
+      "bytes": 1236,
+      "sha256": "f99136e96213a9482d25a8e66b6d3e083e147a7632efd304fcff411f5d69e0cc",
+      "snapshot": "upstream/configs/ppyoloe/_base_/ppyoloe_plus_reader.yml.gz"
+    },
+    {
+      "path": "deploy/EXPORT_ONNX_MODEL_en.md",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/EXPORT_ONNX_MODEL_en.md",
+      "blobSha1": "750959062dc20cc68600bbd89e9264468c11e4d6",
+      "bytes": 5223,
+      "sha256": "1210616e4d120e03e7b440a9275beb6020cdeb9f0a18c0807863e82ebb151111",
+      "snapshot": "upstream/deploy/EXPORT_ONNX_MODEL_en.md.gz"
+    }
+  ],
+  "weights": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_plus_sod_crn_l_80e_coco.pdparams",
+    "bytes": 351463346,
+    "sha256": "6982308d871e0d4285dc8577814409b077ef947fef9d59ef6497b86f9f153e87"
+  },
+  "license": {
+    "repository": "Apache-2.0",
+    "separateWeightLicenseFound": false,
+    "distributionStatus": "尚未重新分发；发布前在模型卡中补齐权重来源与许可说明"
+  }
+}

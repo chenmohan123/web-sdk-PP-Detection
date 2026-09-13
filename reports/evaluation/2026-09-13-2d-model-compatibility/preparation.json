@@ -1,0 +1,10 @@
+{
+  "sourceSha256": "8002c7381f02a24e640bb08e6f86d891a394cabcb3f9b338029de43f4122a0ac",
+  "outputSha256": "a8fb0978485d42f78346339490302e4f3116daa2cdc7c192b2e2250b1675cd2e",
+  "changes": [
+    "Squeeze.4.axes=[1]",
+    "Squeeze.6.axes=[1]",
+    "image_batch=1",
+    "scale_factor=initializer[[1,1]]"
+  ]
+}

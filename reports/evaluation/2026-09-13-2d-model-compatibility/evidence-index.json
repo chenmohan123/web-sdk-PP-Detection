@@ -1,0 +1,107 @@
+[
+  {
+    "path": "evidence/export.log.gz",
+    "uncompressedBytes": 2209,
+    "uncompressedSha256": "a3cd52010a4d88f1a6a3e05cc87a76ab5f27ec264c816b786c89ce10e72e42c1",
+    "bytes": 901,
+    "sha256": "0ecc52342953a3f282cfb3a6cd3bcea5e233fcc5d1c93821a507bb3278719d7b"
+  },
+  {
+    "path": "evidence/paddle2onnx.log.gz",
+    "uncompressedBytes": 1378,
+    "uncompressedSha256": "f172bc9069260a3a680dca80117bde8c493628e9263a2632b5015fbd80d1d704",
+    "bytes": 394,
+    "sha256": "73539312c446539502239397c9cab2e38697ebcc1ac3635ae24f730ba3b17d5c"
+  },
+  {
+    "path": "evidence/build.log.gz",
+    "uncompressedBytes": 1486,
+    "uncompressedSha256": "9b00244b4ac79d42cef5e55c9b1f100bbaf41b771552750f28533ee7fe04cca9",
+    "bytes": 560,
+    "sha256": "d10b3bf1aefd7b6f2d3f4df6aa4a84621c8056f15a25f5404e451c698c085d5e"
+  },
+  {
+    "path": "evidence/onnx-runtime.json.gz",
+    "uncompressedBytes": 11626,
+    "uncompressedSha256": "77eb444fb19ea3d11ffe49843c98bc2ed19774c921b900a83ca5e757e9ae340d",
+    "bytes": 2555,
+    "sha256": "e3b2189084a950b4c566041bc6225907ca250016d1d164c0fea7fcbd74bed01a"
+  },
+  {
+    "path": "evidence/pillow-runtime.json.gz",
+    "uncompressedBytes": 11621,
+    "uncompressedSha256": "feb52e54b1187bda7c44519ee2ccd3e60d929c5453b03632f8efdd98dad5db46",
+    "bytes": 2556,
+    "sha256": "f90e4d092be2cf566a3a342faa6fd5fc9a1aa834f2426a900f6019c2564dd7a4"
+  },
+  {
+    "path": "evidence/paddle-reference.json.gz",
+    "uncompressedBytes": 175135,
+    "uncompressedSha256": "6e5ab4e56eb98decea3aacd997a6e141ebc5f819caeabf71047e7fab143391b4",
+    "bytes": 13489,
+    "sha256": "bf52965b54d47221072c36ac0c6ba198f479910be083c9d9cf46870182d993b1"
+  },
+  {
+    "path": "evidence/onnx-predictions.json.gz",
+    "uncompressedBytes": 2976193,
+    "uncompressedSha256": "308276683d58cb793747b83117a3eca43a8800c4a512637c9a988c1211a7ce48",
+    "bytes": 738460,
+    "sha256": "49150316eb1f0e4c3cccb1e1645e04a433455a760809b5a955d6c34474a44ed8"
+  },
+  {
+    "path": "evidence/pillow-predictions.json.gz",
+    "uncompressedBytes": 2975340,
+    "uncompressedSha256": "6aa5f7173b5f8c31c10997f237c446273232183e611d0885ecd76826e292b8fd",
+    "bytes": 738161,
+    "sha256": "1824d059ce51f5c86659dbcdb430088c604f125b42e1274e62276878770c4cc8"
+  },
+  {
+    "path": "evidence/paddle-predictions.json.gz",
+    "uncompressedBytes": 4169750,
+    "uncompressedSha256": "f6d6020acb5712a80c45f342e8b139d1895a191b38e9dd0a9056a67ac665ebee",
+    "bytes": 788469,
+    "sha256": "5d28d347b6ceed7c3eff8791b79c1a3388e85f05e9c928ad6ebf02f85884ac46"
+  },
+  {
+    "path": "evidence/browser-annotations.json.gz",
+    "uncompressedBytes": 27173,
+    "uncompressedSha256": "02f5cf1b46ea4f57bb7202d351edef6e0deff5dfbfb2912d3e3f41adad91664b",
+    "bytes": 4104,
+    "sha256": "dc6f12e3c31075c494f20b57e626d49be7447d8eadbda0fe4cc085c61d458a88"
+  },
+  {
+    "path": "evidence/candidate-manifest.json.gz",
+    "uncompressedBytes": 3174,
+    "uncompressedSha256": "52d3403d41985c5ab7c7bbd0ef3569cb21a4dba1b276fd0d90fc8f5def20484b",
+    "bytes": 1140,
+    "sha256": "c6dafe6324d459c1eaf65db185ddb6c7ab42b84ed33bdad6c10a91e59efa320a"
+  },
+  {
+    "path": "evidence/browser-wasm.json.gz",
+    "uncompressedBytes": 540541,
+    "uncompressedSha256": "b0f6a5a1ab48dea5e1b698207f83642c10608f7884b0e1894178bd12dab36ede",
+    "bytes": 101305,
+    "sha256": "b90ce977b2e2a7fa6cee64207221abfd28c3ad0d1301655e11442e3cb0d487ef"
+  },
+  {
+    "path": "evidence/browser-webgpu.json.gz",
+    "uncompressedBytes": 541422,
+    "uncompressedSha256": "7c0ee4197ac11d2b4d3a41d5c143d685f983bee8bc95ae83b5dd9f2ad8e3bcdd",
+    "bytes": 101920,
+    "sha256": "48710051a80d137b01a14426b7929bd5ca016c201ab7168bd5abe93319fdfb94"
+  },
+  {
+    "path": "evidence/browser-wasm-parity.json.gz",
+    "uncompressedBytes": 14078,
+    "uncompressedSha256": "f94a6c9846f942b79a6cb19dd6716a5c8e48fd4c018a9d2a64b3b400ff2dfce8",
+    "bytes": 1418,
+    "sha256": "a2e36092f8ad51c4e76d8b63baaf92c31fa09344b43c43f3db9a42a9bd2ca318"
+  },
+  {
+    "path": "evidence/browser-webgpu-parity.json.gz",
+    "uncompressedBytes": 14425,
+    "uncompressedSha256": "4437308daa7e5eb51ada790fc7d1b2481693f81829df83143d8a1b1ddf4096a4",
+    "bytes": 1606,
+    "sha256": "3bc6a2b3c2a73b67be2ce631f93987ff9f6529e92173d26a1080405b167a3ff5"
+  }
+]

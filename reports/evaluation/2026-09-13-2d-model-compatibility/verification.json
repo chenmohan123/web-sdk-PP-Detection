@@ -1,0 +1,49 @@
+{
+  "verifiedAt": "2026-09-13",
+  "scope": "固定源码、权重和图准备的重复导出；报告与证据验证；不增加设备兼容承诺",
+  "reproduction": {
+    "upstreamCommit": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "rawOnnxSha256": "8002c7381f02a24e640bb08e6f86d891a394cabcb3f9b338029de43f4122a0ac",
+    "candidateSha256": "a8fb0978485d42f78346339490302e4f3116daa2cdc7c192b2e2250b1675cd2e",
+    "equalToEvaluatedModel": true,
+    "commands": [
+      "python -X utf8 reports/evaluation/2026-09-13-2d-model-compatibility/reproduction/prepare_inputs.py --verify-only",
+      "python -X utf8 reports/evaluation/2026-09-13-2d-model-compatibility/reproduction/export_sod.py",
+      "paddle2onnx --model_dir .tmp/sod-20260913/exported/ppyoloe_plus_sod_crn_l_80e_coco --model_filename model.pdmodel --params_filename model.pdiparams --opset_version 11 --save_file .tmp/sod-20260913/reproduced-raw.onnx",
+      "python -X utf8 reports/evaluation/2026-09-13-2d-model-compatibility/reproduction/prepare_sod.py --input .tmp/sod-20260913/reproduced-raw.onnx --output .tmp/sod-20260913/reproduced-candidate.onnx --report .tmp/sod-20260913/reproduced-preparation.json"
+    ],
+    "scriptSha256": {
+      "export_sod.py": "777f3a764920abca69c9dc8f449be7ce4b6a404da9907193023d6d556fa7bab7",
+      "inspect_raw.py": "721c048b25b9e1921ca740e7874e7c5b9ac8fffad37e60a20bb4b1f55695b24d",
+      "prepare_inputs.py": "f6060c741b6bd160e6740ffdd87e9e2048a22b27212eccdcd710006d9dca7092",
+      "prepare_manifest.py": "b1be3b37a09a3d1e521f741efdbb85026ad7b2d36ce78deeb8ec5c097e6c77a6",
+      "prepare_sod.py": "8a7c5b62fa51c83b21fa348df2b5afebe62a3e26c10a142fe8e4026e63a74e8b",
+      "summarize.py": "4f4f831df4fa8714dc6f24a5baa69120eb8abb73a13641b42eb4f2da1f96d6ff",
+      "verify_evidence.py": "2e599e6511228bb45e0fa6df44bda5f96430df4abc8e9c57f760cec95822275e"
+    }
+  },
+  "checks": {
+    "unitTests": {
+      "passed": 204,
+      "failed": 0
+    },
+    "typecheck": "pass",
+    "sdkBuild": "pass",
+    "docsTests": {
+      "passed": 5,
+      "failed": 0
+    },
+    "format": "pass：使用 SDK 文件快照，避开既有 .tmp 目录的 ACL 扫描失败",
+    "evidenceIntegrity": "pass：所有 JSON、9 份上游快照、15 份压缩证据与模型清单摘要均一致",
+    "sdkStandardBefore": "standard/before.json",
+    "sdkStandardAfter": "standard/after.json",
+    "sdkStandardRequiredFailed": 0
+  },
+  "standardSnapshot": {
+    "reason": "原工作区扫描因历史 .tmp 子目录 ACL 失败，改用无 ignored 临时文件的 SDK Git 文件快照",
+    "beforeSdkHead": "ffffc0c7a2abfc6161883e1726704976764c83a3",
+    "afterBaseSdkHead": "7ddf5595e6b2641c5971a06fea6f269077a72348",
+    "afterOverlay": "reports/evaluation/2026-09-13-2d-model-compatibility 的本轮修订文件",
+    "limitation": "只读本地规范检查；4 项远程规则 skip，不宣称远程合规"
+  }
+}

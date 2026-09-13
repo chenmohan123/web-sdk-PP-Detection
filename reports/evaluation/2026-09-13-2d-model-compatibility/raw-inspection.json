@@ -1,0 +1,61 @@
+{
+  "bytes": 345644387,
+  "sha256": "8002c7381f02a24e640bb08e6f86d891a394cabcb3f9b338029de43f4122a0ac",
+  "opsets": [
+    {
+      "domain": "",
+      "version": 11
+    }
+  ],
+  "inputs": [
+    {
+      "name": "image",
+      "dtype": "FLOAT",
+      "shape": [
+        "DynamicDimension.0",
+        3,
+        640,
+        640
+      ]
+    },
+    {
+      "name": "scale_factor",
+      "dtype": "FLOAT",
+      "shape": [
+        "DynamicDimension.1",
+        2
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "save_infer_model/scale_0.tmp_0",
+      "dtype": "FLOAT",
+      "shape": [
+        "DynamicDimension.2",
+        6
+      ]
+    },
+    {
+      "name": "save_infer_model/scale_1.tmp_0",
+      "dtype": "INT32",
+      "shape": [
+        "DynamicDimension.3"
+      ]
+    }
+  ],
+  "initializerElements": 0,
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "paddlepaddle": "2.6.2",
+    "paddle2onnx": "1.3.1",
+    "onnx": "1.16.2",
+    "onnxruntime": "1.20.1"
+  },
+  "onnxCheck": "pass",
+  "failure": {
+    "type": "Fail",
+    "message": "[ONNXRuntimeError] : 1 : FAIL : Load model from .tmp\\sod-20260913\\ppyoloe-sod-l-640-raw.onnx failed:Node (Gather.8) Op (Gather) [ShapeInferenceError] data tensor must have rank >= 1"
+  }
+}

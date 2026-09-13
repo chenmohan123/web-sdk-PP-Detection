@@ -1,0 +1,62 @@
+[
+  {
+    "model": "ppyoloe-plus-m-640",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-m-640/0.1.0/ppyoloe-plus-m-640-fp32.onnx",
+    "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+    "bytes": 94022904,
+    "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:05:42.908481+00:00"
+  },
+  {
+    "model": "ppyoloe-plus-m-640",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/e9b6ac0c0444dd8104992fe42f7869463870feff/ppyoloe-plus-m-640/0.1.0/ppyoloe-plus-m-640-fp32.onnx",
+    "revision": "e9b6ac0c0444dd8104992fe42f7869463870feff",
+    "bytes": 94022904,
+    "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:05:46.748842+00:00"
+  },
+  {
+    "model": "ppyoloe-plus-l-640",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-l-640/0.1.0/ppyoloe-plus-l-640-fp32.onnx",
+    "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+    "bytes": 209181400,
+    "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:05:53.332959+00:00"
+  },
+  {
+    "model": "ppyoloe-plus-l-640",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/5f203ba3bb8bc8943ac8c69fa5524ded356e8bc6/ppyoloe-plus-l-640/0.1.0/ppyoloe-plus-l-640-fp32.onnx",
+    "revision": "5f203ba3bb8bc8943ac8c69fa5524ded356e8bc6",
+    "bytes": 209181400,
+    "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:06:05.344067+00:00"
+  },
+  {
+    "model": "ppyoloe-plus-x-640",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-x-640/0.1.0/ppyoloe-plus-x-640-fp32.onnx",
+    "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+    "bytes": 394163636,
+    "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:06:06.744498+00:00"
+  },
+  {
+    "model": "ppyoloe-plus-x-640",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/4f92a4267c994a49a09ab30b951b26da76b20dab/ppyoloe-plus-x-640/0.1.0/ppyoloe-plus-x-640-fp32.onnx",
+    "revision": "4f92a4267c994a49a09ab30b951b26da76b20dab",
+    "bytes": 394163636,
+    "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+    "status": "passed",
+    "verifiedAt": "2026-09-13T16:06:25.991253+00:00"
+  }
+]

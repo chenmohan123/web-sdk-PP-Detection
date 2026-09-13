@@ -61,6 +61,38 @@ test("选择 PP-YOLOE 后按稳定模型加载，并清除旧模型结果", asyn
   await expect(page.getByRole("alert")).toHaveCount(0);
 });
 
+for (const size of ["m", "l", "x"] as const) {
+  test(`PP-YOLOE+ ${size.toUpperCase()} 仅提供 FP32，切换时重置精度并默认 ModelScope`, async ({
+    page
+  }) => {
+    await page.goto("/?fixture=1");
+    const model = page.getByLabel(MODEL_SELECT, { exact: true });
+    const precision = page.getByRole("group", { name: "模型精度", exact: true });
+    await model.selectOption("ppyoloe-plus-s-640");
+    await runFixture(page);
+    await precision.getByRole("button", { name: "FP16", exact: true }).click();
+    await page.getByLabel(SOURCE_SELECT, { exact: true }).selectOption("huggingface");
+    await model.selectOption(`ppyoloe-plus-${size}-640`);
+    await expect(page.locator(".detection-row")).toHaveCount(0);
+    await expect(page.getByLabel(SOURCE_SELECT, { exact: true })).toHaveValue("modelscope");
+    await expect(page.getByLabel(SOURCE_SELECT).locator("option")).toHaveText([
+      "ModelScope",
+      "Hugging Face"
+    ]);
+    await expect(precision.getByRole("button", { name: "FP32", exact: true })).toHaveAttribute(
+      "aria-pressed",
+      "true"
+    );
+    await expect(precision.getByRole("button", { name: "W8A32", exact: true })).toHaveCount(0);
+    for (const name of ["FP16", "INT8"]) {
+      await expect(precision.getByRole("button", { name, exact: true })).toBeDisabled();
+    }
+    await runFixture(page);
+    await expect(page.getByTestId("model-name")).toHaveText(`ppyoloe-plus-${size}-640`);
+    await expect(page.getByRole("alert")).toHaveCount(0);
+  });
+}
+
 test("加载期间切换模型会取消旧任务，迟到结果不会污染新模型", async ({ page }) => {
   let release!: () => void;
   const gate = new Promise<void>((resolve) => {

@@ -5,8 +5,16 @@ import {
 } from "web-sdk-pp-detection";
 import picoDetManifestJson from "../../../models/pp-detection/1.0.2/manifest.json";
 import ppyoloeManifestJson from "../../../models/ppyoloe-plus-s-640/0.1.1/manifest.json";
+import ppyoloeMManifestJson from "../../../models/ppyoloe-plus-m-640/0.1.0/manifest.json";
+import ppyoloeLManifestJson from "../../../models/ppyoloe-plus-l-640/0.1.0/manifest.json";
+import ppyoloeXManifestJson from "../../../models/ppyoloe-plus-x-640/0.1.0/manifest.json";
 
-export type DemoModelKey = "picodet-l-320" | "ppyoloe-plus-s-640";
+export type DemoModelKey =
+  | "picodet-l-320"
+  | "ppyoloe-plus-s-640"
+  | "ppyoloe-plus-m-640"
+  | "ppyoloe-plus-l-640"
+  | "ppyoloe-plus-x-640";
 export type ModelSourceKey = Extract<ModelSourceKind, "modelscope" | "huggingface">;
 
 export interface DemoModelOption {
@@ -45,6 +53,27 @@ export const MODEL_OPTIONS: readonly DemoModelOption[] = [
     label: { en: "PP-YOLOE+ S 640", zh: "PP-YOLOE+ S 640" },
     manifest: parseDetectionManifest(ppyoloeManifestJson),
     manifestPath: "models/ppyoloe-plus-s-640/0.1.1/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "ppyoloe-plus-m-640",
+    label: { en: "PP-YOLOE+ M 640", zh: "PP-YOLOE+ M 640" },
+    manifest: parseDetectionManifest(ppyoloeMManifestJson),
+    manifestPath: "models/ppyoloe-plus-m-640/0.1.0/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "ppyoloe-plus-l-640",
+    label: { en: "PP-YOLOE+ L 640", zh: "PP-YOLOE+ L 640" },
+    manifest: parseDetectionManifest(ppyoloeLManifestJson),
+    manifestPath: "models/ppyoloe-plus-l-640/0.1.0/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "ppyoloe-plus-x-640",
+    label: { en: "PP-YOLOE+ X 640", zh: "PP-YOLOE+ X 640" },
+    manifest: parseDetectionManifest(ppyoloeXManifestJson),
+    manifestPath: "models/ppyoloe-plus-x-640/0.1.0/manifest.json"
   }
 ] as const;
 

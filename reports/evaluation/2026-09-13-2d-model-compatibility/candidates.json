@@ -6,7 +6,7 @@
     "candidate": "值得继续评估；未知字段是待收集证据，不代表兼容或不兼容",
     "blocked": "当前存在明确的入口缺失或实测失败；原因必须限定版本和范围",
     "deferred": "属于其他任务类型或当前阶段明确不处理",
-    "selected": "已完成固定来源、转换和 Python 参考核验，允许进入浏览器专项验证；不等于 stable"
+    "selected": "已完成固定来源、转换和 Python 参考核验，允许进入浏览器专项验证；不等于 stable，也不代表已获正式分发许可"
   },
   "candidates": [
     {
@@ -195,7 +195,7 @@
         "w8a32": null
       },
       "currentSdkStatus": "unreleased",
-      "status": "candidate",
+      "status": "selected",
       "reason": "已实际完成 ONNX 转换和 64 图 Paddle/Python 数值对齐；本轮记录浏览器初步验证。体积较大，完整 Worker/生命周期、移动端与分发审查仍待完成。",
       "evidence": [
         "sources.lock.json",
@@ -374,4 +374,3 @@
     }
   ]
 }
-

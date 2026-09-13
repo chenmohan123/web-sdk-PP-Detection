@@ -17,8 +17,12 @@
 
 - Paddle 与 Python ONNX Runtime：固定 COCO 子集 64 张图、531 个阈值以上检测框全部匹配；最大 score 差 `2.68e-6`，最大框坐标差 `0.000184` 像素，空检测结果一致。
 - Chromium WASM/main：8 张图全部运行，49 个阈值以上检测框全部匹配，最大框坐标差 `0.000117` 像素；首图约 5.9 秒，热身后中位约 5.84 秒。
-- Chromium WebGPU/main：8 张图全部运行，49 个阈值以上检测框全部匹配，最大框坐标差 `0.000412` 像素；首图约 2.04 秒，热身后中位约 110 ms。运行日志显示部分 shape 节点由 CPU 执行。
+- Chromium WebGPU/main：8 张图全部运行，49 个阈值以上检测框全部匹配，最大框坐标差 `0.000412` 像素；首图约 2.04 秒，热身后中位约 110 ms。运行日志提示部分节点未分配到首选执行提供程序，未采集逐节点分配。
+
+浏览器逐框比较采用 Python ONNX Runtime + Pillow BICUBIC 预处理参考；Paddle 原模型比较采用 OpenCV INTER_CUBIC。两者分别验证预处理语义，不能混为同一参考。WebGPU 警告只说明部分节点不由首选执行提供程序运行，未记录逐节点分配，不能断言具体哪些节点在 CPU。
 
 原始日志、预测、清单和浏览器报告以 gzip 证据存档并由 `evidence-index.json` 校验。当前结论是 `selected`：允许进入浏览器专项验证，不修改 runtime、manifest、Demo 或稳定模型。
 
 复现入口：`reproduction/export_sod.py`、`reproduction/prepare_sod.py`、`reproduction/summarize.py`。
+
+完整准备与运行命令见 [复现说明](reproduction/README.md)。

@@ -263,6 +263,7 @@
         }
       },
       "comparison": {
+        "reference": "Python ONNX Runtime + Pillow BICUBIC RGB /255",
         "iouThreshold": 0.99,
         "scoreThreshold": 0.5,
         "imageCount": 8,
@@ -379,6 +380,7 @@
         }
       },
       "comparison": {
+        "reference": "Python ONNX Runtime + Pillow BICUBIC RGB /255",
         "iouThreshold": 0.99,
         "scoreThreshold": 0.5,
         "imageCount": 8,
@@ -399,6 +401,5 @@
     "正式权重分发审查和来源锁定",
     "独立小目标数据集与普通 PP-YOLOE+ L 的公平对照"
   ],
-  "decision": "已完成转换和 Python 参考核验，进入浏览器专项验证；暂不进入稳定模型清单。FP32 约为现有 PP-YOLOE+ S 的 10.8 倍；初步 smoke 不足以决定移动端接入。"
+  "decision": "转换和 Python 参考核验通过，进入浏览器专项验证；暂不进入稳定模型清单。FP32 约为现有 PP-YOLOE+ S 的 10.8 倍；初步 smoke 不足以决定移动端接入。"
 }
-

@@ -1,0 +1,349 @@
+{
+  "frozenAt": "2026-09-12T15:17:38.043312+00:00",
+  "chosen": "whole-first",
+  "productGatesPassed": false,
+  "reason": "没有候选同时通过全部门槛；按预设规则选择诊断性候选，不作产品合格声明",
+  "candidates": [
+    {
+      "mode": "whole-first",
+      "passBoth": false,
+      "smallTp": 161,
+      "fp": 306
+    },
+    {
+      "mode": "edge-contained",
+      "passBoth": false,
+      "smallTp": 155,
+      "fp": 144
+    },
+    {
+      "mode": "small-additions",
+      "passBoth": false,
+      "smallTp": 155,
+      "fp": 143
+    }
+  ],
+  "protocolSha256": "31c43692d3583d816770528ab4183d079538ec7170301663b362b8559eb9ed46",
+  "mergeSha256": "a83e847222ba1aed088f09225741423c835c357456db79ae23bdd1a72345bf8f",
+  "diagnosticInputsSha256": "3c32078a8bf47eeda901e625193c8f1adfd0783abe01e0c8d3e418bcce8b40ac",
+  "rows": [
+    {
+      "name": "picodet",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.3365295559180082,
+        "AP50": 0.46494352034029557,
+        "AP75": 0.36069944962400036,
+        "APSmall": 0.15278036422200492,
+        "APMedium": 0.44467929412417173,
+        "APLarge": 0.6672640425053443,
+        "AR1": 0.2779591680089987,
+        "AR10": 0.3943126488188019,
+        "AR100": 0.4040994117455982
+      },
+      "operating": {
+        "tp": 227,
+        "fp": 50,
+        "fn": 473,
+        "ignored": 10,
+        "duplicateFp": 0,
+        "smallTp": 42,
+        "smallTotal": 399,
+        "precision": 0.8194945848375451,
+        "recall": 0.3242857142857143,
+        "smallRecall": 0.10526315789473684
+      }
+    },
+    {
+      "name": "picodet",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.35206535705779696,
+        "AP50": 0.5127631914585314,
+        "AP75": 0.3725134373290389,
+        "APSmall": 0.2807818636497905,
+        "APMedium": 0.5113895428981882,
+        "APLarge": 0.5298557178417894,
+        "AR1": 0.2677464958349512,
+        "AR10": 0.4729841622097076,
+        "AR100": 0.49623583930337095
+      },
+      "operating": {
+        "tp": 317,
+        "fp": 246,
+        "fn": 383,
+        "ignored": 40,
+        "duplicateFp": 6,
+        "smallTp": 98,
+        "smallTotal": 399,
+        "precision": 0.5630550621669627,
+        "recall": 0.45285714285714285,
+        "smallRecall": 0.24561403508771928
+      }
+    },
+    {
+      "name": "picodet",
+      "mode": "whole-first",
+      "metrics": {
+        "AP": 0.328661535392536,
+        "AP50": 0.47113599785890564,
+        "AP75": 0.34939217766927133,
+        "APSmall": 0.21606559074512927,
+        "APMedium": 0.4592147386670834,
+        "APLarge": 0.5815980987732906,
+        "AR1": 0.25864202624619703,
+        "AR10": 0.46263949841019686,
+        "AR100": 0.48483008571741915
+      },
+      "operating": {
+        "tp": 246,
+        "fp": 160,
+        "fn": 454,
+        "ignored": 14,
+        "duplicateFp": 3,
+        "smallTp": 57,
+        "smallTotal": 399,
+        "precision": 0.6059113300492611,
+        "recall": 0.3514285714285714,
+        "smallRecall": 0.14285714285714285
+      },
+      "smallGainRetention": 0.26785714285714285,
+      "gates": {
+        "ap": false,
+        "largeAp": false,
+        "fp": false,
+        "smallGain": false
+      },
+      "pass": false
+    },
+    {
+      "name": "picodet",
+      "mode": "edge-contained",
+      "metrics": {
+        "AP": 0.3511797096029448,
+        "AP50": 0.4913830619630816,
+        "AP75": 0.3780388003233639,
+        "APSmall": 0.19553138451904697,
+        "APMedium": 0.47621069758086504,
+        "APLarge": 0.665910121398948,
+        "AR1": 0.2951256110587292,
+        "AR10": 0.43974234328417783,
+        "AR100": 0.4585395315670173
+      },
+      "operating": {
+        "tp": 238,
+        "fp": 60,
+        "fn": 462,
+        "ignored": 11,
+        "duplicateFp": 0,
+        "smallTp": 51,
+        "smallTotal": 399,
+        "precision": 0.7986577181208053,
+        "recall": 0.34,
+        "smallRecall": 0.12781954887218044
+      },
+      "smallGainRetention": 0.16071428571428573,
+      "gates": {
+        "ap": true,
+        "largeAp": true,
+        "fp": true,
+        "smallGain": false
+      },
+      "pass": false
+    },
+    {
+      "name": "picodet",
+      "mode": "small-additions",
+      "metrics": {
+        "AP": 0.3463539683142498,
+        "AP50": 0.48549207671203676,
+        "AP75": 0.37058787143684696,
+        "APSmall": 0.19553138451904697,
+        "APMedium": 0.45470182235563555,
+        "APLarge": 0.6672640425053443,
+        "AR1": 0.28627945721257536,
+        "AR10": 0.430896189438024,
+        "AR100": 0.4496448676723535
+      },
+      "operating": {
+        "tp": 237,
+        "fp": 59,
+        "fn": 463,
+        "ignored": 11,
+        "duplicateFp": 0,
+        "smallTp": 51,
+        "smallTotal": 399,
+        "precision": 0.8006756756756757,
+        "recall": 0.3385714285714286,
+        "smallRecall": 0.12781954887218044
+      },
+      "smallGainRetention": 0.16071428571428573,
+      "gates": {
+        "ap": true,
+        "largeAp": true,
+        "fp": true,
+        "smallGain": false
+      },
+      "pass": false
+    },
+    {
+      "name": "ppyoloe",
+      "mode": "whole",
+      "metrics": {
+        "AP": 0.43426535438809466,
+        "AP50": 0.621071429526277,
+        "AP75": 0.4610334915172564,
+        "APSmall": 0.269684903571951,
+        "APMedium": 0.5612572286136099,
+        "APLarge": 0.720772546008972,
+        "AR1": 0.3186577898780519,
+        "AR10": 0.5400229630312078,
+        "AR100": 0.5817798648291181
+      },
+      "operating": {
+        "tp": 320,
+        "fp": 83,
+        "fn": 380,
+        "ignored": 40,
+        "duplicateFp": 5,
+        "smallTp": 103,
+        "smallTotal": 399,
+        "precision": 0.794044665012407,
+        "recall": 0.45714285714285713,
+        "smallRecall": 0.2581453634085213
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "mode": "combined",
+      "metrics": {
+        "AP": 0.4205738504954628,
+        "AP50": 0.613690207034441,
+        "AP75": 0.4311150889702326,
+        "APSmall": 0.37392887259257007,
+        "APMedium": 0.5568414724996161,
+        "APLarge": 0.5918887980593535,
+        "AR1": 0.2955258953890434,
+        "AR10": 0.5328686092408096,
+        "AR100": 0.565088660898393
+      },
+      "operating": {
+        "tp": 390,
+        "fp": 238,
+        "fn": 310,
+        "ignored": 63,
+        "duplicateFp": 6,
+        "smallTp": 156,
+        "smallTotal": 399,
+        "precision": 0.6210191082802548,
+        "recall": 0.5571428571428572,
+        "smallRecall": 0.39097744360902253
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "mode": "whole-first",
+      "metrics": {
+        "AP": 0.4050853870222905,
+        "AP50": 0.5894009993903988,
+        "AP75": 0.42519584801465204,
+        "APSmall": 0.2696632993468671,
+        "APMedium": 0.5507356129890454,
+        "APLarge": 0.6580092614288003,
+        "AR1": 0.30044919666945874,
+        "AR10": 0.5450069669030732,
+        "AR100": 0.6017970588589292
+      },
+      "operating": {
+        "tp": 321,
+        "fp": 146,
+        "fn": 379,
+        "ignored": 43,
+        "duplicateFp": 6,
+        "smallTp": 104,
+        "smallTotal": 399,
+        "precision": 0.6873661670235546,
+        "recall": 0.4585714285714286,
+        "smallRecall": 0.2606516290726817
+      },
+      "smallGainRetention": 0.018867924528301886,
+      "gates": {
+        "ap": false,
+        "largeAp": false,
+        "fp": false,
+        "smallGain": false
+      },
+      "pass": false
+    },
+    {
+      "name": "ppyoloe",
+      "mode": "edge-contained",
+      "metrics": {
+        "AP": 0.4350644957302428,
+        "AP50": 0.6283164203497652,
+        "AP75": 0.46051922269753043,
+        "APSmall": 0.2716078074292674,
+        "APMedium": 0.5592738679645722,
+        "APLarge": 0.7248383313273992,
+        "AR1": 0.3212475334677955,
+        "AR10": 0.5557278191548618,
+        "AR100": 0.6012215523103105
+      },
+      "operating": {
+        "tp": 321,
+        "fp": 84,
+        "fn": 379,
+        "ignored": 42,
+        "duplicateFp": 5,
+        "smallTp": 104,
+        "smallTotal": 399,
+        "precision": 0.7925925925925926,
+        "recall": 0.4585714285714286,
+        "smallRecall": 0.2606516290726817
+      },
+      "smallGainRetention": 0.018867924528301886,
+      "gates": {
+        "ap": true,
+        "largeAp": true,
+        "fp": true,
+        "smallGain": false
+      },
+      "pass": false
+    },
+    {
+      "name": "ppyoloe",
+      "mode": "small-additions",
+      "metrics": {
+        "AP": 0.43487156012295636,
+        "AP50": 0.6273554443645709,
+        "AP75": 0.46064457415678656,
+        "APSmall": 0.2716078074292674,
+        "APMedium": 0.559330614545703,
+        "APLarge": 0.7206921808295971,
+        "AR1": 0.3212475334677955,
+        "AR10": 0.5549585883856311,
+        "AR100": 0.6004523215410797
+      },
+      "operating": {
+        "tp": 321,
+        "fp": 84,
+        "fn": 379,
+        "ignored": 42,
+        "duplicateFp": 5,
+        "smallTp": 104,
+        "smallTotal": 399,
+        "precision": 0.7925925925925926,
+        "recall": 0.4585714285714286,
+        "smallRecall": 0.2606516290726817
+      },
+      "smallGainRetention": 0.018867924528301886,
+      "gates": {
+        "ap": true,
+        "largeAp": true,
+        "fp": true,
+        "smallGain": false
+      },
+      "pass": false
+    }
+  ]
+}

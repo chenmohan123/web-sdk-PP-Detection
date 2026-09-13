@@ -1,0 +1,1410 @@
+[
+  {
+    "name": "picodet",
+    "candidateCount": 51,
+    "distinctSmallGtCount": 42,
+    "examples": [
+      {
+        "imageId": 439854,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.5157649517059326,
+        "blockingScores": [
+          0.3851410746574402
+        ],
+        "smallGtIds": [
+          214526
+        ]
+      },
+      {
+        "imageId": 227478,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.5918859839439392,
+        "blockingScores": [
+          0.12821176648139954
+        ],
+        "smallGtIds": [
+          1177237
+        ]
+      },
+      {
+        "imageId": 250282,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.7706463932991028,
+        "blockingScores": [
+          0.3195559084415436
+        ],
+        "smallGtIds": [
+          299237
+        ]
+      },
+      {
+        "imageId": 26690,
+        "tileIndex": 3,
+        "detectionIndex": 3,
+        "score": 0.5454744696617126,
+        "blockingScores": [
+          0.3396695852279663
+        ],
+        "smallGtIds": [
+          561562
+        ]
+      },
+      {
+        "imageId": 26690,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.5441729426383972,
+        "blockingScores": [
+          0.4214126467704773
+        ],
+        "smallGtIds": [
+          2016851
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 1,
+        "detectionIndex": 1,
+        "score": 0.845335066318512,
+        "blockingScores": [
+          0.3525034487247467
+        ],
+        "smallGtIds": [
+          1595558
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 1,
+        "detectionIndex": 2,
+        "score": 0.7582187056541443,
+        "blockingScores": [
+          0.33560991287231445
+        ],
+        "smallGtIds": [
+          1601286
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 5,
+        "score": 0.6301178932189941,
+        "blockingScores": [
+          0.27583417296409607
+        ],
+        "smallGtIds": [
+          1877731
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 6,
+        "score": 0.6075153946876526,
+        "blockingScores": [
+          0.23753468692302704
+        ],
+        "smallGtIds": [
+          1512918
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 7,
+        "score": 0.5705475211143494,
+        "blockingScores": [
+          0.4888250529766083
+        ],
+        "smallGtIds": [
+          676946
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 9,
+        "score": 0.5266992449760437,
+        "blockingScores": [
+          0.29831668734550476
+        ],
+        "smallGtIds": [
+          2103784
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 3,
+        "detectionIndex": 3,
+        "score": 0.7156898379325867,
+        "blockingScores": [
+          0.4888250529766083
+        ],
+        "smallGtIds": [
+          676946
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 3,
+        "detectionIndex": 8,
+        "score": 0.5719327330589294,
+        "blockingScores": [
+          0.27583417296409607
+        ],
+        "smallGtIds": [
+          1877731
+        ]
+      },
+      {
+        "imageId": 376900,
+        "tileIndex": 0,
+        "detectionIndex": 0,
+        "score": 0.54371577501297,
+        "blockingScores": [
+          0.3209061026573181
+        ],
+        "smallGtIds": [
+          1259932
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 1,
+        "detectionIndex": 0,
+        "score": 0.7869442105293274,
+        "blockingScores": [
+          0.37095826864242554
+        ],
+        "smallGtIds": [
+          1401824
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 1,
+        "detectionIndex": 3,
+        "score": 0.6650761365890503,
+        "blockingScores": [
+          0.4739507734775543
+        ],
+        "smallGtIds": [
+          1401046
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 6,
+        "score": 0.6645351648330688,
+        "blockingScores": [
+          0.34042829275131226,
+          0.23449872434139252
+        ],
+        "smallGtIds": [
+          2183693
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 7,
+        "score": 0.5436913371086121,
+        "blockingScores": [
+          0.33381760120391846,
+          0.30144572257995605
+        ],
+        "smallGtIds": [
+          678127
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 8,
+        "score": 0.5380672812461853,
+        "blockingScores": [
+          0.316684365272522
+        ],
+        "smallGtIds": [
+          1508149
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 3,
+        "detectionIndex": 2,
+        "score": 0.7249501347541809,
+        "blockingScores": [
+          0.34042829275131226,
+          0.23449872434139252
+        ],
+        "smallGtIds": [
+          2183693
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 3,
+        "detectionIndex": 6,
+        "score": 0.5513350963592529,
+        "blockingScores": [
+          0.3027142286300659
+        ],
+        "smallGtIds": [
+          1879669
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 0,
+        "score": 0.8115169405937195,
+        "blockingScores": [
+          0.42707937955856323
+        ],
+        "smallGtIds": [
+          72200
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 1,
+        "score": 0.8078115582466125,
+        "blockingScores": [
+          0.35308781266212463
+        ],
+        "smallGtIds": [
+          278044
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.7735328674316406,
+        "blockingScores": [
+          0.3946286737918854
+        ],
+        "smallGtIds": [
+          72350
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 3,
+        "score": 0.7184444665908813,
+        "blockingScores": [
+          0.3816213011741638
+        ],
+        "smallGtIds": [
+          278242
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 5,
+        "score": 0.5240864157676697,
+        "blockingScores": [
+          0.21505124866962433
+        ],
+        "smallGtIds": [
+          1819806
+        ]
+      },
+      {
+        "imageId": 458325,
+        "tileIndex": 0,
+        "detectionIndex": 6,
+        "score": 0.6511092185974121,
+        "blockingScores": [
+          0.2411430925130844
+        ],
+        "smallGtIds": [
+          535350
+        ]
+      },
+      {
+        "imageId": 458325,
+        "tileIndex": 0,
+        "detectionIndex": 9,
+        "score": 0.5569927096366882,
+        "blockingScores": [
+          0.3630722463130951
+        ],
+        "smallGtIds": [
+          540106
+        ]
+      },
+      {
+        "imageId": 458325,
+        "tileIndex": 2,
+        "detectionIndex": 7,
+        "score": 0.6255368590354919,
+        "blockingScores": [
+          0.2411430925130844
+        ],
+        "smallGtIds": [
+          535350
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 0,
+        "detectionIndex": 1,
+        "score": 0.6756417751312256,
+        "blockingScores": [
+          0.14414332807064056
+        ],
+        "smallGtIds": [
+          626631
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 1,
+        "detectionIndex": 0,
+        "score": 0.7193297743797302,
+        "blockingScores": [
+          0.20665572583675385
+        ],
+        "smallGtIds": [
+          623343
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 3,
+        "detectionIndex": 1,
+        "score": 0.847700834274292,
+        "blockingScores": [
+          0.4879494905471802
+        ],
+        "smallGtIds": [
+          626775
+        ]
+      },
+      {
+        "imageId": 119516,
+        "tileIndex": 3,
+        "detectionIndex": 2,
+        "score": 0.6662704348564148,
+        "blockingScores": [
+          0.23618413507938385
+        ],
+        "smallGtIds": [
+          1173948
+        ]
+      },
+      {
+        "imageId": 134322,
+        "tileIndex": 2,
+        "detectionIndex": 1,
+        "score": 0.7366421222686768,
+        "blockingScores": [
+          0.46631085872650146
+        ],
+        "smallGtIds": [
+          1206443
+        ]
+      },
+      {
+        "imageId": 481386,
+        "tileIndex": 1,
+        "detectionIndex": 1,
+        "score": 0.639491081237793,
+        "blockingScores": [
+          0.2075933963060379
+        ],
+        "smallGtIds": [
+          2098386
+        ]
+      },
+      {
+        "imageId": 276720,
+        "tileIndex": 2,
+        "detectionIndex": 0,
+        "score": 0.8171869516372681,
+        "blockingScores": [
+          0.3651578724384308
+        ],
+        "smallGtIds": [
+          135847
+        ]
+      },
+      {
+        "imageId": 129756,
+        "tileIndex": 3,
+        "detectionIndex": 5,
+        "score": 0.7146931886672974,
+        "blockingScores": [
+          0.2530450224876404
+        ],
+        "smallGtIds": [
+          15335
+        ]
+      },
+      {
+        "imageId": 269942,
+        "tileIndex": 2,
+        "detectionIndex": 1,
+        "score": 0.5248014330863953,
+        "blockingScores": [
+          0.47337108850479126
+        ],
+        "smallGtIds": [
+          410459
+        ]
+      },
+      {
+        "imageId": 209142,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.5591384768486023,
+        "blockingScores": [
+          0.3466227948665619
+        ],
+        "smallGtIds": [
+          2116191
+        ]
+      },
+      {
+        "imageId": 203629,
+        "tileIndex": 1,
+        "detectionIndex": 0,
+        "score": 0.5676976442337036,
+        "blockingScores": [
+          0.4247255325317383
+        ],
+        "smallGtIds": [
+          1284704
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 0,
+        "detectionIndex": 0,
+        "score": 0.7283234000205994,
+        "blockingScores": [
+          0.42381981015205383
+        ],
+        "smallGtIds": [
+          1715499
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 1,
+        "detectionIndex": 0,
+        "score": 0.6780590415000916,
+        "blockingScores": [
+          0.42381981015205383
+        ],
+        "smallGtIds": [
+          1715499
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 1,
+        "detectionIndex": 4,
+        "score": 0.5335186123847961,
+        "blockingScores": [
+          0.2625226676464081
+        ],
+        "smallGtIds": [
+          1762387
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.7439572811126709,
+        "blockingScores": [
+          0.42381981015205383
+        ],
+        "smallGtIds": [
+          1715499
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 3,
+        "detectionIndex": 2,
+        "score": 0.7144748568534851,
+        "blockingScores": [
+          0.42381981015205383
+        ],
+        "smallGtIds": [
+          1715499
+        ]
+      },
+      {
+        "imageId": 562818,
+        "tileIndex": 3,
+        "detectionIndex": 6,
+        "score": 0.5149904489517212,
+        "blockingScores": [
+          0.2625226676464081
+        ],
+        "smallGtIds": [
+          1762387
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 2,
+        "detectionIndex": 7,
+        "score": 0.659194827079773,
+        "blockingScores": [
+          0.4056326448917389
+        ],
+        "smallGtIds": [
+          1735519
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 2,
+        "detectionIndex": 8,
+        "score": 0.5269418954849243,
+        "blockingScores": [
+          0.3442642390727997
+        ],
+        "smallGtIds": [
+          1684780
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 3,
+        "detectionIndex": 3,
+        "score": 0.6520683169364929,
+        "blockingScores": [
+          0.42296624183654785
+        ],
+        "smallGtIds": [
+          1701968
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 3,
+        "detectionIndex": 8,
+        "score": 0.5448423624038696,
+        "blockingScores": [
+          0.4056326448917389
+        ],
+        "smallGtIds": [
+          1735519
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 3,
+        "detectionIndex": 9,
+        "score": 0.5272707343101501,
+        "blockingScores": [
+          0.44898346066474915
+        ],
+        "smallGtIds": [
+          1717720
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ppyoloe",
+    "candidateCount": 60,
+    "distinctSmallGtCount": 49,
+    "examples": [
+      {
+        "imageId": 438862,
+        "tileIndex": 0,
+        "detectionIndex": 2,
+        "score": 0.5795332789421082,
+        "blockingScores": [
+          0.4227432608604431,
+          0.17106419801712036,
+          0.12842974066734314,
+          0.1064971536397934,
+          0.08186885714530945
+        ],
+        "smallGtIds": [
+          1395202
+        ]
+      },
+      {
+        "imageId": 439854,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.6073821187019348,
+        "blockingScores": [
+          0.30867472290992737,
+          0.06760140508413315
+        ],
+        "smallGtIds": [
+          1213793
+        ]
+      },
+      {
+        "imageId": 439854,
+        "tileIndex": 3,
+        "detectionIndex": 5,
+        "score": 0.5914562344551086,
+        "blockingScores": [
+          0.4857660233974457,
+          0.05031847581267357
+        ],
+        "smallGtIds": [
+          214526
+        ]
+      },
+      {
+        "imageId": 439854,
+        "tileIndex": 3,
+        "detectionIndex": 6,
+        "score": 0.5558279752731323,
+        "blockingScores": [
+          0.462410032749176,
+          0.1589718461036682,
+          0.06651441752910614
+        ],
+        "smallGtIds": [
+          2004433
+        ]
+      },
+      {
+        "imageId": 250282,
+        "tileIndex": 1,
+        "detectionIndex": 0,
+        "score": 0.7128906846046448,
+        "blockingScores": [
+          0.3281172811985016
+        ],
+        "smallGtIds": [
+          1841438
+        ]
+      },
+      {
+        "imageId": 250282,
+        "tileIndex": 3,
+        "detectionIndex": 9,
+        "score": 0.6306260228157043,
+        "blockingScores": [
+          0.1624048352241516,
+          0.13708056509494781,
+          0.13386140763759613,
+          0.11420602351427078
+        ],
+        "smallGtIds": [
+          1840939
+        ]
+      },
+      {
+        "imageId": 250282,
+        "tileIndex": 3,
+        "detectionIndex": 12,
+        "score": 0.5929926633834839,
+        "blockingScores": [
+          0.43174538016319275
+        ],
+        "smallGtIds": [
+          1841160
+        ]
+      },
+      {
+        "imageId": 250282,
+        "tileIndex": 3,
+        "detectionIndex": 13,
+        "score": 0.5425412654876709,
+        "blockingScores": [
+          0.48504209518432617,
+          0.42570605874061584,
+          0.12773610651493073
+        ],
+        "smallGtIds": [
+          1840835
+        ]
+      },
+      {
+        "imageId": 26690,
+        "tileIndex": 3,
+        "detectionIndex": 0,
+        "score": 0.7329608798027039,
+        "blockingScores": [
+          0.4990476667881012,
+          0.23165778815746307,
+          0.1961972564458847,
+          0.08260738849639893
+        ],
+        "smallGtIds": [
+          561562
+        ]
+      },
+      {
+        "imageId": 541123,
+        "tileIndex": 1,
+        "detectionIndex": 5,
+        "score": 0.556797444820404,
+        "blockingScores": [
+          0.4301258325576782
+        ],
+        "smallGtIds": [
+          1304299
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 0,
+        "detectionIndex": 1,
+        "score": 0.6361133456230164,
+        "blockingScores": [
+          0.28699958324432373,
+          0.14630268514156342
+        ],
+        "smallGtIds": [
+          2016459
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 1,
+        "detectionIndex": 3,
+        "score": 0.5401023030281067,
+        "blockingScores": [
+          0.4792349338531494
+        ],
+        "smallGtIds": [
+          1265911
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 2,
+        "detectionIndex": 1,
+        "score": 0.6439880728721619,
+        "blockingScores": [
+          0.26405832171440125,
+          0.1172029972076416,
+          0.09841529279947281
+        ],
+        "smallGtIds": [
+          1391943
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.5611132979393005,
+        "blockingScores": [
+          0.12263169139623642
+        ],
+        "smallGtIds": [
+          1392348
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 3,
+        "detectionIndex": 3,
+        "score": 0.5885065197944641,
+        "blockingScores": [
+          0.43058761954307556,
+          0.29924115538597107,
+          0.2534662187099457,
+          0.22033259272575378,
+          0.2088618129491806
+        ],
+        "smallGtIds": [
+          201843
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 3,
+        "detectionIndex": 5,
+        "score": 0.5274674296379089,
+        "blockingScores": [
+          0.4792349338531494
+        ],
+        "smallGtIds": [
+          1265911
+        ]
+      },
+      {
+        "imageId": 287874,
+        "tileIndex": 3,
+        "detectionIndex": 6,
+        "score": 0.5042328834533691,
+        "blockingScores": [
+          0.3975255489349365
+        ],
+        "smallGtIds": [
+          2014031
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 0,
+        "detectionIndex": 6,
+        "score": 0.5512004494667053,
+        "blockingScores": [
+          0.4765204191207886,
+          0.3300682604312897
+        ],
+        "smallGtIds": [
+          1513319
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 1,
+        "detectionIndex": 5,
+        "score": 0.6299018263816833,
+        "blockingScores": [
+          0.4765204191207886,
+          0.3300682604312897
+        ],
+        "smallGtIds": [
+          1513319
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 1,
+        "detectionIndex": 9,
+        "score": 0.5089532136917114,
+        "blockingScores": [
+          0.20817165076732635
+        ],
+        "smallGtIds": [
+          1596232
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 4,
+        "score": 0.7858492732048035,
+        "blockingScores": [
+          0.42751526832580566,
+          0.31453198194503784,
+          0.15933546423912048,
+          0.1482015997171402
+        ],
+        "smallGtIds": [
+          1513675
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 11,
+        "score": 0.5509834289550781,
+        "blockingScores": [
+          0.4428688883781433
+        ],
+        "smallGtIds": [
+          1514294
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 12,
+        "score": 0.5409618616104126,
+        "blockingScores": [
+          0.4765204191207886,
+          0.3300682604312897
+        ],
+        "smallGtIds": [
+          1513319
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 2,
+        "detectionIndex": 15,
+        "score": 0.5100281834602356,
+        "blockingScores": [
+          0.43819332122802734,
+          0.1688777357339859
+        ],
+        "smallGtIds": [
+          2103784
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 3,
+        "detectionIndex": 8,
+        "score": 0.5721338987350464,
+        "blockingScores": [
+          0.4765204191207886,
+          0.3300682604312897
+        ],
+        "smallGtIds": [
+          1513319
+        ]
+      },
+      {
+        "imageId": 483999,
+        "tileIndex": 3,
+        "detectionIndex": 11,
+        "score": 0.532416582107544,
+        "blockingScores": [
+          0.4428688883781433
+        ],
+        "smallGtIds": [
+          1514294
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 0,
+        "detectionIndex": 3,
+        "score": 0.5529056191444397,
+        "blockingScores": [
+          0.3784882128238678
+        ],
+        "smallGtIds": [
+          716270
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 0,
+        "detectionIndex": 5,
+        "score": 0.5064038038253784,
+        "blockingScores": [
+          0.21514979004859924
+        ],
+        "smallGtIds": [
+          1039930
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 1,
+        "detectionIndex": 1,
+        "score": 0.7854307293891907,
+        "blockingScores": [
+          0.41114363074302673,
+          0.3996495008468628
+        ],
+        "smallGtIds": [
+          1401858
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 2,
+        "detectionIndex": 4,
+        "score": 0.5690791606903076,
+        "blockingScores": [
+          0.3784882128238678
+        ],
+        "smallGtIds": [
+          716270
+        ]
+      },
+      {
+        "imageId": 60823,
+        "tileIndex": 2,
+        "detectionIndex": 7,
+        "score": 0.5022273659706116,
+        "blockingScores": [
+          0.33308538794517517
+        ],
+        "smallGtIds": [
+          1399276
+        ]
+      },
+      {
+        "imageId": 256868,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.5144333839416504,
+        "blockingScores": [
+          0.29687681794166565,
+          0.22935551404953003,
+          0.12909187376499176,
+          0.10512705147266388
+        ],
+        "smallGtIds": [
+          1732113
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 8,
+        "score": 0.6423236727714539,
+        "blockingScores": [
+          0.3349549472332001,
+          0.2600235939025879
+        ],
+        "smallGtIds": [
+          1868440
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 11,
+        "score": 0.580935537815094,
+        "blockingScores": [
+          0.1494523137807846,
+          0.144389808177948
+        ],
+        "smallGtIds": [
+          1886065
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 2,
+        "detectionIndex": 13,
+        "score": 0.5592932105064392,
+        "blockingScores": [
+          0.407823771238327
+        ],
+        "smallGtIds": [
+          676496
+        ]
+      },
+      {
+        "imageId": 546219,
+        "tileIndex": 3,
+        "detectionIndex": 9,
+        "score": 0.5778383612632751,
+        "blockingScores": [
+          0.3349549472332001,
+          0.2600235939025879
+        ],
+        "smallGtIds": [
+          1868440
+        ]
+      },
+      {
+        "imageId": 228436,
+        "tileIndex": 0,
+        "detectionIndex": 2,
+        "score": 0.6958115696907043,
+        "blockingScores": [
+          0.3953727185726166,
+          0.34339258074760437,
+          0.1410459727048874
+        ],
+        "smallGtIds": [
+          134427
+        ]
+      },
+      {
+        "imageId": 228436,
+        "tileIndex": 1,
+        "detectionIndex": 4,
+        "score": 0.5375769138336182,
+        "blockingScores": [
+          0.1904507428407669
+        ],
+        "smallGtIds": [
+          2044338
+        ]
+      },
+      {
+        "imageId": 228436,
+        "tileIndex": 1,
+        "detectionIndex": 5,
+        "score": 0.5140277743339539,
+        "blockingScores": [
+          0.3505103290081024
+        ],
+        "smallGtIds": [
+          1353611
+        ]
+      },
+      {
+        "imageId": 125072,
+        "tileIndex": 2,
+        "detectionIndex": 5,
+        "score": 0.6159743070602417,
+        "blockingScores": [
+          0.4478757083415985,
+          0.21682094037532806,
+          0.101286381483078
+        ],
+        "smallGtIds": [
+          1819806
+        ]
+      },
+      {
+        "imageId": 458325,
+        "tileIndex": 1,
+        "detectionIndex": 10,
+        "score": 0.5636240243911743,
+        "blockingScores": [
+          0.41496366262435913
+        ],
+        "smallGtIds": [
+          542415
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 0,
+        "detectionIndex": 2,
+        "score": 0.6709606051445007,
+        "blockingScores": [
+          0.4936501979827881
+        ],
+        "smallGtIds": [
+          626540
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 1,
+        "detectionIndex": 2,
+        "score": 0.7117828726768494,
+        "blockingScores": [
+          0.4936501979827881
+        ],
+        "smallGtIds": [
+          626540
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 2,
+        "detectionIndex": 4,
+        "score": 0.560490071773529,
+        "blockingScores": [
+          0.4936501979827881
+        ],
+        "smallGtIds": [
+          626540
+        ]
+      },
+      {
+        "imageId": 208423,
+        "tileIndex": 3,
+        "detectionIndex": 4,
+        "score": 0.6064255833625793,
+        "blockingScores": [
+          0.4936501979827881
+        ],
+        "smallGtIds": [
+          626540
+        ]
+      },
+      {
+        "imageId": 119516,
+        "tileIndex": 3,
+        "detectionIndex": 2,
+        "score": 0.8064356446266174,
+        "blockingScores": [
+          0.11744779348373413
+        ],
+        "smallGtIds": [
+          1734828
+        ]
+      },
+      {
+        "imageId": 119516,
+        "tileIndex": 3,
+        "detectionIndex": 3,
+        "score": 0.7218313217163086,
+        "blockingScores": [
+          0.4293387532234192,
+          0.09703932702541351
+        ],
+        "smallGtIds": [
+          1173948
+        ]
+      },
+      {
+        "imageId": 570456,
+        "tileIndex": 2,
+        "detectionIndex": 0,
+        "score": 0.5633349418640137,
+        "blockingScores": [
+          0.4787595272064209
+        ],
+        "smallGtIds": [
+          716416
+        ]
+      },
+      {
+        "imageId": 570456,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.5087032318115234,
+        "blockingScores": [
+          0.49956193566322327,
+          0.093443863093853
+        ],
+        "smallGtIds": [
+          1534527
+        ]
+      },
+      {
+        "imageId": 481386,
+        "tileIndex": 1,
+        "detectionIndex": 3,
+        "score": 0.5189563035964966,
+        "blockingScores": [
+          0.4609394669532776
+        ],
+        "smallGtIds": [
+          665689
+        ]
+      },
+      {
+        "imageId": 376093,
+        "tileIndex": 3,
+        "detectionIndex": 5,
+        "score": 0.6059242486953735,
+        "blockingScores": [
+          0.4803732633590698,
+          0.0887046679854393
+        ],
+        "smallGtIds": [
+          1887041
+        ]
+      },
+      {
+        "imageId": 269942,
+        "tileIndex": 2,
+        "detectionIndex": 1,
+        "score": 0.6073601245880127,
+        "blockingScores": [
+          0.26633337140083313,
+          0.2007928192615509
+        ],
+        "smallGtIds": [
+          1355143
+        ]
+      },
+      {
+        "imageId": 27186,
+        "tileIndex": 3,
+        "detectionIndex": 1,
+        "score": 0.5673792362213135,
+        "blockingScores": [
+          0.16473983228206635
+        ],
+        "smallGtIds": [
+          1109234
+        ]
+      },
+      {
+        "imageId": 209142,
+        "tileIndex": 1,
+        "detectionIndex": 3,
+        "score": 0.6228473782539368,
+        "blockingScores": [
+          0.25235113501548767,
+          0.19697381556034088
+        ],
+        "smallGtIds": [
+          1560604
+        ]
+      },
+      {
+        "imageId": 203629,
+        "tileIndex": 0,
+        "detectionIndex": 1,
+        "score": 0.5611786842346191,
+        "blockingScores": [
+          0.41531291604042053,
+          0.37229183316230774,
+          0.1447235494852066,
+          0.1032734140753746,
+          0.0924251601099968,
+          0.07964302599430084
+        ],
+        "smallGtIds": [
+          1299756
+        ]
+      },
+      {
+        "imageId": 203629,
+        "tileIndex": 0,
+        "detectionIndex": 2,
+        "score": 0.5191518068313599,
+        "blockingScores": [
+          0.2994098663330078,
+          0.20547093451023102,
+          0.14752422273159027
+        ],
+        "smallGtIds": [
+          2000962
+        ]
+      },
+      {
+        "imageId": 238410,
+        "tileIndex": 2,
+        "detectionIndex": 2,
+        "score": 0.7002028226852417,
+        "blockingScores": [
+          0.27430593967437744,
+          0.16320699453353882
+        ],
+        "smallGtIds": [
+          83297
+        ]
+      },
+      {
+        "imageId": 238410,
+        "tileIndex": 2,
+        "detectionIndex": 3,
+        "score": 0.6875213384628296,
+        "blockingScores": [
+          0.24190668761730194,
+          0.16765014827251434
+        ],
+        "smallGtIds": [
+          2182803
+        ]
+      },
+      {
+        "imageId": 238410,
+        "tileIndex": 3,
+        "detectionIndex": 6,
+        "score": 0.5177618861198425,
+        "blockingScores": [
+          0.27430593967437744,
+          0.16320699453353882
+        ],
+        "smallGtIds": [
+          83297
+        ]
+      },
+      {
+        "imageId": 119641,
+        "tileIndex": 2,
+        "detectionIndex": 8,
+        "score": 0.6181410551071167,
+        "blockingScores": [
+          0.44697305560112,
+          0.3018029034137726,
+          0.2935919761657715
+        ],
+        "smallGtIds": [
+          1684780
+        ]
+      }
+    ]
+  }
+]

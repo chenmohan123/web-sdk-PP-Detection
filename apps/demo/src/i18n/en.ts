@@ -58,6 +58,7 @@ export const en: Copy = {
   detections: "objects",
   box: "Boxes",
   threshold: "Confidence threshold",
+  smallObjectEnhancement: "Small object enhancement (Labs)",
   classThresholds: "Class thresholds",
   classThreshold: "Class threshold",
   classThresholdHint: "Leave blank to inherit the global threshold",

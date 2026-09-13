@@ -1,0 +1,26 @@
+[
+  {
+    "file": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-refinement\\dataset-readme.md",
+    "url": "https://raw.githubusercontent.com/VisDrone/VisDrone-Dataset/master/README.md",
+    "bytes": 7515,
+    "sha256": "e13bb2b97a677e9afb98d9b9bf97bc83a1f23c902bb6f28c39caebc23dbd0701"
+  },
+  {
+    "file": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-refinement\\annotation-readme.md",
+    "url": "https://raw.githubusercontent.com/VisDrone/VisDrone2018-DET-toolkit/master/README.md",
+    "bytes": 7845,
+    "sha256": "d2de211602633bdbd008f912b2d73e253a9c39970bb3823430fe6cbb6f07b562"
+  },
+  {
+    "file": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-refinement\\mirror.yaml",
+    "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/main/ultralytics/cfg/datasets/VisDrone.yaml",
+    "bytes": 3395,
+    "sha256": "627f60f7602db38b6a462301ced87ad24bcdee2a692eaa9d4e02448492bb29fe"
+  },
+  {
+    "file": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-refinement\\VisDrone2019-DET-val.zip",
+    "url": "https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip",
+    "bytes": 81638851,
+    "sha256": "abeea063037e5d20398837deb11084e652402a34ddf4f207bdf541a6f2a35ef9"
+  }
+]

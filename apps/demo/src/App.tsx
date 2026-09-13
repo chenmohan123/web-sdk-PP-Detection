@@ -33,6 +33,7 @@ import {
   type PPDetectionModel,
   type PPDetectionResult,
   type PPDetectionLoadTimings,
+  type DetectionProgress,
   type ModelManifest
 } from "web-sdk-pp-detection";
 
@@ -284,6 +285,8 @@ export function App(): ReactElement {
   const [modelSourceChanging, setModelSourceChanging] = useState(false);
   const [inputMode, setInputMode] = useState<InputMode>("image");
   const [threshold, setThreshold] = useState(0.5);
+  const [smallObjectEnhancement, setSmallObjectEnhancement] = useState(false);
+  const [detectionProgress, setDetectionProgress] = useState<DetectionProgress>();
   const [status, setStatus] = useState<Status>("ready");
   const [detectionActive, setDetectionActive] = useState(false);
   const [downloadPercentage, setDownloadPercentage] = useState<number | undefined>();
@@ -717,6 +720,7 @@ export function App(): ReactElement {
     abortRef.current?.abort("cancelled");
     abortRef.current = undefined;
     setStatus("ready");
+    setDetectionProgress(undefined);
   };
 
   const updateClassThreshold = (label: string, value: string): void => {
@@ -740,6 +744,7 @@ export function App(): ReactElement {
     }
     const controller = new AbortController();
     abortRef.current = controller;
+    setDetectionProgress(undefined);
     setDownloadPercentage(undefined);
     try {
       if (initialize) {
@@ -797,6 +802,11 @@ export function App(): ReactElement {
         source instanceof HTMLVideoElement ? document.createElement("canvas") : undefined;
       if (frame !== undefined && source instanceof HTMLVideoElement) drawVideoSource(frame, source);
       const nextResult = await detector.detect(frame ?? source, {
+        smallObjectEnhancement: inputMode === "image" && smallObjectEnhancement,
+        onProgress: (event) => {
+          if (controller.signal.aborted || abortRef.current !== controller) return;
+          if (inputMode === "image" && smallObjectEnhancement) setDetectionProgress(event);
+        },
         ...(Object.keys(activeClassThresholds).length === 0
           ? {}
           : { classThresholds: activeClassThresholds }),
@@ -1159,6 +1169,17 @@ export function App(): ReactElement {
                 </select>
               </label>
             )}
+            {inputMode === "image" && (
+              <label className="small-object-control">
+                <input
+                  type="checkbox"
+                  checked={smallObjectEnhancement}
+                  disabled={detectionActive || cacheClearing || modelSourceChanging}
+                  onChange={(event) => setSmallObjectEnhancement(event.target.checked)}
+                />
+                <span>{copy.smallObjectEnhancement}</span>
+              </label>
+            )}
             <div className="control-actions">
               {inputMode === "image" ? (
                 <>
@@ -1278,7 +1299,7 @@ export function App(): ReactElement {
               : status === "loading"
                 ? copy.loading
                 : status === "running"
-                  ? copy.running
+                  ? `${copy.running}${detectionProgress === undefined ? "" : ` ${detectionProgress.completed}/${detectionProgress.total}`}`
                   : status === "success"
                     ? copy.success
                     : status === "error"

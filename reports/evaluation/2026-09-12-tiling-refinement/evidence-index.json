@@ -1,0 +1,343 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 139,
+      "sha256": "342ae3ddb176044af176ea92d322405796f0e5f2d5c71cbbdb010a48c9742684",
+      "localOnly": false
+    },
+    {
+      "path": "browser/picodet-fp16-webgpu.json.gz",
+      "bytes": 2038229,
+      "sha256": "6c6a527781389f6f322e30e3de7051ba92d3126e29d21aa6fcadfe13db69b5b5",
+      "localOnly": true
+    },
+    {
+      "path": "browser/picodet-fp32-wasm.json.gz",
+      "bytes": 3580653,
+      "sha256": "e14c5389453c4f4d6564db1947c67457b725c0ef83b72ca638fc1403d56c223b",
+      "localOnly": true
+    },
+    {
+      "path": "browser/picodet-fp32-webgpu-sanity2.json.gz",
+      "bytes": 226357,
+      "sha256": "0101c9888a9a167df74194970e391a573d5f811f45069365237d615b682a65d3",
+      "localOnly": true
+    },
+    {
+      "path": "browser/picodet-fp32-webgpu.json.gz",
+      "bytes": 3579041,
+      "sha256": "d5596c4a8728db408d7b3eab7135d1a7d4e412bfc1e6e8f6309246ff634092a4",
+      "localOnly": true
+    },
+    {
+      "path": "browser/picodet-w8a32-webgpu.json.gz",
+      "bytes": 3610966,
+      "sha256": "3ab29bf3af8b9c9e95b0b960c079b72b281bbce9c211b5bd656a093fd2803e60",
+      "localOnly": true
+    },
+    {
+      "path": "browser/ppyoloe-fp16-webgpu.json.gz",
+      "bytes": 6507111,
+      "sha256": "25ca6e85d344f5ae82c6ad346ca2dd6ac80e01d7484f81208b98b6c8880d3242",
+      "localOnly": true
+    },
+    {
+      "path": "browser/ppyoloe-fp32-wasm.json.gz",
+      "bytes": 11792551,
+      "sha256": "c3ac1e8b3026e4805ad1f0cbe8197cab236dcf16562c1e3dac458728c9ce4138",
+      "localOnly": true
+    },
+    {
+      "path": "browser/ppyoloe-fp32-webgpu.json.gz",
+      "bytes": 11807559,
+      "sha256": "aa37df3732993874cc296926278cc94fdb9f691637f2d67ac87ffd51a76e475f",
+      "localOnly": true
+    },
+    {
+      "path": "browser/ppyoloe-w8a32-webgpu.json.gz",
+      "bytes": 11712287,
+      "sha256": "179346a7b5bafe03dc5459fe07dbc264eddd9f68e6ceb6b2d1f3cabaf997afdc",
+      "localOnly": true
+    },
+    {
+      "path": "cases.json",
+      "bytes": 2486,
+      "sha256": "e8ba07818e3f8b4dd1b4e3f6a77a9df67dd43b8dbc3d4166dc6a66ba68b48ba9",
+      "localOnly": false
+    },
+    {
+      "path": "comparison.md",
+      "bytes": 4348,
+      "sha256": "9c3e3419a7be4e75a8222608eb8701c6980af3fb836741989627cddbc44b9fa7",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/choose_strategy.py",
+      "bytes": 4069,
+      "sha256": "c73355701a2d390e4c7577e45ce573ba466720d3363d9e8d47887383fb74d161",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/diagnostic-inputs.json",
+      "bytes": 1545,
+      "sha256": "3c32078a8bf47eeda901e625193c8f1adfd0783abe01e0c8d3e418bcce8b40ac",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/merge.mjs",
+      "bytes": 2223,
+      "sha256": "a83e847222ba1aed088f09225741423c835c357456db79ae23bdd1a72345bf8f",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/offline.mjs",
+      "bytes": 3085,
+      "sha256": "e7ed97261c062692b4fb07b653939f75a5670c2829720f335dc354c399a52fdb",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/protocol.md",
+      "bytes": 3026,
+      "sha256": "31c43692d3583d816770528ab4183d079538ec7170301663b362b8559eb9ed46",
+      "localOnly": false
+    },
+    {
+      "path": "development-v1/selection.json",
+      "bytes": 9668,
+      "sha256": "2d81ddc4a22fac9cf513d945a6c9c2b0f323572e706a258247591ae0623640cd",
+      "localOnly": false
+    },
+    {
+      "path": "diagnostic-inputs.json",
+      "bytes": 1841,
+      "sha256": "4c0affa6b4b19aaa8f0e65cc77b788d0dc6e7640b2f3aa7867b87f44dd167d20",
+      "localOnly": false
+    },
+    {
+      "path": "figures/overview.png",
+      "bytes": 139565,
+      "sha256": "ae8a08ab80359d3ea3fcb6c443275023b6b827ab209c094be1524ada89b591c5",
+      "localOnly": false
+    },
+    {
+      "path": "figures/picodet-fp-cost-2.jpg",
+      "bytes": 339333,
+      "sha256": "25483543a8377baa59b1c67473c94aa23f4f19637107e1a05b3ab6374b009a26",
+      "localOnly": true
+    },
+    {
+      "path": "figures/picodet-gain-18.jpg",
+      "bytes": 302341,
+      "sha256": "e316fc022942f0915916df6c4aa7a849f6bc502e87087f6bc6c9efc7cebddb3b",
+      "localOnly": true
+    },
+    {
+      "path": "figures/picodet-loss-1.jpg",
+      "bytes": 318298,
+      "sha256": "feba72228bfe10b8412a0077b126a7709b836a4481ac3df3643ec4782f9314de",
+      "localOnly": true
+    },
+    {
+      "path": "figures/ppyoloe-fp-cost-27.jpg",
+      "bytes": 355020,
+      "sha256": "55b533d353f2d61fbdf2a0382673d692f5e80e71652e36b8ca1813c5a73ef3e8",
+      "localOnly": true
+    },
+    {
+      "path": "figures/ppyoloe-gain-18.jpg",
+      "bytes": 305155,
+      "sha256": "988c2483e3552ff739b6b8be94e1a3e54ca448938017767b9762633858fcb696",
+      "localOnly": true
+    },
+    {
+      "path": "figures/ppyoloe-loss-1.jpg",
+      "bytes": 321481,
+      "sha256": "9a67a1511b1fad96d2f91014a4f6617d84a2087543589ddc762c940b01854853",
+      "localOnly": true
+    },
+    {
+      "path": "holdout-annotations.json",
+      "bytes": 374830,
+      "sha256": "623486b9cab52d934ae45a718f48962c145d921b81c25a34a530bdf0a5510039",
+      "localOnly": true
+    },
+    {
+      "path": "holdout-lock.json",
+      "bytes": 22283,
+      "sha256": "c101977300442b0b3f5d93ffee9f4bcd734731a06fb38b3c5eaed1720f32f230",
+      "localOnly": false
+    },
+    {
+      "path": "holdout-summary.json",
+      "bytes": 44970,
+      "sha256": "090c4dde070727550b96e2db38cbbcf54b78eb042d32b53670bfc09a9948cb6d",
+      "localOnly": false
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 14443,
+      "sha256": "bccffffcd50171cdac8853f78a41dfdef037edae858a77bccce73ffd30954ef6",
+      "localOnly": false
+    },
+    {
+      "path": "matches-diagnostic.json.gz",
+      "bytes": 337697,
+      "sha256": "3c91cd00d7d5c0a7f080aeb47c73817a4d72c14813f16f1deae194f89f62f553",
+      "localOnly": true
+    },
+    {
+      "path": "matches-holdout.json.gz",
+      "bytes": 994022,
+      "sha256": "c2980cf1ffbd74d48b52adfb269514a7398bed9f5e252c1bcd9073f7205476dc",
+      "localOnly": true
+    },
+    {
+      "path": "predictions/picodet-diagnostic.json.gz",
+      "bytes": 7893432,
+      "sha256": "a14914733335e81d4f2ef91d58955c309e808df1d6425cb095affbce950ce547",
+      "localOnly": true
+    },
+    {
+      "path": "predictions/ppyoloe-diagnostic.json.gz",
+      "bytes": 27296288,
+      "sha256": "8f562dbad01d5e8691cefb50d1a51216edcf40dc422ede74552cfb7d8319fbc4",
+      "localOnly": true
+    },
+    {
+      "path": "protocol.md",
+      "bytes": 3987,
+      "sha256": "c8b8d2e042e76b39924d8e79000515b741f2ac00d8924d1fdff73a7efa9ad558",
+      "localOnly": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 8815,
+      "sha256": "39b93886139f25ac69fbed482958f069ce3f73df490468f55a1ae861cc90c192",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/build_probe.py",
+      "bytes": 3308,
+      "sha256": "17583d2c65e45afaa1c96959b227f5161b9b43e3fbee8ba2dc68a773bf81ad62",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/check_browser_merges.mjs",
+      "bytes": 987,
+      "sha256": "53ba697878cbe23e38cd053fa72fecf31e9546bd68b23f9ad6abdc67de03e939",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/choose_strategy.py",
+      "bytes": 4107,
+      "sha256": "ee75186b1d7587a488f46673362600b5ca4a9de5b50d1799595ae0a4194e57e5",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/diagnose_anchors.py",
+      "bytes": 1957,
+      "sha256": "865d32c435af9d6f55c9d372c050fe036e2f992a7f7a3f3dbb3e46380ff031b7",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/evaluate_holdout.py",
+      "bytes": 4748,
+      "sha256": "eb008cf229a80a7bee2911737c34db099f738ea30dffac973d0e1b4cbbd6ba8d",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/fetch_validation.py",
+      "bytes": 1916,
+      "sha256": "1573080daa594740a75e9d4b87329380daea706f880de2bc8b179f287ef27f76",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/merge.mjs",
+      "bytes": 2668,
+      "sha256": "fd4460c6ed1aed96d337b81045fe958d7892eda2b1d05edb98bee2d09cc5a78a",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/offline.mjs",
+      "bytes": 3241,
+      "sha256": "314a5d0ffd9d16c41ec68f15175eb1c79fd3e606e32cfb31f34a67a07c9d3dc8",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/prepare_holdout.py",
+      "bytes": 5498,
+      "sha256": "5f931969e0edac7fc6b096e8c23c4ed16133f7ba85c5549d73bcab98d4e0c39a",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/README.md",
+      "bytes": 5374,
+      "sha256": "85b01f109a629a7bb03bc2fd05348b6fee5f1949256326110233b727982d8657",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/render_report.py",
+      "bytes": 6293,
+      "sha256": "7de360c6b97d9f2f2d25605304f7c6ea09e2869913d803a9e06fa0cad7e62124",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/run-holdout.mjs",
+      "bytes": 11652,
+      "sha256": "b46f876522895ab3736e77ef03059a27e5d710f252ba13a92f3bd462350b55e2",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/run-matrix.ps1",
+      "bytes": 570,
+      "sha256": "0d5ba2dda9a6e71e2cbf304e6bc21b9460b470c57066836bade71142892dbd73",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/tiling.mjs",
+      "bytes": 2114,
+      "sha256": "8ac83c67c6f1e8b029ee1cb42519245e1d8e1ae89c013e3ced0642e36ef873a7",
+      "localOnly": false
+    },
+    {
+      "path": "reproduction/verify.py",
+      "bytes": 4707,
+      "sha256": "e9e4c2504a2ac6ca34865540d82db4ea28e31cc9a6ecc2b87cf1f7b103c17e09",
+      "localOnly": false
+    },
+    {
+      "path": "selection.json",
+      "bytes": 11710,
+      "sha256": "249c2e48e26be50ef536ac4caecf340dc047ee925e3f0380e80972568a16580f",
+      "localOnly": false
+    },
+    {
+      "path": "sources.json",
+      "bytes": 1323,
+      "sha256": "269a867a3ee66306eedf9a2260eedfe4a92175d473907e0324f1de29c3831426",
+      "localOnly": false
+    },
+    {
+      "path": "standard-after.json",
+      "bytes": 11809,
+      "sha256": "f223801c659ec52055f62d2eecb0b050dfbaee680b14e4d53bee2b51d929f0fb",
+      "localOnly": false
+    },
+    {
+      "path": "standard-before.json",
+      "bytes": 11558,
+      "sha256": "85f9edbfee147d776332f9bb4fc9e9c638bac106ac8ca1470571d1013487f12d",
+      "localOnly": false
+    },
+    {
+      "path": "weak-anchor-diagnosis.json",
+      "bytes": 31715,
+      "sha256": "9e3721207aff75f757c5e55476122d13ab388e9ed383ef45b9307e1cb4160e0b",
+      "localOnly": false
+    }
+  ],
+  "smallBoundary1024": 1,
+  "largeBoundary9216": 0,
+  "localOnlyBytes": 93692651
+}

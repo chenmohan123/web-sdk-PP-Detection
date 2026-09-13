@@ -1,0 +1,6 @@
+Scope: 8 of 9 workspace projects
+packages/sdk lint$ eslint src
+packages/sdk lint: Done
+apps/demo lint$ eslint src tests
+apps/demo lint: Done
+$ pnpm -r --if-present lint

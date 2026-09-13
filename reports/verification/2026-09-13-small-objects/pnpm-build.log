@@ -1,0 +1,33 @@
+CLI Building entry: {"index":"src/index.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI Building entry: {"inference.worker":"src/worker/inference.worker.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI Building entry: {"browser-global":"src/browser-global.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-small-objects\packages\sdk\tsup.config.ts
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-small-objects\packages\sdk\tsup.config.ts
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-small-objects\packages\sdk\tsup.config.ts
+CLI Target: es2022
+CLI Target: es2022
+IIFE Build start
+CLI Target: es2022
+ESM Build start
+CLI Cleaning output folder
+ESM Build start
+DTS Build start
+DTS ⚡️ Build success in 2012ms
+DTS dist\index.d.ts 23.70 KB
+ESM dist\index.js     112.74 KB
+ESM dist\index.js.map 258.96 KB
+ESM ⚡️ Build success in 2625ms
+ESM dist\inference.worker.js     677.69 KB
+ESM dist\inference.worker.js.map 2.02 MB
+ESM ⚡️ Build success in 2636ms
+IIFE dist\browser-global.js     813.44 KB
+IIFE dist\browser-global.js.map 2.25 MB
+IIFE ⚡️ Build success in 2639ms
+$ pnpm --filter web-sdk-pp-detection build
+$ tsup --config tsup.config.ts

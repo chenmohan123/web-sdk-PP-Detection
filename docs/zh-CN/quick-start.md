@@ -2,7 +2,7 @@
 
 [English](../en/quick-start.md)
 
-安装 `web-sdk-pp-detection@0.3.2` 后，浏览器会在第一次创建检测器时探测能力、下载外部清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。npm 包不内置清单或 ONNX 权重，必须显式传入 `model` 或 `manifest`。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 均提供 FP32、FP16、W8A32 稳定变体；默认组合为 PicoDet、ModelScope、FP32。
+安装 `web-sdk-pp-detection@0.4.0` 后，浏览器会在第一次创建检测器时探测能力、下载外部清单与模型、校验 SHA-256，并创建 ONNX Runtime 会话。npm 包不内置清单或 ONNX 权重，必须显式传入 `model` 或 `manifest`。当前 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 均提供 FP32、FP16、W8A32 稳定变体；默认组合为 PicoDet、ModelScope、FP32。
 
 页面至少需要一个单图文件输入：
 

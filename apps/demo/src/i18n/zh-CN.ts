@@ -56,6 +56,7 @@ export const zhCN = {
   detections: "个目标",
   box: "框",
   threshold: "置信度阈值",
+  smallObjectEnhancement: "小目标增强（实验）",
   classThresholds: "类别阈值",
   classThreshold: "类别阈值",
   classThresholdHint: "留空时继承全局阈值",

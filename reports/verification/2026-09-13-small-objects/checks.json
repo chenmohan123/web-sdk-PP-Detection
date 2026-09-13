@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-13T04:08:25.410Z",
+  "results": [
+    { "command": "pnpm docs:test", "exitCode": 0, "log": "pnpm-docs-test.log" },
+    {
+      "command": "pnpm examples:check",
+      "exitCode": 0,
+      "log": "pnpm-examples-check.log"
+    },
+    {
+      "command": "pnpm release:test",
+      "exitCode": 0,
+      "log": "pnpm-release-test.log"
+    },
+    {
+      "command": "pnpm benchmark:test",
+      "exitCode": 0,
+      "log": "pnpm-benchmark-test.log"
+    },
+    { "command": "pnpm build", "exitCode": 0, "log": "pnpm-build.log" },
+    {
+      "command": "pnpm --filter @ppdetection/demo build",
+      "exitCode": 0,
+      "log": "pnpm---filter-ppdetection-demo-build.log"
+    },
+    {
+      "command": "pnpm format:check",
+      "exitCode": 0,
+      "log": "pnpm-format-check.log"
+    },
+    { "command": "pnpm lint", "exitCode": 0, "log": "pnpm-lint.log" },
+    { "command": "pnpm typecheck", "exitCode": 0, "log": "pnpm-typecheck.log" },
+    {
+      "command": "pnpm --filter @ppdetection/demo typecheck",
+      "exitCode": 0,
+      "log": "pnpm---filter-ppdetection-demo-typecheck.log"
+    }
+  ],
+  "initialFailures": [
+    {
+      "command": "pnpm format:check",
+      "exitCode": 1,
+      "resolution": "整理本轮文件和两份既有实验报告的排版后，格式检查通过。"
+    }
+  ],
+  "additionalVerification": {
+    "sdkUnitTests": { "passed": 204, "failed": 0 },
+    "runtimeLifecycle": {
+      "passed": 2,
+      "failed": 0,
+      "modes": ["main", "worker"]
+    },
+    "apiExtractor": { "passed": true, "report": "public-api.api.md" },
+    "browser": "browser-checks.json",
+    "realModels": "real-models.json",
+    "standard": "sdk-standard-after.json"
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "preparedAt": "2026-09-12T14:02:08.197168+00:00",
+  "sdkCommit": "152b176327bf9a68a445818c622e985678ea1c51",
+  "sdkRoot": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection",
+  "sdkVersion": "0.3.2",
+  "sdkBundle": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\packages\\sdk\\dist\\browser-global.js",
+  "sdkSha256": "c6245db2755a75b2465cb5d6a7b842ace9575cce032abbcf8377ae1658726adc",
+  "protocolSha256": "c8b8d2e042e76b39924d8e79000515b741f2ac00d8924d1fdff73a7efa9ad558",
+  "annotations": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-12-tiling-refinement\\holdout-annotations.json",
+  "annotationsSha256": "623486b9cab52d934ae45a718f48962c145d921b81c25a34a530bdf0a5510039",
+  "imageRoot": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-refinement\\images",
+  "images": [
+    {
+      "id": 1,
+      "file_name": "0000289_03601_d_0000829.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "2e288a32502bee4f3c1950725d19457ba80fe75862c91930faae516a8f80b93e"
+    },
+    {
+      "id": 2,
+      "file_name": "0000280_03401_d_0000629.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "7f5e5731d86ae59b2a6f90f9234018818e2cef0d907f9bd8a8494574a1134e90"
+    },
+    {
+      "id": 3,
+      "file_name": "0000291_01801_d_0000877.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "809f5dd32db213a00ee48677bb32c3a1de62efcce93da90836089706ed1c0a10"
+    },
+    {
+      "id": 4,
+      "file_name": "0000117_00112_d_0000087.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "967609af38e21b50d49fbbd7fcf361c618ce8bc2de6c310fdfb9ae6565f3b2b2"
+    },
+    {
+      "id": 5,
+      "file_name": "0000287_00001_d_0000759.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "a5322a39be7c689f4c9cad18f02dff493ea7bfe1540677a24f280923126e973e"
+    },
+    {
+      "id": 6,
+      "file_name": "0000301_00001_d_0000156.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "fab9ac80318d57c611b4e7b27d80cfb0038dfa5f97c41ea1dc3b38d3d1f60f2c"
+    },
+    {
+      "id": 7,
+      "file_name": "0000277_01401_d_0000546.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "81d33b389f55f85cf2e3b264c3c0ec8816b56afbef62899c234ca40e2959db3a"
+    },
+    {
+      "id": 8,
+      "file_name": "0000360_02941_d_0000728.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "07c3f05b6a5310f2eb2237b4205d18ba5bb4a00d3d265d70066db6d50166f8ad"
+    },
+    {
+      "id": 9,
+      "file_name": "0000330_00601_d_0000803.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "1c0343bbb0bb2705ac18ac5a3848153287267db6046773d08f6ed2511c006b97"
+    },
+    {
+      "id": 10,
+      "file_name": "0000280_00401_d_0000614.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "8ccd2b9e054074349516374809add04e20aab9e960dd0801965045b59e005bfb"
+    },
+    {
+      "id": 11,
+      "file_name": "0000327_04001_d_0000731.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "5ac8129280162a86bbe26ac10b87cfaf0e4c0f0d01db1aa1c121b6a2b9ea4784"
+    },
+    {
+      "id": 12,
+      "file_name": "0000360_02745_d_0000727.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "2538339ccd39068e9c8445c87f42b9f3e88fc3db4e7f0fb7fe0709414ae8a122"
+    },
+    {
+      "id": 13,
+      "file_name": "0000220_01242_d_0000004.jpg",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "959e11905fb85779f0c01b0373fdc6650c4fe4d741f6902b0d9749a3f1a7ef36"
+    },
+    {
+      "id": 14,
+      "file_name": "0000335_03333_d_0000060.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "b29b8c610fc7934022189e38daae091fde5f0a50a8d752ba05e29fbe0b3fd543"
+    },
+    {
+      "id": 15,
+      "file_name": "0000289_06401_d_0000843.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "61b541fd8096010fb1cefe30c6659a3fae5ebfc9717b3b5372a22d48f27c32d0"
+    },
+    {
+      "id": 16,
+      "file_name": "0000346_03921_d_0000366.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "78347897f458d0a7034079c7f004e6ff61aea11da1844d7ed4d25c022f82eea0"
+    },
+    {
+      "id": 17,
+      "file_name": "0000313_07001_d_0000471.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "763d94421145f18adce4f057d9d107d4ba094055ec5da3a8c7c60b6663cd1fdd"
+    },
+    {
+      "id": 18,
+      "file_name": "0000330_01601_d_0000808.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "5d55d08e7303ab86c579ff01a63b87ccd2c73a8319a4fcae99dd9f9f6c56757b"
+    },
+    {
+      "id": 19,
+      "file_name": "0000277_02201_d_0000550.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "159488eaecc2ab5565c3c8511882cb0eb8853586af19a50d747798b237827ccd"
+    },
+    {
+      "id": 20,
+      "file_name": "0000327_02601_d_0000724.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "bc2c65556734e0542157d162056d56260690d95a49f2d30eb7150b92067027be"
+    },
+    {
+      "id": 21,
+      "file_name": "0000291_04401_d_0000890.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "368ab992e3511ee2cd57a5ffc6aff512ad7cc602e995b0814b892d42d5a8d23d"
+    },
+    {
+      "id": 22,
+      "file_name": "0000001_05999_d_0000011.jpg",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "26cad57325bfedce8cf0ab69fa05992e2089d60e34f768d524c9cd2f4948ffd2"
+    },
+    {
+      "id": 23,
+      "file_name": "0000213_02500_d_0000240.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "d1512ee855ae1941b059c45a51774c1bec8f1d27ff41b7864d0dfd8301e1b3ca"
+    },
+    {
+      "id": 24,
+      "file_name": "0000001_08414_d_0000013.jpg",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "4b45f869b490c04ea79f5c09f9dde05fdaf59afbc337ae1210c463b00a120b9a"
+    },
+    {
+      "id": 25,
+      "file_name": "0000076_02142_d_0000009.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "6938e71175ae5399a8dca8698ef2e73e912baf66d2e59ab93d98934423715172"
+    },
+    {
+      "id": 26,
+      "file_name": "0000271_00201_d_0000375.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "df17f709394604d2e53d7a13bc752f57df97ba790d1bfd9d0480bd81b0597ad6"
+    },
+    {
+      "id": 27,
+      "file_name": "0000308_04401_d_0000327.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "ac235c38679e3bbf188dfd9160c12fbc9b7567d02d509be9977765f6706a90af"
+    },
+    {
+      "id": 28,
+      "file_name": "0000271_00001_d_0000374.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "bc9ff8e70eb2970e342a839877754e3d7d1acd5daf1525cd60b1b846aebd7cbb"
+    },
+    {
+      "id": 29,
+      "file_name": "0000312_02201_d_0000425.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "b3443e757e254875d1d901a9a4744ae2184c0099af051ea6f8587d3c83fcdb76"
+    },
+    {
+      "id": 30,
+      "file_name": "0000276_03401_d_0000524.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "7d33fa9b5b3842b1a6a6fb3f380d886ec07eb79e7d816bf36b016845d1796ef4"
+    },
+    {
+      "id": 31,
+      "file_name": "0000335_02353_d_0000055.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "46ae4321558260f98b62e13f22238425775d6724f404f42a8085536c20be333c"
+    },
+    {
+      "id": 32,
+      "file_name": "0000346_02549_d_0000359.jpg",
+      "width": 1360,
+      "height": 765,
+      "sha256": "17398af33b72d0bb5e42b6dface93ef4a47c89c5c4b177df9800daeba632860b"
+    }
+  ],
+  "models": [
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "precision": "fp32",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\picodet-l-320-fp32.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\1.0.2\\manifest.json",
+      "manifestSha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "852b3acbb768705c77359362546eae9999f4190c",
+        "path": "picodet-l-320-fp32.onnx",
+        "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/852b3acbb768705c77359362546eae9999f4190c/picodet-l-320-fp32.onnx",
+        "bytes": 23243834,
+        "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1"
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "precision": "fp16",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-20260912\\models\\picodet-fp16.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\1.0.2\\manifest.json",
+      "manifestSha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
+      "bytes": 14813981,
+      "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+        "path": "picodet-l-320/1.0.2/picodet-fp16.onnx",
+        "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-fp16.onnx",
+        "bytes": 14813981,
+        "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa"
+      }
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "precision": "int8",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\w8a32-artifacts\\2026-09-12\\picodet\\picodet-w8a32.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\pp-detection\\1.0.2\\manifest.json",
+      "manifestSha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
+      "bytes": 6117685,
+      "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+        "path": "picodet-l-320/1.0.2/picodet-w8a32.onnx",
+        "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-w8a32.onnx",
+        "bytes": 6117685,
+        "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "precision": "fp32",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\ppyoloe-plus-s-candidate.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\0.1.1\\manifest.json",
+      "manifestSha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
+      "bytes": 31954220,
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+        "path": "ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+        "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/af865f1c515634de08fe0fc5eeeac8942456241c/ppyoloe-plus-s-640/0.1.0-labs.1/ppyoloe-plus-s-640-fp32.onnx",
+        "bytes": 31954220,
+        "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "precision": "fp16",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\tiling-20260912\\models\\ppyoloe-fp16.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\0.1.1\\manifest.json",
+      "manifestSha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
+      "bytes": 16054567,
+      "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+        "path": "ppyoloe-plus-s-640/0.1.1/ppyoloe-fp16.onnx",
+        "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-fp16.onnx",
+        "bytes": 16054567,
+        "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4"
+      }
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "precision": "int8",
+      "path": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\w8a32-artifacts\\2026-09-12\\ppyoloe\\ppyoloe-w8a32.onnx",
+      "manifest": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\models\\ppyoloe-plus-s-640\\0.1.1\\manifest.json",
+      "manifestSha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
+      "bytes": 8225467,
+      "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "source": {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-detection",
+        "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+        "path": "ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+        "downloadUrl": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+        "bytes": 8225467,
+        "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+      }
+    }
+  ],
+  "nonCrowd": 2363,
+  "small": 1545,
+  "outputs": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\reports\\evaluation\\2026-09-12-tiling-refinement\\browser",
+  "selectionSha256": "249c2e48e26be50ef536ac4caecf340dc047ee925e3f0380e80972568a16580f",
+  "holdoutSha256": "c101977300442b0b3f5d93ffee9f4bcd734731a06fb38b3c5eaed1720f32f230"
+}

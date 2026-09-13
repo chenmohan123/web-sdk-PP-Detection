@@ -1,0 +1,1235 @@
+{
+  "startedAt": "2026-09-13T03:55:38.486Z",
+  "browser": "153.0.8010.12",
+  "bundleSha256": "5173a1752bce6a4335e5499e43c4ea193507abf2530ead8c36a7c4fd9bfb3091",
+  "workerSha256": "b44a160d731dd3ba5c5a8e043ba1d98101ada051464201ee9b0d10b6e7eba3b6",
+  "archived": [
+    {
+      "name": "picodet-fp16-webgpu.json.gz",
+      "sha256": "6c6a527781389f6f322e30e3de7051ba92d3126e29d21aa6fcadfe13db69b5b5",
+      "images": 32
+    },
+    {
+      "name": "picodet-fp32-wasm.json.gz",
+      "sha256": "e14c5389453c4f4d6564db1947c67457b725c0ef83b72ca638fc1403d56c223b",
+      "images": 32
+    },
+    {
+      "name": "picodet-fp32-webgpu.json.gz",
+      "sha256": "d5596c4a8728db408d7b3eab7135d1a7d4e412bfc1e6e8f6309246ff634092a4",
+      "images": 32
+    },
+    {
+      "name": "picodet-w8a32-webgpu.json.gz",
+      "sha256": "3ab29bf3af8b9c9e95b0b960c079b72b281bbce9c211b5bd656a093fd2803e60",
+      "images": 32
+    },
+    {
+      "name": "ppyoloe-fp16-webgpu.json.gz",
+      "sha256": "25ca6e85d344f5ae82c6ad346ca2dd6ac80e01d7484f81208b98b6c8880d3242",
+      "images": 32
+    },
+    {
+      "name": "ppyoloe-fp32-wasm.json.gz",
+      "sha256": "c3ac1e8b3026e4805ad1f0cbe8197cab236dcf16562c1e3dac458728c9ce4138",
+      "images": 32
+    },
+    {
+      "name": "ppyoloe-fp32-webgpu.json.gz",
+      "sha256": "aa37df3732993874cc296926278cc94fdb9f691637f2d67ac87ffd51a76e475f",
+      "images": 32
+    },
+    {
+      "name": "ppyoloe-w8a32-webgpu.json.gz",
+      "sha256": "179346a7b5bafe03dc5459fe07dbc264eddd9f68e6ceb6b2d1f3cabaf997afdc",
+      "images": 32
+    }
+  ],
+  "image": {
+    "id": 1,
+    "file_name": "0000289_03601_d_0000829.jpg",
+    "width": 1360,
+    "height": 765,
+    "sha256": "2e288a32502bee4f3c1950725d19457ba80fe75862c91930faae516a8f80b93e"
+  },
+  "results": [
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:55:40.221Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 11,
+        "preprocessMs": 119.30000001192093,
+        "inferenceMs": 1615.699999988079,
+        "postprocessMs": 8,
+        "totalMs": 1761.3999999761581
+      },
+      "loadTimings": {
+        "sessionMs": 994.9000000059605,
+        "totalMs": 1057,
+        "integrityMs": 59.80000001192093,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:55:45.437Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.699999988079071,
+        "preprocessMs": 145.99999997019768,
+        "inferenceMs": 1684.5,
+        "postprocessMs": 7.4000000059604645,
+        "totalMs": 1849
+      },
+      "loadTimings": {
+        "sessionMs": 1124.5999999940395,
+        "totalMs": 1197.4000000059605,
+        "integrityMs": 66.90000000596046,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:55:50.727Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.599999994039536,
+        "preprocessMs": 145.89999994635582,
+        "inferenceMs": 3419.2000000178814,
+        "postprocessMs": 7.199999988079071,
+        "totalMs": 3583.0999999940395
+      },
+      "loadTimings": {
+        "sessionMs": 1248.9000000059605,
+        "totalMs": 1311.300000011921,
+        "integrityMs": 60.099999994039536,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp32",
+      "modelSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:55:56.671Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 12,
+        "preprocessMs": 153.80000001192093,
+        "inferenceMs": 3525.099999964237,
+        "postprocessMs": 6.800000041723251,
+        "totalMs": 3698.9000000059605
+      },
+      "loadTimings": {
+        "sessionMs": 1409,
+        "totalMs": 1474.4000000059605,
+        "integrityMs": 61.400000005960464,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "modelSha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:02.866Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 11.300000011920929,
+        "preprocessMs": 170.5999999642372,
+        "inferenceMs": 2127.9000000059605,
+        "postprocessMs": 8.100000023841858,
+        "totalMs": 2322.4000000059605
+      },
+      "loadTimings": {
+        "sessionMs": 1575.699999988079,
+        "totalMs": 1620.7999999821186,
+        "integrityMs": 42.599999994039536,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "modelSha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:08.968Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.699999988079071,
+        "preprocessMs": 161.10000002384186,
+        "inferenceMs": 2069.9000000059605,
+        "postprocessMs": 9.599999994039536,
+        "totalMs": 2251.300000011921
+      },
+      "loadTimings": {
+        "sessionMs": 1378.5999999940395,
+        "totalMs": 1426.5,
+        "integrityMs": 42.400000005960464,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "modelSha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:15.622Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10.099999994039536,
+        "preprocessMs": 188.99999997019768,
+        "inferenceMs": 4766.799999982119,
+        "postprocessMs": 15.100000023841858,
+        "totalMs": 4982.299999982119
+      },
+      "loadTimings": {
+        "sessionMs": 1517.6000000238419,
+        "totalMs": 1577.2000000178814,
+        "integrityMs": 56.5,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "fp16",
+      "modelSha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "count": 13,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:24.254Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 14.199999988079071,
+        "preprocessMs": 290.09999999403954,
+        "inferenceMs": 5776.4000000059605,
+        "postprocessMs": 9.799999982118607,
+        "totalMs": 6092.299999982119
+      },
+      "loadTimings": {
+        "sessionMs": 2465.9000000059605,
+        "totalMs": 2522.4000000059605,
+        "integrityMs": 52.20000001788139,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "count": 12,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:33.946Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 15,
+        "preprocessMs": 267.2999999821186,
+        "inferenceMs": 2648.2999999821186,
+        "postprocessMs": 9.800000011920929,
+        "totalMs": 2956.600000023842
+      },
+      "loadTimings": {
+        "sessionMs": 1781.800000011921,
+        "totalMs": 1814.5999999940395,
+        "integrityMs": 28,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "count": 12,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:41.094Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 14.099999994039536,
+        "preprocessMs": 183.9000000357628,
+        "inferenceMs": 2061,
+        "postprocessMs": 9.599999994039536,
+        "totalMs": 2270
+      },
+      "loadTimings": {
+        "sessionMs": 1280.7999999821186,
+        "totalMs": 1304.7000000178814,
+        "integrityMs": 20.30000001192093,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "count": 12,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:47.484Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 12.100000023841858,
+        "preprocessMs": 157.80000001192093,
+        "inferenceMs": 4204.099999964237,
+        "postprocessMs": 7.300000011920929,
+        "totalMs": 4382.699999988079
+      },
+      "loadTimings": {
+        "sessionMs": 1910.0999999940395,
+        "totalMs": 1929.3999999761581,
+        "integrityMs": 16.5,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "picodet",
+      "variant": "w8a32",
+      "modelSha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "count": 12,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:56:54.246Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10.700000017881393,
+        "preprocessMs": 150.10000002384186,
+        "inferenceMs": 3734.4000000059605,
+        "postprocessMs": 5.799999982118607,
+        "totalMs": 3902.199999988079
+      },
+      "loadTimings": {
+        "sessionMs": 1556,
+        "totalMs": 1574.699999988079,
+        "integrityMs": 16.30000001192093,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:00.171Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.099999994039536,
+        "preprocessMs": 271.0000000298023,
+        "inferenceMs": 4742.099999964237,
+        "postprocessMs": 17.500000029802322,
+        "totalMs": 5044.5
+      },
+      "loadTimings": {
+        "sessionMs": 972.0999999940395,
+        "totalMs": 1057.2999999821186,
+        "integrityMs": 82.90000000596046,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:12.121Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 11.099999994039536,
+        "preprocessMs": 264.5,
+        "inferenceMs": 4783.499999970198,
+        "postprocessMs": 19.100000023841858,
+        "totalMs": 5079.4000000059605
+      },
+      "loadTimings": {
+        "sessionMs": 1031,
+        "totalMs": 1114.300000011921,
+        "integrityMs": 81,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:24.012Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10.5,
+        "preprocessMs": 318.40000000596046,
+        "inferenceMs": 3148.699999988079,
+        "postprocessMs": 17.80000001192093,
+        "totalMs": 3496.9000000059605
+      },
+      "loadTimings": {
+        "sessionMs": 1256.699999988079,
+        "totalMs": 1342.199999988079,
+        "integrityMs": 83.19999998807907,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp32",
+      "modelSha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:30.430Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10,
+        "preprocessMs": 320.7000000178814,
+        "inferenceMs": 3643.400000035763,
+        "postprocessMs": 18.19999995827675,
+        "totalMs": 3993.300000011921
+      },
+      "loadTimings": {
+        "sessionMs": 1290.5999999940395,
+        "totalMs": 1375.7000000178814,
+        "integrityMs": 82.5,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:36.945Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 12.400000005960464,
+        "preprocessMs": 388.10000002384186,
+        "inferenceMs": 5404,
+        "postprocessMs": 23.099999994039536,
+        "totalMs": 5847.4000000059605
+      },
+      "loadTimings": {
+        "sessionMs": 1200.5,
+        "totalMs": 1244.199999988079,
+        "integrityMs": 41.599999994039536,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:57:50.292Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 14,
+        "preprocessMs": 332.30000004172325,
+        "inferenceMs": 5550.0999999940395,
+        "postprocessMs": 26.19999998807907,
+        "totalMs": 5924.300000011921
+      },
+      "loadTimings": {
+        "sessionMs": 1525.5,
+        "totalMs": 1588.699999988079,
+        "integrityMs": 60.20000001788139,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:10.979Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 14.5,
+        "preprocessMs": 340.10000002384186,
+        "inferenceMs": 3140.7000000178814,
+        "postprocessMs": 17.299999982118607,
+        "totalMs": 3513.300000011921
+      },
+      "loadTimings": {
+        "sessionMs": 1225,
+        "totalMs": 1270.2999999821186,
+        "integrityMs": 42.89999997615814,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "fp16",
+      "modelSha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:17.073Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 9.800000011920929,
+        "preprocessMs": 340.80000001192093,
+        "inferenceMs": 3228.0000000298023,
+        "postprocessMs": 18.19999995827675,
+        "totalMs": 3597.800000011921
+      },
+      "loadTimings": {
+        "sessionMs": 1262.2999999821186,
+        "totalMs": 1317.5,
+        "integrityMs": 52.29999998211861,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "modelSha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:22.953Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 11.700000017881393,
+        "preprocessMs": 322.7000000178814,
+        "inferenceMs": 5133.299999982119,
+        "postprocessMs": 23.099999994039536,
+        "totalMs": 5505
+      },
+      "loadTimings": {
+        "sessionMs": 1009.7999999821186,
+        "totalMs": 1034.1000000238419,
+        "integrityMs": 21.80000001192093,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "modelSha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:36.504Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 12.299999982118607,
+        "preprocessMs": 337.5000000298023,
+        "inferenceMs": 5285.900000035763,
+        "postprocessMs": 20.799999922513962,
+        "totalMs": 5658
+      },
+      "loadTimings": {
+        "sessionMs": 1350.4000000059605,
+        "totalMs": 1381,
+        "integrityMs": 27.599999994039536,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "modelSha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:48.597Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10.799999982118607,
+        "preprocessMs": 261.4999999701977,
+        "inferenceMs": 3421.900000065565,
+        "postprocessMs": 21.69999995827675,
+        "totalMs": 3717
+      },
+      "loadTimings": {
+        "sessionMs": 1089.3999999761581,
+        "totalMs": 1113.5,
+        "integrityMs": 21.900000005960464,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    },
+    {
+      "name": "ppyoloe",
+      "variant": "w8a32",
+      "modelSha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "count": 18,
+      "progress": [0, 1, 2, 3, 4, 5],
+      "enhancement": {
+        "passes": 5
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T03:58:54.837Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "worker",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "timings": {
+        "decodeMs": 10,
+        "preprocessMs": 337.90000000596046,
+        "inferenceMs": 3520.800000011921,
+        "postprocessMs": 20.19999998807907,
+        "totalMs": 3890.0999999940395
+      },
+      "loadTimings": {
+        "sessionMs": 1233.0999999940395,
+        "totalMs": 1258.2999999821186,
+        "integrityMs": 22.799999982118607,
+        "modelSource": "memory"
+      },
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "isFallbackAdapter": false
+      },
+      "parity": true
+    }
+  ],
+  "completedAt": "2026-09-13T03:58:59.706Z",
+  "status": "passed"
+}

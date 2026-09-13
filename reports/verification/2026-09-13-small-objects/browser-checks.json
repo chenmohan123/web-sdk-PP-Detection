@@ -1,0 +1,60 @@
+{
+  "demoInitial": {
+    "stats": {
+      "startTime": "2026-09-13T03:59:00.975Z",
+      "duration": 177034.69100000002,
+      "expected": 78,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "failures": [
+      {
+        "title": "edits, applies, localizes, and clears class thresholds",
+        "status": "unexpected"
+      }
+    ]
+  },
+  "demoRecheck": {
+    "stats": {
+      "startTime": "2026-09-13T04:03:54.259Z",
+      "duration": 4353.201999999999,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "failures": []
+  },
+  "packageAndExamplesInitial": {
+    "stats": {
+      "startTime": "2026-09-13T03:59:49.215Z",
+      "duration": 22160.695,
+      "expected": 18,
+      "skipped": 11,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "failures": [
+      {
+        "title": "react 快速重复点击只加载一次，取消后可以再次操作",
+        "status": "unexpected"
+      }
+    ]
+  },
+  "notes": [
+    "Demo 使用仓库默认 Chromium Headless Shell。初次完整回归 78/79 通过，类别阈值用例在并发构建期间页面未就绪，单独复核通过。",
+    "SDK package 和 benchmark 验收通过。示例安装需要访问宿主 pnpm 缓存，在宿主权限下复核。"
+  ],
+  "examplesRecheck": {
+    "stats": {
+      "startTime": "2026-09-13T04:04:38.135Z",
+      "duration": 55331.159,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "errors": []
+  }
+}

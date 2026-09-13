@@ -1,0 +1,129 @@
+[
+  {
+    "name": "picodet",
+    "criterion": "gain",
+    "label": "改进组合",
+    "imageId": 18,
+    "filename": "0000330_01601_d_0000808.jpg",
+    "score": 7,
+    "smallGained": [
+      1696,
+      1697,
+      1720,
+      1723,
+      1727,
+      1755,
+      1756
+    ],
+    "smallLost": [],
+    "fpWhole": 1,
+    "fpCombined": 6,
+    "fpRefined": 5,
+    "file": "figures/picodet-gain-18.jpg"
+  },
+  {
+    "name": "picodet",
+    "criterion": "fp-cost",
+    "label": "改进组合",
+    "imageId": 2,
+    "filename": "0000280_03401_d_0000629.jpg",
+    "score": 7,
+    "smallGained": [
+      127,
+      140
+    ],
+    "smallLost": [],
+    "fpWhole": 1,
+    "fpCombined": 9,
+    "fpRefined": 8,
+    "file": "figures/picodet-fp-cost-2.jpg"
+  },
+  {
+    "name": "picodet",
+    "criterion": "loss",
+    "label": "改进组合",
+    "imageId": 1,
+    "filename": "0000289_03601_d_0000829.jpg",
+    "score": 0,
+    "smallGained": [],
+    "smallLost": [],
+    "fpWhole": 3,
+    "fpCombined": 5,
+    "fpRefined": 5,
+    "file": "figures/picodet-loss-1.jpg"
+  },
+  {
+    "name": "ppyoloe",
+    "criterion": "gain",
+    "label": "改进组合",
+    "imageId": 18,
+    "filename": "0000330_01601_d_0000808.jpg",
+    "score": 17,
+    "smallGained": [
+      1691,
+      1694,
+      1695,
+      1716,
+      1717,
+      1719,
+      1720,
+      1725,
+      1726,
+      1736,
+      1748,
+      1753,
+      1754,
+      1755,
+      1763,
+      1775,
+      1777
+    ],
+    "smallLost": [],
+    "fpWhole": 0,
+    "fpCombined": 6,
+    "fpRefined": 5,
+    "file": "figures/ppyoloe-gain-18.jpg"
+  },
+  {
+    "name": "ppyoloe",
+    "criterion": "fp-cost",
+    "label": "改进组合",
+    "imageId": 27,
+    "filename": "0000308_04401_d_0000327.jpg",
+    "score": 6,
+    "smallGained": [
+      2743,
+      2745,
+      2746,
+      2757,
+      2760,
+      2762,
+      2769,
+      2781,
+      2788,
+      2800
+    ],
+    "smallLost": [],
+    "fpWhole": 1,
+    "fpCombined": 11,
+    "fpRefined": 7,
+    "file": "figures/ppyoloe-fp-cost-27.jpg"
+  },
+  {
+    "name": "ppyoloe",
+    "criterion": "loss",
+    "label": "改进组合",
+    "imageId": 1,
+    "filename": "0000289_03601_d_0000829.jpg",
+    "score": 0,
+    "smallGained": [
+      31,
+      49
+    ],
+    "smallLost": [],
+    "fpWhole": 3,
+    "fpCombined": 4,
+    "fpRefined": 4,
+    "file": "figures/ppyoloe-loss-1.jpg"
+  }
+]

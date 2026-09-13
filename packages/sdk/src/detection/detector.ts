@@ -3,6 +3,7 @@ import { decodeImageSource, type DecodeImageEnvironment } from "../input/decode-
 import type { ImageSource } from "../input/image-source";
 import type {
   DetectOptions,
+  Detection,
   DetectionCapabilities,
   PPDetectionLoadTimings,
   PPDetectionModelInfo,
@@ -13,6 +14,13 @@ import type {
 } from "../types";
 import { decodeDetectionOutputs } from "./decode-output";
 import { preprocessImage } from "./preprocess";
+import {
+  cropImageTile,
+  smallObjectTiles,
+  projectTileDetection,
+  mergeSmallObjectDetections,
+  type ImageTile
+} from "./small-objects";
 
 export interface InferenceInput {
   readonly inputName: string;
@@ -65,6 +73,12 @@ function validateThreshold(value: number, path: string): void {
 }
 
 function validateDetectOptions(labels: readonly string[], options: DetectOptions): void {
+  if (
+    options.smallObjectEnhancement !== undefined &&
+    typeof options.smallObjectEnhancement !== "boolean"
+  ) {
+    throw new PPDetectionError("INVALID_INPUT", "smallObjectEnhancement 必须是布尔值");
+  }
   if (options.threshold !== undefined) validateThreshold(options.threshold, "threshold");
   if (options.classThresholds === undefined) return;
   for (const [label, value] of Object.entries(options.classThresholds)) {
@@ -176,47 +190,106 @@ export class PPDetectionDetectorImplementation {
     const decoded = await decodeImageSource(input, {
       ...this.options.decodeEnvironment,
       signal: options.signal,
-      now: this.clock
+      now: this.clock,
+      ...(options.smallObjectEnhancement ? { maxPixels: 16_777_216 } : {})
     });
     throwIfAborted(options.signal);
 
-    this.options.onProgress?.({ phase: "preprocess", status: "start" });
-    const preprocessStartedAt = this.clock();
-    const preprocessed = preprocessImage(decoded, this.manifest.preprocessing);
-    const preprocessMs = elapsed(this.clock, preprocessStartedAt);
-    this.options.onProgress?.({ phase: "preprocess", status: "complete" });
-
-    this.options.onProgress?.({ phase: "inference", status: "start" });
-    const inferenceStartedAt = this.clock();
-    const outputs = await executor.run(
-      {
-        inputName: this.manifest.input.name,
-        data: preprocessed.data,
-        dims: preprocessed.dims
-      },
-      options.signal
+    const checkActive = (): void => {
+      throwIfAborted(options.signal);
+      if (this.disposed) throw new PPDetectionError("DISPOSED", "检测器已释放");
+    };
+    const tiles = options.smallObjectEnhancement
+      ? smallObjectTiles(decoded.width, decoded.height)
+      : [];
+    const passes = 1 + tiles.length;
+    let preprocessMs = 0;
+    let inferenceMs = 0;
+    let postprocessMs = 0;
+    let whole: Detection[] = [];
+    const tileResults: { tile: ImageTile; detections: Detection[] }[] = [];
+    const threshold = options.threshold ?? this.manifest.postprocessing.scoreThreshold;
+    // 保留弱框参与合并；更低的显式阈值仍可输出，不被内部 0.001 门槛截断。
+    const candidateThreshold = Math.min(
+      0.001,
+      threshold,
+      ...Object.values(options.classThresholds ?? {})
     );
-    const inferenceMs = elapsed(this.clock, inferenceStartedAt);
-    this.options.onProgress?.({ phase: "inference", status: "complete" });
-    throwIfAborted(options.signal);
+    options.onProgress?.({ completed: 0, total: passes });
+    for (let pass = 0; pass < passes; pass++) {
+      // 给主线程绘制进度和响应取消的机会；一次只创建一个切片缓冲区。
+      if (options.smallObjectEnhancement)
+        await new Promise<void>((resolve) => setTimeout(resolve, 0));
+      checkActive();
+      this.options.onProgress?.({ phase: "preprocess", status: "start" });
+      checkActive();
+      const preprocessStartedAt = this.clock();
+      const tile = pass === 0 ? undefined : tiles[pass - 1];
+      const preprocessed = preprocessImage(
+        tile ? cropImageTile(decoded, tile) : decoded,
+        this.manifest.preprocessing
+      );
+      preprocessMs += elapsed(this.clock, preprocessStartedAt);
+      this.options.onProgress?.({ phase: "preprocess", status: "complete" });
+      checkActive();
 
-    this.options.onProgress?.({ phase: "postprocess", status: "start" });
-    const postprocessStartedAt = this.clock();
-    const detections = decodeDetectionOutputs(outputs, {
-      labels: this.manifest.labels,
-      scoreThreshold: options.threshold ?? this.manifest.postprocessing.scoreThreshold,
-      classThresholds: options.classThresholds,
-      iouThreshold: this.manifest.postprocessing.iouThreshold,
-      transform: preprocessed.transform,
-      outputs: this.manifest.outputs,
-      matrixCoordinates: this.manifest.postprocessing.matrixCoordinates,
-      queryCoordinates: this.manifest.postprocessing.queryCoordinates,
-      queryBoxFormat: this.manifest.postprocessing.queryBoxFormat
-    });
-    const postprocessMs = elapsed(this.clock, postprocessStartedAt);
-    this.options.onProgress?.({ phase: "postprocess", status: "complete" });
+      this.options.onProgress?.({ phase: "inference", status: "start" });
+      checkActive();
+      const inferenceStartedAt = this.clock();
+      const outputs = await executor.run(
+        {
+          inputName: this.manifest.input.name,
+          data: preprocessed.data,
+          dims: preprocessed.dims
+        },
+        options.signal
+      );
+      inferenceMs += elapsed(this.clock, inferenceStartedAt);
+      checkActive();
+      this.options.onProgress?.({ phase: "inference", status: "complete" });
+
+      this.options.onProgress?.({ phase: "postprocess", status: "start" });
+      checkActive();
+      const postprocessStartedAt = this.clock();
+      const detections = decodeDetectionOutputs(outputs, {
+        labels: this.manifest.labels,
+        scoreThreshold: options.smallObjectEnhancement ? candidateThreshold : threshold,
+        classThresholds: options.smallObjectEnhancement ? undefined : options.classThresholds,
+        iouThreshold: this.manifest.postprocessing.iouThreshold,
+        transform: preprocessed.transform,
+        outputs: this.manifest.outputs,
+        matrixCoordinates: this.manifest.postprocessing.matrixCoordinates,
+        queryCoordinates: this.manifest.postprocessing.queryCoordinates,
+        queryBoxFormat: this.manifest.postprocessing.queryBoxFormat
+      });
+      if (tile)
+        tileResults.push({
+          tile,
+          detections: detections.map((detection) => projectTileDetection(detection, tile))
+        });
+      else whole = detections;
+      postprocessMs += elapsed(this.clock, postprocessStartedAt);
+      this.options.onProgress?.({ phase: "postprocess", status: "complete" });
+      checkActive();
+      // 最后一次进度在合并完成后发出，保证完成代表整次检测成功。
+      if (pass + 1 < passes) options.onProgress?.({ completed: pass + 1, total: passes });
+    }
+    checkActive();
+    const mergeStartedAt = this.clock();
+    const detections = options.smallObjectEnhancement
+      ? mergeSmallObjectDetections(whole, tileResults, decoded.width, decoded.height)
+          .filter(
+            (detection) =>
+              detection.score >= (options.classThresholds?.[detection.label] ?? threshold)
+          )
+          .map((detection, index) => ({ ...detection, index }))
+      : whole;
+    if (options.smallObjectEnhancement) postprocessMs += elapsed(this.clock, mergeStartedAt);
+    options.onProgress?.({ completed: passes, total: passes });
+    checkActive();
 
     return {
+      ...(options.smallObjectEnhancement ? { smallObjectEnhancement: { passes } } : {}),
       detections,
       image: {
         input: this.manifest.preprocessing.size,

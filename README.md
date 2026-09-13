@@ -19,13 +19,13 @@
 
 ## 版本与安装
 
-当前 SDK 版本为 **0.3.2**：
+当前 SDK 版本为 **0.4.0**：
 
 ```bash
-pnpm add web-sdk-pp-detection@0.3.2
+pnpm add web-sdk-pp-detection@0.4.0
 ```
 
-0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，并补齐六个稳定变体的接入说明。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.3.2.md)。
+0.4.0 新增默认关闭的小目标增强实验 API 和图片 Demo 开关，支持切片进度、取消及统一结果合并。详见 [API](docs/zh-CN/api.md)、[性能](docs/zh-CN/performance.md)和[发布说明](docs/zh-CN/release-0.4.0.md)。
 
 ## 当前边界
 
@@ -65,3 +65,5 @@ PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模�
 ## 下载配置（0.3.2 起）
 
 0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。
+
+小目标增强（未发布，实验）：开发版本支持默认关闭的 `smallObjectEnhancement`，复用会话执行整图与最多四片；仅建议静态图片评估，可能增加误检与耗时。详见[API](docs/zh-CN/api.md#小目标增强未发布实验)。

@@ -1,0 +1,6 @@
+# 大体积原始浏览器输出保留在本地，完整性记录见 summary.json 与 evidence-index.json。
+/browser/*.json.gz
+/matches.json.gz
+/figures/*.jpg
+/__pycache__/
+/reproduction/__pycache__/

@@ -23,7 +23,7 @@ declare global {
   var __PPDETECTION_SCRIPT_URL__: string | undefined;
 }
 
-export const CURRENT_SDK_VERSION = "0.3.2";
+export const CURRENT_SDK_VERSION = "0.4.0";
 
 export type {
   Backend,
@@ -35,6 +35,7 @@ export type {
   DetectionManifest,
   DetectionModelVariant,
   DetectionPoint,
+  DetectionProgress,
   DetectionPostprocessing,
   DetectionPreprocessing,
   DetectionTimings,

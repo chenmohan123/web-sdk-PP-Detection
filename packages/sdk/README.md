@@ -165,3 +165,5 @@ WeChat official-account pages and other H5/WebView integrations are supported. N
 - [Examples](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/main/examples)
 
 Apache-2.0
+
+开发版本新增默认关闭的 `detect(image, { smallObjectEnhancement: true })` 小目标增强（未发布，实验），复用会话串行处理整图和最多四片；可能增加误检与耗时，不代表移动端已验证。详见仓库的双语 API 文档。

@@ -1,0 +1,29 @@
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 1589 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                 0.40 kB │ gzip:     0.27 kB
+dist/ort/ort-wasm-simd-threaded.mjs                            24.18 kB
+dist/ort/ort-wasm-simd-threaded.jspi.mjs                       44.52 kB
+dist/ort/ort-wasm-simd-threaded.jsep.mjs                       46.61 kB
+dist/ort/ort-wasm-simd-threaded.asyncify.mjs                   47.50 kB
+dist/assets/inference.worker-DuXp32j2.js                      693.95 kB
+dist/ort/ort-wasm-simd-threaded.wasm                       13,479.97 kB │ gzip: 3,498.23 kB
+dist/ort/ort-wasm-simd-threaded.jspi.wasm                  15,046.87 kB │ gzip: 3,790.57 kB
+dist/assets/ort-wasm-simd-threaded.asyncify-CvvOzbbq.wasm  24,254.95 kB │ gzip: 6,034.37 kB
+dist/ort/ort-wasm-simd-threaded.asyncify.wasm              24,254.95 kB │ gzip: 6,034.37 kB
+dist/assets/ort-wasm-simd-threaded.jsep-DC5y_g6C.wasm      26,827.54 kB │ gzip: 6,400.68 kB
+dist/ort/ort-wasm-simd-threaded.jsep.wasm                  26,827.54 kB │ gzip: 6,400.68 kB
+dist/assets/index-BeSSyMcv.css                                 17.73 kB │ gzip:     4.14 kB
+dist/assets/ort.webgpu.bundle.min-DfBAnOhd.js                 110.30 kB │ gzip:    36.15 kB
+dist/assets/index-Cc4zQq_y.js                                 321.77 kB │ gzip:   100.56 kB
+dist/assets/ort.bundle.min-CsDuGaPR.js                        395.32 kB │ gzip:   106.64 kB
+
+✓ built in 6.04s
+$ vite build
+[33m[PLUGIN_TIMINGS] [0mPlugin hooks ran for 282ms of this 6.0s build (5%).
+1 hook is listed without a time. Its calls overlapped, so the time inside one call includes work from other calls. To find its cost, profile the build with `node --cpu-prof`:
+  - vite:asset-import-meta-url transform (3 calls)
+See https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.
+

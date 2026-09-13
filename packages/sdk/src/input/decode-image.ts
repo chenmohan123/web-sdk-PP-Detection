@@ -23,6 +23,7 @@ interface RasterCanvas {
 }
 
 export interface DecodeImageEnvironment {
+  readonly maxPixels?: number;
   readonly createCanvas?: (width: number, height: number) => RasterCanvas;
   readonly createImageBitmap?: (source: Blob) => Promise<DrawableImage>;
   readonly signal?: AbortSignal;
@@ -72,6 +73,16 @@ function validateRaster(raster: ImageRaster): ImageRaster {
   return raster;
 }
 
+function validatePixelLimit(width: number, height: number, maxPixels?: number): void {
+  if (maxPixels !== undefined && width * height > maxPixels) {
+    throw new PPDetectionError("INVALID_INPUT", "图片超过当前检测模式的像素上限", {
+      width,
+      height,
+      maxPixels
+    });
+  }
+}
+
 function dimensions(source: DrawableImage): { width: number; height: number } {
   return {
     width: source.naturalWidth ?? source.videoWidth ?? source.displayWidth ?? source.width ?? 0,
@@ -115,12 +126,17 @@ export async function decodeImageSource(
   throwIfAborted(environment.signal);
 
   if (isImageDataLike(input)) {
+    validatePixelLimit(input.width, input.height, environment.maxPixels);
     const raster = validateRaster({
       width: input.width,
       height: input.height,
-      rgba: new Uint8ClampedArray(input.data ?? input.rgba!)
+      rgba: input.data ?? input.rgba!
     });
-    return { ...raster, decodeMs: Math.max(0, clock() - startedAt) };
+    return {
+      ...raster,
+      rgba: new Uint8ClampedArray(raster.rgba),
+      decodeMs: Math.max(0, clock() - startedAt)
+    };
   }
 
   let ownedBitmap: DrawableImage | undefined;
@@ -142,6 +158,7 @@ export async function decodeImageSource(
     if (!Number.isInteger(width) || !Number.isInteger(height) || width <= 0 || height <= 0) {
       throw new PPDetectionError("INVALID_INPUT", "图片宽高必须是正整数", { width, height });
     }
+    validatePixelLimit(width, height, environment.maxPixels);
     const canvas = (environment.createCanvas ?? defaultCreateCanvas)(width, height);
     const context = canvas.getContext("2d", { willReadFrequently: true });
     if (!context) throw new PPDetectionError("INVALID_INPUT", "无法创建 Canvas 2D 上下文");

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "packages/sdk/src/types.ts",
+    "sha256": "ab1bf73aab0faaba8ab465932fad226bfe7f1fbf33161d09381c15330456f01b"
+  },
+  {
+    "file": "packages/sdk/src/index.ts",
+    "sha256": "e12094c437d35550eb1674bae0b6fb3a8872b1572547bda841c28d2c5f45e88b"
+  },
+  {
+    "file": "packages/sdk/src/input/decode-image.ts",
+    "sha256": "7af98bde045cddb28cafc70249ef70e9670df498c9ae5b368885f93f999fb940"
+  },
+  {
+    "file": "packages/sdk/src/detection/detector.ts",
+    "sha256": "f87e1f08b75e7aa179cc1832387629e25c76caf2b539e1790ce024a2e55d8ab6"
+  },
+  {
+    "file": "packages/sdk/src/detection/small-objects.ts",
+    "sha256": "4884db782e76d32eff05b2a1b120c9b7773cdd211f3753ed7c32f1cdace80c17"
+  },
+  {
+    "file": "apps/demo/src/App.tsx",
+    "sha256": "e72770398a8a8df8d937441cb4b8b384ae85c765c8a95744d7112c8e71fcfad1"
+  },
+  {
+    "file": "apps/demo/src/styles.css",
+    "sha256": "30dfa4ebd9de87c1b79a42216130bf16284e0a87d58f391519ce5850335f2ff5"
+  },
+  {
+    "file": "apps/demo/src/i18n/zh-CN.ts",
+    "sha256": "d0c842711a22fd8c14ceca10e5c4fbebc67374a5eae00f95549455786c8923bb"
+  },
+  {
+    "file": "apps/demo/src/i18n/en.ts",
+    "sha256": "911670369463528ca62032650119326f8cef0a11d311f099cd7674f161b201d2"
+  },
+  {
+    "file": "scripts/verify-small-objects.mjs",
+    "sha256": "20f9abd34fc87c22bd06ce76127050f0c72b367d51b59d44fe9a90e5e1b41b09"
+  }
+]

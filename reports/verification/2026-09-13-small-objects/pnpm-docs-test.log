@@ -1,0 +1,16 @@
+▶ documentation contract
+  ✔ runs the bilingual inventory and generated error-code checks (18184.6136ms)
+  ✔ 描述当前两模型六个 stable 变体和设备证据边界 (0.6865ms)
+  ✔ 记录当前默认组合、六变体和 W8A32 API 映射 (0.8649ms)
+  ✔ records the current model asset gate in both languages (0.5503ms)
+  ✔ documents per-class confidence thresholds in every public API guide (1.399ms)
+✔ documentation contract (18189.3195ms)
+ℹ tests 5
+ℹ suites 1
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18317.0172
+$ node --test scripts/check-doc-parity.test.mjs

@@ -35,6 +35,7 @@ export type {
   DetectionManifest,
   DetectionModelVariant,
   DetectionPoint,
+  DetectionProgress,
   DetectionPostprocessing,
   DetectionPreprocessing,
   DetectionTimings,

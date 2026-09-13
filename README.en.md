@@ -65,3 +65,5 @@ PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模�
 ## 下载配置（0.3.2 起）
 
 0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。
+
+Small object enhancement (unreleased, Labs): the development build adds opt-in `smallObjectEnhancement`, reusing one session for the whole image and up to four tiles. Evaluate on static images; false positives and latency may increase. See the [API](docs/en/api.md#small-object-enhancement-unreleased-labs).

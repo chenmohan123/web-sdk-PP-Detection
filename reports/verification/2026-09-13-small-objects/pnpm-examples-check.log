@@ -1,0 +1,21 @@
+✔ react 明确当前模型、来源和取消生命周期 (2.2319ms)
+✔ react 原样复制使用公开固定 SDK (0.4629ms)
+✔ vue 明确当前模型、来源和取消生命周期 (0.2823ms)
+✔ vue 原样复制使用公开固定 SDK (0.242ms)
+✔ vanilla-vite 明确当前模型、来源和取消生命周期 (0.2946ms)
+✔ vanilla-vite 原样复制使用公开固定 SDK (0.2657ms)
+✔ model-variants 明确当前模型、来源和取消生命周期 (0.3016ms)
+✔ model-variants 原样复制使用公开固定 SDK (0.2632ms)
+✔ wechat-webview 明确当前模型、来源和取消生命周期 (0.3197ms)
+✔ wechat-webview 原样复制使用公开固定 SDK (0.3443ms)
+✔ vanilla 明确当前模型、来源和取消生命周期 (0.267ms)
+✔ cdn 明确当前模型、来源和取消生命周期 (0.2314ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.4594
+$ node --test scripts/examples-contract.test.mjs

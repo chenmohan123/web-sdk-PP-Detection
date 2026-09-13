@@ -325,6 +325,24 @@ a svg,
   font-variant-numeric: tabular-nums;
   width: 30px;
 }
+.small-object-control {
+  display: flex;
+  align-items: center;
+  gap: var(--sdk-space-2);
+  grid-column: 1 / -1;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--sdk-color-text);
+  cursor: pointer;
+}
+.small-object-control input {
+  margin: 0;
+  accent-color: var(--sdk-color-action);
+}
+.small-object-control:has(input:disabled) {
+  opacity: 0.6;
+  cursor: default;
+}
 .control-actions {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

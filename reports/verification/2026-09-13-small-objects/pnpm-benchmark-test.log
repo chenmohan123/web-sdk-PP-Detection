@@ -1,0 +1,15 @@
+✔ 基准工作流默认保持关闭，避免发布前运行不存在的模型资产 (1.7326ms)
+✔ 浏览器基准使用可配置模型版本并跳过 blocked 清单 (0.879ms)
+✔ 离线官方 reference 校验固定官方模型并拒绝 candidate 自比较 (0.9977ms)
+✔ 模型相关工作流不依赖 Git LFS，并从固定来源下载模型 (1.3878ms)
+✔ 基准包脚本仍覆盖构建和 parity 测试入口 (0.5354ms)
+✔ 三个真实模型 benchmark job 都注入离线官方 reference (0.3536ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.3962
+$ node --test scripts/benchmark-contract.test.mjs

@@ -1,0 +1,2 @@
+$ pnpm --filter web-sdk-pp-detection typecheck
+$ tsc --noEmit

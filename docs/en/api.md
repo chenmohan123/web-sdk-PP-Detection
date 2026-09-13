@@ -40,7 +40,7 @@ await detector.dispose();
 ## `PPDetectionDetector`
 
 - `detect(image, { threshold, classThresholds, signal, timestampMs, metadata })`: accepts a Blob, CanvasImageSource, `HTMLVideoElement`, a single `VideoFrame`, or a normalized raster.
-- `dispose()`: waits for queued work and releases the Worker/session; it is idempotent.
+- `dispose()`: stops subsequent detection steps, waits for active inference and releases the Worker/session; it is idempotent.
 - `getCacheEstimate()` / `clearCurrentModelCache()` / `clearAllCache()`: inspect SDK cache usage, clear the current instance's cache key, or clear all SDK model caches. Use `dispose()` to release the session.
 - `model`, `runtime`, `capabilities`, `loadTimings`: actual loaded configuration.
 
@@ -119,3 +119,19 @@ const detector = await createPPDetection({
 仅 ONNX 权重下载受该策略控制，清单 JSON 加载不变。只有网络/响应流故障、内部超时和 HTTP 408、429、500、502、503、504 会重试；等待依次为 500、1000、2000、4000、4000 毫秒，可随 `signal` 取消。每次请求保持同一不可变 URL，不拼接残片，重试进度从 0 开始。用户取消、完整性错误、错误 206 范围及其他 HTTP 错误不重试；显式来源失败仍返回 `MODEL_SOURCE_UNAVAILABLE`，其 `cause` 保留下载错误，完整性错误为 `MODEL_INTEGRITY_FAILED`，取消为 `ABORTED`。
 
 模型下载进度新增可选 `attempt`（从 1 开始）和 `maxAttempts`；`modelDownloadMs` 包含重试和等待。持续收到少量字节不能延长总时限；完整字节数与 SHA-256 校验通过后才写缓存。自定义 fetch/reader 忽略取消时 SDK 也会结束等待并尽力清理，迟到结果不能推进进度或写缓存。
+
+## Small object enhancement (unreleased, Labs)
+
+In the local development build, call `detect(image, { smallObjectEnhancement: true })` to opt in. It defaults to false and does not require the model-level `allowExperimental` option. The Demo exposes it only for images; start evaluation with PP-YOLOE + WebGPU on static, high-resolution images.
+
+Per-call `onProgress` receives `{ completed, total }` at the start and after each pass, including the whole image (1–5 passes). The final callback follows merging. This is separate from factory download/loading progress. Callbacks should return synchronously; do not await dispose inside a callback.
+
+The SDK decodes once and reuses one session for sequential whole-image and up to four tile passes. Each axis uses ceil(length / 1.8), aligned to both ends with about 20% overlap. Tiles identical to the whole image are omitted. Enhancement accepts at most 16,777,216 pixels and rejects larger images with `INVALID_INPUT` before allocating an RGBA/Canvas copy (browser decoding of a Blob may already have occurred). It does not resize the input or change backend automatically.
+
+The frozen confident-anchor merge protects whole-image boxes with score ≥ 0.5. It removes boxes within 2% of internal tile edges, same-class duplicates at IoU > 0.5, and fragments with containment > 0.8 inside high-confidence boxes, then merges weak whole-image boxes. Each pass collects candidates at min(0.001, global threshold, class thresholds); `threshold/classThresholds` apply after merging. The fixed 0.5 anchor threshold is independent of the display threshold. A high display threshold can therefore hide both an anchor and the tile boxes it suppressed.
+
+Enhanced results include `smallObjectEnhancement: { passes }`. Boxes and polygons use original-image coordinates; index is reassigned within the result. `decodeMs` counts once; `preprocessMs` includes all crops and preprocessing; `inferenceMs` sums inference calls (including communication in worker mode); `postprocessMs` includes projection and merging. `totalMs` includes deliberate event-loop yields and excludes initialization and queue wait.
+
+Aborting `signal` discards the entire result and stops subsequent tiles; the current ORT call may need to finish. The session remains reusable. `dispose()` rejects queued requests, stops remaining tiles after the active call returns, and releases resources without returning partial results. Both main and worker modes are supported by the implementation; only inference runs in the Worker, while decoding, cropping and merging stay on the calling thread.
+
+This option can increase false positives and latency and does not promise an improvement on every image, real-time use, or mobile compatibility. The strict false-positive gate in the [evaluation evidence](../../reports/evaluation/2026-09-12-tiling-refinement/README.md) is still unmet. The six published models remain stable independently of this optional experimental feature.

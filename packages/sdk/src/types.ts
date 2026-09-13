@@ -249,7 +249,17 @@ export interface Detection {
   readonly polygon: readonly DetectionPoint[];
 }
 
+export interface DetectionProgress {
+  /** 已完成的推理次数；0 表示即将开始。 */
+  readonly completed: number;
+  /** 包含整图在内的总推理次数，范围为 1 到 5。 */
+  readonly total: number;
+}
+
 export interface DetectOptions {
+  /** 实验性小目标增强，默认关闭；整图加最多四片，最多 16,777,216 像素。 */
+  readonly smallObjectEnhancement?: boolean;
+  readonly onProgress?: (event: DetectionProgress) => void;
   readonly threshold?: number;
   readonly classThresholds?: Readonly<Record<string, number>>;
   readonly signal?: AbortSignal;
@@ -310,6 +320,7 @@ export interface PPDetectionLoadTimings {
 }
 
 export interface PPDetectionResult {
+  readonly smallObjectEnhancement?: Readonly<{ passes: number }>;
   readonly detections: readonly Detection[];
   readonly image: Readonly<{
     input: Readonly<{ width: number; height: number }>;

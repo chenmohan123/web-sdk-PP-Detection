@@ -91,6 +91,11 @@ async function loadRealModel(variantId: string): Promise<{
 test.beforeAll(async () => {
   runPnpm(["--filter", "web-sdk-pp-detection", "build"]);
   server = createServer((request, response) => {
+    if (request.url === "/enhancement.html") {
+      response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+      response.end('<!doctype html><script src="/dist/browser-global.js"></script>');
+      return;
+    }
     if (request.url === "/") {
       response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
       response.end(
@@ -179,6 +184,69 @@ test("runs a deterministic ONNX lifecycle through browser WASM", async ({ page }
   expect(result.detection?.box.yMax).toBeCloseTo(0.9);
   expect(result.totalMs).toBeGreaterThanOrEqual(0);
 });
+
+for (const executionMode of ["main", "worker"] as const) {
+  test(`小目标增强在 ${executionMode} 中支持进度、取消、重新检测和释放`, async ({ page }) => {
+    await page.goto(`${origin}/enhancement.html`);
+    const observed = await page.evaluate(
+      async ({ base64, manifest, wasmBaseUrl, executionMode }) => {
+        const detector = await window.PPDetection!.createPPDetection({
+          allowFallback: false,
+          backend: "wasm",
+          executionMode,
+          cache: false,
+          model: { data: Uint8Array.from(atob(base64), (c) => c.charCodeAt(0)).buffer, manifest },
+          ort: { wasm: { numThreads: 1, paths: wasmBaseUrl } },
+          precision: "fp32"
+        });
+        const image = { width: 18, height: 18, rgba: new Uint8ClampedArray(18 * 18 * 4) };
+        const progress: number[] = [];
+        const controller = new AbortController();
+        let abortCode: unknown;
+        try {
+          await detector.detect(image, {
+            smallObjectEnhancement: true,
+            signal: controller.signal,
+            onProgress: ({ completed }) => {
+              progress.push(completed);
+              if (completed === 2) controller.abort();
+            }
+          });
+        } catch (error) {
+          abortCode = (error as { code: string }).code;
+        }
+        const result = await detector.detect(image, { smallObjectEnhancement: true });
+        const plain = await detector.detect(image);
+        await detector.dispose();
+        let disposedCode: unknown;
+        try {
+          await detector.detect(image);
+        } catch (error) {
+          disposedCode = (error as { code: string }).code;
+        }
+        return { abortCode, disposedCode, progress, result, plain };
+      },
+      {
+        base64: TINY_MODEL_BASE64,
+        manifest: tinyModelManifest,
+        wasmBaseUrl: `${origin}/ort/`,
+        executionMode
+      }
+    );
+    expect(observed.abortCode).toBe("ABORTED");
+    expect(observed.disposedCode).toBe("DISPOSED");
+    expect(observed.progress).toEqual([0, 1, 2]);
+    expect(observed.result.smallObjectEnhancement).toEqual({ passes: 5 });
+    expect(observed.result.runtime).toMatchObject({
+      mode: executionMode,
+      backend: "wasm",
+      fallbacks: []
+    });
+    expect(observed.result.detections).toHaveLength(1);
+    expect(observed.result.detections[0].box).toEqual(observed.plain.detections[0].box);
+    expect(observed.plain.smallObjectEnhancement).toBeUndefined();
+  });
+}
 
 test("reuses a verified model from browser cache", async ({ page }) => {
   tinyModelRequests = 0;

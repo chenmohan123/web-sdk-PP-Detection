@@ -1,0 +1,12 @@
+import json
+from pathlib import Path
+root=Path(__file__).parents[3]
+jobs=json.loads((Path(__file__).parent/'jobs.json').read_text())
+rev='b25522a0f4bde8c80603f3ba5e3472059972e3b5'
+for j in jobs:
+ if j['key']=='picodet-l-320': continue
+ _,size,res=j['key'].split('-'); res=int(res)
+ fn=f'picodet-{size}-{res}-fp32.onnx'
+ src=f'picodet_{size}_{res}_lcnet_postprocessed.onnx'
+ m={'schemaVersion':1,'status':'labs','model':{'id':f'pp-picodet-{size}-{res}','version':'labs-2026-09-14','architecture':f'PicoDet-{size.upper()}-{res} LCNet','format':'onnx','assets':[{'filename':fn,'bytes':j['bytes'],'sha256':j['sha256']}]},'input':{'name':'image','shape':[1,3,res,res],'dtype':'float32'},'outputs':[{'name':'multiclass_nms3_0.tmp_0','shape':[-1,6],'dtype':'float32'},{'name':'multiclass_nms3_0.tmp_2','shape':[1],'dtype':'int32'}],'defaultVariant':'fp32','defaultSource':'custom','variants':[{'id':'fp32','filename':fn,'precision':'fp32','quantization':'none','opset':11,'bytes':j['bytes'],'sha256':j['sha256'],'parameterCount':0,'backends':['wasm','webgpu'],'status':'labs','sources':[{'kind':'custom','repository':'PaddleDetection','revision':rev,'path':f'deploy/third_engine/{src}','downloadUrl':f'https://paddledet.bj.bcebos.com/deploy/third_engine/{src}','bytes':j['bytes'],'sha256':j['sha256']}]}],'limitations':['候选模型由官方后处理图清理生成；custom URL 的可用性需运行时复核。','仅记录 WASM/WebGPU 目标后端，未作浏览器或设备兼容承诺。']}
+ d=root/f'models/pp-detection/{j["key"]}'; d.mkdir(parents=True,exist_ok=True); (d/'manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')

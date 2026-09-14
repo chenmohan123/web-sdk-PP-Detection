@@ -45,4 +45,6 @@ Windows 11 x64（10.0.26200）、Intel Core i5-10400F、Chromium 153.0.8010.12�
 - 生命周期：`node reports/distribution/2026-09-14-ppyoloe-mlx-precision/desktop-smoke.mjs`，需要既有 jobs 指定的同 SHA 权重、SDK bundle 和测试图片。
 - 分发回读：用宿主 Python 执行本目录 `verify-downloads.py weights`、`metadata`、`catalog`；无需凭据。
 - 重新发布：`publish.py` 分阶段保留真实上传提交，必须先有全部质量和生命周期证据；不可覆盖已有版本。
-- 正式 HTTPS Demo：使用门户部署提交 `74aaf38a4dca7cbdab9f77790ff2c890e9e93ed9` 完成六个新增变体 × CPU/GPU 共 12 组线上验证；下载来源为 ModelScope，页面状态、导出 JSON 的版本/精度/后端/revision/SHA-256 和 person 检测均核对通过。原始记录见 [production-verification.json](production-verification.json)。
+- 正式 HTTPS Demo：使用 SDK 部署提交 `26333e2c77adf424b75a056e387f91f13c2d65d9`（[GitHub Pages 运行 34840438741](https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34840438741)） 完成六个新增变体 × CPU/GPU 共 12 组线上验证；下载来源为 ModelScope，页面状态、导出 JSON 的版本/精度/后端/revision/SHA-256 和 person 检测均核对通过。原始记录见 [production-verification.json](production-verification.json)。
+
+部署归因更正：早期记录误用了门户提交。本记录已重新执行全部 12 组，部署身份由 SDK 仓库 Actions API 读取，三份线上 manifest 与该提交逐字节核对；以当前 `production-verification.json` 为准。

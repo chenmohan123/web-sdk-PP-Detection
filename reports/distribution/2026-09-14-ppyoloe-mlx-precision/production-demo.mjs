@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -9,10 +11,25 @@ process.env.PLAYWRIGHT_BROWSERS_PATH = resolve(sdk, '.tmp/dependencies-compatibl
 const { chromium } = await import(pathToFileURL(resolve(sdk, 'node_modules/playwright/index.mjs')));
 const output = resolve(sdk, '.tmp/ppyoloe-mlx-precision-live-20260914');
 await mkdir(output, { recursive: true });
+// 部署身份从 SDK 仓库的 Actions 记录读取，防止误填门户提交。
+const deploymentRun = process.env.PPDETECTION_DEPLOYMENT_RUN;
+assert.match(deploymentRun ?? '', /^[0-9]+$/);
+const deployment = JSON.parse(execFileSync('gh', [
+  'run', 'view', deploymentRun, '--repo', 'chenmohan123/web-sdk-PP-Detection',
+  '--json', 'headSha,headBranch,conclusion,status,workflowName,url'
+], { encoding: 'utf8' }));
+assert.equal(deployment.workflowName, 'GitHub Pages');
+assert.equal(deployment.headBranch, 'main');
+assert.equal(deployment.status, 'completed');
+assert.equal(deployment.conclusion, 'success');
+if (process.env.PPDETECTION_DEPLOYMENT_COMMIT)
+  assert.equal(process.env.PPDETECTION_DEPLOYMENT_COMMIT, deployment.headSha);
 const report = {
   testedAt: new Date().toISOString(),
   url: 'https://chenmohan123.github.io/web-sdk-PP-Detection/',
-  deploymentCommit: process.env.PPDETECTION_DEPLOYMENT_COMMIT,
+  deploymentCommit: deployment.headSha,
+  deployment,
+  deployedManifests: [],
   rows: [],
   pageErrors: [],
 };
@@ -27,6 +44,15 @@ try {
     page.on('pageerror', error => report.pageErrors.push(error.message));
     const version = '0.1.1';
     const manifest = JSON.parse(await readFile(resolve(sdk, `models/ppyoloe-plus-${size}-640/${version}/manifest.json`), 'utf8'));
+    const manifestPath = `models/ppyoloe-plus-${size}-640/${version}/manifest.json`;
+    const expectedBytes = execFileSync('git', ['show', `${deployment.headSha}:${manifestPath}`], { cwd: sdk });
+    const manifestResponse = await fetch(new URL(manifestPath, report.url));
+    assert.equal(manifestResponse.status, 200);
+    const deployedBytes = Buffer.from(await manifestResponse.arrayBuffer());
+    assert.deepEqual(deployedBytes, expectedBytes, '正式清单与 SDK 部署提交不一致');
+    assert.deepEqual(JSON.parse(deployedBytes), manifest, '本地与正式清单不一致');
+    if (!report.deployedManifests.some(item => item.path === manifestPath))
+      report.deployedManifests.push({ path: manifestPath, sha256: createHash('sha256').update(deployedBytes).digest('hex') });
     const variant = manifest.variants.find(item => item.id === precisionId);
     const source = variant.sources.find(item => item.kind === 'modelscope');
     const sourceResponses = [];

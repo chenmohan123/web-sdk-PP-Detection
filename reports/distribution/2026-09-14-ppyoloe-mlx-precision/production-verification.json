@@ -1,7 +1,29 @@
 {
-  "testedAt": "2026-09-14T11:43:17.926Z",
+  "testedAt": "2026-09-14T11:58:46.552Z",
   "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
-  "deploymentCommit": "74aaf38a4dca7cbdab9f77790ff2c890e9e93ed9",
+  "deploymentCommit": "26333e2c77adf424b75a056e387f91f13c2d65d9",
+  "deployment": {
+    "conclusion": "success",
+    "headBranch": "main",
+    "headSha": "26333e2c77adf424b75a056e387f91f13c2d65d9",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34840438741",
+    "workflowName": "GitHub Pages"
+  },
+  "deployedManifests": [
+    {
+      "path": "models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d"
+    },
+    {
+      "path": "models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c"
+    },
+    {
+      "path": "models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d"
+    }
+  ],
   "rows": [
     {
       "size": "m",
@@ -31,7 +53,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:22.646Z"
+          "capturedAt": "2026-09-14T11:58:54.291Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -76,7 +98,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:27.816Z"
+          "capturedAt": "2026-09-14T11:59:00.595Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",
@@ -121,7 +143,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:32.840Z"
+          "capturedAt": "2026-09-14T11:59:08.025Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -166,7 +188,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:37.405Z"
+          "capturedAt": "2026-09-14T11:59:12.465Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",
@@ -211,7 +233,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:45.186Z"
+          "capturedAt": "2026-09-14T11:59:29.411Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -256,7 +278,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:53.351Z"
+          "capturedAt": "2026-09-14T11:59:38.579Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",
@@ -301,7 +323,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:43:59.351Z"
+          "capturedAt": "2026-09-14T11:59:49.511Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -346,7 +368,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:44:07.112Z"
+          "capturedAt": "2026-09-14T11:59:56.948Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",
@@ -391,7 +413,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:44:17.662Z"
+          "capturedAt": "2026-09-14T12:00:23.782Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -438,7 +460,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:44:34.452Z"
+          "capturedAt": "2026-09-14T12:00:54.806Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",
@@ -483,7 +505,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:44:41.837Z"
+          "capturedAt": "2026-09-14T12:01:11.835Z"
         },
         "requestedBackend": "wasm",
         "backend": "wasm",
@@ -528,7 +550,7 @@
         "environment": {
           "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
           "platform": "Win32",
-          "capturedAt": "2026-09-14T11:44:53.578Z"
+          "capturedAt": "2026-09-14T12:01:23.622Z"
         },
         "requestedBackend": "webgpu",
         "backend": "webgpu",

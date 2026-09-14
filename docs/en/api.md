@@ -59,7 +59,7 @@ const result = await detector.detect(file, {
 });
 ```
 
-`precision: "auto"` 选择清单默认的可用稳定精度；两份当前清单都默认 FP32。显式 `"fp16"` 选择 FP16，显式 `"int8"` 选择 W8A32。`classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
+`precision: "auto"` 选择清单默认的可用稳定精度；五份当前清单都默认 FP32。显式 `"fp16"` 选择 FP16，显式 `"int8"` 选择 W8A32。`classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
 When a manifest sets `preprocessing.doResize` to `false`, both input dimensions must fit within the model input size. Larger images throw `INVALID_INPUT` instead of being silently cropped.
 

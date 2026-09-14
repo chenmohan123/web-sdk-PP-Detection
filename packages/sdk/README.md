@@ -39,15 +39,15 @@ await detector.dispose();
 
 工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1，共五款模型、15 个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
 
-两份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
+五份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
 
 模型初始化耗时可以通过 `detector.loadTimings` 查看。`totalMs` 是初始化总耗时，同时提供 `modelDownloadMs`（网络下载）、`modelCacheReadMs`（缓存读取）、`integrityMs`（SHA-256 完整性校验）和 `sessionMs`（ONNX Runtime Session 创建）。从 0.2.0 起，`loadTimings.modelSource` 区分 `network`、`cache`、`memory`，`runtime.runtimeVersion/environment` 记录实际 ORT 版本和环境快照。初始化总耗时包含 manifest 获取，详细语义见[性能文档](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/zh-CN/performance.md)。
 
 ## 运行后端与精度
 
 - `backend: "auto"` 优先使用 WebGPU；设置 `allowFallback: true` 后，WebGPU 会话或推理失败才会尝试 WASM（CPU）。也可手动指定 `"webgpu"` 或 `"wasm"`。
-- `precision: "auto"` 选择清单默认的稳定精度，当前两份清单均为 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。
-- 两模型的 FP32、FP16、W8A32 均为 stable。FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
+- `precision: "auto"` 选择清单默认的稳定精度，当前五份清单均为 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。
+- 五款模型的 FP32、FP16、W8A32 均为 stable。PicoDet/S 的精度证据来自 2026-09-12，M/L/X 来自 2026-09-14；均为桌面 WASM/WebGPU 固定 64 图三轮验证。小米 15 实测仅覆盖 PicoDet/S 的原 FP32。
 - 使用默认模型时，显式请求清单中未声明的组合会抛出 `CAPABILITY_UNSUPPORTED`，不会改写无效组合；自定义清单可在单独验证后声明其他组合。上游模型是 float32，不支持 FP64；FP32 约为 FP16 两倍大小并可能更慢、更占显存。
 - `detect` 可接收图片 Blob/File、Canvas/ImageData、`HTMLVideoElement` 或单帧 `VideoFrame`。摄像头和视频播放的权限、帧率控制由宿主页面负责；每次提交一帧后应等待 Promise 完成，并在停止媒体时调用 `dispose()`。
 
@@ -117,15 +117,15 @@ await detector.dispose();
 
 工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1，共五款模型、15 个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。
 
-两份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
+五份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
 
 Detailed initialization timings are available through `detector.loadTimings`. `totalMs` is the full initialization duration. The additive fields `modelDownloadMs`, `modelCacheReadMs`, `integrityMs`, and `sessionMs` separate network download, cache reads, SHA-256 verification, and Session creation. From 0.2.0, `loadTimings.modelSource` distinguishes `network`, `cache`, and `memory`, while `runtime.runtimeVersion/environment` capture the actual ORT version and environment. Initialization totals include manifest retrieval; see [performance](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/docs/en/performance.md) for the full semantics.
 
 ### Backend and precision
 
 - `backend: "auto"` prefers WebGPU; with `allowFallback: true`, a failed WebGPU session or inference attempts WASM (CPU). Use `"webgpu"` or `"wasm"` for an explicit choice.
-- `precision: "auto"` 选择清单默认的稳定精度，当前两份清单均为 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。
-- 两模型的 FP32、FP16、W8A32 均为 stable。FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
+- `precision: "auto"` 选择清单默认的稳定精度，当前五份清单均为 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。
+- All five models provide stable FP32, FP16, and W8A32 variants. Precision evidence is dated 2026-09-12 for PicoDet/S and 2026-09-14 for M/L/X: three desktop WASM/WebGPU runs on the fixed 64-image set. Xiaomi 15 testing covers only the original PicoDet/S FP32 variants.
 - `detect` accepts image Blob/File, Canvas/ImageData, `HTMLVideoElement`, or a single `VideoFrame`. Hosts own camera/video permissions and frame pacing; await each frame Promise and call `dispose()` when media stops.
 - Explicit pairs absent from the default manifest throw `CAPABILITY_UNSUPPORTED` instead of rewriting an invalid pair. The upstream model is float32, not FP64; FP64 inference is unsupported. FP32 is about twice the size of FP16 and may be slower or use more GPU memory.
 

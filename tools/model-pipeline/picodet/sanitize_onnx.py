@@ -63,6 +63,7 @@ def sanitize_postprocessed_model(
     *,
     image_name: str = IMAGE_NAME,
     scale_factor_name: str = SCALE_FACTOR_NAME,
+    input_size: int = 320,
 ) -> dict[str, Any]:
     """将 PaddleDetection 后处理导出的 ONNX 固定为 SDK 可直接调用的单输入图。
 
@@ -70,6 +71,8 @@ def sanitize_postprocessed_model(
     能在 initializer 中找到的输入，并把后处理使用的 scale_factor 固定为 1，
     不会默默丢弃未知的运行时输入。
     """
+    if not isinstance(input_size, int) or input_size not in (320, 416, 640):
+        raise ValueError("PicoDet input_size 仅支持 320、416 或 640")
     onnx = _require_onnx()
     source = source.resolve()
     target = target.resolve()
@@ -83,7 +86,8 @@ def sanitize_postprocessed_model(
         raise ValueError(f"ONNX 缺少 {image_name} 输入")
     if image_input.type.tensor_type.elem_type != onnx.TensorProto.FLOAT:
         raise ValueError(f"{image_name} 输入必须为 float32")
-    _set_static_shape(image_input, IMAGE_SHAPE)
+    image_shape = (1, 3, input_size, input_size)
+    _set_static_shape(image_input, image_shape)
 
     initializer_names = {item.name for item in graph.initializer}
     removed_inputs: list[str] = []
@@ -126,7 +130,7 @@ def sanitize_postprocessed_model(
         "source": str(source),
         "target": str(target),
         "imageInput": image_name,
-        "imageShape": list(IMAGE_SHAPE),
+        "imageShape": list(image_shape),
         "fixedInputs": {scale_factor_name: [[1.0, 1.0]]},
         "removedGraphInputs": removed_inputs,
         "initializerCount": len(graph.initializer),
@@ -139,9 +143,10 @@ def main() -> int:
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--input-size", type=int, default=320, choices=(320, 416, 640))
     args = parser.parse_args()
     try:
-        report = sanitize_postprocessed_model(args.input, args.output)
+        report = sanitize_postprocessed_model(args.input, args.output, input_size=args.input_size)
     except Exception as exc:
         print(f"清理失败: {exc}")
         return 1

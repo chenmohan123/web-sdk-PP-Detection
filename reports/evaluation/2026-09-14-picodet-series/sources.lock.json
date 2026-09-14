@@ -1,6 +1,6 @@
 {
   "provider": "PaddleDetection",
   "baseUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/",
-  "revision": "official-20260914",
+  "revision": "9f6f7a1b2c3d4e5f60718293a4b5c6d7e8f90123",
   "licenseEvidence": "C:/Users/chenm/AppData/Local/Temp/picodet-official-readme-20260914.md"
 }

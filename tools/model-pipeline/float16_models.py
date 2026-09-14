@@ -15,8 +15,13 @@ from onnxruntime.transformers.onnx_model import OnnxModel
 
 PROFILES = {
     'picodet': ('0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1', (), ('Cast_5',)),
-    'ppyoloe': ('d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c', ('ReduceMean',), ()),
+    'ppyoloe-s': ('d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c', ('ReduceMean',), ()),
+    'ppyoloe-m': ('c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa', ('ReduceMean',), ()),
+    'ppyoloe-l': ('01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075', ('ReduceMean',), ()),
+    'ppyoloe-x': ('90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e', ('ReduceMean',), ()),
 }
+# 保留既有 S 复现命令的配置名。
+PROFILES['ppyoloe'] = PROFILES['ppyoloe-s']
 
 
 def tensors(graph):

@@ -45,3 +45,25 @@ def test_conversion_guards_digest_and_existing_output(tmp_path):
     original=target.read_bytes();assert report['candidateSha256']==hashlib.sha256(original).hexdigest()
     with pytest.raises(FileExistsError):convert(source,target,expected_sha256=expected)
     assert target.read_bytes()==original
+
+
+def test_ppyoloe_variant_profiles_pin_the_published_fp32_digests():
+    import json
+    from pathlib import Path
+    from float16_models import PROFILES
+
+    root = Path(__file__).parents[3]
+    for size in ('s', 'm', 'l', 'x'):
+        version = '0.1.1' if size == 's' else '0.1.0'
+        manifest = json.loads((root / f'models/ppyoloe-plus-{size}-640/{version}/manifest.json').read_text(encoding='utf-8'))
+        fp32 = next(variant for variant in manifest['variants'] if variant['precision'] == 'fp32')
+        digest, ops, nodes = PROFILES[f'ppyoloe-{size}']
+        assert digest == fp32['sha256']
+        assert ops == ('ReduceMean',)
+        assert nodes == ()
+
+
+def test_legacy_ppyoloe_profile_remains_the_s_conversion():
+    from float16_models import PROFILES
+
+    assert PROFILES['ppyoloe'] == PROFILES['ppyoloe-s']

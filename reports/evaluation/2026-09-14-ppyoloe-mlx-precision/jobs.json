@@ -1,0 +1,74 @@
+[
+  {
+    "size": "m",
+    "precision": "fp32",
+    "model": ".tmp/ppyoloe-plus-m-fixed.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/m-fp32-manifest.json",
+    "bytes": 94022904,
+    "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa"
+  },
+  {
+    "size": "m",
+    "precision": "fp16",
+    "model": ".tmp/precision-mlx-20260914/m-fp16.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/m-fp16-manifest.json",
+    "bytes": 47104975,
+    "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b"
+  },
+  {
+    "size": "m",
+    "precision": "w8a32",
+    "model": ".tmp/precision-mlx-20260914/m-w8a32.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/m-w8a32-manifest.json",
+    "bytes": 23818631,
+    "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6"
+  },
+  {
+    "size": "l",
+    "precision": "fp32",
+    "model": ".tmp/smlx-l/ppyoloe-plus-l-fixed.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/l-fp32-manifest.json",
+    "bytes": 209181400,
+    "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075"
+  },
+  {
+    "size": "l",
+    "precision": "fp16",
+    "model": ".tmp/precision-mlx-20260914/l-fp16.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/l-fp16-manifest.json",
+    "bytes": 104700181,
+    "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2"
+  },
+  {
+    "size": "l",
+    "precision": "w8a32",
+    "model": ".tmp/precision-mlx-20260914/l-w8a32.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/l-w8a32-manifest.json",
+    "bytes": 52698311,
+    "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03"
+  },
+  {
+    "size": "x",
+    "precision": "fp32",
+    "model": ".tmp/ppyoloe-plus-x-fixed.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/x-fp32-manifest.json",
+    "bytes": 394163636,
+    "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e"
+  },
+  {
+    "size": "x",
+    "precision": "fp16",
+    "model": ".tmp/precision-mlx-20260914/x-fp16.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/x-fp16-manifest.json",
+    "bytes": 197207187,
+    "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394"
+  },
+  {
+    "size": "x",
+    "precision": "w8a32",
+    "model": ".tmp/precision-mlx-20260914/x-w8a32.onnx",
+    "manifest": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/x-w8a32-manifest.json",
+    "bytes": 99048805,
+    "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56"
+  }
+]

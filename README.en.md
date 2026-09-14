@@ -4,11 +4,11 @@
 
 The Demo now provides PicoDet-L 320 and PP-YOLOE+ S/M/L/X 640, each with stable FP32, FP16, and W8A32 variants. PicoDet uses version 1.0.2 and every PP-YOLOE+ size uses 0.1.1; the SDK API and npm version remain **0.4.0**. Each model defaults to ModelScope and also supports explicit Hugging Face selection. The overall Demo defaults remain PicoDet, ModelScope, and FP32, and an explicitly selected source never silently switches to another source.
 
-| Model           | FP32      | FP16      | W8A32   |
+| Model           |      FP32 |      FP16 |    W8A32 |
 | --------------- | --------: | --------: | -------: |
-| PicoDet-L 320   | 23.24 MB  | 14.81 MB  | 6.12 MB  |
-| PP-YOLOE+ S 640 | 31.95 MB  | 16.05 MB  | 8.23 MB  |
-| PP-YOLOE+ M 640 | 94.02 MB  | 47.10 MB  | 23.82 MB |
+| PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
+| PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
+| PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
 | PP-YOLOE+ L 640 | 209.18 MB | 104.70 MB | 52.70 MB |
 | PP-YOLOE+ X 640 | 394.16 MB | 197.21 MB | 99.05 MB |
 
@@ -20,9 +20,9 @@ The nine new M/L/X precision variants were checked over three desktop WASM/WebGP
 
 The 2026-09-12 Demo used PicoDet **1.0.2** and PP-YOLOE **0.1.1**, each with stable FP32, FP16, and W8A32 variants. FP32 and ModelScope remained the defaults, with Hugging Face as the other explicit source. FP16/W8A32 completed three desktop WASM and WebGPU runs on the fixed 64-image set; mobile evidence covers the original FP32 models only.
 
-| Model | FP32 | FP16 | W8A32 |
-| --- | ---: | ---: | ---: |
-| PicoDet | 23.24 MB | 14.81 MB (36.3% smaller) | 6.12 MB (73.7% smaller) |
+| Model    |     FP32 |                     FP16 |                   W8A32 |
+| -------- | -------: | -----------------------: | ----------------------: |
+| PicoDet  | 23.24 MB | 14.81 MB (36.3% smaller) | 6.12 MB (73.7% smaller) |
 | PP-YOLOE | 31.95 MB | 16.05 MB (49.8% smaller) | 8.23 MB (74.3% smaller) |
 
 Smaller files are an independent benefit. FP16 keeps sensitive operators in FP32; W8A32 compresses weights while activations and convolution computation remain FP32. Use SDK `precision: "int8"` for W8A32 and inspect the manifest's `quantization` field for the actual strategy. These manifests work with SDK 0.3.1 without an API change. See the [precision comparison](reports/evaluation/2026-09-12-precision-variants/README.md) for recognition, timing, and box differences.

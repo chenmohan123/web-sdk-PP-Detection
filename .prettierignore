@@ -42,3 +42,7 @@ models/ppyoloe-plus-s-640/0.1.1/*-conversion.json
 models/ppyoloe-plus-[mlx]-640/0.1.0/README.md
 models/ppyoloe-plus-[mlx]-640/0.1.1/README.md
 reports/distribution/2026-09-14-ppyoloe-mlx-precision/hub-README.md
+reports/distribution/2026-09-14-ppyoloe-mlx-precision/*.mjs
+reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
+reports/evaluation/2026-09-14-ppyoloe-mlx-release/browser.mjs
+reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md

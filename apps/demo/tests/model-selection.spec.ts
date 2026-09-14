@@ -62,9 +62,7 @@ test("选择 PP-YOLOE 后按稳定模型加载，并清除旧模型结果", asyn
 });
 
 for (const size of ["m", "l", "x"] as const) {
-  test(`PP-YOLOE+ ${size.toUpperCase()} 提供三种稳定精度并默认 ModelScope`, async ({
-    page
-  }) => {
+  test(`PP-YOLOE+ ${size.toUpperCase()} 提供三种稳定精度并默认 ModelScope`, async ({ page }) => {
     await page.goto("/?fixture=1");
     const model = page.getByLabel(MODEL_SELECT, { exact: true });
     const precision = page.getByRole("group", { name: "模型精度", exact: true });

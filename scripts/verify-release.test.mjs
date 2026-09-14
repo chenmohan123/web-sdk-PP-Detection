@@ -198,9 +198,8 @@ describe("发布工作流契约", () => {
   });
 
   test("Pages 暂存脚本从当前根目录复制稳定模型且不访问网络", async () => {
-    const { stageAllPagesModels, stagePagesModels, stableManifestPaths } = await import(
-      "./stage-pages-models.mjs"
-    );
+    const { stageAllPagesModels, stagePagesModels, stableManifestPaths } =
+      await import("./stage-pages-models.mjs");
     const outputRoot = mkdtempSync(join(tmpdir(), "ppdetection-blocked-pages-"));
     let fetchCalls = 0;
     try {

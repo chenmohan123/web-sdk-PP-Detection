@@ -6,11 +6,11 @@
 
 The current release provides PicoDet-L 320 and PP-YOLOE+ S/M/L/X 640, each in three precisions, for 15 stable variants. All five manifests default to ModelScope and FP32 and allow explicit ModelScope or Hugging Face selection. The npm package contains neither manifests nor ONNX weights.
 
-| Model               | Version | FP32      | FP16      | W8A32   |
+| Model               | Version |      FP32 |      FP16 |    W8A32 |
 | ------------------- | ------- | --------: | --------: | -------: |
-| PicoDet-L-320 LCNet | 1.0.2   | 23.24 MB  | 14.81 MB  | 6.12 MB  |
-| PP-YOLOE+ S 640     | 0.1.1   | 31.95 MB  | 16.05 MB  | 8.23 MB  |
-| PP-YOLOE+ M 640     | 0.1.1   | 94.02 MB  | 47.10 MB  | 23.82 MB |
+| PicoDet-L-320 LCNet | 1.0.2   |  23.24 MB |  14.81 MB |  6.12 MB |
+| PP-YOLOE+ S 640     | 0.1.1   |  31.95 MB |  16.05 MB |  8.23 MB |
+| PP-YOLOE+ M 640     | 0.1.1   |  94.02 MB |  47.10 MB | 23.82 MB |
 | PP-YOLOE+ L 640     | 0.1.1   | 209.18 MB | 104.70 MB | 52.70 MB |
 | PP-YOLOE+ X 640     | 0.1.1   | 394.16 MB | 197.21 MB | 99.05 MB |
 

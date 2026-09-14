@@ -4,11 +4,11 @@
 
 Demo 现提供 PicoDet-L 320 与 PP-YOLOE+ S/M/L/X 640 五款模型，每款均有 FP32、FP16、W8A32 三个稳定变体，共 15 个。PicoDet 使用 1.0.2，PP-YOLOE+ S/M/L/X 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。所有模型默认 ModelScope，可显式选择 Hugging Face；Demo 总默认仍为 PicoDet、ModelScope、FP32，显式来源失败不静默换源。
 
-| 模型            |     FP32 |     FP16 |  W8A32 |
-| --------------- | -------: | -------: | ------: |
-| PicoDet-L 320   | 23.24 MB | 14.81 MB | 6.12 MB |
-| PP-YOLOE+ S 640 | 31.95 MB | 16.05 MB | 8.23 MB |
-| PP-YOLOE+ M 640 | 94.02 MB | 47.10 MB | 23.82 MB |
+| 模型            |      FP32 |      FP16 |    W8A32 |
+| --------------- | --------: | --------: | -------: |
+| PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
+| PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
+| PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
 | PP-YOLOE+ L 640 | 209.18 MB | 104.70 MB | 52.70 MB |
 | PP-YOLOE+ X 640 | 394.16 MB | 197.21 MB | 99.05 MB |
 

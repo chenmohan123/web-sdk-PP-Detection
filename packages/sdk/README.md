@@ -37,7 +37,7 @@ await detector.dispose();
 
 `classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的六个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
+工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1，共五款模型、15 个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
 
 两份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
 
@@ -115,7 +115,7 @@ await detector.dispose();
 
 `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的六个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。
+工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1，共五款模型、15 个 stable 变体清单，npm 包不内置清单或 ONNX 模型本体。
 
 两份当前 manifest 和在线 Demo 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face。
 

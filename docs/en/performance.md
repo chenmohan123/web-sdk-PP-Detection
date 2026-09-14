@@ -10,7 +10,7 @@ Metrics have two independent scopes. `detector.loadTimings` starts at factory en
 
 Each result snapshots its actual backend, precision, execution mode, and fallback history. `runtimeVersion` comes from the loaded ORT module's `env.versions.web`; a custom runtime without this information reports `null`. `environment` captures the browser's public `userAgent`, `platform`, and `capturedAt` during initialization; unavailable values are `null`. This describes the current run, not a compatibility guarantee.
 
-当前默认组合为 PicoDet-L-320 1.0.2、ModelScope、FP32；PP-YOLOE 0.1.1 和两模型的 FP16/W8A32 也均为 stable。FP16/W8A32 性能证据只覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证，详见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。小米 15 实测仅覆盖原 FP32，不能以一次测试或单台设备的耗时代表普遍性能。
+The default remains PicoDet-L-320 1.0.2, ModelScope, and FP32. PP-YOLOE+ S/M/L/X 0.1.1 and the FP16/W8A32 variants for all five models are also stable. Performance evidence for S and PicoDet is in the [earlier precision report](../../reports/evaluation/2026-09-12-precision-variants/README.md), while the [current quality report](../../reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md) covers M/L/X. Both are limited to three desktop WASM/WebGPU runs on a fixed 64-image set. Smaller files do not imply proportional peak-memory reductions or guaranteed speedups. Xiaomi 15 evidence covers only the original FP32 model, and one device or run cannot establish universal performance.
 
 Prioritize detector reuse, IndexedDB caching, avoiding concurrent large sessions, submitting one frame at a time, cancellation, and resource release. Label network initialization, cache initialization, and session reuse separately; do not treat first session creation as steady-state inference throughput.
 

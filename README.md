@@ -1,19 +1,20 @@
 # PaddleDetection Web SDK
 
-## PP-YOLOE+ S/M/L/X FP32（2026-09-14）
+## 五模型三精度稳定发布（2026-09-14）
 
-Demo 新增 PP-YOLOE+ M、L、X 640 的 FP32 稳定模型；S 0.1.1 继续保留 FP32、FP16、W8A32。M/L/X 的模型版本均为 0.1.0，只开放 FP32。所有模型均默认 ModelScope，可显式选择 Hugging Face，显式来源失败不静默换源。Demo 总默认仍为 PicoDet、ModelScope、FP32。
+Demo 现提供 PicoDet-L 320 与 PP-YOLOE+ S/M/L/X 640 五款模型，每款均有 FP32、FP16、W8A32 三个稳定变体，共 15 个。PicoDet 使用 1.0.2，PP-YOLOE+ S/M/L/X 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。所有模型默认 ModelScope，可显式选择 Hugging Face；Demo 总默认仍为 PicoDet、ModelScope、FP32，显式来源失败不静默换源。
 
-| PP-YOLOE+ 规格 | FP32 下载体积 |
-| -------------- | ------------: |
-| S              |      31.95 MB |
-| M              |      94.02 MB |
-| L              |     209.18 MB |
-| X              |     394.16 MB |
+| 模型            |     FP32 |     FP16 |  W8A32 |
+| --------------- | -------: | -------: | ------: |
+| PicoDet-L 320   | 23.24 MB | 14.81 MB | 6.12 MB |
+| PP-YOLOE+ S 640 | 31.95 MB | 16.05 MB | 8.23 MB |
+| PP-YOLOE+ M 640 | 94.02 MB | 47.10 MB | 23.82 MB |
+| PP-YOLOE+ L 640 | 209.18 MB | 104.70 MB | 52.70 MB |
+| PP-YOLOE+ X 640 | 394.16 MB | 197.21 MB | 99.05 MB |
 
 四规格来自同一固定 PaddleDetection 提交的官方 COCO 权重，沿用已发布 S 的 Apache-2.0 发布口径，保留上游许可与转换说明。模型逐份固定双源 revision、路径、字节数和 SHA-256；不是上游官方 Hub 镜像。新增规格的证据限于 Windows 11 / Chromium 153 / ORT Web 1.27.0 桌面，不增加手机兼容承诺。大模型的下载、CPU 推理与内存开销更高；64 图子集指标不是完整 COCO mAP。
 
-本次为模型和 Demo 独立更新，SDK API 与 npm 版本保持 **0.4.0**。见[四规格发布证据](reports/distribution/2026-09-14-ppyoloe-smlx/README.md)和[模型清单](models/README.md)。
+M/L/X 九个新增精度变体按固定 64 图、桌面 WASM/WebGPU 三轮验证：相对同规格 FP32 的 AP 下降不超过 0.5 个百分点，并在 score≥0.5、同类 IoU≥0.5 下保留至少 95% 的 FP32 检测；IoU≥0.99 只用于坐标偏差诊断。该子集不是完整 COCO mAP，文件缩小也不代表峰值内存同比下降或普遍加速。见[质量报告](reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)、[分发证据](reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md)和[模型清单](models/README.md)。
 
 ## S 与 PicoDet 的三精度记录（2026-09-12）
 
@@ -44,11 +45,11 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 ## 当前边界
 
-- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的六个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
+- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供五款模型共 15 个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
 - 模型来源由 manifest 声明，可选择 Git LFS、Hugging Face、ModelScope 或 custom；每个来源必须绑定不可变 revision、大小和 SHA-256。显式来源失败不会静默换源，`auto` 才会按清单尝试。
-- 两份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
+- 五份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
 - SDK 已支持 ONNX Runtime Web 的 `wasm`/`webgpu`、main/worker 执行模式、IndexedDB/内存缓存、模型完整性校验、取消和资源释放。
-- PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 均为 stable。FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
+- PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1 的 FP32、FP16、W8A32 均为 stable。M/L/X 新精度证据仅覆盖 2026-09-14 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
 - 常用配置包括 `backend`（`auto`、`webgpu`、`wasm`）、`precision`（`auto`、`fp16`、`fp32`、`int8`）和 `allowFallback`；其中 `int8` 选择 W8A32，`model` 可传入清单 URL 或二进制 `data`。
 - 跨域模型需要正确的 CORS；多线程 WASM 需要 COOP/COEP，无法满足时使用单线程。
 - `classThresholds` 可按 `person`、`car` 等 manifest 类别覆盖目标检测置信度阈值；未配置类别继承全局阈值。
@@ -71,11 +72,11 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 代码采用 Apache-2.0；模型、权重和 COCO 标签的上游许可按 `THIRD_PARTY_NOTICES.md` 逐项核验。
 
-## PP-YOLOE 稳定模型
+## PP-YOLOE+ 稳定模型
 
-PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模型版本为 **0.1.1**，新增 FP16 与 W8A32 稳定变体。当前清单默认可加载，无需设置 `allowExperimental`；旧 labs 候选仍须显式开启，blocked 仍会被拒绝。见[稳定记录](reports/stability/2026-09-12-ppyoloe/README.md)与[六变体示例](examples/model-variants/README.md)。
+PP-YOLOE+ S/M/L/X 640 的当前模型版本均为 **0.1.1**，每款提供 FP32、FP16、W8A32 稳定变体。历史 0.1.0 与 labs/blocked 候选继续保留原状态和证据；当前清单默认可加载，无需设置 `allowExperimental`。
 
-原两模型的三精度选择继续保留，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。旧 Hub 实验清单和 v0.3.0 资产是历史快照；模型分发见[历史记录](reports/distribution/2026-09-11-ppyoloe/README.md)，小米 15 的实际设备范围见[实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+五款模型的三精度选择使用同一 Demo 流程，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。小米 15 的实际设备范围仍只见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
 
 ## 下载配置（0.3.2 起）
 

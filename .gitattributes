@@ -25,3 +25,6 @@ models/pp-detection/1.0.2/LICENSE -text -whitespace
 models/ppyoloe-plus-s-640/0.1.1/LICENSE -text -whitespace
 models/ppyoloe-plus-[mlx]-640/0.1.0/README.md -text -whitespace
 models/ppyoloe-plus-[mlx]-640/0.1.0/LICENSE -text -whitespace
+models/ppyoloe-plus-[mlx]-640/0.1.1/README.md -text -whitespace
+models/ppyoloe-plus-[mlx]-640/0.1.1/LICENSE -text -whitespace
+reports/distribution/2026-09-14-ppyoloe-mlx-precision/hub-README.md -text -whitespace

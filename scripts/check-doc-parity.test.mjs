@@ -15,19 +15,25 @@ describe("documentation contract", () => {
     });
   });
 
-  it("描述当前两模型六个 stable 变体和设备证据边界", () => {
+  it("描述当前五模型十五个稳定变体和双语设备证据边界", () => {
     const chineseReadme = readFileSync(new URL("README.md", repositoryRoot), "utf8");
     const englishReadme = readFileSync(new URL("README.en.md", repositoryRoot), "utf8");
 
     for (const document of [chineseReadme, englishReadme]) {
       assert.match(document, /PicoDet.*1\.0\.2/);
       assert.match(document, /PP-YOLOE.*0\.1\.1/);
-      assert.match(document, /FP32、FP16、W8A32.*stable/);
-      assert.match(document, /小米 15.*仅覆盖原 FP32/);
+      for (const precision of ["FP32", "FP16", "W8A32"]) {
+        assert.match(document, new RegExp(precision));
+      }
+      assert.match(document, /S\/M\/L\/X/);
     }
+    assert.match(chineseReadme, /15 个稳定变体/);
+    assert.match(chineseReadme, /小米 15.*仅覆盖原 FP32/);
+    assert.match(englishReadme, /15 stable variants/);
+    assert.match(englishReadme, /Xiaomi 15.*original FP32/);
   });
 
-  it("记录当前默认组合、六变体和 W8A32 API 映射", () => {
+  it("记录当前默认组合、十五变体和 W8A32 API 映射", () => {
     const rootReadme = readFileSync(new URL("README.md", repositoryRoot), "utf8");
     const packageReadme = readFileSync(new URL("packages/sdk/README.md", repositoryRoot), "utf8");
     const modelReadme = readFileSync(new URL("models/README.md", repositoryRoot), "utf8");
@@ -38,6 +44,7 @@ describe("documentation contract", () => {
       assert.match(rootReadme, new RegExp(precision));
     }
     for (const document of [packageReadme, modelReadme, englishModels, chineseModels]) {
+      assert.match(document, /15/);
       assert.match(document, /ModelScope/);
       assert.match(document, /FP32/);
       assert.match(document, /FP16/);

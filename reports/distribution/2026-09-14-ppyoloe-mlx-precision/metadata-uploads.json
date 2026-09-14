@@ -1,0 +1,146 @@
+[
+  {
+    "size": "m",
+    "source": "modelscope",
+    "revision": "5caeee90009c25af1bd94c8d1894ddbb1f7d9a1e",
+    "files": [
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/manifest.json",
+        "bytes": 7668,
+        "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/README.md",
+        "bytes": 3300,
+        "sha256": "e2ba3068f4d4c2019c610209e95df32d4795af7b1432f5ceb43fb502ea65b805"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:38.033406+00:00"
+  },
+  {
+    "size": "m",
+    "source": "huggingface",
+    "revision": "922268f452520b0a45663689a38f2d26f8fb423b",
+    "files": [
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/manifest.json",
+        "bytes": 7668,
+        "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/README.md",
+        "bytes": 3300,
+        "sha256": "e2ba3068f4d4c2019c610209e95df32d4795af7b1432f5ceb43fb502ea65b805"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:41.060367+00:00"
+  },
+  {
+    "size": "l",
+    "source": "modelscope",
+    "revision": "36dce74b9d2392428b8663ab562e2649d4234879",
+    "files": [
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/manifest.json",
+        "bytes": 7674,
+        "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "2cd723c79606642209d27437ec44d563d2904d568ec7a67adcaa035920be4913"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:43.312910+00:00"
+  },
+  {
+    "size": "l",
+    "source": "huggingface",
+    "revision": "bb7ed18c2181aff39110ef22788c7ba0d7aa6de5",
+    "files": [
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/manifest.json",
+        "bytes": 7674,
+        "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "2cd723c79606642209d27437ec44d563d2904d568ec7a67adcaa035920be4913"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:44.987738+00:00"
+  },
+  {
+    "size": "x",
+    "source": "modelscope",
+    "revision": "86721fb9699d45998a3512e471293ff48b6fec95",
+    "files": [
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/manifest.json",
+        "bytes": 7674,
+        "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "b92926acecc9efaf76dfd34a32b1708ca0c77ec4b7ce84e6d4ee1fb3de775dba"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:47.072068+00:00"
+  },
+  {
+    "size": "x",
+    "source": "huggingface",
+    "revision": "4a9ef7eb5fd1960d8ce6056ed7df724923395c1e",
+    "files": [
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/manifest.json",
+        "bytes": 7674,
+        "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "b92926acecc9efaf76dfd34a32b1708ca0c77ec4b7ce84e6d4ee1fb3de775dba"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:23:49.038346+00:00"
+  }
+]

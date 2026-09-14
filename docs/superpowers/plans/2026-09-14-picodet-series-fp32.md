@@ -4,7 +4,7 @@
 
 **目标：** 在现有 Detection SDK 和 Demo 中提供 PicoDet XS/S/M 的 320、416，以及 L 的 320、416、640 九个 FP32 规格。
 
-**架构：** 沿用官方带后处理 ONNX、单 image 输入、stretch/bicubic 预处理和检测矩阵输出。L-320 复用已发布 1.0.2 文件，其余八个建立独立 0.1.0 清单；统一运行时不因模型规格复制实现。
+**架构：** 沿用官方带后处理 ONNX、单 image 输入、stretch/bicubic 预处理和检测矩阵输出。L-320 复用已发布 1.0.2 文件，其余八个建立独立 1.0.0 清单；统一运行时不因模型规格复制实现。
 
 **技术栈：** Python ONNX / ONNX Runtime，TypeScript SDK，React Demo，ORT Web 1.27.0，Playwright。
 
@@ -27,11 +27,11 @@
 
 输入：官方 README 中九个 `picodet_{size}_{resolution}_lcnet_postprocessed.onnx` 地址；已有 L-320 1.0.2 清单。输出：八个新文件及 L-320 引用，统一 jobs 项含 key、model、manifest、bytes、sha256、inputSize、sourceModel。
 
-- [ ] 为显式 416 / 640、非法尺寸和已有默认 320 添加有意义的图契约测试；先运行失败用例。
-- [ ] 适配单输入清理和检查函数，增加 keyword 参数 `input_size: int = 320`，未知输入拒绝，禁止将 416 / 640 图误标为 320；保留现有默认行为。
-- [ ] 下载官方文件，记录下载 URL、字节、SHA、固定官方配置 revision 与许可来源。实际检查每个模型的图输入、输出、opset 与算子，不预设所有图相同。
-- [ ] 创建候选 ONNX 于 `.tmp/picodet-series/`，有需要时只做可证明等价的兼容处理；新建候选清单 status=labs，仅供本地评测，禁止虚构远程来源通过。
-- [ ] 同一输入跑官方 / 处理后 Python ORT 对照，记录误差与有效检测；使用真实权重完成测试后提交代码和小型证据，不提交大权重。
+- [x] 为显式 416 / 640、非法尺寸和已有默认 320 添加有意义的图契约测试；先运行失败用例。
+- [x] 适配单输入清理和检查函数，增加 keyword 参数 `input_size: int = 320`，未知输入拒绝，禁止将 416 / 640 图误标为 320；保留现有默认行为。
+- [x] 下载官方文件，记录下载 URL、字节、SHA、固定官方配置 revision 与许可来源。实际检查每个模型的图输入、输出、opset 与算子，不预设所有图相同。
+- [x] 创建候选 ONNX 于 `.tmp/picodet-series/`，有需要时只做可证明等价的兼容处理；新建候选清单 status=labs，仅供本地评测，禁止虚构远程来源通过。
+- [x] 同一输入跑官方 / 处理后 Python ORT 对照，记录误差与有效检测；使用真实权重完成测试后提交代码和小型证据，不提交大权重。
 
 ## Task 2: 桌面质量与生命周期证据
 
@@ -39,30 +39,30 @@
 
 输入：Task 1 jobs；输出：每个规格 WASM / WebGPU 质量、耗时、main / Worker 结果及固定 SHA 索引。
 
-- [ ] 构建当前 SDK，验证 64 张图片与现有 dataset lock 字节一致。
-- [ ] 串行执行各规格浏览器 CPU / GPU 推理，保留运行环境和物理 GPU 身份。
-- [ ] 以同规格官方参考评估 AP 和一对一检测保留率，保存所有失败，不降低门槛以通过。
-- [ ] 验证 main / Worker 加载、运行和释放，失败则定位并修复后重跑受影响组合。
-- [ ] 归档压缩输出、摘要与复现入口，独立审查完整性和通过结论。
+- [x] 构建当前 SDK，验证 64 张图片与现有 dataset lock 字节一致。
+- [x] 串行执行各规格浏览器 CPU / GPU 推理，保留运行环境和物理 GPU 身份。
+- [x] 以同规格官方参考评估 AP 和一对一检测保留率，保存所有失败，不降低门槛以通过。
+- [x] 验证 main / Worker 加载、运行和释放，失败则定位并修复后重跑受影响组合。
+- [x] 归档压缩输出、摘要与复现入口，独立审查完整性和通过结论。
 
 ## Task 3: 双来源与 Demo 接入
 
-文件：`models/picodet-*/0.1.0/{manifest.json,README.md,LICENSE}`、`apps/demo/src/model-sources.ts`、`scripts/stage-pages-models.mjs`、相关 contract 测试及 `sdk-manifest.yaml`。
+文件：`models/pp-detection/picodet-*/{manifest.json,README.md,LICENSE}`、`apps/demo/src/model-sources.ts`、`scripts/stage-pages-models.mjs`、相关 contract 测试及 `sdk-manifest.yaml`。
 
 输入：Task 2 通过的八份 ONNX；输出：稳定双来源清单和九规格 Demo 模型选项。
 
-- [ ] 将验证通过的文件追加上传既有 ModelScope / Hugging Face 模型仓库，保留模型来源与许可；通过宿主既有认证，不改变登录状态。
-- [ ] 读取不可变 revision，下载核对 bytes / SHA / CORS，创建最终清单；再按最终清单完成真实下载与推理。
-- [ ] 用既有 MODEL_OPTIONS 模式增加八项，顺序 XS/S/M/L 各输入尺寸，再 PP-YOLOE+；默认 L-320 不变。仅 FP32 的模型不得保留无效精度选择。
-- [ ] 更新静态模型发布暂存与 SDK 标准模型条目，按数据驱动清单校验九规格覆盖和默认来源。
-- [ ] 运行 SDK 测试、类型检查、构建和 Demo 浏览器测试，桌面与 390px 截图检查选项、图片和结果没有溢出或错位。
+- [x] 将验证通过的文件追加上传既有 ModelScope / Hugging Face 模型仓库，保留模型来源与许可；通过宿主既有认证，不改变登录状态。
+- [x] 读取不可变 revision，下载核对 bytes / SHA / CORS，创建最终清单；再按最终清单完成真实下载与推理。
+- [x] 用既有 MODEL_OPTIONS 模式增加八项，顺序 XS/S/M/L 各输入尺寸，再 PP-YOLOE+；默认 L-320 不变。仅 FP32 的模型不得保留无效精度选择。
+- [x] 更新静态模型发布暂存与 SDK 标准模型条目，按数据驱动清单校验九规格覆盖和默认来源。
+- [x] 运行 SDK 测试、类型检查、构建和 Demo 浏览器测试，桌面与 390px 截图检查选项、图片和结果没有溢出或错位。
 
 ## Task 4: 发布与收尾
 
 文件：模型清单索引、README、模型 / 兼容 / 转换说明、发布记录及门户模型目录受影响条目。
 
-- [ ] 用模板记录新增八个规格、许可、桌面实测范围、模型版本及 SDK 版本决策；不宣称手机或 NPU 已验证。
-- [ ] 执行前后标准检查、相关 tests / build / 浏览器 smoke，独立审查最终差异。
+- [x] 用模板记录新增八个规格、许可、桌面实测范围、模型版本及 SDK 版本决策；不宣称手机或 NPU 已验证。
+- [x] 执行前后标准检查、相关 tests / build / 浏览器 smoke，独立审查最终差异。
 - [ ] 在用户已确认“通过后发布”的范围内创建 PR 并按仓库保护合并，复用宿主 gh 认证；运行自托管 runner 时使用 F:/github-runner。
 - [ ] 核实发布流水线、正式 Demo 九个 PicoDet 选项及默认值，记录线上 SHA 与版本。
 - [ ] 保留已有 `codex/fix-runtime-performance`，仅处理本轮已合并分支；报告最终结果和未通过项目。
@@ -72,3 +72,8 @@
 - 隔离工作区：门户 `.worktrees/detection-picodet-series-fp32`，分支 `codex/picodet-series-fp32`，基线 `19346d200c2993d92e37838ab43aea236ed516a8`。
 - 基线 SDK 测试 206/206；标准检查 required 失败 0。
 - 决策：复用官方已导出 ONNX，先验证图一致性；遇到不兼容图再针对对应规格处理。
+
+- 2026-09-15：任务 1–3 完成。九规格双后端 64 图与官方对齐通过，质量门槛全部通过；36 组 main/Worker、18 次双 Hub 浏览器下载通过。模型实际分发路径为 `<规格>/1.0.0`，沿用已上传路径确定新清单版本 1.0.0；L-320 保持 1.0.2。
+- 远端新元数据规范化 LF 后回读，原始 CRLF 差异记录在 metadata-initial.json；权重未改变。SDK/npm 保持 0.4.0。
+
+- 2026-09-15 最终审查：组合后的工作树内容无功能阻塞项；发布前必须完整提交稳定清单、Demo 和证据，随后以 CI 干净检出核验。合并、部署和线上验证属于提交后的动作，最终状态追加到本次发布 PR 与 `.tmp/picodet-series-production/verification.json`。

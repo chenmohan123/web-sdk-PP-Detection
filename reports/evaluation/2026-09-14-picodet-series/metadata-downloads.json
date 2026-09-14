@@ -1,0 +1,386 @@
+[
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-320/1.0.0/manifest.json",
+    "path": "picodet-xs-320/1.0.0/manifest.json",
+    "bytes": 4470,
+    "sha256": "016bdc1db7522f6960be2f8123d5b4b4eeeb47738902b795e7dc8a54579cfc76",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-320/1.0.0/README.md",
+    "path": "picodet-xs-320/1.0.0/README.md",
+    "bytes": 974,
+    "sha256": "d4a5a9c7cdbb3b7bce3088c9a43f2fe4eff552384fdcb99a802763c07ed50373",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-320/1.0.0/LICENSE",
+    "path": "picodet-xs-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-416/1.0.0/manifest.json",
+    "path": "picodet-xs-416/1.0.0/manifest.json",
+    "bytes": 4470,
+    "sha256": "0eedb5f0b2d2fd2d731a1040c1772ebf6e50a2ba2bb6a71ba35d1f3c453f9141",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-416/1.0.0/README.md",
+    "path": "picodet-xs-416/1.0.0/README.md",
+    "bytes": 974,
+    "sha256": "8e1c068195fec97b5241f9e25cb9617e75f076de037cf8d352677d2141f2f196",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-xs-416/1.0.0/LICENSE",
+    "path": "picodet-xs-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-320/1.0.0/manifest.json",
+    "path": "picodet-s-320/1.0.0/manifest.json",
+    "bytes": 4459,
+    "sha256": "c0aa87d3b522065993da8672c697580abf0627bcdf7cffeddcd0b2f2b7117470",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-320/1.0.0/README.md",
+    "path": "picodet-s-320/1.0.0/README.md",
+    "bytes": 972,
+    "sha256": "a1213c4c2d0a993691e31d862dd8ea2cc5c604427a6753e40a540873489359a2",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-320/1.0.0/LICENSE",
+    "path": "picodet-s-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-416/1.0.0/manifest.json",
+    "path": "picodet-s-416/1.0.0/manifest.json",
+    "bytes": 4459,
+    "sha256": "2ab5daa36b9066be3348cc64f6f4c27b26fecb794e3a23c2d8fef6752d994ad1",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-416/1.0.0/README.md",
+    "path": "picodet-s-416/1.0.0/README.md",
+    "bytes": 972,
+    "sha256": "25bec7299da405953cdcc8f579bb20a7ff230e1d8264ff2e5294040844306b99",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-s-416/1.0.0/LICENSE",
+    "path": "picodet-s-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-320/1.0.0/manifest.json",
+    "path": "picodet-m-320/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "4fbf1b98c59a6f066d0a0e3c61f58195b711725084497120ff69530db1bad5a7",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-320/1.0.0/README.md",
+    "path": "picodet-m-320/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "1ce52698983eedd6bdbdbe5792a99469a3658ecbbba10ae8cfbcf9600ea9e743",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-320/1.0.0/LICENSE",
+    "path": "picodet-m-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-416/1.0.0/manifest.json",
+    "path": "picodet-m-416/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "55d4c2a7f0e9bb3710e60993388a46110ae1684d0afbf9912ce72bccafa5bb91",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-416/1.0.0/README.md",
+    "path": "picodet-m-416/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "ad77a892d10fbdcbe047cbc93555b14e3ee3fdc753a7e7d2c254382d6325a42b",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-m-416/1.0.0/LICENSE",
+    "path": "picodet-m-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-416/1.0.0/manifest.json",
+    "path": "picodet-l-416/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "5f4245306f38780e92386b0a491067d9fda43fb71a9e02380ed241573c1484e7",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-416/1.0.0/README.md",
+    "path": "picodet-l-416/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "b8407b5e3a37cc1a2db76b668ea709426cb567f0b1b6e5c655142fbfed0f6f9e",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-416/1.0.0/LICENSE",
+    "path": "picodet-l-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-640/1.0.0/manifest.json",
+    "path": "picodet-l-640/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "2375a7ceb31bf83e0a2d8576a73c666ef957c270d29472fa8fb02f32707dd8d8",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-640/1.0.0/README.md",
+    "path": "picodet-l-640/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "e076dbaa8e11b10b2af60e3042f1ccb69603f02b1f2443491a4be6802add59f3",
+    "status": "passed"
+  },
+  {
+    "source": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/0dd1fcdd9cb1e156e124961c4d0506e5a8b43379/picodet-l-640/1.0.0/LICENSE",
+    "path": "picodet-l-640/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-320/1.0.0/manifest.json",
+    "path": "picodet-xs-320/1.0.0/manifest.json",
+    "bytes": 4470,
+    "sha256": "016bdc1db7522f6960be2f8123d5b4b4eeeb47738902b795e7dc8a54579cfc76",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-320/1.0.0/README.md",
+    "path": "picodet-xs-320/1.0.0/README.md",
+    "bytes": 974,
+    "sha256": "d4a5a9c7cdbb3b7bce3088c9a43f2fe4eff552384fdcb99a802763c07ed50373",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-320/1.0.0/LICENSE",
+    "path": "picodet-xs-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-416/1.0.0/manifest.json",
+    "path": "picodet-xs-416/1.0.0/manifest.json",
+    "bytes": 4470,
+    "sha256": "0eedb5f0b2d2fd2d731a1040c1772ebf6e50a2ba2bb6a71ba35d1f3c453f9141",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-416/1.0.0/README.md",
+    "path": "picodet-xs-416/1.0.0/README.md",
+    "bytes": 974,
+    "sha256": "8e1c068195fec97b5241f9e25cb9617e75f076de037cf8d352677d2141f2f196",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-xs-416/1.0.0/LICENSE",
+    "path": "picodet-xs-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-320/1.0.0/manifest.json",
+    "path": "picodet-s-320/1.0.0/manifest.json",
+    "bytes": 4459,
+    "sha256": "c0aa87d3b522065993da8672c697580abf0627bcdf7cffeddcd0b2f2b7117470",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-320/1.0.0/README.md",
+    "path": "picodet-s-320/1.0.0/README.md",
+    "bytes": 972,
+    "sha256": "a1213c4c2d0a993691e31d862dd8ea2cc5c604427a6753e40a540873489359a2",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-320/1.0.0/LICENSE",
+    "path": "picodet-s-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-416/1.0.0/manifest.json",
+    "path": "picodet-s-416/1.0.0/manifest.json",
+    "bytes": 4459,
+    "sha256": "2ab5daa36b9066be3348cc64f6f4c27b26fecb794e3a23c2d8fef6752d994ad1",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-416/1.0.0/README.md",
+    "path": "picodet-s-416/1.0.0/README.md",
+    "bytes": 972,
+    "sha256": "25bec7299da405953cdcc8f579bb20a7ff230e1d8264ff2e5294040844306b99",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-s-416/1.0.0/LICENSE",
+    "path": "picodet-s-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-320/1.0.0/manifest.json",
+    "path": "picodet-m-320/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "4fbf1b98c59a6f066d0a0e3c61f58195b711725084497120ff69530db1bad5a7",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-320/1.0.0/README.md",
+    "path": "picodet-m-320/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "1ce52698983eedd6bdbdbe5792a99469a3658ecbbba10ae8cfbcf9600ea9e743",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-320/1.0.0/LICENSE",
+    "path": "picodet-m-320/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-416/1.0.0/manifest.json",
+    "path": "picodet-m-416/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "55d4c2a7f0e9bb3710e60993388a46110ae1684d0afbf9912ce72bccafa5bb91",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-416/1.0.0/README.md",
+    "path": "picodet-m-416/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "ad77a892d10fbdcbe047cbc93555b14e3ee3fdc753a7e7d2c254382d6325a42b",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-m-416/1.0.0/LICENSE",
+    "path": "picodet-m-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-416/1.0.0/manifest.json",
+    "path": "picodet-l-416/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "5f4245306f38780e92386b0a491067d9fda43fb71a9e02380ed241573c1484e7",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-416/1.0.0/README.md",
+    "path": "picodet-l-416/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "b8407b5e3a37cc1a2db76b668ea709426cb567f0b1b6e5c655142fbfed0f6f9e",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-416/1.0.0/LICENSE",
+    "path": "picodet-l-416/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-640/1.0.0/manifest.json",
+    "path": "picodet-l-640/1.0.0/manifest.json",
+    "bytes": 4463,
+    "sha256": "2375a7ceb31bf83e0a2d8576a73c666ef957c270d29472fa8fb02f32707dd8d8",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-640/1.0.0/README.md",
+    "path": "picodet-l-640/1.0.0/README.md",
+    "bytes": 973,
+    "sha256": "e076dbaa8e11b10b2af60e3042f1ccb69603f02b1f2443491a4be6802add59f3",
+    "status": "passed"
+  },
+  {
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/26187d907633a031e530663599bb42c247ce117e/picodet-l-640/1.0.0/LICENSE",
+    "path": "picodet-l-640/1.0.0/LICENSE",
+    "bytes": 10296,
+    "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc",
+    "status": "passed"
+  }
+]

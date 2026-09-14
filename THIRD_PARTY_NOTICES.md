@@ -9,6 +9,10 @@
 
 ## 模型与转换工具
 
+## PicoDet 系列扩展（2026-09-15）
+
+新增 PicoDet XS/S/M 320/416 与 L 416/640 八个 FP32 规格，固定上游 PaddleDetection 提交 `b25522a0f4bde8c80603f3ba5e3472059972e3b5`，清理图来自 release/2.9 官方导出。各 manifest 固定 ModelScope 与 Hugging Face 来源、字节数及 SHA-256；模型权重沿用 Apache-2.0。验证证据为 2026-09-15 Windows 11/Chromium 153 桌面 WASM、物理 NVIDIA WebGPU 及官方/候选 ORT 对齐，不构成完整 COCO mAP 或普适设备兼容声明。
+
 - PaddleDetection：Apache-2.0，见 https://github.com/PaddlePaddle/PaddleDetection；具体权重和 COCO 标签许可需逐变体验证。
 - Paddle2ONNX：Apache-2.0，见 https://github.com/PaddlePaddle/Paddle2ONNX；仅用于离线转换。
 - Git LFS、Hugging Face、ModelScope 是分发来源，不改变上游模型许可。

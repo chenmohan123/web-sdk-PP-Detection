@@ -3,8 +3,8 @@
     "key": "picodet-xs-320",
     "model": ".tmp/picodet-series/picodet-xs-320-fp32.onnx",
     "manifest": "models/pp-detection/picodet-xs-320/manifest.json",
-    "bytes": 2864815,
-    "sha256": "b69e298b70d13fa9f5cdcd3ac2d8a9553240be20ba3fc90de51e127dd83ca385",
+    "bytes": 2886024,
+    "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
     "inputSize": 320,
     "sourceModel": ".tmp/picodet-series/picodet-xs-320-official.onnx"
   },
@@ -12,8 +12,8 @@
     "key": "picodet-xs-416",
     "model": ".tmp/picodet-series/picodet-xs-416-fp32.onnx",
     "manifest": "models/pp-detection/picodet-xs-416/manifest.json",
-    "bytes": 2882493,
-    "sha256": "231fc5822568943f41daa7684e8e5b4ca60b957ac6436fc9cf6fdafca6794be4",
+    "bytes": 2903707,
+    "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239",
     "inputSize": 416,
     "sourceModel": ".tmp/picodet-series/picodet-xs-416-official.onnx"
   },
@@ -21,8 +21,8 @@
     "key": "picodet-s-320",
     "model": ".tmp/picodet-series/picodet-s-320-fp32.onnx",
     "manifest": "models/pp-detection/picodet-s-320/manifest.json",
-    "bytes": 4786632,
-    "sha256": "4c4d5813106bed7a98196ce88f0846b3f7038abf910363cd8e219db5924b804f",
+    "bytes": 4807906,
+    "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
     "inputSize": 320,
     "sourceModel": ".tmp/picodet-series/picodet-s-320-official.onnx"
   },
@@ -30,8 +30,8 @@
     "key": "picodet-s-416",
     "model": ".tmp/picodet-series/picodet-s-416-fp32.onnx",
     "manifest": "models/pp-detection/picodet-s-416/manifest.json",
-    "bytes": 4804310,
-    "sha256": "91e07db713552a37142d8a5c6e5b8056ae72e48a2f8b8c8cf21da62d295dfb57",
+    "bytes": 4825589,
+    "sha256": "78328c4e9484db59bba41d95d381687503e8e905711672fec702975d85075682",
     "inputSize": 416,
     "sourceModel": ".tmp/picodet-series/picodet-s-416-official.onnx"
   },
@@ -39,8 +39,8 @@
     "key": "picodet-m-320",
     "model": ".tmp/picodet-series/picodet-m-320-fp32.onnx",
     "manifest": "models/pp-detection/picodet-m-320/manifest.json",
-    "bytes": 13880396,
-    "sha256": "d4fbdc5aa95426c68c5f6cfa59b12bbd3a2046bc08673d81f227a35a78b3ff79",
+    "bytes": 13905160,
+    "sha256": "2914a3bc0475e6596baac9495eea798da99aadc8db48afd995c53906f8299474",
     "inputSize": 320,
     "sourceModel": ".tmp/picodet-series/picodet-m-320-official.onnx"
   },
@@ -48,8 +48,8 @@
     "key": "picodet-m-416",
     "model": ".tmp/picodet-series/picodet-m-416-fp32.onnx",
     "manifest": "models/pp-detection/picodet-m-416/manifest.json",
-    "bytes": 13898074,
-    "sha256": "41a186f2406125e87f64f5deec2a16aa9cf2ded2aa886055a5542ac08f24fe5d",
+    "bytes": 13922843,
+    "sha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
     "inputSize": 416,
     "sourceModel": ".tmp/picodet-series/picodet-m-416-official.onnx"
   },
@@ -57,8 +57,8 @@
     "key": "picodet-l-416",
     "model": ".tmp/picodet-series/picodet-l-416-fp32.onnx",
     "manifest": "models/pp-detection/picodet-l-416/manifest.json",
-    "bytes": 23236720,
-    "sha256": "7b15e7300140353b756d01af46b92a7679e9612d686d05822802878411b58c6e",
+    "bytes": 23261512,
+    "sha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4",
     "inputSize": 416,
     "sourceModel": ".tmp/picodet-series/picodet-l-416-official.onnx"
   },
@@ -66,8 +66,8 @@
     "key": "picodet-l-640",
     "model": ".tmp/picodet-series/picodet-l-640-fp32.onnx",
     "manifest": "models/pp-detection/picodet-l-640/manifest.json",
-    "bytes": 23295546,
-    "sha256": "8449adf8d2fb0c34b70a397f75a05b60bbd60be44302a503ee0546dc6f03808c",
+    "bytes": 23320381,
+    "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df",
     "inputSize": 640,
     "sourceModel": ".tmp/picodet-series/picodet-l-640-official.onnx"
   },
@@ -78,6 +78,6 @@
     "bytes": 23243834,
     "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
     "inputSize": 320,
-    "sourceModel": "models/pp-detection/picodet-l-320-fp32.onnx"
+    "sourceModel": ".tmp/picodet-series/picodet-l-320-official.onnx"
   }
 ]

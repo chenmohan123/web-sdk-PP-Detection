@@ -46,3 +46,6 @@ reports/distribution/2026-09-14-ppyoloe-mlx-precision/*.mjs
 reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
 reports/evaluation/2026-09-14-ppyoloe-mlx-release/browser.mjs
 reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md
+
+# 上游 README 按获取时的原文保存，作为来源与许可快照。
+reports/evaluation/2026-09-14-picodet-series/upstream-picodet-readme.md

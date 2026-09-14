@@ -1,12 +1,65 @@
+"""根据实际候选图生成已验收的 PicoDet 系列稳定清单。"""
+
+import copy
+import importlib
 import json
+import sys
 from pathlib import Path
-root=Path(__file__).parents[3]
-jobs=json.loads((Path(__file__).parent/'jobs.json').read_text())
-rev='b25522a0f4bde8c80603f3ba5e3472059972e3b5'
-for j in jobs:
- if j['key']=='picodet-l-320': continue
- _,size,res=j['key'].split('-'); res=int(res)
- fn=f'picodet-{size}-{res}-fp32.onnx'
- src=f'picodet_{size}_{res}_lcnet_postprocessed.onnx'
- m={'schemaVersion':1,'status':'labs','model':{'id':f'pp-picodet-{size}-{res}','version':'labs-2026-09-14','architecture':f'PicoDet-{size.upper()}-{res} LCNet','format':'onnx','assets':[{'filename':fn,'bytes':j['bytes'],'sha256':j['sha256']}]},'input':{'name':'image','shape':[1,3,res,res],'dtype':'float32'},'outputs':[{'name':'multiclass_nms3_0.tmp_0','shape':[-1,6],'dtype':'float32'},{'name':'multiclass_nms3_0.tmp_2','shape':[1],'dtype':'int32'}],'defaultVariant':'fp32','defaultSource':'custom','variants':[{'id':'fp32','filename':fn,'precision':'fp32','quantization':'none','opset':11,'bytes':j['bytes'],'sha256':j['sha256'],'parameterCount':0,'backends':['wasm','webgpu'],'status':'labs','sources':[{'kind':'custom','repository':'PaddleDetection','revision':rev,'path':f'deploy/third_engine/{src}','downloadUrl':f'https://paddledet.bj.bcebos.com/deploy/third_engine/{src}','bytes':j['bytes'],'sha256':j['sha256']}]}],'limitations':['候选模型由官方后处理图清理生成；custom URL 的可用性需运行时复核。','仅记录 WASM/WebGPU 目标后端，未作浏览器或设备兼容承诺。']}
- d=root/f'models/pp-detection/{j["key"]}'; d.mkdir(parents=True,exist_ok=True); (d/'manifest.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n')
+
+ROOT = Path(__file__).resolve().parents[3]
+REPORT_ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "tools/model-pipeline"))
+inspect_onnx = importlib.import_module("picodet.inspect_onnx").inspect_onnx
+
+SOURCES = (
+    ("modelscope", "https://www.modelscope.cn", "39739aafe769e1fc2843bc9f7bd3b6c3512e217a"),
+    ("huggingface", "https://huggingface.co", "aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3"),
+)
+
+
+def main() -> None:
+    jobs = json.loads((REPORT_ROOT / "jobs.json").read_text(encoding="utf-8"))
+    base = json.loads((ROOT / "models/pp-detection/1.0.2/manifest.json").read_text(encoding="utf-8"))
+    for job in jobs:
+        if job["key"] == "picodet-l-320":
+            continue
+        key = job["key"]
+        size = job["inputSize"]
+        filename = f"{key}-fp32.onnx"
+        identity = inspect_onnx(ROOT / job["model"], input_size=size)
+        if (identity["bytes"], identity["sha256"]) != (job["bytes"], job["sha256"]):
+            raise ValueError(f"候选文件与评测身份不符：{key}")
+        manifest = copy.deepcopy(base)
+        manifest["model"] = {
+            "id": f"pp-{key}", "version": "1.0.0",
+            "architecture": f"PicoDet-{key.split('-')[1].upper()}-{size} LCNet",
+            "format": "onnx",
+            "assets": [{"filename": filename, "bytes": identity["bytes"], "sha256": identity["sha256"]}],
+        }
+        manifest["input"] = identity["input"]
+        manifest["outputs"] = identity["outputs"]
+        manifest["preprocessing"]["size"] = {"width": size, "height": size}
+        variant = manifest["variants"][0]
+        variant.update({name: identity[name] for name in ("bytes", "sha256", "parameterCount", "opset")})
+        variant["filename"] = filename
+        variant["sources"] = []
+        path = f"{key}/1.0.0/{filename}"
+        repository = "chenmohan/web-sdk-pp-detection"
+        for kind, host, revision in SOURCES:
+            prefix = "/models" if kind == "modelscope" else ""
+            variant["sources"].append({
+                "kind": kind, "repository": repository, "revision": revision, "path": path,
+                "downloadUrl": f"{host}{prefix}/{repository}/resolve/{revision}/{path}",
+                "bytes": identity["bytes"], "sha256": identity["sha256"],
+            })
+        manifest["variants"] = [variant]
+        manifest["limitations"] = [
+            "2026-09-15 已在 Windows 11 Chromium 153 的 WASM 与物理 NVIDIA WebGPU 环境验证；不代表所有浏览器、设备或 NPU 均兼容。",
+            "模型由 PaddleDetection 官方导出图经兼容清理生成，许可沿用上游 Apache-2.0。参数量按 ONNX initializer 元素统计，包含图内常量。",
+        ]
+        destination = ROOT / job["manifest"]
+        destination.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+
+if __name__ == "__main__":
+    main()

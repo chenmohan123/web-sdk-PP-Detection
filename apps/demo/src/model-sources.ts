@@ -4,13 +4,29 @@ import {
   type RuntimeDetectionManifest
 } from "web-sdk-pp-detection";
 import picoDetManifestJson from "../../../models/pp-detection/1.0.2/manifest.json";
+import picoDetXs320ManifestJson from "../../../models/pp-detection/picodet-xs-320/manifest.json";
+import picoDetXs416ManifestJson from "../../../models/pp-detection/picodet-xs-416/manifest.json";
+import picoDetS320ManifestJson from "../../../models/pp-detection/picodet-s-320/manifest.json";
+import picoDetS416ManifestJson from "../../../models/pp-detection/picodet-s-416/manifest.json";
+import picoDetM320ManifestJson from "../../../models/pp-detection/picodet-m-320/manifest.json";
+import picoDetM416ManifestJson from "../../../models/pp-detection/picodet-m-416/manifest.json";
+import picoDetL416ManifestJson from "../../../models/pp-detection/picodet-l-416/manifest.json";
+import picoDetL640ManifestJson from "../../../models/pp-detection/picodet-l-640/manifest.json";
 import ppyoloeManifestJson from "../../../models/ppyoloe-plus-s-640/0.1.1/manifest.json";
 import ppyoloeMManifestJson from "../../../models/ppyoloe-plus-m-640/0.1.1/manifest.json";
 import ppyoloeLManifestJson from "../../../models/ppyoloe-plus-l-640/0.1.1/manifest.json";
 import ppyoloeXManifestJson from "../../../models/ppyoloe-plus-x-640/0.1.1/manifest.json";
 
 export type DemoModelKey =
+  | "picodet-xs-320"
+  | "picodet-xs-416"
+  | "picodet-s-320"
+  | "picodet-s-416"
+  | "picodet-m-320"
+  | "picodet-m-416"
   | "picodet-l-320"
+  | "picodet-l-416"
+  | "picodet-l-640"
   | "ppyoloe-plus-s-640"
   | "ppyoloe-plus-m-640"
   | "ppyoloe-plus-l-640"
@@ -42,10 +58,66 @@ const MODEL_SOURCE_ORDER: readonly ModelSourceKey[] = ["modelscope", "huggingfac
 export const MODEL_OPTIONS: readonly DemoModelOption[] = [
   {
     experimental: false,
+    key: "picodet-xs-320",
+    label: { en: "PicoDet-XS 320", zh: "PicoDet-XS 320" },
+    manifest: parseDetectionManifest(picoDetXs320ManifestJson),
+    manifestPath: "models/pp-detection/picodet-xs-320/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-xs-416",
+    label: { en: "PicoDet-XS 416", zh: "PicoDet-XS 416" },
+    manifest: parseDetectionManifest(picoDetXs416ManifestJson),
+    manifestPath: "models/pp-detection/picodet-xs-416/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-s-320",
+    label: { en: "PicoDet-S 320", zh: "PicoDet-S 320" },
+    manifest: parseDetectionManifest(picoDetS320ManifestJson),
+    manifestPath: "models/pp-detection/picodet-s-320/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-s-416",
+    label: { en: "PicoDet-S 416", zh: "PicoDet-S 416" },
+    manifest: parseDetectionManifest(picoDetS416ManifestJson),
+    manifestPath: "models/pp-detection/picodet-s-416/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-m-320",
+    label: { en: "PicoDet-M 320", zh: "PicoDet-M 320" },
+    manifest: parseDetectionManifest(picoDetM320ManifestJson),
+    manifestPath: "models/pp-detection/picodet-m-320/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-m-416",
+    label: { en: "PicoDet-M 416", zh: "PicoDet-M 416" },
+    manifest: parseDetectionManifest(picoDetM416ManifestJson),
+    manifestPath: "models/pp-detection/picodet-m-416/manifest.json"
+  },
+  {
+    experimental: false,
     key: "picodet-l-320",
     label: { en: "PicoDet-L 320", zh: "PicoDet-L 320" },
     manifest: parseDetectionManifest(picoDetManifestJson),
     manifestPath: "models/pp-detection/1.0.2/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-l-416",
+    label: { en: "PicoDet-L 416", zh: "PicoDet-L 416" },
+    manifest: parseDetectionManifest(picoDetL416ManifestJson),
+    manifestPath: "models/pp-detection/picodet-l-416/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "picodet-l-640",
+    label: { en: "PicoDet-L 640", zh: "PicoDet-L 640" },
+    manifest: parseDetectionManifest(picoDetL640ManifestJson),
+    manifestPath: "models/pp-detection/picodet-l-640/manifest.json"
   },
   {
     experimental: false,

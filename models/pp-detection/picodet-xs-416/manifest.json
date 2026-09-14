@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "status": "labs",
+  "status": "stable",
   "model": {
     "id": "pp-picodet-xs-416",
-    "version": "labs-2026-09-14",
+    "version": "1.0.0",
     "architecture": "PicoDet-XS-416 LCNet",
     "format": "onnx",
     "assets": [
       {
         "filename": "picodet-xs-416-fp32.onnx",
-        "bytes": 2882493,
-        "sha256": "231fc5822568943f41daa7684e8e5b4ca60b957ac6436fc9cf6fdafca6794be4"
+        "bytes": 2903707,
+        "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239"
       }
     ]
   },
@@ -27,22 +27,132 @@
   "outputs": [
     {
       "name": "multiclass_nms3_0.tmp_0",
+      "dtype": "float32",
       "shape": [
         -1,
         6
-      ],
-      "dtype": "float32"
+      ]
     },
     {
       "name": "multiclass_nms3_0.tmp_2",
+      "dtype": "int32",
       "shape": [
         1
-      ],
-      "dtype": "int32"
+      ]
     }
   ],
+  "preprocessing": {
+    "size": {
+      "width": 416,
+      "height": 416
+    },
+    "resizeMode": "stretch",
+    "interpolation": "bicubic",
+    "rescaleFactor": 0.00392156862745098,
+    "doResize": true,
+    "doRescale": true,
+    "doNormalize": true,
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "postprocessing": {
+    "type": "nms",
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "matrixCoordinates": "pixels"
+  },
   "defaultVariant": "fp32",
-  "defaultSource": "custom",
+  "defaultSource": "modelscope",
+  "labels": [
+    "person",
+    "bicycle",
+    "car",
+    "motorcycle",
+    "airplane",
+    "bus",
+    "train",
+    "truck",
+    "boat",
+    "traffic light",
+    "fire hydrant",
+    "stop sign",
+    "parking meter",
+    "bench",
+    "bird",
+    "cat",
+    "dog",
+    "horse",
+    "sheep",
+    "cow",
+    "elephant",
+    "bear",
+    "zebra",
+    "giraffe",
+    "backpack",
+    "umbrella",
+    "handbag",
+    "tie",
+    "suitcase",
+    "frisbee",
+    "skis",
+    "snowboard",
+    "sports ball",
+    "kite",
+    "baseball bat",
+    "baseball glove",
+    "skateboard",
+    "surfboard",
+    "tennis racket",
+    "bottle",
+    "wine glass",
+    "cup",
+    "fork",
+    "knife",
+    "spoon",
+    "bowl",
+    "banana",
+    "apple",
+    "sandwich",
+    "orange",
+    "broccoli",
+    "carrot",
+    "hot dog",
+    "pizza",
+    "donut",
+    "cake",
+    "chair",
+    "couch",
+    "potted plant",
+    "bed",
+    "dining table",
+    "toilet",
+    "tv",
+    "laptop",
+    "mouse",
+    "remote",
+    "keyboard",
+    "cell phone",
+    "microwave",
+    "oven",
+    "toaster",
+    "sink",
+    "refrigerator",
+    "book",
+    "clock",
+    "vase",
+    "scissors",
+    "teddy bear",
+    "hair drier",
+    "toothbrush"
+  ],
   "variants": [
     {
       "id": "fp32",
@@ -50,29 +160,38 @@
       "precision": "fp32",
       "quantization": "none",
       "opset": 11,
-      "bytes": 2882493,
-      "sha256": "231fc5822568943f41daa7684e8e5b4ca60b957ac6436fc9cf6fdafca6794be4",
-      "parameterCount": 0,
+      "bytes": 2903707,
+      "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239",
+      "parameterCount": 707521,
       "backends": [
         "wasm",
         "webgpu"
       ],
-      "status": "labs",
+      "status": "stable",
       "sources": [
         {
-          "kind": "custom",
-          "repository": "PaddleDetection",
-          "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
-          "path": "deploy/third_engine/picodet_xs_416_lcnet_postprocessed.onnx",
-          "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_xs_416_lcnet_postprocessed.onnx",
-          "bytes": 2882493,
-          "sha256": "231fc5822568943f41daa7684e8e5b4ca60b957ac6436fc9cf6fdafca6794be4"
+          "kind": "modelscope",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "39739aafe769e1fc2843bc9f7bd3b6c3512e217a",
+          "path": "picodet-xs-416/1.0.0/picodet-xs-416-fp32.onnx",
+          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/39739aafe769e1fc2843bc9f7bd3b6c3512e217a/picodet-xs-416/1.0.0/picodet-xs-416-fp32.onnx",
+          "bytes": 2903707,
+          "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239"
+        },
+        {
+          "kind": "huggingface",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3",
+          "path": "picodet-xs-416/1.0.0/picodet-xs-416-fp32.onnx",
+          "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3/picodet-xs-416/1.0.0/picodet-xs-416-fp32.onnx",
+          "bytes": 2903707,
+          "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239"
         }
       ]
     }
   ],
   "limitations": [
-    "ºòÑ¡Ä£ĞÍÓÉ¹Ù·½ºó´¦ÀíÍ¼ÇåÀíÉú³É£»custom URL µÄ¿ÉÓÃĞÔĞèÔËĞĞÊ±¸´ºË¡£",
-    "½ö¼ÇÂ¼ WASM/WebGPU Ä¿±êºó¶Ë£¬Î´×÷ä¯ÀÀÆ÷»òÉè±¸¼æÈİ³ĞÅµ¡£"
+    "2026-09-15 å·²åœ¨ Windows 11 Chromium 153 çš„ WASM ä¸ç‰©ç† NVIDIA WebGPU ç¯å¢ƒéªŒè¯ï¼›ä¸ä»£è¡¨æ‰€æœ‰æµè§ˆå™¨ã€è®¾å¤‡æˆ– NPU å‡å…¼å®¹ã€‚",
+    "æ¨¡å‹ç”± PaddleDetection å®˜æ–¹å¯¼å‡ºå›¾ç»å…¼å®¹æ¸…ç†ç”Ÿæˆï¼Œè®¸å¯æ²¿ç”¨ä¸Šæ¸¸ Apache-2.0ã€‚å‚æ•°é‡æŒ‰ ONNX initializer å…ƒç´ ç»Ÿè®¡ï¼ŒåŒ…å«å›¾å†…å¸¸é‡ã€‚"
   ]
 }

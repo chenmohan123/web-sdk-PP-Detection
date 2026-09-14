@@ -18,7 +18,7 @@ POSITIONAL_SHAPE = [625, 64]
 MATMUL_NAMES = ("MatMul_0", "MatMul_1", "MatMul_2", "MatMul_3")
 MATMUL_WEIGHT_NAME = "auto_4_"
 IMAGE_NAME = "image"
-IMAGE_SHAPE = [1, 3, 320, 320]
+SUPPORTED_INPUT_SIZES = (320, 416, 640)
 DETECTION_OUTPUT_NAME = "multiclass_nms3_0.tmp_0"
 COUNT_OUTPUT_NAME = "multiclass_nms3_0.tmp_2"
 
@@ -91,17 +91,25 @@ def _validate_picodet_matmul_topology(model: onnx.ModelProto) -> onnx.TensorProt
     return weight
 
 
-def _validate_picodet_io_contract(model: onnx.ModelProto) -> None:
+def _picodet_input_size(model: onnx.ModelProto) -> int:
     inputs = list(model.graph.input)
     if len(inputs) != 1 or inputs[0].name != IMAGE_NAME:
         raise ValueError("PicoDet WebGPU 清理要求唯一的 image 输入")
-    image = inputs[0]
+    shape = [dimension.dim_value for dimension in inputs[0].type.tensor_type.shape.dim]
+    if len(shape) != 4 or shape[0] != 1 or shape[1] != 3 or shape[2] != shape[3]:
+        raise ValueError(f"PicoDet image 输入必须是 [1, 3, S, S]，实际为 {shape}")
+    input_size = shape[2]
+    if input_size not in SUPPORTED_INPUT_SIZES:
+        raise ValueError(f"PicoDet image 输入尺寸必须为 {SUPPORTED_INPUT_SIZES}，实际为 {input_size}")
+    return input_size
+
+
+def _validate_picodet_io_contract(model: onnx.ModelProto) -> int:
+    input_size = _picodet_input_size(model)
+    image = model.graph.input[0]
     tensor = image.type.tensor_type
     if tensor.elem_type != TensorProto.FLOAT:
         raise ValueError("PicoDet image 输入必须为 float32")
-    image_shape = [dimension.dim_value for dimension in tensor.shape.dim]
-    if image_shape != IMAGE_SHAPE:
-        raise ValueError(f"PicoDet image 输入 shape 必须为 {IMAGE_SHAPE}，实际为 {image_shape}")
 
     outputs = {output.name: output for output in model.graph.output}
     expected_outputs = {DETECTION_OUTPUT_NAME, COUNT_OUTPUT_NAME}
@@ -117,6 +125,7 @@ def _validate_picodet_io_contract(model: onnx.ModelProto) -> None:
     count_shape = [dimension.dim_value for dimension in count.shape.dim]
     if count.elem_type not in (TensorProto.INT32, TensorProto.INT64) or count_shape != [1]:
         raise ValueError("PicoDet 数量输出必须为 int32/int64 [1]")
+    return input_size
 
 
 def _convert_picodet_matmul_weight(model: onnx.ModelProto) -> None:
@@ -129,13 +138,12 @@ def _convert_picodet_matmul_weight(model: onnx.ModelProto) -> None:
     weight.CopyFrom(converted)
 
 
-def _validate_picodet_matmul_shapes(model: onnx.ModelProto) -> None:
+def _validate_picodet_matmul_shapes(model: onnx.ModelProto, input_size: int) -> None:
     value_info = {
         item.name: item
         for item in [*model.graph.input, *model.graph.value_info, *model.graph.output]
     }
-    expected_sizes = (6400, 1600, 400, 100)
-    for index, size in enumerate(expected_sizes):
+    for index in range(4):
         input_name = f"softmax_{index}.tmp_0"
         input_value = value_info.get(input_name)
         if input_value is None:
@@ -143,17 +151,19 @@ def _validate_picodet_matmul_shapes(model: onnx.ModelProto) -> None:
         input_shape = [
             dimension.dim_value for dimension in input_value.type.tensor_type.shape.dim
         ]
-        if input_shape != [size, 8]:
+        if len(input_shape) != 2 or input_shape[0] <= 0 or input_shape[1] != 8:
             raise ValueError(
-                f"{input_name} 的 WebGPU 兼容 shape 必须为 [{size}, 8]，实际为 {input_shape}"
+                f"{input_name} 的 WebGPU 兼容 shape 必须为 [N, 8]，实际为 {input_shape}"
             )
         name = f"linear_{index}.tmp_0"
         value = value_info.get(name)
         if value is None:
             raise ValueError(f"{name} 缺少 shape inference 结果")
         shape = [dimension.dim_value for dimension in value.type.tensor_type.shape.dim]
-        if shape != [size, 1]:
-            raise ValueError(f"{name} 的 WebGPU 兼容 shape 必须为 [{size}, 1]，实际为 {shape}")
+        if shape != [input_shape[0], 1]:
+            raise ValueError(
+                f"{name} 的 WebGPU 兼容 shape 必须为 [{input_shape[0]}, 1]，实际为 {shape}"
+            )
 
 
 def _sanitize_webgpu_fp32(
@@ -179,14 +189,17 @@ def _sanitize_webgpu_fp32(
 
         with TemporaryDirectory(prefix="picodet-webgpu-normalize-") as temporary:
             normalized = Path(temporary) / "normalized.onnx"
-            sanitize_postprocessed_model(source, normalized)
+            image = next(value for value in model.graph.input if value.name == IMAGE_NAME)
+            dimensions = image.type.tensor_type.shape.dim
+            input_size = dimensions[-1].dim_value if len(dimensions) == 4 else 0
+            sanitize_postprocessed_model(source, normalized, input_size=input_size)
             model = onnx.load(normalized, load_external_data=False)
     if require_positional_constants:
         _validate_source(model)
     elif any(item.data_type == TensorProto.DOUBLE for item in model.graph.initializer):
         _validate_source(model)
     if fix_picodet_matmul:
-        _validate_picodet_io_contract(model)
+        input_size = _validate_picodet_io_contract(model)
         _convert_picodet_matmul_weight(model)
 
     for index, value in enumerate(model.graph.initializer):
@@ -199,7 +212,7 @@ def _sanitize_webgpu_fp32(
     )
     onnx.checker.check_model(inferred)
     if fix_picodet_matmul:
-        _validate_picodet_matmul_shapes(inferred)
+        _validate_picodet_matmul_shapes(inferred, input_size)
     remaining = _double_names(inferred)
     if remaining:
         raise ValueError(f"清理后的图仍包含 DOUBLE 值: {sorted(remaining)}")

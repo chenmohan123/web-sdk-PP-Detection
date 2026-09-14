@@ -1,0 +1,128 @@
+[
+  {
+    "path": "picodet-xs-320-wasm.json.gz",
+    "bytes": 278921,
+    "sha256": "50a107d987abc9a8678fef029beac8b21609a6f1fc087a7279544bdea05371e2",
+    "uncompressedBytes": 1508166,
+    "uncompressedSha256": "e43ed40e4c610dda92d702cec5def62a7a0a7912ffc5dd0db5c97fda18d8b3e4"
+  },
+  {
+    "path": "picodet-xs-320-webgpu.json.gz",
+    "bytes": 279277,
+    "sha256": "38a11242b4c02a140bf7425707db489c1d2b93a3603d071c8ea5cb078a3c8765",
+    "uncompressedBytes": 1509404,
+    "uncompressedSha256": "479a8cc37cb1733cc945c0e0f388d7040bdf7fc3b3ad228c43983c7ea5e16a5f"
+  },
+  {
+    "path": "picodet-xs-416-wasm.json.gz",
+    "bytes": 299366,
+    "sha256": "43ded2a8d4706a9c4d2098329b2f831b988801f222380b69f3445ed3e749fa66",
+    "uncompressedBytes": 1513003,
+    "uncompressedSha256": "eaee42c8802c4a35180ceebe4ed45013d199118a51173c15c76934c72012e558"
+  },
+  {
+    "path": "picodet-xs-416-webgpu.json.gz",
+    "bytes": 299530,
+    "sha256": "226ef00ad2e244a76a21d6a6f9391ad68be387aa1015a147f579a1d39c2f5d24",
+    "uncompressedBytes": 1513822,
+    "uncompressedSha256": "1b018714e6daaa816d2ca78de9beb3e47d44e145fb0a2a4632ae82a8fa72e173"
+  },
+  {
+    "path": "picodet-s-320-wasm.json.gz",
+    "bytes": 278252,
+    "sha256": "76107075ac7acae747c1b3ebbc37359ccb57d40806be5932616e82d7503bd062",
+    "uncompressedBytes": 1510196,
+    "uncompressedSha256": "7269c09e781cb74d1a650efa90accf1f04010207d832f03ccb3406daeebbc236"
+  },
+  {
+    "path": "picodet-s-320-webgpu.json.gz",
+    "bytes": 278908,
+    "sha256": "b3e1d78e27263db1844ad54b17e93b0f3d161eb0e4ecb771cf0c8b99593909db",
+    "uncompressedBytes": 1511127,
+    "uncompressedSha256": "ce9658590e7072ec2acb2676d6912229b7f25fcdcb022cec671aad8360668c6b"
+  },
+  {
+    "path": "picodet-s-416-wasm.json.gz",
+    "bytes": 297145,
+    "sha256": "0d1f3bb9e4036ae3d1375a7c25856513b249404c705d111f2dedba628bdb4290",
+    "uncompressedBytes": 1494097,
+    "uncompressedSha256": "c70d7915d61e7400a8b798790339584e5aef5a2d4549d303fbee2808f4d959f8"
+  },
+  {
+    "path": "picodet-s-416-webgpu.json.gz",
+    "bytes": 297267,
+    "sha256": "b0bad7ae19ba0be345b4cd786b2583587dd223de0fe7a2d4cf1a9f7e1f490dc2",
+    "uncompressedBytes": 1494759,
+    "uncompressedSha256": "f70fe035899e20e2b998cd3f171afde1c85ac9672b219c7cae05cb477148eef9"
+  },
+  {
+    "path": "picodet-m-320-wasm.json.gz",
+    "bytes": 270726,
+    "sha256": "9115d80bc926311284eea9227a200d6ab5be56793d9e09b294c293e91e16c924",
+    "uncompressedBytes": 1479452,
+    "uncompressedSha256": "5f1737f5fcc4ad5b810f7fe71645ae04d9510296ccf28df0f3db1ddd4193f90e"
+  },
+  {
+    "path": "picodet-m-320-webgpu.json.gz",
+    "bytes": 271102,
+    "sha256": "0d66f8ec1e2997be7339d47b0ce3d434cdcf5b06ec4cada0c02289f65a4652f6",
+    "uncompressedBytes": 1479898,
+    "uncompressedSha256": "500238117562a0fed98adec5229634662e326fb41e4a106a2a5c4ed547ea5c27"
+  },
+  {
+    "path": "picodet-m-416-wasm.json.gz",
+    "bytes": 294460,
+    "sha256": "ae376c0eda3ad944481f46090f4d6ba6d1ebd43ed9520dda0ce952f069596d76",
+    "uncompressedBytes": 1484221,
+    "uncompressedSha256": "5b99ba3e79e8f19f5998660bf7134458a5ab750c8793e7fbdbe929f9563d0d26"
+  },
+  {
+    "path": "picodet-m-416-webgpu.json.gz",
+    "bytes": 294918,
+    "sha256": "dcef104fd0123640488b1d6c95b37fb57ca244d2195f961fffad138682eef909",
+    "uncompressedBytes": 1484993,
+    "uncompressedSha256": "b5896e8fb3cd187a5bd5659ecbb2b100afeff06b535a0c70c11316a19546c18b"
+  },
+  {
+    "path": "picodet-l-416-wasm.json.gz",
+    "bytes": 292288,
+    "sha256": "d9da11c19a2222e11ed9ff97c9954d80db221721265cebcdfd93840f795ad484",
+    "uncompressedBytes": 1466765,
+    "uncompressedSha256": "b3a6f94e16debf256c2e98262de3654d3f71b66569b09813efb4480a2318a198"
+  },
+  {
+    "path": "picodet-l-416-webgpu.json.gz",
+    "bytes": 292667,
+    "sha256": "053c54ed03eca62f35443a04e4318733c2f821294d06dabe5178594ce96d2008",
+    "uncompressedBytes": 1467707,
+    "uncompressedSha256": "78342a4be5fdc938f48e11b6c36f55665582eae3ef0674046b36bf652c1caee7"
+  },
+  {
+    "path": "picodet-l-640-wasm.json.gz",
+    "bytes": 283147,
+    "sha256": "715ca1595b80d88a8d6729c5473fe1564f59c4b13e74017991212fa11708375c",
+    "uncompressedBytes": 1472388,
+    "uncompressedSha256": "98f119d796de35e68e1c0f00a60eb1a56ef4523929a8266f9123692d155d8b6d"
+  },
+  {
+    "path": "picodet-l-640-webgpu.json.gz",
+    "bytes": 283291,
+    "sha256": "7b27b96b6220a7a09b56f2547497fd1ac16c7d91f3e3c32febc91822a90e9dc5",
+    "uncompressedBytes": 1473007,
+    "uncompressedSha256": "a716bd9417cf6f21ac62628e39a2d9adccac76f6147a788cbc883989cff3e9de"
+  },
+  {
+    "path": "picodet-l-320-wasm.json.gz",
+    "bytes": 275770,
+    "sha256": "bc228f269bc3584c3f2dd150de4b5bb7115ad155f122f46eb840c630a1133139",
+    "uncompressedBytes": 1477059,
+    "uncompressedSha256": "b5be4af636195b25b28a24927e0a9ed5e0338c63848c1d6e7d6487f6470967e4"
+  },
+  {
+    "path": "picodet-l-320-webgpu.json.gz",
+    "bytes": 275923,
+    "sha256": "659a05241b0d16456f656934c206308964fa39d87ac9199173e3b9b04eb547ac",
+    "uncompressedBytes": 1477598,
+    "uncompressedSha256": "b6ffe4f7d55a33552f64ac5299d0f9f21d2f7d2ccc666d844a2572935cf501ae"
+  }
+]

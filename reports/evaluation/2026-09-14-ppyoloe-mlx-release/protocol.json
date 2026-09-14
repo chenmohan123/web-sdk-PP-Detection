@@ -1,0 +1,70 @@
+{
+  "id": "ppyoloe-mlx-recognition-release-20260914",
+  "approvedAt": "2026-09-14",
+  "purpose": "保持目标识别质量，接受量化带来的少量框坐标变化，文件缩小独立计为收益。",
+  "qualityGate": {
+    "maximumApDropPoints": 0.5,
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "minimumReferenceRetention": 0.95
+  },
+  "diagnostics": {
+    "strictIouThreshold": 0.99,
+    "blocksRelease": false
+  },
+  "dataset": {
+    "annotations": "reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json",
+    "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+    "imageCount": 64,
+    "groundTruthCount": 716
+  },
+  "matrix": {
+    "sizes": [
+      "m",
+      "l",
+      "x"
+    ],
+    "precisions": [
+      "fp32",
+      "fp16",
+      "w8a32"
+    ],
+    "backends": [
+      "wasm",
+      "webgpu"
+    ],
+    "rounds": [
+      1,
+      2,
+      3
+    ],
+    "executionMode": "main",
+    "wasmThreads": 1,
+    "allowFallback": false
+  },
+  "round1": {
+    "report": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision",
+    "commit": "e4814a44d42be5e213ef416cd0dfb2d7932c2340",
+    "summarySha256": "0af361f50a41ad5fad39a2ad05577ae27fe1a2512cbc6e3fd56cbecd79ee1597"
+  },
+  "jobs": "reports/evaluation/2026-09-14-ppyoloe-mlx-precision/jobs.json",
+  "publication": {
+    "modelVersion": "0.1.1",
+    "sdkVersion": "0.4.0",
+    "sources": [
+      "modelscope",
+      "huggingface"
+    ],
+    "defaultSource": "modelscope",
+    "defaultPrecision": "fp32",
+    "requireLifecycle": true,
+    "requireImmutableDownloads": true,
+    "requireProductionDemo": true
+  },
+  "timing": "重复轮次用于质量稳定性验证；所有推理串行，第三轮期间不并发构建、上传或其他推理。耗时仅为本机观察。",
+  "limits": [
+    "非全量 COCO",
+    "不新增移动端或其他浏览器兼容声明",
+    "不将体积缩小推导为内存同比缩小或推理必然加速"
+  ]
+}

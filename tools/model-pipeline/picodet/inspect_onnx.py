@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-EXPECTED_INPUT = {"name": "image", "shape": [1, 3, 320, 320], "dtype": "float32"}
+SUPPORTED_INPUT_SIZES = (320, 416, 640)
 EXPECTED_OPSET = 11
 
 
@@ -28,7 +28,9 @@ def _dtype_name(onnx, elem_type: int) -> str:
     mapping = {onnx.TensorProto.FLOAT: "float32", onnx.TensorProto.FLOAT16: "float16", onnx.TensorProto.INT64: "int64", onnx.TensorProto.INT32: "int32"}
     return mapping.get(elem_type, f"onnx:{elem_type}")
 
-def inspect_onnx(path: Path) -> dict[str, Any]:
+def inspect_onnx(path: Path, *, input_size: int = 320) -> dict[str, Any]:
+    if not isinstance(input_size, int) or input_size not in SUPPORTED_INPUT_SIZES:
+        raise ValueError("PicoDet input_size 仅支持 320、416 或 640")
     if not path.is_file():
         raise FileNotFoundError(path)
     try:
@@ -47,7 +49,8 @@ def inspect_onnx(path: Path) -> dict[str, Any]:
     tensor = value.type.tensor_type
     shape = [dim.dim_value for dim in tensor.shape.dim]
     dtype = _dtype_name(onnx, tensor.elem_type)
-    if {"name": value.name, "shape": shape, "dtype": dtype} != EXPECTED_INPUT:
+    expected_input = {"name": "image", "shape": [1, 3, input_size, input_size], "dtype": "float32"}
+    if {"name": value.name, "shape": shape, "dtype": dtype} != expected_input:
         raise ValueError(f"输入契约不匹配: name={value.name}, shape={shape}, dtype={dtype}")
     opsets = [item.version for item in model.opset_import if item.domain in ("", "ai.onnx")]
     if opsets != [EXPECTED_OPSET]:
@@ -79,6 +82,7 @@ def main() -> None:
     parser.add_argument("--model", type=Path)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--input-size", type=int, default=320, choices=SUPPORTED_INPUT_SIZES)
     args = parser.parse_args()
     model_path = args.model
     if model_path is None and args.manifest is not None:
@@ -90,7 +94,7 @@ def main() -> None:
         model_path = args.manifest.parent / variants[0]["filename"]
     if model_path is None:
         parser.error("需要 --model 或 --manifest")
-    result = inspect_onnx(model_path.resolve())
+    result = inspect_onnx(model_path.resolve(), input_size=args.input_size)
     payload = json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

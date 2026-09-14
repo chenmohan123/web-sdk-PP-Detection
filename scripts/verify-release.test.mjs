@@ -219,6 +219,14 @@ describe("发布工作流契约", () => {
       await stageAllPagesModels({ outputRoot, repository: repositoryRoot });
       assert.deepEqual(stableManifestPaths, [
         "pp-detection/1.0.2/manifest.json",
+        "pp-detection/picodet-xs-320/manifest.json",
+        "pp-detection/picodet-xs-416/manifest.json",
+        "pp-detection/picodet-s-320/manifest.json",
+        "pp-detection/picodet-s-416/manifest.json",
+        "pp-detection/picodet-m-320/manifest.json",
+        "pp-detection/picodet-m-416/manifest.json",
+        "pp-detection/picodet-l-416/manifest.json",
+        "pp-detection/picodet-l-640/manifest.json",
         "ppyoloe-plus-s-640/0.1.1/manifest.json",
         "ppyoloe-plus-m-640/0.1.1/manifest.json",
         "ppyoloe-plus-l-640/0.1.1/manifest.json",

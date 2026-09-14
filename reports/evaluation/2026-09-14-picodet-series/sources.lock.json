@@ -1,0 +1,77 @@
+{
+  "provider": "PaddleDetection",
+  "repository": "PaddlePaddle/PaddleDetection",
+  "ref": "release/2.9",
+  "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "baseUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/",
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE"
+  },
+  "licenseEvidence": "upstream-picodet-readme.md",
+  "entries": [
+    {
+      "key": "picodet-xs-320",
+      "path": "picodet_xs_320_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_xs_320_lcnet_postprocessed.onnx",
+      "bytes": 2871062,
+      "sha256": "3b8e7687122d70b1615734827b19f28e24cde83cb59b4d27845a3566da4b8510"
+    },
+    {
+      "key": "picodet-xs-416",
+      "path": "picodet_xs_416_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_xs_416_lcnet_postprocessed.onnx",
+      "bytes": 2888740,
+      "sha256": "4fcf5f88f1d72a3b07f9b365c359c4b9624aa57f4e68b789110bcdf9ff29f408"
+    },
+    {
+      "key": "picodet-s-320",
+      "path": "picodet_s_320_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_s_320_lcnet_postprocessed.onnx",
+      "bytes": 4792914,
+      "sha256": "09fc88131be8ad224f13739a5cf8fc838600d76a77539af7f0400fa90506c5f3"
+    },
+    {
+      "key": "picodet-s-416",
+      "path": "picodet_s_416_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_s_416_lcnet_postprocessed.onnx",
+      "bytes": 4810592,
+      "sha256": "4b717e3f68f170fafd922c3c7978e52b6ad2ab3615d26b407e7d9aba44eb790f"
+    },
+    {
+      "key": "picodet-m-320",
+      "path": "picodet_m_320_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_m_320_lcnet_postprocessed.onnx",
+      "bytes": 13887682,
+      "sha256": "823d992776e2493d8ad466225e073f3228fb763796fe65f96c76d6b363b6c5a8"
+    },
+    {
+      "key": "picodet-m-416",
+      "path": "picodet_m_416_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_m_416_lcnet_postprocessed.onnx",
+      "bytes": 13905360,
+      "sha256": "ca575541d228eb8245240d879865e7138d15235de50155ac49515c43368f8bdf"
+    },
+    {
+      "key": "picodet-l-416",
+      "path": "picodet_l_416_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_416_lcnet_postprocessed.onnx",
+      "bytes": 23244019,
+      "sha256": "c5550352511bd46ff271711278a34e302d451cf172a1ea65e14cdc7da2a0a112"
+    },
+    {
+      "key": "picodet-l-640",
+      "path": "picodet_l_640_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_640_lcnet_postprocessed.onnx",
+      "bytes": 23302845,
+      "sha256": "d58bae9845618e7bbc34a3f5fd27bc37bd7d60b80d4b3f31416a965688bafdf6"
+    },
+    {
+      "key": "picodet-l-320",
+      "path": "picodet_l_320_lcnet_postprocessed.onnx",
+      "downloadUrl": "https://paddledet.bj.bcebos.com/deploy/third_engine/picodet_l_320_lcnet_postprocessed.onnx",
+      "bytes": 23226341,
+      "sha256": "f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89"
+    }
+  ]
+}

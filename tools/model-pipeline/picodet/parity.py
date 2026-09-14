@@ -97,6 +97,8 @@ def compare_outputs(
     )
     score_delta = np.abs(reference_values[:, 1] - candidate_values[:, 1])
     coordinate_delta = np.abs(reference_values[:, 2:6] - candidate_values[:, 2:6])
+    confidence_mask = (reference_values[:, 1] >= 0.5) | (candidate_values[:, 1] >= 0.5)
+    high_confidence_coordinate_delta = coordinate_delta[confidence_mask]
     finite = bool(np.isfinite(reference_values).all() and np.isfinite(candidate_values).all())
     matrix_pass = bool(
         finite and class_equal and np.max(score_delta, initial=0.0) <= 1e-3 and np.max(coordinate_delta, initial=0.0) <= 1e-3
@@ -126,6 +128,9 @@ def compare_outputs(
             "finite": finite,
             "maxScoreDelta": float(np.max(score_delta, initial=0.0)),
             "maxCoordinateDeltaPixels": float(np.max(coordinate_delta, initial=0.0)),
+            "maxCoordinateDeltaPixelsAboveScoreThreshold": float(
+                np.max(high_confidence_coordinate_delta, initial=0.0)
+            ),
             "pass": matrix_pass,
         },
         "count": count,

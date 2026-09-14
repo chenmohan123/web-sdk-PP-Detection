@@ -1,0 +1,777 @@
+{
+  "protocol": {
+    "maxApLossPoints": 0.5,
+    "minRetention": 0.95,
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5
+  },
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+  "models": [
+    {
+      "key": "picodet-xs-320",
+      "referenceSha256": "3b8e7687122d70b1615734827b19f28e24cde83cb59b4d27845a3566da4b8510",
+      "candidateSha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
+      "referenceMetrics": {
+        "AP": 0.23926940768955013,
+        "AP50": 0.35515898628885484,
+        "AP75": 0.2626803640430016,
+        "APSmall": 0.0848438068945635,
+        "APMedium": 0.30070073039421846,
+        "APLarge": 0.5651352882353216,
+        "AR1": 0.2215159755426848,
+        "AR10": 0.34647965143636733,
+        "AR100": 0.3571770387446143
+      },
+      "predictions": {
+        "path": "picodet-xs-320-python-predictions.json.gz",
+        "sha256": "23f4648cd67a328f36e95b93cd0983122d57d8043bf482d21e7693bd7b6cdcfb"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.23926936409145363,
+            "AP50": 0.35515898628885484,
+            "AP75": 0.2626803640430016,
+            "APSmall": 0.0848438068945635,
+            "APMedium": 0.30070073039421846,
+            "APLarge": 0.5651352882353216,
+            "AR1": 0.2215159755426848,
+            "AR10": 0.34647965143636733,
+            "AR100": 0.3571770387446143
+          },
+          "apDeltaPoints": -4.359809649412405e-06,
+          "retention": {
+            "referenceCount": 160,
+            "matchedCount": 160,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.2381132431540403,
+            "AP50": 0.354914492845361,
+            "AP75": 0.2581699688100332,
+            "APSmall": 0.08290965028984755,
+            "APMedium": 0.2994403054747826,
+            "APLarge": 0.5632223276349421,
+            "AR1": 0.22088026290697213,
+            "AR10": 0.34457408708420856,
+            "AR100": 0.3552991944201756
+          },
+          "apDeltaPoints": -0.11561645355098182,
+          "retention": {
+            "referenceCount": 160,
+            "matchedCount": 160,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.23811321103029195,
+            "AP50": 0.354914492845361,
+            "AP75": 0.2581699688100332,
+            "APSmall": 0.08290965028984755,
+            "APMedium": 0.2994403054747826,
+            "APLarge": 0.5632223276349421,
+            "AR1": 0.22088026290697213,
+            "AR10": 0.34457408708420856,
+            "AR100": 0.3552991944201756
+          },
+          "apDeltaPoints": -0.1156196659258174,
+          "retention": {
+            "referenceCount": 160,
+            "matchedCount": 160,
+            "fraction": 1.0
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-xs-416",
+      "referenceSha256": "4fcf5f88f1d72a3b07f9b365c359c4b9624aa57f4e68b789110bcdf9ff29f408",
+      "candidateSha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239",
+      "referenceMetrics": {
+        "AP": 0.2778022331797465,
+        "AP50": 0.4214272327646446,
+        "AP75": 0.2837284905037671,
+        "APSmall": 0.1116024868911175,
+        "APMedium": 0.3905280692667505,
+        "APLarge": 0.5683558122091217,
+        "AR1": 0.24984851923706414,
+        "AR10": 0.3679824285084104,
+        "AR100": 0.38518625149503877
+      },
+      "predictions": {
+        "path": "picodet-xs-416-python-predictions.json.gz",
+        "sha256": "4b61ae41319b67ede1bf27213b2bce556eba899f8f90db924310c92166cc0577"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.2778022331797465,
+            "AP50": 0.4214272327646446,
+            "AP75": 0.2837284905037671,
+            "APSmall": 0.1116024868911175,
+            "APMedium": 0.3905280692667505,
+            "APLarge": 0.5683558122091217,
+            "AR1": 0.24984851923706414,
+            "AR10": 0.3679824285084104,
+            "AR100": 0.38518625149503877
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 204,
+            "matchedCount": 204,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.27680424214205424,
+            "AP50": 0.4209904956082087,
+            "AP75": 0.28371631278004406,
+            "APSmall": 0.11105178338919447,
+            "APMedium": 0.390692096919397,
+            "APLarge": 0.570246582912804,
+            "AR1": 0.2505384218093196,
+            "AR10": 0.3665184832901784,
+            "AR100": 0.38368072623522675
+          },
+          "apDeltaPoints": -0.09979910376922696,
+          "retention": {
+            "referenceCount": 204,
+            "matchedCount": 204,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.27680424214205424,
+            "AP50": 0.4209904956082087,
+            "AP75": 0.28371631278004406,
+            "APSmall": 0.11105178338919447,
+            "APMedium": 0.390692096919397,
+            "APLarge": 0.570246582912804,
+            "AR1": 0.2505384218093196,
+            "AR10": 0.3665184832901784,
+            "AR100": 0.38368072623522675
+          },
+          "apDeltaPoints": -0.09979910376922696,
+          "retention": {
+            "referenceCount": 204,
+            "matchedCount": 204,
+            "fraction": 1.0
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-s-320",
+      "referenceSha256": "09fc88131be8ad224f13739a5cf8fc838600d76a77539af7f0400fa90506c5f3",
+      "candidateSha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
+      "referenceMetrics": {
+        "AP": 0.28871789166894346,
+        "AP50": 0.42234733548058195,
+        "AP75": 0.30038361681770076,
+        "APSmall": 0.09854059574876098,
+        "APMedium": 0.3692084935529928,
+        "APLarge": 0.6152604710233194,
+        "AR1": 0.24980353199919456,
+        "AR10": 0.3539725125721403,
+        "AR100": 0.3725730756439466
+      },
+      "predictions": {
+        "path": "picodet-s-320-python-predictions.json.gz",
+        "sha256": "97228181240e2845168203544d42dc13faffb6af450543fe53f1b011f016b751"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.28871789166894346,
+            "AP50": 0.42234733548058195,
+            "AP75": 0.30038361681770076,
+            "APSmall": 0.09854059574876098,
+            "APMedium": 0.3692084935529928,
+            "APLarge": 0.6152604710233194,
+            "AR1": 0.24980353199919456,
+            "AR10": 0.3539725125721403,
+            "AR100": 0.3725730756439466
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 210,
+            "matchedCount": 210,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.2901499833282595,
+            "AP50": 0.42472508578106355,
+            "AP75": 0.3015895399689881,
+            "APSmall": 0.10086741546115298,
+            "APMedium": 0.3688693261354229,
+            "APLarge": 0.6177967417776582,
+            "AR1": 0.25274991894558146,
+            "AR10": 0.3569396225457995,
+            "AR100": 0.3755416579758892
+          },
+          "apDeltaPoints": 0.1432091659316015,
+          "retention": {
+            "referenceCount": 210,
+            "matchedCount": 210,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.2901499833282595,
+            "AP50": 0.42472508578106355,
+            "AP75": 0.3015895399689881,
+            "APSmall": 0.10086741546115298,
+            "APMedium": 0.3688693261354229,
+            "APLarge": 0.6177967417776582,
+            "AR1": 0.25274991894558146,
+            "AR10": 0.3569396225457995,
+            "AR100": 0.3755416579758892
+          },
+          "apDeltaPoints": 0.1432091659316015,
+          "retention": {
+            "referenceCount": 210,
+            "matchedCount": 210,
+            "fraction": 1.0
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-s-416",
+      "referenceSha256": "4b717e3f68f170fafd922c3c7978e52b6ad2ab3615d26b407e7d9aba44eb790f",
+      "candidateSha256": "78328c4e9484db59bba41d95d381687503e8e905711672fec702975d85075682",
+      "referenceMetrics": {
+        "AP": 0.33153434694184203,
+        "AP50": 0.49265351038897154,
+        "AP75": 0.34587851657119495,
+        "APSmall": 0.15484675924609984,
+        "APMedium": 0.42176803622667997,
+        "APLarge": 0.6508587865997173,
+        "AR1": 0.27810045028775937,
+        "AR10": 0.4099985970274212,
+        "AR100": 0.42488753911206456
+      },
+      "predictions": {
+        "path": "picodet-s-416-python-predictions.json.gz",
+        "sha256": "3f90c0941cdcda93efceecbb0afd490bac8fb3fcd5913a6dd01f17bb462d001d"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.33153434694184203,
+            "AP50": 0.49265351038897154,
+            "AP75": 0.34587851657119495,
+            "APSmall": 0.15484675924609984,
+            "APMedium": 0.42176803622667997,
+            "APLarge": 0.6508587865997173,
+            "AR1": 0.27810045028775937,
+            "AR10": 0.4099985970274212,
+            "AR100": 0.42488753911206456
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 252,
+            "matchedCount": 252,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.3315793309842404,
+            "AP50": 0.49239922245202405,
+            "AP75": 0.34639161155620724,
+            "APSmall": 0.1563133507912811,
+            "APMedium": 0.4212081954805643,
+            "APLarge": 0.6492500617087287,
+            "AR1": 0.27550364612573786,
+            "AR10": 0.4078513953018441,
+            "AR100": 0.4227334073795576
+          },
+          "apDeltaPoints": 0.004498404239838827,
+          "retention": {
+            "referenceCount": 252,
+            "matchedCount": 250,
+            "fraction": 0.9920634920634921
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.3315793309842404,
+            "AP50": 0.49239922245202405,
+            "AP75": 0.34639161155620724,
+            "APSmall": 0.1563133507912811,
+            "APMedium": 0.4212081954805643,
+            "APLarge": 0.6492500617087287,
+            "AR1": 0.27550364612573786,
+            "AR10": 0.4078513953018441,
+            "AR100": 0.4227334073795576
+          },
+          "apDeltaPoints": 0.004498404239838827,
+          "retention": {
+            "referenceCount": 252,
+            "matchedCount": 250,
+            "fraction": 0.9920634920634921
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-m-320",
+      "referenceSha256": "823d992776e2493d8ad466225e073f3228fb763796fe65f96c76d6b363b6c5a8",
+      "candidateSha256": "2914a3bc0475e6596baac9495eea798da99aadc8db48afd995c53906f8299474",
+      "referenceMetrics": {
+        "AP": 0.33765311784164265,
+        "AP50": 0.49269148176242555,
+        "AP75": 0.35676219381442065,
+        "APSmall": 0.14527534182703006,
+        "APMedium": 0.4328252376852746,
+        "APLarge": 0.6935626464644977,
+        "AR1": 0.2737861194631647,
+        "AR10": 0.4166848604471123,
+        "AR100": 0.43356974805005133
+      },
+      "predictions": {
+        "path": "picodet-m-320-python-predictions.json.gz",
+        "sha256": "0f20ee4b67c57babef1d70dcbb28aaeb8e8c027c02a19d1a70627513c83a42a9"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.33765311784164265,
+            "AP50": 0.49269148176242555,
+            "AP75": 0.35676219381442065,
+            "APSmall": 0.14527534182703006,
+            "APMedium": 0.4328252376852746,
+            "APLarge": 0.6935626464644977,
+            "AR1": 0.2737861194631647,
+            "AR10": 0.4166848604471123,
+            "AR100": 0.43356974805005133
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 261,
+            "matchedCount": 261,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.3338996497269134,
+            "AP50": 0.49105505937720445,
+            "AP75": 0.3522063312071943,
+            "APSmall": 0.14289408279406976,
+            "APMedium": 0.4335504581784486,
+            "APLarge": 0.6780760951836512,
+            "AR1": 0.27108650233820825,
+            "AR10": 0.4135115072067193,
+            "AR100": 0.42991749485707415
+          },
+          "apDeltaPoints": -0.37534681147292637,
+          "retention": {
+            "referenceCount": 261,
+            "matchedCount": 261,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.3338996497269134,
+            "AP50": 0.49105505937720445,
+            "AP75": 0.3522063312071943,
+            "APSmall": 0.14289408279406976,
+            "APMedium": 0.4335504581784486,
+            "APLarge": 0.6780760951836512,
+            "AR1": 0.27108650233820825,
+            "AR10": 0.4135115072067193,
+            "AR100": 0.42991749485707415
+          },
+          "apDeltaPoints": -0.37534681147292637,
+          "retention": {
+            "referenceCount": 261,
+            "matchedCount": 261,
+            "fraction": 1.0
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-m-416",
+      "referenceSha256": "ca575541d228eb8245240d879865e7138d15235de50155ac49515c43368f8bdf",
+      "candidateSha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
+      "referenceMetrics": {
+        "AP": 0.37361851339231955,
+        "AP50": 0.5265862607087446,
+        "AP75": 0.4115898483281072,
+        "APSmall": 0.19062099897402748,
+        "APMedium": 0.49563473564718574,
+        "APLarge": 0.7061153232236234,
+        "AR1": 0.29257412304923613,
+        "AR10": 0.44154390621827744,
+        "AR100": 0.462541857367336
+      },
+      "predictions": {
+        "path": "picodet-m-416-python-predictions.json.gz",
+        "sha256": "d298a87dc6c315df21d81ff376fcf2110e38ff26bcf00542316a4da8cb225cf2"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.37361851339231955,
+            "AP50": 0.5265862607087446,
+            "AP75": 0.4115898483281072,
+            "APSmall": 0.19062099897402748,
+            "APMedium": 0.49563473564718574,
+            "APLarge": 0.7061153232236234,
+            "AR1": 0.29257412304923613,
+            "AR10": 0.44154390621827744,
+            "AR100": 0.462541857367336
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 340,
+            "matchedCount": 340,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.37224495068087043,
+            "AP50": 0.5253460420807589,
+            "AP75": 0.40643073525203954,
+            "APSmall": 0.188996171078901,
+            "APMedium": 0.49563145782470336,
+            "APLarge": 0.7051470381698585,
+            "AR1": 0.2920954905706037,
+            "AR10": 0.4416816445483235,
+            "AR100": 0.4622832550843231
+          },
+          "apDeltaPoints": -0.13735627114491167,
+          "retention": {
+            "referenceCount": 340,
+            "matchedCount": 339,
+            "fraction": 0.9970588235294118
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.37224495068087043,
+            "AP50": 0.5253460420807589,
+            "AP75": 0.40643073525203954,
+            "APSmall": 0.188996171078901,
+            "APMedium": 0.49563145782470336,
+            "APLarge": 0.7051470381698585,
+            "AR1": 0.2920954905706037,
+            "AR10": 0.4416816445483235,
+            "AR100": 0.4622832550843231
+          },
+          "apDeltaPoints": -0.13735627114491167,
+          "retention": {
+            "referenceCount": 340,
+            "matchedCount": 339,
+            "fraction": 0.9970588235294118
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-l-416",
+      "referenceSha256": "c5550352511bd46ff271711278a34e302d451cf172a1ea65e14cdc7da2a0a112",
+      "candidateSha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4",
+      "referenceMetrics": {
+        "AP": 0.37463946474987236,
+        "AP50": 0.5203956872819114,
+        "AP75": 0.3925263524569064,
+        "APSmall": 0.18667607077929627,
+        "APMedium": 0.5105536096591697,
+        "APLarge": 0.6980685480325418,
+        "AR1": 0.2824032023994075,
+        "AR10": 0.44752117068481734,
+        "AR100": 0.4698568562725272
+      },
+      "predictions": {
+        "path": "picodet-l-416-python-predictions.json.gz",
+        "sha256": "ec0077f0b507946c47178d3ec246d4dc053bf58310889b466fdf995922963c7d"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.37463946474987236,
+            "AP50": 0.5203956872819114,
+            "AP75": 0.3925263524569064,
+            "APSmall": 0.18667607077929627,
+            "APMedium": 0.5105536096591697,
+            "APLarge": 0.6980685480325418,
+            "AR1": 0.2824032023994075,
+            "AR10": 0.44752117068481734,
+            "AR100": 0.4698568562725272
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 337,
+            "matchedCount": 337,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.37487573497031185,
+            "AP50": 0.5205709187269243,
+            "AP75": 0.39342774808743647,
+            "APSmall": 0.1866923501978037,
+            "APMedium": 0.5101556341651701,
+            "APLarge": 0.697927166475618,
+            "AR1": 0.28253680493685623,
+            "AR10": 0.4472326001216472,
+            "AR100": 0.4697802786620621
+          },
+          "apDeltaPoints": 0.023627022043948287,
+          "retention": {
+            "referenceCount": 337,
+            "matchedCount": 335,
+            "fraction": 0.9940652818991098
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.37487573497031185,
+            "AP50": 0.5205709187269243,
+            "AP75": 0.39342774808743647,
+            "APSmall": 0.1866923501978037,
+            "APMedium": 0.5101556341651701,
+            "APLarge": 0.697927166475618,
+            "AR1": 0.28253680493685623,
+            "AR10": 0.4472326001216472,
+            "AR100": 0.4697802786620621
+          },
+          "apDeltaPoints": 0.023627022043948287,
+          "retention": {
+            "referenceCount": 337,
+            "matchedCount": 335,
+            "fraction": 0.9940652818991098
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-l-640",
+      "referenceSha256": "d58bae9845618e7bbc34a3f5fd27bc37bd7d60b80d4b3f31416a965688bafdf6",
+      "candidateSha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df",
+      "referenceMetrics": {
+        "AP": 0.39564974915246354,
+        "AP50": 0.5680532084167345,
+        "AP75": 0.41028258978946114,
+        "APSmall": 0.2652271944024865,
+        "APMedium": 0.5333859986459119,
+        "APLarge": 0.6698816884992922,
+        "AR1": 0.303699200599125,
+        "AR10": 0.49381266560119186,
+        "AR100": 0.521178549954097
+      },
+      "predictions": {
+        "path": "picodet-l-640-python-predictions.json.gz",
+        "sha256": "a32c36ad817ebcc0a71593451d559259a731b01cafbd2e262cf39e1b7642ade3"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.39564974915246354,
+            "AP50": 0.5680532084167345,
+            "AP75": 0.41028258978946114,
+            "APSmall": 0.2652271944024865,
+            "APMedium": 0.5333859986459119,
+            "APLarge": 0.6698816884992922,
+            "AR1": 0.303699200599125,
+            "AR10": 0.49381266560119186,
+            "AR100": 0.521178549954097
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 419,
+            "matchedCount": 419,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.3951048517984916,
+            "AP50": 0.5661462725905735,
+            "AP75": 0.40553888853086967,
+            "APSmall": 0.2643138873623366,
+            "APMedium": 0.5334442740995402,
+            "APLarge": 0.6743580767402537,
+            "AR1": 0.30394868084860527,
+            "AR10": 0.4950396093267894,
+            "AR100": 0.5221350088581262
+          },
+          "apDeltaPoints": -0.05448973539719515,
+          "retention": {
+            "referenceCount": 419,
+            "matchedCount": 418,
+            "fraction": 0.9976133651551312
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.3951048517984916,
+            "AP50": 0.5661462725905735,
+            "AP75": 0.40553888853086967,
+            "APSmall": 0.2643138873623366,
+            "APMedium": 0.5334442740995402,
+            "APLarge": 0.6743580767402537,
+            "AR1": 0.30394868084860527,
+            "AR10": 0.4950396093267894,
+            "AR100": 0.5221350088581262
+          },
+          "apDeltaPoints": -0.05448973539719515,
+          "retention": {
+            "referenceCount": 419,
+            "matchedCount": 418,
+            "fraction": 0.9976133651551312
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "key": "picodet-l-320",
+      "referenceSha256": "f602c83aeea1ef65d226cdd272a6b2e603a67dfd97c8ace6acc906c73bff5d89",
+      "candidateSha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "referenceMetrics": {
+        "AP": 0.3431674773253368,
+        "AP50": 0.4770331172092201,
+        "AP75": 0.36803427929993043,
+        "APSmall": 0.15578708708810862,
+        "APMedium": 0.4593136348704288,
+        "APLarge": 0.67201605678986,
+        "AR1": 0.27934430314413383,
+        "AR10": 0.40622325905794276,
+        "AR100": 0.4176334641762927
+      },
+      "predictions": {
+        "path": "picodet-l-320-python-predictions.json.gz",
+        "sha256": "fbb15925bb9b821195c5162ac784bc035e7a3faa03e1bd28749f994ec1ca1094"
+      },
+      "runs": [
+        {
+          "runtime": "python-candidate",
+          "metrics": {
+            "AP": 0.3431674773253368,
+            "AP50": 0.4770331172092201,
+            "AP75": 0.36803427929993043,
+            "APSmall": 0.15578708708810862,
+            "APMedium": 0.4593136348704288,
+            "APLarge": 0.67201605678986,
+            "AR1": 0.27934430314413383,
+            "AR10": 0.40622325905794276,
+            "AR100": 0.4176334641762927
+          },
+          "apDeltaPoints": 0.0,
+          "retention": {
+            "referenceCount": 293,
+            "matchedCount": 293,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "wasm",
+          "metrics": {
+            "AP": 0.34215273096451604,
+            "AP50": 0.47399339671629215,
+            "AP75": 0.3675599157755509,
+            "APSmall": 0.15447831774148507,
+            "APMedium": 0.4590223817656648,
+            "APLarge": 0.6707719547842549,
+            "AR1": 0.2779591680089987,
+            "AR10": 0.4058765849523975,
+            "AR100": 0.417465189475153
+          },
+          "apDeltaPoints": -0.1014746360820773,
+          "retention": {
+            "referenceCount": 293,
+            "matchedCount": 293,
+            "fraction": 1.0
+          },
+          "passed": true
+        },
+        {
+          "runtime": "webgpu",
+          "metrics": {
+            "AP": 0.34215273096451604,
+            "AP50": 0.47399339671629215,
+            "AP75": 0.3675599157755509,
+            "APSmall": 0.15447831774148507,
+            "APMedium": 0.4590223817656648,
+            "APLarge": 0.6707719547842549,
+            "AR1": 0.2779591680089987,
+            "AR10": 0.4058765849523975,
+            "AR100": 0.417465189475153
+          },
+          "apDeltaPoints": -0.1014746360820773,
+          "retention": {
+            "referenceCount": 293,
+            "matchedCount": 293,
+            "fraction": 1.0
+          },
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "allPassed": true
+}

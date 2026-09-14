@@ -1,11 +1,19 @@
 # PaddleDetection Web SDK
 
-## Fifteen stable variants across five models (2026-09-14)
+## PicoDet series expansion (2026-09-15)
 
-The Demo now provides PicoDet-L 320 and PP-YOLOE+ S/M/L/X 640, each with stable FP32, FP16, and W8A32 variants. PicoDet uses version 1.0.2 and every PP-YOLOE+ size uses 0.1.1; the SDK API and npm version remain **0.4.0**. Each model defaults to ModelScope and also supports explicit Hugging Face selection. The overall Demo defaults remain PicoDet, ModelScope, and FP32, and an explicitly selected source never silently switches to another source.
+The Demo now provides PicoDet XS/S/M/L sizes and PP-YOLOE+ S/M/L/X, totaling 13 specifications and 23 stable variants. New PicoDet manifests use version 1.0.0 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
 
 | Model           |      FP32 |      FP16 |    W8A32 |
 | --------------- | --------: | --------: | -------: |
+| PicoDet-XS 320  |   2.89 MB |         — |        — |
+| PicoDet-XS 416  |   2.90 MB |         — |        — |
+| PicoDet-S 320   |   4.81 MB |         — |        — |
+| PicoDet-S 416   |   4.83 MB |         — |        — |
+| PicoDet-M 320   |  13.91 MB |         — |        — |
+| PicoDet-M 416   |  13.92 MB |         — |        — |
+| PicoDet-L 416   |  23.26 MB |         — |        — |
+| PicoDet-L 640   |  23.32 MB |         — |        — |
 | PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
 | PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
 | PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
@@ -45,9 +53,9 @@ Version 0.4.0 adds an opt-in experimental small-object enhancement API and image
 
 ## Current boundaries
 
-- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 15 stable variants across five models; the npm package contains neither manifests nor ONNX weights.
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 23 stable variants across 13 specifications; the npm package contains neither manifests nor ONNX weights.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
-- All five current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
+- All 13 current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
 - FP32, FP16, and W8A32 are stable for PicoDet 1.0.2 and PP-YOLOE+ S/M/L/X 0.1.1. Evidence for the new M/L/X precisions is limited to three desktop WASM/WebGPU runs on the fixed 64-image set dated 2026-09-14; Xiaomi 15 evidence covers only the original FP32 variant.
 - `classThresholds` overrides object-detection thresholds for manifest labels such as `person` and `car`; unspecified labels inherit the global threshold.
@@ -76,7 +84,7 @@ Code is Apache-2.0. Upstream licenses for model weights and COCO labels are trac
 
 The current version for PP-YOLOE+ S/M/L/X 640 is **0.1.1**, with stable FP32, FP16, and W8A32 variants for every size. Historical 0.1.0 and labs/blocked candidates retain their original status and evidence. Current manifests load without `allowExperimental`.
 
-All five models use the same three-precision Demo flow, while PicoDet, ModelScope, and FP32 remain the defaults. Manifests pin Hugging Face and ModelScope revisions; switching models cancels prior work, disposes the old instance, and changes the cache identity. Xiaomi 15 coverage remains limited to the [original FP32 device record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
+All 13 specifications use the same Demo flow; the eight new PicoDet sizes provide FP32 only, while PicoDet, ModelScope, and FP32 remain the defaults. Manifests pin Hugging Face and ModelScope revisions; switching models cancels prior work, disposes the old instance, and changes the cache identity. Xiaomi 15 coverage remains limited to the [original FP32 device record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
 
 ## Download settings (since 0.3.2)
 

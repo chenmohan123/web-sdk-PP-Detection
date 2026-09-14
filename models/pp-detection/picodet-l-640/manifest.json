@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "status": "stable",
+  "model": {
+    "id": "pp-picodet-l-640",
+    "version": "1.0.0",
+    "architecture": "PicoDet-L-640 LCNet",
+    "format": "onnx",
+    "assets": [
+      {
+        "filename": "picodet-l-640-fp32.onnx",
+        "bytes": 23320381,
+        "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df"
+      }
+    ]
+  },
+  "input": {
+    "name": "image",
+    "shape": [
+      1,
+      3,
+      640,
+      640
+    ],
+    "dtype": "float32"
+  },
+  "outputs": [
+    {
+      "name": "multiclass_nms3_0.tmp_0",
+      "dtype": "float32",
+      "shape": [
+        -1,
+        6
+      ]
+    },
+    {
+      "name": "multiclass_nms3_0.tmp_2",
+      "dtype": "int32",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "preprocessing": {
+    "size": {
+      "width": 640,
+      "height": 640
+    },
+    "resizeMode": "stretch",
+    "interpolation": "bicubic",
+    "rescaleFactor": 0.00392156862745098,
+    "doResize": true,
+    "doRescale": true,
+    "doNormalize": true,
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "postprocessing": {
+    "type": "nms",
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "matrixCoordinates": "pixels"
+  },
+  "defaultVariant": "fp32",
+  "defaultSource": "modelscope",
+  "labels": [
+    "person",
+    "bicycle",
+    "car",
+    "motorcycle",
+    "airplane",
+    "bus",
+    "train",
+    "truck",
+    "boat",
+    "traffic light",
+    "fire hydrant",
+    "stop sign",
+    "parking meter",
+    "bench",
+    "bird",
+    "cat",
+    "dog",
+    "horse",
+    "sheep",
+    "cow",
+    "elephant",
+    "bear",
+    "zebra",
+    "giraffe",
+    "backpack",
+    "umbrella",
+    "handbag",
+    "tie",
+    "suitcase",
+    "frisbee",
+    "skis",
+    "snowboard",
+    "sports ball",
+    "kite",
+    "baseball bat",
+    "baseball glove",
+    "skateboard",
+    "surfboard",
+    "tennis racket",
+    "bottle",
+    "wine glass",
+    "cup",
+    "fork",
+    "knife",
+    "spoon",
+    "bowl",
+    "banana",
+    "apple",
+    "sandwich",
+    "orange",
+    "broccoli",
+    "carrot",
+    "hot dog",
+    "pizza",
+    "donut",
+    "cake",
+    "chair",
+    "couch",
+    "potted plant",
+    "bed",
+    "dining table",
+    "toilet",
+    "tv",
+    "laptop",
+    "mouse",
+    "remote",
+    "keyboard",
+    "cell phone",
+    "microwave",
+    "oven",
+    "toaster",
+    "sink",
+    "refrigerator",
+    "book",
+    "clock",
+    "vase",
+    "scissors",
+    "teddy bear",
+    "hair drier",
+    "toothbrush"
+  ],
+  "variants": [
+    {
+      "id": "fp32",
+      "filename": "picodet-l-640-fp32.onnx",
+      "precision": "fp32",
+      "quantization": "none",
+      "opset": 11,
+      "bytes": 23320381,
+      "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df",
+      "parameterCount": 5807113,
+      "backends": [
+        "wasm",
+        "webgpu"
+      ],
+      "status": "stable",
+      "sources": [
+        {
+          "kind": "modelscope",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "39739aafe769e1fc2843bc9f7bd3b6c3512e217a",
+          "path": "picodet-l-640/1.0.0/picodet-l-640-fp32.onnx",
+          "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/39739aafe769e1fc2843bc9f7bd3b6c3512e217a/picodet-l-640/1.0.0/picodet-l-640-fp32.onnx",
+          "bytes": 23320381,
+          "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df"
+        },
+        {
+          "kind": "huggingface",
+          "repository": "chenmohan/web-sdk-pp-detection",
+          "revision": "aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3",
+          "path": "picodet-l-640/1.0.0/picodet-l-640-fp32.onnx",
+          "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3/picodet-l-640/1.0.0/picodet-l-640-fp32.onnx",
+          "bytes": 23320381,
+          "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "2026-09-15 已在 Windows 11 Chromium 153 的 WASM 与物理 NVIDIA WebGPU 环境验证；不代表所有浏览器、设备或 NPU 均兼容。",
+    "模型由 PaddleDetection 官方导出图经兼容清理生成，许可沿用上游 Apache-2.0。参数量按 ONNX initializer 元素统计，包含图内常量。"
+  ]
+}

@@ -25,7 +25,7 @@ model:
   format: onnx
   parameterCount: 5787988
   precision: [fp32, fp16, int8]
-  source: PaddleDetection 官方固定源；FP16 与 W8A32 已完成桌面识别验证，ModelScope 与 Hugging Face 固定不可变 revision。
+  source: PaddleDetection 官方固定源；提供九个 PicoDet FP32 规格和 PP-YOLOE+ S/M/L/X，默认清单为 PicoDet-L-320。ModelScope 与 Hugging Face 固定不可变 revision。
   license: Apache-2.0
   defaultVariant: fp32
   defaultSource: modelscope

@@ -27,6 +27,82 @@ test("默认选择 PicoDet 和 ModelScope，来源只提供两个模型 Hub", as
   await expect(page.getByTestId("selected-model-summary")).toHaveCount(0);
 });
 
+test("模型选项按 PicoDet XS、S、M、L 尺寸顺序排列，再列出 PP-YOLOE+", async ({ page }) => {
+  await page.goto("/?fixture=1");
+
+  await expect(page.getByLabel(MODEL_SELECT).locator("option")).toHaveText([
+    "PicoDet-XS 320",
+    "PicoDet-XS 416",
+    "PicoDet-S 320",
+    "PicoDet-S 416",
+    "PicoDet-M 320",
+    "PicoDet-M 416",
+    "PicoDet-L 320",
+    "PicoDet-L 416",
+    "PicoDet-L 640",
+    "PP-YOLOE+ S 640",
+    "PP-YOLOE+ M 640",
+    "PP-YOLOE+ L 640",
+    "PP-YOLOE+ X 640"
+  ]);
+});
+
+test("九个 PicoDet 选项连接稳定清单和双模型来源", async ({ page }) => {
+  await page.goto("/?fixture=1");
+  const options = await page.evaluate(async (moduleUrl) => {
+    const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
+    return module.MODEL_OPTIONS.filter(({ key }) => key.startsWith("picodet-")).map(
+      ({ key, manifest, manifestPath }) => ({
+        key,
+        manifestPath,
+        sources: manifest.variants[0]?.sources.map(({ kind }) => kind),
+        variants: manifest.variants.map(({ precision, status }) => ({ precision, status })),
+        version: manifest.model.version
+      })
+    );
+  }, "/src/model-sources.ts");
+
+  expect(options).toHaveLength(9);
+  for (const option of options) {
+    expect(option.sources).toEqual(["modelscope", "huggingface"]);
+    if (option.key === "picodet-l-320") {
+      expect(option.version).toBe("1.0.2");
+      expect(option.manifestPath).toBe("models/pp-detection/1.0.2/manifest.json");
+      expect(option.variants).toEqual([
+        { precision: "fp32", status: "stable" },
+        { precision: "fp16", status: "stable" },
+        { precision: "int8", status: "stable" }
+      ]);
+    } else {
+      expect(option.version).toBe("1.0.0");
+      expect(option.manifestPath).toBe(`models/pp-detection/${option.key}/manifest.json`);
+      expect(option.variants).toEqual([{ precision: "fp32", status: "stable" }]);
+    }
+  }
+});
+
+test("从三精度模型切换到 PicoDet FP32 模型时重置精度和来源", async ({ page }) => {
+  await page.goto("/?fixture=1");
+  const model = page.getByLabel(MODEL_SELECT, { exact: true });
+  const source = page.getByLabel(SOURCE_SELECT, { exact: true });
+  const precision = page.getByRole("group", { name: "模型精度", exact: true });
+
+  await model.selectOption("ppyoloe-plus-s-640");
+  await precision.getByRole("button", { name: "FP16", exact: true }).click();
+  await source.selectOption("huggingface");
+  await model.selectOption("picodet-xs-320");
+
+  await expect(source).toHaveValue("modelscope");
+  await expect(source.locator("option")).toHaveText(["ModelScope", "Hugging Face"]);
+  await expect(precision.getByRole("button", { name: "FP32", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true"
+  );
+  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "INT8", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "W8A32", exact: true })).toHaveCount(0);
+});
+
 test("选择 PP-YOLOE 后按稳定模型加载，并清除旧模型结果", async ({ page }) => {
   await page.goto("/?fixture=1");
   await runFixture(page);

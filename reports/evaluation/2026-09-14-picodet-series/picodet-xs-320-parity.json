@@ -1,0 +1,1918 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "model": {
+    "reference": {
+      "path": "F:\\git\\00_chenmohan\\github\\chenmohan123.github.io\\.worktrees\\detection-picodet-series-fp32\\.tmp\\picodet-series\\picodet-xs-320-official.onnx",
+      "bytes": 2871062,
+      "sha256": "3b8e7687122d70b1615734827b19f28e24cde83cb59b4d27845a3566da4b8510"
+    },
+    "candidate": {
+      "path": "F:\\git\\00_chenmohan\\github\\chenmohan123.github.io\\.worktrees\\detection-picodet-series-fp32\\.tmp\\picodet-series\\picodet-xs-320-fp32.onnx",
+      "bytes": 2886024,
+      "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3"
+    }
+  },
+  "dataset": {
+    "annotations": "F:\\git\\00_chenmohan\\github\\chenmohan123.github.io\\.worktrees\\detection-picodet-series-fp32\\reports\\evaluation\\2026-09-11-ppyoloe\\dataset\\annotations.json",
+    "imageRoot": "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images",
+    "expectedImages": 64,
+    "images": [
+      "000000270244.jpg",
+      "000000438862.jpg",
+      "000000212166.jpg",
+      "000000486479.jpg",
+      "000000439854.jpg",
+      "000000227478.jpg",
+      "000000250282.jpg",
+      "000000235836.jpg",
+      "000000497599.jpg",
+      "000000010977.jpg",
+      "000000026690.jpg",
+      "000000284698.jpg",
+      "000000166563.jpg",
+      "000000105264.jpg",
+      "000000479099.jpg",
+      "000000541123.jpg",
+      "000000287874.jpg",
+      "000000492992.jpg",
+      "000000483999.jpg",
+      "000000236592.jpg",
+      "000000368212.jpg",
+      "000000341828.jpg",
+      "000000459195.jpg",
+      "000000376900.jpg",
+      "000000173091.jpg",
+      "000000060823.jpg",
+      "000000256868.jpg",
+      "000000386879.jpg",
+      "000000546219.jpg",
+      "000000228436.jpg",
+      "000000125072.jpg",
+      "000000458325.jpg",
+      "000000208423.jpg",
+      "000000119516.jpg",
+      "000000269866.jpg",
+      "000000527960.jpg",
+      "000000570456.jpg",
+      "000000134322.jpg",
+      "000000481386.jpg",
+      "000000376093.jpg",
+      "000000529568.jpg",
+      "000000276720.jpg",
+      "000000129756.jpg",
+      "000000472623.jpg",
+      "000000276024.jpg",
+      "000000269942.jpg",
+      "000000493334.jpg",
+      "000000318455.jpg",
+      "000000200152.jpg",
+      "000000511398.jpg",
+      "000000352760.jpg",
+      "000000027186.jpg",
+      "000000204871.jpg",
+      "000000426372.jpg",
+      "000000209142.jpg",
+      "000000203629.jpg",
+      "000000027932.jpg",
+      "000000360951.jpg",
+      "000000543300.jpg",
+      "000000562818.jpg",
+      "000000356094.jpg",
+      "000000377497.jpg",
+      "000000238410.jpg",
+      "000000119641.jpg"
+    ]
+  },
+  "preprocessing": {
+    "inputSize": 320,
+    "resizeMode": "stretch",
+    "interpolation": "bicubic",
+    "rescaleFactor": 0.00392156862745098,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "tolerances": {
+    "maxScoreDelta": 0.001,
+    "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.5,
+    "scoreThreshold": 0.5
+  },
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "summary": {
+    "passedImages": 64,
+    "failedImages": 0,
+    "maxScoreDelta": 2.6226043701171875e-06,
+    "maxCoordinateDeltaPixels": 0.0013427734375,
+    "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.000244140625
+  },
+  "images": [
+    {
+      "image": "000000270244.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.599592208862305e-07,
+          "maxCoordinateDeltaPixels": 0.0003814697265625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000438862.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.662441253662109e-07,
+          "maxCoordinateDeltaPixels": 0.00046539306640625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000212166.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.960464477539062e-07,
+          "maxCoordinateDeltaPixels": 0.000274658203125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000486479.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.940696716308594e-07,
+          "maxCoordinateDeltaPixels": 0.0006256103515625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 2.288818359375e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000439854.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.791685104370117e-07,
+          "maxCoordinateDeltaPixels": 0.00054931640625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000227478.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.3709068298339844e-06,
+          "maxCoordinateDeltaPixels": 0.00029754638671875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000250282.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.4603137969970703e-06,
+          "maxCoordinateDeltaPixels": 0.000396728515625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 4.57763671875e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000235836.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.5367431640625e-07,
+          "maxCoordinateDeltaPixels": 0.00077056884765625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000497599.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.1324882507324219e-06,
+          "maxCoordinateDeltaPixels": 0.0003662109375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000010977.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.556510925292969e-07,
+          "maxCoordinateDeltaPixels": 0.00043487548828125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000026690.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.834766387939453e-07,
+          "maxCoordinateDeltaPixels": 0.00048828125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000284698.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.046627044677734e-07,
+          "maxCoordinateDeltaPixels": 0.0002593994140625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000166563.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.897615432739258e-07,
+          "maxCoordinateDeltaPixels": 0.0010833740234375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true,
+        "toleranceAdjusted": true
+      }
+    },
+    {
+      "image": "000000105264.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.5795230865478516e-06,
+          "maxCoordinateDeltaPixels": 0.000244140625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 2.288818359375e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000479099.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.332993507385254e-07,
+          "maxCoordinateDeltaPixels": 0.0002288818359375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000541123.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 4.172325134277344e-07,
+          "maxCoordinateDeltaPixels": 0.000213623046875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000287874.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.748603820800781e-07,
+          "maxCoordinateDeltaPixels": 0.000885009765625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000492992.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.811452865600586e-07,
+          "maxCoordinateDeltaPixels": 0.000823974609375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000483999.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.748603820800781e-07,
+          "maxCoordinateDeltaPixels": 0.00016021728515625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000236592.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.3245811462402344e-06,
+          "maxCoordinateDeltaPixels": 0.0013427734375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true,
+        "toleranceAdjusted": true
+      }
+    },
+    {
+      "image": "000000368212.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.046627044677734e-07,
+          "maxCoordinateDeltaPixels": 0.0003204345703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.000213623046875,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000341828.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.1622905731201172e-06,
+          "maxCoordinateDeltaPixels": 0.0004425048828125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000459195.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.344650268554688e-07,
+          "maxCoordinateDeltaPixels": 0.00030517578125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000376900.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.960464477539062e-07,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 7.62939453125e-06,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000173091.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.043081283569336e-06,
+          "maxCoordinateDeltaPixels": 0.00075531005859375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000060823.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.0132789611816406e-06,
+          "maxCoordinateDeltaPixels": 0.000446319580078125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000256868.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.046627044677734e-07,
+          "maxCoordinateDeltaPixels": 0.0005645751953125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000386879.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 4.917383193969727e-07,
+          "maxCoordinateDeltaPixels": 0.000335693359375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 9.1552734375e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000546219.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.2516975402832031e-06,
+          "maxCoordinateDeltaPixels": 0.0003204345703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 6.103515625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000228436.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.0132789611816406e-06,
+          "maxCoordinateDeltaPixels": 0.0001983642578125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 7.62939453125e-06,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000125072.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.258487701416016e-07,
+          "maxCoordinateDeltaPixels": 7.62939453125e-05,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000458325.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.258487701416016e-07,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000208423.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.2218952178955078e-06,
+          "maxCoordinateDeltaPixels": 0.0001983642578125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 7.62939453125e-06,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000119516.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.1622905731201172e-06,
+          "maxCoordinateDeltaPixels": 0.00018310546875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000269866.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.387731552124023e-07,
+          "maxCoordinateDeltaPixels": 0.0003509521484375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 2.288818359375e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000527960.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.152557373046875e-07,
+          "maxCoordinateDeltaPixels": 0.000274658203125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000570456.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.3543834686279297e-06,
+          "maxCoordinateDeltaPixels": 0.000152587890625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000134322.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.6093254089355469e-06,
+          "maxCoordinateDeltaPixels": 0.0002593994140625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000481386.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.238719940185547e-07,
+          "maxCoordinateDeltaPixels": 0.000152587890625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000376093.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.301568984985352e-07,
+          "maxCoordinateDeltaPixels": 0.00067138671875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000529568.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.3113021850585938e-06,
+          "maxCoordinateDeltaPixels": 0.00128173828125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true,
+        "toleranceAdjusted": true
+      }
+    },
+    {
+      "image": "000000276720.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.08970832824707e-07,
+          "maxCoordinateDeltaPixels": 0.000457763671875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000129756.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.960464477539062e-07,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000472623.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.562999725341797e-06,
+          "maxCoordinateDeltaPixels": 0.00026702880859375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 7.62939453125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000276024.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 8.344650268554688e-07,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000269942.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.599592208862305e-07,
+          "maxCoordinateDeltaPixels": 0.00016021728515625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000493334.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 9.834766387939453e-07,
+          "maxCoordinateDeltaPixels": 0.000274658203125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000318455.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.6391277313232422e-06,
+          "maxCoordinateDeltaPixels": 0.000274658203125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000200152.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.5795230865478516e-06,
+          "maxCoordinateDeltaPixels": 0.00074005126953125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000511398.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.1771917343139648e-06,
+          "maxCoordinateDeltaPixels": 0.0009002685546875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 4.57763671875e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000352760.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.960464477539062e-07,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000027186.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.0579824447631836e-06,
+          "maxCoordinateDeltaPixels": 0.001190185546875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true,
+        "toleranceAdjusted": true
+      }
+    },
+    {
+      "image": "000000204871.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.1920928955078125e-06,
+          "maxCoordinateDeltaPixels": 0.000324249267578125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.000244140625,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000426372.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.258487701416016e-07,
+          "maxCoordinateDeltaPixels": 0.000244140625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000209142.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.152557373046875e-07,
+          "maxCoordinateDeltaPixels": 0.0004425048828125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000203629.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.6226043701171875e-06,
+          "maxCoordinateDeltaPixels": 0.000244140625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000027932.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.556510925292969e-07,
+          "maxCoordinateDeltaPixels": 0.000152587890625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 6.103515625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000360951.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 1.430511474609375e-06,
+          "maxCoordinateDeltaPixels": 0.000152587890625,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 3.0517578125e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000543300.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 7.748603820800781e-07,
+          "maxCoordinateDeltaPixels": 0.001007080078125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 0.0,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true,
+        "toleranceAdjusted": true
+      }
+    },
+    {
+      "image": "000000562818.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.662441253662109e-07,
+          "maxCoordinateDeltaPixels": 0.00014495849609375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000356094.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 6.556510925292969e-07,
+          "maxCoordinateDeltaPixels": 0.0002899169921875,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 1.52587890625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000377497.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 76,
+            "candidate": 76
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 5.960464477539062e-07,
+          "maxCoordinateDeltaPixels": 0.00042724609375,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 6.103515625e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 76,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000238410.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.2351741790771484e-06,
+          "maxCoordinateDeltaPixels": 0.0006866455078125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 4.57763671875e-05,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    },
+    {
+      "image": "000000119641.jpg",
+      "comparison": {
+        "matrix": {
+          "referenceOutput": "multiclass_nms3_0.tmp_0",
+          "candidateOutput": "multiclass_nms3_0.tmp_0",
+          "rowCount": {
+            "reference": 100,
+            "candidate": 100
+          },
+          "classSequenceEqual": true,
+          "finite": true,
+          "maxScoreDelta": 2.3245811462402344e-06,
+          "maxCoordinateDeltaPixels": 0.0001220703125,
+          "maxCoordinateDeltaPixelsAboveScoreThreshold": 7.62939453125e-06,
+          "pass": true
+        },
+        "count": {
+          "status": "inconsistent_ignored",
+          "referenceOutput": "multiclass_nms3_0.tmp_2",
+          "candidateOutput": "multiclass_nms3_0.tmp_2",
+          "referenceValue": 2125,
+          "candidateValue": 100,
+          "reason": "PicoDet 导出 count 与检测矩阵行数不一致，因此不作为有效检测数量"
+        },
+        "pass": true
+      }
+    }
+  ]
+}

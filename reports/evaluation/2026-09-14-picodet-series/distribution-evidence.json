@@ -1,0 +1,73 @@
+{
+  "verifiedAt": "2026-09-15",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "modelscopeRevision": "39739aafe769e1fc2843bc9f7bd3b6c3512e217a",
+  "huggingfaceRevision": "aeebbf3b839ee187a20f8e2388e85ee0bc6aa8d3",
+  "models": [
+    {
+      "key": "picodet-xs-320",
+      "bytes": 2886024,
+      "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3"
+    },
+    {
+      "key": "picodet-xs-416",
+      "bytes": 2903707,
+      "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239"
+    },
+    {
+      "key": "picodet-s-320",
+      "bytes": 4807906,
+      "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab"
+    },
+    {
+      "key": "picodet-s-416",
+      "bytes": 4825589,
+      "sha256": "78328c4e9484db59bba41d95d381687503e8e905711672fec702975d85075682"
+    },
+    {
+      "key": "picodet-m-320",
+      "bytes": 13905160,
+      "sha256": "2914a3bc0475e6596baac9495eea798da99aadc8db48afd995c53906f8299474"
+    },
+    {
+      "key": "picodet-m-416",
+      "bytes": 13922843,
+      "sha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f"
+    },
+    {
+      "key": "picodet-l-416",
+      "bytes": 23261512,
+      "sha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4"
+    },
+    {
+      "key": "picodet-l-640",
+      "bytes": 23320381,
+      "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df"
+    }
+  ],
+  "checks": {
+    "weights": {
+      "status": "passed",
+      "count": 16,
+      "evidence": "downloads.json",
+      "method": "完整回读并核对 bytes 和 SHA-256"
+    },
+    "metadata": {
+      "status": "passed",
+      "count": 48,
+      "evidence": "metadata-downloads.json",
+      "uploads": "metadata-uploads.json",
+      "method": "完整回读并核对 bytes 和 SHA-256"
+    },
+    "browser": {
+      "status": "passed",
+      "count": 18,
+      "evidence": "remote-smoke.json",
+      "method": "真实浏览器双 Hub 下载、CORS、SHA-256 和 WASM 推理"
+    }
+  },
+  "metadataRevisions": {
+    "modelscope": "0dd1fcdd9cb1e156e124961c4d0506e5a8b43379",
+    "huggingface": "26187d907633a031e530663599bb42c247ce117e"
+  }
+}

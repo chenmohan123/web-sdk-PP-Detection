@@ -1,5 +1,12 @@
 # Changelog
 
+## PicoDet 常规系列 FP32（2026-09-15，SDK 0.4.0）
+
+- 新增 XS/S/M 的 320、416 和 L 的 416、640 八个稳定 FP32 规格；连同 L-320，共九个 PicoDet FP32。Demo 共 13 规格、23 变体。
+- 新清单为 1.0.0，默认 ModelScope，Hugging Face 可选；L-320 保留 1.0.2 和三精度。上游 Apache-2.0，权重由固定 PaddleDetection 导出图清理而来。
+- 固定 64 图官方对齐、桌面 WASM/WebGPU、main/Worker 生命周期及双来源验证见[本轮报告](reports/evaluation/2026-09-14-picodet-series/README.md)。新增规格仅 FP32，不扩大手机、WebNN 或 NPU 兼容声明。
+- SDK runtime/API 未变，npm 继续使用 0.4.0；本轮通过模型清单与 Demo 发布交付。
+
 ## M/L/X 三精度模型与 Demo 更新（2026-09-14，SDK 0.4.0）
 
 - PP-YOLOE+ M/L/X 新增 0.1.1 稳定清单，包含 FP32、FP16 和 W8A32；Demo 共五款模型、15 个稳定变体，默认 PicoDet、FP32、ModelScope。

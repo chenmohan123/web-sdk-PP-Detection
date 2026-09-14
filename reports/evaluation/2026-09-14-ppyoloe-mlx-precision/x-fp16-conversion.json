@@ -1,0 +1,50 @@
+{
+  "sourceSha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+  "sourceBytes": 394163636,
+  "candidateSha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+  "candidateBytes": 197207187,
+  "converter": "onnxruntime.transformers.float16.convert_float_to_float16",
+  "versions": {
+    "onnx": "1.16.2",
+    "onnxruntime": "1.20.1",
+    "numpy": "1.26.4"
+  },
+  "opBlockList": [
+    "ArrayFeatureExtractor",
+    "Binarizer",
+    "CastMap",
+    "CategoryMapper",
+    "DictVectorizer",
+    "FeatureVectorizer",
+    "Imputer",
+    "LabelEncoder",
+    "LinearClassifier",
+    "LinearRegressor",
+    "Normalizer",
+    "OneHotEncoder",
+    "RandomUniformLike",
+    "SVMClassifier",
+    "SVMRegressor",
+    "Scaler",
+    "TreeEnsembleClassifier",
+    "TreeEnsembleRegressor",
+    "ZipMap",
+    "NonMaxSuppression",
+    "TopK",
+    "RoiAlign",
+    "Range",
+    "CumSum",
+    "Min",
+    "Max",
+    "Upsample",
+    "ReduceMean"
+  ],
+  "nodeBlockList": [],
+  "keepIoTypes": true,
+  "fullOnnxCheck": true,
+  "finiteStoredTensors": true,
+  "storedTensorDtypes": {
+    "FLOAT16": 576,
+    "INT64": 23
+  }
+}

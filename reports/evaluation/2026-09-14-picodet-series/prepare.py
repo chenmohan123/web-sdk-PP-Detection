@@ -18,10 +18,10 @@ def main() -> None:
         source = OUT / f"picodet-{size}-{resolution}-official.onnx"
         if not source.exists():
             urllib.request.urlretrieve(url, source)
-        digest = hashlib.sha256(source.read_bytes()).hexdigest()
         candidate = OUT / f"picodet-{size}-{resolution}-fp32.onnx"
         sanitize_postprocessed_model(source, candidate, input_size=resolution)
         inspect_onnx(candidate, input_size=resolution)
+        digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
         jobs.append({"key": f"picodet-{size}-{resolution}", "model": str(candidate.relative_to(ROOT)).replace("\\", "/"), "manifest": f"models/pp-detection/picodet-{size}-{resolution}/manifest.json", "bytes": candidate.stat().st_size, "sha256": digest, "inputSize": resolution, "sourceModel": str(source.relative_to(ROOT)).replace("\\", "/")})
     reference = ROOT / "models" / "pp-detection" / "picodet-l-320-fp32.onnx"
     if reference.is_file():

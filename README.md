@@ -14,7 +14,7 @@ Demo 现提供 PicoDet-L 320 与 PP-YOLOE+ S/M/L/X 640 五款模型，每款均�
 
 四规格来自同一固定 PaddleDetection 提交的官方 COCO 权重，沿用已发布 S 的 Apache-2.0 发布口径，保留上游许可与转换说明。模型逐份固定双源 revision、路径、字节数和 SHA-256；不是上游官方 Hub 镜像。新增规格的证据限于 Windows 11 / Chromium 153 / ORT Web 1.27.0 桌面，不增加手机兼容承诺。大模型的下载、CPU 推理与内存开销更高；64 图子集指标不是完整 COCO mAP。
 
-M/L/X 九个新增精度变体按固定 64 图、桌面 WASM/WebGPU 三轮验证：相对同规格 FP32 的 AP 下降不超过 0.5 个百分点，并在 score≥0.5、同类 IoU≥0.5 下保留至少 95% 的 FP32 检测；IoU≥0.99 只用于坐标偏差诊断。该子集不是完整 COCO mAP，文件缩小也不代表峰值内存同比下降或普遍加速。见[质量报告](reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)、[分发证据](reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md)和[模型清单](models/README.md)。
+M/L/X 六个新增 FP16/W8A32 变体（与三个既有 FP32 对照，共九个评测变体）按固定 64 图、桌面 WASM/WebGPU 三轮验证：相对同规格 FP32 的 AP 下降不超过 0.5 个百分点，并在 score≥0.5、同类 IoU≥0.5 下保留至少 95% 的 FP32 检测；IoU≥0.99 只用于坐标偏差诊断。该子集不是完整 COCO mAP，文件缩小也不代表峰值内存同比下降或普遍加速。见[质量报告](reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)、[分发证据](reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md)和[模型清单](models/README.md)。
 
 ## S 与 PicoDet 的三精度记录（2026-09-12）
 

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "README.md",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4f9a9ec72e95f01e8a1cf139e7533064a7dde6bf/README.md",
+    "revision": "4f9a9ec72e95f01e8a1cf139e7533064a7dde6bf",
+    "bytes": 1875,
+    "sha256": "f08314c8e4cd740b1ef44f6d4a767a75a067805e5eeb1d5bee6e3bed1f3a731a",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:26:31.434122+00:00"
+  },
+  {
+    "id": "README.md",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/24566d0c31bf0aecf79485ef008476ead1f66808/README.md",
+    "revision": "24566d0c31bf0aecf79485ef008476ead1f66808",
+    "bytes": 1875,
+    "sha256": "f08314c8e4cd740b1ef44f6d4a767a75a067805e5eeb1d5bee6e3bed1f3a731a",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:26:32.029132+00:00"
+  }
+]

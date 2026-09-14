@@ -1,32 +1,33 @@
 # PaddleDetection Web SDK
 
-## PP-YOLOE+ S/M/L/X FP32（2026-09-14）
+## Fifteen stable variants across five models (2026-09-14)
 
-Demo 新增 PP-YOLOE+ M、L、X 640 的 FP32 稳定模型；S 0.1.1 继续保留 FP32、FP16、W8A32。M/L/X 的模型版本均为 0.1.0，只开放 FP32。所有模型均默认 ModelScope，可显式选择 Hugging Face，显式来源失败不静默换源。Demo 总默认仍为 PicoDet、ModelScope、FP32。
+The Demo now provides PicoDet-L 320 and PP-YOLOE+ S/M/L/X 640, each with stable FP32, FP16, and W8A32 variants. PicoDet uses version 1.0.2 and every PP-YOLOE+ size uses 0.1.1; the SDK API and npm version remain **0.4.0**. Each model defaults to ModelScope and also supports explicit Hugging Face selection. The overall Demo defaults remain PicoDet, ModelScope, and FP32, and an explicitly selected source never silently switches to another source.
 
-| PP-YOLOE+ 规格 | FP32 下载体积 |
-| -------------- | ------------: |
-| S              |      31.95 MB |
-| M              |      94.02 MB |
-| L              |     209.18 MB |
-| X              |     394.16 MB |
+| Model           |      FP32 |      FP16 |    W8A32 |
+| --------------- | --------: | --------: | -------: |
+| PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
+| PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
+| PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
+| PP-YOLOE+ L 640 | 209.18 MB | 104.70 MB | 52.70 MB |
+| PP-YOLOE+ X 640 | 394.16 MB | 197.21 MB | 99.05 MB |
 
-四规格来自同一固定 PaddleDetection 提交的官方 COCO 权重，沿用已发布 S 的 Apache-2.0 发布口径，保留上游许可与转换说明。模型逐份固定双源 revision、路径、字节数和 SHA-256；不是上游官方 Hub 镜像。新增规格的证据限于 Windows 11 / Chromium 153 / ORT Web 1.27.0 桌面，不增加手机兼容承诺。大模型的下载、CPU 推理与内存开销更高；64 图子集指标不是完整 COCO mAP。
+All four PP-YOLOE+ sizes derive from official COCO weights at the same pinned PaddleDetection commit and retain the upstream license and conversion record. Each model pins both distribution sources by revision, path, byte count, and SHA-256; these repositories are project distributions rather than official upstream Hub mirrors. Evidence for the new variants is limited to Windows 11, Chromium 153, and ORT Web 1.27.0 on desktop. Larger models require more download bandwidth, CPU time, and runtime memory.
 
-本次为模型和 Demo 独立更新，SDK API 与 npm 版本保持 **0.4.0**。见[四规格发布证据](reports/distribution/2026-09-14-ppyoloe-smlx/README.md)和[模型清单](models/README.md)。
+The nine new M/L/X precision variants were checked over three desktop WASM/WebGPU runs on a fixed 64-image set. Relative to the matching FP32 model, AP loss is at most 0.5 points and at least 95% of FP32 detections are retained at score >= 0.5 and same-class IoU >= 0.5. IoU >= 0.99 is diagnostic only. This subset is not full COCO mAP, and smaller files do not imply proportional peak-memory savings or universal speedups. See the [quality report](reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md), [distribution evidence](reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md), and [model manifests](models/README.md).
 
-## S 与 PicoDet 的三精度记录（2026-09-12）
+## S and PicoDet precision record (2026-09-12)
 
-2026-09-12 的 Demo 使用 PicoDet **1.0.2**、PP-YOLOE **0.1.1**，两款均提供 FP32、FP16、W8A32 稳定变体，默认 FP32，来源仅 ModelScope 和 Hugging Face，默认 ModelScope。FP16/W8A32 在本机 WASM 和 WebGPU 完成三轮64图识别对照；手机证据仅覆盖原FP32，其他设备按后续实测维护。
+The 2026-09-12 Demo used PicoDet **1.0.2** and PP-YOLOE **0.1.1**, each with stable FP32, FP16, and W8A32 variants. FP32 and ModelScope remained the defaults, with Hugging Face as the other explicit source. FP16/W8A32 completed three desktop WASM and WebGPU runs on the fixed 64-image set; mobile evidence covers the original FP32 models only.
 
-| 模型     |     FP32 |                  FP16 |                W8A32 |
-| -------- | -------: | --------------------: | -------------------: |
-| PicoDet  | 23.24 MB | 14.81 MB（减少36.3%） | 6.12 MB（减少73.7%） |
-| PP-YOLOE | 31.95 MB | 16.05 MB（减少49.8%） | 8.23 MB（减少74.3%） |
+| Model    |     FP32 |                     FP16 |                   W8A32 |
+| -------- | -------: | -----------------------: | ----------------------: |
+| PicoDet  | 23.24 MB | 14.81 MB (36.3% smaller) | 6.12 MB (73.7% smaller) |
+| PP-YOLOE | 31.95 MB | 16.05 MB (49.8% smaller) | 8.23 MB (74.3% smaller) |
 
-文件缩小是独立优势。FP16保留敏感算子FP32；W8A32仅压缩权重，激活和卷积计算保持FP32。SDK参数使用 `precision: "int8"` 选择W8A32，实际策略见清单 `quantization`。新清单可用于SDK 0.3.1，无需更换API。完整识别、速度和逐框差异见[三精度对比](reports/evaluation/2026-09-12-precision-variants/README.md)。
+Smaller files are an independent benefit. FP16 keeps sensitive operators in FP32; W8A32 compresses weights while activations and convolution computation remain FP32. Use SDK `precision: "int8"` for W8A32 and inspect the manifest's `quantization` field for the actual strategy. These manifests work with SDK 0.3.1 without an API change. See the [precision comparison](reports/evaluation/2026-09-12-precision-variants/README.md) for recognition, timing, and box differences.
 
-旧版本清单与以下既有版本记录继续保留；其中对FP16/INT8的labs/blocked限制只描述旧版候选，不覆盖上述已通过的新变体。
+Historical manifests and version records remain available. Their FP16/INT8 labs or blocked restrictions describe those earlier candidates, not the stable variants above.
 
 [中文](README.md) | English
 
@@ -40,17 +41,17 @@ The current SDK version is **0.4.0**:
 pnpm add web-sdk-pp-detection@0.4.0
 ```
 
-0.4.0 新增默认关闭的小目标增强实验 API 和图片 Demo 开关，支持切片进度、取消及统一结果合并。 See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.4.0.md).
+Version 0.4.0 adds an opt-in experimental small-object enhancement API and image Demo control, with tile progress, cancellation, and merged results. See the [API](docs/en/api.md), [performance](docs/en/performance.md), and [release notes](docs/en/release-0.4.0.md).
 
 ## Current boundaries
 
-- 工厂必须显式提供 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络请求。仓库提供 PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的六个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 15 stable variants across five models; the npm package contains neither manifests nor ONNX weights.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
-- 两份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
+- All five current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
-- PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 均为 stable。FP16/W8A32 证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图三轮验证；小米 15 实测仅覆盖原 FP32。
+- FP32, FP16, and W8A32 are stable for PicoDet 1.0.2 and PP-YOLOE+ S/M/L/X 0.1.1. Evidence for the new M/L/X precisions is limited to three desktop WASM/WebGPU runs on the fixed 64-image set dated 2026-09-14; Xiaomi 15 evidence covers only the original FP32 variant.
 - `classThresholds` overrides object-detection thresholds for manifest labels such as `person` and `car`; unspecified labels inherit the global threshold.
-- 常用配置包括 `backend`（`auto`、`webgpu`、`wasm`）、`precision`（`auto`、`fp16`、`fp32`、`int8`）和 `allowFallback`；其中 `int8` 选择 W8A32，`model` 可传入清单 URL 或二进制 `data`。
+- Common options include `backend` (`auto`, `webgpu`, `wasm`), `precision` (`auto`, `fp16`, `fp32`, `int8`), and `allowFallback`; `int8` selects W8A32, and `model` accepts a manifest URL or binary `data`.
 - Cross-origin models need correct CORS; multithreaded WASM needs COOP/COEP, otherwise use single-thread WASM.
 
 ## Platform boundaries
@@ -67,18 +68,18 @@ pnpm add web-sdk-pp-detection@0.4.0
 - [Live Demo](https://chenmohan123.github.io/web-sdk-PP-Detection/)
 - [Chinese docs](docs/zh-CN/quick-start.md)
 - [English docs](docs/en/quick-start.md)
-- [六变体示例](examples/model-variants/README.md)
+- [Multi-variant example](examples/model-variants/README.md)
 
 Code is Apache-2.0. Upstream licenses for model weights and COCO labels are tracked in `THIRD_PARTY_NOTICES.md`.
 
-## PP-YOLOE 稳定模型
+## Stable PP-YOLOE+ models
 
-PP-YOLOE+ S 640 FP32 的 0.1.0 稳定记录仍保留为历史证据；当前模型版本为 **0.1.1**，新增 FP16 与 W8A32 稳定变体。当前清单默认可加载，无需设置 `allowExperimental`；旧 labs 候选仍须显式开启，blocked 仍会被拒绝。见[稳定记录](reports/stability/2026-09-12-ppyoloe/README.md)与[六变体示例](examples/model-variants/README.md)。
+The current version for PP-YOLOE+ S/M/L/X 640 is **0.1.1**, with stable FP32, FP16, and W8A32 variants for every size. Historical 0.1.0 and labs/blocked candidates retain their original status and evidence. Current manifests load without `allowExperimental`.
 
-原两模型的三精度选择继续保留，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。旧 Hub 实验清单和 v0.3.0 资产是历史快照；模型分发见[历史记录](reports/distribution/2026-09-11-ppyoloe/README.md)，小米 15 的实际设备范围见[实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+All five models use the same three-precision Demo flow, while PicoDet, ModelScope, and FP32 remain the defaults. Manifests pin Hugging Face and ModelScope revisions; switching models cancels prior work, disposes the old instance, and changes the cache identity. Xiaomi 15 coverage remains limited to the [original FP32 device record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
 
-## 下载配置（0.3.2 起）
+## Download settings (since 0.3.2)
 
-0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。
+Version 0.3.2 adds `download.timeoutMs`, `download.idleTimeoutMs`, and `download.maxRetries` for the total request timeout, stalled-transfer timeout, and retry count. Defaults are 180 seconds, 30 seconds, and two retries. Retries stay on the same fixed weight URL and can be cancelled while waiting. See the API guide.
 
-Small object enhancement (unreleased, Labs): the development build adds opt-in `smallObjectEnhancement`, reusing one session for the whole image and up to four tiles. Evaluate on static images; false positives and latency may increase. See the [API](docs/en/api.md#small-object-enhancement-unreleased-labs).
+Small object enhancement (0.4.0, experimental): the SDK provides opt-in `smallObjectEnhancement`, reusing one session for the whole image and up to four tiles. Evaluate on static images; false positives and latency may increase. See the [API](docs/en/api.md#small-object-enhancement-unreleased-labs).

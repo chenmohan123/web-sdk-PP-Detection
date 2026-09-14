@@ -23,11 +23,11 @@ The following evidence covers the 1.0.1 FP32 model, `onnxruntime-web@1.27.0`, an
 - The WeChat Official Account H5 and mini-program `web-view` example is a web deployment reference, but this release has no real WeChat Android/iOS WebView evidence. The page must run in an HTTPS web context; native mini-program JavaScript/WASM inference is unsupported.
 - Safari, Firefox, and desktop browsers not listed above should be evaluated with `probePPDetectionCapabilities()` and an actual run.
 
-## 当前桌面变体证据（2026-09-12）
+## Current desktop variant evidence (2026-09-14)
 
-PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 已完成桌面 WASM/WebGPU 固定 64 图三轮验证，六个变体均为 stable。环境、逐轮识别和差异记录见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。W8A32 对应 SDK 的 `precision: "int8"`。
+FP32, FP16, and W8A32 are stable for PicoDet 1.0.2 and PP-YOLOE+ S/M/L/X 0.1.1, for 15 variants in total. The [earlier precision report](../../reports/evaluation/2026-09-12-precision-variants/README.md) records the three desktop WASM/WebGPU runs for S and PicoDet on the fixed 64-image set; the [current quality report](../../reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md) records the matching M/L/X evidence. W8A32 maps to SDK `precision: "int8"`.
 
-当前两份清单默认 ModelScope 与 FP32，并可选择 ModelScope 或 Hugging Face。WASM/CPU 与 WebGPU 的具体组合仍以变体清单和运行时探测为准。Demo 对手动后端、精度或来源选择严格执行，SDK 会以 `CAPABILITY_UNSUPPORTED` 拒绝清单中不存在的显式组合。小米 15 实测只覆盖原 FP32，不构成 FP16/W8A32 移动端证据。
+All five current manifests default to ModelScope and FP32 and allow ModelScope or Hugging Face selection. Specific WASM/CPU and WebGPU combinations remain subject to each variant manifest and runtime probing. The Demo enforces explicit backend, precision, and source selections; the SDK rejects combinations absent from the manifest with `CAPABILITY_UNSUPPORTED`. Xiaomi 15 evidence covers only the original FP32 model, so it is not evidence for the new precisions or M/L/X on mobile.
 
 Single-thread WASM does not require cross-origin isolation. Multithreaded WASM needs COOP `same-origin` plus COEP `require-corp` or `credentialless`; model, WASM, and Worker assets must also satisfy same-origin/CORS/CORP rules. The SDK chooses threads from actual capabilities instead of assuming every mobile WebView has SharedArrayBuffer.
 

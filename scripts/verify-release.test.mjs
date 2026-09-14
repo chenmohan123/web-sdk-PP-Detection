@@ -198,7 +198,8 @@ describe("发布工作流契约", () => {
   });
 
   test("Pages 暂存脚本从当前根目录复制稳定模型且不访问网络", async () => {
-    const { stagePagesModels } = await import("./stage-pages-models.mjs");
+    const { stageAllPagesModels, stagePagesModels, stableManifestPaths } =
+      await import("./stage-pages-models.mjs");
     const outputRoot = mkdtempSync(join(tmpdir(), "ppdetection-blocked-pages-"));
     let fetchCalls = 0;
     try {
@@ -214,6 +215,21 @@ describe("发布工作流契约", () => {
       assert.equal(fetchCalls, 0);
       assert.deepEqual(JSON.parse(readFileSync(join(outputRoot, "manifest.json"), "utf8")), staged);
       assert.ok(readdirSync(outputRoot).includes("picodet-l-320-fp32.onnx"));
+
+      await stageAllPagesModels({ outputRoot, repository: repositoryRoot });
+      assert.deepEqual(stableManifestPaths, [
+        "pp-detection/1.0.2/manifest.json",
+        "ppyoloe-plus-s-640/0.1.1/manifest.json",
+        "ppyoloe-plus-m-640/0.1.1/manifest.json",
+        "ppyoloe-plus-l-640/0.1.1/manifest.json",
+        "ppyoloe-plus-x-640/0.1.1/manifest.json"
+      ]);
+      for (const path of stableManifestPaths) {
+        assert.deepEqual(
+          JSON.parse(readFileSync(join(outputRoot, path), "utf8")),
+          JSON.parse(readFileSync(join(repositoryRoot, "models", path), "utf8"))
+        );
+      }
     } finally {
       rmSync(outputRoot, { force: true, recursive: true });
     }

@@ -1,5 +1,12 @@
 # Changelog
 
+## M/L/X 三精度模型与 Demo 更新（2026-09-14，SDK 0.4.0）
+
+- PP-YOLOE+ M/L/X 新增 0.1.1 稳定清单，包含 FP32、FP16 和 W8A32；Demo 共五款模型、15 个稳定变体，默认 PicoDet、FP32、ModelScope。
+- 新增 FP16 文件约缩小 50%、W8A32 约缩小 75%；按固定 64 图、桌面 WASM/WebGPU 三轮验证目标识别，IoU≥0.99 仅作坐标诊断。旧严格门槛报告保留原结论。
+- 六份新权重通过 ModelScope 与 Hugging Face 固定提交分发，保留同一 PaddleDetection Apache-2.0 归因及转换说明；FP32 复用原固定来源。
+- main/Worker 生命周期、完整下载校验及正式 Demo 结果见[本轮分发证据](reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md)。API 与 npm 版本保持 0.4.0，未新增手机兼容声明。
+
 ## 模型与 Demo 更新（2026-09-14，SDK 0.4.0）
 
 - Demo 上线 PP-YOLOE+ S/M/L/X 640 四规格 FP32，新增 M/L/X 0.1.0 稳定清单；S 保留现有三精度。

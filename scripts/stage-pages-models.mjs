@@ -1,11 +1,18 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const modulePath = fileURLToPath(import.meta.url);
 const repositoryRoot = resolve(dirname(modulePath), "..");
 const modelRoot = resolve(repositoryRoot, "models", "pp-detection");
+const stableManifestPaths = [
+  "pp-detection/1.0.2/manifest.json",
+  "ppyoloe-plus-s-640/0.1.1/manifest.json",
+  "ppyoloe-plus-m-640/0.1.1/manifest.json",
+  "ppyoloe-plus-l-640/0.1.1/manifest.json",
+  "ppyoloe-plus-x-640/0.1.1/manifest.json"
+];
 export const MODEL_VERSION = "1.0.1";
 export const MODEL_PUBLIC_ROOT = "https://chenmohan123.github.io/web-sdk-PP-Detection/models";
 
@@ -45,10 +52,17 @@ export async function stagePagesModels({
   return staged;
 }
 
-export async function stageAllPagesModels({ outputRoot }) {
+export async function stageAllPagesModels({ outputRoot, repository = repositoryRoot }) {
   const manifest = await stagePagesModels({ outputRoot });
+  for (const path of stableManifestPaths) {
+    const destination = resolve(outputRoot, path);
+    await mkdir(dirname(destination), { recursive: true });
+    await copyFile(resolve(repository, "models", path), destination);
+  }
   return [{ manifest, model: { version: manifest.model.version } }];
 }
+
+export { stableManifestPaths };
 
 if (process.argv[1] !== undefined && resolve(process.argv[1]) === modulePath) {
   await stageAllPagesModels({ outputRoot: resolve(repositoryRoot, "apps/demo/dist/models") });

@@ -98,7 +98,11 @@ type DemoRuntime = PPDetectionResult["runtime"] & {
 const demoFixture = new URLSearchParams(window.location.search).has("fixture");
 const ortWasmBaseUrl = new URL(`${import.meta.env.BASE_URL}ort/`, window.location.href).href;
 
-function fixtureModel(model: DemoModelKey, source: ModelSourceKey): PPDetectionModel {
+function fixtureModel(
+  model: DemoModelKey,
+  source: ModelSourceKey,
+  precision: PrecisionPreference
+): PPDetectionModel {
   const option = modelOption(model);
   const fixture = adaptModelManifest(tinyModelManifest);
   const selectedSource = option.manifest.variants
@@ -109,7 +113,15 @@ function fixtureModel(model: DemoModelKey, source: ModelSourceKey): PPDetectionM
       model,
       source
     });
-  const fixtureVariant = fixture.variants.find((variant) => variant.precision === "fp32")!;
+  const requestedPrecision = precision === "auto" ? "fp32" : precision;
+  const fixtureVariant = fixture.variants.find(
+    (variant) => variant.precision === requestedPrecision
+  ) ?? {
+    ...fixture.variants.find((variant) => variant.precision === "fp32")!,
+    id: requestedPrecision === "int8" ? "w8a32" : requestedPrecision,
+    precision: requestedPrecision,
+    quantization: requestedPrecision === "int8" ? "weight-only-int8-activation-fp32" : null
+  };
   return {
     data: tinyModelData(),
     manifest: {
@@ -705,12 +717,9 @@ export function App(): ReactElement {
 
   const onModel = async (next: DemoModelKey): Promise<void> => {
     const nextOption = modelOption(next);
-    const nextPrecision = precisionForBackend(backend, precision, nextOption.manifest);
     await onModelSelection(next, defaultSource(nextOption));
-    if (nextPrecision !== precision) {
-      setPrecision(nextPrecision);
-      setNotice(copy.precisionAdjusted);
-    }
+    // 切换模型后回到该模型的默认 FP32，避免沿用上一模型的精度选择。
+    setPrecision("fp32");
   };
 
   const onModelSource = (next: ModelSourceKey): Promise<void> =>
@@ -758,7 +767,7 @@ export function App(): ReactElement {
       if (detector === undefined) {
         const initializationStarted = performance.now();
         const model: PPDetectionModel = demoFixture
-          ? fixtureModel(selectedModel, modelSource)
+          ? fixtureModel(selectedModel, modelSource, precision)
           : (customManifest ?? activeModelOption.manifest);
         if (typeof model === "object" && model !== null)
           cacheIdentityRef.current = "manifest" in model ? model.manifest.model : model.model;

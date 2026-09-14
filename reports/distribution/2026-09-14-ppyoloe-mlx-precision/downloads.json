@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ppyoloe-plus-m-640/fp16",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/d3b287e01fce0d7baffad3be25c67f25e2fb2266/ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-fp16.onnx",
+    "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+    "bytes": 47104975,
+    "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:21:58.472557+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-m-640/fp16",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/8f64a8d67289419649f3396f475963ca003d48d9/ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-fp16.onnx",
+    "revision": "8f64a8d67289419649f3396f475963ca003d48d9",
+    "bytes": 47104975,
+    "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:04.011645+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-m-640/w8a32",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/d3b287e01fce0d7baffad3be25c67f25e2fb2266/ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-w8a32.onnx",
+    "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+    "bytes": 23818631,
+    "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:21:57.093409+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-m-640/w8a32",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/8f64a8d67289419649f3396f475963ca003d48d9/ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-w8a32.onnx",
+    "revision": "8f64a8d67289419649f3396f475963ca003d48d9",
+    "bytes": 23818631,
+    "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:00.546933+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-l-640/fp16",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/8e4edd52ef112ebc338e3a1907508ecc0c826fb4/ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-fp16.onnx",
+    "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+    "bytes": 104700181,
+    "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:04.992052+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-l-640/fp16",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/7604cde4edd68705a62ec2378b60f9c76264d2d9/ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-fp16.onnx",
+    "revision": "7604cde4edd68705a62ec2378b60f9c76264d2d9",
+    "bytes": 104700181,
+    "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:10.418395+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-l-640/w8a32",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/8e4edd52ef112ebc338e3a1907508ecc0c826fb4/ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-w8a32.onnx",
+    "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+    "bytes": 52698311,
+    "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:09.566331+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-l-640/w8a32",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/7604cde4edd68705a62ec2378b60f9c76264d2d9/ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-w8a32.onnx",
+    "revision": "7604cde4edd68705a62ec2378b60f9c76264d2d9",
+    "bytes": 52698311,
+    "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:10.573292+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-x-640/fp16",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/46cf1e3c9f847cd3108068b9d604b890fea3f79e/ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-fp16.onnx",
+    "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+    "bytes": 197207187,
+    "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:23.012196+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-x-640/fp16",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/de9e49e6d61447384c0bfec980499f5901de014d/ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-fp16.onnx",
+    "revision": "de9e49e6d61447384c0bfec980499f5901de014d",
+    "bytes": 197207187,
+    "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:31.380186+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-x-640/w8a32",
+    "source": "modelscope",
+    "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/46cf1e3c9f847cd3108068b9d604b890fea3f79e/ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-w8a32.onnx",
+    "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+    "bytes": 99048805,
+    "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:17.426424+00:00"
+  },
+  {
+    "id": "ppyoloe-plus-x-640/w8a32",
+    "source": "huggingface",
+    "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/de9e49e6d61447384c0bfec980499f5901de014d/ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-w8a32.onnx",
+    "revision": "de9e49e6d61447384c0bfec980499f5901de014d",
+    "bytes": 99048805,
+    "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+    "status": "passed",
+    "verifiedAt": "2026-09-14T10:22:27.001351+00:00"
+  }
+]

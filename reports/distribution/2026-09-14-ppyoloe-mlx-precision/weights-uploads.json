@@ -1,0 +1,176 @@
+[
+  {
+    "size": "m",
+    "source": "modelscope",
+    "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+    "files": [
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-fp16.onnx",
+        "bytes": 47104975,
+        "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-w8a32.onnx",
+        "bytes": 23818631,
+        "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/README.md",
+        "bytes": 3300,
+        "sha256": "e2ba3068f4d4c2019c610209e95df32d4795af7b1432f5ceb43fb502ea65b805"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:05:04.743701+00:00"
+  },
+  {
+    "size": "m",
+    "source": "huggingface",
+    "revision": "8f64a8d67289419649f3396f475963ca003d48d9",
+    "files": [
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-fp16.onnx",
+        "bytes": 47104975,
+        "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/ppyoloe-plus-m-640-w8a32.onnx",
+        "bytes": 23818631,
+        "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6"
+      },
+      {
+        "path": "ppyoloe-plus-m-640/0.1.1/README.md",
+        "bytes": 3300,
+        "sha256": "e2ba3068f4d4c2019c610209e95df32d4795af7b1432f5ceb43fb502ea65b805"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:07:09.026785+00:00"
+  },
+  {
+    "size": "l",
+    "source": "modelscope",
+    "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+    "files": [
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-fp16.onnx",
+        "bytes": 104700181,
+        "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-w8a32.onnx",
+        "bytes": 52698311,
+        "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "2cd723c79606642209d27437ec44d563d2904d568ec7a67adcaa035920be4913"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:07:22.022581+00:00"
+  },
+  {
+    "size": "l",
+    "source": "huggingface",
+    "revision": "7604cde4edd68705a62ec2378b60f9c76264d2d9",
+    "files": [
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-fp16.onnx",
+        "bytes": 104700181,
+        "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/ppyoloe-plus-l-640-w8a32.onnx",
+        "bytes": 52698311,
+        "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03"
+      },
+      {
+        "path": "ppyoloe-plus-l-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "2cd723c79606642209d27437ec44d563d2904d568ec7a67adcaa035920be4913"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:11:46.767266+00:00"
+  },
+  {
+    "size": "x",
+    "source": "modelscope",
+    "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+    "files": [
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-fp16.onnx",
+        "bytes": 197207187,
+        "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-w8a32.onnx",
+        "bytes": 99048805,
+        "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "b92926acecc9efaf76dfd34a32b1708ca0c77ec4b7ce84e6d4ee1fb3de775dba"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:12:11.286266+00:00"
+  },
+  {
+    "size": "x",
+    "source": "huggingface",
+    "revision": "de9e49e6d61447384c0bfec980499f5901de014d",
+    "files": [
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-fp16.onnx",
+        "bytes": 197207187,
+        "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-w8a32.onnx",
+        "bytes": 99048805,
+        "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56"
+      },
+      {
+        "path": "ppyoloe-plus-x-640/0.1.1/README.md",
+        "bytes": 3303,
+        "sha256": "b92926acecc9efaf76dfd34a32b1708ca0c77ec4b7ce84e6d4ee1fb3de775dba"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:20:28.055653+00:00"
+  }
+]

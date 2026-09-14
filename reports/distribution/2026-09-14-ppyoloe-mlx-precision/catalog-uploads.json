@@ -1,0 +1,28 @@
+[
+  {
+    "source": "modelscope",
+    "revision": "4f9a9ec72e95f01e8a1cf139e7533064a7dde6bf",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 1875,
+        "sha256": "f08314c8e4cd740b1ef44f6d4a767a75a067805e5eeb1d5bee6e3bed1f3a731a"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:26:28.135796+00:00"
+  },
+  {
+    "source": "huggingface",
+    "revision": "24566d0c31bf0aecf79485ef008476ead1f66808",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 1875,
+        "sha256": "f08314c8e4cd740b1ef44f6d4a767a75a067805e5eeb1d5bee6e3bed1f3a731a"
+      }
+    ],
+    "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+    "uploadedAt": "2026-09-14T10:26:30.333932+00:00"
+  }
+]

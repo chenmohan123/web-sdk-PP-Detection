@@ -23,11 +23,11 @@
 - 微信公众号 H5 和小程序 `web-view` 示例可以作为网页部署参考，但本版本尚未完成真实微信 Android/iOS WebView 验证。页面必须运行在 HTTPS 网页上下文中；微信原生小程序 JavaScript/WASM runtime 不支持。
 - Safari、Firefox 以及没有列入上表的桌面浏览器应以 `probePPDetectionCapabilities()` 和实际运行结果为准。
 
-## 当前桌面变体证据（2026-09-12）
+## 当前桌面变体证据（2026-09-14）
 
-PicoDet 1.0.2 与 PP-YOLOE 0.1.1 的 FP32、FP16、W8A32 已完成桌面 WASM/WebGPU 固定 64 图三轮验证，六个变体均为 stable。环境、逐轮识别和差异记录见[三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)。W8A32 对应 SDK 的 `precision: "int8"`。
+PicoDet 1.0.2 与 PP-YOLOE+ S/M/L/X 0.1.1 的 FP32、FP16、W8A32 均为 stable，共 15 个变体。S 与 PicoDet 的桌面 WASM/WebGPU 固定 64 图三轮证据见[原三精度对比](../../reports/evaluation/2026-09-12-precision-variants/README.md)；M/L/X 的对应证据见[本轮质量报告](../../reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)。W8A32 对应 SDK 的 `precision: "int8"`。
 
-当前两份清单默认 ModelScope 与 FP32，并可选择 ModelScope 或 Hugging Face。WASM/CPU 与 WebGPU 的具体组合仍以变体清单和运行时探测为准。Demo 对手动后端、精度或来源选择严格执行，SDK 会以 `CAPABILITY_UNSUPPORTED` 拒绝清单中不存在的显式组合。小米 15 实测只覆盖原 FP32，不构成 FP16/W8A32 移动端证据。
+当前五份清单默认 ModelScope 与 FP32，并可选择 ModelScope 或 Hugging Face。WASM/CPU 与 WebGPU 的具体组合仍以变体清单和运行时探测为准。Demo 对手动后端、精度或来源选择严格执行，SDK 会以 `CAPABILITY_UNSUPPORTED` 拒绝清单中不存在的显式组合。小米 15 实测只覆盖原 FP32，不构成新增精度或 M/L/X 的移动端证据。
 
 WASM 单线程不要求跨源隔离。多线程 WASM 需要 COOP `same-origin` 与 COEP `require-corp` 或 `credentialless`，并要求模型、WASM、Worker 资源满足同源/CORS/CORP 规则。SDK 会根据实际能力选择线程数，而不是假定所有移动 WebView 都支持 SharedArrayBuffer。
 

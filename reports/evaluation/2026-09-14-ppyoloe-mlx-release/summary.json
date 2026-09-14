@@ -1,0 +1,3176 @@
+{
+  "protocolSha256": "dd54d34650deb6f5236307df2bfed5783af526f8227872b9db777e9e8edb73ad",
+  "criteria": {
+    "maximumApDropPoints": 0.5,
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "minimumReferenceRetention": 0.95
+  },
+  "diagnostics": {
+    "strictIouThreshold": 0.99,
+    "blocksRelease": false
+  },
+  "dataset": {
+    "annotations": "reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json",
+    "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+    "imageCount": 64,
+    "groundTruthCount": 716
+  },
+  "round1Commit": "e4814a44d42be5e213ef416cd0dfb2d7932c2340",
+  "evidenceIndexes": {
+    "round1": {
+      "sha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5",
+      "commit": "e4814a44d42be5e213ef416cd0dfb2d7932c2340"
+    },
+    "repeatedRounds": {
+      "sha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    }
+  },
+  "rows": [
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2388.10000000149,
+        "sessionMs": 539.6150000002235,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2313,
+          "p90Ms": 2703.887999999524
+        },
+        "warmInferenceMedianMs": 2278.445000000298
+      },
+      "capturedAt": "2026-09-14T06:16:29.730Z",
+      "evidenceSha256": "5ce4f8ca30fc480a303d3b409a777dcd7d4558eef2f1585182d2979744a0abcb",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1353.4900000002235,
+        "sessionMs": 1470.8650000002235,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 84.875,
+          "p90Ms": 134.6739999998361
+        },
+        "warmInferenceMedianMs": 50.415000000968575
+      },
+      "capturedAt": "2026-09-14T06:19:10.176Z",
+      "evidenceSha256": "af7d1e218133de2500af07687b8ae869397fe34523e6e067c233d2053fd7544d",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4893342032717234,
+        "AP50": 0.6718735801402786,
+        "AP75": 0.5173486730149632,
+        "APSmall": 0.3506986800428935,
+        "APMedium": 0.6501296190554674,
+        "APLarge": 0.731006418355861,
+        "AR1": 0.35983747535525396,
+        "AR10": 0.5722501502207928,
+        "AR100": 0.6121865967869674
+      },
+      "apDeltaPoints": 0.008235339577450373,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 505,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9980237154150198,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 2.89459228515625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 436,
+        "unmatchedReferenceCount": 70,
+        "unmatchedCandidateCount": 73,
+        "matchedReferenceFraction": 0.8616600790513834,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 0.43084716796875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2598.480000000447,
+        "sessionMs": 692.8000000007451,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2296.554999999702,
+          "p90Ms": 2500.8069999996574
+        },
+        "warmInferenceMedianMs": 2257.1100000012666
+      },
+      "capturedAt": "2026-09-14T06:19:22.722Z",
+      "evidenceSha256": "9c9cfdddd31370d960ce1c5ca974f1f257006c0683dd74f6f6145ce8b8937aed",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4870244880505673,
+        "AP50": 0.6720887892105484,
+        "AP75": 0.5103880255724164,
+        "APSmall": 0.341381649052415,
+        "APMedium": 0.6578891368240611,
+        "APLarge": 0.7342510803149749,
+        "AR1": 0.35941936276608866,
+        "AR10": 0.5686029929999173,
+        "AR100": 0.608292852909216
+      },
+      "apDeltaPoints": -0.22273618253815797,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 502,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 13,
+        "matchedReferenceFraction": 0.9920948616600791,
+        "maxScoreDelta": 0.035005927085876465,
+        "maxBboxDeltaPixels": 3.61962890625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 304,
+        "unmatchedReferenceCount": 202,
+        "unmatchedCandidateCount": 211,
+        "matchedReferenceFraction": 0.6007905138339921,
+        "maxScoreDelta": 0.0235062837600708,
+        "maxBboxDeltaPixels": 2.987640380859375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1302.3650000002235,
+        "sessionMs": 1152.0099999997765,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 86.18000000156462,
+          "p90Ms": 130.86499999985102
+        },
+        "warmInferenceMedianMs": 50.96499999985099
+      },
+      "capturedAt": "2026-09-14T06:21:56.498Z",
+      "evidenceSha256": "57eec55f75a399d7b5b2dfdbf580698aa35e2a9cfc00b5786d0c8fff95d6ecb8",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700827836990356,
+        "maxBboxDeltaPixels": 9.514904022216797
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875338077545166,
+        "maxBboxDeltaPixels": 3.4190431594847723
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2271.5,
+        "sessionMs": 417.92500000074506,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2272.0099999997765,
+          "p90Ms": 2501.3879999995233
+        },
+        "warmInferenceMedianMs": 2242.8300000000745
+      },
+      "capturedAt": "2026-09-14T06:22:07.728Z",
+      "evidenceSha256": "9df574ca6b286f90c4c9a815a161dff73190224b8c1fc7ef2cf9ff88fe34400c",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700714588165283,
+        "maxBboxDeltaPixels": 9.51485824584961
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875314235687256,
+        "maxBboxDeltaPixels": 3.4193349838257063
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1546.109999999404,
+        "sessionMs": 1513.265000000596,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 84.85500000044703,
+          "p90Ms": 135.6629999998957
+        },
+        "warmInferenceMedianMs": 52.97000000067055
+      },
+      "capturedAt": "2026-09-14T06:24:39.664Z",
+      "evidenceSha256": "f231a6bde480fdbe593c5cd73e9c046bf7c9a6fa26aad84f38905e4e00b8903f",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4978.014999998733,
+        "sessionMs": 792.9149999991059,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4715.190000001341,
+          "p90Ms": 5093.217999998853
+        },
+        "warmInferenceMedianMs": 4679.235000001267
+      },
+      "capturedAt": "2026-09-14T06:24:51.562Z",
+      "evidenceSha256": "bcf419ec4ca341e7a53d067c07f445e3ad691b8905b4d7fd8532591757a59783",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1273.4350000005215,
+        "sessionMs": 1413.449999999255,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 94.7949999999255,
+          "p90Ms": 138.62799999900167
+        },
+        "warmInferenceMedianMs": 60.91000000014901
+      },
+      "capturedAt": "2026-09-14T06:30:05.620Z",
+      "evidenceSha256": "186accd983453a2dcf1a84a7d8c193137bc0bd524d2c9ebe3a3125cc87ab5a7c",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5152266685141196,
+        "AP50": 0.6915777365780219,
+        "AP75": 0.5637385417004747,
+        "APSmall": 0.3921717599797373,
+        "APMedium": 0.6483726115193793,
+        "APLarge": 0.8298287265103363,
+        "AR1": 0.36744946259755945,
+        "AR10": 0.6078854049236853,
+        "AR100": 0.6470596936900016
+      },
+      "apDeltaPoints": 0.1315452242842574,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 537,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 0.9981412639405205,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.87310791015625
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 461,
+        "unmatchedReferenceCount": 77,
+        "unmatchedCandidateCount": 76,
+        "matchedReferenceFraction": 0.8568773234200744,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.45745849609375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 5034.539999999106,
+        "sessionMs": 854.0749999992549,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4672.804999999702,
+          "p90Ms": 4860.60500000082
+        },
+        "warmInferenceMedianMs": 4642.8650000002235
+      },
+      "capturedAt": "2026-09-14T06:30:19.783Z",
+      "evidenceSha256": "afe2fcbbcb6c17b567e0932b810b72f90e9fdc6a841545293d3bf89c5ebc84d8",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5162106965911104,
+        "AP50": 0.6870354196647857,
+        "AP75": 0.5666911245196462,
+        "APSmall": 0.39553419430758724,
+        "APMedium": 0.6498685473493818,
+        "APLarge": 0.8316192611583084,
+        "AR1": 0.36881242166035133,
+        "AR10": 0.6090031022301904,
+        "AR100": 0.6478996129574166
+      },
+      "apDeltaPoints": 0.22994803198334024,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 534,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 1,
+        "matchedReferenceFraction": 0.9925650557620818,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 3.2164154052734375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 300,
+        "unmatchedReferenceCount": 238,
+        "unmatchedCandidateCount": 235,
+        "matchedReferenceFraction": 0.5576208178438662,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 2.38885498046875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1300.2050000000745,
+        "sessionMs": 1406.0299999993294,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 92.19500000029802,
+          "p90Ms": 130.70900000073019
+        },
+        "warmInferenceMedianMs": 57.475000001490116
+      },
+      "capturedAt": "2026-09-14T06:35:31.208Z",
+      "evidenceSha256": "4427e12146e3d614870f3ec32f0347a3657ddbc8183bc3d80c57a2b67507b385",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06977897882461548,
+        "maxBboxDeltaPixels": 6.342376708984375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035244643688201904,
+        "maxBboxDeltaPixels": 3.6947879791260902
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4718.695000000298,
+        "sessionMs": 420.320000000298,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4674.470000000671,
+          "p90Ms": 4797.195999999717
+        },
+        "warmInferenceMedianMs": 4646.5999999996275
+      },
+      "capturedAt": "2026-09-14T06:35:44.091Z",
+      "evidenceSha256": "72111e09523fbfb2bce9dff079861888bb8b2a4421f54a95056d05b1c92d5a13",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06978023052215576,
+        "maxBboxDeltaPixels": 6.342071533203125
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035242557525634766,
+        "maxBboxDeltaPixels": 3.6944669723510515
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1535.7599999997765,
+        "sessionMs": 1125.660000000149,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 100.13500000163913,
+          "p90Ms": 142.80100000016395
+        },
+        "warmInferenceMedianMs": 67.01500000059605
+      },
+      "capturedAt": "2026-09-14T06:40:48.211Z",
+      "evidenceSha256": "1a897ccf03e59c5952d0827e0e96b5141da6790da15498f14b6f6996373aaf18",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 8737.939999999478,
+        "sessionMs": 1002.125,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8541.735000001267,
+          "p90Ms": 8716.944000000134
+        },
+        "warmInferenceMedianMs": 8510.070000000298
+      },
+      "capturedAt": "2026-09-14T06:41:00.575Z",
+      "evidenceSha256": "5e6ac75aa37315f12a78d6bcadf3975fdb019cac3c35d7669ac4ac3208050187",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1342.8849999997765,
+        "sessionMs": 1990.2099999990314,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 116.19500000029802,
+          "p90Ms": 156.6519999999553
+        },
+        "warmInferenceMedianMs": 82.68999999947846
+      },
+      "capturedAt": "2026-09-14T06:50:16.809Z",
+      "evidenceSha256": "713daf087b1091abf4b2dc369f59c889a92c0bbedf73bfde09efcffc839214b2",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5294596533509133,
+        "AP50": 0.6934475842146454,
+        "AP75": 0.5687117994458963,
+        "APSmall": 0.4181357543616301,
+        "APMedium": 0.6747949851297421,
+        "APLarge": 0.807723259811387,
+        "AR1": 0.37811049723324125,
+        "AR10": 0.6123190921852016,
+        "AR100": 0.6564084097961391
+      },
+      "apDeltaPoints": -0.034093036372162544,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.004626750946044922,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 483,
+        "unmatchedReferenceCount": 91,
+        "unmatchedCandidateCount": 91,
+        "matchedReferenceFraction": 0.8414634146341463,
+        "maxScoreDelta": 0.0026050806045532227,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 8593.550000000745,
+        "sessionMs": 1088.230000000447,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8534.554999999702,
+          "p90Ms": 8681.532999999075
+        },
+        "warmInferenceMedianMs": 8505.264999998733
+      },
+      "capturedAt": "2026-09-14T06:50:35.018Z",
+      "evidenceSha256": "517edf6a0d6171f79e71b5ab4edc20a029ba3cab238b1b4191f4d7d58d7e7a20",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5284634465969903,
+        "AP50": 0.6899567881079685,
+        "AP75": 0.5729370517255893,
+        "APSmall": 0.41385719334991206,
+        "APMedium": 0.6761562662793982,
+        "APLarge": 0.805429875622192,
+        "AR1": 0.3732862734780712,
+        "AR10": 0.6160011982855879,
+        "AR100": 0.6589038346155363
+      },
+      "apDeltaPoints": -0.13371371176446045,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 572,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9965156794425087,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 3.9771037101745605
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 311,
+        "unmatchedReferenceCount": 263,
+        "unmatchedCandidateCount": 265,
+        "matchedReferenceFraction": 0.5418118466898955,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 2.325225830078125
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1264.804999999702,
+        "sessionMs": 1718.8100000005215,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 111.3300000000745,
+          "p90Ms": 148.36900000050665
+        },
+        "warmInferenceMedianMs": 77.11499999836087
+      },
+      "capturedAt": "2026-09-14T06:59:48.489Z",
+      "evidenceSha256": "836a446842b80391623fbefd3b9d08d8aefc97f1a17650dfe7e60a181ba965aa",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906073331832886,
+        "maxBboxDeltaPixels": 56.58984076976779
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372738838195801,
+        "maxBboxDeltaPixels": 2.9808980941772916
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 8625.185000000522,
+        "sessionMs": 475.93999999947846,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8540.109999999404,
+          "p90Ms": 8777.292999999598
+        },
+        "warmInferenceMedianMs": 8513.995000001043
+      },
+      "capturedAt": "2026-09-14T07:00:03.610Z",
+      "evidenceSha256": "9ee612a2cedff0c974e6c934cb85b0aa9ae169789e134a8aa688c8adb4ee446d",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 1,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906085252761841,
+        "maxBboxDeltaPixels": 56.58983058929445
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372709035873413,
+        "maxBboxDeltaPixels": 2.9809272766113963
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1655.320000000298,
+        "sessionMs": 1377.355000000447,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 127.9199999999255,
+          "p90Ms": 172.29299999885262
+        },
+        "warmInferenceMedianMs": 90.02500000037253
+      },
+      "capturedAt": "2026-09-14T07:09:16.341Z",
+      "evidenceSha256": "f7ef4070ac68ed773f30cd58a28ac3583cca716feb92982d1a2166039ff57897",
+      "evidenceIndexSha256": "99c18e607e47536eeaba0b43498521a53c24fb24cee682a3ea8ef3637b530df5"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2661.144999999553,
+        "sessionMs": 662.4950000010431,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2298.030000001192,
+          "p90Ms": 2815.738000001014
+        },
+        "warmInferenceMedianMs": 2267.964999999851
+      },
+      "capturedAt": "2026-09-14T08:01:46.377Z",
+      "evidenceSha256": "62e599f88ea8cc61a2482c692d01303145d2ba513c165a61a6747cda800f3eb2",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1370.120000001043,
+        "sessionMs": 1335.120000001043,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 84.89999999850988,
+          "p90Ms": 123.29199999868872
+        },
+        "warmInferenceMedianMs": 50.855000000447035
+      },
+      "capturedAt": "2026-09-14T08:04:25.668Z",
+      "evidenceSha256": "ee566d7c4879d224ff3c289fa0c2cb7ac78b361fcc0f69c467a1fed35078f569",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4893342032717234,
+        "AP50": 0.6718735801402786,
+        "AP75": 0.5173486730149632,
+        "APSmall": 0.3506986800428935,
+        "APMedium": 0.6501296190554674,
+        "APLarge": 0.731006418355861,
+        "AR1": 0.35983747535525396,
+        "AR10": 0.5722501502207928,
+        "AR100": 0.6121865967869674
+      },
+      "apDeltaPoints": 0.008235339577450373,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 505,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9980237154150198,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 2.89459228515625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 436,
+        "unmatchedReferenceCount": 70,
+        "unmatchedCandidateCount": 73,
+        "matchedReferenceFraction": 0.8616600790513834,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 0.43084716796875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2861.195000000298,
+        "sessionMs": 868.6850000023842,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2302.544999998063,
+          "p90Ms": 2606.022000001371
+        },
+        "warmInferenceMedianMs": 2273.775000002235
+      },
+      "capturedAt": "2026-09-14T08:04:37.870Z",
+      "evidenceSha256": "d9fab7d91c39865c799a5882f74564837843e2c931203f3c31fa3d55b89bf009",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4870244880505673,
+        "AP50": 0.6720887892105484,
+        "AP75": 0.5103880255724164,
+        "APSmall": 0.341381649052415,
+        "APMedium": 0.6578891368240611,
+        "APLarge": 0.7342510803149749,
+        "AR1": 0.35941936276608866,
+        "AR10": 0.5686029929999173,
+        "AR100": 0.608292852909216
+      },
+      "apDeltaPoints": -0.22273618253815797,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 502,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 13,
+        "matchedReferenceFraction": 0.9920948616600791,
+        "maxScoreDelta": 0.035005927085876465,
+        "maxBboxDeltaPixels": 3.61962890625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 304,
+        "unmatchedReferenceCount": 202,
+        "unmatchedCandidateCount": 211,
+        "matchedReferenceFraction": 0.6007905138339921,
+        "maxScoreDelta": 0.0235062837600708,
+        "maxBboxDeltaPixels": 2.987640380859375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1490.5099999979138,
+        "sessionMs": 1181.484999999404,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 87.05000000074506,
+          "p90Ms": 123.85999999865889
+        },
+        "warmInferenceMedianMs": 54.150000002235174
+      },
+      "capturedAt": "2026-09-14T08:07:14.334Z",
+      "evidenceSha256": "a13eb162670bb2437a852edc28adc7c0eef5306a9533b27257faa8c46a7ef628",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700827836990356,
+        "maxBboxDeltaPixels": 9.514904022216797
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875338077545166,
+        "maxBboxDeltaPixels": 3.4190431594847723
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2297.714999999851,
+        "sessionMs": 394.0400000028312,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2286.224999997765,
+          "p90Ms": 2574.8459999978545
+        },
+        "warmInferenceMedianMs": 2252.0200000032783
+      },
+      "capturedAt": "2026-09-14T08:07:26.154Z",
+      "evidenceSha256": "06eadc70813e7ab8750961cc7230d99ba163f3ecd92455f1906914af94484210",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700714588165283,
+        "maxBboxDeltaPixels": 9.51485824584961
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875314235687256,
+        "maxBboxDeltaPixels": 3.4193349838257063
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1530.780000001192,
+        "sessionMs": 1216.6749999970198,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 89.66499999910593,
+          "p90Ms": 128.0700000025332
+        },
+        "warmInferenceMedianMs": 54.29499999806285
+      },
+      "capturedAt": "2026-09-14T08:09:59.403Z",
+      "evidenceSha256": "304364600bff508b455124b212ad8f0d64aa48caff61b0cd93f5472d0797dde1",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 5422.144999999553,
+        "sessionMs": 824.714999999851,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4791.010000001639,
+          "p90Ms": 5638.017000000179
+        },
+        "warmInferenceMedianMs": 4759.894999999553
+      },
+      "capturedAt": "2026-09-14T08:10:11.133Z",
+      "evidenceSha256": "18e739feeb7b8dca9ffcacba967e6b55c0ab4145063758b968ca0cb69fc400d0",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1417.6700000017881,
+        "sessionMs": 1479.050000000745,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 95.86500000208616,
+          "p90Ms": 134.6080000020564
+        },
+        "warmInferenceMedianMs": 61.82000000029802
+      },
+      "capturedAt": "2026-09-14T08:15:46.635Z",
+      "evidenceSha256": "5ff8cbc64d50d03227102e2ccc3286c5991237ebb3b43abf471c257f0c82209c",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5152266685141196,
+        "AP50": 0.6915777365780219,
+        "AP75": 0.5637385417004747,
+        "APSmall": 0.3921717599797373,
+        "APMedium": 0.6483726115193793,
+        "APLarge": 0.8298287265103363,
+        "AR1": 0.36744946259755945,
+        "AR10": 0.6078854049236853,
+        "AR100": 0.6470596936900016
+      },
+      "apDeltaPoints": 0.1315452242842574,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 537,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 0.9981412639405205,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.87310791015625
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 461,
+        "unmatchedReferenceCount": 77,
+        "unmatchedCandidateCount": 76,
+        "matchedReferenceFraction": 0.8568773234200744,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.45745849609375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4794.22500000149,
+        "sessionMs": 813.910000000149,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4956.039999999106,
+          "p90Ms": 6093.365000001341
+        },
+        "warmInferenceMedianMs": 4920.974999997765
+      },
+      "capturedAt": "2026-09-14T08:16:01.115Z",
+      "evidenceSha256": "221b1dd3bd5fec83ac524354672f2f648818e9b710c0fea187087b6451731210",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5162106965911104,
+        "AP50": 0.6870354196647857,
+        "AP75": 0.5666911245196462,
+        "APSmall": 0.39553419430758724,
+        "APMedium": 0.6498685473493818,
+        "APLarge": 0.8316192611583084,
+        "AR1": 0.36881242166035133,
+        "AR10": 0.6090031022301904,
+        "AR100": 0.6478996129574166
+      },
+      "apDeltaPoints": 0.22994803198334024,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 534,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 1,
+        "matchedReferenceFraction": 0.9925650557620818,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 3.2164154052734375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 300,
+        "unmatchedReferenceCount": 238,
+        "unmatchedCandidateCount": 235,
+        "matchedReferenceFraction": 0.5576208178438662,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 2.38885498046875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2069.315000001341,
+        "sessionMs": 1800.7949999980628,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 94.42999999970198,
+          "p90Ms": 145.95999999940398
+        },
+        "warmInferenceMedianMs": 60.87000000104308
+      },
+      "capturedAt": "2026-09-14T08:21:38.589Z",
+      "evidenceSha256": "2d7c9a7815083cbfdac6308152ec0e6ab5f37a16559541f4a7e17cb78b55bb79",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06977897882461548,
+        "maxBboxDeltaPixels": 6.342376708984375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035244643688201904,
+        "maxBboxDeltaPixels": 3.6947879791260902
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4693.425000000745,
+        "sessionMs": 428.39000000059605,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4749.835000000894,
+          "p90Ms": 5194.81799999848
+        },
+        "warmInferenceMedianMs": 4717.85000000149
+      },
+      "capturedAt": "2026-09-14T08:21:52.618Z",
+      "evidenceSha256": "65b3aa3c02885f92ec6a7d997cc2bca805cdd3194dc7cb8f3a13b4b7fbfec599",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06978023052215576,
+        "maxBboxDeltaPixels": 6.342071533203125
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035242557525634766,
+        "maxBboxDeltaPixels": 3.6944669723510515
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1392.9750000014901,
+        "sessionMs": 1125.004999998957,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 100.55000000074506,
+          "p90Ms": 140.27000000029807
+        },
+        "warmInferenceMedianMs": 68.07499999925494
+      },
+      "capturedAt": "2026-09-14T08:27:08.558Z",
+      "evidenceSha256": "64a8c1ffbfe10d71180763200e7c89272b458a576366ef5e9e960328bdbebe26",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 14092.410000000149,
+        "sessionMs": 1424.035000000149,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 9031.085000000894,
+          "p90Ms": 10126.86799999848
+        },
+        "warmInferenceMedianMs": 8979.629999998957
+      },
+      "capturedAt": "2026-09-14T08:27:22.335Z",
+      "evidenceSha256": "80b1ec33438ebd96041df7dad7d68be3d5c2bb8a5f1e33ac255040d50538bdbb",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1509.210000000894,
+        "sessionMs": 1933.7749999985099,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 117.27499999850988,
+          "p90Ms": 154.5229999981821
+        },
+        "warmInferenceMedianMs": 83.48999999836087
+      },
+      "capturedAt": "2026-09-14T08:37:31.677Z",
+      "evidenceSha256": "d3eb2660b2a1110e03e9871c81606f8d496914baac31fd7f7f2817346022cdc7",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5294596533509133,
+        "AP50": 0.6934475842146454,
+        "AP75": 0.5687117994458963,
+        "APSmall": 0.4181357543616301,
+        "APMedium": 0.6747949851297421,
+        "APLarge": 0.807723259811387,
+        "AR1": 0.37811049723324125,
+        "AR10": 0.6123190921852016,
+        "AR100": 0.6564084097961391
+      },
+      "apDeltaPoints": -0.034093036372162544,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.004626750946044922,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 483,
+        "unmatchedReferenceCount": 91,
+        "unmatchedCandidateCount": 91,
+        "matchedReferenceFraction": 0.8414634146341463,
+        "maxScoreDelta": 0.0026050806045532227,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 8719.789999999106,
+        "sessionMs": 1079.0950000025332,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8702.515000000596,
+          "p90Ms": 9571.651000002772
+        },
+        "warmInferenceMedianMs": 8676.004999998957
+      },
+      "capturedAt": "2026-09-14T08:37:50.449Z",
+      "evidenceSha256": "52d0107feffa4702f2fe7556eff266f8775cc3e4d1c9922a055b3c3d72256319",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5284634465969903,
+        "AP50": 0.6899567881079685,
+        "AP75": 0.5729370517255893,
+        "APSmall": 0.41385719334991206,
+        "APMedium": 0.6761562662793982,
+        "APLarge": 0.805429875622192,
+        "AR1": 0.3732862734780712,
+        "AR10": 0.6160011982855879,
+        "AR100": 0.6589038346155363
+      },
+      "apDeltaPoints": -0.13371371176446045,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 572,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9965156794425087,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 3.9771037101745605
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 311,
+        "unmatchedReferenceCount": 263,
+        "unmatchedCandidateCount": 265,
+        "matchedReferenceFraction": 0.5418118466898955,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 2.325225830078125
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1686.065000001341,
+        "sessionMs": 2211.554999999702,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 115.61499999836087,
+          "p90Ms": 169.87500000298027
+        },
+        "warmInferenceMedianMs": 81.16000000014901
+      },
+      "capturedAt": "2026-09-14T08:47:26.746Z",
+      "evidenceSha256": "6bd31753fab7b9407848c13ef8d9a2940ca75db05fc6351c05a9029d8b0be267",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906073331832886,
+        "maxBboxDeltaPixels": 56.58984076976779
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372738838195801,
+        "maxBboxDeltaPixels": 2.9808980941772916
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 9461.394999999553,
+        "sessionMs": 523.660000000149,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8727.265000000596,
+          "p90Ms": 9316.454999998958
+        },
+        "warmInferenceMedianMs": 8697.170000001788
+      },
+      "capturedAt": "2026-09-14T08:47:44.060Z",
+      "evidenceSha256": "44d41bd4bc2dfae98574ebe4836be4477be67d2ae4b321d6dd56ab48db695c96",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 2,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906085252761841,
+        "maxBboxDeltaPixels": 56.58983058929445
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372709035873413,
+        "maxBboxDeltaPixels": 2.9809272766113963
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1473.530000001192,
+        "sessionMs": 1351.3050000034273,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 126.60999999940395,
+          "p90Ms": 176.45699999928476
+        },
+        "warmInferenceMedianMs": 91.79500000178814
+      },
+      "capturedAt": "2026-09-14T08:57:14.616Z",
+      "evidenceSha256": "25bf41243cca6b8b12809df7d6a8387d3943dcb95041133a333d43ffcb7352a2",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2332.114999998361,
+        "sessionMs": 511.46000000089407,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2274.269999999553,
+          "p90Ms": 2413.1530000008643
+        },
+        "warmInferenceMedianMs": 2240.289999999106
+      },
+      "capturedAt": "2026-09-14T08:57:30.048Z",
+      "evidenceSha256": "f0dd77207e7e182d7cc1003d3a543e2d88a6d0aa1fa4f3b780122567e499a66e",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "metrics": {
+        "AP": 0.4892518498759489,
+        "AP50": 0.6722383387045117,
+        "AP75": 0.5168312525075011,
+        "APSmall": 0.3512154246838222,
+        "APMedium": 0.6524385504265018,
+        "APLarge": 0.7304296443249618,
+        "AR1": 0.35961803726816877,
+        "AR10": 0.5716669811258118,
+        "AR100": 0.6117913257887554
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 506,
+        "matchedCount": 506,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1589.2900000028312,
+        "sessionMs": 1451.7649999968708,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 85.22500000149012,
+          "p90Ms": 129.02400000020862
+        },
+        "warmInferenceMedianMs": 50.12000000104308
+      },
+      "capturedAt": "2026-09-14T09:00:01.753Z",
+      "evidenceSha256": "a8334e08f54d85874f45cbc7d0be23d782bf352042ea451998eaadb52c65efd0",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4893342032717234,
+        "AP50": 0.6718735801402786,
+        "AP75": 0.5173486730149632,
+        "APSmall": 0.3506986800428935,
+        "APMedium": 0.6501296190554674,
+        "APLarge": 0.731006418355861,
+        "AR1": 0.35983747535525396,
+        "AR10": 0.5722501502207928,
+        "AR100": 0.6121865967869674
+      },
+      "apDeltaPoints": 0.008235339577450373,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 505,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9980237154150198,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 2.89459228515625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 509,
+        "matchedCount": 436,
+        "unmatchedReferenceCount": 70,
+        "unmatchedCandidateCount": 73,
+        "matchedReferenceFraction": 0.8616600790513834,
+        "maxScoreDelta": 0.005303740501403809,
+        "maxBboxDeltaPixels": 0.43084716796875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2466.579999998212,
+        "sessionMs": 689.6849999986589,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2306.344999998808,
+          "p90Ms": 2496.9359999999406
+        },
+        "warmInferenceMedianMs": 2271.679999999702
+      },
+      "capturedAt": "2026-09-14T09:00:14.600Z",
+      "evidenceSha256": "2b08ecc2a35ed3d794973173c43fca78fed40510f770ab4e65950dfc17d69c22",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "metrics": {
+        "AP": 0.4870244880505673,
+        "AP50": 0.6720887892105484,
+        "AP75": 0.5103880255724164,
+        "APSmall": 0.341381649052415,
+        "APMedium": 0.6578891368240611,
+        "APLarge": 0.7342510803149749,
+        "AR1": 0.35941936276608866,
+        "AR10": 0.5686029929999173,
+        "AR100": 0.608292852909216
+      },
+      "apDeltaPoints": -0.22273618253815797,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 502,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 13,
+        "matchedReferenceFraction": 0.9920948616600791,
+        "maxScoreDelta": 0.035005927085876465,
+        "maxBboxDeltaPixels": 3.61962890625
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 515,
+        "matchedCount": 304,
+        "unmatchedReferenceCount": 202,
+        "unmatchedCandidateCount": 211,
+        "matchedReferenceFraction": 0.6007905138339921,
+        "maxScoreDelta": 0.0235062837600708,
+        "maxBboxDeltaPixels": 2.987640380859375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1352.410000000149,
+        "sessionMs": 1202.809999998659,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 86.21000000089407,
+          "p90Ms": 134.4240000009537
+        },
+        "warmInferenceMedianMs": 54.0950000025332
+      },
+      "capturedAt": "2026-09-14T09:02:49.400Z",
+      "evidenceSha256": "28ef91891eeb15fab547d9ee291d6df0176ee62dd8617466354faa1378752e32",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700827836990356,
+        "maxBboxDeltaPixels": 9.514904022216797
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875338077545166,
+        "maxBboxDeltaPixels": 3.4190431594847723
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 2470.504999998957,
+        "sessionMs": 431.50999999791384,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 2326.279999997467,
+          "p90Ms": 2496.195999999344
+        },
+        "warmInferenceMedianMs": 2290.870000001043
+      },
+      "capturedAt": "2026-09-14T09:03:01.022Z",
+      "evidenceSha256": "1952c55cdfa2eac221265272179dee670a3e59c0e108bcb5e1d4822c785788a9",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "m",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "metrics": {
+        "AP": 0.4904993679012286,
+        "AP50": 0.6761452047688769,
+        "AP75": 0.5166690078636855,
+        "APSmall": 0.3589633401149328,
+        "APMedium": 0.6584490373961036,
+        "APLarge": 0.740435820818396,
+        "AR1": 0.356783567337545,
+        "AR10": 0.5727744571745602,
+        "AR100": 0.6174886232483072
+      },
+      "apDeltaPoints": 0.12475180252797258,
+      "recognitionParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 493,
+        "unmatchedReferenceCount": 13,
+        "unmatchedCandidateCount": 11,
+        "matchedReferenceFraction": 0.974308300395257,
+        "maxScoreDelta": 0.10700714588165283,
+        "maxBboxDeltaPixels": 9.51485824584961
+      },
+      "strictParity": {
+        "referenceCount": 506,
+        "candidateCount": 504,
+        "matchedCount": 47,
+        "unmatchedReferenceCount": 459,
+        "unmatchedCandidateCount": 457,
+        "matchedReferenceFraction": 0.09288537549407115,
+        "maxScoreDelta": 0.04875314235687256,
+        "maxBboxDeltaPixels": 3.4193349838257063
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1432.3650000020862,
+        "sessionMs": 1201.105000000447,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 89.89499999955297,
+          "p90Ms": 137.07000000029802
+        },
+        "warmInferenceMedianMs": 54.149999998509884
+      },
+      "capturedAt": "2026-09-14T09:05:36.638Z",
+      "evidenceSha256": "d06b1a53784570f2527bc8240067447d5158350048f0d2729305f25c3501f60a",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4853.710000000894,
+        "sessionMs": 680.7250000014901,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4792.785000000149,
+          "p90Ms": 5072.619000002742
+        },
+        "warmInferenceMedianMs": 4763.859999999404
+      },
+      "capturedAt": "2026-09-14T09:05:48.317Z",
+      "evidenceSha256": "bec38dcb2020b897e3d5ba5a1571418743a84cfd33f5c9497fdaa29f26ea4db8",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "metrics": {
+        "AP": 0.513911216271277,
+        "AP50": 0.6862787230880124,
+        "AP75": 0.5637687030464393,
+        "APSmall": 0.39049951988516923,
+        "APMedium": 0.6482547475317647,
+        "APLarge": 0.8291134075091334,
+        "AR1": 0.3668817173375065,
+        "AR10": 0.6081371163067737,
+        "AR100": 0.6467615419485663
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 538,
+        "matchedCount": 538,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1394.734999999404,
+        "sessionMs": 1646.7400000020862,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 97.8449999988079,
+          "p90Ms": 125.8079999998212
+        },
+        "warmInferenceMedianMs": 62.975000001490116
+      },
+      "capturedAt": "2026-09-14T09:11:04.792Z",
+      "evidenceSha256": "ec4c721586b0f46ec63f064aaa57c190e31180193d636c6bde2c00b5b78793c9",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5152266685141196,
+        "AP50": 0.6915777365780219,
+        "AP75": 0.5637385417004747,
+        "APSmall": 0.3921717599797373,
+        "APMedium": 0.6483726115193793,
+        "APLarge": 0.8298287265103363,
+        "AR1": 0.36744946259755945,
+        "AR10": 0.6078854049236853,
+        "AR100": 0.6470596936900016
+      },
+      "apDeltaPoints": 0.1315452242842574,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 537,
+        "unmatchedReferenceCount": 1,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 0.9981412639405205,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.87310791015625
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 537,
+        "matchedCount": 461,
+        "unmatchedReferenceCount": 77,
+        "unmatchedCandidateCount": 76,
+        "matchedReferenceFraction": 0.8568773234200744,
+        "maxScoreDelta": 0.003984332084655762,
+        "maxBboxDeltaPixels": 0.45745849609375
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 5190.77499999851,
+        "sessionMs": 833.1499999985099,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4884.820000000298,
+          "p90Ms": 5131.956000000983
+        },
+        "warmInferenceMedianMs": 4852.379999998957
+      },
+      "capturedAt": "2026-09-14T09:11:19.470Z",
+      "evidenceSha256": "a60659ca92f7a420ca51d7ef181b2ab66d7cd0364ca231663260b2d5d13c703a",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "metrics": {
+        "AP": 0.5162106965911104,
+        "AP50": 0.6870354196647857,
+        "AP75": 0.5666911245196462,
+        "APSmall": 0.39553419430758724,
+        "APMedium": 0.6498685473493818,
+        "APLarge": 0.8316192611583084,
+        "AR1": 0.36881242166035133,
+        "AR10": 0.6090031022301904,
+        "AR100": 0.6478996129574166
+      },
+      "apDeltaPoints": 0.22994803198334024,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 534,
+        "unmatchedReferenceCount": 4,
+        "unmatchedCandidateCount": 1,
+        "matchedReferenceFraction": 0.9925650557620818,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 3.2164154052734375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 535,
+        "matchedCount": 300,
+        "unmatchedReferenceCount": 238,
+        "unmatchedCandidateCount": 235,
+        "matchedReferenceFraction": 0.5576208178438662,
+        "maxScoreDelta": 0.04637235403060913,
+        "maxBboxDeltaPixels": 2.38885498046875
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1602.315000001341,
+        "sessionMs": 1661.190000001341,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 96.28999999910593,
+          "p90Ms": 143.677000001818
+        },
+        "warmInferenceMedianMs": 60.315000001341105
+      },
+      "capturedAt": "2026-09-14T09:16:41.654Z",
+      "evidenceSha256": "deb7bf30a851f35233c57ca421f24faa08ea07f3437f63b7864aaf64819690c0",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06977897882461548,
+        "maxBboxDeltaPixels": 6.342376708984375
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035244643688201904,
+        "maxBboxDeltaPixels": 3.6947879791260902
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 4836.459999997169,
+        "sessionMs": 454.589999999851,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 4894.835000000894,
+          "p90Ms": 5556.375999999793
+        },
+        "warmInferenceMedianMs": 4854.800000000745
+      },
+      "capturedAt": "2026-09-14T09:16:55.539Z",
+      "evidenceSha256": "f02894ac8687bd77311a8a0bc84d1a7ae5b1aecc923ab9b344545f77a06ad76d",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "l",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "metrics": {
+        "AP": 0.512006134985959,
+        "AP50": 0.6864912550592024,
+        "AP75": 0.55025111209198,
+        "APSmall": 0.3898425418782685,
+        "APMedium": 0.641664703526143,
+        "APLarge": 0.8245426565416891,
+        "AR1": 0.3671591118072087,
+        "AR10": 0.604883250695631,
+        "AR100": 0.6432655752557438
+      },
+      "apDeltaPoints": -0.19050812853179666,
+      "recognitionParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 536,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9962825278810409,
+        "maxScoreDelta": 0.06978023052215576,
+        "maxBboxDeltaPixels": 6.342071533203125
+      },
+      "strictParity": {
+        "referenceCount": 538,
+        "candidateCount": 542,
+        "matchedCount": 34,
+        "unmatchedReferenceCount": 504,
+        "unmatchedCandidateCount": 508,
+        "matchedReferenceFraction": 0.06319702602230483,
+        "maxScoreDelta": 0.035242557525634766,
+        "maxBboxDeltaPixels": 3.6944669723510515
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1404.1899999976158,
+        "sessionMs": 1344.8299999982119,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 101.25,
+          "p90Ms": 139.80999999791388
+        },
+        "warmInferenceMedianMs": 66.9050000011921
+      },
+      "capturedAt": "2026-09-14T09:22:21.157Z",
+      "evidenceSha256": "2574a0358b46f6668469261387a1b8a5bda2fe039241c285604c589be95f4011",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "wasm",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 9387.644999999553,
+        "sessionMs": 1164.894999999553,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 9065.769999999553,
+          "p90Ms": 10005.431000000983
+        },
+        "warmInferenceMedianMs": 9027.13500000164
+      },
+      "capturedAt": "2026-09-14T09:22:34.164Z",
+      "evidenceSha256": "01eb83388714b0377d01fc981c180417cfe190d617a29fb13e1c38b190bd91ae",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "fp32",
+      "backend": "webgpu",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "metrics": {
+        "AP": 0.5298005837146349,
+        "AP50": 0.6930844554460153,
+        "AP75": 0.5713983659303988,
+        "APSmall": 0.41667855678227406,
+        "APMedium": 0.6739291114666124,
+        "APLarge": 0.8098221983042878,
+        "AR1": 0.37801646063167954,
+        "AR10": 0.6128707860006254,
+        "AR100": 0.6554081780596375
+      },
+      "apDeltaPoints": 0.0,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.0,
+        "maxBboxDeltaPixels": 0.0
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1424.695000000298,
+        "sessionMs": 2018.4850000031292,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 119.32000000029802,
+          "p90Ms": 161.71500000283123
+        },
+        "warmInferenceMedianMs": 85.77499999850988
+      },
+      "capturedAt": "2026-09-14T09:32:40.333Z",
+      "evidenceSha256": "9ff5c219843eae7a84fceea201f743c80fada328cc0c42829b73427b260849d5",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "wasm",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5294596533509133,
+        "AP50": 0.6934475842146454,
+        "AP75": 0.5687117994458963,
+        "APSmall": 0.4181357543616301,
+        "APMedium": 0.6747949851297421,
+        "APLarge": 0.807723259811387,
+        "AR1": 0.37811049723324125,
+        "AR10": 0.6123190921852016,
+        "AR100": 0.6564084097961391
+      },
+      "apDeltaPoints": -0.034093036372162544,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 574,
+        "unmatchedReferenceCount": 0,
+        "unmatchedCandidateCount": 0,
+        "matchedReferenceFraction": 1.0,
+        "maxScoreDelta": 0.004626750946044922,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 574,
+        "matchedCount": 483,
+        "unmatchedReferenceCount": 91,
+        "unmatchedCandidateCount": 91,
+        "matchedReferenceFraction": 0.8414634146341463,
+        "maxScoreDelta": 0.0026050806045532227,
+        "maxBboxDeltaPixels": 0.4254150390625
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 9141.14999999851,
+        "sessionMs": 1584.070000000298,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8895.520000003278,
+          "p90Ms": 9363.252000000328
+        },
+        "warmInferenceMedianMs": 8849.080000001937
+      },
+      "capturedAt": "2026-09-14T09:32:59.755Z",
+      "evidenceSha256": "af4d74a0df78fee26d41c39a4c61f5848c529b0a2b6c44e459cbfb7394a69cae",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "fp16",
+      "backend": "webgpu",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "metrics": {
+        "AP": 0.5284634465969903,
+        "AP50": 0.6899567881079685,
+        "AP75": 0.5729370517255893,
+        "APSmall": 0.41385719334991206,
+        "APMedium": 0.6761562662793982,
+        "APLarge": 0.805429875622192,
+        "AR1": 0.3732862734780712,
+        "AR10": 0.6160011982855879,
+        "AR100": 0.6589038346155363
+      },
+      "apDeltaPoints": -0.13371371176446045,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 572,
+        "unmatchedReferenceCount": 2,
+        "unmatchedCandidateCount": 4,
+        "matchedReferenceFraction": 0.9965156794425087,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 3.9771037101745605
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 576,
+        "matchedCount": 311,
+        "unmatchedReferenceCount": 263,
+        "unmatchedCandidateCount": 265,
+        "matchedReferenceFraction": 0.5418118466898955,
+        "maxScoreDelta": 0.07256394624710083,
+        "maxBboxDeltaPixels": 2.325225830078125
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1541.7399999983609,
+        "sessionMs": 1898.445000000298,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 112.75999999791384,
+          "p90Ms": 157.44599999934437
+        },
+        "warmInferenceMedianMs": 77.58500000089407
+      },
+      "capturedAt": "2026-09-14T09:42:43.943Z",
+      "evidenceSha256": "c160cd199d9d2495473eb757a720ef56c90473fa1212d6d15038cda4f07925b2",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "wasm",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906073331832886,
+        "maxBboxDeltaPixels": 56.58984076976779
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372738838195801,
+        "maxBboxDeltaPixels": 2.9808980941772916
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 9002.515000000596,
+        "sessionMs": 487.76999999955297,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 8849.935000002384,
+          "p90Ms": 9163.03900000155
+        },
+        "warmInferenceMedianMs": 8814.324999999255
+      },
+      "capturedAt": "2026-09-14T09:43:00.391Z",
+      "evidenceSha256": "dcff2d0ed8ea6efdc348016ab1980e9d4eb99d74e79425bf0cfd107c19a89950",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    },
+    {
+      "round": 3,
+      "size": "x",
+      "precision": "w8a32",
+      "backend": "webgpu",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "metrics": {
+        "AP": 0.5263157914826754,
+        "AP50": 0.6942196904788404,
+        "AP75": 0.5823836502049818,
+        "APSmall": 0.41874336776614374,
+        "APMedium": 0.6745896557672073,
+        "APLarge": 0.7975140022051083,
+        "AR1": 0.3708330172559285,
+        "AR10": 0.6120937969517238,
+        "AR100": 0.6540145102502133
+      },
+      "apDeltaPoints": -0.34847922319595215,
+      "recognitionParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 564,
+        "unmatchedReferenceCount": 10,
+        "unmatchedCandidateCount": 6,
+        "matchedReferenceFraction": 0.9825783972125436,
+        "maxScoreDelta": 0.07906085252761841,
+        "maxBboxDeltaPixels": 56.58983058929445
+      },
+      "strictParity": {
+        "referenceCount": 574,
+        "candidateCount": 570,
+        "matchedCount": 40,
+        "unmatchedReferenceCount": 534,
+        "unmatchedCandidateCount": 530,
+        "matchedReferenceFraction": 0.06968641114982578,
+        "maxScoreDelta": 0.05372709035873413,
+        "maxBboxDeltaPixels": 2.9809272766113963
+      },
+      "strictParityBlocksRelease": false,
+      "qualityGatePassed": true,
+      "performance": {
+        "firstImageMs": 1422.8499999977648,
+        "sessionMs": 1428.6699999980628,
+        "warmRuns": {
+          "count": 63,
+          "medianMs": 122.11999999731779,
+          "p90Ms": 166.54699999913575
+        },
+        "warmInferenceMedianMs": 89.82000000029802
+      },
+      "capturedAt": "2026-09-14T09:52:35.315Z",
+      "evidenceSha256": "c3830cbaae77c0ba8bbc1b038cf023e21e7ade10e53c4c7311c177f4ebd42565",
+      "evidenceIndexSha256": "f7a8a7754d315ef448fa5cf1132a08bcdb41b8d7c31f287e9d917978cdc310ee"
+    }
+  ],
+  "pythonReference": {
+    "evidenceType": "single-run-diagnostic",
+    "runCount": 1,
+    "blocksRelease": false,
+    "rows": [
+      {
+        "size": "m",
+        "precision": "fp16",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": 0.005485397342330778,
+        "recognitionParity": {
+          "referenceCount": 502,
+          "candidateCount": 502,
+          "matchedCount": 502,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "matchedReferenceFraction": 1.0,
+          "maxScoreDelta": 0.005599081516265869,
+          "maxBboxDeltaPixels": 0.4151611328125
+        },
+        "diagnosticPassed": true
+      },
+      {
+        "size": "m",
+        "precision": "w8a32",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": 0.037172208079044866,
+        "recognitionParity": {
+          "referenceCount": 502,
+          "candidateCount": 507,
+          "matchedCount": 494,
+          "unmatchedReferenceCount": 8,
+          "unmatchedCandidateCount": 13,
+          "matchedReferenceFraction": 0.9840637450199203,
+          "maxScoreDelta": 0.10926210880279541,
+          "maxBboxDeltaPixels": 10.474124908447266
+        },
+        "diagnosticPassed": true
+      },
+      {
+        "size": "l",
+        "precision": "fp16",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": 0.08686427653431528,
+        "recognitionParity": {
+          "referenceCount": 533,
+          "candidateCount": 533,
+          "matchedCount": 533,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 0,
+          "matchedReferenceFraction": 1.0,
+          "maxScoreDelta": 0.0036610960960388184,
+          "maxBboxDeltaPixels": 2.642730712890625
+        },
+        "diagnosticPassed": true
+      },
+      {
+        "size": "l",
+        "precision": "w8a32",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": 0.06293049537589024,
+        "recognitionParity": {
+          "referenceCount": 533,
+          "candidateCount": 535,
+          "matchedCount": 530,
+          "unmatchedReferenceCount": 3,
+          "unmatchedCandidateCount": 5,
+          "matchedReferenceFraction": 0.9943714821763602,
+          "maxScoreDelta": 0.07301169633865356,
+          "maxBboxDeltaPixels": 15.0584716796875
+        },
+        "diagnosticPassed": true
+      },
+      {
+        "size": "x",
+        "precision": "fp16",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": 0.05110860941751616,
+        "recognitionParity": {
+          "referenceCount": 569,
+          "candidateCount": 571,
+          "matchedCount": 569,
+          "unmatchedReferenceCount": 0,
+          "unmatchedCandidateCount": 2,
+          "matchedReferenceFraction": 1.0,
+          "maxScoreDelta": 0.004335224628448486,
+          "maxBboxDeltaPixels": 1.0266380310058594
+        },
+        "diagnosticPassed": true
+      },
+      {
+        "size": "x",
+        "precision": "w8a32",
+        "evidenceType": "single-run-diagnostic",
+        "runCount": 1,
+        "blocksRelease": false,
+        "apDeltaPoints": -0.3341944719853718,
+        "recognitionParity": {
+          "referenceCount": 569,
+          "candidateCount": 570,
+          "matchedCount": 563,
+          "unmatchedReferenceCount": 6,
+          "unmatchedCandidateCount": 7,
+          "matchedReferenceFraction": 0.9894551845342706,
+          "maxScoreDelta": 0.08467680215835571,
+          "maxBboxDeltaPixels": 56.158646821975736
+        },
+        "diagnosticPassed": true
+      }
+    ]
+  },
+  "qualityGateScope": "three-round-browser-results",
+  "qualityGatePassed": true,
+  "runtimeVersions": {
+    "onnxruntimeWeb": "1.27.0",
+    "sdk": "0.4.0"
+  },
+  "sdkSha256": "d47789c4fa7f83a3025cf7de95113fdf4f83256505fe585f5d57305580e8bd02",
+  "webgpuAdapter": {
+    "physical": true,
+    "fallback": false,
+    "identity": {
+      "architecture": "blackwell",
+      "description": null,
+      "device": null,
+      "isFallbackAdapter": false,
+      "subgroupMaxSize": 32,
+      "subgroupMinSize": 32,
+      "vendor": "nvidia"
+    }
+  },
+  "environment": {
+    "cpu": {
+      "logicalCores": 12,
+      "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+    },
+    "os": {
+      "arch": "x64",
+      "platform": "win32",
+      "release": "10.0.26200"
+    },
+    "browser": {
+      "version": "153.0.8010.12",
+      "launchArgs": [],
+      "crossOriginIsolated": true,
+      "hardwareConcurrency": 12,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "userAgentData": {
+        "brands": [
+          {
+            "brand": "Chromium",
+            "version": "153"
+          },
+          {
+            "brand": "Not_A Brand",
+            "version": "8"
+          }
+        ],
+        "mobile": false,
+        "platform": "Windows"
+      }
+    }
+  },
+  "browserRunCount": 54
+}

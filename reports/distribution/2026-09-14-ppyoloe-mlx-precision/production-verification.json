@@ -1,0 +1,552 @@
+{
+  "testedAt": "2026-09-14T11:43:17.926Z",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "deploymentCommit": "74aaf38a4dca7cbdab9f77790ff2c890e9e93ed9",
+  "rows": [
+    {
+      "size": "m",
+      "precisionId": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 47104975,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+          "bytes": 47104975,
+          "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:22.646Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "m",
+      "precisionId": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 47104975,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+          "bytes": 47104975,
+          "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:27.816Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "m",
+      "precisionId": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 23818631,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+          "bytes": 23818631,
+          "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:32.840Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "m",
+      "precisionId": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 23818631,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "d3b287e01fce0d7baffad3be25c67f25e2fb2266",
+          "bytes": 23818631,
+          "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:37.405Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "l",
+      "precisionId": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 104700181,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+          "bytes": 104700181,
+          "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:45.186Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "l",
+      "precisionId": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 104700181,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+          "bytes": 104700181,
+          "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:53.351Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "l",
+      "precisionId": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 52698311,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+          "bytes": 52698311,
+          "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:43:59.351Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "l",
+      "precisionId": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 52698311,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "8e4edd52ef112ebc338e3a1907508ecc0c826fb4",
+          "bytes": 52698311,
+          "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:44:07.112Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "x",
+      "precisionId": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 197207187,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+          "bytes": 197207187,
+          "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:44:17.662Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    },
+    {
+      "size": "x",
+      "precisionId": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200,
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 197207187,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+          "bytes": 197207187,
+          "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:44:34.452Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    },
+    {
+      "size": "x",
+      "precisionId": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 99048805,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+          "bytes": 99048805,
+          "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:44:41.837Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    },
+    {
+      "size": "x",
+      "precisionId": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 99048805,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "46cf1e3c9f847cd3108068b9d604b890fea3f79e",
+          "bytes": 99048805,
+          "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-14T11:44:53.578Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    }
+  ],
+  "pageErrors": [],
+  "browser": "153.0.8010.12",
+  "status": "passed"
+}

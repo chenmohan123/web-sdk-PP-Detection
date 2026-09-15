@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-15",
+  "modelBytes": 4511117,
+  "modelSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+  "quality": "reports/evaluation/2026-09-15-2d-candidates",
+  "sdk": "0.4.0",
+  "sources": [
+    "modelscope",
+    "huggingface"
+  ]
+}

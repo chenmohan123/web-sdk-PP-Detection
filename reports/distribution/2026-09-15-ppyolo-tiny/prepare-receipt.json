@@ -1,0 +1,9 @@
+{
+  "model": {
+    "bytes": 4511117,
+    "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  },
+  "qualitySha256": "862d2febd4cac6c7e6e284093c6f7a55938de81ecbabb30c2564bfaa56ebb806",
+  "parameterCount": 1086147,
+  "parameterCountMethod": "Paddle trainable shape 张量，排除 ._mean/._variance 状态"
+}

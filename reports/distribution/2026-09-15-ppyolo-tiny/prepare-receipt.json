@@ -1,9 +1,2115 @@
 {
-  "model": {
-    "bytes": 4511117,
-    "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  "protocolSha256": "96e7e7e9a8b4d5a5f29a4dcf6b34491ad11a0d798bd1b8376ccf522636386180",
+  "publisherSha256": "f9f7d9467520c369bce7d8eddc1c1aad29d39dad348806d92bdf6c4014f990f3",
+  "evidence": {
+    "models/pp-detection/picodet-s-320/1.0.1/manifest.json": {
+      "bytes": 7593,
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061"
+    },
+    "models/pp-detection/picodet-xs-320/1.0.1/manifest.json": {
+      "bytes": 6094,
+      "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66"
+    },
+    "packages/sdk/dist/browser-global.js": {
+      "bytes": 833079,
+      "sha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189"
+    },
+    "packages/sdk/dist/inference.worker.js": {
+      "bytes": 694939,
+      "sha256": "7df83c0912f6445eef1ba7cc7b2839dec23703c9e6b6bf9c61be54aaa31ad877"
+    },
+    "reports/evaluation/2026-09-11-ppyoloe/dataset/annotations.json": {
+      "bytes": 198359,
+      "sha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/candidates.json": {
+      "bytes": 6096,
+      "sha256": "8a438df1771d9930c6b9f071600dd9ca49c4c0e3b2175eb32f5c5dc5ab478c26"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/candidate-manifest.json.gz": {
+      "bytes": 1138,
+      "sha256": "d6630e930d0bd7dd21439d5ec51cc0da5953156ed8b78763d7cedf1939cbdd2c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/captured-inputs.json.gz": {
+      "bytes": 3203,
+      "sha256": "555a651af5e5384605edbc94c4fae7cd50bdaf1c0fe3f6a65c8f9c9ed177a163"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/captured-predictions.json.gz": {
+      "bytes": 174471,
+      "sha256": "97bcdee7dac2f14e7d7ca45985ca1e34c8326f2d6d6bd08fbe2acf7c52ed4d56"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/captured-reference.json.gz": {
+      "bytes": 1504,
+      "sha256": "49460286795c1450529c6b82bf9561bd918a23184c5d726d913ee8c12db465e3"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/export.log.gz": {
+      "bytes": 1314,
+      "sha256": "ce152e7677e54811eb922fbc19133a861322ae226162a7941d0cb998fcdea14c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/lifecycle.json.gz": {
+      "bytes": 3142,
+      "sha256": "ffb65cf2e6fce10870ecf054511d1ff795da37ca32c35e158c2741cd61059db8"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/onnx-opencv-predictions.json.gz": {
+      "bytes": 175109,
+      "sha256": "b2aa3e53527a0fc02ab21681250f026df27c0d0f0d5867ec71c3148bbb12b4f9"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/onnx-pillow-predictions.json.gz": {
+      "bytes": 174187,
+      "sha256": "b984ce4a72bb4c514a0cbca1bc43cd2a9fa051bda86c73d19b148dd2867dbdfa"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/paddle-predictions.json.gz": {
+      "bytes": 172715,
+      "sha256": "3bac2f44c7df7dc3688d1d496094ac884e483d18300a964d280277e0b8f3c8c0"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/python-reference.json.gz": {
+      "bytes": 10917,
+      "sha256": "776f57f9c7df6bde2af955d2ddaf3c2b87a8a0ef14e151b352c6b6f0eabb0eaa"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/reference-raw-failure.log.gz": {
+      "bytes": 898,
+      "sha256": "d0524ddcb6b288a4c38bfafc4f1781ca1805172e89a50e3faedc65f40c631a76"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/picodet-s-wasm.json.gz": {
+      "bytes": 278232,
+      "sha256": "518e0d2c63782a39963171933979fb0a069a8c6a6383dc51d5e005afac2041e3"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/picodet-s-webgpu.json.gz": {
+      "bytes": 278911,
+      "sha256": "999d2a432ffed0ed79769ff028a345c4075ee444cb5e14991bbf01339e57de5c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/picodet-xs-wasm.json.gz": {
+      "bytes": 278970,
+      "sha256": "b7f32f2a7f814fff22e00752aa7fe37f72b03481e3a68a43b1549bf521d2a29e"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/picodet-xs-webgpu.json.gz": {
+      "bytes": 279279,
+      "sha256": "28be05845f84c66322081e24dd7432223f7a177d318afc6ed53d6a18f0ebb56b"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-wasm.json.gz": {
+      "bytes": 193383,
+      "sha256": "0a4d568f45b580fc3ad285b483fbdc6b58fa6622729faed6755837937a560966"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-webgpu.json.gz": {
+      "bytes": 193867,
+      "sha256": "3a68b0e9ed3c45fac27d69f9a288408cf6893e6e337149f9c78641d725f7dbb4"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/picodet-s-wasm.json.gz": {
+      "bytes": 278238,
+      "sha256": "4c3bca9a71f8a57a07801fce2eea34e63766a6ea1eec623f008ba1ab32eb7762"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/picodet-s-webgpu.json.gz": {
+      "bytes": 278942,
+      "sha256": "a7ba45d84162683ce6509e8bfddeb2ba4d425cce587ce4347e7d01b95328c861"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/picodet-xs-wasm.json.gz": {
+      "bytes": 278914,
+      "sha256": "63c56565e51a675bd7e65d07a404ac582145098a4c07c3794481fc914f56dce5"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/picodet-xs-webgpu.json.gz": {
+      "bytes": 279260,
+      "sha256": "e603b92f3fba0d1be07b077e29d1e57f42dbac18c4ca65a59d3e39b926a54d7d"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-wasm.json.gz": {
+      "bytes": 193466,
+      "sha256": "38dd2c12d9f80e874b789275aa410bdbe57e15a1b95f2d88a55500d58714fa8c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-webgpu.json.gz": {
+      "bytes": 193889,
+      "sha256": "946e58fd091035034bef708e50d08e1c56cc7258c91074705c5e3ee1c97d6e2c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/picodet-s-wasm.json.gz": {
+      "bytes": 278235,
+      "sha256": "31aa9743865b5c17842fd9e1d99c9f8ed5e55129b1a5cc084f7a39ab1037d2c7"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/picodet-s-webgpu.json.gz": {
+      "bytes": 278974,
+      "sha256": "4fb925a2471e1f8f486d2a01d82eac3f02af91cf1e4f7298b0c46be5b4c5a2ba"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/picodet-xs-wasm.json.gz": {
+      "bytes": 278973,
+      "sha256": "31d7cdcce33c06a9624e21524d8b9d0049c146393a6bf0a020ba4ac101d87ec2"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/picodet-xs-webgpu.json.gz": {
+      "bytes": 279313,
+      "sha256": "9d7e8ac153c26b512648ea2853f4e295ca065524692fb99b84051a1adc110891"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-wasm.json.gz": {
+      "bytes": 193464,
+      "sha256": "1f2d736f0b0d06ed1c9b2b8142f2461c9e17cc929e9c457991e55e0988989555"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-webgpu.json.gz": {
+      "bytes": 193877,
+      "sha256": "e7588c57ffb76ab88702a718b7daa1e490657be8b1fb6a171b137dab37d36e84"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/evidence-index.json": {
+      "bytes": 8635,
+      "sha256": "a186533021ef8f4148b1857c7ed7b27aa2fc2f9df1e76560c9b51444d0b66f5e"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/preparation.json": {
+      "bytes": 934,
+      "sha256": "1545a4747cce5cdda3be421f7fb48ea72fa0c3457066a920a194e13d19dcb653"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/raw-inspection.json": {
+      "bytes": 2043,
+      "sha256": "e5064c8aa4a3b7922857f63eabc4126216243bd32e716ccbfcbd6cd17e7b717b"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/README.md": {
+      "bytes": 7317,
+      "sha256": "69a072b4ba278395bfcf9540f470e26d0a0e7c03fc2ca75ac41283723756aaf9"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/browser.mjs": {
+      "bytes": 2472,
+      "sha256": "3a3d06518c1f0b80f1c6c095bc54ffd0fdd817edf30bfc95b34e97a1753c6880"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/capture_inputs.mjs": {
+      "bytes": 6149,
+      "sha256": "767212b6ad170123a9a54b7e3f85850ea9534839b86dcb5f93052bfef7134b5b"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/export_tiny.py": {
+      "bytes": 2168,
+      "sha256": "158d8d7452e9ba408acb2230ebdd7c40878a070564708a11ca91593497cbc436"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/inspect_raw.py": {
+      "bytes": 2693,
+      "sha256": "9add593ba05329ca303ea4d3f1511b7f6cf848af2cf3531759e2fb8e9e7970f5"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/lifecycle.mjs": {
+      "bytes": 7334,
+      "sha256": "758a9b2f35517123181167fc2a6aab16803e9a3656d8ed4e31f84016a720f6a1"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/prepare_sources.py": {
+      "bytes": 4652,
+      "sha256": "0aec4638dd8ef4cb130f756f463783e547e426faa6e6a2bd5993c3caffdcf443"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/prepare_tiny.py": {
+      "bytes": 5237,
+      "sha256": "719ad6d36cb0cad69bbb58f88043b047b2c4cddc668530bc04ecd0cdaa1a3f1c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/README.md": {
+      "bytes": 7341,
+      "sha256": "78d3be4b43baedd0e52ff705a3d85f7e4e5fd67796ecfcd5d314976079675618"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/reference_captured.py": {
+      "bytes": 3856,
+      "sha256": "f8fd2f19b512c824dc75d9ea8d441a26891e26b60735d2e2a8d81237f7cf42c4"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/reference_tiny.py": {
+      "bytes": 6178,
+      "sha256": "3f257ce06c9c7e414a268d8412d7c1ef4e462d97e3841589074a86801de7de21"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/reproduction/summarize.py": {
+      "bytes": 10481,
+      "sha256": "9139bb545f63510ce950172bebaa2e05e69348f2324de988e2f9815085c1ca9c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/sources.lock.json": {
+      "bytes": 11765,
+      "sha256": "0c96c7eeb5216692ab861b86fd2c84cd6c926d7e18dd9f4db4513d9275d3a36d"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/summary.json": {
+      "bytes": 14456,
+      "sha256": "862d2febd4cac6c7e6e284093c6f7a55938de81ecbabb30c2564bfaa56ebb806"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/datasets/coco_detection.yml.gz": {
+      "bytes": 280,
+      "sha256": "00a8cd42989d36e103abf9ccb0a272df32814c0f2eef9a526ab34ded463f78d6"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/datasets/voc.yml.gz": {
+      "bytes": 210,
+      "sha256": "7381958228951d52ab3221ff885714656d386ccd7b207e6859120b92cfbe553d"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/fcos/_base_/fcos_r50_fpn.yml.gz": {
+      "bytes": 518,
+      "sha256": "b04952555dda748974e1e12d620bbb9255e826b439cee088a9de29fe2e51e75e"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/fcos/_base_/fcos_reader.yml.gz": {
+      "bytes": 398,
+      "sha256": "3a221a01c4056e088d15b9db6cbb3d97f58a329df076cee91ad154d85131247a"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/fcos/_base_/optimizer_1x.yml.gz": {
+      "bytes": 210,
+      "sha256": "7a194514bca6871227ac5e9904c92df4254424bf44d3a0c22ff712bdc706e6dd"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/fcos/fcos_r50_fpn_1x_coco.yml.gz": {
+      "bytes": 151,
+      "sha256": "97be40713923bb02be8466cb60119cc90222c78cab511220ae0d3ee6cba2436e"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/fcos/README.md.gz": {
+      "bytes": 1179,
+      "sha256": "ceb253378dcd372d0585631417f9b1fee5c39a4c75fdc9d2b716057e6994ac17"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ppyolo/_base_/optimizer_650e.yml.gz": {
+      "bytes": 213,
+      "sha256": "a19a907c1df4a620e122fc6924e548a7e424880e01fadc3c1887346cda1bf997"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ppyolo/_base_/ppyolo_tiny.yml.gz": {
+      "bytes": 625,
+      "sha256": "ae10b75a3304442246219eb819071f18e3dc2f353fb0fb4498b219f553ee5390"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ppyolo/_base_/ppyolo_tiny_reader.yml.gz": {
+      "bytes": 592,
+      "sha256": "71d4cc4f5fe64ba2c6f4152b6f95534100b4a45ee7a04604116f66323d29a01a"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ppyolo/ppyolo_tiny_650e_coco.yml.gz": {
+      "bytes": 165,
+      "sha256": "ba012e941b5c512b6b9984e057a23e4f9cc3d61118a28799010e35aa44b10472"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ppyolo/README.md.gz": {
+      "bytes": 4669,
+      "sha256": "53471bd20811e40e91d07a28bb5f326f7e78e7302e32412093afc367b7231ac0"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/runtime.yml.gz": {
+      "bytes": 281,
+      "sha256": "30ee5ec6cd1b9ae86be108ae6dc53c8bf633299c46ca641fa450774febcec98d"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/optimizer_120e.yml.gz": {
+      "bytes": 213,
+      "sha256": "45aee29217c208674d0a7619436feb7f8805424f14d1c8f3568864d0eb6840d7"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/optimizer_1700e.yml.gz": {
+      "bytes": 193,
+      "sha256": "d7cd4f2dd84ceab988893700c0c693a6cb5608daefc903e5b9a3edaa4bb32a8f"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/ssd_mobilenet_reader.yml.gz": {
+      "bytes": 389,
+      "sha256": "b6aec9cf3c672d17ef127d53bc2988bad44043549cffa5c99571a396ef90467b"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/ssd_mobilenet_v1_300.yml.gz": {
+      "bytes": 528,
+      "sha256": "86e7258e59ad6d41794e46e0885ff32b90d09e8c425c62ca895719b8ada20688"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/ssdlite320_reader.yml.gz": {
+      "bytes": 410,
+      "sha256": "37d520908f76d4f5b9257f3d128efb34f0f1223058fb5f128d42939f86e6bd7d"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/_base_/ssdlite_mobilenet_v3_small_320.yml.gz": {
+      "bytes": 538,
+      "sha256": "3fcbde04c531dbf52831212b4088f9a89f5dd98183a727da3db0da205d5cad21"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/README.md.gz": {
+      "bytes": 706,
+      "sha256": "3c525a8d0816f450eeec910674e89697c89a2e746e45f02c1e34230bc27a0578"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/ssd_mobilenet_v1_300_120e_voc.yml.gz": {
+      "bytes": 253,
+      "sha256": "3d187e6211c4c9ac32e560eafb0fe6a48258d22dbe74b73d7e320d0623b4f8b4"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/configs/ssd/ssdlite_mobilenet_v3_small_320_coco.yml.gz": {
+      "bytes": 165,
+      "sha256": "92fa3941073dd4f2ecd8a1986cd525079719513fb87972f1162576b8700dba74"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/deploy/EXPORT_ONNX_MODEL.md.gz": {
+      "bytes": 1567,
+      "sha256": "fc423c263f859b593a185bfb2f7fdd6d68a3a66ca0702910e9f6e6f3b73137df"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/LICENSE.gz": {
+      "bytes": 3968,
+      "sha256": "5ccea50e3696adc0227aa71a6599986660913226deb94a2a32a285c9438b962c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/ppdet/modeling/architectures/yolo.py.gz": {
+      "bytes": 1826,
+      "sha256": "62524cc84e42a716e9d869f1d2309f79d94ede060c5f6e534006944fc9358064"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/ppdet/modeling/layers.py.gz": {
+      "bytes": 12005,
+      "sha256": "535aa7a7a9fcff59da24a0779dd43f6858f0c50b19517bb6a941fc927691e67b"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/ppdet/modeling/post_process.py.gz": {
+      "bytes": 9048,
+      "sha256": "dc0471a80201d62765cf9d7239f380274d2b472927a4eb73dd9393e037f5a81c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/upstream/tools/export_model.py.gz": {
+      "bytes": 1506,
+      "sha256": "ff99430b72aab508299609513ff34e8d0fc0ada229ddaf65321b7f21791bb344"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-benchmark-parity.log.gz": {
+      "bytes": 672,
+      "sha256": "b4903084a568e48341f74faa86adad508612e334377e0fa326c7175c5536d889"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-benchmark-test.log.gz": {
+      "bytes": 516,
+      "sha256": "8b2841b5a9f25e3ca824d969988bad65599b4c3c12c44c28b8b0890fb24ebbf3"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-build.log.gz": {
+      "bytes": 460,
+      "sha256": "fb6f936cfda9124adcc71b8763b0f77b33941578d21630aeae72539aa744016e"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-docs-test.log.gz": {
+      "bytes": 473,
+      "sha256": "7b90352cccc64bef492e88c1792b78969822879a3ec7448c1fe39d902dcb097f"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-evaluation-test.log.gz": {
+      "bytes": 486,
+      "sha256": "09180a538cf088d76a27e2a94afe8714c78a14a625d33de46749448742871344"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-examples-check.log.gz": {
+      "bytes": 374,
+      "sha256": "2b9513c86b59ad358e391c3874edab854276d18dcf8af005b2b82c76cadee029"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-lint.log.gz": {
+      "bytes": 130,
+      "sha256": "9be78d03aa055148ba74e88340a47190a0f33996d007a4b2d4f2cf59854cae05"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-release-test.log.gz": {
+      "bytes": 1463,
+      "sha256": "1f04b169a2d7be6449d511ce2fac11e29add266bf3d79ddfe0017b24948ff339"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-test.log.gz": {
+      "bytes": 401,
+      "sha256": "d025c56fbfc106dccf09203700117798987f2075cc7150c07a9a862683252f71"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/check-typecheck.log.gz": {
+      "bytes": 83,
+      "sha256": "1ddbcf6ecb0e1e8189ddc6e03fe7b316a7b2145d76b0537f719a52c4581ee4d4"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/format-tracked.log.gz": {
+      "bytes": 198,
+      "sha256": "a1503c9c2ed6786f77e56905a4517abae386e021545353cb2fb8407064b65edd"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/raw-diagnostic.json.gz": {
+      "bytes": 321,
+      "sha256": "8d1b1a1c7a225c00fee65070318ec287c942a5c73242e9074fd6df6e709ae995"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/recompute.log.gz": {
+      "bytes": 564,
+      "sha256": "3cc4de07412968b5372c27d8e39fc6bae81e4aee679a51a98e50eeebd4c33070"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/standard-after.json.gz": {
+      "bytes": 2545,
+      "sha256": "a70abc6f2273ff49971bb45bd8ce695e255c6b11b69a1a0869d5aa94987929dc"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/standard-before.json.gz": {
+      "bytes": 2545,
+      "sha256": "a70abc6f2273ff49971bb45bd8ce695e255c6b11b69a1a0869d5aa94987929dc"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation/verify.log.gz": {
+      "bytes": 329,
+      "sha256": "df76aaf22ecb2a8a1275c493345335717aad63ecbfe8fd484dbba2131090665c"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/validation.json": {
+      "bytes": 7060,
+      "sha256": "c64d0374e8e0be010996f96ed600f8ff8608b88692b234af63899b27bc7de792"
+    },
+    "reports/evaluation/2026-09-15-2d-candidates/weight-heads.json": {
+      "bytes": 690,
+      "sha256": "b9d01167b59ac799a184cf6fd40b6e15303f16e466e4582dd766999dc0950466"
+    },
+    "tools/model-pipeline/evaluation/__init__.py": {
+      "bytes": 183,
+      "sha256": "e39e4e6a4db0343c71bab1393538fddca7278bd2d29711fc1e7a18b4d0c6f64e"
+    },
+    "tools/model-pipeline/evaluation/cli.py": {
+      "bytes": 1824,
+      "sha256": "48361686bfba27aca6fbb484a1c40a21f821f7fe93087c30ac7ff61d73f38e25"
+    },
+    "tools/model-pipeline/evaluation/coco.py": {
+      "bytes": 7873,
+      "sha256": "915c8fd351a17272f4f08fd8e350761e1b580d43cf815df2f875b1aed5eb9903"
+    },
+    "tools/model-pipeline/evaluation/matching.py": {
+      "bytes": 7246,
+      "sha256": "57fe0960c56ed718ffc7b1310b3ffcde2a247b6a9f4bbcf427a3adda8ac565a9"
+    },
+    "tools/model-pipeline/evaluation/prepare_subset.py": {
+      "bytes": 7484,
+      "sha256": "292f47a691521c86b0eb6bf9c67dfc4a77d6b3092f346671417fdae316eff866"
+    }
   },
-  "qualitySha256": "862d2febd4cac6c7e6e284093c6f7a55938de81ecbabb30c2564bfaa56ebb806",
-  "parameterCount": 1086147,
-  "parameterCountMethod": "Paddle trainable shape 张量，排除 ._mean/._variance 状态"
+  "inputs": {
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000270244.jpg": {
+      "bytes": 205919,
+      "sha256": "0d451a8b013beb0d9ca425aa5f9d9984ff48267cd5cc1d57786701e342fbec78"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000438862.jpg": {
+      "bytes": 248595,
+      "sha256": "3689831ed23f734ebab9405f48ffbfbbefb778e9de3101a9d56e421ea45288cf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000212166.jpg": {
+      "bytes": 150443,
+      "sha256": "0dede49a6e46d23e1ddf122a8040e537cc0c3477021091424bc6f96f84cac30f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000486479.jpg": {
+      "bytes": 119526,
+      "sha256": "9f3bf68815b9d35646131e84d97ed6d20fd9de4d343cded54a8f726e4c167de7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000439854.jpg": {
+      "bytes": 74522,
+      "sha256": "d6e7d64034450928727ac679856ac954dd617129144f713e29beb0cf619b5e16"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000227478.jpg": {
+      "bytes": 197589,
+      "sha256": "f33a398b80d99a15d4608148d0dd3258bc592df878eca25e81ba726605e35158"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000250282.jpg": {
+      "bytes": 109938,
+      "sha256": "1c6e13427eb53f4c0faeb97a39dfabf28895f8c099a6f617df695674f161e42b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000235836.jpg": {
+      "bytes": 320377,
+      "sha256": "2a2269de29e82e4eac88dc306453c3840961ca79626d52f7c700b8c998284801"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000497599.jpg": {
+      "bytes": 159995,
+      "sha256": "4bde154898740c69f124650678a4476fdcd29a6095cdb8d467c614c49d40407c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000010977.jpg": {
+      "bytes": 54901,
+      "sha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000026690.jpg": {
+      "bytes": 174305,
+      "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000284698.jpg": {
+      "bytes": 112128,
+      "sha256": "ec1b02bdd97c3f384d9f9de71d38212504c9ad64ba6440ba70e9f1c662b07c45"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000166563.jpg": {
+      "bytes": 101772,
+      "sha256": "c8478b6b153105a252bd65c4c415da6c1f37f249e304cc6232d9b66c501e6d49"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000105264.jpg": {
+      "bytes": 97606,
+      "sha256": "b50b07e5e896fcbca93bc91392a327bb7800ae9322b7331f577f41889fa01cf8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000479099.jpg": {
+      "bytes": 391541,
+      "sha256": "5c237332390d380fdc0ca82d0fb0fec54f59ed3bb6100517119a8fd9edfd53e7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000541123.jpg": {
+      "bytes": 243248,
+      "sha256": "1806e9f95eab844099d6f07e24958c3411a8085969d3f1297bf5e29e10a2a7e8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000287874.jpg": {
+      "bytes": 215410,
+      "sha256": "0cc4df971844484c680888590fe5498676d7c69411405ee99d40a2188c21ea7e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000492992.jpg": {
+      "bytes": 129330,
+      "sha256": "bcfcd4c5d5bfe054720bb8a979fe099a2b04fd42b9cc44d00a2691c3a184465f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000483999.jpg": {
+      "bytes": 173239,
+      "sha256": "f962e1a9fc03577dbf716dfbf96f8e9b519807b59d5e25ae4718667f753daea4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000236592.jpg": {
+      "bytes": 97379,
+      "sha256": "57c0d2e822895cc40b3ef2949b29f33622662ce386d62f0da8bdf61cabd3bb30"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000368212.jpg": {
+      "bytes": 213670,
+      "sha256": "3f39f80efab771fb3810973df268b456634fd3495c26778e278968753cd20ecf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000341828.jpg": {
+      "bytes": 139497,
+      "sha256": "c287d4d6d8fd2b891c933dae96cd7489c160bcfad5417f3ccddf4c771cacbb33"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000459195.jpg": {
+      "bytes": 188499,
+      "sha256": "15a0f308fd7628a8ad89347c7b98c2326569920228c8b2bd1a6240d9f9f3b250"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000376900.jpg": {
+      "bytes": 202566,
+      "sha256": "09359564291303089b691418a019548a7a795d7e577d9c7682199128bcdab251"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000173091.jpg": {
+      "bytes": 122371,
+      "sha256": "5bdb8ddfed0c5373619499698e9b5a4f1a1b9a151d6df7fcd49797e09533309c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000060823.jpg": {
+      "bytes": 269927,
+      "sha256": "14c5d41fd1b2673c7d2697ead475b106d65dd9ae3ff6d089cf7b35a99e76fc26"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000256868.jpg": {
+      "bytes": 142615,
+      "sha256": "ab716aabb5a40999712cd54718432222846c96c1d97729566e8c05ec4bff9e0b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000386879.jpg": {
+      "bytes": 160341,
+      "sha256": "163a945478cd35cf95e40f35b0bdbbfb74c171af494a393c67adaecbd072486a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000546219.jpg": {
+      "bytes": 220256,
+      "sha256": "209d0fc903230a816f60e2279594d263ae62ff6d3219b961c877ea369926941a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000228436.jpg": {
+      "bytes": 281110,
+      "sha256": "6d819938ee8cee9e1db68e26d24d668aa8f4b1365b1ad2c7d072a7435cfa9778"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000125072.jpg": {
+      "bytes": 110150,
+      "sha256": "0d109c18c8dc0c44d759ec72dfa69a12e000ddd4261ffadfaf33b3bd92adf2de"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000458325.jpg": {
+      "bytes": 290741,
+      "sha256": "cc9d8a2d6fdd06220bb2e63d0e41b13cddd7a83758c74b2aa0161e56c8aa18a9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000208423.jpg": {
+      "bytes": 70306,
+      "sha256": "8d9c134ecfb0e96cc02d5b78120aa9e11286217ac7e1fef4c8afbd4a3a7d3070"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000119516.jpg": {
+      "bytes": 114089,
+      "sha256": "ee4d278eecc42f9c6830e030207fbabe888aebb36c58681f034f27081594d8c9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000269866.jpg": {
+      "bytes": 135458,
+      "sha256": "8ed86217a895bb5484ccf37bc50af39b67ba1fa68220003c86515199a291d321"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000527960.jpg": {
+      "bytes": 204363,
+      "sha256": "8be06a8ebb4f0b7626a8315f158d65bf862e6817ad4a191b80edc5d662f98249"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000570456.jpg": {
+      "bytes": 156296,
+      "sha256": "fabe7272f19d1b61303802b7d8183d018a88a9129d1cb028613fdeb7aa050639"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000134322.jpg": {
+      "bytes": 113978,
+      "sha256": "33141512239a36606c04cb1ce97b30787ba3bf050f45a213e7787c4581a3ad6f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000481386.jpg": {
+      "bytes": 264715,
+      "sha256": "f218e3c3a63a1600ad6b696d35f324bf78b0f787459d10793e39b420f80cad27"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000376093.jpg": {
+      "bytes": 238962,
+      "sha256": "fa66e91ef2d1370f2ddaf69fb3f41383dbd79f970b0382f21b3c336f1d1c8e3b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000529568.jpg": {
+      "bytes": 216281,
+      "sha256": "2c97efcc385141e55c77afcf239cf59639637e9155cacf5ac870c87d2a6de42e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000276720.jpg": {
+      "bytes": 136928,
+      "sha256": "9dcd1f0112ea7eb4d389150b940d0d4c0c9738703ad9af443b267f05228b87b5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000129756.jpg": {
+      "bytes": 334431,
+      "sha256": "46c0e8721b27741971feadc7eb37aa3d710e50294a3b27dbe8b522e3eab3295f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000472623.jpg": {
+      "bytes": 149417,
+      "sha256": "3b1a4b3e7a06e2f67ff42f2821f089e5038d53d9a06de390a23f65652af85d6d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000276024.jpg": {
+      "bytes": 229216,
+      "sha256": "b07d707d132181c971b53e0c097a0bd985f020547bbb9dff0f5bfbbea1809f5d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000269942.jpg": {
+      "bytes": 99317,
+      "sha256": "b0185e227082a1aa4406912643dcd320ae48e6713ab2bdeae35566f1597a9e31"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000493334.jpg": {
+      "bytes": 102665,
+      "sha256": "06be922134b4177ddea7373a1c92c3236d12e290a9b43c9dfbc018c36fa235f6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000318455.jpg": {
+      "bytes": 178337,
+      "sha256": "d4524c09516bff37126a7cc7fab0bfb6f81d96ab16d6d211979d2699513d64a5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000200152.jpg": {
+      "bytes": 80967,
+      "sha256": "bd2c91c0773fb7d4dbf3b9cf4d155d6d77ed4e343acdda1263cb92d45d8375f8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000511398.jpg": {
+      "bytes": 273008,
+      "sha256": "7948bc967ac3b7526ce99e970eae3e87832cace645299565ef5da3d8b20d96b4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000352760.jpg": {
+      "bytes": 146347,
+      "sha256": "e8e628840f8275433d429abede2e426da7092545c692d418a12cf58e4fa2ee4d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000027186.jpg": {
+      "bytes": 68538,
+      "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000204871.jpg": {
+      "bytes": 152642,
+      "sha256": "f471e48c808ea689a1e3a4a1214bc03e81a95195146b0c42601dbd6eaa006c89"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000426372.jpg": {
+      "bytes": 201318,
+      "sha256": "2008ffc31ea397b00e132ab370a273a61ac65d00d7ad76789fb43ef404f88ca5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000209142.jpg": {
+      "bytes": 202143,
+      "sha256": "faaa39e1fa18df9268a45821d7f6a2608b026df2df4ead67746c3a3faf7dfa8d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000203629.jpg": {
+      "bytes": 98894,
+      "sha256": "39ca3711f193e0c662ac3f1474f51959a2a8ed59de4663cd3afd2e696651b850"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000027932.jpg": {
+      "bytes": 75978,
+      "sha256": "9ab6d8c5a124427d77add9827dc6ad58ce94efb003c34e5e20699acd82f43731"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000360951.jpg": {
+      "bytes": 251494,
+      "sha256": "27d49fbfe39cbd55cf9af5bea2b1a0aba997ab6acc465d2beb0d118e82a57321"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000543300.jpg": {
+      "bytes": 184016,
+      "sha256": "72bcd0502e2cce873aa3acc1524f314b242550b5362c57edf178966abd400c7c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000562818.jpg": {
+      "bytes": 119383,
+      "sha256": "a5b154b5d98591146404e3a3693890107c046485ba746f2bc3c4ec7beb2241a4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000356094.jpg": {
+      "bytes": 133523,
+      "sha256": "8395d0b485c3a2c218178bb7190a8030a2db742f363539a914c892d1617584da"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000377497.jpg": {
+      "bytes": 82212,
+      "sha256": "8d4170dea501b2865a5955e020045fbe184da8025d6cef2e72d1bd9c7cdbdcac"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000238410.jpg": {
+      "bytes": 168411,
+      "sha256": "980b3adbde3e49f6cc92f0611ea9ef8dde633715a7d9041bafa8048fb61c24de"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\dataset\\images\\000000119641.jpg": {
+      "bytes": 160364,
+      "sha256": "4c194846e3c0bbac0667517f786ecfa4677d6687791a2a1123ecf72840370464"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\LICENSE": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\datasets\\coco_detection.yml": {
+      "bytes": 585,
+      "sha256": "d928cce669f165ea1fb5f5b11d01ec7249d93903460f90494ecec98c63589dc9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\datasets\\voc.yml": {
+      "bytes": 469,
+      "sha256": "d9b3c95d9da9cbd91735c67c887205d5877af495093c8c30f7b7b24f6936eee4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\fcos\\README.md": {
+      "bytes": 2696,
+      "sha256": "b3e432681896432b159fc09cbbc6a8b6a4fa18bef714fbaa2d2e16c5a2ab84c9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\fcos\\_base_\\fcos_r50_fpn.yml": {
+      "bytes": 916,
+      "sha256": "be0e6250e820af9effffbde61646f591a9ffdbda312ea9412fac79a11dcab2a2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\fcos\\_base_\\fcos_reader.yml": {
+      "bytes": 1189,
+      "sha256": "51b574b283624c442dbced95e875327d9f24ebfcdc3a33c752c722d3f1c223a1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\fcos\\_base_\\optimizer_1x.yml": {
+      "bytes": 300,
+      "sha256": "4e7da7c28a149e6217b9ef3d9b5c4d39da09816e73bac65749cd999223f86c0b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\fcos\\fcos_r50_fpn_1x_coco.yml": {
+      "bytes": 204,
+      "sha256": "c199fc25afc87f55cca1ab96e560e5df3b8794564911c260b8a3995ab97a5c33"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ppyolo\\README.md": {
+      "bytes": 21120,
+      "sha256": "398376dc7d5b91e6d27e4c8872e77791acfa438f7655085014e221c3d011dae8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ppyolo\\_base_\\optimizer_650e.yml": {
+      "bytes": 309,
+      "sha256": "1bcd12ce9f654d640b4ee6ae2d41e28515db904c2621432e6e115c4032246b05"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ppyolo\\_base_\\ppyolo_tiny.yml": {
+      "bytes": 1152,
+      "sha256": "6ee2059f5ab69e0c7ae5d0fc50160ce44009e16c090f1c630a46c310eb9af859"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ppyolo\\_base_\\ppyolo_tiny_reader.yml": {
+      "bytes": 1491,
+      "sha256": "095c50804613dbb08d3fcbce6590ca489b375dc991bf5703be9715ac2719bc5f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ppyolo\\ppyolo_tiny_650e_coco.yml": {
+      "bytes": 237,
+      "sha256": "673c77621e7c071aac2c4aa5608561df832314a7ea8dc92dc496cb1f70b9c4c4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\runtime.yml": {
+      "bytes": 513,
+      "sha256": "c1223b0c56fda9af34904e8f406cfea6e6e58179349ac66937ef248e9d2af76e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\README.md": {
+      "bytes": 1426,
+      "sha256": "bf35bfb16da28f894b0221ccc3731f5b5015f8f933bdf1a983a6d592ab7042d4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\optimizer_120e.yml": {
+      "bytes": 281,
+      "sha256": "3e4be0c778c305b8994e08e19b4385ab4756d53ab78a5df47c8221db9384f9f5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\optimizer_1700e.yml": {
+      "bytes": 281,
+      "sha256": "e2f562daf4f7470e8ba7d1a0c8d1cc2743e59eb0fc1d71b99eed589eddcd38cc"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\ssd_mobilenet_reader.yml": {
+      "bytes": 1204,
+      "sha256": "1c536c4d6c775c6d30be0270ada2f6aa34024e15080372d98a5edff49e8c2fbc"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\ssd_mobilenet_v1_300.yml": {
+      "bytes": 997,
+      "sha256": "0eabede1b7018786806e2b5da14f3b90a05a5a0096640e3b3acb717301cb32f2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\ssdlite320_reader.yml": {
+      "bytes": 1160,
+      "sha256": "dd0cbf80b040e8de88486fa5fdb37510acc872268368334d209239a88f42d94c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\_base_\\ssdlite_mobilenet_v3_small_320.yml": {
+      "bytes": 1031,
+      "sha256": "0e7c4be46afa4128fe40fd42ec3f7b2ec5745bdbadeb51fd966cc58378b6ccbb"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\ssd_mobilenet_v1_300_120e_voc.yml": {
+      "bytes": 411,
+      "sha256": "1c8c78489dadbfc3a2e2910c9b9dd18dfaf0017e3e754e700c4c312f0def620f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\configs\\ssd\\ssdlite_mobilenet_v3_small_320_coco.yml": {
+      "bytes": 245,
+      "sha256": "e228740d83f01c76b5daa21353ba4df3eb7e6e92796b4ec0fea5e218612a7910"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\deploy\\EXPORT_ONNX_MODEL.md": {
+      "bytes": 4792,
+      "sha256": "c77261eaca4f6b9f8ae622c1fb44f036939ef5abb243e254fae3c562e594413d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\yolo.py": {
+      "bytes": 5811,
+      "sha256": "b0d725dd31712096caf701550085f396b912c6ac798d0cde74cfd5b748e34c8d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\layers.py": {
+      "bytes": 51381,
+      "sha256": "85f22c20dbc33a7c666ced3985b7049a446b3349152c0825ab8e353f1a6751c1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\post_process.py": {
+      "bytes": 40559,
+      "sha256": "cefaf611604fd9426c03c802c9be1d057237abf9c74ace16b6493933a455e328"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\tools\\export_model.py": {
+      "bytes": 3866,
+      "sha256": "5fc498e6e5d67019092fa50479c35ba1f072729e6b3bd5c7319e494ffc33d7c7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\__init__.py": {
+      "bytes": 1039,
+      "sha256": "e320d6c0fc4e4794906838cbe7bdc335154407f3f43fed26dda4b48654b32184"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\core\\__init__.py": {
+      "bytes": 634,
+      "sha256": "ef4646aa39dca6c003d1e64d35a646bd0e49b8e6212e9450e0d6fa0b008438bf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\core\\config\\__init__.py": {
+      "bytes": 610,
+      "sha256": "5a0df9248353c020ab5ed83e8f2bd499e9b515361260ae5a5eb85646efa70136"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\core\\config\\schema.py": {
+      "bytes": 8066,
+      "sha256": "53b3205c823c8b0bc1f4d01d2bbd2b49e95d3ec5f8fa533c8e6b4d9470f7f24d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\core\\config\\yaml_helpers.py": {
+      "bytes": 3571,
+      "sha256": "b32bf71ab0f98563a5638413ec4551acf4b1bb8c9fbb0b458da63fd3e3b5981b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\core\\workspace.py": {
+      "bytes": 9425,
+      "sha256": "2277bd0cb76a5bbdb12e7a0780f9e92a348d0a45d2657e043b89f218963ebb42"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\__init__.py": {
+      "bytes": 778,
+      "sha256": "0686ab8e4738e58824c1d37ea0b345eb8ad38825935cd5c26f38a60e72605666"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\crop_utils\\__init__.py": {
+      "bytes": 609,
+      "sha256": "9e40a044d85a04a752ad7c1121059a80298e0a817c42bd107cdc62529b8fe109"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\crop_utils\\annotation_cropper.py": {
+      "bytes": 23614,
+      "sha256": "46614f671f24ae99c47c247bf3c6d3190a9cd33044a37a0cfc077edb5afc6c20"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\crop_utils\\chip_box_utils.py": {
+      "bytes": 5376,
+      "sha256": "27ac97b80e845661c9456a287a5eaabf5ec3b5388f653e788074be79496e3a8a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\culane_utils.py": {
+      "bytes": 4408,
+      "sha256": "10137e90898c536d69dc682d67eb01de3ffe62b23603d91323dcc5f8e23c8417"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\reader.py": {
+      "bytes": 22950,
+      "sha256": "846b0e47093d8cd78436a6bd9a0bea970cc9d3c359d28477f5530fa9a7457fab"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\shm_utils.py": {
+      "bytes": 2510,
+      "sha256": "7cfef30ec59f960873b2693a476467646dbd810dd2f93ed1033338e18a845a26"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\__init__.py": {
+      "bytes": 1049,
+      "sha256": "ea4d851e47ee9e24646e6438f04e5ce5c6db919dc2e969c0c124f6dd9b960b1e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\category.py": {
+      "bytes": 24469,
+      "sha256": "d011fd3063d74ef91b497ad62e05e05a7779f6327fed32dbdc61c3fed5a89bef"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\coco.py": {
+      "bytes": 25009,
+      "sha256": "c561eed96232a6709ce7e62876c3d003b846a097b9c1703d905a6aa86010091b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\culane.py": {
+      "bytes": 7509,
+      "sha256": "930f5c2648c6d513803f56edc3cf34f87972b9e41638c1acbc117175ee4677ed"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\dataset.py": {
+      "bytes": 11505,
+      "sha256": "98794e7683b79a1fc02ddd649c417a57942e6c2b36e4a99080d7a6c4ae664500"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\keypoint_coco.py": {
+      "bytes": 28387,
+      "sha256": "068a9fec461d626af92e91f2626678bf620d7105d88dc1f22b58eae3b8d6c432"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\mot.py": {
+      "bytes": 24394,
+      "sha256": "e1332245ed521ea643a6f8cb11a3e6553ee479ef2c8b9cd35c9d17a064c427eb"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\pose3d_cmb.py": {
+      "bytes": 14075,
+      "sha256": "613453c56484448ba11ac38046c5c0ade75811247bcb07b542f2372ffc303b94"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\sniper_coco.py": {
+      "bytes": 6837,
+      "sha256": "22d01d7894ecd0c0622d55be5f4611005a3d8141a8beec782d93417105f93bf1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\voc.py": {
+      "bytes": 8789,
+      "sha256": "184067944e4d9f7b9f9801664a4f9963afe697d07bf882cf6b90d2d4701206d0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\source\\widerface.py": {
+      "bytes": 10453,
+      "sha256": "15ac52edfe91d6a24503e935a117b107b85ba191f0b74836707a17574b2ebca1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\__init__.py": {
+      "bytes": 1196,
+      "sha256": "b8d01d500947ef25a4c9b9d3225c28190bc4a235300554d562e5b825b855c3d9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\atss_assigner.py": {
+      "bytes": 18314,
+      "sha256": "001a8a438c026762a39997b7de8cff073fd6e508eeee399667c1896eb0c77c89"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\autoaugment_utils.py": {
+      "bytes": 65622,
+      "sha256": "534c752944834b963dfde246a0c4dacf9d8b271ee3a8f36fedbc712c03104bc4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\batch_operators.py": {
+      "bytes": 68623,
+      "sha256": "286015c9fca629ac9fdf3d6cba3e77680ad5fb75f2592d1e5dc670c5af97d3be"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\culane_operators.py": {
+      "bytes": 12169,
+      "sha256": "a7ab3a2a3e6e05a1c86a752db1402777274d6b12bfcfaf5083cbf50ade814697"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\gridmask_utils.py": {
+      "bytes": 2903,
+      "sha256": "6eb41af8f84f80048f430a2b034a5a298463cf0aea9e5eb6dd9618f6a3061e39"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\keypoint_operators.py": {
+      "bytes": 66140,
+      "sha256": "a8de20814ed518de22bd5668832b408f9250b818b8c1fa9d3272c94f2be44c81"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\keypoints_3d_operators.py": {
+      "bytes": 10381,
+      "sha256": "75cb44256550e4a090a8a9f2e0f650ff7e1e90afcb0a3e859d7f75babfe4e9b9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\mot_operators.py": {
+      "bytes": 25831,
+      "sha256": "6fc660faccc3cece788e6f06407c4cb39ef43a866a348979b9b5b0bc7f02d32d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\op_helper.py": {
+      "bytes": 17228,
+      "sha256": "8a5a2a7192c174fcf8b31e4d22b7bac657e615bf92db5d8820e3d838df0c6f0b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\operators.py": {
+      "bytes": 198607,
+      "sha256": "b5a298403f1e683011c0953823176d2eccdb4e56708117e0439a0649f6ba450f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\transform\\rotated_operators.py": {
+      "bytes": 17452,
+      "sha256": "065615e54cea1d48aac9de7e79075340e0b5e712da18177ca39a3acfcb37fbc8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\data\\utils.py": {
+      "bytes": 2835,
+      "sha256": "598fc0eb317cabc31f5bd04218b616af35e726ab932bf46f399554351f5c4a4a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\__init__.py": {
+      "bytes": 1089,
+      "sha256": "a1893b47028b880ca8ac697ed21b8f2db9fe7f4dd892a5d067b07e75f87432aa"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\callbacks.py": {
+      "bytes": 32253,
+      "sha256": "5e810f29b0e9f7b8ed9755b5c21fffbc28cafdf150cdfd92881122ae0917db4a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\env.py": {
+      "bytes": 1558,
+      "sha256": "025d47f62a64407f4b5a40d99ffa4bc29c58fce8c1880ad94aa030b7804e74f7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\export_utils.py": {
+      "bytes": 18827,
+      "sha256": "b58a63dc0aa35889418e812b85b945466f212deb4eefd0ae5c119013de48131c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\naive_sync_bn.py": {
+      "bytes": 3843,
+      "sha256": "5bda2a2e6c48b1d214fd92ee33c20a3bbb90da35ffd71f3ae631b309f5411291"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\tracker.py": {
+      "bytes": 30544,
+      "sha256": "b3f08c0bd07a591319b93c2a8f1cfea15344cbf2b1b98e6a8373cfb649be3f5b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\trainer.py": {
+      "bytes": 72205,
+      "sha256": "d665245539c18043c5d209970230e61483f7c47ff1772c20d903a30c84006a38"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\trainer_cot.py": {
+      "bytes": 1432,
+      "sha256": "ca5a747f96fc9a0b8fc4759595aff63f25f5f601bd7d8abec3125bde618a6753"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\engine\\trainer_ssod.py": {
+      "bytes": 51626,
+      "sha256": "9021c71f8d61d496de7077e344988a6260cf779ac7e4e036029b38e7c2a10fa3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\ext_op\\setup.py": {
+      "bytes": 987,
+      "sha256": "c87026261507c595916814fc78454d18418b0ca574ce38bf8d7c399b7df21e77"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\ext_op\\unittest\\test_matched_rbox_iou.py": {
+      "bytes": 4314,
+      "sha256": "09505f5abd9142e284aa2df8266fb58885a58279210e0c9de776b8546e42cd59"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\ext_op\\unittest\\test_rbox_iou.py": {
+      "bytes": 4406,
+      "sha256": "c5cf78b0ebebdcf5cbdbc75d33dd2b010c6bf41f3e13e9758179371d3ccf20b4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\__init__.py": {
+      "bytes": 1124,
+      "sha256": "4da1bea1003552f168c7d4fdf4c295a63f6091c710d829ba7188478d6e7a1a53"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\coco_utils.py": {
+      "bytes": 7586,
+      "sha256": "fef2aaed01d02b27b4a537d1bb35f3e2e98291624a78b5efa0fe05dcbf8122be"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\culane_metrics.py": {
+      "bytes": 10973,
+      "sha256": "f3bb450c33deac69a57eda4c1a975d29c68540cb81625470a1287b41340390ab"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\fast_cocoeval\\__init__.py": {
+      "bytes": 668,
+      "sha256": "73a216acb330b5996e00a4292762f3c0ff1401a6d327fab2052449e01bdf9c23"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\fast_cocoeval\\ext\\setup.py": {
+      "bytes": 285,
+      "sha256": "c61cad45855373a8df34a1ea825fea78d6e13fd238670a749e03109ae6edef46"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\fast_cocoeval\\fast_cocoeval.py": {
+      "bytes": 5856,
+      "sha256": "f2f1c7e74f7359fdf0f53c35e97d4e0253322b9b7dc2e9a009982e6f642d01e9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\json_results.py": {
+      "bytes": 8216,
+      "sha256": "b00ecd7bf6bfd9b49c9ded0d661a24f0a573fb37c7e2d6c302149183ccbd2fde"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\keypoint_metrics.py": {
+      "bytes": 21141,
+      "sha256": "ae4fd5701a3ae8bf6cae02423554a315fee85f4264b111d4e346e0ad65f477a2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\map_utils.py": {
+      "bytes": 15486,
+      "sha256": "399b96df3f736014b71b18250bbd8ece3825efddfce90bf7e9fb095ca9a14e7f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\mcmot_metrics.py": {
+      "bytes": 16391,
+      "sha256": "4444ee0f8ed0641e1d26647be3e6e581d5495a5c27d5cf60b8a40d5a491d8109"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\metrics.py": {
+      "bytes": 26477,
+      "sha256": "0e19022b1d251dde6c7b9533450dc27c33059359845023701caa2155055a7384"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\mot_metrics.py": {
+      "bytes": 52006,
+      "sha256": "d4f2acdabdec29f63138e5f9052526e84fb18b981b574ebb9dd39fdc9c03cf58"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\munkres.py": {
+      "bytes": 13416,
+      "sha256": "4b5758f9e37b04c6a9edfa3decc46a237b672e71793ca9771f220d3296316bfe"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\pose3d_metrics.py": {
+      "bytes": 6508,
+      "sha256": "25c94b2d6ff295e8f6128e7787425f26d391a8939e66306130afd66f764aecb6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\metrics\\widerface_utils.py": {
+      "bytes": 17667,
+      "sha256": "7d357a60a618b41d3cbc14f68edd9568141429d8767450dbf3cb0ed33a2abc23"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\model_zoo\\__init__.py": {
+      "bytes": 720,
+      "sha256": "214dbdbcd4bde84287bf9faa0b838097cd2599a5b327d1bf5f0bcadd596b5d0a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\model_zoo\\model_zoo.py": {
+      "bytes": 2774,
+      "sha256": "dbb2b6c2dbd00b9383ed5613ca6a52738cc98ff05550322060631fe919d27f56"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\model_zoo\\tests\\__init__.py": {
+      "bytes": 612,
+      "sha256": "fb507cf5e242808427d645d89287d48a37f08adc22e36c4da9802e167392ce3e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\model_zoo\\tests\\test_get_model.py": {
+      "bytes": 1446,
+      "sha256": "a799af09eb5a57a89cc4aa24b02556ab3dbd224461ae7573919fedcd03f20556"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\model_zoo\\tests\\test_list_model.py": {
+      "bytes": 1750,
+      "sha256": "242cc1c05dca4dc1f6105cc2f6a360bd915828d8bd6837574d9ec52a95bc8dac"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\__init__.py": {
+      "bytes": 1452,
+      "sha256": "98fccc5a05e578a6a345da02bc3d5cb80333ad69c8ca183aba41477723cc780b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\__init__.py": {
+      "bytes": 2315,
+      "sha256": "85ec72bf05c9156d22844d65731d1bbff3507156eb2d5a31968a6aa0297bf3df"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\blazeface.py": {
+      "bytes": 4088,
+      "sha256": "9623b5abd22de2ceea31bb142b696cdce7e80d818ee39fbc22ab72abe35cc013"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\bytetrack.py": {
+      "bytes": 2362,
+      "sha256": "818d0afbe3da240260d32585f3550d92071a855174d1f4c1f15184aa66fe5f60"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\cascade_rcnn.py": {
+      "bytes": 5425,
+      "sha256": "89fb69cb3fd4219aa867787dc51fc788f293751638f9139542b6567065b7128a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\centernet.py": {
+      "bytes": 3461,
+      "sha256": "53dc32de04c5746f358eebeb596c2ad3202581b48ab02eb50f7a5eda69164d6e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\centertrack.py": {
+      "bytes": 6530,
+      "sha256": "5952ebc0ece50913d2959521f1e962c950ed430c893a85c962aa5f360dccd778"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\clrnet.py": {
+      "bytes": 1928,
+      "sha256": "ce4b56134e619982ad5f03d77772554729b600257352ab9a07b45cd0a7fe57f6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\co_detr.py": {
+      "bytes": 8744,
+      "sha256": "84b96a2b5a76bfcc298834bed037d06c060edb62c0df616e0232aab1836ecd50"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\deepsort.py": {
+      "bytes": 2109,
+      "sha256": "86593fda648b38ca02b1c30983d624676478afa302bea2c98b7d321530e8382e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\detr.py": {
+      "bytes": 4568,
+      "sha256": "2310ed8fbfd9bead44ee794ed0053fe9421f3a0eb39eeb19011b7f7fd8a874e4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\detr_ssod.py": {
+      "bytes": 13876,
+      "sha256": "d1036e07fe02771439b895af4ff0d41a78e16e40840d2ca6a99e85b6730a0843"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\fairmot.py": {
+      "bytes": 3200,
+      "sha256": "0fc91c4028865df25aff030e69ce642212c06262b52ff505ee00f0980c25e9fc"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\faster_rcnn.py": {
+      "bytes": 6237,
+      "sha256": "0c7cc63d53693ca8e41c744c121037f20b5f4068a766e4be0ea3e83368e3c225"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\fcos.py": {
+      "bytes": 7531,
+      "sha256": "7bb438cb1800ce45377d34c543115fc6d1cf4767581c0f7052042762655cedee"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\gfl.py": {
+      "bytes": 2706,
+      "sha256": "251b5a028b21fa35b1e718cd773ddb640b2bea1a4a8766a0e68c9f3146d8ae09"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\jde.py": {
+      "bytes": 3540,
+      "sha256": "09e4a917e7d7e14cbde5497597420b4b0d3d08f1000d317daa828d2297adb922"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\keypoint_hrhrnet.py": {
+      "bytes": 11571,
+      "sha256": "b55bf1ec3ccf87fe2fcd58e5b9b72cb81bdbd6e72c5a3d5502cb2f6dfea5abf5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\keypoint_hrnet.py": {
+      "bytes": 16387,
+      "sha256": "3fa10f48a496b0a6811c2436430e6f37d89e9d0732effbf8c41905e59bfc8502"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\keypoint_petr.py": {
+      "bytes": 8677,
+      "sha256": "a94306be0a2ce2e48403c92fdbedae2d110ba29bf5a843b88de48bee70b96141"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\keypoint_vitpose.py": {
+      "bytes": 11688,
+      "sha256": "d18799a92a2709ada75dd09e15fbbe21006484f67c9ef47339cd52c3e376284a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\mask_rcnn.py": {
+      "bytes": 5919,
+      "sha256": "3292158e8ae6620ccf5ee65dfd5be7b688497844e22936f0e3e652c8df3b595f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\meta_arch.py": {
+      "bytes": 4336,
+      "sha256": "e08b6661c355f58da13306326ae6709361ee3e4c500e24732e50db8f12f3e9f6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\multi_stream_detector.py": {
+      "bytes": 2661,
+      "sha256": "fa3d4148783ee01fddff77ec92674ad70eef47740d1fa602e3548c1e1e615553"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\picodet.py": {
+      "bytes": 3189,
+      "sha256": "2bda118f9a116797ea64192bb43db0c5759213e48fa270fb77ce8b22e375bbde"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\pose3d_metro.py": {
+      "bytes": 4006,
+      "sha256": "bf58c3c4a8cc36560de09c322996fb1e0cc55855116d288e179708e439ba184f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\ppyoloe.py": {
+      "bytes": 9094,
+      "sha256": "74c8557ffa8f163e4164f7f2262eb5cb9c7ee293b17502e9d5cc9e56b38c12c5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\queryinst.py": {
+      "bytes": 3571,
+      "sha256": "f54a55e6321b7594e7847c7157b93ea67ef9eaaa6d07a01857a021dadd77db83"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\retinanet.py": {
+      "bytes": 2887,
+      "sha256": "92496175e386ae653b9b81f1e47bd049bdc3ce4f9b9e23744b32de2353d3c758"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\s2anet.py": {
+      "bytes": 2807,
+      "sha256": "ea571ae52c19fa5312c2eca3cbfdb59222d07a06d72d3444dfc5600f5f31674f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\solov2.py": {
+      "bytes": 3780,
+      "sha256": "2d973d343e4383e262fc8b2dfb7af735b4c97c50913d9570c67ce37437f3dfbf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\sparse_rcnn.py": {
+      "bytes": 3238,
+      "sha256": "8819d6a52ed263152a09c4fdac0934892ab8ac8154f16b36b1daa080bc2ae1b6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\ssd.py": {
+      "bytes": 4235,
+      "sha256": "4e1b52a3b44bfff15ebd204b050c86200178ec4f7243ef9f944620304adae00e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\tood.py": {
+      "bytes": 2388,
+      "sha256": "14e399a6e63a1369c0dd6503a59c5223382a178016fafb97496eae136a3d6985"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\ttfnet.py": {
+      "bytes": 3135,
+      "sha256": "847cc88c464504090394d1a48417251eee01a3f8e9b1c451f87828823790fd68"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\yolof.py": {
+      "bytes": 2851,
+      "sha256": "cd7786dd30325ec0a80f435bf56af021f4023bc823bff9449323a02a020ae853"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\architectures\\yolox.py": {
+      "bytes": 4772,
+      "sha256": "ab1ac0a0e588fded0ac30d37ce5e671129f27731b16495a07a844911223478c7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\__init__.py": {
+      "bytes": 1257,
+      "sha256": "15adc82a297e385b8c31a8d9949a0b09e478da53fd4c18d3eee79a9cfbf778ba"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\atss_assigner.py": {
+      "bytes": 10449,
+      "sha256": "0f725d402c42f518d463fc0eb6cd91bf2bfd86889b9830dd73f2331a4450368b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\clrnet_assigner.py": {
+      "bytes": 5474,
+      "sha256": "8055f060a2ea4f2a2d6e1cdbfa0adfaefea242e817925861611a9a9670e330e6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\fcosr_assigner.py": {
+      "bytes": 10157,
+      "sha256": "f821ae39e5cf1573d63ef5cb2f31a30942df3bd816dcf9a8ce8716be849f7c05"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\hungarian_assigner.py": {
+      "bytes": 17708,
+      "sha256": "db51d84dc30180532e24b3a201aa2f22cb7f5684aa2b74c797edfd1fbec5f34d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\max_iou_assigner.py": {
+      "bytes": 1969,
+      "sha256": "90a38efd0856ecf71ba16ee5ccbf574c2ef747ee8bf86ee7af3e6e38f5eba97f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\pose_utils.py": {
+      "bytes": 13396,
+      "sha256": "26f77e455c233cfe1739d63f8c9d2cb48e704e14a1f5f5b521d93d62a0b0d97e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\rotated_task_aligned_assigner.py": {
+      "bytes": 7432,
+      "sha256": "3bf787ec1e528607ec83867b6f960ef13686724b10145601499c96ea4f21666a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\simota_assigner.py": {
+      "bytes": 11428,
+      "sha256": "2b4d4a3b67de0bd60341e84860b7c43d414a815135bdbe7cf3d0a2c79c9a7acd"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\task_aligned_assigner.py": {
+      "bytes": 8526,
+      "sha256": "4ced1d0a06ee48b29e0a5b5fe057320eaa962809078ae0076636bbeecf978c36"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\task_aligned_assigner_cr.py": {
+      "bytes": 8072,
+      "sha256": "103886d4f9e4f805227b6ab6fac6cc64dcc97dd9e380629dc6efbebf8f5c7f74"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\uniform_assigner.py": {
+      "bytes": 3740,
+      "sha256": "4ff657077c92e32295760ba132ed4d889f96b5bca0f15c8adbb5eefca2ff2857"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\assigners\\utils.py": {
+      "bytes": 9683,
+      "sha256": "c28384a64edcc63e4155d6215593fd1757dc089396cd90331e04b9197472b50c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\__init__.py": {
+      "bytes": 1973,
+      "sha256": "020ef05ad759eeb47fbcf123c05c8a660a7d892733d3347652472782e688f9c6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\blazenet.py": {
+      "bytes": 11449,
+      "sha256": "4e9cb50330205735a15a452b18b78d820cd2ead8e4b60c3c2d5cfe8e797f9930"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\clrnet_resnet.py": {
+      "bytes": 25726,
+      "sha256": "7b620fd3f25cdc14e3f0e9ee4e5ea191903565202f4af4480fad2d7d1af10255"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\convnext.py": {
+      "bytes": 8621,
+      "sha256": "656ebcae87018b1d1ae7ba6a59e702c617782c9b5bfb5b9c8055492af42f9ada"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\csp_darknet.py": {
+      "bytes": 13841,
+      "sha256": "d2971ce56ff08d907b2f9f24765cc9e352d9f2241f455ad9922e095dee97533e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\cspresnet.py": {
+      "bytes": 10441,
+      "sha256": "bf1e22bcb9eef85d40a2ddcd46d672338009d8b833ad4c7cd8da8e09b4b5b9d3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\darknet.py": {
+      "bytes": 11373,
+      "sha256": "f8193bcb83106dc97cef7aeb6c2b31bbe7427c022a8fe81324c9f6fd17576fa4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\dla.py": {
+      "bytes": 8562,
+      "sha256": "73e1f690029c701e8fbcf694865ddd0c837d7a87dea585a9f7ead0b9e697e10f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\esnet.py": {
+      "bytes": 9503,
+      "sha256": "1be87ca548ca92b89f093b62e232260858ac23c7ad4ae7d0a8aac36092d138c0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\focalnet.py": {
+      "bytes": 26923,
+      "sha256": "4b795613af2a04058c5b19a4f66ce4c7049266d6380fbbb86655baa22f8a5199"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\ghostnet.py": {
+      "bytes": 16441,
+      "sha256": "162736d390a8cf9290c9219f093174aebadd1e15a637987faaa6fb97b2b620c7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\hardnet.py": {
+      "bytes": 6960,
+      "sha256": "fef278bf0cac266d66b80022964622ea77a7c8f70195de447ee37cfb9b53f5e5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\hgnet_v2.py": {
+      "bytes": 16290,
+      "sha256": "d2463ef0ed130215ad7c89adbdaa3cc07a4ce0e35ac11eea59710cd04274fa13"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\hrnet.py": {
+      "bytes": 29732,
+      "sha256": "49012e6d592d9f73766026a21caba1cc161bf4a8983f5e7a0e5078ea241048e0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\lcnet.py": {
+      "bytes": 8964,
+      "sha256": "7cc9e20afbe3f085425a97b33fc85a9fc06026f230ccd451cb87df9b649ae416"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\lite_hrnet.py": {
+      "bytes": 33756,
+      "sha256": "0c2152aa0759c4128cbd282d039a8b464aa79e73d8d2380344978571852e2763"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\mobilenet_v1.py": {
+      "bytes": 13591,
+      "sha256": "c1e0708d38070635a5cd5574762d0fc7dc66b104b75848e92a62b4a8526fea14"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\mobilenet_v3.py": {
+      "bytes": 16761,
+      "sha256": "cc1a63762a3f5f60307697317910d7418d58b4e98678d49dfbf1b80fa8a6f9ab"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\mobileone.py": {
+      "bytes": 9748,
+      "sha256": "6e26cdcb78be1a2917784d60fb72d74290831da7e67ce57b2066e54526328369"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\name_adapter.py": {
+      "bytes": 2328,
+      "sha256": "627d805dfa8f56b593f139c7c181185a2f0d6afc574d3fb3dd52b32a46609976"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\res2net.py": {
+      "bytes": 11904,
+      "sha256": "378bf6e20b1de67e3ab1462f943172802af35871791f6f2c53415806227ed6c8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\resnet.py": {
+      "bytes": 20268,
+      "sha256": "6c14c6a1faac095055375b2f37255553cc861a55854e6c22b2db9531bdc38f2b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\senet.py": {
+      "bytes": 5144,
+      "sha256": "12f66d9275863e3c4ed086fd582b9bdb5f703bb0890a72b0ee9b9a017971dc19"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\shufflenet_v2.py": {
+      "bytes": 8441,
+      "sha256": "0bd315f5987526ff5dc99e7d53ccff20d3ef6229b1fcd935a0f932dd8ff18ef2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\swin_transformer.py": {
+      "bytes": 28056,
+      "sha256": "96f9e2eb1919fac1698b08793f7e323afb5e1de7226d63d8f1baa081d802130b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\trans_encoder.py": {
+      "bytes": 14947,
+      "sha256": "b6530a31c69852cd6fb8395942dc8633c02412bd1c3445e8d42fbef508e1ecdb"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\transformer_utils.py": {
+      "bytes": 4064,
+      "sha256": "0066b9ca8fc9c96922fb0b843c403a8f5a80eda0f7a98098fdb8a87246797b54"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\vgg.py": {
+      "bytes": 6560,
+      "sha256": "615e736b679f939b11ba882cef12d99abfeb34c826d04d757b4bd7f3731c93d9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\vision_transformer.py": {
+      "bytes": 24716,
+      "sha256": "2d9e4b614792e6ae51ca25a8b2b191a572291e9c01b71bfd0dc45317d95584f4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\vit_mae.py": {
+      "bytes": 26926,
+      "sha256": "f5b077dce7aac75b2250d1f13ffe894a030fb8833d0ee671a89c458cbeb22203"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\backbones\\vitpose.py": {
+      "bytes": 10364,
+      "sha256": "5f96f0820ea8a277048dc8daa09768a0d2e31f06b71ddaa9dec4b26c141f07cf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\bbox_utils.py": {
+      "bytes": 21993,
+      "sha256": "39680d1be51ec4bc02d1b0fd7304cacf36c1817def7c138b507af14b154b5ead"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\clrnet_utils.py": {
+      "bytes": 10125,
+      "sha256": "a883b31f76b590febd48801825a845ff62ceea489b599fb6182c40257b1fe0d0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\cls_utils.py": {
+      "bytes": 1325,
+      "sha256": "c2a6d40720786742bfecd416e3a32ea5cb1c47a7f928608b74af8e46773f0d41"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\__init__.py": {
+      "bytes": 2575,
+      "sha256": "c857b066fea352cf0b1e9c884a662af997a002c555cefd538b8da43ec4d49d95"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\bbox_head.py": {
+      "bytes": 15788,
+      "sha256": "a345b44e8673513de922d939860af46fceac4524c40906eb4a29ec8b2d523f4a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\cascade_head.py": {
+      "bytes": 13023,
+      "sha256": "4a6a816453d19f7b0030c188940578abd520b62aac8fef9cd40908dd79dd8188"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\centernet_head.py": {
+      "bytes": 11359,
+      "sha256": "00069873c4e1749c205b8d46d6706e9edb4d45aa5117dd9b7ae1c59dcecca669"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\centertrack_head.py": {
+      "bytes": 9370,
+      "sha256": "b8cb7fc3b32d649c01d253f0f75419e2a3e035c4fd4ec4f4e1253e0d39ae1257"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\clrnet_head.py": {
+      "bytes": 15914,
+      "sha256": "39dfea27e72aa5b84b07b5fe65d7a71576322551c378d479b646e4c8b2035050"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\co_atss_head.py": {
+      "bytes": 27557,
+      "sha256": "17e57cde92654d39f7343a287596719da93786b727be435b248996f1b1f0e4a6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\co_deformable_detr_head.py": {
+      "bytes": 53705,
+      "sha256": "a6b8b7e35ef187f56da65d6caea451cdd4fc8d524f5ed0a0d88862b5e796fed7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\co_dino_head.py": {
+      "bytes": 39125,
+      "sha256": "a9530c28f46d372f1791c307aa37f43c3c7447c44370f830631779bf1bade89b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\co_roi_head.py": {
+      "bytes": 5913,
+      "sha256": "4c7eadac99775c4d13e4bafbb91d51858217405edcc5ada024d5962b0fd5b21f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\detr_head.py": {
+      "bytes": 36988,
+      "sha256": "86d44daac94094c75415f6f313e5bdf293caad963d113602bc62de04ae1c49f3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\dfine_head.py": {
+      "bytes": 8430,
+      "sha256": "5a6f80b0bc18abfad481677ed8a51d0666c781cb518968662e382d194599f4d6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\face_head.py": {
+      "bytes": 4286,
+      "sha256": "d2933eb75c8035ad94b7c3fee67a9c2e86cf9fd3e54938fc11a30f71df68048b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\fcos_head.py": {
+      "bytes": 19679,
+      "sha256": "9ad6883c6757a97df865e3828b7f034e5344424953c46bd3f5cc600468f9387a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\fcosr_head.py": {
+      "bytes": 14813,
+      "sha256": "d31d93196b231f7015f39e6b89958a7b3572c3df0595d44ed779e89448b7589f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\gfl_head.py": {
+      "bytes": 30848,
+      "sha256": "bc2f108d4ae8ecac43682cd82fcd480c8d6177df1b5539e70ef507d55c3c3bc8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\keypoint_hrhrnet_head.py": {
+      "bytes": 3850,
+      "sha256": "63f36d3ffdff398bb92c80d6e7d1d3053f7346b15b9f1e399032a00e13320b5f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\mask_head.py": {
+      "bytes": 9652,
+      "sha256": "533c68b071dc9bcfdb5702d393b83cb6682a12c0c19ff81d05cece7b0b949b78"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\petr_head.py": {
+      "bytes": 51423,
+      "sha256": "aeb8de1d9dfa35a919a9572c2c7b425a05f81f7501994b9485d5c9dbcb343267"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\pico_head.py": {
+      "bytes": 32612,
+      "sha256": "28b8f6c82f6a8358ad664fb636eedc668e06b4393ed6adc6645c32848527a1cd"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ppyoloe_contrast_head.py": {
+      "bytes": 8249,
+      "sha256": "4e97fc91d0a6bd140cfc51a7f6d2f81c2ee2d6711c6941eaabe815ee1ca0716c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ppyoloe_head.py": {
+      "bytes": 28759,
+      "sha256": "2bdb1457a71c2280267cf87d73ecbb8fcea5559806825048b90f918b03ec0035"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ppyoloe_ins_head.py": {
+      "bytes": 34982,
+      "sha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ppyoloe_r_head.py": {
+      "bytes": 17899,
+      "sha256": "b855d053e4d41406dbaef3cfcc1db09fc5ba3ce1fd066773cbb6aaeb1a223aae"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\retina_head.py": {
+      "bytes": 11240,
+      "sha256": "c892c0915d85c96efa35a909dbeeae36c0b2dd34cf2a1b038f4259aac2e51213"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\roi_extractor.py": {
+      "bytes": 4685,
+      "sha256": "415e47a9c7c73a9ed292e3f78ca0da1c0a4daaa52be110aebe7ed9e29f716535"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\s2anet_head.py": {
+      "bytes": 30964,
+      "sha256": "da3d33e7debee815baaa3472842f810f2113cfee7f54c4a76cbf17f8316fcdfb"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\simota_head.py": {
+      "bytes": 22001,
+      "sha256": "3a461707af034db6aeb87891fc80c0f911c75171e288fbae73f204ca3293882a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\solov2_head.py": {
+      "bytes": 23417,
+      "sha256": "c661bdb92cec8cc90d262bb6ef6ae52a59f1f7f60b3440936bc5e4f9c2dc8d03"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\sparse_roi_head.py": {
+      "bytes": 17720,
+      "sha256": "aa59a832187b0ef8fa0758f464e00c32a0464ddbb86fb3044a91a1582109ca1b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\sparsercnn_head.py": {
+      "bytes": 13392,
+      "sha256": "7379de5991e187d61f80c49963e092692ff612cdd90c1395ed3082e9fe75d80a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ssd_head.py": {
+      "bytes": 8117,
+      "sha256": "16a913de67681627543dc3725f7d30d2f1618337478308bce70dbf6ad3ad58cc"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\tood_head.py": {
+      "bytes": 14753,
+      "sha256": "adcea0dd3734b10e4c96ab0265fddca23fb67ca9167103fd1851d21a74e15600"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\ttf_head.py": {
+      "bytes": 12079,
+      "sha256": "00aba6e77fd90242617c1b7f221272bfe3dfa02df24dd221ae9a3ccd35059a66"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\vitpose_head.py": {
+      "bytes": 9959,
+      "sha256": "033b00eb585e249245d587083f6b3a51da9637706b4d7f44ca344945047b0a97"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\yolo_head.py": {
+      "bytes": 16631,
+      "sha256": "47b1d46b22e1f61ba199ddc8f1b3d41d418cf33aa7d4ada06e40bbdd71a7b7a7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\heads\\yolof_head.py": {
+      "bytes": 14452,
+      "sha256": "3d166a2c4f8ef449f78b3b092b39376ba6d710725da03323ff574dc842ee238d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\initializer.py": {
+      "bytes": 10126,
+      "sha256": "920787605671413216a41f70223db66b0605fbff83a3045fca2621e420a99352"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\keypoint_utils.py": {
+      "bytes": 18540,
+      "sha256": "fb6fe4d91cbb45347dd185dba36fcb2f1669d078d8094d843c005144fe071408"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\lane_utils.py": {
+      "bytes": 3044,
+      "sha256": "4371031bb7baf086c10798822c8127db0e91b1892a5f14824bb1f664a8cf81e3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\__init__.py": {
+      "bytes": 1819,
+      "sha256": "164d61674d29895c428ea5e413ea8890d4d3f32edfa61a8a8cb3aabfb4fd1a65"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\clrnet_line_iou_loss.py": {
+      "bytes": 1363,
+      "sha256": "5731aed224e150aabb5eec429fe72ed83cad0e4d9db9038905a8429736deb6c2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\clrnet_loss.py": {
+      "bytes": 11069,
+      "sha256": "aed91052fde318bbe1e0a2ac6431e7808e596dc012ac526524a179227c52c36d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\cot_loss.py": {
+      "bytes": 2363,
+      "sha256": "47d66634103e8f62ea4b007fbf97148acce5967e4e11ee6198b34ca2724183cd"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\ctfocal_loss.py": {
+      "bytes": 2371,
+      "sha256": "bbf4ac8330eb4f5be12bcc85f72c4ec92928b789657acdf86bf655e2cf1bf89e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\detr_loss.py": {
+      "bytes": 50100,
+      "sha256": "fa6fd94d6a3d44a223538ccb7c585380823264685046d3167c2d5be968d814c6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\dfine_loss.py": {
+      "bytes": 24925,
+      "sha256": "18134d1d93c90e7516c1d75e9cdfe7ea14ce837cd5f1cf73ceecda7186db9c5f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\fairmot_loss.py": {
+      "bytes": 1491,
+      "sha256": "3b7ea0c9ad71c53db072f65bbc63e9269f4d9689abcafe66c36dedb671deed79"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\fcos_loss.py": {
+      "bytes": 40288,
+      "sha256": "4a7694c8390f19621ced903629922e986d3881f887f4dce9c3d99c222b3b7037"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\focal_loss.py": {
+      "bytes": 5649,
+      "sha256": "0a4e6da59ca5515a19442aa9ab92e808f80239c18fa31dc37b2ef071a4a91846"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\gfocal_loss.py": {
+      "bytes": 8979,
+      "sha256": "bf91c4ffeabb69f1f158c140dd9939f7b15c5f24ed93f5c66467a41e15f42cbc"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\iou_aware_loss.py": {
+      "bytes": 1784,
+      "sha256": "e6b8077407b3c537ec4ee49c282991c76794ef8443a37c91270878d0a2e0fe11"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\iou_loss.py": {
+      "bytes": 10245,
+      "sha256": "b1f7af1f00099ade67ebdcf20aca30fc7fef1de6a400db27953000430f1ac189"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\jde_loss.py": {
+      "bytes": 7519,
+      "sha256": "f6b2459bced3a03a9c577eeb187560ca74bfa3e138699b1d7ff7cfad9018e685"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\keypoint_loss.py": {
+      "bytes": 22758,
+      "sha256": "190235a0ec0611a0427f7198dee329b2db49317b4f2b771d9bd88e693838821a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\pose3d_loss.py": {
+      "bytes": 7960,
+      "sha256": "4cee0caa44cf510e6291e4e8d9f4e056d69bda37d2b8b88c3560b1e59c1e76ad"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\probiou_loss.py": {
+      "bytes": 3784,
+      "sha256": "b7bbbcaa06ba1cbfd82aeed879e93b10f8c16c1c76d7308bf34fd14c3e3730a2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\queryinst_loss.py": {
+      "bytes": 6495,
+      "sha256": "47d15785b3987beb7e8e16f59bb80caa2e967f936b15e6c4e9a88a08927072a1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\smooth_l1_loss.py": {
+      "bytes": 2189,
+      "sha256": "08fdaa3f98883904e142b128c08a24e202d0dad0f77f5dad9cc1ae238c8ca39a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\solov2_loss.py": {
+      "bytes": 3916,
+      "sha256": "0fea87d38536005e2de2e2b083992e724cb8f463ee9ed0e17ae31e0a23743d28"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\sparsercnn_loss.py": {
+      "bytes": 17141,
+      "sha256": "2431ab787b5797dc68144d943777d6349987da39a2bc8e8598909476e4701957"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\ssd_loss.py": {
+      "bytes": 7087,
+      "sha256": "fa34072a120e973efc5bfbac5cf61a610d85b66b588a5da01e567890ddd0dadb"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\supcontrast.py": {
+      "bytes": 3358,
+      "sha256": "8dad454cdca996c12aaf632f9f645a8d9866c21ffbac7b89ddb61b7575a69a2d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\varifocal_loss.py": {
+      "bytes": 6020,
+      "sha256": "d617bceedee9fd14ffe826f7bb4ac9ff740c2a2e57885bdabb6311daff49112b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\losses\\yolo_loss.py": {
+      "bytes": 7665,
+      "sha256": "c15d5c9bd0badad39ef445d963cd5d4f9af221c6768c6e08ceaa62f319b41e70"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\__init__.py": {
+      "bytes": 845,
+      "sha256": "ac089731e24337619ac2478f36df738f65dcd328a091da173b8a1524b86a404c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\matching\\__init__.py": {
+      "bytes": 793,
+      "sha256": "e932571e2959932f06cc3457189d84343bd8b668112ba468d61e13fc92aca9d1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\matching\\deepsort_matching.py": {
+      "bytes": 15611,
+      "sha256": "a3d2b5fd1fded081231ae9882294c074059586c9edd01e231e267d25ff0f82ad"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\matching\\jde_matching.py": {
+      "bytes": 5747,
+      "sha256": "6a393d2b08fa9aceadc05ce01e5ea74f154183e7404c0b718bde5e815b089825"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\matching\\ocsort_matching.py": {
+      "bytes": 6122,
+      "sha256": "531d18155b20b46e922c8b3f14875de69ff11cd76dd0dcd7460bb2e1b545040c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\motion\\__init__.py": {
+      "bytes": 687,
+      "sha256": "5809545d91d714606d3e5f10b49ed1f4229ddd378cb5048a234c61464a837533"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\motion\\gmc.py": {
+      "bytes": 13391,
+      "sha256": "979984447a8ce3321b276e1df41c71c3b7fe7df8cd56a53a93de1a9b4ca5887f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\motion\\kalman_filter.py": {
+      "bytes": 12142,
+      "sha256": "9619a5765d1f40e3167fd7b72912354ed802490b1b332988b687dc75f21644ed"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\motion\\ocsort_kalman_filter.py": {
+      "bytes": 2670,
+      "sha256": "0658be565adbb13f6adcdeeaabb13034f25bbc250647db64046cafebbcb4f38c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\__init__.py": {
+      "bytes": 1005,
+      "sha256": "81c4fc69c428c7df57027a1287d765249b9dadc95645177abcadee857383c728"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\base_jde_tracker.py": {
+      "bytes": 9534,
+      "sha256": "945d9173b85cddf4e752a57dc6ef49e61bc3e59d0d9cefdc86aa89956e3271fd"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\base_sde_tracker.py": {
+      "bytes": 5779,
+      "sha256": "35e502903105cad3722f374b4ee3bd5e5f2cdc37462a51b53ef1c7d031092259"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\botsort_tracker.py": {
+      "bytes": 9483,
+      "sha256": "3da4c8d030fc096ea6354bed5b6f222cc4a8d5b164a6b754ddd9dd98faef8099"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\center_tracker.py": {
+      "bytes": 5539,
+      "sha256": "0fdc817e35038306d0a6a25a0036c123bac88743d94823b655bacacefb0e009e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\deepsort_tracker.py": {
+      "bytes": 8166,
+      "sha256": "6507dc3b64a13c91f2d3333de84d3cf18a4e911d1e130525a5c3b2af30d41bd0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\jde_tracker.py": {
+      "bytes": 16997,
+      "sha256": "e0e70233a77d6dee5b2fdf1f5328dba6f8363a9babc2beb226d5dce353dae058"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\tracker\\ocsort_tracker.py": {
+      "bytes": 14703,
+      "sha256": "b56776d09b8dc9236d56bf0929e5af4d5e3bba52699b51fa9510570bee35881c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\utils.py": {
+      "bytes": 8772,
+      "sha256": "fdadd58eb64ecd8441bc2d60a996163b409627a985beb5029c88c86d40db08f4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\mot\\visualization.py": {
+      "bytes": 4854,
+      "sha256": "f72cc3d316abc390f8e811b1100f2baf7a1404380fecefc97531c5be81c72e04"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\__init__.py": {
+      "bytes": 1233,
+      "sha256": "1bb97f6ebb3409c984740e515201f546318c838dcae50d7291bc29fa2d0109e8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\bifpn.py": {
+      "bytes": 10996,
+      "sha256": "ebc4b11e5297c4c44d7cc408e49cb820257284a78aa076402e8b8fdc4d5906c8"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\blazeface_fpn.py": {
+      "bytes": 6718,
+      "sha256": "599a7765b6ef5831d4dbaa184c2697399d0dcc7f4d1fcc705c58167b90974f74"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\centernet_fpn.py": {
+      "bytes": 15065,
+      "sha256": "92bffed0e97a3883d05270157b500d7d05dda5cd2fff8d8836deab0411ed610a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\channel_mapper.py": {
+      "bytes": 4512,
+      "sha256": "380508ca8ce37dae4ded949dd7897fd396e38019cf66c14ca07a2e4618ceda55"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\clrnet_fpn.py": {
+      "bytes": 10589,
+      "sha256": "b866c235f87ad1d8bfab158d3cf3cd897d6ac5d6726c0610a90b23d4b0fc853f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\csp_pan.py": {
+      "bytes": 12543,
+      "sha256": "2924c617de0d8995cb4612c57f2b4c8913946c8cdeaffd9736a8ab4c9c1447f5"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\custom_pan.py": {
+      "bytes": 13872,
+      "sha256": "36d7cb983970884d4e6d414b6f4273ffd21a7f8058f5bd9ef62a1fe57aba951a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\dilated_encoder.py": {
+      "bytes": 5356,
+      "sha256": "0498b7509400b9fd30176a976611f5ec24592441dba42841c7421a4ad9bdb45b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\es_pan.py": {
+      "bytes": 7208,
+      "sha256": "c87e680fdd901a61cfdca78d52fc34cf3f35d38e1613b3693bf85d324311c74e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\fpn.py": {
+      "bytes": 9404,
+      "sha256": "a4faa235192a6f30214fa85e4ad31a6af5807bd2a7c291375aa0bf143113ef7b"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\hrfpn.py": {
+      "bytes": 4329,
+      "sha256": "c6e51703bbbfb592882a5f8a8f215100be66320e7df9748b8042401d1430b5f3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\lc_pan.py": {
+      "bytes": 6209,
+      "sha256": "ff3c2d519ce2b0e4120fb97ffbe407ae7ed5dd4ef0dd33a4fd9e2554a10e53ff"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\ttf_fpn.py": {
+      "bytes": 8970,
+      "sha256": "2703ba81f35f355279412586a27e94fd7fd0514c2cea077b933aeeae26c8c8f4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\necks\\yolo_fpn.py": {
+      "bytes": 37939,
+      "sha256": "7a9629cdf903211d032a2e6c15a711e3b1548be05ca36a43ad12936ff28dd618"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\ops.py": {
+      "bytes": 47810,
+      "sha256": "9b3193d91d617a6c9e6ef49896dc8612cbcbb67c146d0a76ce16bf2b64dac86f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\__init__.py": {
+      "bytes": 115,
+      "sha256": "28b8c46ed38df09d7469aef16ac185b07a6c4e9e4a108181dc2618b244105048"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\anchor_generator.py": {
+      "bytes": 13827,
+      "sha256": "f72308f7164203bfea7a45fe516980b7b17d4db3ebe67041db8c80ff025744e4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\embedding_rpn_head.py": {
+      "bytes": 2300,
+      "sha256": "46d1a1151983de5b26dc9fb15beb15dc7a5580538edabc2661983c3f74814ca0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\proposal_generator.py": {
+      "bytes": 3162,
+      "sha256": "ea36af833ce44188f497f943c038a221eafcd84e48d2e842512d3868ef94423d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\rpn_head.py": {
+      "bytes": 12664,
+      "sha256": "4612c14933c4419d6065d3be2b267ad765b27939c476c74253f63931fbf2f03d"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\target.py": {
+      "bytes": 28031,
+      "sha256": "7c128e539637925ec04415e26fdbb0dbd19379126e837f90f68e0b7c54ed61e7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\proposal_generator\\target_layer.py": {
+      "bytes": 17982,
+      "sha256": "3ac3a7c1ff6ce0da480c4c7625da5daf6645d1b71fdbf0660c1569877d09579a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\rbox_utils.py": {
+      "bytes": 9492,
+      "sha256": "66cee0629421326cd2f0ed03d25555b4a00a22a28a9408956620c59fde88a921"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\__init__.py": {
+      "bytes": 1025,
+      "sha256": "e9b4df8201aa183baf4f32426cccedabf6d7f11f0484acdadcba181be0f7c198"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\fairmot_embedding_head.py": {
+      "bytes": 9076,
+      "sha256": "917b5cfa361a96dff9474c2af20f63095b9f052e4b532e9794dd41e45d49db79"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\jde_embedding_head.py": {
+      "bytes": 8335,
+      "sha256": "70e145301060954f149de832cb6922868833ed375f9cd55e62991a481e798d1e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\pplcnet_embedding.py": {
+      "bytes": 8840,
+      "sha256": "aed9e8ad229386f79cef554f8817addd59d13e9ad352185e8530491fd5e04205"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\pyramidal_embedding.py": {
+      "bytes": 5813,
+      "sha256": "004a23f3e498631d9fa6787da1d56ba95a422c731ec48ae6a6e98d20f7a6a313"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\resnet.py": {
+      "bytes": 10627,
+      "sha256": "531e8cb64f6a159024cb3bb04fa6dd259f81c6a4da725538d534acaa14093f3c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\reid\\resnet_embedding.py": {
+      "bytes": 1581,
+      "sha256": "194bd1c28c445a117a515bf02d78c47b2d687424b73a9b4768b74ce5c644e656"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\shape_spec.py": {
+      "bytes": 1093,
+      "sha256": "5faddb99d205fcac33e852d0a181c3738a8d7e2f7661d03f8d442fa2d8bcbcc1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\ssod\\__init__.py": {
+      "bytes": 727,
+      "sha256": "a76d9d253ec46c552f40643f4f7f84152456d53f4d0f1abed6031215e765df89"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\ssod\\losses.py": {
+      "bytes": 8707,
+      "sha256": "f1b503f2c6ca99ed5d5021058b110ab2d58fcfd662dff61a3347c835202cef85"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\ssod\\utils.py": {
+      "bytes": 3700,
+      "sha256": "116dd7b6e771e2dd7ad370c22320933e998e3de253b6caa6dbaff65c51a7f311"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\__init__.py": {
+      "bytes": 612,
+      "sha256": "9ee269cdc6c91d9503514e7976752a047612298c74ea058350d9588cb12f5b43"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\test_architectures.py": {
+      "bytes": 2103,
+      "sha256": "9e5b0e7131bf6246e0fda1f2e52e94cada144bda65a1b4a15492bdaff559efb0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\test_base.py": {
+      "bytes": 2391,
+      "sha256": "f5fe58b5a471906c201b3ab2953dd1817df15c0f6638a39311f4591dff0dc9c0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\test_mstest.py": {
+      "bytes": 2157,
+      "sha256": "35f4b83b541005d10a286bb6159a20635986310e2dae168a8f536dad62758518"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\test_ops.py": {
+      "bytes": 16568,
+      "sha256": "4992ed23dda7c9a02e9e40f8e24206723d1cc655dd2007937edf1bc11c9f0d30"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\tests\\test_yolov3_loss.py": {
+      "bytes": 14583,
+      "sha256": "04683b8358cfa12f210668ff5aa4b613281db5dc36a47a827d68eb198c6dd8a9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\__init__.py": {
+      "bytes": 1716,
+      "sha256": "8a4d6909d7fc485d265bb5a84092b8429d9e9abc89d1cc80adeb9c097aab4563"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\co_deformable_detr_transformer.py": {
+      "bytes": 24429,
+      "sha256": "fdd6ccc4596b81f9491c3d68d24e87b72a44927a7329384a65b2e3240dfbb6c2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\co_dino_transformer.py": {
+      "bytes": 9450,
+      "sha256": "11d236e4cb0f7461c4a68af1ac1f38a9ca08f5ce4cb8a35b378591e28a4c1060"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\deformable_transformer.py": {
+      "bytes": 25924,
+      "sha256": "804031f3b5944d80c2bd5a425746f5b030a9dd8e37d5205eac91e7b48f79943f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\detr_transformer.py": {
+      "bytes": 13668,
+      "sha256": "195c7b5d587684e4e4cba6ee99912eace7b453c721f41301351fefc681b40606"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\dfine_transformer.py": {
+      "bytes": 30458,
+      "sha256": "030347362d686be347a19f0df1a0c6f88752edb0b2c07dff85269c7dad230832"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\dino_transformer.py": {
+      "bytes": 22025,
+      "sha256": "f84209559faaa2404100dbc73c50ea0af65a4f431f2c073ee4331b13c3815c96"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\ext_op\\setup_ms_deformable_attn_op.py": {
+      "bytes": 249,
+      "sha256": "43a7ccaa9f369adbd1ec636d6b6a7ee7d02733a80e2a9168e667196cf10152a2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\ext_op\\test_ms_deformable_attn_op.py": {
+      "bytes": 5086,
+      "sha256": "3868a35db9a88eb4703dcd4d024b49cfd371960cfb691de62712db5671aa970e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\group_detr_transformer.py": {
+      "bytes": 35980,
+      "sha256": "ec1a300ffde93932612f1decfb4f572b392d9d8611299cc0ec6f05650edcd972"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\hybrid_encoder.py": {
+      "bytes": 20584,
+      "sha256": "ae1a4d10b434c30d48906624a08a29f0e2c0bf6ce9fb3e3bdcffdc7dc6b19840"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\mask_dino_transformer.py": {
+      "bytes": 22501,
+      "sha256": "bdfc2ab37ddfc06bc22928facb1d597fdf7ad54b305a84ab27800045a54b1202"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\mask_rtdetr_transformer.py": {
+      "bytes": 43411,
+      "sha256": "072b82d10f9f083b1b87be9c3af182800de70b7d05f7e6b41fa4305966953717"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\matchers.py": {
+      "bytes": 7694,
+      "sha256": "ae324571a67243c2ec17a525981f835927d6dfe78e073f92639fc59e75304733"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\petr_transformer.py": {
+      "bytes": 48862,
+      "sha256": "8b665918c408506862e88741d8b893753ca8ab536ccf729847d22be75ba18f06"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\position_encoding.py": {
+      "bytes": 3656,
+      "sha256": "9a6f45556b43306a77695462e5281393d1af8e64f6e9ef6d92ec034800a4c7a9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\rtdetr_transformer.py": {
+      "bytes": 22946,
+      "sha256": "598af276189c478cff0c6aa0cb87db1275bb9f82c3fd7d52ef18557c4c64ecae"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\rtdetr_transformerv2.py": {
+      "bytes": 23709,
+      "sha256": "f2031a0ffc1ec17c9236d65f5716db050a8d4e2fe5621210c95c988b7e3ed562"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\rtdetr_transformerv3.py": {
+      "bytes": 27972,
+      "sha256": "f82148080b8ba512015f0a530554ca793ce10d0b8236b2768971bb3e5787d05a"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\modeling\\transformers\\utils.py": {
+      "bytes": 27126,
+      "sha256": "572334c3cb64309261bc921b0f02daac6cdfe4f7e4519081674a7f5b40ff20cf"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\optimizer\\__init__.py": {
+      "bytes": 698,
+      "sha256": "0d42d72b0fa2b8992a0589092c4bd9937c0bb8a3786c37e7f4a2c8e35c17057e"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\optimizer\\adamw.py": {
+      "bytes": 11590,
+      "sha256": "277208f7cc26a71706af2313b86c2808fd6cf996d4ee7e2502038948dfb26bd9"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\optimizer\\ema.py": {
+      "bytes": 7383,
+      "sha256": "255d2a7ccfc8461b685ffbdd64c7b2cf8f1ca6671b9152a6abd2f9bdf1f4bfd2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\optimizer\\optimizer.py": {
+      "bytes": 12730,
+      "sha256": "8472114826627c0fc7e50ec86fa9864f80f580ead20cae55bf70397b992713b2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\optimizer\\utils.py": {
+      "bytes": 1335,
+      "sha256": "63b3e1880cead03715cb2d0b135a1eac94eed48bbb18dd79d32438d103f8efc1"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\__init__.py": {
+      "bytes": 4021,
+      "sha256": "4c7c58037400e241a61eb960c380c4161b1335a6056eff800173d96ba1e3e7d6"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\distill_loss.py": {
+      "bytes": 36840,
+      "sha256": "53407ffbd8755156d33a30ec4ba69c7243c8b4da72cfe877b8a5339811303be0"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\distill_model.py": {
+      "bytes": 14798,
+      "sha256": "97c67ed9d9253a7a2253a8fa6a20efb4b0a68f84e6dfcb1d7440b655fccb07c4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\ofa.py": {
+      "bytes": 2989,
+      "sha256": "02666d168e77ee8c86294f215c13d0e29f5e01a36ca24a9b7864842f2d8d57d4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\prune.py": {
+      "bytes": 5861,
+      "sha256": "59fef45966aa7ac8038d9d4a2500df1c6b7621e7aa22fc982af07c471cd67193"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\quant.py": {
+      "bytes": 2951,
+      "sha256": "97a6cabea7992a5031c56e0c9483f50211c867f7a0f44fae2299934d0d34efe7"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\slim\\unstructured_prune.py": {
+      "bytes": 2364,
+      "sha256": "e11f96a8aefa5c525f1d79b277276526cef3619324fa13d3292a66e77d5740aa"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\__init__.py": {
+      "bytes": 610,
+      "sha256": "5a0df9248353c020ab5ed83e8f2bd499e9b515361260ae5a5eb85646efa70136"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\cam_utils.py": {
+      "bytes": 14793,
+      "sha256": "81b614f47aeffd01c78186ebfeaad6097ce1fc73511d26d7ea3cf623a3bf38fd"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\check.py": {
+      "bytes": 6234,
+      "sha256": "2333775734ff6d314434c4588290f1002f0fbe16d7d6ca0fb2c0e570427e68da"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\checkpoint.py": {
+      "bytes": 19718,
+      "sha256": "11b1c7aaf2fed97f3a5e528b54bbc9823912a85f6e690601b9a7a1d64b7d038f"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\cli.py": {
+      "bytes": 5811,
+      "sha256": "3ad7dc214b2f6873c91054eaadd156112aeafd1cbad1711fc45e85d063fb7e81"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\colormap.py": {
+      "bytes": 3020,
+      "sha256": "51be50f3ea71ae08a29ddb57a38ef1f0e5a070d75421f5b258cc9e68fa0ab490"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\compact.py": {
+      "bytes": 305,
+      "sha256": "ba05e5ee4f1903d5f9f60d0932bfed74cb4f7524a86de2c98d385503629640c3"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\download.py": {
+      "bytes": 19930,
+      "sha256": "0c8e8eb7e6b0210202b0694e9e32fb09777d353d9cfdafae7e3355c5f5ba0bfe"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\fuse_utils.py": {
+      "bytes": 6306,
+      "sha256": "1513d61433e7665b09deedd6ca5e581c31367ac09c4e3d4ca7b4173157a91285"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\logger.py": {
+      "bytes": 2609,
+      "sha256": "5b8cbc998bd6169fc299fdc6c4685484fb9cb4b9f6aab63cf6f5f22c6396fda2"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\profiler.py": {
+      "bytes": 5274,
+      "sha256": "35a405d04e3e00fa6280b6ac054e3892ff8094eb8c3a5d9b2ca1556d77d296c4"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\stats.py": {
+      "bytes": 2649,
+      "sha256": "6ad6699f718a241c897c9f3d4ce261ed5147889d918c656a28f632cf8311ec6c"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\visualizer.py": {
+      "bytes": 18729,
+      "sha256": "808275aa263e889e6dc3a08987a4b9d42f1354ad9fad55c8d8d56605763aa310"
+    },
+    "F:\\git\\00_chenmohan\\github\\web-sdk-PP-Detection\\.tmp\\phase2\\upstream\\PaddleDetection-b25522a0f4bde8c80603f3ba5e3472059972e3b5\\ppdet\\utils\\voc_utils.py": {
+      "bytes": 2875,
+      "sha256": "3ef2134e41ffc8092ecab51e9bf5227e9c0a0f94259c481880fe558c213a7b2b"
+    }
+  },
+  "parameters": {
+    "parameters": 358,
+    "allParameterElements": 1102131,
+    "trainableParameterElements": 1086147
+  },
+  "weightsFiles": [
+    {
+      "path": "ppyolo-tiny-320/0.1.0/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/README.md",
+      "bytes": 2193,
+      "sha256": "eee596c2138b2348d997dbe5880a7c6c0c28f0ed0c6c46c06d7140c933d3dbb4"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/conversion.json",
+      "bytes": 1698,
+      "sha256": "5d4d6a196f7980897fa65fd891a7dcc1b01b3bd7940ce188a274e1a8c0a70abe"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/ppyolo-tiny-320-fp32.onnx",
+      "bytes": 4511117,
+      "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+    }
+  ],
+  "hubReadme": {
+    "bytes": 4351,
+    "sha256": "5a82e7fa6d188d9b130a1c55a1af829bc6277f91a4ba2a01f82e0f87f6fbb324"
+  }
 }

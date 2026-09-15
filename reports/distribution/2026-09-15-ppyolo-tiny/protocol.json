@@ -1,11 +1,20 @@
 {
   "date": "2026-09-15",
-  "modelBytes": 4511117,
-  "modelSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
-  "quality": "reports/evaluation/2026-09-15-2d-candidates",
-  "sdk": "0.4.0",
+  "model": {
+    "bytes": 4511117,
+    "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  },
   "sources": [
     "modelscope",
     "huggingface"
-  ]
+  ],
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "prefix": "ppyolo-tiny-320/0.1.0/",
+  "sdk": "0.4.0",
+  "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "qualityGate": "相同浏览器实际输入的Python/ONNX逐框核对，双后端三轮；不比较其他架构作为自身FP32门槛",
+  "previousRoot": {
+    "bytes": 4021,
+    "sha256": "9b505ca82f52990e31389e52bf6233bcb822478a85360be91a47bf625b8e25d2"
+  }
 }

@@ -1,24 +1,25 @@
 # PaddleDetection Web SDK
 
-## PicoDet series expansion (2026-09-15)
+## Current stable models (2026-09-15)
 
-The Demo now provides PicoDet XS/S/M/L sizes and PP-YOLOE+ S/M/L/X, totaling 13 specifications and 37 个稳定变体. 新增 PicoDet 清单版本为 1.0.1 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
+The Demo now provides PicoDet XS/S/M/L sizes, PP-YOLOE+ S/M/L/X, and PP-YOLO Tiny 320, totaling 14 specifications and 38 stable variants. The new PicoDet manifest version is 1.0.1 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
 
-| Model           |      FP32 |      FP16 |    W8A32 |
-| --------------- | --------: | --------: | -------: |
-| PicoDet-XS 320  |   2.89 MB |   1.86 MB |        — |
-| PicoDet-XS 416  |   2.90 MB |   1.88 MB |        — |
-| PicoDet-S 320   |   4.81 MB |   3.08 MB |  1.38 MB |
-| PicoDet-S 416   |   4.83 MB |   3.10 MB |  1.40 MB |
-| PicoDet-M 320   |  13.91 MB |   8.87 MB |  3.74 MB |
-| PicoDet-M 416   |  13.92 MB |   8.89 MB |  3.75 MB |
-| PicoDet-L 416   |  23.26 MB |  14.84 MB |  6.14 MB |
-| PicoDet-L 640   |  23.32 MB |  14.87 MB |  6.19 MB |
-| PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
-| PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
-| PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
-| PP-YOLOE+ L 640 | 209.18 MB | 104.70 MB | 52.70 MB |
-| PP-YOLOE+ X 640 | 394.16 MB | 197.21 MB | 99.05 MB |
+| Model            |      FP32 |      FP16 |    W8A32 |
+| ---------------- | --------: | --------: | -------: |
+| PicoDet-XS 320   |   2.89 MB |   1.86 MB |        — |
+| PicoDet-XS 416   |   2.90 MB |   1.88 MB |        — |
+| PicoDet-S 320    |   4.81 MB |   3.08 MB |  1.38 MB |
+| PicoDet-S 416    |   4.83 MB |   3.10 MB |  1.40 MB |
+| PicoDet-M 320    |  13.91 MB |   8.87 MB |  3.74 MB |
+| PicoDet-M 416    |  13.92 MB |   8.89 MB |  3.75 MB |
+| PicoDet-L 416    |  23.26 MB |  14.84 MB |  6.14 MB |
+| PicoDet-L 640    |  23.32 MB |  14.87 MB |  6.19 MB |
+| PicoDet-L 320    |  23.24 MB |  14.81 MB |  6.12 MB |
+| PP-YOLOE+ S 640  |  31.95 MB |  16.05 MB |  8.23 MB |
+| PP-YOLOE+ M 640  |  94.02 MB |  47.10 MB | 23.82 MB |
+| PP-YOLOE+ L 640  | 209.18 MB | 104.70 MB | 52.70 MB |
+| PP-YOLOE+ X 640  | 394.16 MB | 197.21 MB | 99.05 MB |
+| PP-YOLO Tiny 320 |   4.51 MB |         — |        — |
 
 All four PP-YOLOE+ sizes derive from official COCO weights at the same pinned PaddleDetection commit and retain the upstream license and conversion record. Each model pins both distribution sources by revision, path, byte count, and SHA-256; these repositories are project distributions rather than official upstream Hub mirrors. Evidence for the new variants is limited to Windows 11, Chromium 153, and ORT Web 1.27.0 on desktop. Larger models require more download bandwidth, CPU time, and runtime memory.
 
@@ -53,9 +54,9 @@ Version 0.4.0 adds an opt-in experimental small-object enhancement API and image
 
 ## Current boundaries
 
-- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 37 个稳定变体 across 13 specifications; the npm package contains neither manifests nor ONNX weights.
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 38 stable variants across 14 specifications; the npm package contains neither manifests nor ONNX weights.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
-- All 13 current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
+- All 14 current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
 - FP32, FP16, and W8A32 are stable for PicoDet 1.0.2 and PP-YOLOE+ S/M/L/X 0.1.1. Evidence for the new M/L/X precisions is limited to three desktop WASM/WebGPU runs on the fixed 64-image set dated 2026-09-14; Xiaomi 15 evidence covers only the original FP32 variant.
 - `classThresholds` overrides object-detection thresholds for manifest labels such as `person` and `car`; unspecified labels inherit the global threshold.
@@ -84,7 +85,7 @@ Code is Apache-2.0. Upstream licenses for model weights and COCO labels are trac
 
 The current version for PP-YOLOE+ S/M/L/X 640 is **0.1.1**, with stable FP32, FP16, and W8A32 variants for every size. Historical 0.1.0 and labs/blocked candidates retain their original status and evidence. Current manifests load without `allowExperimental`.
 
-全部 13 个规格使用同一 Demo 流程；PicoDet XS-320/416 提供 FP32、FP16，其余规格提供三精度。默认 PicoDet-L 320、ModelScope、FP32。清单固定两个 Hub 的 revision，切换模型会取消旧任务、释放实例并更新缓存身份。小米 15 的设备范围仍仅见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+All 14 specifications share the Demo workflow. PicoDet XS-320/416 provide FP32 and FP16; Tiny 320 provides FP32 only; the remaining specifications provide three precisions. Defaults remain PicoDet-L 320, ModelScope, and FP32. Manifests pin both Hub revisions; switching models cancels old work, disposes the session, and updates the cache identity. Xiaomi 15 device evidence remains limited to the [original FP32 record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
 
 ## Download settings (since 0.3.2)
 
@@ -95,3 +96,9 @@ Small object enhancement (0.4.0, experimental): the SDK provides opt-in `smallOb
 ## 2026-09-15 PicoDet 精度扩展
 
 PicoDet XS/S/M/L 九个输入规格已提供 FP32；本轮新增 14 个通过桌面三轮验收的 FP16/W8A32 变体。识别未达标候选保留 labs，Demo 仅启用已发布精度。详见[精度对比报告](reports/evaluation/2026-09-15-picodet-series-precision/README.md)。默认 PicoDet-L-320、FP32、ModelScope，SDK/npm 保持 0.4.0。
+
+## PP-YOLO Tiny 320 FP32 (2026-09-15)
+
+Tiny's first stable model version is **0.1.0**, with FP32 only at **4.51 MB**. ModelScope is the default and Hugging Face is optional; SDK/npm remains **0.4.0**. Three desktop runs on the fixed 64-image subset give **22.60 AP** and approximately **47.46/31.54 ms** median warm CPU/GPU inference. Compared with PicoDet-XS-320 FP32 in the same batch, CPU inference is about 28% shorter, the file is about 56% larger, and AP is 1.21 points lower.
+
+The manifest preserves PaddleDetection Apache-2.0 licensing and conversion attribution. These are subset results, not full COCO scores, and do not establish Tiny mobile or NPU compatibility. See the [quality report](reports/evaluation/2026-09-15-2d-candidates/README.md), [distribution verification](reports/distribution/2026-09-15-ppyolo-tiny/README.md), and [pinned manifest](models/ppyolo-tiny-320/0.1.0/manifest.json).

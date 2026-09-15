@@ -28,7 +28,8 @@ const stableManifestPaths = [
   "ppyoloe-plus-s-640/0.1.1/manifest.json",
   "ppyoloe-plus-m-640/0.1.1/manifest.json",
   "ppyoloe-plus-l-640/0.1.1/manifest.json",
-  "ppyoloe-plus-x-640/0.1.1/manifest.json"
+  "ppyoloe-plus-x-640/0.1.1/manifest.json",
+  "ppyolo-tiny-320/0.1.0/manifest.json"
 ];
 export const MODEL_VERSION = "1.0.1";
 export const MODEL_PUBLIC_ROOT = "https://chenmohan123.github.io/web-sdk-PP-Detection/models";

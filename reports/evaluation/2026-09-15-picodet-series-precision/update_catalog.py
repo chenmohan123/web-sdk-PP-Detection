@@ -6,6 +6,8 @@ import quality as q
 import publish
 
 def main():
+    for name in ('README.md','README.en.md'):
+        q.require('## 2026-09-15 PicoDet 精度扩展' not in (q.ROOT/name).read_text(encoding='utf8'), '文档更新已执行，请勿重复运行')
     jobs=q.read(q.REPORT/'published-jobs.json')
     summary=q.read(q.REPORT/'summary.json')
     accepted,summary,lock=publish.selected()
@@ -28,6 +30,12 @@ def main():
             new=f'pp-detection/{key}/1.0.1/manifest.json'
             q.require(old in text or new in text,f'没有找到 Demo 清单路径：{name}/{key}')
             text=text.replace(old,new)
+        if name=='scripts/stage-pages-models.mjs':
+            # 当前入口升级的同时继续发布旧地址，避免旧客户端遇到404。
+            anchor='  "pp-detection/1.0.2/manifest.json",'
+            legacy='\n'.join(f'  "pp-detection/{key}/manifest.json",' for key in ('picodet-xs-320','picodet-xs-416','picodet-s-320','picodet-s-416','picodet-m-320','picodet-m-416','picodet-l-416','picodet-l-640'))
+            q.require(anchor in text, '没有找到历史清单暂存锚点')
+            text=text.replace(anchor,anchor+'\n'+legacy,1)
         path.write_text(text,encoding='utf8',newline='\n')
     candidates=summary['candidates']
     count=sum(x['qualityGatePassed'] for x in candidates)

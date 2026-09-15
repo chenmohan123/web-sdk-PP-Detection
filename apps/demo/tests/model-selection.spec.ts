@@ -27,7 +27,7 @@ test("默认选择 PicoDet 和 ModelScope，来源只提供两个模型 Hub", as
   await expect(page.getByTestId("selected-model-summary")).toHaveCount(0);
 });
 
-test("模型选项按 PicoDet XS、S、M、L 尺寸顺序排列，再列出 PP-YOLOE+", async ({ page }) => {
+test("模型选项按 PicoDet XS、S、M、L 尺寸顺序排列，再列出 PP-YOLOE+ 和 Tiny", async ({ page }) => {
   await page.goto("/?fixture=1");
 
   await expect(page.getByLabel(MODEL_SELECT).locator("option")).toHaveText([
@@ -43,7 +43,8 @@ test("模型选项按 PicoDet XS、S、M、L 尺寸顺序排列，再列出 PP-Y
     "PP-YOLOE+ S 640",
     "PP-YOLOE+ M 640",
     "PP-YOLOE+ L 640",
-    "PP-YOLOE+ X 640"
+    "PP-YOLOE+ X 640",
+    "PP-YOLO Tiny 320"
   ]);
 });
 
@@ -298,4 +299,41 @@ test("390px 视口下模型和来源选择不产生横向溢出", async ({ page 
   await expect(page.getByLabel(MODEL_SELECT, { exact: true })).toBeVisible();
   await expect(page.getByLabel(SOURCE_SELECT, { exact: true })).toBeVisible();
   await expect(page.getByTestId("selected-model-summary")).toHaveCount(0);
+});
+
+test("切换到 Tiny 清除旧结果并恢复 FP32/ModelScope，只开放 FP32", async ({ page }) => {
+  await page.goto("/?fixture=1");
+  const model = page.getByLabel(MODEL_SELECT, { exact: true });
+  const source = page.getByLabel(SOURCE_SELECT, { exact: true });
+  const precision = page.getByRole("group", { name: "模型精度", exact: true });
+  await model.selectOption("ppyoloe-plus-s-640");
+  await runFixture(page);
+  await precision.getByRole("button", { name: "FP16", exact: true }).click();
+  await source.selectOption("huggingface");
+  await model.selectOption("ppyolo-tiny-320");
+  await expect(page.locator(".detection-row")).toHaveCount(0);
+  await expect(source).toHaveValue("modelscope");
+  await expect(source.locator("option")).toHaveText(["ModelScope", "Hugging Face"]);
+  await expect(precision.getByRole("button", { name: "FP32", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true"
+  );
+  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "INT8", exact: true })).toBeDisabled();
+  await runFixture(page);
+  await expect(page.getByTestId("model-name")).toHaveText("ppyolo-tiny-320");
+  const option = await page.evaluate(async (moduleUrl) => {
+    const module = (await import(moduleUrl)) as typeof import("../src/model-sources");
+    const { manifest, manifestPath } = module.modelOption("ppyolo-tiny-320");
+    return {
+      manifestPath,
+      version: manifest.model.version,
+      variants: manifest.variants.map(({ precision, status }) => ({ precision, status }))
+    };
+  }, "/src/model-sources.ts");
+  expect(option).toEqual({
+    manifestPath: "models/ppyolo-tiny-320/0.1.0/manifest.json",
+    version: "0.1.0",
+    variants: [{ precision: "fp32", status: "stable" }]
+  });
 });

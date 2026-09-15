@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-15",
+  "sdkVersion": "0.4.0",
+  "sdkUnitTests": 206,
+  "demoTests": 86,
+  "publisherTests": 33,
+  "docsContract": 5,
+  "examplesContract": 12,
+  "releaseContract": 29,
+  "benchmarkContract": 6,
+  "benchmarkBrowser": 14,
+  "lint": "passed",
+  "sdkAndDemoTypecheck": "passed",
+  "sdkBuild": "passed",
+  "demoBuild": "passed",
+  "pagesTinyManifestBytes": "identical",
+  "format": {
+    "method": "按git文件清单检查全部受支持文件，跳过不可读忽略缓存；原始pnpm verify未在本机宣称通过",
+    "supportedFiles": 387,
+    "status": "passed"
+  },
+  "distributionBrowserCombinations": 8,
+  "realDemoCombinations": 4,
+  "standardRequiredFailures": 0,
+  "issuesResolved": [
+    {
+      "issue": "发布检查会重建SDK dist，与真实浏览器并行时导致Worker文件短暂缺失",
+      "resolution": "发布检查完成后串行重跑全部8组合，全部通过；没有改动模型或runtime。"
+    }
+  ]
+}

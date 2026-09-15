@@ -1,0 +1,60 @@
+{
+  "sourceSha256": "2091c6054dc798caffd26ec69658205f577539d33da8b6e1e9c7f17ffe68f0b4",
+  "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+  "bytes": 4511117,
+  "opset": 14,
+  "inputs": {
+    "name": "image",
+    "shape": [
+      1,
+      3,
+      320,
+      320
+    ],
+    "dtype": "float32"
+  },
+  "outputs": [
+    {
+      "name": "save_infer_model/scale_0.tmp_0",
+      "shape": [
+        -1,
+        6
+      ],
+      "dtype": "float32"
+    },
+    {
+      "name": "save_infer_model/scale_1.tmp_0",
+      "shape": [
+        1
+      ],
+      "dtype": "int32"
+    }
+  ],
+  "changes": [
+    "Squeeze.7和Squeeze.9固定axes=[0,2]，保留N=1检测轴",
+    "image batch=1",
+    "im_shape=[[320,320]]",
+    "scale_factor=[[1,1]]"
+  ],
+  "nmsFixedSha256": "87a0af91dce47b4e2d381b21705ea1c21e17d5d20f434e79ab16aa32effbd7b6",
+  "session": "pass",
+  "status": "固定转换归档",
+  "upstream": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "weights": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyolo_tiny_650e_coco.pdparams",
+    "bytes": 4445966,
+    "sha256": "fc3d31cb1642e313bf1efd1e4c0015f2f836c37ed1d15b200f6500768beda3f0"
+  },
+  "configuration": {
+    "path": "configs/ppyolo/ppyolo_tiny_650e_coco.yml",
+    "bytes": 237,
+    "sha256": "673c77621e7c071aac2c4aa5608561df832314a7ea8dc92dc496cb1f70b9c4c4",
+    "snapshot": "upstream/configs/ppyolo/ppyolo_tiny_650e_coco.yml.gz",
+    "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/ppyolo_tiny_650e_coco.yml"
+  },
+  "parameters": {
+    "parameters": 358,
+    "allParameterElements": 1102131,
+    "trainableParameterElements": 1086147
+  }
+}

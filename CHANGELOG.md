@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-15 — PP-YOLO Tiny 320 FP32 模型与 Demo 更新
+
+- 新增 Tiny 320 FP32 稳定模型 0.1.0（4,511,117 字节），当前共14个规格、38个稳定变体；默认 PicoDet-L-320、FP32、ModelScope。
+- 通过 ModelScope/Hugging Face 固定 revision 分发，保留 PaddleDetection Apache-2.0 许可、原权重摘要与转换归因。
+- 沿用 SDK/npm 0.4.0，固定64图桌面质量证据及双源×CPU/GPU×main/Worker验证见[分发报告](reports/distribution/2026-09-15-ppyolo-tiny/README.md)。Tiny仅FP32，未新增手机或NPU兼容声明。
+
 ## 2026-09-15 — PicoDet 精度模型与 Demo 更新
 
 - 新增 14 个通过三轮 WASM/WebGPU 识别门槛的精度变体，未通过者保留 labs。

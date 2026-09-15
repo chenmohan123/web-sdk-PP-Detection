@@ -1,0 +1,109 @@
+{
+  "uploadsSha256": "fc118bccc2fca5e6f188d936d7c5f361d09d2287a5ca5c7e780fdf63a5412e98",
+  "binding": {
+    "protocolSha256": "96e7e7e9a8b4d5a5f29a4dcf6b34491ad11a0d798bd1b8376ccf522636386180",
+    "receiptSha256": "44627f98b58d34bddc421c1af1bf163ebd4bc567f9f012f0c2491d2962cb3d71"
+  },
+  "results": [
+    {
+      "path": "README.md",
+      "bytes": 4351,
+      "sha256": "5a82e7fa6d188d9b130a1c55a1af829bc6277f91a4ba2a01f82e0f87f6fbb324",
+      "source": "modelscope",
+      "revision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3/README.md",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:46.671612+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "modelscope",
+      "revision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3/ppyolo-tiny-320/0.1.0/LICENSE",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:46.966701+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/README.md",
+      "bytes": 2193,
+      "sha256": "eee596c2138b2348d997dbe5880a7c6c0c28f0ed0c6c46c06d7140c933d3dbb4",
+      "source": "modelscope",
+      "revision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3/ppyolo-tiny-320/0.1.0/README.md",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:47.250678+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/conversion.json",
+      "bytes": 1698,
+      "sha256": "5d4d6a196f7980897fa65fd891a7dcc1b01b3bd7940ce188a274e1a8c0a70abe",
+      "source": "modelscope",
+      "revision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3/ppyolo-tiny-320/0.1.0/conversion.json",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:47.515399+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/manifest.json",
+      "bytes": 4102,
+      "sha256": "52f37bb1a34281e99cd42d1b9458eb2c88ea39df26e4117337d95247712b0c3c",
+      "source": "modelscope",
+      "revision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3/ppyolo-tiny-320/0.1.0/manifest.json",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:47.930329+00:00"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4351,
+      "sha256": "5a82e7fa6d188d9b130a1c55a1af829bc6277f91a4ba2a01f82e0f87f6fbb324",
+      "source": "huggingface",
+      "revision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/fc1a48993e70838e368c2438774da1cb7c1ee168/README.md",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:48.913663+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "huggingface",
+      "revision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/fc1a48993e70838e368c2438774da1cb7c1ee168/ppyolo-tiny-320/0.1.0/LICENSE",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:49.961591+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/README.md",
+      "bytes": 2193,
+      "sha256": "eee596c2138b2348d997dbe5880a7c6c0c28f0ed0c6c46c06d7140c933d3dbb4",
+      "source": "huggingface",
+      "revision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/fc1a48993e70838e368c2438774da1cb7c1ee168/ppyolo-tiny-320/0.1.0/README.md",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:51.384174+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/conversion.json",
+      "bytes": 1698,
+      "sha256": "5d4d6a196f7980897fa65fd891a7dcc1b01b3bd7940ce188a274e1a8c0a70abe",
+      "source": "huggingface",
+      "revision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/fc1a48993e70838e368c2438774da1cb7c1ee168/ppyolo-tiny-320/0.1.0/conversion.json",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:53.979095+00:00"
+    },
+    {
+      "path": "ppyolo-tiny-320/0.1.0/manifest.json",
+      "bytes": 4102,
+      "sha256": "52f37bb1a34281e99cd42d1b9458eb2c88ea39df26e4117337d95247712b0c3c",
+      "source": "huggingface",
+      "revision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/fc1a48993e70838e368c2438774da1cb7c1ee168/ppyolo-tiny-320/0.1.0/manifest.json",
+      "passed": true,
+      "verifiedAt": "2026-09-15T14:16:55.307980+00:00"
+    }
+  ]
+}

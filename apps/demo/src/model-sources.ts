@@ -17,6 +17,8 @@ import ppyoloeMManifestJson from "../../../models/ppyoloe-plus-m-640/0.1.1/manif
 import ppyoloeLManifestJson from "../../../models/ppyoloe-plus-l-640/0.1.1/manifest.json";
 import ppyoloeXManifestJson from "../../../models/ppyoloe-plus-x-640/0.1.1/manifest.json";
 
+import ppyoloTinyManifestJson from "../../../models/ppyolo-tiny-320/0.1.0/manifest.json";
+
 export type DemoModelKey =
   | "picodet-xs-320"
   | "picodet-xs-416"
@@ -30,7 +32,8 @@ export type DemoModelKey =
   | "ppyoloe-plus-s-640"
   | "ppyoloe-plus-m-640"
   | "ppyoloe-plus-l-640"
-  | "ppyoloe-plus-x-640";
+  | "ppyoloe-plus-x-640"
+  | "ppyolo-tiny-320";
 export type ModelSourceKey = Extract<ModelSourceKind, "modelscope" | "huggingface">;
 
 export interface DemoModelOption {
@@ -146,6 +149,13 @@ export const MODEL_OPTIONS: readonly DemoModelOption[] = [
     label: { en: "PP-YOLOE+ X 640", zh: "PP-YOLOE+ X 640" },
     manifest: parseDetectionManifest(ppyoloeXManifestJson),
     manifestPath: "models/ppyoloe-plus-x-640/0.1.1/manifest.json"
+  },
+  {
+    experimental: false,
+    key: "ppyolo-tiny-320",
+    label: { en: "PP-YOLO Tiny 320", zh: "PP-YOLO Tiny 320" },
+    manifest: parseDetectionManifest(ppyoloTinyManifestJson),
+    manifestPath: "models/ppyolo-tiny-320/0.1.0/manifest.json"
   }
 ] as const;
 

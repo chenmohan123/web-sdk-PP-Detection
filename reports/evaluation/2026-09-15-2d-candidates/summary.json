@@ -1,0 +1,445 @@
+{
+  "date": "2026-09-15",
+  "sdk": "0.4.0",
+  "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+  "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+  "imageCount": 64,
+  "annotationCount": 716,
+  "environment": {
+    "cpu": {
+      "logicalCores": 12,
+      "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+    },
+    "os": {
+      "arch": "x64",
+      "platform": "win32",
+      "release": "10.0.26200"
+    },
+    "browser": {
+      "version": "153.0.8010.12",
+      "launchArgs": [],
+      "crossOriginIsolated": true,
+      "hardwareConcurrency": 12,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "userAgentData": {
+        "brands": [
+          {
+            "brand": "Chromium",
+            "version": "153"
+          },
+          {
+            "brand": "Not_A Brand",
+            "version": "8"
+          }
+        ],
+        "mobile": false,
+        "platform": "Windows"
+      }
+    },
+    "browserMessages": [
+      {
+        "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "type": "warning"
+      },
+      {
+        "text": "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "type": "warning"
+      },
+      {
+        "text": "\u001b[0;93m2026-09-15 20:35:07.700625 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m",
+        "type": "error"
+      },
+      {
+        "text": "\u001b[0;93m2026-09-15 20:35:07.703510 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m",
+        "type": "error"
+      },
+      {
+        "text": "webgpu：8/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：16/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：24/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：32/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：40/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：48/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：56/64",
+        "type": "log"
+      },
+      {
+        "text": "webgpu：64/64",
+        "type": "log"
+      }
+    ],
+    "gpu": {
+      "adapter": {
+        "architecture": "blackwell",
+        "description": null,
+        "device": null,
+        "isFallbackAdapter": false,
+        "subgroupMaxSize": 32,
+        "subgroupMinSize": 32,
+        "vendor": "nvidia"
+      },
+      "physical": true,
+      "reason": null
+    }
+  },
+  "conversion": {
+    "referenceCount": 208,
+    "candidateCount": 208,
+    "matchedCount": 208,
+    "unmatchedReferenceCount": 0,
+    "unmatchedCandidateCount": 0,
+    "maxScoreDelta": 1.7881393432617188e-06,
+    "maxBboxDeltaPixels": 0.000579833984375
+  },
+  "nmsFixedPreparedMaximumDelta": 0.0,
+  "blankDetectionsAtPoint5": 0,
+  "preprocessAP": {
+    "paddle": 22.68500064472348,
+    "onnx-opencv": 22.68500064472348,
+    "onnx-pillow": 22.121208680693773
+  },
+  "capturedInputAP": 22.598156639707902,
+  "inputBoundary": {
+    "identicalPillowImages": 52,
+    "differentPillowImages": 12,
+    "allDifferentImagesHaveICC": true,
+    "note": "Pillow未做ICC色彩管理；以浏览器实际float32输入的Python输出判断推理后端一致性"
+  },
+  "rows": [
+    {
+      "model": "tiny",
+      "backend": "wasm",
+      "bytes": 4511117,
+      "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+      "apRange": [
+        22.598156639707902,
+        22.598156639707902
+      ],
+      "warmInferenceMs": 47.46000000089407,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 47.46000000089407,
+          "warmTotalMs": 68.60000000149012,
+          "sessionMs": 482.1000000014901,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 1.9669532775878906e-06,
+            "maxBboxDeltaPixels": 0.0007476806640625
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.292815303802513
+          }
+        },
+        {
+          "round": 2,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 46.355000000447035,
+          "warmTotalMs": 66.875,
+          "sessionMs": 520.804999999702,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 1.9669532775878906e-06,
+            "maxBboxDeltaPixels": 0.0007476806640625
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.292815303802513
+          }
+        },
+        {
+          "round": 3,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 48.42000000178814,
+          "warmTotalMs": 70.49000000208616,
+          "sessionMs": 697.695000000298,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 1.9669532775878906e-06,
+            "maxBboxDeltaPixels": 0.0007476806640625
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.292815303802513
+          }
+        }
+      ]
+    },
+    {
+      "model": "tiny",
+      "backend": "webgpu",
+      "bytes": 4511117,
+      "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+      "apRange": [
+        22.598156639707902,
+        22.598156639707902
+      ],
+      "warmInferenceMs": 31.53500000014901,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 31.53500000014901,
+          "warmTotalMs": 51.685000002384186,
+          "sessionMs": 1225.594999998808,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 3.2186508178710938e-06,
+            "maxBboxDeltaPixels": 0.000392913818359375
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.2928943872451555
+          }
+        },
+        {
+          "round": 2,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 30.969999998807907,
+          "warmTotalMs": 52.03999999910593,
+          "sessionMs": 1120.2399999983609,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 3.2186508178710938e-06,
+            "maxBboxDeltaPixels": 0.000392913818359375
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.2928943872451555
+          }
+        },
+        {
+          "round": 3,
+          "AP": 22.598156639707902,
+          "warmInferenceMs": 32.42500000074506,
+          "warmTotalMs": 53.875,
+          "sessionMs": 1233.7049999982119,
+          "pythonComparison": {
+            "referenceCount": 208,
+            "candidateCount": 208,
+            "matchedCount": 208,
+            "unmatchedReferenceCount": 0,
+            "unmatchedCandidateCount": 0,
+            "maxScoreDelta": 3.2186508178710938e-06,
+            "maxBboxDeltaPixels": 0.000392913818359375
+          },
+          "unmanagedPillowComparison": {
+            "referenceCount": 205,
+            "candidateCount": 208,
+            "matchedCount": 184,
+            "unmatchedReferenceCount": 21,
+            "unmatchedCandidateCount": 24,
+            "maxScoreDelta": 0.015494048595428467,
+            "maxBboxDeltaPixels": 1.2928943872451555
+          }
+        }
+      ]
+    },
+    {
+      "model": "picodet-xs",
+      "backend": "wasm",
+      "bytes": 2886024,
+      "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
+      "apRange": [
+        23.811324315404033,
+        23.811324315404033
+      ],
+      "warmInferenceMs": 66.23499999940395,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 23.811324315404033,
+          "warmInferenceMs": 66.96000000089407,
+          "warmTotalMs": 90.2799999974668,
+          "sessionMs": 465.0599999986589
+        },
+        {
+          "round": 2,
+          "AP": 23.811324315404033,
+          "warmInferenceMs": 62.014999996870756,
+          "warmTotalMs": 83.83500000089407,
+          "sessionMs": 406.2399999983609
+        },
+        {
+          "round": 3,
+          "AP": 23.811324315404033,
+          "warmInferenceMs": 66.23499999940395,
+          "warmTotalMs": 88.80000000074506,
+          "sessionMs": 408.4949999973178
+        }
+      ]
+    },
+    {
+      "model": "picodet-xs",
+      "backend": "webgpu",
+      "bytes": 2886024,
+      "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
+      "apRange": [
+        23.811321103029197,
+        23.811321103029197
+      ],
+      "warmInferenceMs": 35.44999999925494,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 23.811321103029197,
+          "warmInferenceMs": 34.855000000447035,
+          "warmTotalMs": 56.275000002235174,
+          "sessionMs": 1183.410000000149
+        },
+        {
+          "round": 2,
+          "AP": 23.811321103029197,
+          "warmInferenceMs": 36.724999997764826,
+          "warmTotalMs": 59.66499999910593,
+          "sessionMs": 1120.7799999974668
+        },
+        {
+          "round": 3,
+          "AP": 23.811321103029197,
+          "warmInferenceMs": 35.44999999925494,
+          "warmTotalMs": 60.059999998658895,
+          "sessionMs": 1243.245000001043
+        }
+      ]
+    },
+    {
+      "model": "picodet-s",
+      "backend": "wasm",
+      "bytes": 4807906,
+      "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
+      "apRange": [
+        29.014998332825947,
+        29.014998332825947
+      ],
+      "warmInferenceMs": 85.48000000044703,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 84.65000000223517,
+          "warmTotalMs": 106.53999999910593,
+          "sessionMs": 434.4699999988079
+        },
+        {
+          "round": 2,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 85.48000000044703,
+          "warmTotalMs": 106.6849999986589,
+          "sessionMs": 437.1550000011921
+        },
+        {
+          "round": 3,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 86.07499999925494,
+          "warmTotalMs": 106.84000000357628,
+          "sessionMs": 415.2900000028312
+        }
+      ]
+    },
+    {
+      "model": "picodet-s",
+      "backend": "webgpu",
+      "bytes": 4807906,
+      "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
+      "apRange": [
+        29.014998332825947,
+        29.014998332825947
+      ],
+      "warmInferenceMs": 35.024999998509884,
+      "rounds": [
+        {
+          "round": 1,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 34.16000000014901,
+          "warmTotalMs": 55.184999998658895,
+          "sessionMs": 1091.089999999851
+        },
+        {
+          "round": 2,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 37.33000000193715,
+          "warmTotalMs": 62.95500000193715,
+          "sessionMs": 1207.984999999404
+        },
+        {
+          "round": 3,
+          "AP": 29.014998332825947,
+          "warmInferenceMs": 35.024999998509884,
+          "warmTotalMs": 56.355000000447035,
+          "sessionMs": 1223.359999999404
+        }
+      ]
+    }
+  ],
+  "lifecycleCombinations": 4,
+  "timingMethod": "每轮去除首图，取63图inference中位数，再取三轮中位数；不含下载、初始化和预处理",
+  "scope": "桌面可行性评测；不自动提升为稳定模型或新增分发来源"
+}

@@ -1,0 +1,56 @@
+{
+  "sha256": "2091c6054dc798caffd26ec69658205f577539d33da8b6e1e9c7f17ffe68f0b4",
+  "bytes": 4511035,
+  "opset": [
+    [
+      "",
+      14
+    ]
+  ],
+  "inputs": [
+    "name: \"im_shape\"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_param: \"DynamicDimension.0\"\n      }\n      dim {\n        dim_value: 2\n      }\n    }\n  }\n}\n",
+    "name: \"image\"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_param: \"DynamicDimension.1\"\n      }\n      dim {\n        dim_value: 3\n      }\n      dim {\n        dim_value: 320\n      }\n      dim {\n        dim_value: 320\n      }\n    }\n  }\n}\n",
+    "name: \"scale_factor\"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_param: \"DynamicDimension.2\"\n      }\n      dim {\n        dim_value: 2\n      }\n    }\n  }\n}\n"
+  ],
+  "outputs": [
+    "name: \"save_infer_model/scale_0.tmp_0\"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_param: \"DynamicDimension.3\"\n      }\n      dim {\n        dim_value: 6\n      }\n    }\n  }\n}\n",
+    "name: \"save_infer_model/scale_1.tmp_0\"\ntype {\n  tensor_type {\n    elem_type: 6\n    shape {\n      dim {\n        dim_param: \"DynamicDimension.4\"\n      }\n    }\n  }\n}\n"
+  ],
+  "operators": {
+    "Constant": 478,
+    "Conv": 83,
+    "BatchNormalization": 64,
+    "HardSwish": 19,
+    "Relu": 23,
+    "Add": 21,
+    "GlobalAveragePool": 8,
+    "HardSigmoid": 8,
+    "Mul": 30,
+    "MaxPool": 3,
+    "Concat": 41,
+    "LeakyRelu": 18,
+    "Resize": 2,
+    "Div": 10,
+    "Cast": 17,
+    "Shape": 5,
+    "Split": 9,
+    "Reshape": 23,
+    "Transpose": 9,
+    "Squeeze": 10,
+    "Range": 6,
+    "Tile": 6,
+    "Slice": 14,
+    "Sigmoid": 9,
+    "Exp": 3,
+    "Sub": 7,
+    "Greater": 3,
+    "Unsqueeze": 3,
+    "Min": 3,
+    "NonMaxSuppression": 1,
+    "Gather": 9,
+    "NonZero": 1,
+    "ReduceMin": 1,
+    "TopK": 1
+  },
+  "session": "pass"
+}

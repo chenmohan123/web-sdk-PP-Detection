@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-09-15",
+  "weights": [
+    {
+      "url": "https://paddledet.bj.bcebos.com/models/fcos_r50_fpn_1x_coco.pdparams",
+      "httpStatus": 200,
+      "contentLength": 195100748,
+      "etag": "\"7e88a009afc6c34e7606664a780e169f\"",
+      "note": "仅核验官方已列权重URL响应和文件长度，未下载或验证推理"
+    },
+    {
+      "url": "https://paddledet.bj.bcebos.com/models/ssd_mobilenet_v1_300_120e_voc.pdparams",
+      "httpStatus": 200,
+      "contentLength": 35157340,
+      "etag": "\"e5bc909c5ca9dca6a9ed7ce34b4bbd9f\"",
+      "note": "仅核验官方已列权重URL响应和文件长度，未下载或验证推理"
+    }
+  ]
+}

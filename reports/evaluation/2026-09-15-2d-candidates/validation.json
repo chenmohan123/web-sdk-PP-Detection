@@ -1,0 +1,197 @@
+{
+  "date": "2026-09-15",
+  "baseCommit": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+  "scope": "仅评估资料与复现脚本",
+  "standardBefore": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "standardAfter": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 3,
+    "recommendedFailed": 0,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "format": {
+    "status": "pass",
+    "files": 384,
+    "method": "Git跟踪和未忽略新增文件，经Prettier ignore/parser筛选后逐项检查",
+    "originalVerify": "本地pnpm verify在格式检查阶段因既有不可读.pytest_cache的EPERM退出2；CI仍执行原始pnpm verify"
+  },
+  "checks": [
+    {
+      "command": "pnpm docs:test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm examples:check",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm release:test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm benchmark:test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm benchmark:parity",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm evaluation:test",
+      "exitCode": 0
+    }
+  ],
+  "archiveRecomputation": "pass",
+  "rawFailureReproduction": "pass",
+  "sdkTests": 206,
+  "benchmarkBrowserTests": 14,
+  "browserEvaluationGroups": 18,
+  "realModelLifecycleCombinations": 4,
+  "sdkBundleSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "independentReview": "未发现P0–P2问题；逐项核验上游、原图故障、图修改范围、64份张量及等价输出、归档统计和生命周期",
+  "evidence": [
+    {
+      "path": "validation/verify.log.gz",
+      "bytes": 329,
+      "sha256": "df76aaf22ecb2a8a1275c493345335717aad63ecbfe8fd484dbba2131090665c",
+      "uncompressedBytes": 571,
+      "uncompressedSha256": "76793e5d3b90131077d8c6e3b0eedbbbfff9b0c742f6ff0230150d9ee0068c1d"
+    },
+    {
+      "path": "validation/format-tracked.log.gz",
+      "bytes": 198,
+      "sha256": "a1503c9c2ed6786f77e56905a4517abae386e021545353cb2fb8407064b65edd",
+      "uncompressedBytes": 648,
+      "uncompressedSha256": "b08b912b20635ba3e5b85701a252453350bde251e7879b889e4d7c3a6b0dc856"
+    },
+    {
+      "path": "validation/standard-before.json.gz",
+      "bytes": 2545,
+      "sha256": "a70abc6f2273ff49971bb45bd8ce695e255c6b11b69a1a0869d5aa94987929dc",
+      "uncompressedBytes": 11837,
+      "uncompressedSha256": "211019c521baf96e01670e72a98f726748147419a0df2a242e5fd8d7b03b2fdb"
+    },
+    {
+      "path": "validation/standard-after.json.gz",
+      "bytes": 2545,
+      "sha256": "a70abc6f2273ff49971bb45bd8ce695e255c6b11b69a1a0869d5aa94987929dc",
+      "uncompressedBytes": 11837,
+      "uncompressedSha256": "211019c521baf96e01670e72a98f726748147419a0df2a242e5fd8d7b03b2fdb"
+    },
+    {
+      "path": "validation/recompute.log.gz",
+      "bytes": 564,
+      "sha256": "3cc4de07412968b5372c27d8e39fc6bae81e4aee679a51a98e50eeebd4c33070",
+      "uncompressedBytes": 1668,
+      "uncompressedSha256": "031f22ad0e3a720ff4d804a3ab28cfba00ea96a9160fc559d756ae2e407e543b"
+    },
+    {
+      "path": "validation/raw-diagnostic.json.gz",
+      "bytes": 321,
+      "sha256": "8d1b1a1c7a225c00fee65070318ec287c942a5c73242e9074fd6df6e709ae995",
+      "uncompressedBytes": 413,
+      "uncompressedSha256": "a69267da1bf6fcbc42344b7624c7625e528485788d680cfd8de3b1f5827e3e01"
+    },
+    {
+      "path": "validation/check-docs-test.log.gz",
+      "bytes": 473,
+      "sha256": "7b90352cccc64bef492e88c1792b78969822879a3ec7448c1fe39d902dcb097f",
+      "uncompressedBytes": 660,
+      "uncompressedSha256": "8805012c5eb9d9bfd2129ab71afceb9930f90adad1275e4b3932c19861dff119"
+    },
+    {
+      "path": "validation/check-examples-check.log.gz",
+      "bytes": 374,
+      "sha256": "2b9513c86b59ad358e391c3874edab854276d18dcf8af005b2b82c76cadee029",
+      "uncompressedBytes": 999,
+      "uncompressedSha256": "2709082f7241f2e0bec0d810105a1b0308769ec8c46ffa9fba14c4d027a25746"
+    },
+    {
+      "path": "validation/check-release-test.log.gz",
+      "bytes": 1463,
+      "sha256": "1f04b169a2d7be6449d511ce2fac11e29add266bf3d79ddfe0017b24948ff339",
+      "uncompressedBytes": 2488,
+      "uncompressedSha256": "35e19890a899a3af690c6957bc1cbc35349d164da12de5784877bee599fcda70"
+    },
+    {
+      "path": "validation/check-benchmark-test.log.gz",
+      "bytes": 516,
+      "sha256": "8b2841b5a9f25e3ca824d969988bad65599b4c3c12c44c28b8b0890fb24ebbf3",
+      "uncompressedBytes": 685,
+      "uncompressedSha256": "55c154ae52acb70c4ec35a64cd42c83f77b42a25d2ef69768882d8fbae471667"
+    },
+    {
+      "path": "validation/check-benchmark-parity.log.gz",
+      "bytes": 672,
+      "sha256": "b4903084a568e48341f74faa86adad508612e334377e0fa326c7175c5536d889",
+      "uncompressedBytes": 1871,
+      "uncompressedSha256": "52165f2ad6e17df887b09930cf463db76dccd9a51b36370d22363105df8e7fa4"
+    },
+    {
+      "path": "validation/check-lint.log.gz",
+      "bytes": 130,
+      "sha256": "9be78d03aa055148ba74e88340a47190a0f33996d007a4b2d4f2cf59854cae05",
+      "uncompressedBytes": 175,
+      "uncompressedSha256": "37f84482f815fa900a9315f96b85e14736354ffb0e0e245fe4c9e880514daa55"
+    },
+    {
+      "path": "validation/check-typecheck.log.gz",
+      "bytes": 83,
+      "sha256": "1ddbcf6ecb0e1e8189ddc6e03fe7b316a7b2145d76b0537f719a52c4581ee4d4",
+      "uncompressedBytes": 64,
+      "uncompressedSha256": "ef68a6473872a71a7f4de9819fca96a922ed3faa737638bcd70dfc298b91155c"
+    },
+    {
+      "path": "validation/check-test.log.gz",
+      "bytes": 401,
+      "sha256": "d025c56fbfc106dccf09203700117798987f2075cc7150c07a9a862683252f71",
+      "uncompressedBytes": 613,
+      "uncompressedSha256": "6f1dfb807a692290a465ca92dd818b88739f5c1436b993dbac6e355145dc33d5"
+    },
+    {
+      "path": "validation/check-build.log.gz",
+      "bytes": 460,
+      "sha256": "fb6f936cfda9124adcc71b8763b0f77b33941578d21630aeae72539aa744016e",
+      "uncompressedBytes": 1414,
+      "uncompressedSha256": "ed4434f5f34dbef50098bc1827cf4ef16b1e98817c03135396a51114762280a4"
+    },
+    {
+      "path": "validation/check-evaluation-test.log.gz",
+      "bytes": 486,
+      "sha256": "09180a538cf088d76a27e2a94afe8714c78a14a625d33de46749448742871344",
+      "uncompressedBytes": 583,
+      "uncompressedSha256": "bc735149eb235dca1e73e0a6def7acbf7d095319bd044432ec036504c545c3c9"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "checkedAt": "2026-09-15",
+  "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "archive": {
+    "bytes": 45991481,
+    "sha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6",
+    "url": "https://github.com/PaddlePaddle/PaddleDetection/archive/b25522a0f4bde8c80603f3ba5e3472059972e3b5.zip"
+  },
+  "archiveAndExtractedFilesVerified": true,
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "snapshot": "upstream/LICENSE.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE"
+    },
+    {
+      "path": "configs/datasets/coco_detection.yml",
+      "bytes": 585,
+      "sha256": "d928cce669f165ea1fb5f5b11d01ec7249d93903460f90494ecec98c63589dc9",
+      "snapshot": "upstream/configs/datasets/coco_detection.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/datasets/coco_detection.yml"
+    },
+    {
+      "path": "configs/datasets/voc.yml",
+      "bytes": 469,
+      "sha256": "d9b3c95d9da9cbd91735c67c887205d5877af495093c8c30f7b7b24f6936eee4",
+      "snapshot": "upstream/configs/datasets/voc.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/datasets/voc.yml"
+    },
+    {
+      "path": "configs/fcos/README.md",
+      "bytes": 2696,
+      "sha256": "b3e432681896432b159fc09cbbc6a8b6a4fa18bef714fbaa2d2e16c5a2ab84c9",
+      "snapshot": "upstream/configs/fcos/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/fcos/README.md"
+    },
+    {
+      "path": "configs/fcos/_base_/fcos_r50_fpn.yml",
+      "bytes": 916,
+      "sha256": "be0e6250e820af9effffbde61646f591a9ffdbda312ea9412fac79a11dcab2a2",
+      "snapshot": "upstream/configs/fcos/_base_/fcos_r50_fpn.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/fcos/_base_/fcos_r50_fpn.yml"
+    },
+    {
+      "path": "configs/fcos/_base_/fcos_reader.yml",
+      "bytes": 1189,
+      "sha256": "51b574b283624c442dbced95e875327d9f24ebfcdc3a33c752c722d3f1c223a1",
+      "snapshot": "upstream/configs/fcos/_base_/fcos_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/fcos/_base_/fcos_reader.yml"
+    },
+    {
+      "path": "configs/fcos/_base_/optimizer_1x.yml",
+      "bytes": 300,
+      "sha256": "4e7da7c28a149e6217b9ef3d9b5c4d39da09816e73bac65749cd999223f86c0b",
+      "snapshot": "upstream/configs/fcos/_base_/optimizer_1x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/fcos/_base_/optimizer_1x.yml"
+    },
+    {
+      "path": "configs/fcos/fcos_r50_fpn_1x_coco.yml",
+      "bytes": 204,
+      "sha256": "c199fc25afc87f55cca1ab96e560e5df3b8794564911c260b8a3995ab97a5c33",
+      "snapshot": "upstream/configs/fcos/fcos_r50_fpn_1x_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/fcos/fcos_r50_fpn_1x_coco.yml"
+    },
+    {
+      "path": "configs/ppyolo/README.md",
+      "bytes": 21120,
+      "sha256": "398376dc7d5b91e6d27e4c8872e77791acfa438f7655085014e221c3d011dae8",
+      "snapshot": "upstream/configs/ppyolo/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/README.md"
+    },
+    {
+      "path": "configs/ppyolo/_base_/optimizer_650e.yml",
+      "bytes": 309,
+      "sha256": "1bcd12ce9f654d640b4ee6ae2d41e28515db904c2621432e6e115c4032246b05",
+      "snapshot": "upstream/configs/ppyolo/_base_/optimizer_650e.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/_base_/optimizer_650e.yml"
+    },
+    {
+      "path": "configs/ppyolo/_base_/ppyolo_tiny.yml",
+      "bytes": 1152,
+      "sha256": "6ee2059f5ab69e0c7ae5d0fc50160ce44009e16c090f1c630a46c310eb9af859",
+      "snapshot": "upstream/configs/ppyolo/_base_/ppyolo_tiny.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/_base_/ppyolo_tiny.yml"
+    },
+    {
+      "path": "configs/ppyolo/_base_/ppyolo_tiny_reader.yml",
+      "bytes": 1491,
+      "sha256": "095c50804613dbb08d3fcbce6590ca489b375dc991bf5703be9715ac2719bc5f",
+      "snapshot": "upstream/configs/ppyolo/_base_/ppyolo_tiny_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/_base_/ppyolo_tiny_reader.yml"
+    },
+    {
+      "path": "configs/ppyolo/ppyolo_tiny_650e_coco.yml",
+      "bytes": 237,
+      "sha256": "673c77621e7c071aac2c4aa5608561df832314a7ea8dc92dc496cb1f70b9c4c4",
+      "snapshot": "upstream/configs/ppyolo/ppyolo_tiny_650e_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyolo/ppyolo_tiny_650e_coco.yml"
+    },
+    {
+      "path": "configs/runtime.yml",
+      "bytes": 513,
+      "sha256": "c1223b0c56fda9af34904e8f406cfea6e6e58179349ac66937ef248e9d2af76e",
+      "snapshot": "upstream/configs/runtime.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/runtime.yml"
+    },
+    {
+      "path": "configs/ssd/README.md",
+      "bytes": 1426,
+      "sha256": "bf35bfb16da28f894b0221ccc3731f5b5015f8f933bdf1a983a6d592ab7042d4",
+      "snapshot": "upstream/configs/ssd/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/README.md"
+    },
+    {
+      "path": "configs/ssd/_base_/optimizer_120e.yml",
+      "bytes": 281,
+      "sha256": "3e4be0c778c305b8994e08e19b4385ab4756d53ab78a5df47c8221db9384f9f5",
+      "snapshot": "upstream/configs/ssd/_base_/optimizer_120e.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/optimizer_120e.yml"
+    },
+    {
+      "path": "configs/ssd/_base_/optimizer_1700e.yml",
+      "bytes": 281,
+      "sha256": "e2f562daf4f7470e8ba7d1a0c8d1cc2743e59eb0fc1d71b99eed589eddcd38cc",
+      "snapshot": "upstream/configs/ssd/_base_/optimizer_1700e.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/optimizer_1700e.yml"
+    },
+    {
+      "path": "configs/ssd/_base_/ssd_mobilenet_reader.yml",
+      "bytes": 1204,
+      "sha256": "1c536c4d6c775c6d30be0270ada2f6aa34024e15080372d98a5edff49e8c2fbc",
+      "snapshot": "upstream/configs/ssd/_base_/ssd_mobilenet_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/ssd_mobilenet_reader.yml"
+    },
+    {
+      "path": "configs/ssd/_base_/ssd_mobilenet_v1_300.yml",
+      "bytes": 997,
+      "sha256": "0eabede1b7018786806e2b5da14f3b90a05a5a0096640e3b3acb717301cb32f2",
+      "snapshot": "upstream/configs/ssd/_base_/ssd_mobilenet_v1_300.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/ssd_mobilenet_v1_300.yml"
+    },
+    {
+      "path": "configs/ssd/_base_/ssdlite320_reader.yml",
+      "bytes": 1160,
+      "sha256": "dd0cbf80b040e8de88486fa5fdb37510acc872268368334d209239a88f42d94c",
+      "snapshot": "upstream/configs/ssd/_base_/ssdlite320_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/ssdlite320_reader.yml"
+    },
+    {
+      "path": "configs/ssd/_base_/ssdlite_mobilenet_v3_small_320.yml",
+      "bytes": 1031,
+      "sha256": "0e7c4be46afa4128fe40fd42ec3f7b2ec5745bdbadeb51fd966cc58378b6ccbb",
+      "snapshot": "upstream/configs/ssd/_base_/ssdlite_mobilenet_v3_small_320.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/_base_/ssdlite_mobilenet_v3_small_320.yml"
+    },
+    {
+      "path": "configs/ssd/ssd_mobilenet_v1_300_120e_voc.yml",
+      "bytes": 411,
+      "sha256": "1c8c78489dadbfc3a2e2910c9b9dd18dfaf0017e3e754e700c4c312f0def620f",
+      "snapshot": "upstream/configs/ssd/ssd_mobilenet_v1_300_120e_voc.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/ssd_mobilenet_v1_300_120e_voc.yml"
+    },
+    {
+      "path": "configs/ssd/ssdlite_mobilenet_v3_small_320_coco.yml",
+      "bytes": 245,
+      "sha256": "e228740d83f01c76b5daa21353ba4df3eb7e6e92796b4ec0fea5e218612a7910",
+      "snapshot": "upstream/configs/ssd/ssdlite_mobilenet_v3_small_320_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ssd/ssdlite_mobilenet_v3_small_320_coco.yml"
+    },
+    {
+      "path": "deploy/EXPORT_ONNX_MODEL.md",
+      "bytes": 4792,
+      "sha256": "c77261eaca4f6b9f8ae622c1fb44f036939ef5abb243e254fae3c562e594413d",
+      "snapshot": "upstream/deploy/EXPORT_ONNX_MODEL.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/EXPORT_ONNX_MODEL.md"
+    },
+    {
+      "path": "ppdet/modeling/architectures/yolo.py",
+      "bytes": 5811,
+      "sha256": "b0d725dd31712096caf701550085f396b912c6ac798d0cde74cfd5b748e34c8d",
+      "snapshot": "upstream/ppdet/modeling/architectures/yolo.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/architectures/yolo.py"
+    },
+    {
+      "path": "ppdet/modeling/layers.py",
+      "bytes": 51381,
+      "sha256": "85f22c20dbc33a7c666ced3985b7049a446b3349152c0825ab8e353f1a6751c1",
+      "snapshot": "upstream/ppdet/modeling/layers.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/layers.py"
+    },
+    {
+      "path": "ppdet/modeling/post_process.py",
+      "bytes": 40559,
+      "sha256": "cefaf611604fd9426c03c802c9be1d057237abf9c74ace16b6493933a455e328",
+      "snapshot": "upstream/ppdet/modeling/post_process.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/post_process.py"
+    },
+    {
+      "path": "tools/export_model.py",
+      "bytes": 3866,
+      "sha256": "5fc498e6e5d67019092fa50479c35ba1f072729e6b3bd5c7319e494ffc33d7c7",
+      "snapshot": "upstream/tools/export_model.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/tools/export_model.py"
+    }
+  ],
+  "weights": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyolo_tiny_650e_coco.pdparams",
+    "bytes": 4445966,
+    "sha256": "fc3d31cb1642e313bf1efd1e4c0015f2f836c37ed1d15b200f6500768beda3f0"
+  },
+  "license": {
+    "repository": "Apache-2.0",
+    "officialWeightLinked": true,
+    "separateWeightLicenseFoundInReviewedSources": false,
+    "distribution": "本轮仅本地评估；正式发布时保留许可、上游来源和转换归因，并核验双源模型卡"
+  }
+}

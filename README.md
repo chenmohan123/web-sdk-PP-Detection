@@ -2,18 +2,18 @@
 
 ## PicoDet 系列扩展发布（2026-09-15）
 
-Demo 现提供 PicoDet XS/S/M/L 多规格与 PP-YOLOE+ S/M/L/X，共 13 个规格、23 个 stable 变体。PicoDet 新清单版本为 1.0.0（L320 沿用 1.0.2），PP-YOLOE+ 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。默认仍为 PicoDet-L 320、ModelScope、FP32，可显式选择 Hugging Face；显式来源失败不静默换源。
+Demo 现提供 PicoDet XS/S/M/L 多规格与 PP-YOLOE+ S/M/L/X，共 13 个规格、37 个 stable 变体。PicoDet 新清单版本为 1.0.1（L320 沿用 1.0.2），PP-YOLOE+ 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。默认仍为 PicoDet-L 320、ModelScope、FP32，可显式选择 Hugging Face；显式来源失败不静默换源。
 
 | 模型            |      FP32 |      FP16 |    W8A32 |
 | --------------- | --------: | --------: | -------: |
-| PicoDet-XS 320  |   2.89 MB |         — |        — |
-| PicoDet-XS 416  |   2.90 MB |         — |        — |
-| PicoDet-S 320   |   4.81 MB |         — |        — |
-| PicoDet-S 416   |   4.83 MB |         — |        — |
-| PicoDet-M 320   |  13.91 MB |         — |        — |
-| PicoDet-M 416   |  13.92 MB |         — |        — |
-| PicoDet-L 416   |  23.26 MB |         — |        — |
-| PicoDet-L 640   |  23.32 MB |         — |        — |
+| PicoDet-XS 320  |   2.89 MB |   1.86 MB |        — |
+| PicoDet-XS 416  |   2.90 MB |   1.88 MB |        — |
+| PicoDet-S 320   |   4.81 MB |   3.08 MB |  1.38 MB |
+| PicoDet-S 416   |   4.83 MB |   3.10 MB |  1.40 MB |
+| PicoDet-M 320   |  13.91 MB |   8.87 MB |  3.74 MB |
+| PicoDet-M 416   |  13.92 MB |   8.89 MB |  3.75 MB |
+| PicoDet-L 416   |  23.26 MB |  14.84 MB |  6.14 MB |
+| PicoDet-L 640   |  23.32 MB |  14.87 MB |  6.19 MB |
 | PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
 | PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
 | PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
@@ -55,7 +55,7 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 ## 当前边界
 
-- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供13 个规格共 23 个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
+- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供13 个规格共 37 个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
 - 模型来源由 manifest 声明，可选择 Git LFS、Hugging Face、ModelScope 或 custom；每个来源必须绑定不可变 revision、大小和 SHA-256。显式来源失败不会静默换源，`auto` 才会按清单尝试。
 - 13 份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
 - SDK 已支持 ONNX Runtime Web 的 `wasm`/`webgpu`、main/worker 执行模式、IndexedDB/内存缓存、模型完整性校验、取消和资源释放。
@@ -86,10 +86,14 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 PP-YOLOE+ S/M/L/X 640 的当前模型版本均为 **0.1.1**，每款提供 FP32、FP16、W8A32 稳定变体。历史 0.1.0 与 labs/blocked 候选继续保留原状态和证据；当前清单默认可加载，无需设置 `allowExperimental`。
 
-九个 PicoDet 规格与四个 PP-YOLOE+ 规格使用同一 Demo 流程；八个新规格仅提供 FP32，PicoDet、ModelScope、FP32 继续作为默认组合。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。小米 15 的实际设备范围仍只见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+九个 PicoDet 规格与四个 PP-YOLOE+ 规格使用同一 Demo 流程；XS-320/416 提供 FP32、FP16，其余规格提供三精度。默认 PicoDet-L 320、ModelScope、FP32。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。小米 15 的实际设备范围仍只见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
 
 ## 下载配置（0.3.2 起）
 
 0.3.2 新增 `download.timeoutMs`、`download.idleTimeoutMs` 与 `download.maxRetries`，分别控制请求总时限、数据停滞时限和重试次数。默认每次请求总时限 180 秒、无新增字节时限 30 秒、最多重试 2 次；仅重试同一固定权重 URL，等待期间可以取消。详见 API。
 
 小目标增强（0.4.0，实验）：支持默认关闭的 `smallObjectEnhancement`，复用会话执行整图与最多四片；仅建议静态图片评估，可能增加误检与耗时。详见[API](docs/zh-CN/api.md#小目标增强未发布实验)。
+
+## 2026-09-15 PicoDet 精度扩展
+
+PicoDet XS/S/M/L 九个输入规格已提供 FP32；本轮新增 14 个通过桌面三轮验收的 FP16/W8A32 变体。识别未达标候选保留 labs，Demo 仅启用已发布精度。详见[精度对比报告](reports/evaluation/2026-09-15-picodet-series-precision/README.md)。默认 PicoDet-L-320、FP32、ModelScope，SDK/npm 保持 0.4.0。

@@ -1,0 +1,21 @@
+{
+  "name": "PicoDet 全系列精度对比",
+  "version": "2026-09-15",
+  "dataset": {
+    "images": 64,
+    "annotations": 716,
+    "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+  },
+  "rounds": [1, 2, 3],
+  "backends": ["wasm", "webgpu"],
+  "models": ["picodet-xs-320", "picodet-xs-416", "picodet-s-320", "picodet-s-416", "picodet-m-320", "picodet-m-416", "picodet-l-416", "picodet-l-640"],
+  "precisions": ["fp32", "fp16", "w8a32"],
+  "qualityGate": {
+    "maximumApDropPoints": 0.5,
+    "minimumReferenceRetention": 0.95,
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "strictIouDiagnostic": 0.99
+  },
+  "notes": "每个候选与同规格 FP32 比较；体积减少独立记录，不推导推理加速或内存减少。"
+}

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-15 — PicoDet 精度模型与 Demo 更新
+
+- 新增 14 个通过三轮 WASM/WebGPU 识别门槛的精度变体，未通过者保留 labs。
+- 新版本清单为 1.0.1，默认模型、FP32、ModelScope 不变；运行时与 npm 维持 0.4.0。
+- 比较与发布证据见 `reports/evaluation/2026-09-15-picodet-series-precision/`。
+
 ## PicoDet 常规系列 FP32（2026-09-15，SDK 0.4.0）
 
 - 新增 XS/S/M 的 320、416 和 L 的 416、640 八个稳定 FP32 规格；连同 L-320，共九个 PicoDet FP32。Demo 共 13 规格、23 变体。

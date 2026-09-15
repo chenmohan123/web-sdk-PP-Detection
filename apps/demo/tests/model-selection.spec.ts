@@ -74,14 +74,18 @@ test("九个 PicoDet 选项连接稳定清单和双模型来源", async ({ page 
         { precision: "int8", status: "stable" }
       ]);
     } else {
-      expect(option.version).toBe("1.0.0");
-      expect(option.manifestPath).toBe(`models/pp-detection/${option.key}/manifest.json`);
-      expect(option.variants).toEqual([{ precision: "fp32", status: "stable" }]);
+      expect(option.version).toBe("1.0.1");
+      expect(option.manifestPath).toBe(`models/pp-detection/${option.key}/1.0.1/manifest.json`);
+      expect(option.variants).toEqual([
+        { precision: "fp32", status: "stable" },
+        { precision: "fp16", status: "stable" },
+        ...(option.key.startsWith("picodet-xs-") ? [] : [{ precision: "int8", status: "stable" }])
+      ]);
     }
   }
 });
 
-test("从三精度模型切换到 PicoDet FP32 模型时重置精度和来源", async ({ page }) => {
+test("切换到 PicoDet XS 时重置精度和来源，只开放达标精度", async ({ page }) => {
   await page.goto("/?fixture=1");
   const model = page.getByLabel(MODEL_SELECT, { exact: true });
   const source = page.getByLabel(SOURCE_SELECT, { exact: true });
@@ -98,7 +102,7 @@ test("从三精度模型切换到 PicoDet FP32 模型时重置精度和来源", 
     "aria-pressed",
     "true"
   );
-  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeEnabled();
   await expect(precision.getByRole("button", { name: "INT8", exact: true })).toBeDisabled();
   await expect(precision.getByRole("button", { name: "W8A32", exact: true })).toHaveCount(0);
 });

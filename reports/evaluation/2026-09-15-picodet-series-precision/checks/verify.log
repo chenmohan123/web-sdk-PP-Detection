@@ -1,0 +1,173 @@
+$ pnpm format:check && pnpm docs:test && pnpm examples:check && pnpm release:test && pnpm benchmark:test && pnpm benchmark:parity && pnpm lint && pnpm typecheck && pnpm test && pnpm build
+$ prettier --check .
+Checking formatting...
+All matched files use Prettier code style!
+$ node --test scripts/check-doc-parity.test.mjs
+▶ documentation contract
+  ✔ runs the bilingual inventory and generated error-code checks (16500.1616ms)
+  ✔ 描述当前十三规格三十七个稳定变体和双语设备证据边界 (0.7588ms)
+  ✔ 记录当前默认组合、三十七变体和 W8A32 API 映射 (0.91ms)
+  ✔ records the current model asset gate in both languages (0.5485ms)
+  ✔ documents per-class confidence thresholds in every public API guide (1.1891ms)
+✔ documentation contract (16505.1461ms)
+ℹ tests 5
+ℹ suites 1
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16602.5537
+$ node --test scripts/examples-contract.test.mjs
+✔ react 明确当前模型、来源和取消生命周期 (2.2434ms)
+✔ react 原样复制使用公开固定 SDK (0.4027ms)
+✔ vue 明确当前模型、来源和取消生命周期 (0.2685ms)
+✔ vue 原样复制使用公开固定 SDK (0.2091ms)
+✔ vanilla-vite 明确当前模型、来源和取消生命周期 (0.253ms)
+✔ vanilla-vite 原样复制使用公开固定 SDK (0.1977ms)
+✔ model-variants 明确当前模型、来源和取消生命周期 (0.2428ms)
+✔ model-variants 原样复制使用公开固定 SDK (0.2253ms)
+✔ wechat-webview 明确当前模型、来源和取消生命周期 (0.2923ms)
+✔ wechat-webview 原样复制使用公开固定 SDK (0.3232ms)
+✔ vanilla 明确当前模型、来源和取消生命周期 (0.2383ms)
+✔ cdn 明确当前模型、来源和取消生命周期 (0.2067ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.349
+$ node --test scripts/verify-release.test.mjs scripts/dependency-security.test.mjs scripts/repository-contract.test.mjs scripts/wait-npm-publication.test.mjs
+✔ keeps esbuild outside the GHSA-g7r4-m6w7-qqqr vulnerable range (4.9118ms)
+✔ 根包是私有工作区，SDK 子包是唯一公开发布包 (3.4846ms)
+✔ 无 manifest 的工厂以 INVALID_MANIFEST 拒绝且不会访问网络 (5836.3723ms)
+✔ manifest 记录 1.0.2 三精度资产和默认 ModelScope (0.6736ms)
+✔ 五类示例标记为 available 并指向现有目录 (0.3785ms)
+▶ 发布工作流契约
+  ✔ 验证当前 0.4.0 SDK 的稳定模型清单静态配置 (90.7575ms)
+  ✔ 1.0.1 稳定清单只发布 FP32 变体并固定三类来源 (1.0401ms)
+  ✔ 1.0.1 模型校验不因缺少 FP16 变体而阻塞 (326.8176ms)
+  ✔ 模型工作流默认使用当前版本并拒绝旧版本引用 (0.6662ms)
+  ✔ benchmark 和 runtime 工作流使用 PP-Detection 变量 (1.2606ms)
+  ✔ 物理 WebGPU runner 请求当前 PicoDet 清单的 FP32 变体 (0.3545ms)
+  ✔ benchmark 仅在清单选择 FP16 时运行 FP16 job (0.3018ms)
+  ✔ 发布校验要求稳定变体携带三类固定来源 (0.4304ms)
+  ✔ 发布校验严格限制官方来源主机边界 (0.3304ms)
+  ✔ 所有发布工作流固定 action 主版本和只读默认权限 (1.274ms)
+  ✔ npm 发布使用 Trusted Publishing，不回退到 token (0.3178ms)
+  ✔ npm 完整性校验覆盖 registry 传播延迟 (0.2091ms)
+  ✔ npm 发布在校验前还原两份真实模型文件 (0.2552ms)
+  ✔ package、runtime 和 changelog 版本保持 0.4.0 一致 (0.8063ms)
+  ✔ Pages 暂存脚本从当前根目录复制稳定模型且不访问网络 (697.2755ms)
+✔ 发布工作流契约 (1124.2176ms)
+✔ registry 超过两分钟后可用仍能取得完整性 (31.1816ms)
+✔ 网络错误、限流和服务端暂时错误允许重试 (0.7922ms)
+✔ 401 永久错误立即停止 (0.3858ms)
+✔ 错误版本或缺失完整性不得记为成功 (1.0126ms)
+✔ 持续不可用十分钟后失败并保留尝试记录 (3.1599ms)
+✔ HTTP 200 的临时响应体错误可以重试：TypeError (1.3835ms)
+✔ HTTP 200 的临时响应体错误可以重试：TimeoutError (0.5572ms)
+✔ 响应体持续中断受总超时限制并保留记录 (0.4676ms)
+✔ 完整响应中的无效 JSON 立即失败 (0.4329ms)
+ℹ tests 29
+ℹ suites 1
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5966.2834
+$ node --test scripts/benchmark-contract.test.mjs
+✔ 基准工作流默认保持关闭，避免发布前运行不存在的模型资产 (1.3544ms)
+✔ 浏览器基准使用可配置模型版本并跳过 blocked 清单 (0.6569ms)
+✔ 离线官方 reference 校验固定官方模型并拒绝 candidate 自比较 (0.7629ms)
+✔ 模型相关工作流不依赖 Git LFS，并从固定来源下载模型 (0.8759ms)
+✔ 基准包脚本仍覆盖构建和 parity 测试入口 (0.5047ms)
+✔ 三个真实模型 benchmark job 都注入离线官方 reference (0.4001ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.7068
+$ playwright test tests/browser/benchmark-parity.spec.ts
+
+Running 14 tests using 1 worker
+
+(node:28452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\browser\benchmark-parity.spec.ts:40:5 › FP32 preserves strict accepted-model equality thresholds (9ms)
+  ok  2 tests\browser\benchmark-parity.spec.ts:58:5 › FP16 accepts approved quantization differences (3ms)
+  ok  3 tests\browser\benchmark-parity.spec.ts:88:5 › FP16 rejects insufficient IoU matches (1ms)
+  ok  4 tests\browser\benchmark-parity.spec.ts:98:5 › FP16 rejects score drift above 0.02 (2ms)
+  ok  5 tests\browser\benchmark-parity.spec.ts:104:5 › FP16 compares polygon edges instead of vertex indexes (1ms)
+  ok  6 tests\browser\benchmark-parity.spec.ts:124:5 › FP16 rejects polygon edge drift above 2 px (1ms)
+  ok  7 tests\browser\benchmark-parity.spec.ts:143:5 › FP16 matches same-label detections spatially and allows one adjacent reorder (5ms)
+  ok  8 tests\browser\benchmark-parity.spec.ts:163:5 › FP16 rejects broad reading-order drift (5ms)
+  ok  9 tests\browser\benchmark-parity.spec.ts:175:5 › FP16 rejects a matched detection with an empty polygon (2ms)
+  ok 10 tests\browser\benchmark-parity.spec.ts:182:5 › parity rejects non-finite detection values (4ms)
+  ok 11 tests\browser\benchmark-parity.spec.ts:210:5 › FP32 rejects non-finite detection values before strict comparison (1ms)
+  ok 12 tests\browser\benchmark-parity.spec.ts:218:5 › FP16 rejects finite coordinates whose derived box area overflows (1ms)
+  ok 13 tests\browser\benchmark-parity.spec.ts:235:5 › FP16 accepts two empty detection sets (1ms)
+  ok 14 tests\browser\benchmark-parity.spec.ts:243:5 › FP16 rejects one empty detection set (1ms)
+
+  14 passed (924ms)
+$ pnpm -r --if-present lint
+Scope: 8 of 9 workspace projects
+packages/sdk lint$ eslint src
+packages/sdk lint: Done
+apps/demo lint$ eslint src tests
+apps/demo lint: Done
+$ pnpm --filter web-sdk-pp-detection typecheck
+$ tsc --noEmit
+$ pnpm --filter web-sdk-pp-detection test
+$ vitest run --passWithNoTests
+
+ RUN  v5.0.0 F:/git/00_chenmohan/github/chenmohan123.github.io/.worktrees/detection-picodet-series-fp32/packages/sdk
+
+
+ Test Files  21 passed (21)
+      Tests  206 passed (206)
+   Start at  17:01:41
+   Duration  2.94s (tests 47%, transform 27%, import 24%, worker 2%)
+
+    Isolate  21 workers spawned · ~487ms startup each (spawn + environment, per file)
+             at least ~442ms faster with isolate: false — reuses workers across files instead of one per file
+
+$ pnpm --filter web-sdk-pp-detection build
+$ tsup --config tsup.config.ts
+CLI Building entry: {"index":"src/index.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI Building entry: {"inference.worker":"src/worker/inference.worker.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI Building entry: {"browser-global":"src/browser-global.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-picodet-series-fp32\packages\sdk\tsup.config.ts
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-picodet-series-fp32\packages\sdk\tsup.config.ts
+CLI tsup v8.5.1
+CLI Using tsup config: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\detection-picodet-series-fp32\packages\sdk\tsup.config.ts
+CLI Target: es2022
+CLI Target: es2022
+ESM Build start
+CLI Target: es2022
+IIFE Build start
+CLI Cleaning output folder
+ESM Build start
+DTS Build start
+DTS ⚡️ Build success in 2164ms
+DTS dist\index.d.ts 23.70 KB
+ESM dist\index.js     112.74 KB
+ESM dist\index.js.map 258.96 KB
+ESM ⚡️ Build success in 2894ms
+ESM dist\inference.worker.js     678.65 KB
+ESM dist\inference.worker.js.map 2.02 MB
+ESM ⚡️ Build success in 2902ms
+IIFE dist\browser-global.js     813.55 KB
+IIFE dist\browser-global.js.map 2.26 MB
+IIFE ⚡️ Build success in 2900ms

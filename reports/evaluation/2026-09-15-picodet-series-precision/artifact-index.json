@@ -1,0 +1,1730 @@
+[
+  {
+    "path": "evidence/round-1/picodet-l-416-fp32-wasm.json.gz",
+    "bytes": 1466820,
+    "sha256": "9a76fa3d52f6574f3481270d2594f63f8f07d77c00742b8b397c09cfde4080e2",
+    "compressedSha256": "1d462d145b4f8cd0ea9e772044954ebf592720270dc6d17c8f16958a7ec43370"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "04a017d1795223f46f58df4deeb637feb0834a5633fd3492347d658e208bfbf7",
+    "compressedSha256": "ee5e786270d4870a6a15b413b52258c8f66474e390c01e2cf4289ba5906da18f"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp32-webgpu.json.gz",
+    "bytes": 1467776,
+    "sha256": "3a07144bfb2dfb2543335adbec56bcbcc708f738f1d5c9f0f3fa0487ae68b6fd",
+    "compressedSha256": "9a99da1689f9b4edad2294aaf840e52fd9c5edad034f1a16317e5828fbb0a451"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a3ba0ad00b9e848c841ef46f73e9a6452fdcb198d504835e4b28e67f24e141b6",
+    "compressedSha256": "3ddbf7859dfedbd8d203717d1442b814317aeeba0861fcd4ed347fbc22cc136d"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp16-wasm.json.gz",
+    "bytes": 1422455,
+    "sha256": "66f887332ccf6c686f6f228f2df30646fb4dbdb971a122740067f9f160c7990d",
+    "compressedSha256": "ed401c544754802a893f39e76ae041f7054ab238b82294bc56d4d565bb650375"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a15f6a90ae199df401fafe91762ef062634cfd227200038706b43cea6922f8f4",
+    "compressedSha256": "b60f9af6a2ff050b3a8ce46ac02dac8dd7f3ffc3d0f0051f829e1a487db37e31"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp16-webgpu.json.gz",
+    "bytes": 1422775,
+    "sha256": "43f85bb2e77aa760db12f081346742ac8330ad56a2c2b64366dda7e4629e7c1a",
+    "compressedSha256": "0c17add306170bd8f436150a4561f2f054445999c5649ce6fbde07c20f9529a5"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "46c175df3746e2b9e14571aad276d1907b6a5dfcadd2df86664459fedf914e90",
+    "compressedSha256": "30bab1613dab99565df29e516648ec87b39d4e0c4f39ac2530db64bea36fe8cf"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-w8a32-wasm.json.gz",
+    "bytes": 1464666,
+    "sha256": "622310a3748b91767f57a159896f5e0f564c4940ee123228155f3ce88c2c2e9a",
+    "compressedSha256": "c4a88658689b1d2edd63b89591a20aaf57710850bc2ef515912573a9d5cead89"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7eb1cb544887bc3a5bc9a6cc406491e3e4675fe57028331426a752de613be16a",
+    "compressedSha256": "af9898fa069be36c254efede25cc620a5d5b25033cf66ff6333b651c958627d9"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-w8a32-webgpu.json.gz",
+    "bytes": 1465637,
+    "sha256": "9a30fde1c9d702cb3882b109c093e3b6d4ffaed268751e30b58aeeb2737b73f7",
+    "compressedSha256": "0b600ed1b542df7b372778977d2332a4d179e9f1e4cdc8cb2b5766ae322a15b4"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "673a7a7bd5ceb2573d836fdde5972507626b0aa53539b05a03767491d2d0a727",
+    "compressedSha256": "1b65dacbab1934545f4e919cba86e2003a48c82f981779cb0d2bf8aaeb686fef"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp32-wasm.json.gz",
+    "bytes": 1472396,
+    "sha256": "989fbd958148e171b761f6e11798d60fd024d4b370360d69ffaafada834e7607",
+    "compressedSha256": "cfb62de07945f59eddccedfe16e27de1b7cebd525c9894af27fff4905d92c02d"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "44e121fa373cf587dbd5c54603118cd4137d4015cd01becfcfe9fb1e8e7642ba",
+    "compressedSha256": "c339abc196db55381fb0e54f9da326ec437c2226c247882168c79bbdc7258ab0"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp32-webgpu.json.gz",
+    "bytes": 1473074,
+    "sha256": "7de6fcca27e8241b8434856235ddfb768fa514d663529cf277a7aa8cbdac850e",
+    "compressedSha256": "91cdf11b3ca5b1b422765e59f2a58ce4ee952c942ae02510681b446afb002d13"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "dd1e4c878d29a7b1182bedddf0ee4681932e441dc2f48d47666b51d4cafe5e61",
+    "compressedSha256": "5b81a0b4cbb700e92ad8c950d5f620024e83a8bc55b57069a7a5e9891de5db47"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp16-wasm.json.gz",
+    "bytes": 1244761,
+    "sha256": "bce5046954b332c7885fb4dbef68f8e6f15a3474659ff16a57192278a2f50490",
+    "compressedSha256": "bb0940517fd213878d847663864c5573e863d3948a13ce2a887fe3f776d3d757"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5b09029d2c784f270741a960e430c93974cdabb475c31afdaa8d83b9c15252fe",
+    "compressedSha256": "e2efca0c297e2612351169256d6c4b8048b31a268c4482b7e88ebb288b61f7f2"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp16-webgpu.json.gz",
+    "bytes": 1253197,
+    "sha256": "6e8035313cc32b28f2f74153f1ca4d2064f810c6a9cdba9c77ad5001261dc6eb",
+    "compressedSha256": "3d9a899e1ced2c6efabcb46ee31e90bdb908a774560182596fac8bffb6ce1b25"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "2d285e701214fe59db9e1112f28a4288ef09a75f0742d46f7f8a6c283700e302",
+    "compressedSha256": "f7d8007e266fc89f319ccf7b23bb90737e0d08fe7bc653d4fce9e187b9d6684f"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-w8a32-wasm.json.gz",
+    "bytes": 1468097,
+    "sha256": "66152a779dd33ddcb7efd0257a0717288c4b20aac73eeaab220353848dd965f7",
+    "compressedSha256": "b6ab0d9a23b8cca60901714a54f8a8533b82fa96f48810792d724b2571839c90"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "13192a8fb25b86bfe98e3218ee5357e7a7b07c2dfe1b03bc154ac90247224e3d",
+    "compressedSha256": "fc07a13aac8ebd335c9c41ffc701a9c8945e3c95a15b557c5e10f4deb08252e5"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-w8a32-webgpu.json.gz",
+    "bytes": 1469223,
+    "sha256": "1de867d2f565ec62f31e7c365729dc8f6c0580797f6632c61c025bdf2ed2a7bb",
+    "compressedSha256": "dffbf23227af4d518238eb0fc396d46c4db32d195c9bd3d7e6e9848efdf2f954"
+  },
+  {
+    "path": "evidence/round-1/picodet-l-640-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "55b0e8169630153b3fe7d4615f89082199f34bde77179c72128b4c8687a44882",
+    "compressedSha256": "a795bb66c57e27906a2a69751e81e6bd9584c4e1fea01d3060a6191448cdf183"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp32-wasm.json.gz",
+    "bytes": 1479272,
+    "sha256": "5c9decbc7b048fe403891dd79b95bfbd26bba1eb33ef845d218b69f2c8b7a9a8",
+    "compressedSha256": "0b38b793e3960253eca609097f1123ee72e8482bc67b3337c23a0b814379df71"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "f14fdb4efe70ea5056d9b7243c3d9700c13fd78762b45d51b1499a921650a4af",
+    "compressedSha256": "4c979a2803ae662bdc470223f2e863678c5e27a5bc425811b7dd7a07bc8009db"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp32-webgpu.json.gz",
+    "bytes": 1479847,
+    "sha256": "6ce0aed98252f25056415299eed42ca77c02f43b888b3c6e7ac775a5c6450ae9",
+    "compressedSha256": "088d137643feb65426ba16c33f2afb0f2807fc2ced8ae6926a8e8489e2f7843c"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "4a0d76377211d2185b3b759ec844b72752f591728c2a0dac79c3d7338dfeae0e",
+    "compressedSha256": "556e70fa33117db95cdf18c04eaa973e414f34b3be3e13f25aaa3baa65194e2a"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp16-wasm.json.gz",
+    "bytes": 1249683,
+    "sha256": "6d25bafef54a2b30aaad7b26862eca45534a0f73343397be930d3291abb146aa",
+    "compressedSha256": "3c3a8f89cf8d8304265add1817c7f10a8166ea725d310910d3684cfbb1607328"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "b0ac00e0e86caaff3c6c09128a2c0e51cf36831e62824b2166942d2cc7fad78e",
+    "compressedSha256": "b3ce827c69bdaac9f595015a6d7b48589cdb2c1fb28bb1b2e62c08ff12a8ff22"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp16-webgpu.json.gz",
+    "bytes": 1249978,
+    "sha256": "85859dc435b926d41aa212e39d24f3c6b3514fdb86407fa23c184cdcc6c1df80",
+    "compressedSha256": "6f548e58d0ce717ecea6d6c5e1aeeb520c3547b4f5445924f817770bbcd53aec"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "127c2e83cb4fffbc6d2a7efbecb6eb452894f6504c486af748c032442c9ccce4",
+    "compressedSha256": "a53bbedf2a16f965795923b7a5ef0856602e0e76ab4038eeeb0b42a3f485dad6"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-w8a32-wasm.json.gz",
+    "bytes": 1472004,
+    "sha256": "91d6bccf859ad13da1eb687b479d3e170174e86e0b6e7d5ff7e7317aa2fd2a74",
+    "compressedSha256": "319b5a9ce9d5d2917d76aac37759bb273a53cf3d78924524e5ffd060378f3cb8"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "43b3b3c1608c3d8b7319f5a6912112cb4a7ddb1764a91f2746747a9a095967b2",
+    "compressedSha256": "1152fc02c2459a39e191647d89f121e3671a04e17e37f6b3b2c63be71fd7e73d"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-w8a32-webgpu.json.gz",
+    "bytes": 1472850,
+    "sha256": "4e0d52a54c54bf7067863781b21016ef891fd8286112ecd97e87414d3a9cc00e",
+    "compressedSha256": "bf9146cdde15b3c9d20df539a57df45cff8dcadbd154e611d03cdb3a27a3c653"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "dd7b93a5fdff6eaa2ae5940b25ecf27964c97bc897fa64fe3f6f3da816128c68",
+    "compressedSha256": "d3c1f09ed1ae326339ed020fc3f08044cdd33df3594236923136f665653cdfcf"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp32-wasm.json.gz",
+    "bytes": 1484157,
+    "sha256": "841300df52f85624be82ffdc79e1aa98c953ad879c6043a4c778db6137c96da4",
+    "compressedSha256": "40a14966df6207904cc173defc42f5898e5dc32809374d07aed773b1d2fb305d"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "b0753a537647c2489ea4dbaa7c31b4dd46d492d8d7bffa1de5c2b2930c0c213b",
+    "compressedSha256": "449a01872f1a9301c5d4dfa69e5c4e4abe5a42255675030572823b0cde8117df"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp32-webgpu.json.gz",
+    "bytes": 1484941,
+    "sha256": "af6dbda496d306ec56626fc3315ca159583d6535a6a6b6c69f724663578294af",
+    "compressedSha256": "736ef7c3157a58845a0c496444d3fb932d7ca63263067780c9f1194d8011894d"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d644827ffdc37290b6ea917b419c1697c9074e6df75e70a377b7c6f9122a2693",
+    "compressedSha256": "2d7e9e56ed132e99e5b2b69fba7aa84ad224f47f1f6724a504976c3d16387bc1"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp16-wasm.json.gz",
+    "bytes": 1441250,
+    "sha256": "5651a2c2cf0eb6d5f254a17d531f93ac29742d06bcb80ab847de57a24ebe8907",
+    "compressedSha256": "61c419c5e9ca40c2fcbf697544124a26b904063f6c926f6574f63400f980a64b"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "1a46bd60abafcb585c2eabd92558510d2a06b79b19c3d56eda11b6af4e9e3600",
+    "compressedSha256": "7bb44484bf3629d4244a1385e5f86bd3e4c8297ce4b28bfc2e12a4976b53a1cc"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp16-webgpu.json.gz",
+    "bytes": 1440603,
+    "sha256": "22bb93f5e61005d796403d12ed026848fd452c1e5b5f8b970df22334cb5a8ac3",
+    "compressedSha256": "311be9b72d61a694bd23ee37ca8e21ad42fbb5ade7778c228e3daadf37a48bf5"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "9a29728c18cc54c3edc638f42e4f2460c7d046db72bf09d8c686a65a0cd67a7a",
+    "compressedSha256": "a85a909c39f142174c0828194cdf3f3858c7b8833b34653ef6739230457eecfb"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-w8a32-wasm.json.gz",
+    "bytes": 1478548,
+    "sha256": "74237b8000caf61eeafa07d91a5ce87339a8e61f3ff37c1c97464466435ead63",
+    "compressedSha256": "ff8c609963a5df65d5245029eb0abfbc8a284eefd0da1c2d1e35b703254a4997"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "15f4abdf5490cc8a1703d724a93a9d5581f7ccd398d4a97115818070f74c756b",
+    "compressedSha256": "2b4d0ec15286479066335162af9a371f7cc184e80449be36398c0f472545a8bd"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-w8a32-webgpu.json.gz",
+    "bytes": 1479598,
+    "sha256": "e1b7ddf36bc56f291389e2484fc03d523e0b1b661c01360b4a76fb00a6d979f9",
+    "compressedSha256": "9f63c7695eebfee95bf83b18c9b845a2eec722b5d361e0da5f56d7917698105f"
+  },
+  {
+    "path": "evidence/round-1/picodet-m-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "e049cc89d824c4838112892135a1f2db2a8476be44b5c64ee6f0a6002e87d8f3",
+    "compressedSha256": "912914de85801d8448697926516918f4f32a2ddde505d89ed9a96f4009c82b9b"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp32-wasm.json.gz",
+    "bytes": 1510149,
+    "sha256": "4c59a25c5943a4394097b5f14536ad5310842322224b3b8ec4d695fad38d5e99",
+    "compressedSha256": "ab06a4d40b54f76e28237e7e9bafb221c7dd8f4b7468fdf1b9ab2be7ce26a6cd"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "3a743f6e5a0e20e452bd2c46dc16f842a92b9021fe9a3f442943a8a8596a4c71",
+    "compressedSha256": "750e87f6ecef49d806281280f05c182f74f7128357d64447b48e4f140cf1806d"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp32-webgpu.json.gz",
+    "bytes": 1511098,
+    "sha256": "9c76b348cbbe643aab50b9fc541939757ba2b7872d2e66f9daec0b858f1eaafc",
+    "compressedSha256": "212835d6deb51a23323f14b14bf9efe8d1b37bd1b559bd9377e2cb66cc0555ab"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "9aeda6a455485c6bb63210f0eb6f618a026b52c1f7767c41597b0a841743faf8",
+    "compressedSha256": "e0a92c70cb91790aaa05dceecc779e7498c36e3f44473827a27bd377beb9bb78"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp16-wasm.json.gz",
+    "bytes": 1276458,
+    "sha256": "82ae8c91a8377ed82ea079e2a642050b9c5927b734b995df0d5510262c2155bb",
+    "compressedSha256": "e34bd4acbd286a26a79f51ec8dbf0ef96e392d99d61c0f65990889e414b83558"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c107955d8c04a6cf40ebb287149cd72f0cb8e2231bf0a06d2fc1ebe7dd0bbdfb",
+    "compressedSha256": "1a8f35de6da7db04f4aead829c7882a1a5d663594c9387c524c8c97c0eba526f"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp16-webgpu.json.gz",
+    "bytes": 1276770,
+    "sha256": "2d1ab3acf7b31d296b2d4a9edf95f165379b767d182840541de4fa19aa4baf56",
+    "compressedSha256": "2d2cdf2a98e26a4b13aa048e50a52c149fd0bc3dbd324930134caf7145f7ceda"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "f7518632b6260d9e83bec90b08ca557d71ceadda09aa8ed2d93c0418ffe0c44a",
+    "compressedSha256": "3e055e49458a222912255be985a77858077c3d299c7de49f25cb4f95ea785622"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-w8a32-wasm.json.gz",
+    "bytes": 1509152,
+    "sha256": "0f75e6490204773263b3a14565699be89d1034373526212ee320c950c79f23bb",
+    "compressedSha256": "e7e70ae69d5276f291e9e49e678737367e99533abffc6e4d5cdb86cb16d7949f"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "81ad5c7d73b223c582a7f8bf5b821a538303f0863b926bb982ab9cde1edeeadc",
+    "compressedSha256": "0f36875ca659d321d0275806ac4c0df375f6887272f81c79465f387c80365d51"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-w8a32-webgpu.json.gz",
+    "bytes": 1509589,
+    "sha256": "6319c41226cf636a3d6274bb345b7b607d0862be60e40cabf148a035835fe04b",
+    "compressedSha256": "4ba502a0108d58a78926b0d49739ad8b41c17ff4b16cd4b0af9e8c7991638115"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "ce2be3d36cb2c2edd3c6467c847054f40e606360d92a2fc4bba81a460a9ac4d0",
+    "compressedSha256": "4aff53eff1065b59c213cda071da0417c8fbac6b31c1336573e6e12d957b9735"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp32-wasm.json.gz",
+    "bytes": 1494122,
+    "sha256": "36d62acac468c5e36e9ad10a88f77f637c7de3fe9c4a9a5227cfdc63a48b3848",
+    "compressedSha256": "3b96bf1be0e09bdae904620e44ef3b3d2ccbfbcb913f17fac95d3851f505a9b4"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "78d107ee6c86337c229c6565d4f258e8116d3cf34c3d58b3ce8ee99687c44be9",
+    "compressedSha256": "a4ab138f4d343c49ca561522c6d1c6841989765f9edb5e9a80af320cbed0e6ad"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp32-webgpu.json.gz",
+    "bytes": 1494810,
+    "sha256": "c631a7ad4c18894e5989b6f33fe3723013c23a3824c95d9ae7d15002356503ec",
+    "compressedSha256": "611c63d801a88a9c3e50cee61e14a3fdf880ce36939f7e5b03b931d372018447"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "2decb0295c4755d224ca6b029fb5e2328296884fcad6d1a806af32b036aaee33",
+    "compressedSha256": "09d5d492207418172c9cdd3d9b2f626c4a7c6edf666ccefacb993bd4b3e37496"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp16-wasm.json.gz",
+    "bytes": 1448741,
+    "sha256": "a8f5280e65a3668411c9f771e74389ac0ced0a42863e37c2c84ddee2315c34bc",
+    "compressedSha256": "060b6b1c73a031c46015e20d58875be55dcd8f3cb751a3142c2eebac45b25fdd"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7510b96ca9033f9987b2323f7e93d6e8d8d0042ff24e21c4487b5675f38d2ec5",
+    "compressedSha256": "b41b6e3b6c5fb40004f660ac8f579a3e8e5d1e2df48de55c29740ea40b350603"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp16-webgpu.json.gz",
+    "bytes": 1447359,
+    "sha256": "7075fcfe6f5e80c466a437720b2af8855f4f295bf1656122797dabab831848ee",
+    "compressedSha256": "006c9e65bbc4511b20f7555ebcd95e3b57bee38a5a9eee9bc5dccdc5aaedd30a"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7fae542d1d47408f7e308d3ce86d45e1d6465d0101f9fc3f9be7c8713dc95252",
+    "compressedSha256": "3d1f90f845c935d5851e3ad47598b55b69d793b3441783bf4ee220dbf957511a"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-w8a32-wasm.json.gz",
+    "bytes": 1492228,
+    "sha256": "c0f7bf97b54904f75dd6826a094b8acc9c4a0242fba31feffc6e3ec020180a27",
+    "compressedSha256": "7bd643d8e1268b2e20b2c8a8e43317c16f3c183848709ffc6a53c9157be3453a"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "6fe5cd45b79ad76ad1cfdea7253a0fc41ff1e9d643f9ea7dafac3b8528365db6",
+    "compressedSha256": "c27c6b9579ee5e2c0aca328e17d7bec2fc84d22b4f960f9f627a34e8ba080c81"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-w8a32-webgpu.json.gz",
+    "bytes": 1493178,
+    "sha256": "d768014ec674ea7aeadb93f783f6cb3d1826d97bd8fd6518d63f78de25eab398",
+    "compressedSha256": "960a132b8be47c59701191183998e1a1c27266e29a57859b42c9174237c1518f"
+  },
+  {
+    "path": "evidence/round-1/picodet-s-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "66bbdcc8a2b8c6dd6daeab2e9c87e6773fa67094d2330944575ed0242edf69eb",
+    "compressedSha256": "030fa8352a35c4368f5dc4a84243c839e0d9d0c2eef6a776494c26b42e2c0380"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp32-wasm.json.gz",
+    "bytes": 1508296,
+    "sha256": "39c0e7aae40d59e85218ac83ba8abfc5cff800ba95eff9e11dc5900a4f965c2c",
+    "compressedSha256": "13d7f5b8a8849c9d24fd7581ffe0d2bb943d100c6cee28671dea44c51a93ab22"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "98e600e32330331f897c534ed3a7d9bb4df86de0dc0e59849fa2c4b005273740",
+    "compressedSha256": "aab24ac1b23db9adb292e252458930cb25a32415f960a930e2f726889ad56c23"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp32-webgpu.json.gz",
+    "bytes": 1509326,
+    "sha256": "f04bb2ad57c826d1d9387eaa8bdbb5558c22f887c7256c93d82963c2b61463ab",
+    "compressedSha256": "43d31e7cff08391471dd532a9023b2aa7147374ffd9689ec4381894afdc40b2b"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d1a186dc312439ad1eb493672716b133afd47605223c97a269fc57a2a2346484",
+    "compressedSha256": "e05e65b3372b339a0af9fa87bff60d06430f30b8f082514e74f71cd9292b35ef"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp16-wasm.json.gz",
+    "bytes": 1275295,
+    "sha256": "d6171a09fd219ea98a22b80bd729ed593910f7f199df26b01993797cfc6fe655",
+    "compressedSha256": "24264e3dba24113faf96cd77ff9e11fb021d63adbc126a947f95944a3a4fbbdc"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "3c25e5409489ca6bf08af197694267a7a721971d4f302890aca2cb084bea09b8",
+    "compressedSha256": "d64009dff082f9b69c550544ac13b5ebe389220e597a3cda53a5c60c77fc01e3"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp16-webgpu.json.gz",
+    "bytes": 1276801,
+    "sha256": "dc83ccd68f6f168f3e0c01580f40262af71cf280214460c78b8af212fd5c24f6",
+    "compressedSha256": "dca3b2b948745e319c95f262c3f1183376ce71e914f9813fe654715e7e467392"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "55c57f0c441910ae9640550632c8757e2b768545338bd40f3f9fdbe7085ba0ce",
+    "compressedSha256": "56355de236b95383a37b3f829e46eb24ac2f6229995ccfe0ec52051f5c7e3406"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-w8a32-wasm.json.gz",
+    "bytes": 1502992,
+    "sha256": "1fba891a43871af5cc5ddddb30256db7fa223aaf2fc1861c36472595a8a43f3d",
+    "compressedSha256": "dcc4b4ee2ba8cdc2fb20a4666147b9874a65844f15ed7459a5234ebb90c5752f"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "fd3c5c591a32ea3f18e1434c7bb8158743f9e27108c685c953dddf4e7fd08489",
+    "compressedSha256": "f024ed2731682968f0b7cb001d60d9a21cb6c54ca57d677ceb55580e32d52f87"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-w8a32-webgpu.json.gz",
+    "bytes": 1503808,
+    "sha256": "729672c211071c9be61dbf0489237a7287ab8da2e5ba5a4ccf7c74ba749b214d",
+    "compressedSha256": "ca4fa2f68f203964d8f03814b2f8251bee55f9e1e3e3e9753fcedbf4a4ecd0ae"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c7c94bdd3448d38e36f906c47211b8f74a9046cb84aabee70b81cb0c28edf64e",
+    "compressedSha256": "1285156c411eacd926c69686727dbb2c95099bba0fd2bc5e5b37748d4491e303"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp32-wasm.json.gz",
+    "bytes": 1512978,
+    "sha256": "af4a3fcf303264f57cde6e122774bdb8cd97294692f071ed134fe86cec298e26",
+    "compressedSha256": "195efb198f5936167537a72cb3a5f843c67dacb5048f8a339fecdd14e7928715"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "38aca8b29a6c3cac82dd50657606eb82acb21bc0c85fadbef1026179bd031fd9",
+    "compressedSha256": "17303321b0262da3e845ad7ebc4f666f0e66a2d7ce4f5ee0189dbc6b5bf79d80"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp32-webgpu.json.gz",
+    "bytes": 1513788,
+    "sha256": "7926f08b41a16f8a19e36911c59fdba0400c5288bd7cd597a517c2be1b36a37c",
+    "compressedSha256": "5de92beda814565b87714e0714cfc4fa32b5ced05b4a9057e4479a206672da0d"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "96e60cc68aa9a1ce1cbce055685e21dd0f3b61d91afde66ad91b48b266cc83e7",
+    "compressedSha256": "a216074850701edf3dfeffca694e9610cf681b9318175adfe3e37ddfc271d9b2"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp16-wasm.json.gz",
+    "bytes": 1467215,
+    "sha256": "b304876b92f5bc3fcc3e47a86449536d9dbf37b3e8fcf9db9dbe2604d5d48d70",
+    "compressedSha256": "3511e8cd42c4a892a429fd6ee4fd280437316231136d674bb3b6ded1e6a20381"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "6a22baf428f256c073c04abf46d15d4fb24d23aac1f04a6b751b51025d8ba6e0",
+    "compressedSha256": "9e08d253d55b8f56cbca04b323d03832cd80a81d39916ab081af2d05782720e3"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp16-webgpu.json.gz",
+    "bytes": 1469087,
+    "sha256": "14dbb7118c5276fa811653b972922f0b44821d32d96bdc4c3c9fdb87aeafbe24",
+    "compressedSha256": "8b47bb3b763f388bdff5c16c61e3fa3410258061ff949cbe7f4d9b3a86f80324"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "9e0ad0c528af3e7b63b20c0c57a65bef8a9b3b6e476af7ba0b3cba02bd113b8e",
+    "compressedSha256": "9df50587a2ac486cb33d39d8dccde318461133079c9ec6dc35422cdb7077346e"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-w8a32-wasm.json.gz",
+    "bytes": 1512987,
+    "sha256": "ad34af798fac194166d949efa94de8b488c226ada154ff1700d59721ab4dc779",
+    "compressedSha256": "3f10534fdd8bde28b8be67f6f8c51f77135518807205ca0d39b9a762ac3582fa"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "bece003925b9248a5e5ffb0a1c2dde1910b471efac8a693fddcce34fb30aa46c",
+    "compressedSha256": "7ebe7599bbd36ba8fe0b5bd7dd3040ad27324cce92391ad266993a1617b23cbc"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-w8a32-webgpu.json.gz",
+    "bytes": 1513596,
+    "sha256": "309791878dfdf6bf15aca4e1ef7de5c925df621a174a217018d7323163245c74",
+    "compressedSha256": "6dcb2e87b8e2ccd2c567e020ba1d07178929cff210416bdfb3e8c526775df093"
+  },
+  {
+    "path": "evidence/round-1/picodet-xs-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "76b367396bf0304b6145217edcac9dd8ecfb8c054045bfbc7b5bf7fc97c6fcac",
+    "compressedSha256": "c357d0c8638aff8a04894e2b426e9a4e538ff3070bab652a37009f54f06dbf17"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp32-wasm.json.gz",
+    "bytes": 1466732,
+    "sha256": "bdede6aa41661e1bb1dc4efa2b0ff81ecfee6767adfa43b8cb2cfb1624e37538",
+    "compressedSha256": "2a13b4d2a004c03523715a002853f36cf9902c2663581e74a76038f8c3de133b"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "58f7070c1ea870628717817672cf81de7e1f07ceee6acb1dc5bda39321c2a29f",
+    "compressedSha256": "ab6948db21dabf0b9043822d62f78a50d7c25f88822b49817cc58ab9c5238c5a"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp32-webgpu.json.gz",
+    "bytes": 1467754,
+    "sha256": "8b471bb7543d0313369d443ca53311d4c20308a38029c57f883dc838bd662943",
+    "compressedSha256": "6feb3e34ea2058e9367a1663eacc994e1fedb4ea003a418a8093bf345089693b"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d108b9edf3d2df26ddd122dab591fcf7acbbb5d4283537cd5745bac625aba5f7",
+    "compressedSha256": "919c453de39b42c24b6c2e20ad2bd7d3e6577e713a34cbc68c8226e3d0de3036"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp16-wasm.json.gz",
+    "bytes": 1422263,
+    "sha256": "0d5332eb3e541bf24d3b26ee5f98d0fba257e8d61677133ec64f3765996f8466",
+    "compressedSha256": "a415189589097d72293fe98a98619bfad99cfd9a07a4df8eaa56eb24d8d2ad2c"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "cb7aaa86f0e198457afc35e279cfc83dbea16f0e4e7828b86461142976080a98",
+    "compressedSha256": "f2c05ca7b2161b77c37e02c1608773f2e5c03a46b1abf0a6116acdf1d2b97120"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp16-webgpu.json.gz",
+    "bytes": 1422884,
+    "sha256": "b88081b48ad6b295f5f15a743a056fcc4d857cfcd9bfaa848a48e932e7fcf13e",
+    "compressedSha256": "391481372c201f9c14d3ab72d19114d25dd751bb20490c40596f6d864a7dfb07"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "47fe00611277fa7cafaf78da7bfadbf7bfcc043fd904203b9fe541c268734194",
+    "compressedSha256": "83b5365908491ec49fff939e368e6199cfc983541332e9f14ff236bf56cfc5f7"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-w8a32-wasm.json.gz",
+    "bytes": 1464590,
+    "sha256": "d0c820cd080f28fe13dc7b19a5785f93ea931da455fd72c00da5975b9c0c203c",
+    "compressedSha256": "aecdc7383cc057b7dbd8c9db3e5b467e82ccfa3c6aeeb660ef7a4dceca67fb92"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "48056bf463c7e479db41005c28990f7412ffdd6e0806c2dbd38087498a14364e",
+    "compressedSha256": "5800735d3f29565ddcb4c2be5e70d65ec442e81c678f0afaf10f02d58a8e9d8d"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-w8a32-webgpu.json.gz",
+    "bytes": 1465658,
+    "sha256": "c197dfd92be5291fb22a0de3c16029f738f717ee1a335259dc5fc86f102a2e9f",
+    "compressedSha256": "7f27e3e6808caa38ce6191cb808503d58a8cb3cae0ab3d0dbe0a425d8874baa3"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d49590c8458d97b95573268bf8ac4d780e738d91ea0ec6df3ca01f4e6af2da3c",
+    "compressedSha256": "b4d9cb55cd03cfec875c4ab23696b3c45596dcf5c908856e3036e8ee3c1fd78b"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp32-wasm.json.gz",
+    "bytes": 1472389,
+    "sha256": "55b261ef420a64d2c83d47c7c1048c65e629736455c30a44e40882c373e132fe",
+    "compressedSha256": "45fd425e2addce78fc353f4bb0060dcba7858c1b4a48bd0880e0ec6aed46a8ac"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a6815016918a62b8b996743c1363d16c870c672a400b5b167443858957fda512",
+    "compressedSha256": "1a3da9921ee0c3cf8b559200065059632b8258e5291123e7521fed3779e72a42"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp32-webgpu.json.gz",
+    "bytes": 1473036,
+    "sha256": "c21cb93aacc244f6ff57b3e3b6294a8fc79e82581cb7e4176617cbac1ac1141c",
+    "compressedSha256": "3178e4e5294d0590c9a67f11e297c0970e21efe2dd4d9031c81b92d7de906918"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a2bb34b68f8b6b015af1f3b69f635c8112f3410bae064d391daccce99c9ec27f",
+    "compressedSha256": "4de5dbc5dae78084572499cfd8c9f2d748d4c4b2fbb1512807aaacc7ea0803c3"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp16-wasm.json.gz",
+    "bytes": 1244744,
+    "sha256": "a4777f6ad04264158fd99d24b6a7fd3beb44ab8c7d4d3c8593d443606bf25631",
+    "compressedSha256": "ffd2fd89c4bdbc098558ed6e3aa8489492e3e414231fcb6b279c0b25404442db"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "ee2ab94170801bc1ce4188729208dbbbc2291c665d9bd6d2db78a14cbe172a87",
+    "compressedSha256": "54022b182fd777500c7f9461f2b63d1b4d9e72d96824718d21807f2d1a6f879d"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp16-webgpu.json.gz",
+    "bytes": 1253261,
+    "sha256": "9afb743aca1d16c1f74c6006de1eac75f63bbd6b68f75eb19819bd09dbd7b012",
+    "compressedSha256": "edbaf2377a0499446a8a9432362aea8e92f111b9a2ab4188c98f2851bb62df31"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "ed2f3c60d4f6095c7ca0c7a5bbbeea7793b745a358732b13e4d210de61db0db1",
+    "compressedSha256": "ef071fb4999494fefb82c2ac6341c7e5c6fd92ab5e27f680098b647fb0423833"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-w8a32-wasm.json.gz",
+    "bytes": 1468086,
+    "sha256": "f91c755acb7495aaac3bdf927490362e49dd8b3a59a62b995e3b97eba72719e2",
+    "compressedSha256": "3552481b77b97dd82b46b454882cb039c72aaee676ecf8ffc4dd136abf538fe4"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "305c924d0e6c2f26eff450df4e0c9d2ed196643b3ed960ab5312f02e58b7a39b",
+    "compressedSha256": "171749aea1c14ec9de585375c9e7b95a1cd44c3f9c3f49b009f10cd5014d1576"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-w8a32-webgpu.json.gz",
+    "bytes": 1469104,
+    "sha256": "bdd5cd30bf171b5cdca7b9380997e8cefc73be4998720d9cdec519f3d1f8b5d6",
+    "compressedSha256": "7995a971962c8c8573fb390c516eb84f010ce3d3fac974bad34aa9ac4e1d8fd1"
+  },
+  {
+    "path": "evidence/round-2/picodet-l-640-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "4a54adcfe87bcbf706ab2a5ea1f4e235e3b93f33c6a74af1e637f34bc51007e7",
+    "compressedSha256": "e1dc5f40beadb45e30f5994087ae432b76b2b8a3df8cb03b085e48eb60afd886"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp32-wasm.json.gz",
+    "bytes": 1479278,
+    "sha256": "dcd6fadd1a3f1957496b0a1febc584fd4de33264d43995f918b50f8320268665",
+    "compressedSha256": "521e8d5cb2ea6dcf67273a15cdce68bfab8a8dacca701932ae2992a7a4a28842"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "42b1d964d6ca23068039dc97198229c6d3643b6c89c35f48b6d7c6abf7b99c28",
+    "compressedSha256": "7e0131d31a19bf59b5607423ec4338fc121e296b7636935dde2d539e1a67a1dd"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp32-webgpu.json.gz",
+    "bytes": 1479875,
+    "sha256": "50a837bc6d4288074275896be0eca9455e9b271844dd4b9511bf1c9779ea2187",
+    "compressedSha256": "41a3ba3370940723e93aa35f2bdde147789a3d3df0d5c890d7f3ea67bcf8e3d1"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "9a6aada7490cc2cb2989d77721dc9e5da0bd8e010702f74cc656eb3b3cf85aac",
+    "compressedSha256": "3cf7974fd10e1302942cce25f29369d25ac553e64c637311f543a2bab7353e63"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp16-wasm.json.gz",
+    "bytes": 1249577,
+    "sha256": "ce7614503af9191fdedb8fa6ec47fa58c1990d1724cc2741a9c35bb9e6220e22",
+    "compressedSha256": "469f8074331af0f06151fc2a992ba0bfbc82f4c84e0c6867a9862022c92c0be7"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c36efa1889caea894a389ae212d5c1c11d570bdd408786c7afaa3d80ac1ba6be",
+    "compressedSha256": "aa92dc5478ed5e297b90c2be6a7f8529a1904dcbf3430aa7037925a2663c5470"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp16-webgpu.json.gz",
+    "bytes": 1249911,
+    "sha256": "553898dc9be417550f8f487403e83b34f14887fc1093bce38efd115494dfa928",
+    "compressedSha256": "24e3a1ab194cfdefc15edb50d97da0487df3160e94a02668a04f5207cc9ddd08"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "27f84449cd83f5b3e07408631645a13465011f71309003a45486228256a492e9",
+    "compressedSha256": "585c23e39fd0409cb489c35f2e826f265c74c7194eeab0fa7cf2d1000df5c5f9"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-w8a32-wasm.json.gz",
+    "bytes": 1472056,
+    "sha256": "0f0037c7933cef23b868161df3b4ca90f2e12a1c7ef21723010874c58b5645af",
+    "compressedSha256": "0622c87dab0f85698357a5cae78a5447ed7c03b947ae817f438a2396223f2b0c"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "3b61aacb4ea892dde3e3bd9867175a0b850f357829fcc14f3b474776650ff709",
+    "compressedSha256": "e94c535a672b2e5bf844927d47194511fa276f4399475b94e7b301437360475c"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-w8a32-webgpu.json.gz",
+    "bytes": 1472974,
+    "sha256": "a489439b97e3f9c5f745d5ca64743cb4b4cdefa6df3283126def9ffd4133650b",
+    "compressedSha256": "71893cbdf15a1355303e6c512a10cf65db6cb44d3dfae93ac6d5889b87d33935"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "562f7d9f2f904303d258ce9d34383e74410b84f409c83e3d355a206faf03f4dc",
+    "compressedSha256": "b8433454178f80915139d0370cf9f8a109fb00ed59c12657a89adcebe84c056c"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp32-wasm.json.gz",
+    "bytes": 1484126,
+    "sha256": "48aef7ac07127ec1a5d9fc841824c25df5023ca0d01f89c82835316ba004d0a6",
+    "compressedSha256": "36b0e37e9a661e460d6158a85632da0d75e7a0dd8ca792425a5bad2364dd9783"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "333a406ad1fc37f97820040c8530f8056f3acf980b84426189eae1bced014d87",
+    "compressedSha256": "ad2af8ceda0e5366d4672434d8d3e3e42fda2704df1a1b6a6f4bb46e6f7fa348"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp32-webgpu.json.gz",
+    "bytes": 1484991,
+    "sha256": "3be11c3414624922e6735e73374a959bdf71cebcd2b498ac91a3326cb05c9880",
+    "compressedSha256": "3b704874a648eef08ea67123b97de1550b31c322eaa06670531d22b21262369c"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c1d853d9bead5ab874547060b926a07d56db100539863c7593b3153535c087ca",
+    "compressedSha256": "3d5b2bf8b14618da05f5eaa3b7e90a56904f935715c761f4f20a19e9a71e484c"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp16-wasm.json.gz",
+    "bytes": 1441190,
+    "sha256": "13994ddd52d18e7d314353b6f60aa8d4e1e65b1d77a50dc6064a017454f2529e",
+    "compressedSha256": "b21ae6236de609f53c80433d682d798b16958a465b2bfee0e7acb7c5d820df80"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c68ae387317217676e84cad751b96d12fc11baadc4ed53bb7d2307b5d083ecef",
+    "compressedSha256": "207f6aca185ff3f52ad057f8b73a3331549193619ccf663b11d26e79915513de"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp16-webgpu.json.gz",
+    "bytes": 1440681,
+    "sha256": "c8e4432741fdfc3a663127cab99763786aaa502cdf6f0d425c0a2530f5d98894",
+    "compressedSha256": "789594ac3f5e9909f0855098b4a28e9a62209543bbde8cd4dad8b6b701b997b1"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "33452bd7772ea758e6bcb74139a2e945ed012a95de240ace91b7805150c5bf37",
+    "compressedSha256": "44fb50de613e55288196d81526b80083a7a57f3c4000c70f1819396f5cbfe2a2"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-w8a32-wasm.json.gz",
+    "bytes": 1478573,
+    "sha256": "44ff1ec590c6b6a158ebd927fceae7589b1de5791cacc1e190ff1fcf0ad2bdc5",
+    "compressedSha256": "aad51fc96b750791492ea0480842820ae2cc724943a9d4373f06cbc0da07a3db"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "74f3667195caf21c60129a5752c887a5a7fc39780b91dcdb6b9da8e8feae1af0",
+    "compressedSha256": "f21764a3a8783f1fed18991ddb7f2e0eb1f5154d60aa851b7d5567ca567cb113"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-w8a32-webgpu.json.gz",
+    "bytes": 1479489,
+    "sha256": "ab7e332edbedb3bc03349bf3b9c3285803ac5e1c67519b2b6ee6a4e1f3adce06",
+    "compressedSha256": "8803345dacd24b6bc2c41bd6bb77d58a5aa638499583150e039cf31e1cc91ce7"
+  },
+  {
+    "path": "evidence/round-2/picodet-m-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "555364022430d1eb516e2628dd38d0f00b0890b5a107f945493bfffe98842010",
+    "compressedSha256": "2908d035fe52536efce03774440c39a555aa50d250a2d51cef4cecc24b1db1e4"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp32-wasm.json.gz",
+    "bytes": 1510123,
+    "sha256": "fa8a00745cde1374a02c731a7b8fc564b31648d6cc3a2f46d507bca80ef9388d",
+    "compressedSha256": "b70a032d25c4dbcc01111c5378ef98fa4b604e5f24aebbec971e4f79f9991998"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "583f73128be281c7e93d77613c7460942d205ef452680c56ff6b39e836de447a",
+    "compressedSha256": "95cc83e9f319debdc38317102ebcc9d50990066ba7e9a82997918385ceea0366"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp32-webgpu.json.gz",
+    "bytes": 1511012,
+    "sha256": "11297def970b408f6e1fe1c91df0edc52ae5eaa19f520bdb3e47614a6c74549e",
+    "compressedSha256": "32951c2d03cb268f480eb222923f230201dee44077b5444d990f1057f2eb3f71"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7240380b51e279b74936ece702651022b695b081d4cc7b6a0698f6f7ea7cb3a7",
+    "compressedSha256": "21a3415f2702493936910db6b0ac506e017ddce366a2f53e66dee25a33a955d7"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp16-wasm.json.gz",
+    "bytes": 1276340,
+    "sha256": "ea5e080c6833f9832a0f22f83f739dddbcc55e2646c5522db9d197af2c52d6aa",
+    "compressedSha256": "7e9af3e2882c7ad029b04fa30c95703b298341c4146fdd78505da2f8c933d35c"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "6e479c79665155cbdfaff1a1fbba3f7d5f8baf412b938c2d36bb6d26efcb0ed7",
+    "compressedSha256": "050a4fe923ff5324f468aedf5d6f579153cd6863a43257b8b656947d08092b14"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp16-webgpu.json.gz",
+    "bytes": 1276759,
+    "sha256": "726856ccc5f641bf8ce123168fc1f82024cf1d4fb8e5dc2681bc01c48482e8db",
+    "compressedSha256": "a9cda2d21fd0c8c664364ac0aa0cd917a5b38a579e09e95f6b82cd313e1a6ddb"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d165fa980129c054f49ead8027d72144b4eec09bda72cd31298f3413a18cc3bb",
+    "compressedSha256": "1f8fb8e4cb0539a06a74bcfc90f1f50c3f968c28e0aa0dd7ec0eb96d033004cf"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-w8a32-wasm.json.gz",
+    "bytes": 1509036,
+    "sha256": "62816188f4aac2f48b550e178db73a170176e85e8dd39aa44c6361d4f7d1fc3d",
+    "compressedSha256": "a456d19a2e00e33b0ab1be42357f2b4e3457ec9791f2baa275c4e882949e6afa"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "139804a6c2cba207c455c6b142580de4e307c92f51f7c08a1cd845b3d87e0243",
+    "compressedSha256": "64292dc0076241c93ca14a591e20487515485471563282d2f815b69f8afec45a"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-w8a32-webgpu.json.gz",
+    "bytes": 1509574,
+    "sha256": "c7340d87ac4a865295c72fcf5215f824e5728fe6860a3fbca6b04533a5fef6e1",
+    "compressedSha256": "14d518cdfba65a2e40a50030263183076190403aebd4aaa214e4beabb72a0e46"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "ac13c08031e985b2077afe5e8400e57c2b70b1a2d8619fa4101227903218a4bd",
+    "compressedSha256": "8a8c919cfbf86b149c59d4bb2ebccdd9033ad2f20bae220472472b1de46949ee"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp32-wasm.json.gz",
+    "bytes": 1494084,
+    "sha256": "2d6ffba8358c014535e0042b4ece00a37390612f77a6bc174e428c6cf5f37fa2",
+    "compressedSha256": "4f24737b65c338a965bb1d90af620c66174936c1896119097e02cc48b6b416df"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "0ff2b97d251555d598f59980d7c4946ceec1f43dfb7574e864f0c30d5cb8b2f8",
+    "compressedSha256": "4c79a39316c65b3c856a66d5c06450b50d23af01fc9c0f24ce1b787daa41748f"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp32-webgpu.json.gz",
+    "bytes": 1494830,
+    "sha256": "4c017b18ed6af2998bf1044dfeed0d8553045f7ae46389f92a05d9124cba3092",
+    "compressedSha256": "f12b9a033e33c99f9ddce55ac9c2cf11b632570f29cc91d7029b7ea8211b9996"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c9545c08328fad3e126859dc82779b61481fe8f8f2877b3a584da7c2b7cd0ed5",
+    "compressedSha256": "f58f4f67d5ad29591f06d6b6777bc8c4e52f71bf3b02517cc51bacb674aa01fa"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp16-wasm.json.gz",
+    "bytes": 1448807,
+    "sha256": "57743c3b132baf13da88bdbb30df4ddfbca98a36c8c2675cc226fce246d3a621",
+    "compressedSha256": "2224c8568ba5c113f085db0781bea1b1c25e2b0f7c6efdf1884b03c92e39c6d0"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "06160409572540b062e6f8f6bf70b78da1c204328bc54c034d8557f196fc1297",
+    "compressedSha256": "ec6504fc8be7cbea19be8d3c90d888efb8491ca78d49c72afd7cae024af23605"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp16-webgpu.json.gz",
+    "bytes": 1447300,
+    "sha256": "d886ad85d098329a4c4c0710b8867852275cb672109dc7489067f95b666e1802",
+    "compressedSha256": "7af144443f8d6e178d8713726a7a5acce0848369d755f83507f516dd35bdd3e3"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "f0436d69cf7bdfc1a46becad2cca6f3200c182d4d24dbc8f74f57a904c145c5d",
+    "compressedSha256": "7100be4df224d33c7c57816f5be4d723f73e66ebd0ee33ef4a62a1102512ad5e"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-w8a32-wasm.json.gz",
+    "bytes": 1492302,
+    "sha256": "a879563fbb55ac5d52435108553cfde30fce38d5fe30e7a244ce92f75f6cca35",
+    "compressedSha256": "7391a9b7ec4a5b362b1109e5e09d282bb69a66d6d029b251251cd702efbf8af2"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "320afc710acfd883ff6a330c072a36c6df69369f7638dc62f1b16c1f5c4f7519",
+    "compressedSha256": "632c9cc716fd6fa11546e4e86861b230499f06de82c953e32c4eb39464e676d7"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-w8a32-webgpu.json.gz",
+    "bytes": 1493182,
+    "sha256": "a1dea13780ff3142e60affe04d36884f43b9dbaa38fe902a5af32568a665f88a",
+    "compressedSha256": "25b9c94b81e89b499a30ffd2ed36204958abf14d46c648a621ddab6c746c9a73"
+  },
+  {
+    "path": "evidence/round-2/picodet-s-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "dc983e082b877d613467b957441a1d6d7a1eda4238917ce33d17439dcb84cd88",
+    "compressedSha256": "a389a662a655a7ff8633fda9e4a950689cadbc2c9df5c101ceadca6d19d01b2e"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp32-wasm.json.gz",
+    "bytes": 1508187,
+    "sha256": "45988845b89d3ce41fb3a798986a0e4b20069c694d7f2f300e605118fd31169f",
+    "compressedSha256": "e4f0616f6f9a5518e61d800e58936f542a94b607729218d8a11ad8a9d7718c3e"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "e9f7f1aa40f54293e6a5ef9339482d459f114e42e47eeb0701a9d32c57fd3951",
+    "compressedSha256": "da60e73c05f2ed4c68e57c724bd30a1730e2f63b1cef75e0a97708fcb0b85ae6"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp32-webgpu.json.gz",
+    "bytes": 1509293,
+    "sha256": "75ea16e6a4faa3430bde93568553f58057bc568a0f31286ab200c0a82c1d1436",
+    "compressedSha256": "568d09bfcf5d402f349d87b56a73cd3608a974d5ec7e0d8632c1b61e34232042"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "cf50adfe7515f08a5e83cb6fe22aa103c76357dd28c45657098506b294cb5c97",
+    "compressedSha256": "733c91382356862666421125f5017b60067dd63e262d836fb2d4fa880e1e7a1c"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp16-wasm.json.gz",
+    "bytes": 1275392,
+    "sha256": "9a653e683e9b3bdf38d4c63744368594b871e3d09ba2b1c5a39c5f67bb85cef9",
+    "compressedSha256": "687fae2fcfb70444ace358e96fee884a387c8d8908f6e2b183aab030eb5edb74"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "162bac6340cecc29f656de1f104e9a996d91d8cf833646066c8cb3e2c485ba32",
+    "compressedSha256": "ed3921e4c54cd4e19b74186040abca1221b669c6b6237f8ce556823c0b6876fe"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp16-webgpu.json.gz",
+    "bytes": 1276645,
+    "sha256": "2f4ee15aece9d21523e34978741c755e94a605557c1d4c648282d3431cfee971",
+    "compressedSha256": "6e25f052cae70d62c7cee2af6bbe8ccd8f4cb3a2b2ac319a3c6111c48ceda419"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "2d83bba5ebb448d4ce4b3d6056417a4ca44136757030c0fa52c2279486fc6024",
+    "compressedSha256": "717541d16505f1fb0836a971eed9d7ee0e220be1010dbf5c0fc48b453854e886"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-w8a32-wasm.json.gz",
+    "bytes": 1502977,
+    "sha256": "5696c2b3fa01c60d5862c508e45ac37e48913c46496df3691ad3d3ed6e112406",
+    "compressedSha256": "452d75c0819d33f3745e728be81c1784f3ced198fc5b4f6e9c0493b027f45eb4"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5bf649a4d83fb3aaa8d531ef1c9953a5bdc1a5d46ddda7060d9fe0b23dfb9cd1",
+    "compressedSha256": "9be542e0cfc8c0c9f280a1dc4b5afc0bf4f5393e13e99995f0ada701b1ec6179"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-w8a32-webgpu.json.gz",
+    "bytes": 1503820,
+    "sha256": "392784ec14461e7493ea08ea060737b5991230558f6582c23ee62796f582966c",
+    "compressedSha256": "685044d95dc36e54e865b5837c531df2839e26014500442ed248fb78e4955c79"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "447e41fbf93209dfc9a290522a1a5f833770824be91f7650239d1e48c738ccd3",
+    "compressedSha256": "0e08924dd0a0514316f4a178ba2b201dbdb0759ef155667e1d1cde4bdae17e99"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp32-wasm.json.gz",
+    "bytes": 1513020,
+    "sha256": "1fd51958b029316f6815a6c5a5dbafced1a56d393ebcb86364c0037bd1dd5707",
+    "compressedSha256": "aa59bb3deae389a118195bb53e935f01564ff8f49d2abd95a7fa4e5583f5fecb"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "bbe559d095cc0be26e3f03e2428b9c362871efab99eb7ac408d58873ec750107",
+    "compressedSha256": "dd57f6456640af74590790d7acc2f9276fc8c945b34afbc44c8e7404d20daf52"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp32-webgpu.json.gz",
+    "bytes": 1513746,
+    "sha256": "e9debfaaaf7ec5e536edd545db8474d9c66f7b749e9ff4aa4266fcf64a63f100",
+    "compressedSha256": "4ab88ea572abca5ff3d6084f73caca8ae19a868b32bd47ed34966b7865cb36d3"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "36bf3c0a23e7785f3a06c340c26d2196af4460e315ba16f6d111c29f6f036aec",
+    "compressedSha256": "95a50b09f633cd61b74ad63198d396c29aecba4c557e81f9b1f5ef522939c8e0"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp16-wasm.json.gz",
+    "bytes": 1467248,
+    "sha256": "87b630d63447b6aec8162c83c3e302c0a9cef71de613acb84b189de3df801b97",
+    "compressedSha256": "f0a05fddbf0234a581a69d1d53a5fb96fd107c2a0bcde6bad05a58febefe6b0f"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "83c99495ab912b1fcaf3ee0a6462584f475e6f7cf08e7ea4785bd04f43b4a816",
+    "compressedSha256": "0eb3a33a5e9a7fcc78e0b7112f66e3df55a65acfd2fc7a750bb8322631bad84e"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp16-webgpu.json.gz",
+    "bytes": 1469066,
+    "sha256": "cbe180c9f7c408dd52547acb17c42fa6259455b6204235ecf20ba3b9b0650221",
+    "compressedSha256": "64314c4b6e379e7e35c44e019cc9de803628cc5075582d5de06c92f7f40d5cd4"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "281ccb8964a440fa13feecc8d7a132b6659ce78f0e5647a3e6dd7428c0851ae2",
+    "compressedSha256": "61aa87cfec7bf6408a186e9513454acec672e0bfe27a2e3518de1c7426477847"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-w8a32-wasm.json.gz",
+    "bytes": 1512913,
+    "sha256": "613962fe63e576667334c30fce374cd297d397a1caffb3b4108459d81586c493",
+    "compressedSha256": "4c8213b462f4514f4bb0fef2ef53d48acb9b69c8b6b38087a3149bc51814b5e6"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c6e849a46f235399cdf7fb277fddef236c551594bf145db3fd87e865776a238b",
+    "compressedSha256": "aa6a6ffcb27c01fec011abb8726e8a6f8b655065476d3f2fb48977e25129ee34"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-w8a32-webgpu.json.gz",
+    "bytes": 1513678,
+    "sha256": "d12e3c24ec16f2b71e314252286013d85487905be63f7d8e0f05d9c9eec2bc00",
+    "compressedSha256": "32f0ba7ca5992eb0cd1f2a4c1939f7277507316fc944b89fcef8e3e0db69808c"
+  },
+  {
+    "path": "evidence/round-2/picodet-xs-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "023fab07fe3ee391280f8da65f6223c185eaddb7b67a3b9559c6dbb91c87660b",
+    "compressedSha256": "d4dfa942110055f70a31ac56daffee5ab24cc08ce70b3b22ed9f0ba3a642fe08"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp32-wasm.json.gz",
+    "bytes": 1466737,
+    "sha256": "7cd9d129969cda47a70b22e45097ccfe87d8487bb472de254a3fe870e524e71b",
+    "compressedSha256": "b77ec3c5f1b86ae833586b51904cc7a6bf9cd0b4b479605d7988a81ba443b15b"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c4d6752e164ca5eccc55379af14862984e0cd4f950c0e388957ef198273e9049",
+    "compressedSha256": "cf021495cf8f8af07708d00ea9d7f5394b977dddce2c31ac34467742af2c0c85"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp32-webgpu.json.gz",
+    "bytes": 1467726,
+    "sha256": "61232a616ef286c63ce157178bf15436bd08c0521c25145633351a018e7018fb",
+    "compressedSha256": "60d6f2b0f6e862b62d704881882feb436197e0c070ec83e4b84e1bb9e10b4876"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "803cabeb89bf76789428c3ba5f29538c76f46952eca82e72635ced6a50f7664a",
+    "compressedSha256": "0a5aaa3f877cce4f0411daeda400e889e36a1094c959662f09ef1e4e3f9b67be"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp16-wasm.json.gz",
+    "bytes": 1422323,
+    "sha256": "e6c4a851b97a9425824004ea32cb042056de9099c8fe834ee494197cb7a572b8",
+    "compressedSha256": "e260d5c53369ab45f7541e5a6e80f29f43242b663bbf8f4fefb99dff7bc4e407"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "260e00a71dbb5aa059c5337c062286f0c03aee88b9bf61746598d04e15e56337",
+    "compressedSha256": "ae85ac63ebc62582fcae3504f7eee0addfd57651fd2867cebed18ad2174b3183"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp16-webgpu.json.gz",
+    "bytes": 1422909,
+    "sha256": "36a2f4752bf34be5588a4988abe6845e71b7d52967d33c2682c663282f0ab2be",
+    "compressedSha256": "e7d7af7404bdeddf0f04c7cccecc274da2f6640292adb12552827e4c0832e242"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "cdfc7e5c0b18acd582676e5a1d80716051d5c7d653b527ff1bdd55bffe77340f",
+    "compressedSha256": "f2126cb3b1347d601a05ddaab8bf7568e173c126609841572d5134bad1b2e6b0"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-w8a32-wasm.json.gz",
+    "bytes": 1464645,
+    "sha256": "00da030ec9f178e1d4b68fd5b58ee9d04e4d0f0e3e5c0c1d6bd0f08a4fcdec41",
+    "compressedSha256": "61ba9c282a61044ab55a973050a45ba7ff3dfc4d1cefb7369e395bad590df6dd"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "25adcf29550c93d6c1e075d11b31a0dcd2df37999a3111bd34c6691702d3fd2f",
+    "compressedSha256": "b549814fc1b67dbe53800af412e99fd3db6b423e3df0cb810516930982c88a31"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-w8a32-webgpu.json.gz",
+    "bytes": 1465654,
+    "sha256": "5278dbc7a30ecb3bd6b48f5b3cf3bdeba3c90cfa737b7eeb57478f880ffde64f",
+    "compressedSha256": "faed504d75b2a8b62960e9f794f5b39bd059dd1e0ebc3113e3be4848894f8e1c"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "ce9043c340c55b9052c924b5fc15dfef5708452bdd214dee934c71bcc114bb0c",
+    "compressedSha256": "b9c05a3ea47a10c5dfdd174c7f489da0555eedd9d5d5452707bb19034ee77855"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp32-wasm.json.gz",
+    "bytes": 1472435,
+    "sha256": "81fc05b42623530ebc93fd2f37f6b0005b485a55ff1bf3ff98754b7638f09799",
+    "compressedSha256": "1e0dfcef6fbfc744dc036dc96fb67e61230ec6221c87514955770c891e959e7a"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "e8c0b116997d06fd74b0674c1b0acdad208d5825094f94bc629629933a530be6",
+    "compressedSha256": "d9595ab246ef851e335394bf106af75db43fced6dd40b82400b5d1a16245d315"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp32-webgpu.json.gz",
+    "bytes": 1473041,
+    "sha256": "50162704d0aeeeb9e28215d8145f897049b88a724acfb557d8f50e139a7bd6aa",
+    "compressedSha256": "18b9e3b0c5b328d2203d98ce0563132490c8452478ec7abf18dd2f12f8206802"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "1fb3b54659950e37c0ea78380ff8ad96cb942af6cf54a2cdc4317fbb11a383c4",
+    "compressedSha256": "766354909d995f65163a1947331043c18686fb277ea3db1e4ae10e58d9d76ca4"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp16-wasm.json.gz",
+    "bytes": 1244771,
+    "sha256": "0e86c11b0dfa5010ffde49fe97f6899a001b47209c3fdbb82c8c83ee4dd2a7d9",
+    "compressedSha256": "91f6fd139426f5a22915f85732b0838d307d6d02640d7a27f1763cd362c13e23"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "979669e45a2cb65a22935bc836df66f82d79b57ca31c45f865a16f7696700028",
+    "compressedSha256": "3a2d4fcd69e48aed4b4475e5a20897de68249ff1f74eec09f6cb42c5073c0f00"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp16-webgpu.json.gz",
+    "bytes": 1253298,
+    "sha256": "3e749ec9dcba0b892ca73b0a0bd84d88ca7c6d7d3df8e74cc6154d8b226e0796",
+    "compressedSha256": "1f129d334b935fa2136ce6b1bc8c923c1fdfa06fe270661b5197190115fd386a"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d73cb8c88320a4dcc2c9bb22daacd43d27e0a4c1661ba7abca1283348c896004",
+    "compressedSha256": "2beb28cc2a75590301df93ae6bbbfd56c3299b8b1bde23fe92c85d74391ab93b"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-w8a32-wasm.json.gz",
+    "bytes": 1468120,
+    "sha256": "6b5147ec2a75ca256cb918a8839de17207e1bba4cba3099ba2df25aa76cc013b",
+    "compressedSha256": "bbb304d8b41d3020715aced0874e02f9c3194c45cffb70701c850cc1ec4e4648"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "38f471d78719d6d6c7cc9a01bf2f90a4143467df43f4508ca93a7dd8f35d9074",
+    "compressedSha256": "7cf763c0fd29b7558902891e8ee460a37f575a1be6cc2d14076ab61f93da4239"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-w8a32-webgpu.json.gz",
+    "bytes": 1469186,
+    "sha256": "0ba1025ba1b862df69521fe2416a964bba168fa7f284e8fb0e5bc86e7f05547b",
+    "compressedSha256": "2ba5e11c1c84e86c24fd88fa5bf1dc38e2693b7aef2c710b4f198a670e1189bc"
+  },
+  {
+    "path": "evidence/round-3/picodet-l-640-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "40a3ad4ec581ac6842c34dd3e8f805acb4dfaa81f9d08cd537633c798a5b6fd3",
+    "compressedSha256": "e50e2b5cb7159b619b1c34fac3cf4b50c9734fbf9db83b7eced8dcde030bd4f0"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp32-wasm.json.gz",
+    "bytes": 1479323,
+    "sha256": "fc5cdc37022bbcb4c1f2756e0a728332d00bd633225c08af249d37d31f0a5147",
+    "compressedSha256": "00f4398cd193f50ff9c35320a7d2dae07ad8d7c828a4e38819e5af4e81369492"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5cc38ced3530d14cf0c40a31c8a212c88f5444ebb3938a39fa4c80ebb40e923d",
+    "compressedSha256": "5201275792c40b4b30c5bf9c684853369fbcf2d028342a6880fcb0c5bf5289b3"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp32-webgpu.json.gz",
+    "bytes": 1479884,
+    "sha256": "613b5ef12a9a05a5a8dfe990e23bbe3849f50949e0fbaa7c86307a4f9a2ffe25",
+    "compressedSha256": "c245da1fbfa5d47c456bee972916364f120de2d040ef50e3f61d0bf163dd1421"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "174a9776e8126fa99d75185bdc51dc89ea455e6f9f549e6b50e140d72556b3a3",
+    "compressedSha256": "702114a9c9b7e04738a1341f4076f8979812750ba8a9b59d024cc5b98e9a1ac6"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp16-wasm.json.gz",
+    "bytes": 1249680,
+    "sha256": "2fb84aaa7f49c615b3719dbc31a1ba59255ddbde30c146a7d474df69c967e8c4",
+    "compressedSha256": "2b4054ebbada349065037dd5afc096c39d2ed9454e0b9ac0b0f5fe67ecbe84c4"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "2edc788f196faca58fd8f7facf29576527baa4d42d96e9780794b236e8ac79aa",
+    "compressedSha256": "e160a0e63aad1413c4d040ad7c9a57273521dd80c67f55a80e045cd506e0009a"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp16-webgpu.json.gz",
+    "bytes": 1249806,
+    "sha256": "a29eb3cf89d47e5bf22a30f6059e8b5dd8afafa558c2c14adeae45b1d92a9a40",
+    "compressedSha256": "2dd5a23f916f370a42a55be7332cb9e8f5737a76cd822a7845b26e3321de8d1c"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "78ad3fb482199bdb7390fc2533262b634ae25cca569f60ec98f92032234dc833",
+    "compressedSha256": "ac3eb827bbad6ddb9ba7288e19bcfce91f1b663009461d247c714d991b9305b9"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-w8a32-wasm.json.gz",
+    "bytes": 1471937,
+    "sha256": "86fc42ee0ab567bda0de64db27744bbf700249de8529646b371a87ef4fb29c62",
+    "compressedSha256": "d72bc66ee18bb1abbbb5b977b0396ec8f655b5d51a1a366436003130f362a707"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "96ee3643cf21329600038216edb42c69444c56158b4205ce6b00438c15f8c95b",
+    "compressedSha256": "38860ba8bf0ab83dd8bc7b0bd6006cf659dfab177231316e26b6e91cf3162f4f"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-w8a32-webgpu.json.gz",
+    "bytes": 1472851,
+    "sha256": "b3ea6be56d6497b171c6be5040abf1f2318662d211a66f788e8f45ded1a11e78",
+    "compressedSha256": "ec97842cdb007a261e3fa91caa2136fd5df5029301132891ce1604e20089ee0f"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "bd58b8bd21ab97cb7fe3f91685845686109184647e76290a9d8567e22ed254f1",
+    "compressedSha256": "6a0a4ac668ed3d3adf4f5635e733b131f623a53346ccc46854b24c24f868303c"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp32-wasm.json.gz",
+    "bytes": 1484208,
+    "sha256": "ce4a71a1289475067e583b44b7038bb6eaa80c35f0c0095b9c68729bcd710ba8",
+    "compressedSha256": "23842e0aff3fa1c487bb93013606fe89e06a6ed2e4fea7a81ba6b30408bc5a14"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "168ae631e5c3af43365acac7e7390577d4daafc64ea4585013f8d41fdfb05baa",
+    "compressedSha256": "3d3d6692ec513fa187ad101267814f561e91babdd61a7653d3ff896c0f9f677a"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp32-webgpu.json.gz",
+    "bytes": 1485014,
+    "sha256": "5e919cf1ae5a7c49f88a4c90b866cc8747e247c4d2ae726b4de018f26ad40de2",
+    "compressedSha256": "989d68c5884f8e93fe779c9e6c6b69a1a675bb428508fa996ba7b120cef3665c"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "3d81d6c9a564011bf55a0820838e25119490f33796ef081c75c80947243aeaa9",
+    "compressedSha256": "76efce75414b81d7f391558e6ccd2a897c66f23f1be030117bef92dae6b98444"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp16-wasm.json.gz",
+    "bytes": 1441163,
+    "sha256": "aa9692b5ab0b64178dcf8de1bf1a47ca4f32eb2231b61622167ff54962f0c516",
+    "compressedSha256": "0c717ac265b1eb476fb45a2551e9b88103710f63ebc8dea44aa8eb97ce45bad0"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5b0b216fee4c4689e1bcb87b7f7a96f23d8f145e04923d83b583b984153a8300",
+    "compressedSha256": "d8e5884d54585ccc45f09b3750cbff6bf8a333040f465028283ad1257fe21646"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp16-webgpu.json.gz",
+    "bytes": 1440622,
+    "sha256": "b42d0ec174dd141f309fc4c37c3f75d4210dbc217b5b366b12bac0c0cf6bfff2",
+    "compressedSha256": "d40cdb480599210119b03c98959914cddc1250490e9ad06685cd71b1a5511e63"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5b5efa6a315582d2367f9818380a934df98dd504ba534b5a882c1e6a0a5c4fab",
+    "compressedSha256": "620a860878c50c121ea37ba93d13031cf865e99683c4a435e12a3728ba2e892a"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-w8a32-wasm.json.gz",
+    "bytes": 1478526,
+    "sha256": "3e35442c676a235163f98eeba03171b7233f41b502c8531cce5ed5a4f4e71310",
+    "compressedSha256": "7147f31311d79a69745d6a58b21dd5f8d3f995e6fb186edd7ecb30268500855e"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "d82d6af50d610bc0ddbb11a260ae05db600f63b3df239d3ba02b1207a70993fd",
+    "compressedSha256": "f38d907324e5a6e2d165ac0766747bb34de129bd7e85887156468bb5e12fc927"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-w8a32-webgpu.json.gz",
+    "bytes": 1479572,
+    "sha256": "85f483f6c2df9e11f5379bf8ee5b9149eec5d038b1ba78955dd8594626852459",
+    "compressedSha256": "daa9c606966e8506aa571260a15c235624ec3e4f1f87c2b9bbdf39652f38ac2e"
+  },
+  {
+    "path": "evidence/round-3/picodet-m-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c5c0c8114aa948df4ffef6904bdb11263b53da0f1e8771dda96d2b23c7e64520",
+    "compressedSha256": "099bcbb56def5fec7c295be2f58377cbb040ee1edf67fef85a29903a4278842b"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp32-wasm.json.gz",
+    "bytes": 1510156,
+    "sha256": "3f5435e14611f1dbd5f68cacfe2c01d69278d84ded3ce2ad1d3c1154d021d7ba",
+    "compressedSha256": "3fdea7061dfbcd77c3c75ae8f0648e8e57b4fac81960cfb7dd9411891b0f5f53"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7f265c89b1445867ddfc1b5190fd5d5dcc5a7c5fff56e58ec27a6e3995463c2a",
+    "compressedSha256": "eac82b1971fc9c51044d149a7a4b0ed81216ff3f6afef8472cf88005175f1252"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp32-webgpu.json.gz",
+    "bytes": 1511051,
+    "sha256": "2518b7d925251cb295c38542d373cca7cd4279df3e86bf7e3417b3a03ea424bc",
+    "compressedSha256": "cd6fb02ba81bb08ed16aa3dd66a66b1b07dc0884ae21ec5044de327f17678b4f"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5b0a49cdcd7e6edaa0a7d9774d6bdd291ffc020cd7339626dd08e9cca5145c6c",
+    "compressedSha256": "9f0a1f5045e5ee2568cce5d7ca4e679f4a89217bdbc9b29abf5e744fa35a1758"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp16-wasm.json.gz",
+    "bytes": 1276357,
+    "sha256": "9abebb71622f4f5e8e532d66b844fc43f3fb6831b32001f8d1297c4a9e81dec0",
+    "compressedSha256": "ad1347e295c690ce82f998b5ad653c22e2ca5f606f293f32faeb38817ed9e928"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "dee904393170e3fd55ece2a2351c1b34cedb76d05ac6b6a1df8dd5e334718c3f",
+    "compressedSha256": "af5a974d3261b5a1724744862d9c729bf9588b148cef987b031abb951d54a990"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp16-webgpu.json.gz",
+    "bytes": 1276716,
+    "sha256": "0690bb3d612d79535044fd99cc2df9309fb1fbddba1c8e320531371ac671e514",
+    "compressedSha256": "2cc0c4330aa3c9f167a8354f321c1d4be19bae5f6238fd12db90f7c04d76ce2d"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "c5fdcd751da911e7bbc8fd9b5f3364edd871bdb66d1377e6efdf311e3fb73e9b",
+    "compressedSha256": "96a8a75a6f8a68d8a3b63f0331a37cabb58f407ad304b82e48d10757b8d472d4"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-w8a32-wasm.json.gz",
+    "bytes": 1509024,
+    "sha256": "64d45ea8cc6d96129f1b6388fd9660529060a24cee002a27673d0c74a3fcfb45",
+    "compressedSha256": "b8ab86580a04db56194e52774678897ac06bb04c02373c229d1b6a1fde0b7925"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "5eb1714e932b17bb6c5f0f140d072afc6aeeb4eb92efbffde4fe20fc00a253ac",
+    "compressedSha256": "ce250cbd4a3158e3c8f39f7f33f6655efdcef0446f5c71e84e13a3a2df7d1591"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-w8a32-webgpu.json.gz",
+    "bytes": 1509596,
+    "sha256": "cdb0c61ac31d5431eaa4cc60c1aa3fd2590cac5ac84b85d16e74bfae0f65ad60",
+    "compressedSha256": "b82b43d4c494aaa63de235cc7444a073f7bb1bb4c15ce42fb60910d6e74382c2"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "24b153f9090905e82648fc001eee6a0f6aef24d5cd7dc6a9a3683f99fe67ba30",
+    "compressedSha256": "7194fcfbe6fcad98105dcb1469160268907782e66cc6be0ef4d77b5551b04c06"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp32-wasm.json.gz",
+    "bytes": 1494048,
+    "sha256": "702bebcf76dd995c8f8247c8057fd21facde92780e688d37578ea93df0521b6a",
+    "compressedSha256": "43e7535ffc724577a544ef39bf8bad3f2b9e384b9d93ffa51b32a22984f9b530"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a82cb6f438c174197f1c5dd463a4ec14da9f009e4ba96ac7a3e13a3bdb646743",
+    "compressedSha256": "f12878efddc67b2740356f84a2f6a3d15152ef3ff0f544cc534e49be29752b50"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp32-webgpu.json.gz",
+    "bytes": 1494783,
+    "sha256": "d663a8119f6d961f1ba3eae5ca95e0c30bf77bb2987a1a5e2c27270a91a8e1df",
+    "compressedSha256": "dc4e16758d5385c533a6392fedb65b58890779f160cd83263900321c1c47fe40"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "807e2e7b94d97ba775c0faf22597a880c979076bf0a12448e6cf142c04ae372c",
+    "compressedSha256": "ad2ff158e81568eb26f7a34ffa147dcf3f76b438e2eafc55f53ebb40f629a463"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp16-wasm.json.gz",
+    "bytes": 1448781,
+    "sha256": "24825db549d846edc46fb7336239d414858e70cb7210690d2f6bb7958a3e6797",
+    "compressedSha256": "236e2e6da19d7a8c08b17f15fba4208899f69991f90f53490460ed145da0f6c0"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "816466b43ccf856681c3498848f9df3dd9a6a7884e4ba9d3ce5fb49354e1cacc",
+    "compressedSha256": "7bbc6fa8f3779657b2420c264f9351455d93c22d4df14c38a98ef887a4b734d1"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp16-webgpu.json.gz",
+    "bytes": 1447327,
+    "sha256": "a7dea9a80c5658746b1df2d02d032daf22f8ecfea621973d6055f6b60134dacc",
+    "compressedSha256": "0c9dd24235b42b6ca0fc5ec23028815c538d25e6a05bce6af3f2c9ec1a1027a8"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "40033136dfddaf6262a58f59c1a6eed71dd98ce1f358bc06a516ce00ecf1e644",
+    "compressedSha256": "882b3d61df7ad55cd71bc0c45fefc29a74ece42d36df83b6b97c11708aa20632"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-w8a32-wasm.json.gz",
+    "bytes": 1492134,
+    "sha256": "d6a764539cfd35345ceaf976a8daa89b14ccbc45257a46deca9060d0b8206038",
+    "compressedSha256": "0ad72eb7908a6bc76f7817fa229585576e65c17437200100f1d46ca225ec6cec"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "234811d138f6c59981e656bcb0c18969911b644ed7555496a1490d9c209cb098",
+    "compressedSha256": "c18bde2252bb23aff8fc2afbf59abf695c00ba29d89433285c6cbfecbd3f2c92"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-w8a32-webgpu.json.gz",
+    "bytes": 1493162,
+    "sha256": "70e193e1f811ed7dd0b156669552c586923abbd2b38d5f38bac60588e15a6126",
+    "compressedSha256": "2543af9d5ed55d40606cf98b62c08995fe838dbdd88558b6d833a54400fca1be"
+  },
+  {
+    "path": "evidence/round-3/picodet-s-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "6d921f88ef9da75bda2e295b2f7017429bc4a55f0c8d6ae1179d31f2bcc3ca08",
+    "compressedSha256": "346d6f43cb9052f76380d721016a6729e63aa9257b24489bd4b92ab450c809ec"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp32-wasm.json.gz",
+    "bytes": 1508244,
+    "sha256": "4803c912904537b433a7f1b03cf4786a67ee1126f65174208f1b4e2cb5960e0b",
+    "compressedSha256": "0d7aff21bab1fe8f6fd88b1f3e1743cf529def7eb9b6013be5ba5e6a207b65be"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "96b3da548de7c6afa1620e8eadf18b1c4528a509bc7e4e6101d9336a642497a7",
+    "compressedSha256": "a6de522f8cab7456b4053b36ea131fd25f8ddb33eefe4a652c4f11fd4af15b44"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp32-webgpu.json.gz",
+    "bytes": 1509323,
+    "sha256": "f745867a9a73bee87145ddda659d563fc52139e2f6f2981649fe7d59ffa92333",
+    "compressedSha256": "2728c973f100ee39549de0d3dec61dd2db1ccf1a33c3574031fa8ca9a88623aa"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "cb43fe2b2f383a4ac37078c1acb5f1214a3ead1a8a51cd862884be3ace0d832c",
+    "compressedSha256": "2e691406ceee4d89701499d3ecef6715fe225bc165f1d09cf1896bbee70dd473"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp16-wasm.json.gz",
+    "bytes": 1275310,
+    "sha256": "eb5785318a27593171d7dbf4e22810fd7e15ff37ee1fc424d4c68508204c37ae",
+    "compressedSha256": "5766bc86220e377d1d445b4a054ade562702c17ebc7822c2f34262278defe39e"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "1cad16d461b0b6dfff45bc5d8910ff8a311835bf6daad9b84f6d954ad0dd94c1",
+    "compressedSha256": "da7492a9e204978eca7b850f3770134b1e879168da1efef74760a062ce9840e3"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp16-webgpu.json.gz",
+    "bytes": 1276780,
+    "sha256": "edce595826a9d6031a2586a2a0b563a1d71e46400c67f3b92c6fe6757e9562a4",
+    "compressedSha256": "5da321b1d1194949aa46e4635954d9caa3527d6eefbe61d45613af5b9e48d896"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a8e943ae780443a4d5ded48f1c344f76724dd41b9b83962a83d656c6738f6c3c",
+    "compressedSha256": "db98705a37ec9a78ac992f690f2ee9a0e53f081cd070185c4217b478a83dcc3e"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-w8a32-wasm.json.gz",
+    "bytes": 1502837,
+    "sha256": "1abf37c1ff42dbf1088c2c733275570f66e9efd2846baea2fe9190aff25ab703",
+    "compressedSha256": "c68dec99c5774202a230d0509cb825ec246f0222bcee18d6ba7f78a56acdad0d"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "40c31228e6be125e9dd8261b680e8400f590a942a2e4836ab63fbe28189355f2",
+    "compressedSha256": "54431964805a894b3502b644550b917b633e64ade4e857e808c9fce04f648d56"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-w8a32-webgpu.json.gz",
+    "bytes": 1503747,
+    "sha256": "0ea33c414b208d74e94782bce5430027eb076be69f16269321eb339e2a342de9",
+    "compressedSha256": "7ea84103278a5cdab792ad43f968858b7ac947c47712518131f1664dd2869455"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-320-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "e67e8288303f3aa074649ed8c76dd24bd09fa131b235359c28613d9842d546a6",
+    "compressedSha256": "37ee9c2868d9131beabaa48c881977a4de927da6f8f63704815494ab9a9f414c"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp32-wasm.json.gz",
+    "bytes": 1512919,
+    "sha256": "713af426024be022f42ea5a9d78c5b00275b35b41d1e026b60120ff5fcd4ca78",
+    "compressedSha256": "d175e420a404433646b5f7049f96f4ea73bdf69f44eb867deffc3b3230e475d3"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "10175f0825b6bd694e15abcb8578fd0140ddee3f776037841acb8849f15f1b36",
+    "compressedSha256": "6928a076389f9671e60b35792d49a9157acbd1a8031071f869c0c1e537d3fdf8"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp32-webgpu.json.gz",
+    "bytes": 1513811,
+    "sha256": "ee73c48d788c11b5d6a44a6494863f9e591511fe8a07c07768bae9eccf885256",
+    "compressedSha256": "da3a377fbbc9e90692ee37db152686986bb644df191fa58fd092844e816dbcea"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "7a3378406ad85f94cd7e3325d09622dbb71b78f2c05d6297fee432601065e915",
+    "compressedSha256": "5514edd1c9bbef41210cc36c94ae962bb664f8c7f8f0a3c7e2ee68016d20aee9"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp16-wasm.json.gz",
+    "bytes": 1467204,
+    "sha256": "dcd0f070e6905b7f3003ca232e8a376351444db15cdc11449f9e7877505749f2",
+    "compressedSha256": "1bcf8fc8131316bd0e88ca3c963880dfdb9aecb49602a59046c3ab86c2d3b49e"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp16-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "2b74e213bc25d93e549209d86fafa3cfe53114a6eb46a7ef15eee8684200acbb",
+    "compressedSha256": "a30779af8265852cf7e30e5cfd85865ad258564a82f72ef7cae2449d681a5a0a"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp16-webgpu.json.gz",
+    "bytes": 1469096,
+    "sha256": "6e993bbe6fa6f5577d22e0860f89c7e4071d8b7ae993c1191f55f8bbf5d8e8c5",
+    "compressedSha256": "84e7b2cbb240f0f77d012d9152775fe586cf20bd777f8767c18ba590b67936f3"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-fp16-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "4e5ec0874a564de047e37f696878fb590987fd6f0dd8a07b56c063ad55791128",
+    "compressedSha256": "8eabd88c33a1beac6dcf1417ae9b60e256d8177ebb63b5435ffbadc71310edb9"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-w8a32-wasm.json.gz",
+    "bytes": 1512845,
+    "sha256": "ad2405dc318a79938ee78f825601002881098e86bc345e930beb46b1ac5ee8e3",
+    "compressedSha256": "95133fa886384ed8dfb42a4e9b7230484407ed386f346f9bec52f6156ec12a23"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-w8a32-wasm-binding.json.gz",
+    "bytes": 191,
+    "sha256": "a0e5fcbf2e24de763ab9152be7ca0eebc4b70823369b717d3f8770b4b054f0a0",
+    "compressedSha256": "41135732a3b59fb07b475e818e0a2cb3751c578378b052d101962d33f3738359"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-w8a32-webgpu.json.gz",
+    "bytes": 1513674,
+    "sha256": "fb5358d419ae5ba9a55548d1a21ed8db7f412b788405fb0a7bfb14cc1356a2e9",
+    "compressedSha256": "e7295eafdd20238d9fc714e54585e36d518206051a10ad189a1aae495cafeb01"
+  },
+  {
+    "path": "evidence/round-3/picodet-xs-416-w8a32-webgpu-binding.json.gz",
+    "bytes": 191,
+    "sha256": "9c06b2752cf6971fd179f5f77217bc10e30b5dbba4040a63cc8f369f760d1d18",
+    "compressedSha256": "600474f21fb7780e57a58c30c0151916cfd9e029b67ab161030280097450abb0"
+  }
+]

@@ -1,0 +1,25 @@
+▶ 发布工作流契约
+  ✔ 验证当前 0.4.0 SDK 的稳定模型清单静态配置 (75.6117ms)
+  ✔ 1.0.1 稳定清单只发布 FP32 变体并固定三类来源 (1.1102ms)
+  ✔ 1.0.1 模型校验不因缺少 FP16 变体而阻塞 (219.3034ms)
+  ✔ 模型工作流默认使用当前版本并拒绝旧版本引用 (0.4315ms)
+  ✔ benchmark 和 runtime 工作流使用 PP-Detection 变量 (0.3833ms)
+  ✔ 物理 WebGPU runner 请求当前 PicoDet 清单的 FP32 变体 (0.2864ms)
+  ✔ benchmark 仅在清单选择 FP16 时运行 FP16 job (0.9131ms)
+  ✔ 发布校验要求稳定变体携带三类固定来源 (0.3344ms)
+  ✔ 发布校验严格限制官方来源主机边界 (0.2885ms)
+  ✔ 所有发布工作流固定 action 主版本和只读默认权限 (1.0996ms)
+  ✔ npm 发布使用 Trusted Publishing，不回退到 token (0.3011ms)
+  ✔ npm 完整性校验覆盖 registry 传播延迟 (0.2ms)
+  ✔ npm 发布在校验前还原两份真实模型文件 (0.2478ms)
+  ✔ package、runtime 和 changelog 版本保持 0.4.0 一致 (0.7584ms)
+  ✔ Pages 暂存脚本从当前根目录复制稳定模型且不访问网络 (225.9494ms)
+✔ 发布工作流契约 (528.9543ms)
+ℹ tests 15
+ℹ suites 1
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 624.2732

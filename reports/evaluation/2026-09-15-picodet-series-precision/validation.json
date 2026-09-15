@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-09-15T09:07:53.062152+00:00",
+  "status": "passed",
+  "sdkTests": 206,
+  "demoTests": 85,
+  "evidenceTests": 12,
+  "conversionTests": 2,
+  "requiredFailures": 0,
+  "npmVersion": "0.4.0",
+  "newStableVariants": 14,
+  "stableVariantCount": 37,
+  "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "logs": [
+    {
+      "path": "checks/verify.log",
+      "bytes": 9193,
+      "sha256": "430e57257e512b70df2d80fca3870702aabbdd95d2a06b7a6eb0ed71779b0cb1"
+    },
+    {
+      "path": "checks/demo-test.log",
+      "bytes": 10591,
+      "sha256": "3c630fc6e716858d069772f59c0413634622d578a467c9a5ec01324b3147b147"
+    },
+    {
+      "path": "checks/demo-build.log",
+      "bytes": 1598,
+      "sha256": "d78b24228d8571ba2c363653164393d4c8879fb7e2d87c9eb0c730f802b5a7bf"
+    },
+    {
+      "path": "checks/demo-typecheck.log",
+      "bytes": 16,
+      "sha256": "5a3973f79ed9becd5f23c4feff467513814de7ea381d75a4d2e339aa8b8edca9"
+    },
+    {
+      "path": "checks/docs-final.log",
+      "bytes": 611,
+      "sha256": "15470302b941b63d9b4740893e17c94ca3499bcf70c6ccea20bd991a97615087"
+    },
+    {
+      "path": "checks/release-final.log",
+      "bytes": 1330,
+      "sha256": "649d45305a8ff63f3b69d9a00a1f395b897a86f58bec4b8be17ae2b4ba1cbbed"
+    }
+  ],
+  "scope": "本地检查；正式Pages身份和在线推理在合并部署后另行验证。",
+  "legacyManifestPathsPreserved": 8
+}

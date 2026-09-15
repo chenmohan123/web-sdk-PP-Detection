@@ -1,0 +1,15 @@
+▶ documentation contract
+  ✔ runs the bilingual inventory and generated error-code checks (16377.7602ms)
+  ✔ 描述当前十三规格三十七个稳定变体和双语设备证据边界 (0.9009ms)
+  ✔ 记录当前默认组合、三十七变体和 W8A32 API 映射 (0.9624ms)
+  ✔ records the current model asset gate in both languages (0.8069ms)
+  ✔ documents per-class confidence thresholds in every public API guide (1.8252ms)
+✔ documentation contract (16383.6576ms)
+ℹ tests 5
+ℹ suites 1
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16489.8466

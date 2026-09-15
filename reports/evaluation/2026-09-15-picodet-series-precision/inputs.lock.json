@@ -1,0 +1,497 @@
+{
+  "protocolSha256": "56f118ae8ac3d87cb8bbcdabd67091112bd62a9d7e2ade4659dcab7f1b5750df",
+  "jobsSha256": "435717b26060e404b210ab42a6ee5fe5d336d437ef624ad2d4b4d091ed8972c8",
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+  "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "images": [
+    {
+      "fileName": "000000270244.jpg",
+      "imageId": 270244,
+      "sha256": "0d451a8b013beb0d9ca425aa5f9d9984ff48267cd5cc1d57786701e342fbec78"
+    },
+    {
+      "fileName": "000000438862.jpg",
+      "imageId": 438862,
+      "sha256": "3689831ed23f734ebab9405f48ffbfbbefb778e9de3101a9d56e421ea45288cf"
+    },
+    {
+      "fileName": "000000212166.jpg",
+      "imageId": 212166,
+      "sha256": "0dede49a6e46d23e1ddf122a8040e537cc0c3477021091424bc6f96f84cac30f"
+    },
+    {
+      "fileName": "000000486479.jpg",
+      "imageId": 486479,
+      "sha256": "9f3bf68815b9d35646131e84d97ed6d20fd9de4d343cded54a8f726e4c167de7"
+    },
+    {
+      "fileName": "000000439854.jpg",
+      "imageId": 439854,
+      "sha256": "d6e7d64034450928727ac679856ac954dd617129144f713e29beb0cf619b5e16"
+    },
+    {
+      "fileName": "000000227478.jpg",
+      "imageId": 227478,
+      "sha256": "f33a398b80d99a15d4608148d0dd3258bc592df878eca25e81ba726605e35158"
+    },
+    {
+      "fileName": "000000250282.jpg",
+      "imageId": 250282,
+      "sha256": "1c6e13427eb53f4c0faeb97a39dfabf28895f8c099a6f617df695674f161e42b"
+    },
+    {
+      "fileName": "000000235836.jpg",
+      "imageId": 235836,
+      "sha256": "2a2269de29e82e4eac88dc306453c3840961ca79626d52f7c700b8c998284801"
+    },
+    {
+      "fileName": "000000497599.jpg",
+      "imageId": 497599,
+      "sha256": "4bde154898740c69f124650678a4476fdcd29a6095cdb8d467c614c49d40407c"
+    },
+    {
+      "fileName": "000000010977.jpg",
+      "imageId": 10977,
+      "sha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6"
+    },
+    {
+      "fileName": "000000026690.jpg",
+      "imageId": 26690,
+      "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4"
+    },
+    {
+      "fileName": "000000284698.jpg",
+      "imageId": 284698,
+      "sha256": "ec1b02bdd97c3f384d9f9de71d38212504c9ad64ba6440ba70e9f1c662b07c45"
+    },
+    {
+      "fileName": "000000166563.jpg",
+      "imageId": 166563,
+      "sha256": "c8478b6b153105a252bd65c4c415da6c1f37f249e304cc6232d9b66c501e6d49"
+    },
+    {
+      "fileName": "000000105264.jpg",
+      "imageId": 105264,
+      "sha256": "b50b07e5e896fcbca93bc91392a327bb7800ae9322b7331f577f41889fa01cf8"
+    },
+    {
+      "fileName": "000000479099.jpg",
+      "imageId": 479099,
+      "sha256": "5c237332390d380fdc0ca82d0fb0fec54f59ed3bb6100517119a8fd9edfd53e7"
+    },
+    {
+      "fileName": "000000541123.jpg",
+      "imageId": 541123,
+      "sha256": "1806e9f95eab844099d6f07e24958c3411a8085969d3f1297bf5e29e10a2a7e8"
+    },
+    {
+      "fileName": "000000287874.jpg",
+      "imageId": 287874,
+      "sha256": "0cc4df971844484c680888590fe5498676d7c69411405ee99d40a2188c21ea7e"
+    },
+    {
+      "fileName": "000000492992.jpg",
+      "imageId": 492992,
+      "sha256": "bcfcd4c5d5bfe054720bb8a979fe099a2b04fd42b9cc44d00a2691c3a184465f"
+    },
+    {
+      "fileName": "000000483999.jpg",
+      "imageId": 483999,
+      "sha256": "f962e1a9fc03577dbf716dfbf96f8e9b519807b59d5e25ae4718667f753daea4"
+    },
+    {
+      "fileName": "000000236592.jpg",
+      "imageId": 236592,
+      "sha256": "57c0d2e822895cc40b3ef2949b29f33622662ce386d62f0da8bdf61cabd3bb30"
+    },
+    {
+      "fileName": "000000368212.jpg",
+      "imageId": 368212,
+      "sha256": "3f39f80efab771fb3810973df268b456634fd3495c26778e278968753cd20ecf"
+    },
+    {
+      "fileName": "000000341828.jpg",
+      "imageId": 341828,
+      "sha256": "c287d4d6d8fd2b891c933dae96cd7489c160bcfad5417f3ccddf4c771cacbb33"
+    },
+    {
+      "fileName": "000000459195.jpg",
+      "imageId": 459195,
+      "sha256": "15a0f308fd7628a8ad89347c7b98c2326569920228c8b2bd1a6240d9f9f3b250"
+    },
+    {
+      "fileName": "000000376900.jpg",
+      "imageId": 376900,
+      "sha256": "09359564291303089b691418a019548a7a795d7e577d9c7682199128bcdab251"
+    },
+    {
+      "fileName": "000000173091.jpg",
+      "imageId": 173091,
+      "sha256": "5bdb8ddfed0c5373619499698e9b5a4f1a1b9a151d6df7fcd49797e09533309c"
+    },
+    {
+      "fileName": "000000060823.jpg",
+      "imageId": 60823,
+      "sha256": "14c5d41fd1b2673c7d2697ead475b106d65dd9ae3ff6d089cf7b35a99e76fc26"
+    },
+    {
+      "fileName": "000000256868.jpg",
+      "imageId": 256868,
+      "sha256": "ab716aabb5a40999712cd54718432222846c96c1d97729566e8c05ec4bff9e0b"
+    },
+    {
+      "fileName": "000000386879.jpg",
+      "imageId": 386879,
+      "sha256": "163a945478cd35cf95e40f35b0bdbbfb74c171af494a393c67adaecbd072486a"
+    },
+    {
+      "fileName": "000000546219.jpg",
+      "imageId": 546219,
+      "sha256": "209d0fc903230a816f60e2279594d263ae62ff6d3219b961c877ea369926941a"
+    },
+    {
+      "fileName": "000000228436.jpg",
+      "imageId": 228436,
+      "sha256": "6d819938ee8cee9e1db68e26d24d668aa8f4b1365b1ad2c7d072a7435cfa9778"
+    },
+    {
+      "fileName": "000000125072.jpg",
+      "imageId": 125072,
+      "sha256": "0d109c18c8dc0c44d759ec72dfa69a12e000ddd4261ffadfaf33b3bd92adf2de"
+    },
+    {
+      "fileName": "000000458325.jpg",
+      "imageId": 458325,
+      "sha256": "cc9d8a2d6fdd06220bb2e63d0e41b13cddd7a83758c74b2aa0161e56c8aa18a9"
+    },
+    {
+      "fileName": "000000208423.jpg",
+      "imageId": 208423,
+      "sha256": "8d9c134ecfb0e96cc02d5b78120aa9e11286217ac7e1fef4c8afbd4a3a7d3070"
+    },
+    {
+      "fileName": "000000119516.jpg",
+      "imageId": 119516,
+      "sha256": "ee4d278eecc42f9c6830e030207fbabe888aebb36c58681f034f27081594d8c9"
+    },
+    {
+      "fileName": "000000269866.jpg",
+      "imageId": 269866,
+      "sha256": "8ed86217a895bb5484ccf37bc50af39b67ba1fa68220003c86515199a291d321"
+    },
+    {
+      "fileName": "000000527960.jpg",
+      "imageId": 527960,
+      "sha256": "8be06a8ebb4f0b7626a8315f158d65bf862e6817ad4a191b80edc5d662f98249"
+    },
+    {
+      "fileName": "000000570456.jpg",
+      "imageId": 570456,
+      "sha256": "fabe7272f19d1b61303802b7d8183d018a88a9129d1cb028613fdeb7aa050639"
+    },
+    {
+      "fileName": "000000134322.jpg",
+      "imageId": 134322,
+      "sha256": "33141512239a36606c04cb1ce97b30787ba3bf050f45a213e7787c4581a3ad6f"
+    },
+    {
+      "fileName": "000000481386.jpg",
+      "imageId": 481386,
+      "sha256": "f218e3c3a63a1600ad6b696d35f324bf78b0f787459d10793e39b420f80cad27"
+    },
+    {
+      "fileName": "000000376093.jpg",
+      "imageId": 376093,
+      "sha256": "fa66e91ef2d1370f2ddaf69fb3f41383dbd79f970b0382f21b3c336f1d1c8e3b"
+    },
+    {
+      "fileName": "000000529568.jpg",
+      "imageId": 529568,
+      "sha256": "2c97efcc385141e55c77afcf239cf59639637e9155cacf5ac870c87d2a6de42e"
+    },
+    {
+      "fileName": "000000276720.jpg",
+      "imageId": 276720,
+      "sha256": "9dcd1f0112ea7eb4d389150b940d0d4c0c9738703ad9af443b267f05228b87b5"
+    },
+    {
+      "fileName": "000000129756.jpg",
+      "imageId": 129756,
+      "sha256": "46c0e8721b27741971feadc7eb37aa3d710e50294a3b27dbe8b522e3eab3295f"
+    },
+    {
+      "fileName": "000000472623.jpg",
+      "imageId": 472623,
+      "sha256": "3b1a4b3e7a06e2f67ff42f2821f089e5038d53d9a06de390a23f65652af85d6d"
+    },
+    {
+      "fileName": "000000276024.jpg",
+      "imageId": 276024,
+      "sha256": "b07d707d132181c971b53e0c097a0bd985f020547bbb9dff0f5bfbbea1809f5d"
+    },
+    {
+      "fileName": "000000269942.jpg",
+      "imageId": 269942,
+      "sha256": "b0185e227082a1aa4406912643dcd320ae48e6713ab2bdeae35566f1597a9e31"
+    },
+    {
+      "fileName": "000000493334.jpg",
+      "imageId": 493334,
+      "sha256": "06be922134b4177ddea7373a1c92c3236d12e290a9b43c9dfbc018c36fa235f6"
+    },
+    {
+      "fileName": "000000318455.jpg",
+      "imageId": 318455,
+      "sha256": "d4524c09516bff37126a7cc7fab0bfb6f81d96ab16d6d211979d2699513d64a5"
+    },
+    {
+      "fileName": "000000200152.jpg",
+      "imageId": 200152,
+      "sha256": "bd2c91c0773fb7d4dbf3b9cf4d155d6d77ed4e343acdda1263cb92d45d8375f8"
+    },
+    {
+      "fileName": "000000511398.jpg",
+      "imageId": 511398,
+      "sha256": "7948bc967ac3b7526ce99e970eae3e87832cace645299565ef5da3d8b20d96b4"
+    },
+    {
+      "fileName": "000000352760.jpg",
+      "imageId": 352760,
+      "sha256": "e8e628840f8275433d429abede2e426da7092545c692d418a12cf58e4fa2ee4d"
+    },
+    {
+      "fileName": "000000027186.jpg",
+      "imageId": 27186,
+      "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e"
+    },
+    {
+      "fileName": "000000204871.jpg",
+      "imageId": 204871,
+      "sha256": "f471e48c808ea689a1e3a4a1214bc03e81a95195146b0c42601dbd6eaa006c89"
+    },
+    {
+      "fileName": "000000426372.jpg",
+      "imageId": 426372,
+      "sha256": "2008ffc31ea397b00e132ab370a273a61ac65d00d7ad76789fb43ef404f88ca5"
+    },
+    {
+      "fileName": "000000209142.jpg",
+      "imageId": 209142,
+      "sha256": "faaa39e1fa18df9268a45821d7f6a2608b026df2df4ead67746c3a3faf7dfa8d"
+    },
+    {
+      "fileName": "000000203629.jpg",
+      "imageId": 203629,
+      "sha256": "39ca3711f193e0c662ac3f1474f51959a2a8ed59de4663cd3afd2e696651b850"
+    },
+    {
+      "fileName": "000000027932.jpg",
+      "imageId": 27932,
+      "sha256": "9ab6d8c5a124427d77add9827dc6ad58ce94efb003c34e5e20699acd82f43731"
+    },
+    {
+      "fileName": "000000360951.jpg",
+      "imageId": 360951,
+      "sha256": "27d49fbfe39cbd55cf9af5bea2b1a0aba997ab6acc465d2beb0d118e82a57321"
+    },
+    {
+      "fileName": "000000543300.jpg",
+      "imageId": 543300,
+      "sha256": "72bcd0502e2cce873aa3acc1524f314b242550b5362c57edf178966abd400c7c"
+    },
+    {
+      "fileName": "000000562818.jpg",
+      "imageId": 562818,
+      "sha256": "a5b154b5d98591146404e3a3693890107c046485ba746f2bc3c4ec7beb2241a4"
+    },
+    {
+      "fileName": "000000356094.jpg",
+      "imageId": 356094,
+      "sha256": "8395d0b485c3a2c218178bb7190a8030a2db742f363539a914c892d1617584da"
+    },
+    {
+      "fileName": "000000377497.jpg",
+      "imageId": 377497,
+      "sha256": "8d4170dea501b2865a5955e020045fbe184da8025d6cef2e72d1bd9c7cdbdcac"
+    },
+    {
+      "fileName": "000000238410.jpg",
+      "imageId": 238410,
+      "sha256": "980b3adbde3e49f6cc92f0611ea9ef8dde633715a7d9041bafa8048fb61c24de"
+    },
+    {
+      "fileName": "000000119641.jpg",
+      "imageId": 119641,
+      "sha256": "4c194846e3c0bbac0667517f786ecfa4677d6687791a2a1123ecf72840370464"
+    }
+  ],
+  "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c",
+  "models": {
+    "picodet-l-416-fp32": {
+      "manifestSha256": "5f4245306f38780e92386b0a491067d9fda43fb71a9e02380ed241573c1484e7",
+      "modelId": "pp-picodet-l-416",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-l-416-fp16": {
+      "manifestSha256": "2a9284a105489afc5a0357c1ee56d67662696cce149b6fe9c9bd2e73fb153a9a",
+      "modelId": "pp-picodet-l-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-l-416-w8a32": {
+      "manifestSha256": "d026c69adec51dab441e1319544edbb6eff4b91dca245ede5c93ab3b43ca96de",
+      "modelId": "pp-picodet-l-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-l-640-fp32": {
+      "manifestSha256": "2375a7ceb31bf83e0a2d8576a73c666ef957c270d29472fa8fb02f32707dd8d8",
+      "modelId": "pp-picodet-l-640",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-l-640-fp16": {
+      "manifestSha256": "ac6a88795c731d049518f3ad1bb86a26a0847f010f7180212f86ff1a69735eb6",
+      "modelId": "pp-picodet-l-640",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-l-640-w8a32": {
+      "manifestSha256": "c22d702216dc30412e329fdca0b8a43a1ee9bbcc17084d7adba56639e7c6ac8b",
+      "modelId": "pp-picodet-l-640",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-m-320-fp32": {
+      "manifestSha256": "4fbf1b98c59a6f066d0a0e3c61f58195b711725084497120ff69530db1bad5a7",
+      "modelId": "pp-picodet-m-320",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-m-320-fp16": {
+      "manifestSha256": "b2bd6de3b3d6835735e5ad75d2f318cb5a85d22ea4d6a4fba64cc40d9c9ba921",
+      "modelId": "pp-picodet-m-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-m-320-w8a32": {
+      "manifestSha256": "580d4b3f16d8de224dbefad7d21e2cbc9d11d4490c9cd19ef0818841f9b95878",
+      "modelId": "pp-picodet-m-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-m-416-fp32": {
+      "manifestSha256": "55d4c2a7f0e9bb3710e60993388a46110ae1684d0afbf9912ce72bccafa5bb91",
+      "modelId": "pp-picodet-m-416",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-m-416-fp16": {
+      "manifestSha256": "34bb016aa87c1891eb536af049ac7e3d934f16148d088d32ecbf504d4bde5e77",
+      "modelId": "pp-picodet-m-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-m-416-w8a32": {
+      "manifestSha256": "1d14423d7fbea1efc7965d4a8b37d4dbefbce4b3be54121ba7e277d4ca7394d2",
+      "modelId": "pp-picodet-m-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-s-320-fp32": {
+      "manifestSha256": "c0aa87d3b522065993da8672c697580abf0627bcdf7cffeddcd0b2f2b7117470",
+      "modelId": "pp-picodet-s-320",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-s-320-fp16": {
+      "manifestSha256": "e243bcadb1e61338201fc619421651325257bcbc1ebbc34ef016bbdeb68f13d9",
+      "modelId": "pp-picodet-s-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-s-320-w8a32": {
+      "manifestSha256": "ff314620cd9233ae7345d61f7f8ec6a7c0c75e80657d878e5cf4352a68b21351",
+      "modelId": "pp-picodet-s-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-s-416-fp32": {
+      "manifestSha256": "2ab5daa36b9066be3348cc64f6f4c27b26fecb794e3a23c2d8fef6752d994ad1",
+      "modelId": "pp-picodet-s-416",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-s-416-fp16": {
+      "manifestSha256": "d2f12be85e0cc3c55cedf79e74aa53d114a6719929c6a02ea3c7f9deaf35b164",
+      "modelId": "pp-picodet-s-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-s-416-w8a32": {
+      "manifestSha256": "f25ba7bd2cfc4ee95a4bf01aa8a29c4ad35a54f0f706cea0f78e6932ad140483",
+      "modelId": "pp-picodet-s-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-xs-320-fp32": {
+      "manifestSha256": "016bdc1db7522f6960be2f8123d5b4b4eeeb47738902b795e7dc8a54579cfc76",
+      "modelId": "pp-picodet-xs-320",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-xs-320-fp16": {
+      "manifestSha256": "4eda9300da446fabefa12fe06185df9d183873400d985e8ba649420137055138",
+      "modelId": "pp-picodet-xs-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-xs-320-w8a32": {
+      "manifestSha256": "ad36fc8b9b50f3675cece94e82d867269b3842dc60d70d7629409da17eb9899c",
+      "modelId": "pp-picodet-xs-320",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-xs-416-fp32": {
+      "manifestSha256": "0eedb5f0b2d2fd2d731a1040c1772ebf6e50a2ba2bb6a71ba35d1f3c453f9141",
+      "modelId": "pp-picodet-xs-416",
+      "modelVersion": "1.0.0"
+    },
+    "picodet-xs-416-fp16": {
+      "manifestSha256": "9601631795526638a44957a02bb77b8a469e13e4d6b9c630dcd3de031a406db3",
+      "modelId": "pp-picodet-xs-416",
+      "modelVersion": "precision-2026-09-15"
+    },
+    "picodet-xs-416-w8a32": {
+      "manifestSha256": "5797bc3739181b7fa5366cd7d9facf9d15ae69d3f809721a20e621337acc6260",
+      "modelId": "pp-picodet-xs-416",
+      "modelVersion": "precision-2026-09-15"
+    }
+  },
+  "environment": {
+    "cpu": {
+      "logicalCores": 12,
+      "model": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+    },
+    "os": {
+      "arch": "x64",
+      "platform": "win32",
+      "release": "10.0.26200"
+    },
+    "browser": {
+      "version": "153.0.8010.12",
+      "launchArgs": [],
+      "crossOriginIsolated": true,
+      "hardwareConcurrency": 12,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "userAgentData": {
+        "brands": [
+          {
+            "brand": "Chromium",
+            "version": "153"
+          },
+          {
+            "brand": "Not_A Brand",
+            "version": "8"
+          }
+        ],
+        "mobile": false,
+        "platform": "Windows"
+      }
+    },
+    "runtimeVersions": {
+      "onnxruntimeWeb": "1.27.0",
+      "sdk": "0.4.0"
+    }
+  },
+  "gpuAdapter": {
+    "architecture": "blackwell",
+    "description": null,
+    "device": null,
+    "isFallbackAdapter": false,
+    "subgroupMaxSize": 32,
+    "subgroupMinSize": 32,
+    "vendor": "nvidia"
+  }
+}

@@ -33,3 +33,7 @@ reports/distribution/2026-09-14-ppyoloe-mlx-precision/hub-README.md -text -white
 models/pp-detection/picodet-*/README.md -text -whitespace
 models/pp-detection/picodet-*/LICENSE -text -whitespace
 reports/evaluation/2026-09-14-picodet-series/upstream-picodet-readme.md -text -whitespace
+models/pp-detection/picodet-*/1.0.1/README.md -text -whitespace
+models/pp-detection/picodet-*/1.0.1/LICENSE -text -whitespace
+reports/evaluation/2026-09-15-picodet-series-precision/hub-README*.md -text -whitespace
+reports/evaluation/2026-09-15-picodet-series-precision/checks/*.log -text -whitespace

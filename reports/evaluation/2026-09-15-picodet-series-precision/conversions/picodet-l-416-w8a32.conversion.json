@@ -1,0 +1,543 @@
+{
+  "key": "picodet-l-416",
+  "precision": "w8a32",
+  "sourceModel": ".tmp/picodet-series/picodet-l-416-fp32.onnx",
+  "sourceSha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4",
+  "sourceBytes": 23261512,
+  "excludeNodes": [
+    "Conv_0",
+    "Conv_1"
+  ],
+  "candidate": {
+    "status": "labs",
+    "quantization": "weight-only-int8-activation-fp32",
+    "activationPrecision": "fp32",
+    "floatingInputOutputPrecision": "fp32",
+    "source": {
+      "bytes": 23261512,
+      "sha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4"
+    },
+    "output": {
+      "bytes": 6135363,
+      "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4"
+    },
+    "prepared": true,
+    "versions": {
+      "onnx": "1.16.2",
+      "onnxruntime": "1.20.1",
+      "numpy": "1.26.4"
+    },
+    "opsets": {
+      "": 13,
+      "com.microsoft.nchwc": 1,
+      "ai.onnx.ml": 5,
+      "ai.onnx.training": 1,
+      "ai.onnx.preview.training": 1,
+      "com.microsoft": 1,
+      "com.microsoft.experimental": 1,
+      "org.pytorch.aten": 1
+    },
+    "operators": {
+      "Conv": 114,
+      "Add": 98,
+      "Clip": 94,
+      "Mul": 107,
+      "Div": 95,
+      "DequantizeLinear": 112,
+      "GlobalAveragePool": 6,
+      "Relu": 2,
+      "HardSigmoid": 2,
+      "Resize": 2,
+      "Concat": 9,
+      "Sigmoid": 12,
+      "Transpose": 4,
+      "Reshape": 13,
+      "Softmax": 4,
+      "MatMul": 4,
+      "Split": 1,
+      "Sqrt": 4,
+      "NonMaxSuppression": 1,
+      "Gather": 12,
+      "Squeeze": 5,
+      "Cast": 5,
+      "Sub": 1,
+      "NonZero": 1,
+      "Shape": 2,
+      "Unsqueeze": 3,
+      "ReduceMin": 1,
+      "TopK": 2,
+      "Neg": 1
+    },
+    "fullOnnxCheck": true,
+    "quantizedWeightTensors": 112,
+    "excludedNodes": [
+      "Conv_0",
+      "Conv_1"
+    ],
+    "skippedSharedOrDynamicWeights": [],
+    "weightErrors": [
+      {
+        "weight": "3603",
+        "maxAbsError": 0.02288004755973816
+      },
+      {
+        "weight": "3607",
+        "maxAbsError": 0.0767068862915039
+      },
+      {
+        "weight": "3611",
+        "maxAbsError": 0.003099299967288971
+      },
+      {
+        "weight": "3615",
+        "maxAbsError": 0.3121957778930664
+      },
+      {
+        "weight": "3619",
+        "maxAbsError": 0.004684001207351685
+      },
+      {
+        "weight": "3623",
+        "maxAbsError": 0.06957721710205078
+      },
+      {
+        "weight": "3627",
+        "maxAbsError": 0.005312257446348667
+      },
+      {
+        "weight": "3631",
+        "maxAbsError": 0.1516265869140625
+      },
+      {
+        "weight": "3635",
+        "maxAbsError": 0.004567891359329224
+      },
+      {
+        "weight": "3639",
+        "maxAbsError": 0.028391718864440918
+      },
+      {
+        "weight": "3643",
+        "maxAbsError": 0.006633058190345764
+      },
+      {
+        "weight": "3647",
+        "maxAbsError": 0.12686491012573242
+      },
+      {
+        "weight": "3651",
+        "maxAbsError": 0.004059565253555775
+      },
+      {
+        "weight": "3655",
+        "maxAbsError": 0.16720128059387207
+      },
+      {
+        "weight": "3659",
+        "maxAbsError": 0.0029022395610809326
+      },
+      {
+        "weight": "3663",
+        "maxAbsError": 0.14402151107788086
+      },
+      {
+        "weight": "3667",
+        "maxAbsError": 0.0035064592957496643
+      },
+      {
+        "weight": "3671",
+        "maxAbsError": 0.13210630416870117
+      },
+      {
+        "weight": "3675",
+        "maxAbsError": 0.0031863078474998474
+      },
+      {
+        "weight": "3679",
+        "maxAbsError": 0.10757267475128174
+      },
+      {
+        "weight": "3683",
+        "maxAbsError": 0.0017312744166702032
+      },
+      {
+        "weight": "3687",
+        "maxAbsError": 0.06975305080413818
+      },
+      {
+        "weight": "conv2d_24.w_0",
+        "maxAbsError": 0.0012167077511548996
+      },
+      {
+        "weight": "conv2d_25.w_0",
+        "maxAbsError": 0.0011420592200011015
+      },
+      {
+        "weight": "3691",
+        "maxAbsError": 0.00592736154794693
+      },
+      {
+        "weight": "3695",
+        "maxAbsError": 0.2355210781097412
+      },
+      {
+        "weight": "conv2d_28.w_0",
+        "maxAbsError": 0.0015537124127149582
+      },
+      {
+        "weight": "conv2d_29.w_0",
+        "maxAbsError": 0.002800542861223221
+      },
+      {
+        "weight": "3699",
+        "maxAbsError": 0.009939730167388916
+      },
+      {
+        "weight": "3711",
+        "maxAbsError": 0.00029445067048072815
+      },
+      {
+        "weight": "3707",
+        "maxAbsError": 0.0006048472132533789
+      },
+      {
+        "weight": "3715",
+        "maxAbsError": 0.15879416465759277
+      },
+      {
+        "weight": "3719",
+        "maxAbsError": 0.00204525887966156
+      },
+      {
+        "weight": "3723",
+        "maxAbsError": 0.02186882495880127
+      },
+      {
+        "weight": "3727",
+        "maxAbsError": 0.003519788384437561
+      },
+      {
+        "weight": "3703",
+        "maxAbsError": 0.000962674617767334
+      },
+      {
+        "weight": "3731",
+        "maxAbsError": 0.13724970817565918
+      },
+      {
+        "weight": "3735",
+        "maxAbsError": 0.0026056617498397827
+      },
+      {
+        "weight": "3739",
+        "maxAbsError": 0.159498929977417
+      },
+      {
+        "weight": "3743",
+        "maxAbsError": 0.003069758415222168
+      },
+      {
+        "weight": "3747",
+        "maxAbsError": 0.003494296222925186
+      },
+      {
+        "weight": "3751",
+        "maxAbsError": 0.004882089793682098
+      },
+      {
+        "weight": "3755",
+        "maxAbsError": 0.18281519412994385
+      },
+      {
+        "weight": "3759",
+        "maxAbsError": 0.002220749855041504
+      },
+      {
+        "weight": "3763",
+        "maxAbsError": 0.018326282501220703
+      },
+      {
+        "weight": "3767",
+        "maxAbsError": 0.002728700637817383
+      },
+      {
+        "weight": "3771",
+        "maxAbsError": 0.0014378279447555542
+      },
+      {
+        "weight": "3775",
+        "maxAbsError": 0.0059184059500694275
+      },
+      {
+        "weight": "3779",
+        "maxAbsError": 0.17251062393188477
+      },
+      {
+        "weight": "3783",
+        "maxAbsError": 0.0024128518998622894
+      },
+      {
+        "weight": "3787",
+        "maxAbsError": 0.014808684587478638
+      },
+      {
+        "weight": "3791",
+        "maxAbsError": 0.002835448831319809
+      },
+      {
+        "weight": "3803",
+        "maxAbsError": 0.0019085705280303955
+      },
+      {
+        "weight": "3807",
+        "maxAbsError": 0.0038905441761016846
+      },
+      {
+        "weight": "3795",
+        "maxAbsError": 0.0035704374313354492
+      },
+      {
+        "weight": "3799",
+        "maxAbsError": 0.006105981767177582
+      },
+      {
+        "weight": "3943",
+        "maxAbsError": 0.08725136518478394
+      },
+      {
+        "weight": "3947",
+        "maxAbsError": 0.004625599831342697
+      },
+      {
+        "weight": "3951",
+        "maxAbsError": 0.009627699851989746
+      },
+      {
+        "weight": "3955",
+        "maxAbsError": 0.0037143677473068237
+      },
+      {
+        "weight": "3959",
+        "maxAbsError": 0.01309184730052948
+      },
+      {
+        "weight": "3963",
+        "maxAbsError": 0.005441892892122269
+      },
+      {
+        "weight": "3967",
+        "maxAbsError": 0.01848791539669037
+      },
+      {
+        "weight": "3971",
+        "maxAbsError": 0.007335787173360586
+      },
+      {
+        "weight": "conv2d_96.w_0",
+        "maxAbsError": 0.0004329364746809006
+      },
+      {
+        "weight": "3975",
+        "maxAbsError": 0.013784177601337433
+      },
+      {
+        "weight": "conv2d_113.w_0",
+        "maxAbsError": 0.0017250183736905456
+      },
+      {
+        "weight": "3899",
+        "maxAbsError": 0.03491926193237305
+      },
+      {
+        "weight": "3903",
+        "maxAbsError": 0.004042863845825195
+      },
+      {
+        "weight": "3907",
+        "maxAbsError": 0.04970613121986389
+      },
+      {
+        "weight": "3911",
+        "maxAbsError": 0.0035508275032043457
+      },
+      {
+        "weight": "3915",
+        "maxAbsError": 0.01366424560546875
+      },
+      {
+        "weight": "3919",
+        "maxAbsError": 0.004038214683532715
+      },
+      {
+        "weight": "3923",
+        "maxAbsError": 0.0153084397315979
+      },
+      {
+        "weight": "3927",
+        "maxAbsError": 0.01086890697479248
+      },
+      {
+        "weight": "conv2d_86.w_0",
+        "maxAbsError": 0.0008095749653875828
+      },
+      {
+        "weight": "3931",
+        "maxAbsError": 0.011044912040233612
+      },
+      {
+        "weight": "conv2d_109.w_0",
+        "maxAbsError": 0.002097317250445485
+      },
+      {
+        "weight": "3855",
+        "maxAbsError": 0.022777467966079712
+      },
+      {
+        "weight": "3859",
+        "maxAbsError": 0.0032534729689359665
+      },
+      {
+        "weight": "3863",
+        "maxAbsError": 0.052247047424316406
+      },
+      {
+        "weight": "3867",
+        "maxAbsError": 0.00374617800116539
+      },
+      {
+        "weight": "3871",
+        "maxAbsError": 0.07660800218582153
+      },
+      {
+        "weight": "3875",
+        "maxAbsError": 0.004984110593795776
+      },
+      {
+        "weight": "3879",
+        "maxAbsError": 0.01613771915435791
+      },
+      {
+        "weight": "3883",
+        "maxAbsError": 0.004955325275659561
+      },
+      {
+        "weight": "conv2d_76.w_0",
+        "maxAbsError": 0.001101070549339056
+      },
+      {
+        "weight": "3887",
+        "maxAbsError": 0.01185336709022522
+      },
+      {
+        "weight": "conv2d_105.w_0",
+        "maxAbsError": 0.002456089248880744
+      },
+      {
+        "weight": "3811",
+        "maxAbsError": 0.04755520820617676
+      },
+      {
+        "weight": "3815",
+        "maxAbsError": 0.0031463131308555603
+      },
+      {
+        "weight": "3819",
+        "maxAbsError": 0.03302858769893646
+      },
+      {
+        "weight": "3823",
+        "maxAbsError": 0.0038194702938199043
+      },
+      {
+        "weight": "3827",
+        "maxAbsError": 0.05753430724143982
+      },
+      {
+        "weight": "3831",
+        "maxAbsError": 0.004545941948890686
+      },
+      {
+        "weight": "3835",
+        "maxAbsError": 0.10751989483833313
+      },
+      {
+        "weight": "3839",
+        "maxAbsError": 0.006782352924346924
+      },
+      {
+        "weight": "conv2d_66.w_0",
+        "maxAbsError": 0.0017907563596963882
+      },
+      {
+        "weight": "3843",
+        "maxAbsError": 0.018802642822265625
+      },
+      {
+        "weight": "conv2d_101.w_0",
+        "maxAbsError": 0.002726985141634941
+      },
+      {
+        "weight": "conv2d_112.w_0",
+        "maxAbsError": 0.0016071870923042297
+      },
+      {
+        "weight": "3979",
+        "maxAbsError": 4.9087218940258026e-05
+      },
+      {
+        "weight": "3983",
+        "maxAbsError": 0.0
+      },
+      {
+        "weight": "conv2d_108.w_0",
+        "maxAbsError": 0.001743545290082693
+      },
+      {
+        "weight": "3935",
+        "maxAbsError": 6.061617750674486e-05
+      },
+      {
+        "weight": "3939",
+        "maxAbsError": 0.0
+      },
+      {
+        "weight": "conv2d_104.w_0",
+        "maxAbsError": 0.0012929404620081186
+      },
+      {
+        "weight": "3891",
+        "maxAbsError": 2.7892645448446274e-05
+      },
+      {
+        "weight": "3895",
+        "maxAbsError": 0.0
+      },
+      {
+        "weight": "conv2d_100.w_0",
+        "maxAbsError": 0.0022315755486488342
+      },
+      {
+        "weight": "3847",
+        "maxAbsError": 1.5831144992262125e-05
+      },
+      {
+        "weight": "3851",
+        "maxAbsError": 0.0
+      }
+    ]
+  },
+  "validation": {
+    "input": [
+      1,
+      3,
+      416,
+      416
+    ],
+    "inputDtype": "FLOAT",
+    "outputDtypes": [
+      "FLOAT",
+      "INT32"
+    ],
+    "opset": 13
+  }
+}

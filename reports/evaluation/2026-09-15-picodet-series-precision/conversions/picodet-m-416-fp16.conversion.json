@@ -1,0 +1,75 @@
+{
+  "key": "picodet-m-416",
+  "precision": "fp16",
+  "sourceModel": ".tmp/picodet-series/picodet-m-416-fp32.onnx",
+  "sourceSha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
+  "sourceBytes": 13922843,
+  "excludeNodes": [],
+  "candidate": {
+    "sourceSha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
+    "sourceBytes": 13922843,
+    "candidateSha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad",
+    "candidateBytes": 8885644,
+    "converter": "onnxruntime.transformers.float16.convert_float_to_float16",
+    "versions": {
+      "onnx": "1.16.2",
+      "onnxruntime": "1.20.1",
+      "numpy": "1.26.4"
+    },
+    "opBlockList": [
+      "ArrayFeatureExtractor",
+      "Binarizer",
+      "CastMap",
+      "CategoryMapper",
+      "DictVectorizer",
+      "FeatureVectorizer",
+      "Imputer",
+      "LabelEncoder",
+      "LinearClassifier",
+      "LinearRegressor",
+      "Normalizer",
+      "OneHotEncoder",
+      "RandomUniformLike",
+      "SVMClassifier",
+      "SVMRegressor",
+      "Scaler",
+      "TreeEnsembleClassifier",
+      "TreeEnsembleRegressor",
+      "ZipMap",
+      "NonMaxSuppression",
+      "TopK",
+      "RoiAlign",
+      "Range",
+      "CumSum",
+      "Min",
+      "Max",
+      "Upsample"
+    ],
+    "nodeBlockList": [
+      "Cast_5"
+    ],
+    "keepIoTypes": true,
+    "fullOnnxCheck": true,
+    "finiteStoredTensors": true,
+    "storedTensorDtypes": {
+      "FLOAT16": 238,
+      "FLOAT": 19,
+      "INT64": 16,
+      "INT32": 1
+    }
+  },
+  "validation": {
+    "input": [
+      1,
+      3,
+      416,
+      416
+    ],
+    "inputDtype": "FLOAT",
+    "outputDtypes": [
+      "FLOAT",
+      "INT32"
+    ],
+    "opset": 11
+  }
+}

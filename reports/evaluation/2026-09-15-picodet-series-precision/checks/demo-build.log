@@ -1,0 +1,24 @@
+$ vite build
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 1600 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                 0.40 kB │ gzip:     0.27 kB
+dist/ort/ort-wasm-simd-threaded.mjs                            24.18 kB
+dist/ort/ort-wasm-simd-threaded.jspi.mjs                       44.52 kB
+dist/ort/ort-wasm-simd-threaded.jsep.mjs                       46.61 kB
+dist/ort/ort-wasm-simd-threaded.asyncify.mjs                   47.50 kB
+dist/assets/inference.worker-Bx-aOOMf.js                      694.81 kB
+dist/ort/ort-wasm-simd-threaded.wasm                       13,479.97 kB │ gzip: 3,498.23 kB
+dist/ort/ort-wasm-simd-threaded.jspi.wasm                  15,046.87 kB │ gzip: 3,790.57 kB
+dist/assets/ort-wasm-simd-threaded.asyncify-CvvOzbbq.wasm  24,254.95 kB │ gzip: 6,034.37 kB
+dist/ort/ort-wasm-simd-threaded.asyncify.wasm              24,254.95 kB │ gzip: 6,034.37 kB
+dist/assets/ort-wasm-simd-threaded.jsep-DC5y_g6C.wasm      26,827.54 kB │ gzip: 6,400.68 kB
+dist/ort/ort-wasm-simd-threaded.jsep.wasm                  26,827.54 kB │ gzip: 6,400.68 kB
+dist/assets/index-BeSSyMcv.css                                 17.73 kB │ gzip:     4.14 kB
+dist/assets/ort.webgpu.bundle.min-CiHLDQWR.js                 110.30 kB │ gzip:    36.15 kB
+dist/assets/index-DMoFQe5V.js                                 380.38 kB │ gzip:   106.85 kB
+dist/assets/ort.bundle.min-DLZTCRL4.js                        395.32 kB │ gzip:   106.64 kB
+
+✓ built in 1.21s

@@ -1,0 +1,320 @@
+[
+  {
+    "source": "modelscope",
+    "phase": "weights",
+    "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+    "files": [
+      {
+        "path": "picodet-l-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/picodet-l-416-fp16.onnx",
+        "bytes": 14836820,
+        "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/picodet-l-416-w8a32.onnx",
+        "bytes": 6135363,
+        "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/README.md",
+        "bytes": 1621,
+        "sha256": "45ceb50812c50668f5a06f27325ebc15f7166da06e04b994d5e2a918352e34b0"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/picodet-l-640-fp16.onnx",
+        "bytes": 14874912,
+        "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/picodet-l-640-w8a32.onnx",
+        "bytes": 6194232,
+        "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/README.md",
+        "bytes": 1621,
+        "sha256": "15f3ffce305b737509eb7ff39b21fa2ba06917cfd222621a6953a966dc095921"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/picodet-m-320-fp16.onnx",
+        "bytes": 8869567,
+        "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/picodet-m-320-w8a32.onnx",
+        "bytes": 3736832,
+        "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/README.md",
+        "bytes": 1620,
+        "sha256": "f566ea48b2a321f210a8c75c5a443f6943de8b4dca054cb505060fb1e8157799"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/picodet-m-416-fp16.onnx",
+        "bytes": 8885644,
+        "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/picodet-m-416-w8a32.onnx",
+        "bytes": 3754515,
+        "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/README.md",
+        "bytes": 1620,
+        "sha256": "455a3750008ee6cdcf58cfa410559047f9d71f73647af94ad595523e48156b1e"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/picodet-s-320-fp16.onnx",
+        "bytes": 3082899,
+        "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/picodet-s-320-w8a32.onnx",
+        "bytes": 1380421,
+        "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/README.md",
+        "bytes": 1619,
+        "sha256": "64403b81471a44349974f05959bd724f47ac882bb12ca9d28000e9c22011a7b0"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/picodet-s-416-fp16.onnx",
+        "bytes": 3097823,
+        "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/picodet-s-416-w8a32.onnx",
+        "bytes": 1398104,
+        "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/README.md",
+        "bytes": 1619,
+        "sha256": "4e727a22726e7fd41f8b57bb66c76d38007ac21cc162fd1d8052357581fa6b57"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/picodet-xs-320-fp16.onnx",
+        "bytes": 1863376,
+        "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/README.md",
+        "bytes": 1531,
+        "sha256": "71d3490c0bd0f0e6dff0c591945f5bb71b3770c6703b18428d88a06f1b947b06"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/picodet-xs-416-fp16.onnx",
+        "bytes": 1875659,
+        "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/README.md",
+        "bytes": 1531,
+        "sha256": "36c5a4a47e8b49af712d96017ccbf35986f51dfab27e8f093bc18f1d6ccd49f5"
+      }
+    ],
+    "protocolSha256": "56f118ae8ac3d87cb8bbcdabd67091112bd62a9d7e2ade4659dcab7f1b5750df",
+    "uploadedAt": "2026-09-15T08:41:12.269359+00:00"
+  },
+  {
+    "source": "huggingface",
+    "phase": "weights",
+    "revision": "3798b2a87abdeb2ae09d029d99302685b51914fb",
+    "files": [
+      {
+        "path": "picodet-l-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/picodet-l-416-fp16.onnx",
+        "bytes": 14836820,
+        "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/picodet-l-416-w8a32.onnx",
+        "bytes": 6135363,
+        "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4"
+      },
+      {
+        "path": "picodet-l-416/1.0.1/README.md",
+        "bytes": 1621,
+        "sha256": "45ceb50812c50668f5a06f27325ebc15f7166da06e04b994d5e2a918352e34b0"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/picodet-l-640-fp16.onnx",
+        "bytes": 14874912,
+        "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/picodet-l-640-w8a32.onnx",
+        "bytes": 6194232,
+        "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8"
+      },
+      {
+        "path": "picodet-l-640/1.0.1/README.md",
+        "bytes": 1621,
+        "sha256": "15f3ffce305b737509eb7ff39b21fa2ba06917cfd222621a6953a966dc095921"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/picodet-m-320-fp16.onnx",
+        "bytes": 8869567,
+        "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/picodet-m-320-w8a32.onnx",
+        "bytes": 3736832,
+        "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd"
+      },
+      {
+        "path": "picodet-m-320/1.0.1/README.md",
+        "bytes": 1620,
+        "sha256": "f566ea48b2a321f210a8c75c5a443f6943de8b4dca054cb505060fb1e8157799"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/picodet-m-416-fp16.onnx",
+        "bytes": 8885644,
+        "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/picodet-m-416-w8a32.onnx",
+        "bytes": 3754515,
+        "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc"
+      },
+      {
+        "path": "picodet-m-416/1.0.1/README.md",
+        "bytes": 1620,
+        "sha256": "455a3750008ee6cdcf58cfa410559047f9d71f73647af94ad595523e48156b1e"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/picodet-s-320-fp16.onnx",
+        "bytes": 3082899,
+        "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/picodet-s-320-w8a32.onnx",
+        "bytes": 1380421,
+        "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154"
+      },
+      {
+        "path": "picodet-s-320/1.0.1/README.md",
+        "bytes": 1619,
+        "sha256": "64403b81471a44349974f05959bd724f47ac882bb12ca9d28000e9c22011a7b0"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/picodet-s-416-fp16.onnx",
+        "bytes": 3097823,
+        "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/picodet-s-416-w8a32.onnx",
+        "bytes": 1398104,
+        "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca"
+      },
+      {
+        "path": "picodet-s-416/1.0.1/README.md",
+        "bytes": 1619,
+        "sha256": "4e727a22726e7fd41f8b57bb66c76d38007ac21cc162fd1d8052357581fa6b57"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/picodet-xs-320-fp16.onnx",
+        "bytes": 1863376,
+        "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50"
+      },
+      {
+        "path": "picodet-xs-320/1.0.1/README.md",
+        "bytes": 1531,
+        "sha256": "71d3490c0bd0f0e6dff0c591945f5bb71b3770c6703b18428d88a06f1b947b06"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/LICENSE",
+        "bytes": 10296,
+        "sha256": "be95e03fe0d11fdf89f8c909e8e072bdf2e04062627d49725d373ad4aa3e52dc"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/picodet-xs-416-fp16.onnx",
+        "bytes": 1875659,
+        "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97"
+      },
+      {
+        "path": "picodet-xs-416/1.0.1/README.md",
+        "bytes": 1531,
+        "sha256": "36c5a4a47e8b49af712d96017ccbf35986f51dfab27e8f093bc18f1d6ccd49f5"
+      }
+    ],
+    "protocolSha256": "56f118ae8ac3d87cb8bbcdabd67091112bd62a9d7e2ade4659dcab7f1b5750df",
+    "uploadedAt": "2026-09-15T08:43:46.116290+00:00"
+  }
+]

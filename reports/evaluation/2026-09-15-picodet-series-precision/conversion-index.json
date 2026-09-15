@@ -1,0 +1,82 @@
+[
+  {
+    "path": "conversions/picodet-l-416-fp16.conversion.json",
+    "sha256": "2ca0efb5868f2808d7bed47ac3172245c496521a94dc789ef7fd6bd200e6808c",
+    "bytes": 1799
+  },
+  {
+    "path": "conversions/picodet-l-416-w8a32.conversion.json",
+    "sha256": "155d7844b99a984d1d42f4fc9d47fab1d9346c48698331e430b1409345194e4d",
+    "bytes": 12449
+  },
+  {
+    "path": "conversions/picodet-l-640-fp16.conversion.json",
+    "sha256": "273c76daea731fd9e76388862ca56aa64bea0d1b8b2bdd89a5b382ee034e634c",
+    "bytes": 1799
+  },
+  {
+    "path": "conversions/picodet-l-640-w8a32.conversion.json",
+    "sha256": "c7bfe73afee7cf9814e8068854912beacbed999494d1cdb3624bb20356197b6d",
+    "bytes": 12459
+  },
+  {
+    "path": "conversions/picodet-m-320-fp16.conversion.json",
+    "sha256": "8f4f728f1924537a14a44c1882b8338a892de9418d71218a9bad29b10998d0d4",
+    "bytes": 1798
+  },
+  {
+    "path": "conversions/picodet-m-320-w8a32.conversion.json",
+    "sha256": "8f4016bd2e62e819bcc931d6a9354b3c09b6097e8cf8e979eb0ee219b266729d",
+    "bytes": 12453
+  },
+  {
+    "path": "conversions/picodet-m-416-fp16.conversion.json",
+    "sha256": "1e4e4ea530f18084f0ab4963b94d698d5afc8cdb9436005080a36a06ff38a6e4",
+    "bytes": 1798
+  },
+  {
+    "path": "conversions/picodet-m-416-w8a32.conversion.json",
+    "sha256": "c85c660e63288fe7b7e6bef627c9905e53173af828d139023607bae744fc4db1",
+    "bytes": 12450
+  },
+  {
+    "path": "conversions/picodet-s-320-fp16.conversion.json",
+    "sha256": "db347f0c5fc2363a9e375020bfc73d312b7f2af359c4a8b8d304f49bb82fdd39",
+    "bytes": 1796
+  },
+  {
+    "path": "conversions/picodet-s-320-w8a32.conversion.json",
+    "sha256": "3d116916aa0bbf6b9c4840cbfbfb9f86da477d475b011a0ac11988f0947de339",
+    "bytes": 10975
+  },
+  {
+    "path": "conversions/picodet-s-416-fp16.conversion.json",
+    "sha256": "88470be1f6b62401d336d2e89bc0cbd344822cff6475b779c9d055ee5e9a20db",
+    "bytes": 1796
+  },
+  {
+    "path": "conversions/picodet-s-416-w8a32.conversion.json",
+    "sha256": "2c37e79c317ae0a4e4b292ad4ca4912a1671ecf98a98d15914bab2193736a4d3",
+    "bytes": 10964
+  },
+  {
+    "path": "conversions/picodet-xs-320-fp16.conversion.json",
+    "sha256": "01df747e06aae4365fec0f0e94e0d7089cd85bdad207ffb8e38103a4203b901f",
+    "bytes": 1798
+  },
+  {
+    "path": "conversions/picodet-xs-320-w8a32.conversion.json",
+    "sha256": "561e9f8e3abba1c2f2cc10404de772045fb09a606bac09a7d6c2317c5cdd99ee",
+    "bytes": 10972
+  },
+  {
+    "path": "conversions/picodet-xs-416-fp16.conversion.json",
+    "sha256": "326d996245b1f823130225b93e67c38b0452661401230f8a2486c75321a541e6",
+    "bytes": 1798
+  },
+  {
+    "path": "conversions/picodet-xs-416-w8a32.conversion.json",
+    "sha256": "c7be0e6c82a27f70282dbdb653ce77babc585247dfb6efa930b8b1481c8ed612",
+    "bytes": 10970
+  }
+]

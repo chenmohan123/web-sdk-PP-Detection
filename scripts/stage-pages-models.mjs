@@ -8,6 +8,7 @@ const repositoryRoot = resolve(dirname(modulePath), "..");
 const modelRoot = resolve(repositoryRoot, "models", "pp-detection");
 const stableManifestPaths = [
   "pp-detection/1.0.2/manifest.json",
+  // 保留已公开的 FP32 清单地址，兼容既有客户端和浏览器缓存中的旧 Demo。
   "pp-detection/picodet-xs-320/manifest.json",
   "pp-detection/picodet-xs-416/manifest.json",
   "pp-detection/picodet-s-320/manifest.json",
@@ -16,6 +17,14 @@ const stableManifestPaths = [
   "pp-detection/picodet-m-416/manifest.json",
   "pp-detection/picodet-l-416/manifest.json",
   "pp-detection/picodet-l-640/manifest.json",
+  "pp-detection/picodet-xs-320/1.0.1/manifest.json",
+  "pp-detection/picodet-xs-416/1.0.1/manifest.json",
+  "pp-detection/picodet-s-320/1.0.1/manifest.json",
+  "pp-detection/picodet-s-416/1.0.1/manifest.json",
+  "pp-detection/picodet-m-320/1.0.1/manifest.json",
+  "pp-detection/picodet-m-416/1.0.1/manifest.json",
+  "pp-detection/picodet-l-416/1.0.1/manifest.json",
+  "pp-detection/picodet-l-640/1.0.1/manifest.json",
   "ppyoloe-plus-s-640/0.1.1/manifest.json",
   "ppyoloe-plus-m-640/0.1.1/manifest.json",
   "ppyoloe-plus-l-640/0.1.1/manifest.json",

@@ -37,7 +37,7 @@ await detector.dispose();
 
 `classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 13 个规格、23 个 stable 变体：八个新增 PicoDet 规格仅 FP32，其余五个规格提供 FP32、FP16、W8A32。npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
+工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 13 个规格、37 个稳定变体：PicoDet XS-320/416 提供 FP32、FP16，其余规格提供 FP32、FP16、W8A32。npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
 
 当前 manifest 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face；本地待发布清单不表示在线 Demo 已更新。
 
@@ -46,7 +46,7 @@ await detector.dispose();
 ## 运行后端与精度
 
 - `backend: "auto"` 优先使用 WebGPU；设置 `allowFallback: true` 后，WebGPU 会话或推理失败才会尝试 WASM（CPU）。也可手动指定 `"webgpu"` 或 `"wasm"`。
-- `precision: "auto"` 选择清单默认的 FP32；既有三精度规格使用 `precision: "fp16"` 或 `precision: "int8"` 选择 FP16/W8A32。八个新增 PicoDet 规格不接受 FP16/W8A32，显式请求未声明精度会返回 `CAPABILITY_UNSUPPORTED`。
+- `precision: "auto"` 选择清单默认 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。PicoDet XS-320/416 尚未发布 W8A32，显式请求未声明精度返回 `CAPABILITY_UNSUPPORTED`。
 - 新增 PicoDet FP32 于 2026-09-15 在固定 64 图上完成桌面 WASM、物理 NVIDIA WebGPU 及官方/候选 ORT 对齐验证；这不是完整 COCO mAP，也不构成移动端或普适设备兼容声明。
 - 使用默认模型时，显式请求清单中未声明的组合会抛出 `CAPABILITY_UNSUPPORTED`，不会改写无效组合；自定义清单可在单独验证后声明其他组合。上游模型是 float32，不支持 FP64；FP32 约为 FP16 两倍大小并可能更慢、更占显存。
 - `detect` 可接收图片 Blob/File、Canvas/ImageData、`HTMLVideoElement` 或单帧 `VideoFrame`。摄像头和视频播放的权限、帧率控制由宿主页面负责；每次提交一帧后应等待 Promise 完成，并在停止媒体时调用 `dispose()`。
@@ -115,7 +115,7 @@ await detector.dispose();
 
 `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 13 个规格、23 个 stable 变体（新规格清单 1.0.0，L320 为 1.0.2）与 PP-YOLOE+ S/M/L/X 0.1.1，npm 包不内置清单或 ONNX 模型本体。
+工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 与 PP-YOLOE+ S/M/L/X 共 13 个规格、37 个稳定变体（PicoDet 新清单 1.0.1，L320 为 1.0.2，PP-YOLOE+ 为 0.1.1），npm 包不内置清单或 ONNX 模型本体。
 
 Current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. The local pending-release manifests do not claim that the online Demo has been updated.
 
@@ -124,7 +124,7 @@ Detailed initialization timings are available through `detector.loadTimings`. `t
 ### Backend and precision
 
 - `backend: "auto"` prefers WebGPU; with `allowFallback: true`, a failed WebGPU session or inference attempts WASM (CPU). Use `"webgpu"` or `"wasm"` for an explicit choice.
-- `precision: "auto"` selects the manifest-default FP32 variant; existing three-precision specifications use `precision: "fp16"` or `precision: "int8"` for FP16/W8A32. The eight new PicoDet specifications do not declare FP16 or W8A32; requesting an undeclared precision returns `CAPABILITY_UNSUPPORTED`.
+- `precision: "auto"` 选择清单默认 FP32；`precision: "fp16"` 选择 FP16，`precision: "int8"` 选择 W8A32。PicoDet XS-320/416 尚未发布 W8A32，显式请求未声明精度返回 `CAPABILITY_UNSUPPORTED`。
 - The new PicoDet FP32 models completed fixed 64-image desktop WASM, physical NVIDIA WebGPU, and official/candidate ORT alignment checks on 2026-09-15. This is not full COCO mAP or evidence of broad mobile/device compatibility.
 - `detect` accepts image Blob/File, Canvas/ImageData, `HTMLVideoElement`, or a single `VideoFrame`. Hosts own camera/video permissions and frame pacing; await each frame Promise and call `dispose()` when media stops.
 - Explicit pairs absent from the default manifest throw `CAPABILITY_UNSUPPORTED` instead of rewriting an invalid pair. The upstream model is float32, not FP64; FP64 inference is unsupported. FP32 is about twice the size of FP16 and may be slower or use more GPU memory.
@@ -167,3 +167,5 @@ WeChat official-account pages and other H5/WebView integrations are supported. N
 Apache-2.0
 
 开发版本新增默认关闭的 `detect(image, { smallObjectEnhancement: true })` 小目标增强（未发布，实验），复用会话串行处理整图和最多四片；可能增加误检与耗时，不代表移动端已验证。详见仓库的双语 API 文档。
+
+PicoDet 本轮新增 14 个通过三轮桌面识别门槛的精度；[质量与分发证据](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/main/reports/evaluation/2026-09-15-picodet-series-precision)。SDK API 和 npm 版本保持 0.4.0。

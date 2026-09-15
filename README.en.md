@@ -2,18 +2,18 @@
 
 ## PicoDet series expansion (2026-09-15)
 
-The Demo now provides PicoDet XS/S/M/L sizes and PP-YOLOE+ S/M/L/X, totaling 13 specifications and 23 stable variants. New PicoDet manifests use version 1.0.0 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
+The Demo now provides PicoDet XS/S/M/L sizes and PP-YOLOE+ S/M/L/X, totaling 13 specifications and 37 个稳定变体. 新增 PicoDet 清单版本为 1.0.1 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
 
 | Model           |      FP32 |      FP16 |    W8A32 |
 | --------------- | --------: | --------: | -------: |
-| PicoDet-XS 320  |   2.89 MB |         — |        — |
-| PicoDet-XS 416  |   2.90 MB |         — |        — |
-| PicoDet-S 320   |   4.81 MB |         — |        — |
-| PicoDet-S 416   |   4.83 MB |         — |        — |
-| PicoDet-M 320   |  13.91 MB |         — |        — |
-| PicoDet-M 416   |  13.92 MB |         — |        — |
-| PicoDet-L 416   |  23.26 MB |         — |        — |
-| PicoDet-L 640   |  23.32 MB |         — |        — |
+| PicoDet-XS 320  |   2.89 MB |   1.86 MB |        — |
+| PicoDet-XS 416  |   2.90 MB |   1.88 MB |        — |
+| PicoDet-S 320   |   4.81 MB |   3.08 MB |  1.38 MB |
+| PicoDet-S 416   |   4.83 MB |   3.10 MB |  1.40 MB |
+| PicoDet-M 320   |  13.91 MB |   8.87 MB |  3.74 MB |
+| PicoDet-M 416   |  13.92 MB |   8.89 MB |  3.75 MB |
+| PicoDet-L 416   |  23.26 MB |  14.84 MB |  6.14 MB |
+| PicoDet-L 640   |  23.32 MB |  14.87 MB |  6.19 MB |
 | PicoDet-L 320   |  23.24 MB |  14.81 MB |  6.12 MB |
 | PP-YOLOE+ S 640 |  31.95 MB |  16.05 MB |  8.23 MB |
 | PP-YOLOE+ M 640 |  94.02 MB |  47.10 MB | 23.82 MB |
@@ -53,7 +53,7 @@ Version 0.4.0 adds an opt-in experimental small-object enhancement API and image
 
 ## Current boundaries
 
-- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 23 stable variants across 13 specifications; the npm package contains neither manifests nor ONNX weights.
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 37 个稳定变体 across 13 specifications; the npm package contains neither manifests nor ONNX weights.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
 - All 13 current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
@@ -84,10 +84,14 @@ Code is Apache-2.0. Upstream licenses for model weights and COCO labels are trac
 
 The current version for PP-YOLOE+ S/M/L/X 640 is **0.1.1**, with stable FP32, FP16, and W8A32 variants for every size. Historical 0.1.0 and labs/blocked candidates retain their original status and evidence. Current manifests load without `allowExperimental`.
 
-All 13 specifications use the same Demo flow; the eight new PicoDet sizes provide FP32 only, while PicoDet, ModelScope, and FP32 remain the defaults. Manifests pin Hugging Face and ModelScope revisions; switching models cancels prior work, disposes the old instance, and changes the cache identity. Xiaomi 15 coverage remains limited to the [original FP32 device record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
+全部 13 个规格使用同一 Demo 流程；PicoDet XS-320/416 提供 FP32、FP16，其余规格提供三精度。默认 PicoDet-L 320、ModelScope、FP32。清单固定两个 Hub 的 revision，切换模型会取消旧任务、释放实例并更新缓存身份。小米 15 的设备范围仍仅见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
 
 ## Download settings (since 0.3.2)
 
 Version 0.3.2 adds `download.timeoutMs`, `download.idleTimeoutMs`, and `download.maxRetries` for the total request timeout, stalled-transfer timeout, and retry count. Defaults are 180 seconds, 30 seconds, and two retries. Retries stay on the same fixed weight URL and can be cancelled while waiting. See the API guide.
 
 Small object enhancement (0.4.0, experimental): the SDK provides opt-in `smallObjectEnhancement`, reusing one session for the whole image and up to four tiles. Evaluate on static images; false positives and latency may increase. See the [API](docs/en/api.md#small-object-enhancement-unreleased-labs).
+
+## 2026-09-15 PicoDet 精度扩展
+
+PicoDet XS/S/M/L 九个输入规格已提供 FP32；本轮新增 14 个通过桌面三轮验收的 FP16/W8A32 变体。识别未达标候选保留 labs，Demo 仅启用已发布精度。详见[精度对比报告](reports/evaluation/2026-09-15-picodet-series-precision/README.md)。默认 PicoDet-L-320、FP32、ModelScope，SDK/npm 保持 0.4.0。

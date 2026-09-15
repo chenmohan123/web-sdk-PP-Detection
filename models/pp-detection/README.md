@@ -1,6 +1,9 @@
 # PicoDet 模型资产
 
-本目录根部保留 PicoDet-L-320 1.0.1 FP32 历史资产；当前发布清单位于 [`1.0.2/manifest.json`](1.0.2/manifest.json)，提供 FP32、FP16、W8A32 六变体中的三个 PicoDet 稳定变体。不要覆盖已发布版本目录。
-当前新增 XS/S/M 320/416 与 L 416/640 八个规格位于各自 1.0.0 目录，和 L320 三精度一起构成 13 个规格、23 个 stable 变体。权重固定来自 PaddleDetection 提交 `b25522a0f4bde8c80603f3ba5e3472059972e3b5`，来源为 ModelScope 与 Hugging Face。
+2026-09-15：当前 SDK 共 13 个规格、37 个稳定变体。PicoDet 新增 14 个达标 FP16/W8A32 精度，版本 1.0.1；L-320 保持 1.0.2。
 
-1.0.2 清单默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face；每个来源都记录不可变 revision、下载地址、大小和 SHA-256。FP16/W8A32 当前证据仅覆盖 2026-09-12 桌面 WASM/WebGPU 固定 64 图验证，小米 15 实测仅覆盖原 FP32。历史报告继续作为对应旧版本证据，不能覆盖当前清单状态。
+PicoDet 共九个输入规格；SDK 另提供 PP-YOLOE+ S/M/L/X。L-320 当前清单为 `1.0.2/manifest.json`，本轮新增规格清单为 `picodet-<size>-<res>/1.0.1/manifest.json`。原 1.0.0 FP32 及历史版本保持不可变。
+
+默认 FP32、ModelScope，可显式选择 Hugging Face。所有来源固定 revision、bytes 与 SHA-256。PicoDet 新精度仅有桌面三轮和主线程/Worker证据，手机证据不扩展。
+
+[完整精度表](../../docs/zh-CN/models.md) · [本轮对比与发布证据](../../reports/evaluation/2026-09-15-picodet-series-precision/README.md)

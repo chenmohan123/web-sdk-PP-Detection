@@ -1,0 +1,85 @@
+{
+  "key": "ppyolo-tiny-320",
+  "precision": "fp16",
+  "sourceModel": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+  "sourceBytes": 4511117,
+  "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+  "configuration": {
+    "blockedNodes": [
+      "Exp.0",
+      "Exp.2",
+      "Exp.4"
+    ],
+    "excludeNodes": [],
+    "reason": "Tiny 三个尺度的 Exp 解码对坐标幅度敏感，保留为 FP32；节点名来自 Tiny 图。"
+  },
+  "candidate": {
+    "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+    "sourceBytes": 4511117,
+    "candidateSha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc",
+    "candidateBytes": 2357376,
+    "converter": "onnxruntime.transformers.float16.convert_float_to_float16",
+    "versions": {
+      "onnx": "1.16.2",
+      "onnxruntime": "1.20.1",
+      "numpy": "1.26.4"
+    },
+    "opBlockList": [
+      "ArrayFeatureExtractor",
+      "Binarizer",
+      "CastMap",
+      "CategoryMapper",
+      "DictVectorizer",
+      "FeatureVectorizer",
+      "Imputer",
+      "LabelEncoder",
+      "LinearClassifier",
+      "LinearRegressor",
+      "Normalizer",
+      "OneHotEncoder",
+      "RandomUniformLike",
+      "SVMClassifier",
+      "SVMRegressor",
+      "Scaler",
+      "TreeEnsembleClassifier",
+      "TreeEnsembleRegressor",
+      "ZipMap",
+      "NonMaxSuppression",
+      "TopK",
+      "RoiAlign",
+      "Range",
+      "CumSum",
+      "Min",
+      "Max",
+      "Upsample"
+    ],
+    "nodeBlockList": [
+      "Exp.0",
+      "Exp.2",
+      "Exp.4"
+    ],
+    "keepIoTypes": true,
+    "fullOnnxCheck": true,
+    "finiteStoredTensors": true,
+    "storedTensorDtypes": {
+      "INT64": 90,
+      "FLOAT16": 392
+    }
+  },
+  "validation": {
+    "input": [
+      1,
+      3,
+      320,
+      320
+    ],
+    "inputDtype": "FLOAT",
+    "outputDtypes": [
+      "FLOAT",
+      "INT32"
+    ],
+    "opset": 14,
+    "nodeCount": 997,
+    "parameterCount": 8
+  }
+}

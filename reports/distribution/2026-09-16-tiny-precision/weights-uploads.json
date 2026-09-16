@@ -1,0 +1,76 @@
+[
+  {
+    "source": "modelscope",
+    "repository": "chenmohan/web-sdk-pp-detection",
+    "phase": "weights",
+    "revision": "f8641fe3a12e62c93af8e8b3397abfb1b78746f7",
+    "parentRevision": "b02d9d3c5752e9b1aac8fded7b69a8d6bca7a3e3",
+    "files": [
+      {
+        "path": "ppyolo-tiny-320/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/README.en.md",
+        "bytes": 1152,
+        "sha256": "8fff00958278d55228a54b06d24ee1908d39b31eafead07638c85678b43bf1d0"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/README.md",
+        "bytes": 1120,
+        "sha256": "edc50cbdf6fdc1654585edac162bdff0f01720fda47da1b8a5ea4dd29071a9e7"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/fp16-conversion.json",
+        "bytes": 2073,
+        "sha256": "47305feea2bd2992a21d1c5ed05342a093e336c3bdcd316c6790fa0e0522e148"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/ppyolo-tiny-320-fp16.onnx",
+        "bytes": 2357376,
+        "sha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc"
+      }
+    ],
+    "protocolSha256": "07f6923c5b54872d023cd3a996c1a7bf5156e97f428046960a4209e94e238da7",
+    "receiptSha256": "dab1a3a65297c61af719610891e0dd4a3eebaf000e514b18b7571f446b035ad5",
+    "uploadedAt": "2026-09-16T02:50:18.142294+00:00"
+  },
+  {
+    "source": "huggingface",
+    "repository": "chenmohan/web-sdk-pp-detection",
+    "phase": "weights",
+    "revision": "b00cf78779aeb8a9ebcdaba72f23b5e72639c1c9",
+    "parentRevision": "fc1a48993e70838e368c2438774da1cb7c1ee168",
+    "files": [
+      {
+        "path": "ppyolo-tiny-320/0.1.1/LICENSE",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/README.en.md",
+        "bytes": 1152,
+        "sha256": "8fff00958278d55228a54b06d24ee1908d39b31eafead07638c85678b43bf1d0"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/README.md",
+        "bytes": 1120,
+        "sha256": "edc50cbdf6fdc1654585edac162bdff0f01720fda47da1b8a5ea4dd29071a9e7"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/fp16-conversion.json",
+        "bytes": 2073,
+        "sha256": "47305feea2bd2992a21d1c5ed05342a093e336c3bdcd316c6790fa0e0522e148"
+      },
+      {
+        "path": "ppyolo-tiny-320/0.1.1/ppyolo-tiny-320-fp16.onnx",
+        "bytes": 2357376,
+        "sha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc"
+      }
+    ],
+    "protocolSha256": "07f6923c5b54872d023cd3a996c1a7bf5156e97f428046960a4209e94e238da7",
+    "receiptSha256": "dab1a3a65297c61af719610891e0dd4a3eebaf000e514b18b7571f446b035ad5",
+    "uploadedAt": "2026-09-16T02:50:27.323691+00:00"
+  }
+]

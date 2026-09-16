@@ -1,8 +1,8 @@
 # PaddleDetection Web SDK
 
-## 当前稳定模型（2026-09-15）
+## 当前稳定模型（2026-09-16）
 
-Demo 现提供 PicoDet XS/S/M/L 多规格、PP-YOLOE+ S/M/L/X 与 PP-YOLO Tiny 320，共 14 个规格、38 个 stable 变体。PicoDet 新清单版本为 1.0.1（L320 沿用 1.0.2），PP-YOLOE+ 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。默认仍为 PicoDet-L 320、ModelScope、FP32，可显式选择 Hugging Face；显式来源失败不静默换源。
+Demo 现提供 PicoDet XS/S/M/L 多规格、PP-YOLOE+ S/M/L/X 与 PP-YOLO Tiny 320，共 14 个规格、39 个 stable 变体。Tiny 使用 0.1.1，PicoDet 使用 1.0.1（L320 沿用 1.0.2），PP-YOLOE+ 使用 0.1.1；SDK API 与 npm 版本保持 **0.4.0**。默认仍为 PicoDet-L 320、ModelScope、FP32，可显式选择 Hugging Face；显式来源失败不静默换源。
 
 | 模型             |      FP32 |      FP16 |    W8A32 |
 | ---------------- | --------: | --------: | -------: |
@@ -19,7 +19,7 @@ Demo 现提供 PicoDet XS/S/M/L 多规格、PP-YOLOE+ S/M/L/X 与 PP-YOLO Tiny 3
 | PP-YOLOE+ M 640  |  94.02 MB |  47.10 MB | 23.82 MB |
 | PP-YOLOE+ L 640  | 209.18 MB | 104.70 MB | 52.70 MB |
 | PP-YOLOE+ X 640  | 394.16 MB | 197.21 MB | 99.05 MB |
-| PP-YOLO Tiny 320 |   4.51 MB |         — |        — |
+| PP-YOLO Tiny 320 |   4.51 MB |   2.36 MB |        — |
 
 前一批次新增八个 PicoDet FP32 规格，XS/S/M 各含 320、416，L 新增 416、640。来源为固定 PaddleDetection 官方 COCO 导出图，保留 Apache-2.0 许可与转换说明。模型逐份固定双源 revision、路径、字节数和 SHA-256；不是上游官方 Hub 镜像。新增规格的证据限于 Windows 11 / Chromium 153 / ORT Web 1.27.0 桌面，不增加手机兼容承诺。大模型的下载、CPU 推理与内存开销更高；64 图子集指标不是完整 COCO mAP。
 
@@ -56,7 +56,7 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 ## 当前边界
 
-- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供14 个规格共 38 个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
+- 工厂必须显式传入 `model` 或 `manifest`；两者均缺省时返回稳定错误码 `INVALID_MANIFEST`，且不会发起模型网络访问。仓库提供14 个规格共 39 个稳定变体清单；npm 包不内置清单或 ONNX 模型本体。
 - 模型来源由 manifest 声明，可选择 Git LFS、Hugging Face、ModelScope 或 custom；每个来源必须绑定不可变 revision、大小和 SHA-256。显式来源失败不会静默换源，`auto` 才会按清单尝试。
 - 14 份当前 manifest 均默认 ModelScope，并允许显式选择 ModelScope 或 Hugging Face；显式来源失败时不会静默换源。
 - SDK 已支持 ONNX Runtime Web 的 `wasm`/`webgpu`、main/worker 执行模式、IndexedDB/内存缓存、模型完整性校验、取消和资源释放。
@@ -87,7 +87,7 @@ pnpm add web-sdk-pp-detection@0.4.0
 
 PP-YOLOE+ S/M/L/X 640 的当前模型版本均为 **0.1.1**，每款提供 FP32、FP16、W8A32 稳定变体。历史 0.1.0 与 labs/blocked 候选继续保留原状态和证据；当前清单默认可加载，无需设置 `allowExperimental`。
 
-九个 PicoDet 规格、四个 PP-YOLOE+ 规格与 Tiny 320 使用同一 Demo 流程；XS-320/416 提供 FP32、FP16，Tiny 320 仅提供 FP32，其余规格提供三精度。默认 PicoDet-L 320、ModelScope、FP32。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。小米 15 的实际设备范围仍只见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
+九个 PicoDet 规格、四个 PP-YOLOE+ 规格与 Tiny 320 使用同一 Demo 流程；XS-320/416 与 Tiny 320 提供 FP32、FP16，其余规格提供三精度。默认 PicoDet-L 320、ModelScope、FP32。清单使用 Hugging Face 和 ModelScope 的固定 revision，切换时取消旧任务、释放实例并更新缓存身份。小米 15 的实际设备范围仍只见[原 FP32 实测记录](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md)。
 
 ## 下载配置（0.3.2 起）
 
@@ -104,3 +104,9 @@ PicoDet XS/S/M/L 九个输入规格已提供 FP32；本轮新增 14 个通过桌
 Tiny 首个稳定模型版本为 **0.1.0**，仅提供 FP32，大小 **4.51 MB**；默认 ModelScope，可选 Hugging Face，沿用 SDK/npm **0.4.0**。固定64图桌面三轮结果：子集 AP 为 **22.60**，CPU/GPU 热推理中位数约 **47.46/31.54 ms**。同批次相较 PicoDet-XS-320 FP32，CPU 推理约少28%，文件约大56%，AP低1.21点，适合作为另一种速度与体积取舍。
 
 清单保留 PaddleDetection Apache-2.0 许可和转换归因。上述指标不是全量 COCO 成绩，不扩展 Tiny 的手机或 NPU 兼容声明。见[质量报告](reports/evaluation/2026-09-15-2d-candidates/README.md)、[分发验证](reports/distribution/2026-09-15-ppyolo-tiny/README.md)与[固定清单](models/ppyolo-tiny-320/0.1.0/manifest.json)。
+
+## PP-YOLO Tiny 320 FP16（2026-09-16）
+
+Tiny 0.1.1 复用 0.1.0 的 FP32 固定来源，并新增 2,357,376 字节的 FP16（较 FP32 缩小 47.743%）。固定 64 图、WASM/WebGPU 各三轮中，FP16 最差 AP 变化为 -0.174649 个百分点，最低一对一检测保留率为 99.5192%，因此进入稳定清单；W8A32 最差 AP 变化为 -0.537364 点，未通过门槛，仅保留 labs，未上传且不在 Demo 中开放。
+
+FP16 已完成双来源×WASM/WebGPU×main/Worker 的真实下载、完整性、推理和缓存生命周期验证。证据仍只覆盖桌面固定子集，不是完整 COCO mAP，也不增加手机或 NPU 声明。见[质量报告](reports/evaluation/2026-09-16-tiny-precision/README.md)、[分发验证](reports/distribution/2026-09-16-tiny-precision/README.md)与[0.1.1 清单](models/ppyolo-tiny-320/0.1.1/manifest.json)。

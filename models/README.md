@@ -1,8 +1,8 @@
 # 模型文件
 
-## 当前稳定范围（2026-09-15）
+## 当前稳定范围（2026-09-16）
 
-SDK `web-sdk-pp-detection@0.4.0` 提供 PicoDet XS/S/M/L 九个 FP32 规格、PP-YOLOE+ S/M/L/X 640 与 PP-YOLO Tiny 320，共 14 个规格、38 个稳定变体。权重按需从外部固定来源下载，npm 包不内置 ONNX。大小单位为字节。
+SDK `web-sdk-pp-detection@0.4.0` 提供 PicoDet XS/S/M/L 九个 FP32 规格、PP-YOLOE+ S/M/L/X 640 与 PP-YOLO Tiny 320，共 14 个规格、39 个稳定变体。权重按需从外部固定来源下载，npm 包不内置 ONNX。大小单位为字节。
 
 | 模型             | 版本  |        FP32 |        FP16 |      W8A32 | 清单                                                              |
 | ---------------- | ----- | ----------: | ----------: | ---------: | ----------------------------------------------------------------- |
@@ -19,7 +19,7 @@ SDK `web-sdk-pp-detection@0.4.0` 提供 PicoDet XS/S/M/L 九个 FP32 规格、PP
 | PP-YOLOE+ M 640  | 0.1.1 |  94,022,904 |  47,104,975 | 23,818,631 | [M](ppyoloe-plus-m-640/0.1.1/manifest.json)                       |
 | PP-YOLOE+ L 640  | 0.1.1 | 209,181,400 | 104,700,181 | 52,698,311 | [L](ppyoloe-plus-l-640/0.1.1/manifest.json)                       |
 | PP-YOLOE+ X 640  | 0.1.1 | 394,163,636 | 197,207,187 | 99,048,805 | [X](ppyoloe-plus-x-640/0.1.1/manifest.json)                       |
-| PP-YOLO Tiny 320 | 0.1.0 |   4,511,117 |           — |          — | [Tiny](ppyolo-tiny-320/0.1.0/manifest.json)                       |
+| PP-YOLO Tiny 320 | 0.1.1 |   4,511,117 |   2,357,376 |          — | [Tiny](ppyolo-tiny-320/0.1.1/manifest.json)                       |
 
 全部默认 ModelScope、FP32，并允许显式选择 Hugging Face；显式来源失败不会静默换源。各清单固定不可变来源 revision、路径、大小与 SHA-256。Demo 默认 PicoDet。Git LFS pointer 不是模型本体。
 
@@ -36,3 +36,7 @@ PicoDet 新增八个 FP16 与六个 W8A32，XS-320/416 的 W8A32 未满足保留
 Tiny 首个稳定模型版本为 **0.1.0**，仅提供 FP32，大小 **4.51 MB**；默认 ModelScope，可选 Hugging Face，沿用 SDK/npm **0.4.0**。固定64图桌面三轮结果：子集 AP 为 **22.60**，CPU/GPU 热推理中位数约 **47.46/31.54 ms**。同批次相较 PicoDet-XS-320 FP32，CPU 推理约少28%，文件约大56%，AP低1.21点，适合作为另一种速度与体积取舍。
 
 清单保留 PaddleDetection Apache-2.0 许可和转换归因。上述指标不是全量 COCO 成绩，不扩展 Tiny 的手机或 NPU 兼容声明。见[质量报告](../reports/evaluation/2026-09-15-2d-candidates/README.md)、[分发验证](../reports/distribution/2026-09-15-ppyolo-tiny/README.md)与[固定清单](../models/ppyolo-tiny-320/0.1.0/manifest.json)。
+
+## PP-YOLO Tiny 320 FP16（2026-09-16）
+
+Tiny 0.1.1 复用 0.1.0 的 FP32 固定来源并新增 FP16。FP16 通过固定 64 图、WASM/WebGPU 各三轮质量门槛及双来源×两后端×main/Worker 分发验证；W8A32 的最差 AP 变化超过 0.5 点，仅保留 labs，不在稳定清单中。见[质量证据](../reports/evaluation/2026-09-16-tiny-precision/README.md)与[分发证据](../reports/distribution/2026-09-16-tiny-precision/README.md)。

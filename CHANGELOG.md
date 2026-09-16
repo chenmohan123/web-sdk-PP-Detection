@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-16 — PP-YOLO Tiny 320 FP16 模型与 Demo 更新
+
+- 新增 Tiny 320 0.1.1 稳定清单：复用 0.1.0 FP32 固定来源，发布 2,357,376 字节 FP16；当前共14个规格、39个稳定变体，默认 PicoDet-L-320、FP32、ModelScope。
+- FP16 通过固定64图、WASM/WebGPU各三轮门槛；W8A32 最差 AP 变化超过0.5个百分点，仅保留 labs，未上传且不在 Demo 中开放。
+- FP16 完成 ModelScope/Hugging Face 完整GET回读，以及双来源×CPU/GPU×main/Worker真实推理、无回退和缓存生命周期验证。SDK API 与 npm 版本保持0.4.0，不新增手机或NPU声明。
+
 ## 2026-09-15 — PP-YOLO Tiny 320 FP32 模型与 Demo 更新
 
 - 新增 Tiny 320 FP32 稳定模型 0.1.0（4,511,117 字节），当前共14个规格、38个稳定变体；默认 PicoDet-L-320、FP32、ModelScope。

@@ -40,3 +40,9 @@ FP16 复用 `float16_models.py`，Tiny 专属保留 `Exp.0/Exp.2/Exp.4` 为 FP32
 ## 风险
 
 本证据只支持固定桌面环境和固定 64 图，不能外推全量 COCO、手机、NPU 或其他浏览器。W8A32 体积缩减约 65.128% 是独立收益，不代表质量或速度收益；其 AP 门槛失败，必须保持 labs。FP16 体积缩减约 47.743%，质量门槛通过但仍需主代理后续发布审查，不能在本报告之外宣称已发布。
+
+## 修复轮次1报告
+
+主代理补齐独立审查4项拒绝检查：实际标注统一读入和验证，所有实际evaluation字段精确比较，全部图片耗时有限非负/保留率范围，CPU会话与报告完整三精度契约。新增validation.py与test_validation.py；原协议和全部18份gzip均未修改，补充协议单列supplemental-validation.json。
+
+验证：phase2 Python -m pytest test_validation.py test_quality.py test_prepare.py -q -p no:cacheprovider，共13 passed（1.06s）；新增模块前测试因ModuleNotFoundError按预期失败。phase2 Python summarize.py退出0，重算对象与git show 4ebaecc的summary完全相同。三份真实ORT CPU会话验证输入image/float32/[1,3,320,320]及两个输出，零输入输出与已归档CPU记录完全相同；FP16仍有既有constant-folding警告，未影响推理/有限值。git diff --check通过。下一步针对4项修复独立定向复审，未上传任何权重。

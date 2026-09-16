@@ -301,7 +301,7 @@ test("390px 视口下模型和来源选择不产生横向溢出", async ({ page 
   await expect(page.getByTestId("selected-model-summary")).toHaveCount(0);
 });
 
-test("切换到 Tiny 清除旧结果并恢复 FP32/ModelScope，只开放 FP32", async ({ page }) => {
+test("切换到 Tiny 清除旧结果并恢复 FP32/ModelScope，只开放 FP32 和 FP16", async ({ page }) => {
   await page.goto("/?fixture=1");
   const model = page.getByLabel(MODEL_SELECT, { exact: true });
   const source = page.getByLabel(SOURCE_SELECT, { exact: true });
@@ -318,8 +318,9 @@ test("切换到 Tiny 清除旧结果并恢复 FP32/ModelScope，只开放 FP32",
     "aria-pressed",
     "true"
   );
-  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "FP16", exact: true })).toBeEnabled();
   await expect(precision.getByRole("button", { name: "INT8", exact: true })).toBeDisabled();
+  await expect(precision.getByRole("button", { name: "W8A32", exact: true })).toHaveCount(0);
   await runFixture(page);
   await expect(page.getByTestId("model-name")).toHaveText("ppyolo-tiny-320");
   const option = await page.evaluate(async (moduleUrl) => {
@@ -332,8 +333,11 @@ test("切换到 Tiny 清除旧结果并恢复 FP32/ModelScope，只开放 FP32",
     };
   }, "/src/model-sources.ts");
   expect(option).toEqual({
-    manifestPath: "models/ppyolo-tiny-320/0.1.0/manifest.json",
-    version: "0.1.0",
-    variants: [{ precision: "fp32", status: "stable" }]
+    manifestPath: "models/ppyolo-tiny-320/0.1.1/manifest.json",
+    version: "0.1.1",
+    variants: [
+      { precision: "fp32", status: "stable" },
+      { precision: "fp16", status: "stable" }
+    ]
   });
 });

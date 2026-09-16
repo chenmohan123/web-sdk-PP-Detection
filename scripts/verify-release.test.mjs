@@ -239,7 +239,8 @@ describe("发布工作流契约", () => {
         "ppyoloe-plus-m-640/0.1.1/manifest.json",
         "ppyoloe-plus-l-640/0.1.1/manifest.json",
         "ppyoloe-plus-x-640/0.1.1/manifest.json",
-        "ppyolo-tiny-320/0.1.0/manifest.json"
+        "ppyolo-tiny-320/0.1.0/manifest.json",
+        "ppyolo-tiny-320/0.1.1/manifest.json"
       ]);
       for (const path of stableManifestPaths) {
         assert.deepEqual(

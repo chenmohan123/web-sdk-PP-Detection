@@ -56,3 +56,12 @@ reports/evaluation/2026-09-15-picodet-series-precision/hub-README*.md
 models/ppyolo-tiny-320/0.1.0/README.md
 models/ppyolo-tiny-320/0.1.0/conversion.json
 reports/distribution/2026-09-15-ppyolo-tiny/hub-README.md
+
+# Tiny FP16 发布元数据与执行快照保持上传/运行时字节，供收据校验。
+models/ppyolo-tiny-320/0.1.1/README.md
+models/ppyolo-tiny-320/0.1.1/README.en.md
+models/ppyolo-tiny-320/0.1.1/fp16-conversion.json
+reports/distribution/2026-09-16-tiny-precision/hub-README.md
+reports/distribution/2026-09-16-tiny-precision/browser.mjs
+reports/distribution/2026-09-16-tiny-precision/lifecycle-candidates.mjs
+reports/evaluation/2026-09-16-tiny-precision/runner.mjs

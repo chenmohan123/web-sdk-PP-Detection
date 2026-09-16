@@ -1,8 +1,8 @@
 # PaddleDetection Web SDK
 
-## Current stable models (2026-09-15)
+## Current stable models (2026-09-16)
 
-The Demo now provides PicoDet XS/S/M/L sizes, PP-YOLOE+ S/M/L/X, and PP-YOLO Tiny 320, totaling 14 specifications and 38 stable variants. The new PicoDet manifest version is 1.0.1 (L320 remains 1.0.2); PP-YOLOE+ uses 0.1.1 and the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
+The Demo now provides PicoDet XS/S/M/L sizes, PP-YOLOE+ S/M/L/X, and PP-YOLO Tiny 320, totaling 14 specifications and 39 stable variants. Tiny uses 0.1.1, PicoDet uses 1.0.1 (L320 remains 1.0.2), and PP-YOLOE+ uses 0.1.1; the SDK/npm version remains **0.4.0**. Defaults remain PicoDet-L 320, ModelScope, and FP32; an explicitly selected source never silently switches.
 
 | Model            |      FP32 |      FP16 |    W8A32 |
 | ---------------- | --------: | --------: | -------: |
@@ -19,7 +19,7 @@ The Demo now provides PicoDet XS/S/M/L sizes, PP-YOLOE+ S/M/L/X, and PP-YOLO Tin
 | PP-YOLOE+ M 640  |  94.02 MB |  47.10 MB | 23.82 MB |
 | PP-YOLOE+ L 640  | 209.18 MB | 104.70 MB | 52.70 MB |
 | PP-YOLOE+ X 640  | 394.16 MB | 197.21 MB | 99.05 MB |
-| PP-YOLO Tiny 320 |   4.51 MB |         — |        — |
+| PP-YOLO Tiny 320 |   4.51 MB |   2.36 MB |        — |
 
 All four PP-YOLOE+ sizes derive from official COCO weights at the same pinned PaddleDetection commit and retain the upstream license and conversion record. Each model pins both distribution sources by revision, path, byte count, and SHA-256; these repositories are project distributions rather than official upstream Hub mirrors. Evidence for the new variants is limited to Windows 11, Chromium 153, and ORT Web 1.27.0 on desktop. Larger models require more download bandwidth, CPU time, and runtime memory.
 
@@ -54,7 +54,7 @@ Version 0.4.0 adds an opt-in experimental small-object enhancement API and image
 
 ## Current boundaries
 
-- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 38 stable variants across 14 specifications; the npm package contains neither manifests nor ONNX weights.
+- The factory requires an explicit `model` or `manifest`. Omitting both returns the stable `INVALID_MANIFEST` code without making a model network request. The repository provides 39 stable variants across 14 specifications; the npm package contains neither manifests nor ONNX weights.
 - Manifest-declared sources may use Git LFS, Hugging Face, ModelScope, or custom hosting. Each source is bound to an immutable revision, byte size, and SHA-256 digest. Explicit source failures never silently switch sources; only `auto` tries the declared alternatives.
 - All 14 current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. Explicit source failures never silently switch sources.
 - The SDK implements ONNX Runtime Web `wasm`/`webgpu`, main/Worker execution, IndexedDB/memory caching, integrity checks, cancellation, and resource disposal.
@@ -85,7 +85,7 @@ Code is Apache-2.0. Upstream licenses for model weights and COCO labels are trac
 
 The current version for PP-YOLOE+ S/M/L/X 640 is **0.1.1**, with stable FP32, FP16, and W8A32 variants for every size. Historical 0.1.0 and labs/blocked candidates retain their original status and evidence. Current manifests load without `allowExperimental`.
 
-All 14 specifications share the Demo workflow. PicoDet XS-320/416 provide FP32 and FP16; Tiny 320 provides FP32 only; the remaining specifications provide three precisions. Defaults remain PicoDet-L 320, ModelScope, and FP32. Manifests pin both Hub revisions; switching models cancels old work, disposes the session, and updates the cache identity. Xiaomi 15 device evidence remains limited to the [original FP32 record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
+All 14 specifications share the Demo workflow. PicoDet XS-320/416 and Tiny 320 provide FP32 and FP16; the remaining specifications provide three precisions. Defaults remain PicoDet-L 320, ModelScope, and FP32. Manifests pin both Hub revisions; switching models cancels old work, disposes the session, and updates the cache identity. Xiaomi 15 device evidence remains limited to the [original FP32 record](reports/distribution/2026-09-11-ppyoloe/mobile-xiaomi15-2026-09-12/README.md).
 
 ## Download settings (since 0.3.2)
 
@@ -102,3 +102,9 @@ PicoDet XS/S/M/L 九个输入规格已提供 FP32；本轮新增 14 个通过桌
 Tiny's first stable model version is **0.1.0**, with FP32 only at **4.51 MB**. ModelScope is the default and Hugging Face is optional; SDK/npm remains **0.4.0**. Three desktop runs on the fixed 64-image subset give **22.60 AP** and approximately **47.46/31.54 ms** median warm CPU/GPU inference. Compared with PicoDet-XS-320 FP32 in the same batch, CPU inference is about 28% shorter, the file is about 56% larger, and AP is 1.21 points lower.
 
 The manifest preserves PaddleDetection Apache-2.0 licensing and conversion attribution. These are subset results, not full COCO scores, and do not establish Tiny mobile or NPU compatibility. See the [quality report](reports/evaluation/2026-09-15-2d-candidates/README.md), [distribution verification](reports/distribution/2026-09-15-ppyolo-tiny/README.md), and [pinned manifest](models/ppyolo-tiny-320/0.1.0/manifest.json).
+
+## PP-YOLO Tiny 320 FP16 (2026-09-16)
+
+Tiny 0.1.1 reuses the immutable FP32 sources from 0.1.0 and adds a 2,357,376-byte FP16 model, 47.743% smaller than FP32. Across three fixed 64-image runs on both WASM and WebGPU, the worst FP16 AP change was -0.174649 points and minimum one-to-one detection retention was 99.5192%, so FP16 entered the stable manifest. W8A32 missed the AP gate at -0.537364 points, remains labs-only, was not uploaded, and is not exposed by the Demo.
+
+FP16 completed real-download, integrity, inference, and cache-lifecycle validation across both sources, WASM/WebGPU, and main/Worker. The evidence remains limited to the fixed desktop subset, is not full COCO mAP, and adds no mobile or NPU claim. See the [quality report](reports/evaluation/2026-09-16-tiny-precision/README.md), [distribution verification](reports/distribution/2026-09-16-tiny-precision/README.md), and [0.1.1 manifest](models/ppyolo-tiny-320/0.1.1/manifest.json).

@@ -37,7 +37,7 @@ await detector.dispose();
 
 `classThresholds` 按 manifest 标签名称覆盖目标检测置信度过滤阈值，未配置的类别回退到全局 `threshold`。未知类别名称或超出 `0` 到 `1` 的值会被拒绝。
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 14 个规格、38 个稳定变体：PicoDet XS-320/416 提供 FP32、FP16，Tiny 320 仅提供 FP32，其余规格提供 FP32、FP16、W8A32。npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
+工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 14 个规格、39 个稳定变体：PicoDet XS-320/416 与 Tiny 320 提供 FP32、FP16，其余规格提供 FP32、FP16、W8A32。npm 包不内置清单或 ONNX 模型本体。自定义模型也应传入经过验证的 runtime manifest 或清单对象。
 
 当前 manifest 均默认 ModelScope，并可显式选择 ModelScope 或 Hugging Face；本地待发布清单不表示在线 Demo 已更新。
 
@@ -115,7 +115,7 @@ await detector.dispose();
 
 `classThresholds` overrides object-detection confidence filtering for matching manifest label names and falls back to the global `threshold` for unspecified classes. Unknown class names and values outside `0` through `1` are rejected.
 
-工厂必须显式传入 `model` 或 `manifest`，两者均缺省时抛出 `INVALID_MANIFEST`；同时传入时优先使用 `model`。仓库提供 PicoDet 与 PP-YOLOE+ S/M/L/X 共 14 个规格、38 个稳定变体（PicoDet 新清单 1.0.1，L320 为 1.0.2，PP-YOLOE+ 为 0.1.1），npm 包不内置清单或 ONNX 模型本体。
+The factory requires an explicit `model` or `manifest`; omitting both throws `INVALID_MANIFEST`, while `model` takes precedence when both are provided. The repository provides 14 specifications and 39 stable variants (Tiny 0.1.1, PicoDet 1.0.1 with L320 at 1.0.2, and PP-YOLOE+ 0.1.1). The npm package contains neither manifests nor ONNX weights.
 
 Current manifests default to ModelScope and allow explicit ModelScope or Hugging Face selection. The local pending-release manifests do not claim that the online Demo has been updated.
 
@@ -170,8 +170,8 @@ Apache-2.0
 
 PicoDet 本轮新增 14 个通过三轮桌面识别门槛的精度；[质量与分发证据](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/main/reports/evaluation/2026-09-15-picodet-series-precision)。SDK API 和 npm 版本保持 0.4.0。
 
-## Tiny 320 FP32
+## Tiny 320 FP32/FP16
 
-PP-YOLO Tiny 320 使用独立 0.1.0 模型清单，仅提供 FP32（4.51 MB），沿用 SDK 0.4.0。固定64图桌面 CPU/GPU 验证见[质量报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/reports/evaluation/2026-09-15-2d-candidates/README.md)；未新增 Tiny 手机或 NPU 兼容声明。
+PP-YOLO Tiny 320 使用 0.1.1 模型清单，复用 FP32（4.51 MB）并新增达标 FP16（2.36 MB），沿用 SDK 0.4.0。W8A32 未通过 AP 门槛，仅保留 labs，不在稳定清单或 Demo 中开放。固定64图质量与双源分发验证见[本轮报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/main/reports/distribution/2026-09-16-tiny-precision/README.md)；未新增 Tiny 手机或 NPU 兼容声明。
 
-PP-YOLO Tiny 320 uses a separate 0.1.0 model manifest, with FP32 only (4.51 MB), on SDK 0.4.0. Validation covers the fixed 64-image desktop CPU/GPU set; Tiny mobile and NPU compatibility have not been established.
+PP-YOLO Tiny 320 uses the 0.1.1 manifest, reusing FP32 (4.51 MB) and adding qualified FP16 (2.36 MB), on SDK 0.4.0. W8A32 missed the AP gate and remains labs-only, outside the stable manifest and Demo. Validation covers the fixed 64-image desktop set and the full dual-source distribution matrix; Tiny mobile and NPU compatibility have not been established.

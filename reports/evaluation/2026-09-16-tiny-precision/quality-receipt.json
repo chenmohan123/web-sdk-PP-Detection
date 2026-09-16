@@ -1,0 +1,124 @@
+{
+  "files": {
+    "protocol.json": "2d619b27864c42aa1d20468591d20249e4624046008cb13a1f203806de15bff1",
+    "jobs.json": "d70bc3abb371d8243f4ae7c29aaa338b28cdaca9ca89556d3889d8ebf3a753ca",
+    "inputs.lock.json": "0affeb27e19bb041711b3bb555932123d53e4db42353277093025ac97e5e535c",
+    "summary.json": "fa0476fcaa09a3a9d5a7626c0befc46b842b893482920b984381e09ecd078c6e",
+    "artifact-index.json": "9ab74f5480e9e2bc8ddba0eeefccf7108e495f158786773e161aaa5fcc4f71f3",
+    "cpu-validation.json": "30d0a497bf6b2e9759bf8d1c2a3b1d93e43dd30cda3f757fb3696cf9733af473",
+    "validation.py": "4501b62fb9cea4445c74639aba90a2994c0e55410ec8e654611a994086bd5569",
+    "supplemental-validation.json": "9f1204939be2d17aae115e70fb28046a60b682a1091117e4f533c14019852e3b"
+  },
+  "evidence": [
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-fp32-wasm.json.gz",
+      "bytes": 1007972,
+      "sha256": "8c64b465a70dbb53602ab416371f46d43bbba2d2577766417cbf2461d4397e2a",
+      "compressedSha256": "d68d7c6bff585944fc9e45a2d8952886bba24fa7a212a709bd89e02579e91830"
+    },
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-fp32-webgpu.json.gz",
+      "bytes": 1008605,
+      "sha256": "a673bfb21fcc08208de674582c7527049234edbac04ad502429b903e09dd7295",
+      "compressedSha256": "b6b155571a5942a4258d76773a00c70c399f6e4c3781524edd5e8b6a8caddc37"
+    },
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-fp16-wasm.json.gz",
+      "bytes": 859540,
+      "sha256": "a396806ce64e94d1863e26dcab5c2ff638addf78ab51729c9d0bf9008a617400",
+      "compressedSha256": "4b2c906ae3ac43bf0029765596ee265a27f0c2c7ffb9e72b608ca7e0866695b9"
+    },
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-fp16-webgpu.json.gz",
+      "bytes": 857069,
+      "sha256": "c107cd09a0a9c7670a812f4310b465a18c36806bb28bbb7e194a38862b9b66a5",
+      "compressedSha256": "6963adea3c54e66e5d6a854c4cec9a0ff0493228e2786dd88e1d932141857be7"
+    },
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-w8a32-wasm.json.gz",
+      "bytes": 1004232,
+      "sha256": "28473bbe071689724ed48511f65bf52b46f941d9464d95f816a5cd3218e3a1ac",
+      "compressedSha256": "f87f114648335e3cf3f58ec89ba0cad9be178ac9839094c5884970e776864632"
+    },
+    {
+      "path": "evidence/round-1/ppyolo-tiny-320-w8a32-webgpu.json.gz",
+      "bytes": 1005046,
+      "sha256": "dfb457d8db89cc951cd9f57994d4d020a1d9fcb1b0bc92da49bbe3054a98c785",
+      "compressedSha256": "5c6c677a7730c9632ac87a94b2ca6374ad1e97c55864b855ea9eb07e8f13c483"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-fp32-wasm.json.gz",
+      "bytes": 1007945,
+      "sha256": "af9e8196eee5111a442cda0a1b0af5337940b6ec02e8ee8cf43e09d71df487d1",
+      "compressedSha256": "de36033a91ef77d96c201e72613a2f72ec1d01af127dccb26dc85a46b84684a0"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-fp32-webgpu.json.gz",
+      "bytes": 1008614,
+      "sha256": "be3b8ad4bd2998845f1b03e0a3f0be098a5ae9bea8f6c61d97ab9439c917864c",
+      "compressedSha256": "aa6d343696cd2c92dedabfc19ff8898e88f628b5cab493985950847ce8917e14"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-fp16-wasm.json.gz",
+      "bytes": 859614,
+      "sha256": "1421bcfe1df61e57a41551603bec77b408a1136cf65517828c8b75c03ca5e531",
+      "compressedSha256": "162d858b57e81d1ecb06aab932b013e544b4b186881eafc8fb82aa21eebfc34b"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-fp16-webgpu.json.gz",
+      "bytes": 856872,
+      "sha256": "209f4591bc30012968abd56518f060d7834ff654c6f91e69b449ad0602ca424a",
+      "compressedSha256": "b212b258ab159cededc276d5be9ba7a3d285386e96a049f635bd0cc3da6154b8"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-w8a32-wasm.json.gz",
+      "bytes": 1004243,
+      "sha256": "cf733aafb4e41f91a2d15abdf964a914d5212ef7e9d4187af2feaf9b32e3acb4",
+      "compressedSha256": "c63b757961061353f9631524da93b9608cdf749171fa58e47c9f0e3dfe19c0fd"
+    },
+    {
+      "path": "evidence/round-2/ppyolo-tiny-320-w8a32-webgpu.json.gz",
+      "bytes": 1005058,
+      "sha256": "ccb63934ba6e266daa1947ea41f8ed82fd8ee73163582074fcdd336cae10848a",
+      "compressedSha256": "3d56ae8f9bee6575ab4a5ffd98a90ce82ac11b405c5bb24e32e956da8dbebe86"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-fp32-wasm.json.gz",
+      "bytes": 1007931,
+      "sha256": "dbe6d776edf8b3fd86936ed0b2152b3049fcf7cb1a30c647081d87d6915408c8",
+      "compressedSha256": "c663285872a1a94401d149496067813972c2a7db9cbedfeb78ac2540aeda19fb"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-fp32-webgpu.json.gz",
+      "bytes": 1008714,
+      "sha256": "2c33b01a809b704e16082222844cfa4a7778ce3eb1ed17d73e1e97c59f3d8820",
+      "compressedSha256": "2c606828f286b1374dda4dc79c8a5d03651e817d48649daddde7fa391ed85dfd"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-fp16-wasm.json.gz",
+      "bytes": 859491,
+      "sha256": "6306592dac5ce75a1ee47f153d23cec59dc84eac69ede01d15b3bd0c44c4c3b4",
+      "compressedSha256": "661fb9628ce05e086268caa099b3181673a1f087484e4e242863eb2dc5bf2c06"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-fp16-webgpu.json.gz",
+      "bytes": 856901,
+      "sha256": "ce68a8f0af125f5598fb7235bf359384e8864db428348359060877cc43963383",
+      "compressedSha256": "3e6a1244f6910aeb56990fd29789742ed455d16f79fdccc52e7d97636d5709b7"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-w8a32-wasm.json.gz",
+      "bytes": 1004295,
+      "sha256": "3ad2b73bdc26c2b632cedc43f869080fdf051ecbc6bab922e85ed7a0e342b6de",
+      "compressedSha256": "70a87c6bdd52cc2bf0e838cc80381d2037794f5921a9c21e47d036258af9876c"
+    },
+    {
+      "path": "evidence/round-3/ppyolo-tiny-320-w8a32-webgpu.json.gz",
+      "bytes": 1004992,
+      "sha256": "0f0b361f336c7e5c581cce2fcced753141f98c4d774a5ebe312f6c39466cebd4",
+      "compressedSha256": "640fff7df95c16cb0eb9b5b792ccd412cbbf9b5d6c132253f7db079059c1e548"
+    }
+  ],
+  "browserRunCount": 18,
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+}

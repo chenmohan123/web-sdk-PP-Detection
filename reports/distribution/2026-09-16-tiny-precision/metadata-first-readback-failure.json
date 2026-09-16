@@ -1,0 +1,14 @@
+{
+  "source": "modelscope",
+  "revision": "57c9e3de979cea272cb83a9f3d3a0e2da22b9fc5",
+  "path": "ppyolo-tiny-320/0.1.1/fp16-conversion.json",
+  "expected": {
+    "bytes": 2073,
+    "sha256": "47305feea2bd2992a21d1c5ed05342a093e336c3bdcd316c6790fa0e0522e148"
+  },
+  "actual": {
+    "bytes": 1988,
+    "sha256": "577fe44bf9b055adefd0a0df49a0629545453458244356cc684d129a525d833b"
+  },
+  "cause": "ModelScope 覆盖既有 JSON 时将 CRLF 规范为 LF；解析后的 JSON 对象保持一致。"
+}

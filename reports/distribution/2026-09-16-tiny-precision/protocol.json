@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-16",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "prefix": "ppyolo-tiny-320/0.1.1/",
+  "sources": [
+    "modelscope",
+    "huggingface"
+  ],
+  "sdk": "0.4.0",
+  "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+  "qualityReceipt": {
+    "bytes": 6111,
+    "sha256": "6c766e921dcf2a3305b015a7e469075521c2f36230543fc7d8305ec03def3e11"
+  },
+  "allowedPrecisions": [
+    "fp16"
+  ],
+  "fp32Reuse": {
+    "bytes": 4511117,
+    "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+    "version": "0.1.0"
+  },
+  "fp16": {
+    "bytes": 2357376,
+    "sha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc"
+  },
+  "w8a32": {
+    "sha256": "9317cbfaf2f36b22430f1cf12c3bd00289458c3878aa3a9d1b34131264b99b53",
+    "decision": "labs-only-not-uploaded"
+  },
+  "previousRoot": {
+    "bytes": 4351,
+    "sha256": "5a82e7fa6d188d9b130a1c55a1af829bc6277f91a4ba2a01f82e0f87f6fbb324"
+  }
+}

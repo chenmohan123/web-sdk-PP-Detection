@@ -2,6 +2,8 @@
 
 日期：2026-09-16。模型：`ppyolo-tiny-320`。本轮只发布质量门禁通过的 FP16，保留原 0.1.0 FP32；W8A32 未上传、未进入稳定清单、未开放 Demo。
 
+后续文档更正：本批次根模型卡追加了 FP16 说明，但总表遗漏更新 Tiny 的版本和精度。双 Hub 首页现已修正为 0.1.1 / FP32、FP16，见[更正记录及网页验证](../2026-09-16-tiny-model-card-fix/README.md)。下列发布收据及本目录 `hub-README.md` 保留当时的原始快照。
+
 ## 稳定资产
 
 | 变体               |      字节 | SHA-256                                                            | ModelScope 权重 revision                   | Hugging Face 权重 revision                 |

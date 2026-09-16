@@ -1,0 +1,36 @@
+[
+  {
+    "source": "modelscope",
+    "repository": "chenmohan/web-sdk-pp-detection",
+    "parentRevision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+    "revision": "465c09f7e8cb5a78a2c84bf98ee7d4f937aceb0b",
+    "uploadedAt": "2026-09-16T05:07:29.354048+00:00",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 5639,
+        "sha256": "4dc7d545b371edcea66dffe167f019c656809cc4bb704bfc29971a1bef81e425"
+      }
+    ],
+    "readbackUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/465c09f7e8cb5a78a2c84bf98ee7d4f937aceb0b/README.md",
+    "readbackStatus": "passed",
+    "fileListUnchanged": true
+  },
+  {
+    "source": "huggingface",
+    "repository": "chenmohan/web-sdk-pp-detection",
+    "parentRevision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+    "revision": "1b9db4f7af5af4ebb7d68fb553ee9f6bf019afbf",
+    "uploadedAt": "2026-09-16T05:07:34.856035+00:00",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 5639,
+        "sha256": "4dc7d545b371edcea66dffe167f019c656809cc4bb704bfc29971a1bef81e425"
+      }
+    ],
+    "readbackUrl": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/1b9db4f7af5af4ebb7d68fb553ee9f6bf019afbf/README.md",
+    "readbackStatus": "passed",
+    "fileListUnchanged": true
+  }
+]

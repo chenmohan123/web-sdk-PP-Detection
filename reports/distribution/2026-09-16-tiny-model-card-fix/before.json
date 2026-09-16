@@ -1,0 +1,22 @@
+{
+  "capturedAt": "2026-09-16T05:05:39.232832+00:00",
+  "repository": "chenmohan/web-sdk-pp-detection",
+  "rows": [
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/6b4e6e46e0515e77735ff2b98b01dac9b447a73b/README.md",
+      "bytes": 4719,
+      "sha256": "e5b037f4f4449d8545068a248c2cd06ba227a0597e47a8a08f97c7e6dd979191",
+      "tinyRow": "| PP-YOLO Tiny 320 | ppyolo-tiny-320/0.1.0/manifest.json | FP32 |"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/3e508a8b66e7bd1ef865404623d9bdc49f0040a9/README.md",
+      "bytes": 4719,
+      "sha256": "e5b037f4f4449d8545068a248c2cd06ba227a0597e47a8a08f97c7e6dd979191",
+      "tinyRow": "| PP-YOLO Tiny 320 | ppyolo-tiny-320/0.1.0/manifest.json | FP32 |"
+    }
+  ]
+}

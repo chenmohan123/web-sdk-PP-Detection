@@ -1,0 +1,375 @@
+{
+  "capturedAt": "2026-09-16T05:06:49.310394+00:00",
+  "card": {
+    "bytes": 5639,
+    "sha256": "4dc7d545b371edcea66dffe167f019c656809cc4bb704bfc29971a1bef81e425"
+  },
+  "models": 14,
+  "stableVariants": 39,
+  "rows": [
+    {
+      "model": "PicoDet-XS 320",
+      "path": "picodet-xs-320/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16"
+      ],
+      "localPath": "models/pp-detection/picodet-xs-320/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-XS 416",
+      "path": "picodet-xs-416/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16"
+      ],
+      "localPath": "models/pp-detection/picodet-xs-416/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-S 320",
+      "path": "picodet-s-320/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-s-320/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-S 416",
+      "path": "picodet-s-416/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-s-416/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-M 320",
+      "path": "picodet-m-320/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-m-320/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-M 416",
+      "path": "picodet-m-416/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-m-416/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-L 416",
+      "path": "picodet-l-416/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-l-416/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-L 640",
+      "path": "picodet-l-640/1.0.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/picodet-l-640/1.0.1/manifest.json"
+    },
+    {
+      "model": "PicoDet-L 320",
+      "path": "picodet-l-320/1.0.2/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/pp-detection/1.0.2/manifest.json"
+    },
+    {
+      "model": "PP-YOLOE+ S 640",
+      "path": "ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/ppyoloe-plus-s-640/0.1.1/manifest.json"
+    },
+    {
+      "model": "PP-YOLOE+ M 640",
+      "path": "ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/ppyoloe-plus-m-640/0.1.1/manifest.json"
+    },
+    {
+      "model": "PP-YOLOE+ L 640",
+      "path": "ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/ppyoloe-plus-l-640/0.1.1/manifest.json"
+    },
+    {
+      "model": "PP-YOLO Tiny 320",
+      "path": "ppyolo-tiny-320/0.1.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16"
+      ],
+      "localPath": "models/ppyolo-tiny-320/0.1.1/manifest.json"
+    },
+    {
+      "model": "PP-YOLOE+ X 640",
+      "path": "ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "precisions": [
+        "FP32",
+        "FP16",
+        "W8A32"
+      ],
+      "localPath": "models/ppyoloe-plus-x-640/0.1.1/manifest.json"
+    }
+  ],
+  "remoteManifests": [
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-xs-320/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-xs-416/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "eb50a53666f3c4316fe20a79f9b624ce9621bb60b656051a710e287cc09495db",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-s-320/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-s-416/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-m-320/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-m-416/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-l-416/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-l-640/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "picodet-l-320/1.0.2/manifest.json",
+      "bytes": 7144,
+      "sha256": "beae5138fb3c36e277f12110372169e504a3965327f7e53ba224f248c1f00698",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "bytes": 7298,
+      "sha256": "5c42c1c5dccf25db66967dc10ea190a234952f4e8f03ddf95b02906598f47e08",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "bytes": 7668,
+      "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "ppyolo-tiny-320/0.1.1/manifest.json",
+      "bytes": 6217,
+      "sha256": "30e016974c0d725eca14d2a4eb9080e843444cc46fbff5d38be336a8efdb25ec",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "revision": "6b4e6e46e0515e77735ff2b98b01dac9b447a73b",
+      "path": "ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-xs-320/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-xs-416/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "eb50a53666f3c4316fe20a79f9b624ce9621bb60b656051a710e287cc09495db",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-s-320/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-s-416/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-m-320/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-m-416/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-l-416/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-l-640/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "picodet-l-320/1.0.2/manifest.json",
+      "bytes": 7405,
+      "sha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "bytes": 7561,
+      "sha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "bytes": 7668,
+      "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "ppyolo-tiny-320/0.1.1/manifest.json",
+      "bytes": 6217,
+      "sha256": "30e016974c0d725eca14d2a4eb9080e843444cc46fbff5d38be336a8efdb25ec",
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "revision": "3e508a8b66e7bd1ef865404623d9bdc49f0040a9",
+      "path": "ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d",
+      "status": "passed"
+    }
+  ],
+  "status": "passed"
+}

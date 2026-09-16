@@ -64,3 +64,4 @@ models/ppyolo-tiny-320/0.1.1/fp16-conversion.json
 reports/distribution/2026-09-16-tiny-precision/hub-README.md
 reports/distribution/2026-09-16-tiny-precision/browser.mjs
 reports/distribution/2026-09-16-tiny-precision/lifecycle-candidates.mjs
+reports/evaluation/2026-09-16-tiny-precision/runner.mjs

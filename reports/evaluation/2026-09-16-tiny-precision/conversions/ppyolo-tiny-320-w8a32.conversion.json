@@ -1,0 +1,413 @@
+{
+  "key": "ppyolo-tiny-320",
+  "precision": "w8a32",
+  "sourceModel": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+  "sourceBytes": 4511117,
+  "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+  "configuration": {
+    "blockedNodes": [],
+    "excludeNodes": [
+      "Conv.0",
+      "Conv.1",
+      "Conv.2",
+      "Conv.3",
+      "Conv.4",
+      "Conv.80",
+      "Conv.81",
+      "Conv.82"
+    ],
+    "reason": "Tiny 输入 stem 与末端三个检测头卷积保留 FP32，避免低层纹理和分类/回归输出量化误差。"
+  },
+  "candidate": {
+    "status": "labs",
+    "quantization": "weight-only-int8-activation-fp32",
+    "activationPrecision": "fp32",
+    "floatingInputOutputPrecision": "fp32",
+    "source": {
+      "bytes": 4511117,
+      "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+    },
+    "output": {
+      "bytes": 1573135,
+      "sha256": "9317cbfaf2f36b22430f1cf12c3bd00289458c3878aa3a9d1b34131264b99b53"
+    },
+    "prepared": true,
+    "versions": {
+      "onnx": "1.16.2",
+      "onnxruntime": "1.20.1",
+      "numpy": "1.26.4"
+    },
+    "opsets": {
+      "": 14,
+      "com.microsoft.nchwc": 1,
+      "ai.onnx.ml": 5,
+      "ai.onnx.training": 1,
+      "ai.onnx.preview.training": 1,
+      "com.microsoft": 1,
+      "com.microsoft.experimental": 1,
+      "org.pytorch.aten": 1
+    },
+    "operators": {
+      "Conv": 83,
+      "HardSigmoid": 27,
+      "Mul": 46,
+      "Relu": 23,
+      "Add": 21,
+      "DequantizeLinear": 75,
+      "GlobalAveragePool": 8,
+      "MaxPool": 3,
+      "Concat": 14,
+      "LeakyRelu": 18,
+      "Resize": 2,
+      "Reshape": 14,
+      "Transpose": 7,
+      "Slice": 14,
+      "Sigmoid": 9,
+      "Greater": 3,
+      "Cast": 7,
+      "Exp": 3,
+      "Div": 6,
+      "Sub": 4,
+      "Split": 3,
+      "Min": 3,
+      "NonMaxSuppression": 1,
+      "Gather": 9,
+      "Squeeze": 4,
+      "NonZero": 1,
+      "Shape": 2,
+      "ReduceMin": 1,
+      "TopK": 1
+    },
+    "fullOnnxCheck": true,
+    "quantizedWeightTensors": 75,
+    "excludedNodes": [
+      "Conv.0",
+      "Conv.1",
+      "Conv.2",
+      "Conv.3",
+      "Conv.4",
+      "Conv.80",
+      "Conv.81",
+      "Conv.82"
+    ],
+    "skippedSharedOrDynamicWeights": [],
+    "weightErrors": [
+      {
+        "weight": "ConvBnFusion_W_conv2d_5.w_0_deepcopy_27",
+        "maxAbsError": 0.021132230758666992
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_6.w_0_deepcopy_32",
+        "maxAbsError": 0.007439464330673218
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_7.w_0_deepcopy_37",
+        "maxAbsError": 0.0017429888248443604
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_8.w_0_deepcopy_42",
+        "maxAbsError": 0.056310415267944336
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_9.w_0_deepcopy_47",
+        "maxAbsError": 0.014098882675170898
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_10.w_0_deepcopy_52",
+        "maxAbsError": 0.002062525600194931
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_11.w_0_deepcopy_57",
+        "maxAbsError": 0.011896640062332153
+      },
+      {
+        "weight": "conv2d_12.w_0_deepcopy_62",
+        "maxAbsError": 2.141814286690802e-15
+      },
+      {
+        "weight": "conv2d_13.w_0_deepcopy_64",
+        "maxAbsError": 1.9004996822157352e-15
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_14.w_0_deepcopy_66",
+        "maxAbsError": 0.0033075809478759766
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_15.w_0_deepcopy_71",
+        "maxAbsError": 0.002835996448993683
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_16.w_0_deepcopy_76",
+        "maxAbsError": 0.019200852140784264
+      },
+      {
+        "weight": "conv2d_17.w_0_deepcopy_81",
+        "maxAbsError": 0.028994262218475342
+      },
+      {
+        "weight": "conv2d_18.w_0_deepcopy_83",
+        "maxAbsError": 0.009652301669120789
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_19.w_0_deepcopy_85",
+        "maxAbsError": 0.00967031717300415
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_20.w_0_deepcopy_90",
+        "maxAbsError": 0.002102769911289215
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_21.w_0_deepcopy_95",
+        "maxAbsError": 0.009222030639648438
+      },
+      {
+        "weight": "conv2d_22.w_0_deepcopy_100",
+        "maxAbsError": 0.030006833374500275
+      },
+      {
+        "weight": "conv2d_23.w_0_deepcopy_102",
+        "maxAbsError": 0.005248282104730606
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_24.w_0_deepcopy_104",
+        "maxAbsError": 0.014407873153686523
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_25.w_0_deepcopy_109",
+        "maxAbsError": 0.0025285035371780396
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_26.w_0_deepcopy_114",
+        "maxAbsError": 0.04518011212348938
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_27.w_0_deepcopy_119",
+        "maxAbsError": 0.010407030582427979
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_28.w_0_deepcopy_124",
+        "maxAbsError": 0.0005521643906831741
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_29.w_0_deepcopy_129",
+        "maxAbsError": 0.16486835479736328
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_30.w_0_deepcopy_134",
+        "maxAbsError": 0.017910897731781006
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_31.w_0_deepcopy_139",
+        "maxAbsError": 0.0012678876519203186
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_32.w_0_deepcopy_144",
+        "maxAbsError": 0.1428523063659668
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_33.w_0_deepcopy_149",
+        "maxAbsError": 0.009768843650817871
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_34.w_0_deepcopy_154",
+        "maxAbsError": 0.0007954277098178864
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_35.w_0_deepcopy_159",
+        "maxAbsError": 0.13383960723876953
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_36.w_0_deepcopy_164",
+        "maxAbsError": 0.01431632786989212
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_37.w_0_deepcopy_169",
+        "maxAbsError": 0.007429942488670349
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_38.w_0_deepcopy_174",
+        "maxAbsError": 0.1487724781036377
+      },
+      {
+        "weight": "conv2d_39.w_0_deepcopy_179",
+        "maxAbsError": 0.019779618829488754
+      },
+      {
+        "weight": "conv2d_40.w_0_deepcopy_181",
+        "maxAbsError": 0.010418176651000977
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_41.w_0_deepcopy_183",
+        "maxAbsError": 0.011770784854888916
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_42.w_0_deepcopy_188",
+        "maxAbsError": 0.0025403499603271484
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_43.w_0_deepcopy_193",
+        "maxAbsError": 0.1876382827758789
+      },
+      {
+        "weight": "conv2d_44.w_0_deepcopy_198",
+        "maxAbsError": 0.01591286063194275
+      },
+      {
+        "weight": "conv2d_45.w_0_deepcopy_200",
+        "maxAbsError": 0.007474940270185471
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_46.w_0_deepcopy_202",
+        "maxAbsError": 0.008868515491485596
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_47.w_0_deepcopy_207",
+        "maxAbsError": 0.009009838104248047
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_48.w_0_deepcopy_212",
+        "maxAbsError": 0.02263033390045166
+      },
+      {
+        "weight": "conv2d_49.w_0_deepcopy_217",
+        "maxAbsError": 0.007698625326156616
+      },
+      {
+        "weight": "conv2d_50.w_0_deepcopy_219",
+        "maxAbsError": 0.005476608872413635
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_51.w_0_deepcopy_221",
+        "maxAbsError": 0.006923675537109375
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_52.w_0_deepcopy_226",
+        "maxAbsError": 0.0019626393914222717
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_53.w_0_deepcopy_231",
+        "maxAbsError": 0.08882796764373779
+      },
+      {
+        "weight": "conv2d_54.w_0_deepcopy_236",
+        "maxAbsError": 0.007715389132499695
+      },
+      {
+        "weight": "conv2d_55.w_0_deepcopy_238",
+        "maxAbsError": 0.006670959293842316
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_56.w_0_deepcopy_240",
+        "maxAbsError": 0.0062569379806518555
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_57.w_0_deepcopy_245",
+        "maxAbsError": 0.0013332664966583252
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_58.w_0_deepcopy_250",
+        "maxAbsError": 0.11156345158815384
+      },
+      {
+        "weight": "conv2d_59.w_0_deepcopy_255",
+        "maxAbsError": 0.011594995856285095
+      },
+      {
+        "weight": "conv2d_60.w_0_deepcopy_257",
+        "maxAbsError": 0.008217543363571167
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_61.w_0_deepcopy_259",
+        "maxAbsError": 0.019492024555802345
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_62.w_0_deepcopy_264",
+        "maxAbsError": 0.000706598162651062
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_63.w_0_deepcopy_269",
+        "maxAbsError": 0.012707771733403206
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_64.w_0_deepcopy_274",
+        "maxAbsError": 0.01039477251470089
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_65.w_0_deepcopy_279",
+        "maxAbsError": 0.0031649209558963776
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_66.w_0_deepcopy_284",
+        "maxAbsError": 0.03919947147369385
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_68.w_0_deepcopy_294",
+        "maxAbsError": 0.006681319326162338
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_69.w_0_deepcopy_299",
+        "maxAbsError": 0.0007987953722476959
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_70.w_0_deepcopy_304",
+        "maxAbsError": 0.0209503173828125
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_71.w_0_deepcopy_309",
+        "maxAbsError": 0.002321504056453705
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_72.w_0_deepcopy_314",
+        "maxAbsError": 0.08903586864471436
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_74.w_0_deepcopy_324",
+        "maxAbsError": 0.006193313281983137
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_75.w_0_deepcopy_329",
+        "maxAbsError": 0.0008068438619375229
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_76.w_0_deepcopy_334",
+        "maxAbsError": 0.013856112957000732
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_77.w_0_deepcopy_339",
+        "maxAbsError": 0.0032800063490867615
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_78.w_0_deepcopy_344",
+        "maxAbsError": 0.2563311457633972
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_79.w_0_deepcopy_349",
+        "maxAbsError": 0.0067268554121255875
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_73.w_0_deepcopy_319",
+        "maxAbsError": 0.002322961576282978
+      },
+      {
+        "weight": "ConvBnFusion_W_conv2d_67.w_0_deepcopy_289",
+        "maxAbsError": 0.0017470940947532654
+      }
+    ]
+  },
+  "validation": {
+    "input": [
+      1,
+      3,
+      320,
+      320
+    ],
+    "inputDtype": "FLOAT",
+    "outputDtypes": [
+      "FLOAT",
+      "INT32"
+    ],
+    "opset": 14,
+    "nodeCount": 412,
+    "parameterCount": 1103465
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "key": "ppyolo-tiny-320",
+    "precision": "fp32",
+    "model": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+    "manifest": "models/ppyolo-tiny-320/0.1.0/manifest.json",
+    "bytes": 4511117,
+    "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+    "inputSize": 320,
+    "sourceModel": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+    "sourceBytes": 4511117,
+    "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  },
+  {
+    "key": "ppyolo-tiny-320",
+    "precision": "fp16",
+    "model": ".tmp/tiny-precision/ppyolo-tiny-320-fp16.onnx",
+    "manifest": "reports/evaluation/2026-09-16-tiny-precision/manifests/ppyolo-tiny-320-fp16.manifest.json",
+    "bytes": 2357376,
+    "sha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc",
+    "inputSize": 320,
+    "sourceModel": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+    "sourceBytes": 4511117,
+    "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  },
+  {
+    "key": "ppyolo-tiny-320",
+    "precision": "w8a32",
+    "model": ".tmp/tiny-precision/ppyolo-tiny-320-w8a32.onnx",
+    "manifest": "reports/evaluation/2026-09-16-tiny-precision/manifests/ppyolo-tiny-320-w8a32.manifest.json",
+    "bytes": 1573135,
+    "sha256": "9317cbfaf2f36b22430f1cf12c3bd00289458c3878aa3a9d1b34131264b99b53",
+    "inputSize": 320,
+    "sourceModel": ".tmp/candidate-2d-20260915/ppyolo-tiny-320-fp32.onnx",
+    "sourceBytes": 4511117,
+    "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+  }
+]

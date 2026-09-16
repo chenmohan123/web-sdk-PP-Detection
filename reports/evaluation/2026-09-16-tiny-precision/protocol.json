@@ -1,0 +1,21 @@
+{
+  "name": "PP-YOLO Tiny 精度对比",
+  "version": "2026-09-16",
+  "dataset": {
+    "images": 64,
+    "annotations": 716,
+    "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
+  },
+  "rounds": [1, 2, 3],
+  "backends": ["wasm", "webgpu"],
+  "models": ["ppyolo-tiny-320"],
+  "precisions": ["fp32", "fp16", "w8a32"],
+  "qualityGate": {
+    "maximumApDropPoints": 0.5,
+    "minimumReferenceRetention": 0.95,
+    "scoreThreshold": 0.5,
+    "iouThreshold": 0.5,
+    "strictIouDiagnostic": 0.99
+  },
+  "notes": "每轮每后端以 Tiny FP32 为基线；64 图仅为固定子集，不代表全量 COCO。体积缩小独立记录，不推导加速。"
+}

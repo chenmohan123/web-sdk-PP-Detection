@@ -1,0 +1,35 @@
+{
+  "model": "ppyolo-tiny-320",
+  "sourceSha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+  "candidates": [
+    {
+      "precision": "fp16",
+      "configuration": {
+        "blockedNodes": [
+          "Exp.0",
+          "Exp.2",
+          "Exp.4"
+        ],
+        "excludeNodes": [],
+        "reason": "Tiny 三个尺度的 Exp 解码对坐标幅度敏感，保留为 FP32；节点名来自 Tiny 图。"
+      }
+    },
+    {
+      "precision": "w8a32",
+      "configuration": {
+        "blockedNodes": [],
+        "excludeNodes": [
+          "Conv.0",
+          "Conv.1",
+          "Conv.2",
+          "Conv.3",
+          "Conv.4",
+          "Conv.80",
+          "Conv.81",
+          "Conv.82"
+        ],
+        "reason": "Tiny 输入 stem 与末端三个检测头卷积保留 FP32，避免低层纹理和分类/回归输出量化误差。"
+      }
+    }
+  ]
+}

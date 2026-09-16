@@ -5,7 +5,9 @@
     "inputs.lock.json": "0affeb27e19bb041711b3bb555932123d53e4db42353277093025ac97e5e535c",
     "summary.json": "fa0476fcaa09a3a9d5a7626c0befc46b842b893482920b984381e09ecd078c6e",
     "artifact-index.json": "9ab74f5480e9e2bc8ddba0eeefccf7108e495f158786773e161aaa5fcc4f71f3",
-    "cpu-validation.json": "30d0a497bf6b2e9759bf8d1c2a3b1d93e43dd30cda3f757fb3696cf9733af473"
+    "cpu-validation.json": "30d0a497bf6b2e9759bf8d1c2a3b1d93e43dd30cda3f757fb3696cf9733af473",
+    "validation.py": "4501b62fb9cea4445c74639aba90a2994c0e55410ec8e654611a994086bd5569",
+    "supplemental-validation.json": "9f1204939be2d17aae115e70fb28046a60b682a1091117e4f533c14019852e3b"
   },
   "evidence": [
     {
@@ -117,5 +119,6 @@
       "compressedSha256": "640fff7df95c16cb0eb9b5b792ccd412cbbf9b5d6c132253f7db079059c1e548"
     }
   ],
-  "browserRunCount": 18
+  "browserRunCount": 18,
+  "annotationsSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79"
 }

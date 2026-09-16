@@ -1,0 +1,34 @@
+{
+  "validatedAt": "2026-09-16",
+  "purpose": "对既有18组证据补充标注、评测配置、有限耗时和CPU契约验证；不重新运行浏览器，不改变原协议或预测。",
+  "originalProtocolSha256": "2d619b27864c42aa1d20468591d20249e4624046008cb13a1f203806de15bff1",
+  "execution": {
+    "allowExperimental": true,
+    "allowFallback": false,
+    "executionMode": "main",
+    "expectedImages": 64,
+    "manifestOverrides": {
+      "iouThreshold": 1,
+      "scoreThreshold": 0.001
+    },
+    "numThreads": 1,
+    "preprocessing": {
+      "interpolation": "bicubic",
+      "reference": "Pillow bicubic"
+    },
+    "requestedBackend": "wasm",
+    "precision": "fp32",
+    "scoreThreshold": 0.001
+  },
+  "variableFields": {
+    "requestedBackend": [
+      "wasm",
+      "webgpu"
+    ],
+    "precision": [
+      "fp32",
+      "fp16",
+      "int8"
+    ]
+  }
+}

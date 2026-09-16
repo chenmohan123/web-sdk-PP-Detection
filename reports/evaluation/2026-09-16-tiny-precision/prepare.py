@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import onnx
 import onnxruntime as ort
+import validation
 
 ROOT = Path(__file__).resolve().parents[3]
 REPORT = ROOT / "reports/evaluation/2026-09-16-tiny-precision"
@@ -73,20 +74,21 @@ def main():
             result = weight_only.convert(SOURCE, output, expected_sha256=SOURCE_SHA, exclude_nodes=tuple(cfg["excludeNodes"]))
         size, sha = digest(output); metadata = inspect_model(output)
         conversion.parent.mkdir(exist_ok=True)
-        conversion.write_text(json.dumps({"key":"ppyolo-tiny-320", "precision":precision, "sourceModel":str(SOURCE.relative_to(ROOT)).replace("\\","/"), "sourceBytes":4511117, "sourceSha256":SOURCE_SHA, "configuration":cfg, "candidate":result, "validation":metadata}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+        conversion.write_text(json.dumps({"key":"ppyolo-tiny-320", "precision":precision, "sourceModel":str(SOURCE.relative_to(ROOT)).replace("\\","/"), "sourceBytes":4511117, "sourceSha256":SOURCE_SHA, "configuration":cfg, "candidate":result, "validation":metadata}, ensure_ascii=False, indent=2, allow_nan=False)+"\n", encoding="utf-8")
         manifest = manifest_for(json.loads(BASE_MANIFEST.read_text(encoding="utf-8")), precision, output.name, size, sha, metadata)
         manifest_path = REPORT / "manifests" / f"ppyolo-tiny-320-{precision}.manifest.json"
-        manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False)+"\n", encoding="utf-8")
         generated.append({"key":"ppyolo-tiny-320", "precision":precision, "model":str(output.relative_to(ROOT)).replace("\\","/"), "manifest":str(manifest_path.relative_to(ROOT)).replace("\\","/"), "bytes":size, "sha256":sha, "inputSize":320, "sourceModel":str(SOURCE.relative_to(ROOT)).replace("\\","/"), "sourceBytes":4511117, "sourceSha256":SOURCE_SHA})
     generated.append({"key":"ppyolo-tiny-320", "precision":"fp32", "model":str(SOURCE.relative_to(ROOT)).replace("\\","/"), "manifest":"models/ppyolo-tiny-320/0.1.0/manifest.json", "bytes":4511117, "sha256":SOURCE_SHA, "inputSize":320, "sourceModel":str(SOURCE.relative_to(ROOT)).replace("\\","/"), "sourceBytes":4511117, "sourceSha256":SOURCE_SHA})
     generated.sort(key=lambda x: (x["key"], ("fp32","fp16","w8a32").index(x["precision"])))
-    (REPORT / "jobs.json").write_text(json.dumps(generated, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (REPORT / "jobs.json").write_text(json.dumps(generated, ensure_ascii=False, indent=2, allow_nan=False)+"\n", encoding="utf-8")
     sample=np.zeros((1,3,320,320),dtype=np.float32); cpu=[]
     for job in generated:
-        session=ort.InferenceSession(str(ROOT/job["model"]),providers=["CPUExecutionProvider"]); outputs=session.run(None,{"image":sample})
+        session=ort.InferenceSession(str(ROOT/job["model"]),providers=["CPUExecutionProvider"]); validation.validate_session(session); outputs=session.run(None,{"image":sample})
         cpu.append({"precision":job["precision"],"modelSha256":job["sha256"],"provider":session.get_providers(),"outputs":[{"shape":list(x.shape),"dtype":str(x.dtype),"finite":bool(np.isfinite(x).all())} for x in outputs]})
-    (REPORT/"cpu-validation.json").write_text(json.dumps({"input":{"shape":[1,3,320,320],"dtype":"float32","fixture":"all-zero"},"runs":cpu},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    (REPORT / "labs.json").write_text(json.dumps({"model":"ppyolo-tiny-320", "sourceSha256":SOURCE_SHA, "candidates":[{"precision":p, "configuration":specs[p]} for p in specs]}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    validation.validate_cpu({"input":{"shape":[1,3,320,320],"dtype":"float32","fixture":"all-zero"},"runs":cpu},generated)
+    (REPORT/"cpu-validation.json").write_text(json.dumps({"input":{"shape":[1,3,320,320],"dtype":"float32","fixture":"all-zero"},"runs":cpu},ensure_ascii=False,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+    (REPORT / "labs.json").write_text(json.dumps({"model":"ppyolo-tiny-320", "sourceSha256":SOURCE_SHA, "candidates":[{"precision":p, "configuration":specs[p]} for p in specs]}, ensure_ascii=False, indent=2, allow_nan=False)+"\n", encoding="utf-8")
     print(json.dumps({"jobs":len(generated), "candidates":2, "sizes":{j["precision"]:j["bytes"] for j in generated}}, ensure_ascii=False))
 
 if __name__ == "__main__": main()

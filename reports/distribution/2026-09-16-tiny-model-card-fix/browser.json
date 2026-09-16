@@ -1,0 +1,21 @@
+{
+  "capturedAt": "2026-09-16T05:08:55.074Z",
+  "browser": "153.0.8010.12",
+  "rows": [
+    {
+      "source": "huggingface",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-detection",
+      "tinyRow": "PP-YOLO Tiny 320 ppyolo-tiny-320/0.1.1/manifest.json FP32、FP16",
+      "screenshot": "huggingface-table.png",
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection",
+      "tinyRow": "PP-YOLO Tiny 320 ppyolo-tiny-320/0.1.1/manifest.json FP32、FP16",
+      "screenshot": "modelscope-table.png",
+      "status": "passed"
+    }
+  ],
+  "status": "passed"
+}

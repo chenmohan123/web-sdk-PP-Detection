@@ -96,6 +96,13 @@ def preflight(p) -> tuple[dict, list[dict], list[dict]]:
         },
         "最终 manifest 相对首轮元数据发生变化",
     )
+    first_conversion = next(item for item in first_files if item["path"] == _conversion_path(p))
+    conversion_bytes = (p.PRODUCT / "fp16-conversion.json").read_bytes()
+    crlf_bytes = conversion_bytes.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    _require(
+        {key: first_conversion[key] for key in ("bytes", "sha256")} == {"bytes": len(crlf_bytes), "sha256": sha(crlf_bytes)},
+        "首轮转换记录不是当前绑定 JSON 的 CRLF 版本",
+    )
     allowed = _with_lf_conversion(p, first_files)
     actual = p.files("metadata")
     _require(actual in (sorted(first_files, key=lambda item: item["path"]), allowed), "元数据暂存集合不是允许集合")

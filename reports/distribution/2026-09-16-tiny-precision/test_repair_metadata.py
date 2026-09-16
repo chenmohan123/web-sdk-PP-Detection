@@ -132,12 +132,17 @@ def test_successful_reentry_is_noop_before_normalization(tmp_path, monkeypatch):
 
 def test_partial_retry_uses_independent_progress(tmp_path):
     publisher = _PreflightPublisher(tmp_path)
+    first_files = publisher.files("metadata")
+    for item in first_files:
+        if item["path"].endswith("fp16-conversion.json"):
+            crlf = publisher.PRODUCT.joinpath("fp16-conversion.json").read_bytes().replace(b"\n", b"\r\n")
+            item.update({"bytes": len(crlf), "sha256": r.sha(crlf)})
     first = [
-        {"source": source, "revision": digit * 40, "files": publisher.files("metadata"), "phase": "metadata", "repository": "repo"}
+        {"source": source, "revision": digit * 40, "files": first_files, "phase": "metadata", "repository": "repo"}
         for source, digit in (("modelscope", "1"), ("huggingface", "2"))
     ]
     (publisher.REPORT / "metadata-first-uploads.json").write_text(json.dumps(first), encoding="utf-8")
-    progress = [dict(first[0], revision="3" * 40)]
+    progress = [dict(first[0], revision="3" * 40, files=r._with_lf_conversion(publisher, first_files))]
     (publisher.REPORT / "metadata-repair-progress.json").write_text(json.dumps(progress), encoding="utf-8")
     heads = {"modelscope": "3" * 40, "huggingface": "2" * 40}
     publisher.remote_head = lambda source, repository: heads[source]

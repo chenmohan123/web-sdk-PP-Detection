@@ -120,16 +120,6 @@ def test_preflight_rejects_extra_w8a32_before_any_upload(tmp_path):
     assert publisher.upload_calls == []
 
 
-def test_successful_reentry_is_noop_before_normalization(tmp_path, monkeypatch):
-    publisher = _PreflightPublisher(tmp_path)
-    (publisher.REPORT / "metadata-uploads.json").write_text("[]\n", encoding="utf-8")
-    monkeypatch.setattr(publisher, "uploads", lambda phase: [{"source": "modelscope"}, {"source": "huggingface"}])
-    monkeypatch.setattr(r, "publisher", lambda: publisher)
-    monkeypatch.setattr(r, "normalize_json_lf", lambda path: pytest.fail("重入不得规范化写入"))
-    r.main()
-    assert publisher.upload_calls == []
-
-
 def test_partial_retry_uses_independent_progress(tmp_path):
     publisher = _PreflightPublisher(tmp_path)
     first_files = publisher.files("metadata")
@@ -166,3 +156,99 @@ def test_partial_retry_uses_independent_progress(tmp_path):
     r.upload_repair(publisher)
     assert publisher.upload_calls == ["huggingface"]
     assert json.loads((publisher.REPORT / "metadata-first-uploads.json").read_text(encoding="utf-8")) == first
+
+
+@pytest.fixture
+def entry_publisher(tmp_path, monkeypatch):
+    p = _PreflightPublisher(tmp_path)
+    paths = [p.PRODUCT / "fp16-conversion.json", p.STAGE / "metadata" / p.PREFIX / "fp16-conversion.json"]
+    for path in paths:
+        path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+    first = [
+        {"source": source, "revision": digit * 40, "parentRevision": "0" * 40,
+         "files": p.files("metadata"), "phase": "metadata", "repository": p.REPOSITORY, **p.binding()}
+        for source, digit in (("modelscope", "1"), ("huggingface", "2"))
+    ]
+    p.dump(p.REPORT / "metadata-uploads.json", first)
+    p.heads = {row["source"]: row["revision"] for row in first}
+    p.remote_head = lambda source, repository: p.heads[source]
+    p.remote_url = lambda source, repository, revision, path: f"{source}:{revision}:{path}"
+    (p.REPORT / "hub-README.md").write_bytes(b"root")
+    def remote(address):
+        if address.endswith("fp16-conversion.json"):
+            raw = paths[0].read_bytes().replace(b"\r\n", b"\n")
+            return {"bytes": len(raw), "sha256": r.sha(raw)}
+        if address.endswith("README.md"):
+            return p.identity(p.REPORT / "hub-README.md")
+        return {"bytes": p.FP16_BYTES, "sha256": p.FP16_SHA}
+    p.remote_identity = remote
+    p.now = lambda: "now"
+    p.fail_huggingface = False
+    def upload(source, repository, folder, message, parent):
+        if source == "huggingface" and p.fail_huggingface:
+            raise RuntimeError("模拟第二源中断")
+        assert p.binding() and parent == p.heads[source]
+        p.upload_calls.append(source)
+        p.heads[source] = ("3" if source == "modelscope" else "4") * 40
+        return p.heads[source]
+    p.upload_folder = upload
+    monkeypatch.setattr(r, "publisher", lambda: p)
+    return p
+
+
+def test_main_repairs_initial_failure_and_completed_reentry_is_noop(entry_publisher, monkeypatch):
+    p = entry_publisher
+    original = (p.REPORT / "metadata-uploads.json").read_bytes()
+    r.main()
+    assert p.upload_calls == ["modelscope", "huggingface"]
+    assert (p.REPORT / "metadata-first-uploads.json").read_bytes() == original
+    archive = {path.name: path.read_bytes() for path in p.REPORT.iterdir()}
+    monkeypatch.setattr(r, "normalize_json_lf", lambda path: pytest.fail("成功重入不得写入"))
+    p.remote_head = lambda *args: pytest.fail("成功重入不得访问远端")
+    r.main()
+    assert p.upload_calls == ["modelscope", "huggingface"]
+    assert archive == {path.name: path.read_bytes() for path in p.REPORT.iterdir()}
+
+
+def test_main_resumes_only_remaining_source_after_partial_failure(entry_publisher):
+    p = entry_publisher
+    p.fail_huggingface = True
+    with pytest.raises(RuntimeError, match="第二源中断"):
+        r.main()
+    original = (p.REPORT / "metadata-first-uploads.json").read_bytes()
+    failure = (p.REPORT / "metadata-first-readback-failure.json").read_bytes()
+    assert p.upload_calls == ["modelscope"]
+    p.fail_huggingface = False
+    r.main()
+    assert p.upload_calls == ["modelscope", "huggingface"]
+    assert (p.REPORT / "metadata-first-uploads.json").read_bytes() == original
+    assert (p.REPORT / "metadata-first-readback-failure.json").read_bytes() == failure
+
+
+def test_main_initial_failure_still_rejects_binding_before_writes(entry_publisher):
+    p = entry_publisher
+    snapshot = {path.name: path.read_bytes() for path in p.REPORT.iterdir()}
+    p.binding_error = "准备绑定错误"
+    with pytest.raises(ValueError, match="准备绑定错误"):
+        r.main()
+    assert p.upload_calls == []
+    assert snapshot == {path.name: path.read_bytes() for path in p.REPORT.iterdir()}
+
+
+@pytest.mark.parametrize("field,value", [
+    ("repair", "unknown"),
+    ("parentRevision", "9" * 40),
+    ("files", []),
+    ("receiptSha256", "changed"),
+])
+def test_completed_reentry_rejects_invalid_repair_receipt(entry_publisher, field, value):
+    p = entry_publisher
+    r.main()
+    rows = p.load(p.REPORT / "metadata-uploads.json")
+    rows[0][field] = value
+    p.dump(p.REPORT / "metadata-uploads.json", rows)
+    snapshot = {path.name: path.read_bytes() for path in p.REPORT.iterdir()}
+    with pytest.raises(ValueError):
+        r.main()
+    assert p.upload_calls == ["modelscope", "huggingface"]
+    assert snapshot == {path.name: path.read_bytes() for path in p.REPORT.iterdir()}

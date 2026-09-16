@@ -141,9 +141,22 @@ def record_failure(p, first: list[dict] | None = None) -> None:
 
 def _completed(p) -> bool:
     path = p.REPORT / "metadata-uploads.json"
-    if not path.exists() or not hasattr(p, "uploads"):
+    if not path.exists():
         return False
+    rows = p.load(path)
+    if not any("repair" in row for row in rows):
+        return False
+    _require(len(rows) == 2 and {row.get("source") for row in rows} == set(p.SOURCES), "恢复收据必须包含唯一双源")
+    _require(all(row.get("repair") == "normalize-fp16-conversion-json-lf" for row in rows), "恢复收据标记错误")
+    _require((p.REPORT / "metadata-first-uploads.json").exists(), "恢复收据缺少首轮档案")
+    bound, first, allowed = preflight(p)
     p.uploads("metadata")
+    previous = {row["source"]: row for row in first}
+    for row in rows:
+        _require(row.get("parentRevision") == previous[row["source"]]["revision"], "恢复收据与首轮提交不一致")
+        _require(row.get("revision") != row.get("parentRevision"), "恢复收据没有生成新提交")
+        _require(row.get("files") == allowed, "恢复收据不是允许的 LF 文件集合")
+        _require(all(row.get(key) == value for key, value in bound.items()), "恢复收据绑定错误")
     return True
 
 

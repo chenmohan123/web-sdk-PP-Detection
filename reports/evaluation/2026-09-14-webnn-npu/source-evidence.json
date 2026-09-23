@@ -1,0 +1,40 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/chromium/chromium/153.0.8010.37/services/webnn/webnn_context_provider_impl.cc",
+    "version": "153.0.8010.37",
+    "retrievedAt": "2026-09-14T15:32:30.893Z",
+    "localSavedFileSha256": "4677e85554e4f821d6b3c299b66bcdf4f649eb8bab1e59a9d559a1863aa7f110",
+    "hashScope": "下载后由 PowerShell 保存的 UTF-8 文件字节；不是上游原始响应字节",
+    "excerpts": [
+      {
+        "start": 138,
+        "end": 157,
+        "text": "#if BUILDFLAG(WEBNN_USE_TFLITE) || BUILDFLAG(WEBNN_USE_LITERT)\n// Returns true if the request described by `options` should be served by the\n// renderer-process (in-process) TFLite/LiteRT backend instead of the\n// GPU-process backend. For `kGpu` device requests, the GPU process attempts\n// execution first using the LiteRT WebGPU accelerator\n// (`libLiteRtWebGpuAccelerator`, which is preloaded during\n// `PreSandboxWebNNInitialization()`). If no GPU accelerator is available or if\n// the request is for `kCpu` / `kNpu`, it falls back to the renderer-process\n// (in-process) TFLite/LiteRT backend.\nbool ShouldUseInProcessTflite(const mojom::CreateContextOptions& options) {\n  return options.device != mojom::Device::kGpu;\n}\n\nvoid FallbackInProcessTFLite(\n    WebNNContextProvider::CreateWebNNContextCallback callback) {\n  std::move(callback).Run(ToError<mojom::CreateContextResult>(\n      mojom::Error::Code::kFallbackToInProcess,\n      \"Falling back to in-process TFLite/LiteRT backend.\"));\n}\n#endif  // BUILDFLAG(WEBNN_USE_TFLITE) || BUILDFLAG(WEBNN_USE_LITERT)"
+      },
+      {
+        "start": 737,
+        "end": 754,
+        "text": "#if BUILDFLAG(IS_WIN)\nvoid WebNNContextProviderImpl::OnOrtEnvCreated(\n    ScopedTrace scoped_trace,\n    mojom::CreateContextOptionsPtr options,\n    std::unique_ptr<GpuTaskScheduler> gpu_task_scheduler,\n    scoped_refptr<base::SingleThreadTaskRunner> task_runner,\n    CreateWebNNContextCallback callback,\n    bool is_incognito,\n    scoped_refptr<gpu::MemoryTracker> memory_tracker,\n    base::expected<scoped_refptr<ort::Environment>, std::string>\n        env_creation_results) {\n  const gpu::SequenceId sequence_id = gpu_task_scheduler->sequence_id();\n  const gpu::CommandBufferId command_buffer_id =\n      gpu_task_scheduler->command_buffer_id();\n  if (!env_creation_results.has_value()) {\n    LOG(ERROR) << \"[WebNN] Failed to create ONNX Runtime environment: \"\n               << env_creation_results.error();\n  } else {"
+      },
+      {
+        "start": 823,
+        "end": 831,
+        "text": "#if BUILDFLAG(WEBNN_USE_TFLITE) || BUILDFLAG(WEBNN_USE_LITERT)\n  // If the request would be served by the renderer-process TFLite/LiteRT\n  // backend, skip the GPU-process fallbacks and instruct the renderer to\n  // create the in-process context instead.\n  if (ShouldUseInProcessTflite(*options)) {\n    FallbackInProcessTFLite(std::move(callback));\n    return;\n  }\n#endif  // BUILDFLAG(WEBNN_USE_TFLITE) || BUILDFLAG(WEBNN_USE_LITERT)"
+      }
+    ]
+  },
+  {
+    "url": "https://raw.githubusercontent.com/chromium/chromium/153.0.8010.37/third_party/blink/renderer/modules/ml/ml.cc",
+    "version": "153.0.8010.37",
+    "retrievedAt": "2026-09-14T15:32:30.895Z",
+    "localSavedFileSha256": "090d06e6b95b9deb5575060b1ec5a302d81509040380a255a7813be1fddb5be6",
+    "hashScope": "下载后由 PowerShell 保存的 UTF-8 文件字节；不是上游原始响应字节",
+    "excerpts": [
+      {
+        "start": 116,
+        "end": 125,
+        "text": "            if (result->is_error()) {\n              const webnn::mojom::blink::Error& create_context_error =\n                  *result->get_error();\n              if (create_context_error.code ==\n                  webnn::mojom::blink::Error::Code::kFallbackToInProcess) {\n                // The GPU-process backend has signaled that the request\n                // should be served by the in-renderer backend.\n                ml->CreateInProcessContext(resolver, options,\n                                           std::move(scoped_trace));\n                return;"
+      }
+    ]
+  }
+]

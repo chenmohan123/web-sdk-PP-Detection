@@ -1,0 +1,256 @@
+{
+  "assessedAt": "2026-09-14T15:32:30.903Z",
+  "sdkCommit": "19346d200c2993d92e37838ab43aea236ed516a8",
+  "sdkVersion": "0.4.0",
+  "sdkOrtWebVersion": "1.27.0",
+  "decision": "暂不开放稳定 NPU 选项",
+  "physicalNpuVerified": false,
+  "physicalNpuDevice": null,
+  "fullDetectionModelNpuRuns": 0,
+  "reasons": [
+    "系统未检测到 NPU 设备，CPU 为 i5-10400F",
+    "三款本机浏览器默认未开放 navigator.ml",
+    "实验开关下上下文和最小图成功，不提供实际物理设备证据",
+    "无头诊断记录到 Windows WebNN ORT 环境初始化失败；对应 Chrome 版本有 TFLite/LiteRT 回退路径"
+  ],
+  "headless": [
+    {
+      "browser": "Chrome",
+      "version": "153.0.8010.37",
+      "experimental": false,
+      "webnnExposed": false,
+      "contexts": []
+    },
+    {
+      "browser": "Chrome",
+      "version": "153.0.8010.37",
+      "experimental": true,
+      "webnnExposed": true,
+      "contexts": [
+        {
+          "requestedDeviceType": "npu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "cpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "gpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "passed": false
+          }
+        }
+      ]
+    },
+    {
+      "browser": "Edge",
+      "version": "153.0.4234.32",
+      "experimental": false,
+      "webnnExposed": false,
+      "contexts": []
+    },
+    {
+      "browser": "Edge",
+      "version": "153.0.4234.32",
+      "experimental": true,
+      "webnnExposed": true,
+      "contexts": [
+        {
+          "requestedDeviceType": "npu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "cpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "gpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        }
+      ]
+    },
+    {
+      "browser": "Chromium",
+      "version": "153.0.8010.12",
+      "experimental": false,
+      "webnnExposed": false,
+      "contexts": []
+    },
+    {
+      "browser": "Chromium",
+      "version": "153.0.8010.12",
+      "experimental": true,
+      "webnnExposed": true,
+      "contexts": [
+        {
+          "requestedDeviceType": "npu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "cpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        },
+        {
+          "requestedDeviceType": "gpu",
+          "contextCreated": true,
+          "minimalGraph": {
+            "operation": "add",
+            "dataType": "float32",
+            "values": [
+              3,
+              5,
+              7,
+              9
+            ],
+            "passed": true
+          }
+        }
+      ]
+    }
+  ],
+  "headed": [
+    {
+      "channel": "chrome",
+      "version": "153.0.8010.37",
+      "experimental": false,
+      "webnnExposed": false,
+      "runsPassed": 0,
+      "runsTotal": 0,
+      "nativeWebnnLog": [],
+      "histograms": {
+        "histograms": []
+      }
+    },
+    {
+      "channel": "chrome",
+      "version": "153.0.8010.37",
+      "experimental": true,
+      "webnnExposed": true,
+      "contextCreated": true,
+      "runsPassed": 5,
+      "runsTotal": 5,
+      "nativeWebnnLog": [],
+      "histograms": {
+        "histograms": []
+      }
+    },
+    {
+      "channel": "msedge",
+      "version": "153.0.4234.32",
+      "experimental": false,
+      "webnnExposed": false,
+      "runsPassed": 0,
+      "runsTotal": 0,
+      "nativeWebnnLog": [],
+      "histograms": {
+        "histograms": []
+      }
+    },
+    {
+      "channel": "msedge",
+      "version": "153.0.4234.32",
+      "experimental": true,
+      "webnnExposed": true,
+      "contextCreated": true,
+      "runsPassed": 5,
+      "runsTotal": 5,
+      "nativeWebnnLog": [],
+      "histograms": {
+        "histograms": []
+      }
+    }
+  ],
+  "limitations": [
+    "所有浏览器均为 Playwright 隔离环境；有头复核排除了默认 --enable-unsafe-swiftshader 参数，仍保留其他 Playwright 默认参数",
+    "无头日志中的 ORT 依赖错误未在有头复核日志中再次捕获",
+    "未测物理 NPU 上的完整 Detection 模型、FP32/FP16/W8A32、手机或能耗",
+    "Chrome 实验 WebNN GPU Add 在无头五次复测均错误；不外推到 SDK 现有 WebGPU 后端"
+  ]
+}

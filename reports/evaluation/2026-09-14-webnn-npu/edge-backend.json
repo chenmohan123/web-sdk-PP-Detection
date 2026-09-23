@@ -1,0 +1,33 @@
+{
+  "testedAt": "2026-09-14T15:23:39.890Z",
+  "browser": "Edge",
+  "version": "153.0.4234.32",
+  "probe": {
+    "requestedDeviceType": "npu",
+    "operation": "relu",
+    "values": [
+      0,
+      2,
+      0,
+      4
+    ]
+  },
+  "internalText": "WebNN Internals Active Contexts Info ML Graph Dump",
+  "buttons": [],
+  "histograms": {
+    "histograms": [
+      {
+        "name": "WebNN.ORT.TryCreatePackageDependency.ErrorResult",
+        "sum": -2140733418,
+        "count": 1,
+        "buckets": [
+          {
+            "low": -2140733418,
+            "high": -2140733417,
+            "count": 1
+          }
+        ]
+      }
+    ]
+  }
+}

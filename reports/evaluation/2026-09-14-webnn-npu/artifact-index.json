@@ -1,0 +1,80 @@
+{
+  "createdAt": "2026-09-14T15:36:49.185Z",
+  "files": [
+    {
+      "path": "chrome-control.json",
+      "bytes": 2685,
+      "sha256": "248a4e5f2693c00d1b27f8a055e3d0d122e19d2d4972f64a0d78c05a84a1f028"
+    },
+    {
+      "path": "edge-backend.json",
+      "bytes": 642,
+      "sha256": "4e24e8a10b0545de7534ae03f35693c979d0fb6224a5ed5833d881a67623071e"
+    },
+    {
+      "path": "hardware.json",
+      "bytes": 661,
+      "sha256": "655dd7484105dc93d63e281ffefece05fdcc1ebb6cb819a2feed3b4185d370d6"
+    },
+    {
+      "path": "headed-npu.json.gz",
+      "bytes": 4935,
+      "sha256": "f99332e30a7518db9b8defd83b6e62faad5b0dfeb9b092a88a859c0a478a2035"
+    },
+    {
+      "path": "headless-probe.json.gz",
+      "bytes": 21011,
+      "sha256": "791e2ff900a3c5524261ad20279bb5b5ab925f5db4653914d82f21f83cfd654d"
+    },
+    {
+      "path": "native-webnn.json",
+      "bytes": 787,
+      "sha256": "fe3ee2ca6ba60e1b0bd79b5ae95a99eacd467632ddae88e8dac0bcdb2e327f1c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6886,
+      "sha256": "f0bd8cb14ab7ce48392e1c5f3d4299d70cfb20775c7fe7a9da14e4285dea91b1"
+    },
+    {
+      "path": "reproduction/chrome-control.mjs",
+      "bytes": 2264,
+      "sha256": "214e17f5fb829b43e6a250e45c2d45a7b0321c5bec578a94e244e1c3197dae03"
+    },
+    {
+      "path": "reproduction/edge-backend.mjs",
+      "bytes": 2630,
+      "sha256": "97c608ef2615b57d3ca52fa00e20de23691dc4c48a9ad82e09e602f313adbb82"
+    },
+    {
+      "path": "reproduction/headed-npu.mjs",
+      "bytes": 4753,
+      "sha256": "0cd5e435f276f3c76f2f9a44e3ff980c1f99643a03a95d50f974f227d044b78a"
+    },
+    {
+      "path": "reproduction/headless-probe.mjs",
+      "bytes": 4250,
+      "sha256": "daa38ea980ec6bb390e4bc9a74126bc5e331ecee141edb68700b939886011536"
+    },
+    {
+      "path": "source-evidence.json",
+      "bytes": 4129,
+      "sha256": "5a4afb8f14b4bde034169c73427b8dd543d35ae42dc48d728eef3fd3aee83e50"
+    },
+    {
+      "path": "standard-after.json",
+      "bytes": 11580,
+      "sha256": "d3f7dac789f347eedcf9e3c206f3aa72935095dbd2ff5362a305eacb837123cc"
+    },
+    {
+      "path": "standard-before.json",
+      "bytes": 11580,
+      "sha256": "d3f7dac789f347eedcf9e3c206f3aa72935095dbd2ff5362a305eacb837123cc"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 6187,
+      "sha256": "9f6c9cc023092c7b49e53613da03b48c0573e8d4b9f887bbf610f96305ae9621"
+    }
+  ]
+}

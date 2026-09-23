@@ -1,0 +1,21 @@
+[
+  {
+    "browser": "Edge",
+    "source": "ppdetection-webnn-browser.log",
+    "headless": true,
+    "lines": [
+      "[WebNN] Failed to create package dependency for package: Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe",
+      "[WebNN] Failed to create ONNX Runtime environment: Failed to get ONNX Runtime platform functions."
+    ]
+  },
+  {
+    "browser": "Chrome",
+    "source": "ppdetection-webnn-chrome.log",
+    "headless": true,
+    "lines": [
+      "[WebNN] Failed to create package dependency for package: Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe",
+      "[WebNN] Failed to create ONNX Runtime environment: Failed to get ONNX Runtime platform functions.",
+      "[WebNN] Failed to create ONNX Runtime environment: Failed to get ONNX Runtime platform functions."
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-14T15:19:03.0408539Z",
+  "cpu": [
+    "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz"
+  ],
+  "os": {
+    "Caption": "Microsoft Windows 11 专业版",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  },
+  "accelerators": [],
+  "display": [
+    {
+      "FriendlyName": "OrayIddDriver Device",
+      "Status": "Error"
+    },
+    {
+      "FriendlyName": "Todesk Virtual Display Adapter",
+      "Status": "Error"
+    },
+    {
+      "FriendlyName": "GameViewer Virtual Display Adapter",
+      "Status": "OK"
+    },
+    {
+      "FriendlyName": "NVIDIA GeForce RTX 5060 Ti",
+      "Status": "OK"
+    }
+  ]
+}

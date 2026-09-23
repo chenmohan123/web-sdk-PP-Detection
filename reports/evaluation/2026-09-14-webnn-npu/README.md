@@ -12,12 +12,12 @@
 - SDK 0.4.0，提交 `19346d200c2993d92e37838ab43aea236ed516a8`，依赖 ORT Web 1.27.0。最小图探针直接调用浏览器 WebNN，没有经过 ORT Web 或 SDK。
 - 页面由本机 `127.0.0.1` 提供，`isSecureContext` 为 true，排除局域网 HTTP 非安全上下文造成 API 不可见的情况。
 
-| 场景 | WebNN API | 请求 NPU 后最小 Add 结果 | 实际物理 NPU |
-| --- | --- | --- | --- |
-| Chrome / Edge / Chromium，无头，默认配置 | 均未开放 | 未执行 | 未验证 |
-| Chrome / Edge / Chromium，无头，实验开关 | 均开放 | 各 1/1 正确 | 未验证 |
-| Chrome / Edge，有头，默认配置 | 均未开放 | 未执行 | 未验证 |
-| Chrome / Edge，有头，实验开关 | 均开放 | 各 5/5 正确 | 未验证 |
+| 场景                                     | WebNN API | 请求 NPU 后最小 Add 结果 | 实际物理 NPU |
+| ---------------------------------------- | --------- | ------------------------ | ------------ |
+| Chrome / Edge / Chromium，无头，默认配置 | 均未开放  | 未执行                   | 未验证       |
+| Chrome / Edge / Chromium，无头，实验开关 | 均开放    | 各 1/1 正确              | 未验证       |
+| Chrome / Edge，有头，默认配置            | 均未开放  | 未执行                   | 未验证       |
+| Chrome / Edge，有头，实验开关            | 均开放    | 各 5/5 正确              | 未验证       |
 
 实验开关为 `--enable-features=WebMachineLearningNeuralNetwork`。浏览器均使用 Playwright 隔离配置；初轮无头运行包含 Playwright 默认参数。有头复核移除了默认 `--enable-unsafe-swiftshader`，仍保留其他 Playwright 默认参数，因此也不是用户日常浏览器配置的全量兼容测试。
 
